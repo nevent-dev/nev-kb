@@ -87,11 +87,7 @@ export default defineConfig({
 			collapsed: false,
 		},				// {
 				// 	label: 'Configuración Inicial',
-		{
-			label: 'Facturación',
-			autogenerate: { directory: 'billing' },
-			collapsed: false,
-		},				// 	autogenerate: { directory: '02-configuracion' },
+				// 	autogenerate: { directory: '02-configuracion' },
 				// 	collapsed: true,
 				// },
 				// {
