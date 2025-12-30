@@ -13,7 +13,7 @@ export default defineConfig({
 		sitemap(),
 
 		starlight({
-			title: 'NevKB',
+			title: 'Nevent Help Center',
 			description: 'Knowledge Base de Nevent - La fuente única de verdad del conocimiento de la compañía',
 
 			// Theme Nova
@@ -63,100 +63,100 @@ export default defineConfig({
 						{ label: 'Bienvenido', slug: 'index' },
 					],
 				},
-				{
-					label: 'Creación de Cuenta',
-					autogenerate: { directory: '01-cuenta' },
-					collapsed: false,
-					badge: { text: 'Empezar', variant: 'tip' },
-				},
-				{
-					label: 'Configuración Inicial',
-					autogenerate: { directory: '02-configuracion' },
-					collapsed: true,
-				},
-				{
-					label: 'Integraciones y Sincronización',
-					autogenerate: { directory: '03-integraciones' },
-					collapsed: true,
-				},
-				{
-					label: 'Importación de Datos',
-					autogenerate: { directory: '04-importacion-datos' },
-					collapsed: true,
-				},
-				{
-					label: 'Audiencia / Fans',
-					autogenerate: { directory: '05-audiencia' },
-					collapsed: true,
-				},
-				{
-					label: 'Etiquetas',
-					autogenerate: { directory: '06-etiquetas' },
-					collapsed: true,
-				},
-				{
-					label: 'Segmentación',
-					autogenerate: { directory: '07-segmentacion' },
-					collapsed: true,
-				},
-				{
-					label: 'Canales de Comunicación',
-					autogenerate: { directory: '08-canales' },
-					collapsed: true,
-				},
-				{
-					label: 'Plantillas',
-					autogenerate: { directory: '09-plantillas' },
-					collapsed: true,
-				},
-				{
-					label: 'Campañas',
-					autogenerate: { directory: '10-campanas' },
-					collapsed: true,
-				},
-				{
-					label: 'Newsletters',
-					autogenerate: { directory: '11-newsletters' },
-					collapsed: true,
-				},
-				{
-					label: 'Experiencias / Eventos',
-					autogenerate: { directory: '12-experiencias' },
-					collapsed: true,
-					badge: { text: 'Sincronizado', variant: 'note' },
-				},
-				{
-					label: 'Lineup de Artistas',
-					autogenerate: { directory: '13-lineup' },
-					collapsed: true,
-					badge: { text: 'Spotify', variant: 'success' },
-				},
-				{
-					label: 'Merchandising',
-					autogenerate: { directory: '14-merchandising' },
-					collapsed: true,
-				},
-				{
-					label: 'Ventas y Compras',
-					autogenerate: { directory: '15-ventas' },
-					collapsed: true,
-					badge: { text: 'Solo lectura', variant: 'caution' },
-				},
-				{
-					label: 'Gamificación',
-					autogenerate: { directory: '16-gamificacion' },
-					collapsed: true,
-				},
-				{
-					label: 'Chatbot',
-					autogenerate: { directory: '17-chatbot' },
-					collapsed: true,
-				},
-				{
-					label: 'Herramientas y Analytics',
-					autogenerate: { directory: '18-herramientas' },
-					collapsed: true,
-				},
+				// {
+				// 	label: 'Creación de Cuenta',
+				// 	autogenerate: { directory: '01-cuenta' },
+				// 	collapsed: false,
+				// 	badge: { text: 'Empezar', variant: 'tip' },
+				// },
+				// {
+				// 	label: 'Configuración Inicial',
+				// 	autogenerate: { directory: '02-configuracion' },
+				// 	collapsed: true,
+				// },
+				// {
+				// 	label: 'Integraciones y Sincronización',
+				// 	autogenerate: { directory: '03-integraciones' },
+				// 	collapsed: true,
+				// },
+				// {
+				// 	label: 'Importación de Datos',
+				// 	autogenerate: { directory: '04-importacion-datos' },
+				// 	collapsed: true,
+				// },
+				// {
+				// 	label: 'Audiencia / Fans',
+				// 	autogenerate: { directory: '05-audiencia' },
+				// 	collapsed: true,
+				// },
+				// {
+				// 	label: 'Etiquetas',
+				// 	autogenerate: { directory: '06-etiquetas' },
+				// 	collapsed: true,
+				// },
+				// {
+				// 	label: 'Segmentación',
+				// 	autogenerate: { directory: '07-segmentacion' },
+				// 	collapsed: true,
+				// },
+				// {
+				// 	label: 'Canales de Comunicación',
+				// 	autogenerate: { directory: '08-canales' },
+				// 	collapsed: true,
+				// },
+				// {
+				// 	label: 'Plantillas',
+				// 	autogenerate: { directory: '09-plantillas' },
+				// 	collapsed: true,
+				// },
+				// {
+				// 	label: 'Campañas',
+				// 	autogenerate: { directory: '10-campanas' },
+				// 	collapsed: true,
+				// },
+				// {
+				// 	label: 'Newsletters',
+				// 	autogenerate: { directory: '11-newsletters' },
+				// 	collapsed: true,
+				// },
+				// {
+				// 	label: 'Experiencias / Eventos',
+				// 	autogenerate: { directory: '12-experiencias' },
+				// 	collapsed: true,
+				// 	badge: { text: 'Sincronizado', variant: 'note' },
+				// },
+				// {
+				// 	label: 'Lineup de Artistas',
+				// 	autogenerate: { directory: '13-lineup' },
+				// 	collapsed: true,
+				// 	badge: { text: 'Spotify', variant: 'success' },
+				// },
+				// {
+				// 	label: 'Merchandising',
+				// 	autogenerate: { directory: '14-merchandising' },
+				// 	collapsed: true,
+				// },
+				// {
+				// 	label: 'Ventas y Compras',
+				// 	autogenerate: { directory: '15-ventas' },
+				// 	collapsed: true,
+				// 	badge: { text: 'Solo lectura', variant: 'caution' },
+				// },
+				// {
+				// 	label: 'Gamificación',
+				// 	autogenerate: { directory: '16-gamificacion' },
+				// 	collapsed: true,
+				// },
+				// {
+				// 	label: 'Chatbot',
+				// 	autogenerate: { directory: '17-chatbot' },
+				// 	collapsed: true,
+				// },
+				// {
+				// 	label: 'Herramientas y Analytics',
+				// 	autogenerate: { directory: '18-herramientas' },
+				// 	collapsed: true,
+				// },
 			],
 
 			// Customización de UI
