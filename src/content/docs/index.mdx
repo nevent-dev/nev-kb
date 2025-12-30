@@ -1,86 +1,120 @@
 ---
-title: Bienvenido a NevKB
-description: Knowledge Base de Nevent - Tu fuente única de conocimiento
+title: Centro de Ayuda de Nevent
+description: Documentación completa de la plataforma de gestión de audiencias y marketing automation de Nevent.
 template: splash
 hero:
   title: |
-    NevKB
-    <span class="text-gradient">Knowledge Base</span>
-  tagline: La fuente única de verdad del conocimiento de la compañía. Encuentra respuestas, aprende y crece.
+    Centro de Ayuda
+    <span class="text-gradient">Nevent</span>
+  tagline: Tu plataforma todo-en-uno para gestionar audiencias, sincronizar eventos y crear campañas multicanal.
   actions:
-    - text: Explorar Featured Resources
-      link: /featured-resources/
+    - text: Empezar ahora
+      link: /01-cuenta/
       icon: right-arrow
       variant: primary
+    - text: Ver integraciones
+      link: /03-integraciones/
+      icon: external
+      variant: minimal
 ---
 
 import { Card, CardGrid } from '@astrojs/starlight/components';
 
-## 🎯 ¿Qué es NevKB?
+## Primeros pasos
 
-NevKB es la Knowledge Base centralizada de Nevent. Aquí encontrarás:
+Sigue este flujo para sacar el máximo provecho de Nevent:
 
-- 📚 **Documentación completa** sobre productos y servicios
-- ⚙️ **Guías técnicas** e integraciones
-- 📋 **Procesos internos** y mejores prácticas
-- ❓ **FAQs** y troubleshooting
+<CardGrid stagger>
+  <Card title="1. Crea tu cuenta" icon="rocket">
+    Regístrate y completa el wizard de onboarding para personalizar tu experiencia.
 
-## 📂 Categorías Principales
-
-<CardGrid>
-  <Card title="Featured Resources" icon="star">
-    Recursos destacados y guías esenciales para empezar.
+    [Ir a la guía →](/01-cuenta/)
   </Card>
 
-  <Card title="Account & Billing" icon="document">
-    Gestión de cuentas, facturación y configuración.
+  <Card title="2. Configura tu marca" icon="setting">
+    Añade tu logo, colores corporativos y dominios personalizados.
+
+    [Configurar →](/02-configuracion/)
   </Card>
 
-  <Card title="Analytics" icon="bars">
-    Métricas, reportes y análisis de datos.
+  <Card title="3. Conecta tus sistemas" icon="puzzle">
+    Sincroniza datos desde ticketeras, ecommerce y cashless.
+
+    [Ver integraciones →](/03-integraciones/)
   </Card>
 
-  <Card title="Campaigns" icon="rocket">
-    Creación y gestión de campañas de marketing.
-  </Card>
+  <Card title="4. Importa tu audiencia" icon="add-document">
+    Carga contactos desde CSV o sincronízalos automáticamente.
 
-  <Card title="Flows" icon="puzzle">
-    Automatizaciones y flujos de trabajo.
-  </Card>
-
-  <Card title="Integrations" icon="seti:config">
-    Conecta con otras plataformas y servicios.
-  </Card>
-
-  <Card title="SMS" icon="phone">
-    Marketing por SMS y mensajería móvil.
-  </Card>
-
-  <Card title="WhatsApp" icon="comment">
-    Campañas y automatización en WhatsApp.
+    [Importar datos →](/04-importacion-datos/)
   </Card>
 </CardGrid>
 
-## 🔍 Cómo Buscar
+## ¿Qué es Nevent?
+
+Nevent es una plataforma de **gestión de relación con audiencias** especializada en eventos y entretenimiento.
+
+### ¿Qué hace Nevent?
+
+- ✅ **Sincroniza** eventos, entradas y compras desde ticketeras
+- ✅ **Importa** productos desde plataformas de ecommerce
+- ✅ **Gestiona** tu base de datos de fans con perfiles completos
+- ✅ **Segmenta** audiencias con filtros avanzados de comportamiento
+- ✅ **Comunica** vía Email, SMS, WhatsApp y Push
+- ✅ **Gamifica** con monedas virtuales, retos y coleccionables
+- ✅ **Automatiza** con chatbot IA y asistente de campañas
+- ✅ **Analiza** con dashboards multicanal y exportaciones
+
+### ¿Qué NO hace Nevent?
+
+- ❌ NO vende entradas (se sincronizan desde ticketeras)
+- ❌ NO procesa pagos (se visualizan desde sistemas externos)
+- ❌ NO crea eventos desde cero (se importan o sincronizan)
+
+## Funcionalidades principales
+
+<CardGrid stagger>
+  <Card title="Audiencia" icon="star">
+    Perfiles 360° de tus fans con historial de compras, asistencia y engagement.
+
+    [Ver más →](/05-audiencia/)
+  </Card>
+
+  <Card title="Segmentación" icon="list-format">
+    Crea audiencias objetivo con filtros de comportamiento, demografía e interacciones.
+
+    [Ver más →](/07-segmentacion/)
+  </Card>
+
+  <Card title="Campañas multicanal" icon="email">
+    Email, SMS, WhatsApp y Push con personalización y A/B testing.
+
+    [Ver más →](/10-campanas/)
+  </Card>
+
+  <Card title="Experiencias sincronizadas" icon="document">
+    Visualiza eventos, lineup, asistentes y ventas desde tus ticketeras.
+
+    [Ver más →](/12-experiencias/)
+  </Card>
+
+  <Card title="Gamificación" icon="trophy">
+    Monedas virtuales, coleccionables, retos y recompensas para aumentar engagement.
+
+    [Ver más →](/16-gamificacion/)
+  </Card>
+
+  <Card title="Chatbot IA" icon="comment">
+    Asistente conversacional 24/7 con base de conocimiento personalizada.
+
+    [Ver más →](/17-chatbot/)
+  </Card>
+</CardGrid>
+
+## 🔍 Cómo usar este centro de ayuda
 
 Usa el **buscador** (⌘K o Ctrl+K) para encontrar exactamente lo que necesitas. La búsqueda indexa todo el contenido y es ultra-rápida.
 
-## 🚀 Empezar
-
-<CardGrid>
-  <Card title="¿Nuevo en Nevent?" icon="star">
-    Comienza con [Featured Resources](/featured-resources/) para ver los artículos más importantes.
-  </Card>
-
-  <Card title="¿Buscas algo específico?" icon="magnifier">
-    Usa el buscador (⌘K) o navega por las categorías en el sidebar.
-  </Card>
-
-  <Card title="¿No encuentras algo?" icon="warning">
-    Contacta al equipo para agregar contenido faltante o actualizarlo.
-  </Card>
-</CardGrid>
-
 ---
 
-💡 **Tip**: Esta Knowledge Base está en constante actualización. Todas las páginas muestran la fecha de última modificación.
+💡 **Tip**: Esta documentación está en constante actualización. Todas las páginas muestran la fecha de última modificación.

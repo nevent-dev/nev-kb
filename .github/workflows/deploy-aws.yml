@@ -1,0 +1,89 @@
+name: Deploy to AWS (S3 + CloudFront)
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# OIDC permissions for AWS authentication (no static credentials needed)
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build Astro site
+        run: npm run build
+        env:
+          NODE_ENV: production
+
+      - name: Configure AWS credentials (OIDC)
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: arn:aws:iam::652523163852:role/GitHubActionsDeployRole
+          aws-region: eu-west-1
+
+      - name: Sync files to S3
+        working-directory: ./dist
+        run: |
+          # Static assets with long cache (1 year)
+          aws s3 sync . s3://help.nevent.ai/ \
+            --delete \
+            --cache-control "public, max-age=31536000, immutable" \
+            --exclude "*.html" \
+            --exclude "pagefind/*" \
+            --exclude "sitemap-*.xml"
+
+          # HTML files with short cache (1 minute for quick updates)
+          aws s3 sync . s3://help.nevent.ai/ \
+            --cache-control "public, max-age=60, must-revalidate" \
+            --include "*.html" \
+            --exclude "*"
+
+          # Pagefind search index (1 hour cache)
+          aws s3 sync . s3://help.nevent.ai/ \
+            --cache-control "public, max-age=3600" \
+            --include "pagefind/*" \
+            --exclude "*"
+
+          # Sitemaps (1 hour cache)
+          aws s3 sync . s3://help.nevent.ai/ \
+            --cache-control "public, max-age=3600" \
+            --include "sitemap-*.xml" \
+            --exclude "*"
+
+      - name: Invalidate CloudFront cache
+        run: |
+          aws cloudfront create-invalidation \
+            --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} \
+            --paths \
+              "/index.html" \
+              "/404.html" \
+              "/pagefind/*" \
+              "/sitemap-*.xml" \
+              "/*/index.html"
+
+      - name: Deployment summary
+        run: |
+          echo "✅ Deployment completed successfully!"
+          echo "🌐 Site URL: https://help.nevent.ai"
+          echo "⏰ Cache invalidation in progress (5-15 mins)"
+          echo "📊 Build info:"
+          echo "  - Commit: ${{ github.sha }}"
+          echo "  - Branch: ${{ github.ref_name }}"
+          echo "  - Actor: ${{ github.actor }}"
