@@ -63,9 +63,17 @@ export default defineConfig({
 						{ label: 'Bienvenido', slug: 'index' },
 					],
 				},
-				// {
+			{
+				label: 'Marca',
+				autogenerate: { directory: 'brand' },
+				collapsed: false,
+			},				// {
 				// 	label: 'Creación de Cuenta',
-				// 	autogenerate: { directory: '01-cuenta' },
+		{
+			label: 'Comunicación',
+			autogenerate: { directory: 'communication' },
+			collapsed: false,
+		},				// 	autogenerate: { directory: '01-cuenta' },
 				// 	collapsed: false,
 				// 	badge: { text: 'Empezar', variant: 'tip' },
 				// },
