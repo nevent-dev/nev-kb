@@ -1,24 +1,271 @@
-/* Custom styles for NevKB */
+/* Custom styles for NevKB - Nevent Brand Colors */
 
 :root {
-	/* Brand colors */
-	--sl-color-accent: 139, 92, 246; /* Violet-500 */
-	--sl-color-accent-high: 124, 58, 237; /* Violet-600 */
+	/* ============================================
+	   NEVENT BRAND COLORS
+	   ============================================ */
+
+	/* Primary Color - Blue Purple (#2c1dd0) */
+	--sl-color-accent-low: 44, 29, 208;
+	--sl-color-accent: 44, 29, 208;
+	--sl-color-accent-high: 35, 23, 166;
+
+	/* Secondary Color - Purple (#975cf8) */
+	--nevent-secondary: 151, 92, 248;
+
+	/* Semantic Colors */
+	--nevent-success: 40, 167, 69;
+	--nevent-danger: 220, 53, 69;
+	--nevent-warning: 255, 193, 7;
+	--nevent-info: 13, 202, 240;
+
+	/* ============================================
+	   GRAY SCALE - Soft Pastel (Nevent Style)
+	   ============================================ */
+	--sl-color-white: 255, 255, 255;
+	--sl-color-gray-1: 250, 251, 252;  /* Surface 50 - Casi blanco */
+	--sl-color-gray-2: 247, 248, 250;  /* Surface 100 - Pastel suave */
+	--sl-color-gray-3: 233, 236, 239;  /* Surface 200 - Separadores */
+	--sl-color-gray-4: 222, 226, 230;  /* Surface 300 - Bordes */
+	--sl-color-gray-5: 173, 181, 189;  /* Surface 500 - Placeholders */
+	--sl-color-gray-6: 45, 49, 57;     /* Surface 900 - Texto principal */
+	--sl-color-black: 26, 29, 35;      /* Surface 950 - Títulos */
+
+	/* ============================================
+	   GRADIENTS
+	   ============================================ */
+	--nevent-gradient-horizontal: linear-gradient(to right, rgb(44, 29, 208), rgb(151, 92, 248));
+	--nevent-gradient-diagonal: linear-gradient(135deg, rgb(44, 29, 208), rgb(151, 92, 248));
+	--nevent-gradient-radial: radial-gradient(circle at top left, rgb(44, 29, 208), rgb(151, 92, 248));
+
+	/* ============================================
+	   SHADOWS - Material Design 3
+	   ============================================ */
+	--nevent-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+	--nevent-shadow-md: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+	--nevent-shadow-lg: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+	--nevent-shadow-xl: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+
+	/* ============================================
+	   TRANSITIONS
+	   ============================================ */
+	--nevent-transition-fast: all 150ms ease-in-out;
+	--nevent-transition-normal: all 200ms ease-in-out;
+	--nevent-transition-slow: all 300ms ease-in-out;
+
+	/* ============================================
+	   BORDER RADIUS
+	   ============================================ */
+	--nevent-radius-sm: 4px;
+	--nevent-radius-md: 8px;
+	--nevent-radius-lg: 12px;
+	--nevent-radius-xl: 16px;
 }
 
-/* Mejorar legibilidad */
+/* ============================================
+   TYPOGRAPHY - Mejorar legibilidad
+   ============================================ */
 .sl-markdown-content {
 	font-size: 1.05rem;
 	line-height: 1.7;
 }
 
-/* Code blocks más legibles */
 .sl-markdown-content pre {
 	font-size: 0.95rem;
 }
 
-/* Tables responsive */
+/* ============================================
+   HERO / SPLASH - Limpio y profesional
+   ============================================ */
+.hero {
+	background: rgb(var(--sl-color-white));
+}
+
+/* Gradient text solo para el span con clase text-gradient */
+.text-gradient {
+	background: var(--nevent-gradient-horizontal);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+}
+
+/* ============================================
+   CARDS - Estilo Nevent con sombras suaves
+   ============================================ */
+.card,
+.sl-card {
+	border-radius: var(--nevent-radius-xl) !important;
+	transition: var(--nevent-transition-normal);
+	border: none !important;
+	box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.08) !important;
+	background: rgb(var(--sl-color-white)) !important;
+	padding: 1.5rem !important;
+}
+
+.card:hover,
+.sl-card:hover {
+	box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.12) !important;
+	transform: translateY(-2px);
+}
+
+/* Iconos dentro de cards con fondo de color */
+.card .icon,
+.sl-card .icon {
+	background: rgba(var(--nevent-secondary), 0.15) !important;
+	border-radius: var(--nevent-radius-xl) !important;
+	padding: 0.875rem !important;
+	border: none !important;
+	width: 3rem !important;
+	height: 3rem !important;
+	display: inline-flex !important;
+	align-items: center;
+	justify-content: center;
+	flex-shrink: 0;
+}
+
+.card .icon svg,
+.sl-card .icon svg {
+	color: rgb(var(--nevent-secondary)) !important;
+	fill: rgb(var(--nevent-secondary)) !important;
+	width: 1.5rem !important;
+	height: 1.5rem !important;
+}
+
+.card .icon svg path,
+.sl-card .icon svg path {
+	fill: rgb(var(--nevent-secondary)) !important;
+}
+
+/* ============================================
+   BADGES - Colores semánticos
+   ============================================ */
+.badge {
+	border-radius: var(--nevent-radius-md);
+	font-weight: 500;
+	font-size: 0.75rem;
+	padding: 0.25rem 0.5rem;
+}
+
+/* Success badge */
+[data-badge="success"],
+.badge-success {
+	background: rgba(var(--nevent-success), 0.1);
+	color: rgb(var(--nevent-success));
+}
+
+/* Warning badge */
+[data-badge="caution"],
+.badge-warning {
+	background: rgba(var(--nevent-warning), 0.1);
+	color: rgb(184, 134, 11); /* Darker for contrast */
+}
+
+/* Danger badge */
+[data-badge="danger"],
+.badge-danger {
+	background: rgba(var(--nevent-danger), 0.1);
+	color: rgb(var(--nevent-danger));
+}
+
+/* Info badge */
+[data-badge="note"],
+.badge-info {
+	background: rgba(var(--sl-color-accent), 0.1);
+	color: rgb(var(--sl-color-accent));
+}
+
+/* ============================================
+   LINKS - Hover effects
+   ============================================ */
+a:not(.sl-link-button) {
+	transition: var(--nevent-transition-fast);
+}
+
+a:not(.sl-link-button):hover {
+	color: rgb(var(--sl-color-accent-high));
+}
+
+/* ============================================
+   BUTTONS - Nevent style
+   ============================================ */
+.sl-link-button,
+button {
+	border-radius: var(--nevent-radius-md);
+	transition: var(--nevent-transition-normal);
+}
+
+/* ============================================
+   SIDEBAR - Hover states
+   ============================================ */
+.sidebar a {
+	transition: var(--nevent-transition-fast);
+	border-radius: var(--nevent-radius-md);
+}
+
+.sidebar a:hover {
+	background: rgb(var(--sl-color-gray-2));
+}
+
+.sidebar a[aria-current="page"] {
+	background: rgb(var(--sl-color-accent));
+	color: white;
+}
+
+/* ============================================
+   TABLES - Responsive y estilizado
+   ============================================ */
 .sl-markdown-content table {
 	display: block;
 	overflow-x: auto;
+	border-radius: var(--nevent-radius-md);
+}
+
+.sl-markdown-content th {
+	background: rgb(var(--sl-color-gray-1));
+	font-weight: 600;
+}
+
+.sl-markdown-content tr:hover {
+	background: rgb(var(--sl-color-gray-1));
+}
+
+/* ============================================
+   CODE BLOCKS - Mejorar contraste
+   ============================================ */
+.sl-markdown-content code {
+	border-radius: var(--nevent-radius-sm);
+	padding: 0.2em 0.4em;
+}
+
+.sl-markdown-content pre {
+	border-radius: var(--nevent-radius-md);
+}
+
+/* ============================================
+   CALLOUTS - Admonitions con colores Nevent
+   ============================================ */
+.sl-markdown-content aside {
+	border-radius: var(--nevent-radius-md);
+}
+
+/* Tip/Success */
+.sl-markdown-content aside[aria-label*="tip"],
+.sl-markdown-content aside[aria-label*="success"] {
+	border-left-color: rgb(var(--nevent-success));
+}
+
+/* Caution/Warning */
+.sl-markdown-content aside[aria-label*="caution"],
+.sl-markdown-content aside[aria-label*="warning"] {
+	border-left-color: rgb(var(--nevent-warning));
+}
+
+/* Danger */
+.sl-markdown-content aside[aria-label*="danger"] {
+	border-left-color: rgb(var(--nevent-danger));
+}
+
+/* Note/Info */
+.sl-markdown-content aside[aria-label*="note"] {
+	border-left-color: rgb(var(--sl-color-accent));
 }
