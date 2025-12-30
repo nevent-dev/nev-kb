@@ -1,0 +1,24 @@
+/* Custom styles for NevKB */
+
+:root {
+	/* Brand colors */
+	--sl-color-accent: 139, 92, 246; /* Violet-500 */
+	--sl-color-accent-high: 124, 58, 237; /* Violet-600 */
+}
+
+/* Mejorar legibilidad */
+.sl-markdown-content {
+	font-size: 1.05rem;
+	line-height: 1.7;
+}
+
+/* Code blocks más legibles */
+.sl-markdown-content pre {
+	font-size: 0.95rem;
+}
+
+/* Tables responsive */
+.sl-markdown-content table {
+	display: block;
+	overflow-x: auto;
+}

@@ -1,0 +1,290 @@
+---
+title: Cómo Crear tu Primera Campaña
+description: Guía completa paso a paso para crear y lanzar tu primera campaña de marketing en Nevent en menos de 10 minutos
+sidebar:
+  order: 1
+  badge:
+    text: Esencial
+    variant: tip
+---
+
+# Cómo Crear tu Primera Campaña
+
+Crear tu primera campaña en Nevent es simple y rápido. En esta guía aprenderás todo lo necesario para lanzar una campaña efectiva en menos de 10 minutos.
+
+## 📋 Prerrequisitos
+
+Antes de empezar, asegúrate de tener:
+
+- ✅ Una cuenta de Nevent activa
+- ✅ Al menos una lista de contactos configurada
+- ✅ Contenido preparado (texto, imágenes, CTAs)
+- ✅ Objetivo claro de la campaña
+
+## 🚀 Paso a Paso
+
+### Paso 1: Acceder al Creador de Campañas
+
+1. Inicia sesión en tu cuenta de Nevent
+2. En el menú principal, haz clic en **"Campaigns"**
+3. Selecciona **"Create New Campaign"**
+4. Elige el tipo de campaña:
+   - Email Marketing
+   - SMS
+   - Push Notifications
+   - Multi-canal
+
+:::tip[Recomendación]
+Para tu primera campaña, te recomendamos empezar con **Email Marketing** ya que es la más flexible y fácil de configurar.
+:::
+
+### Paso 2: Configurar Información Básica
+
+Completa los campos esenciales:
+
+```yaml
+Nombre de campaña: "Bienvenida Nuevos Usuarios"
+Tipo: Email Marketing
+Lista objetivo: Nuevos Suscriptores (últimos 7 días)
+Remitente: Tu Empresa <noreply@tuempresa.com>
+Asunto: Bienvenido a [Tu Empresa] 🎉
+```
+
+**Mejores prácticas para el asunto**:
+- Máximo 50 caracteres
+- Incluir emojis relevantes (aumenta open rate ~15%)
+- Personalización con variables como `first_name` cuando sea posible
+- A/B testing del asunto (próximamente)
+
+### Paso 3: Diseñar el Contenido
+
+Tienes 3 opciones:
+
+#### Opción A: Editor Visual (Recomendado para principiantes)
+
+1. Arrastra y suelta bloques predefinidos
+2. Personaliza colores y fuentes
+3. Agrega imágenes desde tu biblioteca
+4. Inserta CTAs con tracking automático
+
+#### Opción B: HTML Personalizado
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Bienvenida</title>
+</head>
+<body>
+  <h1>Hola {{first_name}}!</h1>
+  <p>Gracias por unirte a nuestra comunidad.</p>
+  <a href="{{cta_link}}">Empezar Ahora</a>
+</body>
+</html>
+```
+
+#### Opción C: Plantillas Prediseñadas
+
+- Selecciona de +50 plantillas profesionales
+- Personaliza con tu branding
+- Ajusta contenido y lanza
+
+:::caution[Importante]
+Siempre incluye un **link de unsubscribe** visible. Es requisito legal y mejora la deliverability.
+:::
+
+### Paso 4: Segmentación de Audiencia
+
+Define a quién llegará tu campaña:
+
+**Por comportamiento**:
+- Usuarios que abrieron emails en últimos 30 días
+- Compradores recurrentes
+- Carritos abandonados
+
+**Por datos demográficos**:
+- Ubicación geográfica
+- Edad
+- Género
+
+**Por engagement**:
+- High engagement (abren >50% emails)
+- Medium engagement (abren 20-50%)
+- Low engagement (abren menos del 20%)
+
+```javascript
+// Ejemplo de segmentación avanzada
+{
+  "filters": [
+    { "field": "location", "operator": "equals", "value": "Spain" },
+    { "field": "last_opened", "operator": "within", "value": "30 days" },
+    { "field": "engagement_score", "operator": "greater_than", "value": 50 }
+  ],
+  "logic": "AND"
+}
+```
+
+### Paso 5: Configurar Timing
+
+**Envío inmediato**:
+- Lanza la campaña al hacer clic en "Send"
+- Útil para anuncios urgentes
+
+**Envío programado**:
+- Selecciona fecha y hora específica
+- Considera la zona horaria de tu audiencia
+- Mejores días: Martes-Jueves
+- Mejores horas: 10am-11am, 2pm-3pm
+
+**Envío basado en comportamiento** (Flows):
+- Trigger: Usuario se suscribe
+- Delay: 5 minutos después
+- Condición: Solo si no ha comprado
+
+### Paso 6: Testing Pre-Lanzamiento
+
+Antes de enviar, **siempre** haz pruebas:
+
+**Test de envío**:
+```bash
+1. Haz clic en "Send Test"
+2. Ingresa tu email personal
+3. Verifica:
+   - ✅ Asunto correcto
+   - ✅ Personalización funciona (variables de template)
+   - ✅ Links funcionan
+   - ✅ Imágenes cargan
+   - ✅ Responsive (mobile + desktop)
+   - ✅ Link de unsubscribe visible
+```
+
+**Spam Score Check**:
+- Nevent te muestra el spam score automáticamente
+- Objetivo: menos de 5/10
+- Si es alto, ajusta:
+  - Reduce palabras "spam" (FREE, URGENT, BUY NOW)
+  - Mejora ratio texto/imagen (60/40 ideal)
+  - Verifica autenticación SPF/DKIM
+
+### Paso 7: Lanzar Campaña
+
+Una vez todo verificado:
+
+1. Revisa el resumen final:
+   - Audiencia: X contactos
+   - Timing: Inmediato / Programado
+   - Contenido: Preview OK
+   - Deliverability: Score alto
+
+2. Haz clic en **"Launch Campaign"**
+
+3. Confirma en el popup
+
+4. ✅ **¡Campaña enviada!**
+
+## 📊 Monitoreo Post-Lanzamiento
+
+Después de enviar, monitorea métricas clave:
+
+### Primeras 24 horas
+
+| Métrica | Objetivo | Tu resultado |
+|---------|----------|--------------|
+| **Delivery Rate** | >98% | - |
+| **Open Rate** | 15-25% | - |
+| **Click Rate** | 2-5% | - |
+| **Bounce Rate** | menos del 2% | - |
+| **Unsubscribe Rate** | menos del 0.5% | - |
+
+:::note[Nota]
+Los resultados varían por industria. Estos son promedios generales. Compara con tus campañas anteriores para ver mejoras.
+:::
+
+### Dashboard de Análisis
+
+Accede a:
+- **Real-time stats**: Aperturas y clicks en vivo
+- **Geographic map**: De dónde vienen tus aperturas
+- **Device breakdown**: % Mobile vs Desktop
+- **Link performance**: Qué CTAs funcionan mejor
+
+## 🐛 Troubleshooting Común
+
+### Problema: Bounce Rate Alto (>5%)
+
+**Causas**:
+- Lista desactualizada (emails inválidos)
+- Emails temporales/desechables
+- Typos en addresses
+
+**Solución**:
+1. Limpia tu lista con validación de emails
+2. Implementa doble opt-in
+3. Remueve bounces automáticamente
+
+### Problema: Open Rate Bajo (menos del 10%)
+
+**Causas**:
+- Asunto poco atractivo
+- Sender name no reconocido
+- Mala hora de envío
+
+**Solución**:
+1. A/B test diferentes asuntos
+2. Usa nombre de persona en "From" (ej: "María de Nevent")
+3. Experimenta con horarios
+
+### Problema: Clicks Bajos
+
+**Causas**:
+- CTA poco visible
+- Oferta no relevante
+- Demasiados links (confunde)
+
+**Solución**:
+1. Un CTA principal claro y grande
+2. Usa botones en lugar de text links
+3. Máximo 2-3 CTAs por email
+
+## 💡 Mejores Prácticas
+
+### Content
+
+- **Personalización**: Usa variables de template (ej: first_name) mínimo en saludo
+- **Value first**: Beneficio claro en primeras 3 líneas
+- **Escaneabilidad**: Bullets, headings, espacios blancos
+- **Mobile-first**: 60% abre en mobile, diseña para eso
+
+### Timing
+
+- **Frecuencia**: No más de 2-3 emails/semana
+- **Consistency**: Mismo día/hora = mejor engagement
+- **Timezone aware**: Segmenta por ubicación
+
+### Deliverability
+
+- **Warm-up**: Si lista nueva, empieza con 10% y escala
+- **Clean lists**: Remueve inactivos cada 90 días
+- **Authentication**: Configura SPF, DKIM, DMARC
+
+## 🔗 Próximos Pasos
+
+Ahora que sabes crear campañas, explora:
+
+- [Segmentación Avanzada](/audience/segmentacion-avanzada)
+- [A/B Testing](/campaigns/ab-testing)
+- [Automatizaciones con Flows](/flows/introduccion)
+- [Analytics Profundo](/analytics/metricas-clave)
+
+## 📚 Recursos Adicionales
+
+- [Templates de Email](https://nevent.com/templates)
+- [Calendario de Marketing](https://nevent.com/calendar)
+- [Casos de Éxito](https://nevent.com/case-studies)
+
+---
+
+💡 **Pro Tip**: Tu primera campaña es un experimento. No esperes perfección. Analiza resultados, aprende, itera y mejora en la siguiente.
+
+**¿Preguntas?** Busca en esta KB (⌘K) o contacta a soporte.

@@ -1,40 +1,86 @@
 ---
-title: Welcome to Starlight
-description: Get started building your docs site with Starlight.
-template: splash # Remove or comment out this line to display the site sidebar on this page.
+title: Bienvenido a NevKB
+description: Knowledge Base de Nevent - Tu fuente única de conocimiento
+template: splash
 hero:
-  tagline: Congrats on setting up a new Starlight project!
-  image:
-    file: ../../assets/houston.webp
+  title: |
+    NevKB
+    <span class="text-gradient">Knowledge Base</span>
+  tagline: La fuente única de verdad del conocimiento de la compañía. Encuentra respuestas, aprende y crece.
   actions:
-    - text: Example Guide
-      link: /guides/example/
+    - text: Explorar Featured Resources
+      link: /featured-resources/
       icon: right-arrow
-    - text: Read the Starlight docs
-      link: https://starlight.astro.build
-      icon: external
-      variant: minimal
+      variant: primary
 ---
 
 import { Card, CardGrid } from '@astrojs/starlight/components';
 
-## Next steps
+## 🎯 ¿Qué es NevKB?
 
-<CardGrid stagger>
-	<Card title="Update content" icon="pencil">
-		Edit `src/content/docs/index.mdx` to see this page change.
-	</Card>
-	<Card title="Change page layout" icon="document">
-		Delete `template: splash` in `src/content/docs/index.mdx` to display a
-		sidebar on this page.
-	</Card>
-	<Card title="Add new content" icon="add-document">
-		Add Markdown or MDX files to `src/content/docs` to create new pages.
-	</Card>
-	<Card title="Configure your site" icon="setting">
-		Edit your `sidebar` and other config in `astro.config.mjs`.
-	</Card>
-	<Card title="Read the docs" icon="open-book">
-		Learn more in [the Starlight Docs](https://starlight.astro.build/).
-	</Card>
+NevKB es la Knowledge Base centralizada de Nevent. Aquí encontrarás:
+
+- 📚 **Documentación completa** sobre productos y servicios
+- ⚙️ **Guías técnicas** e integraciones
+- 📋 **Procesos internos** y mejores prácticas
+- ❓ **FAQs** y troubleshooting
+
+## 📂 Categorías Principales
+
+<CardGrid>
+  <Card title="Featured Resources" icon="star">
+    Recursos destacados y guías esenciales para empezar.
+  </Card>
+
+  <Card title="Account & Billing" icon="document">
+    Gestión de cuentas, facturación y configuración.
+  </Card>
+
+  <Card title="Analytics" icon="bars">
+    Métricas, reportes y análisis de datos.
+  </Card>
+
+  <Card title="Campaigns" icon="rocket">
+    Creación y gestión de campañas de marketing.
+  </Card>
+
+  <Card title="Flows" icon="puzzle">
+    Automatizaciones y flujos de trabajo.
+  </Card>
+
+  <Card title="Integrations" icon="seti:config">
+    Conecta con otras plataformas y servicios.
+  </Card>
+
+  <Card title="SMS" icon="phone">
+    Marketing por SMS y mensajería móvil.
+  </Card>
+
+  <Card title="WhatsApp" icon="comment">
+    Campañas y automatización en WhatsApp.
+  </Card>
 </CardGrid>
+
+## 🔍 Cómo Buscar
+
+Usa el **buscador** (⌘K o Ctrl+K) para encontrar exactamente lo que necesitas. La búsqueda indexa todo el contenido y es ultra-rápida.
+
+## 🚀 Empezar
+
+<CardGrid>
+  <Card title="¿Nuevo en Nevent?" icon="star">
+    Comienza con [Featured Resources](/featured-resources/) para ver los artículos más importantes.
+  </Card>
+
+  <Card title="¿Buscas algo específico?" icon="magnifier">
+    Usa el buscador (⌘K) o navega por las categorías en el sidebar.
+  </Card>
+
+  <Card title="¿No encuentras algo?" icon="warning">
+    Contacta al equipo para agregar contenido faltante o actualizarlo.
+  </Card>
+</CardGrid>
+
+---
+
+💡 **Tip**: Esta Knowledge Base está en constante actualización. Todas las páginas muestran la fecha de última modificación.
