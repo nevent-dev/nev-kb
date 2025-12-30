@@ -2,6 +2,7 @@
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 import sitemap from '@astrojs/sitemap';
+import starlightThemeNova from 'starlight-theme-nova';
 
 // https://astro.build/config
 export default defineConfig({
@@ -14,6 +15,9 @@ export default defineConfig({
 		starlight({
 			title: 'NevKB',
 			description: 'Knowledge Base de Nevent - La fuente única de verdad del conocimiento de la compañía',
+
+			// Theme Nova
+			plugins: [starlightThemeNova()],
 
 			// Mostrar última actualización en cada página
 			lastUpdated: true,
