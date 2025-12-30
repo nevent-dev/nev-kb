@@ -93,7 +93,16 @@ export default defineConfig({
 			collapsed: false,
 		},				// 	autogenerate: { directory: '02-configuracion' },
 				// 	collapsed: true,
-				// },
+		{
+			label: 'Organización',
+			autogenerate: { directory: 'organization' },
+			collapsed: false,
+		},
+		{
+			label: 'Avanzado',
+			autogenerate: { directory: 'advanced' },
+			collapsed: false,
+		},				// },
 				// {
 				// 	label: 'Integraciones y Sincronización',
 				// 	autogenerate: { directory: '03-integraciones' },
