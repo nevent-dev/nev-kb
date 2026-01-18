@@ -33,6 +33,14 @@ import { Aside, Tabs, TabItem } from '@astrojs/starlight/components';
   ]
 }`}</Schema>
 
+:::tip[Definición Rápida]
+**¿Qué categorías de criterios existen en Nevent?**
+
+6 categorías principales: (1) Asistencia (eventos pasados, fechas), (2) Atributos (edad, género, ubicación), (3) Consumo (gasto, tipo entrada), (4) Engagement (opens, clicks, temperatura), (5) Canales (email, SMS, web), (6) Nevent Score (RFM automático).
+
+**Ejemplo:** Combinar Asistencia ("Primavera Sound 2023") + Consumo ("Gasto ≥300€") identifica 4,200 fans leales de 80k base.
+:::
+
 # Las 6 Categorías de Segmentación
 
 Criterios de segmentación para festivales: Nevent organiza todos los filtros en 6 categorías diseñadas para promotores. Cada categoría te permite filtrar asistentes y compradores de entradas desde una perspectiva diferente: asistencia, demografía, consumo, engagement, canales y Nevent Score predictivo.
@@ -60,33 +68,41 @@ Todo lo relacionado con los eventos a los que han asistido tus fans.
 
 ### Casos de Uso
 
-**Ejemplo 1: Festival Tour**
-```
-Criterio: Número de eventos asistidos
-Operador: Mayor o igual que
-Valor: 3
+#### Ejemplo 1: Repeat Buyers Festival Específico
 
-Y
+**Criterio:** Eventos pasados: "Sónar Barcelona" ≥2
 
-Criterio: Género musical
-Operador: Es
-Valor: Electrónica
-```
-**Resultado**: Super fans de música electrónica → Target para festivales EDM
+**Use case:** Anuncio Sónar 2026 a fans leales
 
-**Ejemplo 2: Early Bird Local**
-```
-Criterio: Ciudad del evento
-Operador: Es
-Valor: Valencia
+**Segmento típico:**
+- Base total: 80,000 contactos
+- Han asistido 2+ veces: 8,500 fans (10.6%)
 
-Y
+**Performance esperado:**
+- Open rate: 48-55% (vs 18% audiencia fría)
+- Conversion: 15-22% (vs 2% audiencia fría)
+- Revenue: 114,750€ - 168,300€ (precio 90€)
 
-Criterio: Días de antelación
-Operador: Mayor que
-Valor: 30
-```
-**Resultado**: Fans de Valencia que compran temprano → Oferta early bird exclusiva
+**Best practice:** Enviar 48h antes de anuncio público con subject "🌟 Acceso VIP anticipado - Solo para fans leales"
+
+#### Ejemplo 2: Cross-Sell por Género Musical
+
+**Criterio:** Eventos pasados: Categoría "Electrónica" ≥1
+
+**Use case:** Promoción nuevo festival EDM a fans con historial electrónica
+
+**Segmento típico:**
+- Base total: 120,000 contactos
+- Asistieron evento electrónica: 28,000 fans (23%)
+
+**Performance esperado:**
+- Relevancia: 85% del lineup coincide con preferencias
+- Conversion: 4-7% (vs 0.8% audiencia general)
+- Cross-sell rate: 1,120 - 1,960 entradas
+
+**Subject line ganador:** "🎧 [Nuevo Festival EDM] - 80% del lineup que amas"
+
+**Timing:** 90 días antes del evento (fans electrónica compran antes que promedio)
 
 ---
 
@@ -124,19 +140,38 @@ Valor: Barcelona
 ```
 **Resultado**: Jóvenes de Barcelona → Oferta de festival universitario
 
-**Ejemplo 2: Expansión Internacional**
-```
-Criterio: País
-Operador: Es
-Valor: Portugal O Francia O Italia
+#### Ejemplo 3: Geo-Targeting Festival con Turismo
 
-Y
+**Criterio:** País: NOT España (festival Sónar Barcelona)
 
-Criterio: Idioma
-Operador: Es
-Valor: Español
-```
-**Resultado**: Fans internacionales que hablan español → Tour por Europa
+**Use case:** Promoción packs hotel+entrada a fans internacionales
+
+**Segmento típico:**
+- Base total: 80,000 contactos
+- Fans internacionales: 32,000 (40%)
+
+**Breakdown por región:**
+| Región | Fans | % | Conversion típica |
+|--------|------|---|-------------------|
+| Francia | 8,000 | 10% | 6-9% |
+| UK | 6,400 | 8% | 5-8% |
+| Alemania | 4,800 | 6% | 5-7% |
+| USA | 3,200 | 4% | 3-5% |
+| Resto Europa | 9,600 | 12% | 4-6% |
+
+**Personalización email:**
+- Subject: "✈️ Packs hotel+entrada Barcelona - Sónar 2026"
+- Hero image: Barcelona cityscape
+- CTA: "Ver packs desde [Ciudad Origen]"
+- Incluir: Vuelos recomendados, hoteles cercanos al venue, guía turística 48h
+
+**Performance esperado:**
+- Open rate: 28-35% (info relevante para turistas)
+- Conversion pack completo: 8-12% (vs 3-5% entrada sola)
+- Ticket promedio: 290€ (entrada 180€ + hotel 2 noches 110€)
+- Revenue: 32,000 × 10% × 290€ = 928,000€
+
+**Lift vs mensaje genérico:** +45% conversion (fans valoran conveniencia todo-incluido)
 
 ---
 
@@ -173,6 +208,32 @@ Valor: 180 días
 **Resultado**: VIPs inactivos → Campaña win-back con descuento especial
 
 Para festivales medianos, recomendamos clasificar VIPs con gasto ≥500€. Este umbral varía según ticket promedio; consulta nuestra [guía de mejores prácticas para calcular umbrales VIP según tipo de evento](./mejores-practicas#umbrales-vip).
+
+#### Ejemplo 4: Segmentación VIP por Gasto Histórico
+
+**Criterio:** Gasto total histórico: ≥800€
+
+**Use case:** Campaña upsell VIP packages para festival grande
+
+**Segmento típico:**
+- Base total: 150,000 contactos
+- VIPs (≥800€): 12,000 fans (8%)
+
+**Breakdown por nivel:**
+| Nivel | Gasto | Fans | % |
+|-------|-------|------|---|
+| VIP Oro | 800-2,000€ | 9,500 | 6.3% |
+| VIP Platino | 2,000-5,000€ | 2,000 | 1.3% |
+| VIP Diamante | 5,000€+ | 500 | 0.3% |
+
+**Performance esperado:**
+- Open rate VIP Oro: 52-60%
+- Open rate VIP Platino: 65-75%
+- Conversion upgrade VIP: 8-14%
+
+**Acción recomendada:** No ofrecer descuentos. Focus en exclusividad (meet & greet, acceso backstage, merchandising limitado).
+
+**Revenue incremental:** 12,000 fans × 10% conversion × 150€ upgrade promedio = 180,000€
 
 **Ejemplo 2: Upsell Cashless**
 ```

@@ -33,6 +33,14 @@ import { Tabs, TabItem, Aside } from '@astrojs/starlight/components';
   ]
 }`}</Schema>
 
+:::tip[Definición Rápida]
+**¿Qué son operadores lógicos en segmentación?**
+
+Conectores que combinan múltiples criterios: AND (intersección - todos deben cumplirse), OR (unión - al menos uno). AND reduce tamaño pero aumenta precisión; OR amplía alcance manteniendo relevancia.
+
+**Ejemplo:** "Gasto ≥500€ AND Ciudad: Barcelona" = 2,480 VIPs locales de 6,200 VIPs totales. Sin AND serían 28,000 fans (demasiado amplio).
+:::
+
 # Operadores & Lógica Y/O
 
 Combinar filtros para venta de entradas: los operadores te dicen a Nevent cómo comparar cada criterio de asistentes. La lógica Y/O te permite combinar múltiples filtros para crear audiencias súper específicas de compradores de entradas para festivales y eventos.
@@ -62,6 +70,8 @@ Combinar filtros para venta de entradas: los operadores te dicen a Nevent cómo 
   <TabItem label="Números" icon="list">
 
 ### Para Números (Edad, Gasto, Cantidad)
+
+### ¿Qué operadores de comparación puedo usar en segmentación?
 
 | Operador | Ejemplo | Cuándo Usarlo |
 |----------|---------|---------------|
@@ -119,20 +129,41 @@ Los operadores de "últimos X días" y "hace más de X días" son **dinámicos**
 
 Piensa en AND como requisitos **obligatorios**. El fan debe cumplir **TODAS** las condiciones.
 
-**Ejemplo 1: Early Bird VIP Local**
-```
-Filtro 1: Ciudad de residencia es "Madrid"
-Y
-Filtro 2: Días de antelación mayor que 30
-Y
-Filtro 3: Gasto total mayor que 500€
-```
+#### Ejemplo real: VIPs Locales con Operador AND
 
-**Resultado**: Solo fans que cumplen LAS 3 condiciones → Audiencia muy específica y calificada.
+**Segmento:** VIPs + Locales (doble filtro intersección)
+
+**Criterios combinados:**
+- Gasto total histórico: ≥500€ **AND**
+- Ciudad: Barcelona, ≤50km
+
+**Festival:** Primavera Sound 2026
+
+**Resultado cálculo:**
+- VIPs totales (gasto ≥500€): 6,200 fans
+- Fans Barcelona (≤50km): 28,000 fans
+- **VIPs locales (AND intersección): 2,480 fans (40% de VIPs)**
+
+**Personalización email:**
+- **Subject:** "🏠 Early Bird vecinos VIP - Sin alojamiento, sin complicaciones"
+- **Body changes:**
+  - ❌ Eliminar sección hoteles y vuelos (viven ahí)
+  - ✅ Enfatizar transporte público (Metro L4 + Bus H16 directo)
+  - ✅ Destacar parking gratuito para VIPs
+  - ✅ Offer: Descuento 15% upgrade VIP (ya tienen entrada segura)
+
+**Performance vs VIP genérico:**
+- Open rate: +18% (no hay ruido de info irrelevante de hoteles)
+- Click rate: +25% (CTA más relevante: "Parking VIP gratis")
+- Upgrade rate: 12% (vs 7% VIP genérico)
+
+**Revenue incremental:** 2,480 fans × 12% × 140€ upgrade = 41,664€
+
+**Conclusión:** AND reduce audiencia (de 28k a 2.5k) pero MULTIPLICA relevancia y conversión.
 
 **Visualización:**
 ```
-[Madrid] ∩ [Early Bird] ∩ [VIP] = Segmento Final
+[Barcelona ≤50km] ∩ [Gasto ≥500€] = 2,480 VIPs Locales
 ```
 
 ---
@@ -141,20 +172,41 @@ Filtro 3: Gasto total mayor que 500€
 
 Usa OR para **expandir** tu audiencia con opciones alternativas. El fan solo necesita cumplir UNA de las condiciones.
 
-**Ejemplo 2: Tour Multi-Ciudad**
-```
-Filtro 1: Ciudad es "Madrid"
-O
-Filtro 2: Ciudad es "Barcelona"
-O
-Filtro 3: Ciudad es "Valencia"
-```
+#### Ejemplo real: Festival Multi-Género con Operador OR
 
-**Resultado**: Fans de CUALQUIERA de las tres ciudades → Audiencia más amplia.
+**Segmento:** Fans de géneros relacionados (unión)
+
+**Criterios combinados:**
+- Género preferido: Rock **OR** Indie **OR** Alternativo
+
+**Festival:** Mad Cool Madrid (lineup rock-indie-alternativo)
+
+**Resultado cálculo:**
+- Fans solo Rock: 18,000
+- Fans solo Indie: 12,000
+- Fans solo Alternativo: 8,000
+- Overlap (les gustan 2-3 géneros): 6,000
+- **Total OR (unión sin duplicados): 32,000 fans**
+
+**Sin OR (solo Rock):** Solo 18,000 fans → pierdes 14,000 potenciales
+
+**Personalización email:**
+- **Subject:** "🎸 Mad Cool 2026: Rock, Indie, Alternativo - Tu festival"
+- **Body:** Lineup organizado por género, cada fan ve primero su preferencia
+- **Dynamic content:** Hero image cambia según género dominante del fan
+
+**Performance esperado:**
+- Open rate: 32% (vs 18% email masivo)
+- Conversion: 5.5% (vs 2% audiencia general)
+- Revenue: 32,000 × 5.5% × 180€ = 316,800€
+
+**Lift vs solo Rock:** +76% audiencia, +76% revenue (lineal porque mantiene conversion)
+
+**Conclusión:** OR amplía alcance manteniendo relevancia (géneros son complementarios).
 
 **Visualización:**
 ```
-[Madrid] ∪ [Barcelona] ∪ [Valencia] = Segmento Final
+[Rock] ∪ [Indie] ∪ [Alternativo] = 32,000 fans (sin duplicados)
 ```
 
 ---
@@ -167,34 +219,60 @@ El verdadero poder viene de **combinar** AND y OR usando **grupos**.
 - **Dentro de un grupo**: los filtros se unen con **OR**
 - **Entre grupos**: se unen con **AND**
 
-**Ejemplo 3: Campaña de Reactivación Geográfica**
+#### Ejemplo real: Combinación AND + OR - Segmento Complejo
 
+**Segmento:** Early Birds VIPs Multi-Ciudad
+
+**Criterios combinados:**
 ```
-GRUPO A (Ubicación) - Al menos UNO:
-  - Provincia es "Barcelona"
-  O
-  - Provincia es "Tarragona"
-  O
-  - Provincia es "Girona"
-  O
-  - Provincia es "Lleida"
-
-      Y (entre grupos)
-
-GRUPO B (Engagement) - TODOS:
-  - Temperatura Nevent es "Frío"
-  Y
-  - Sin compra hace más de 180 días
+(Ciudad: Madrid OR Barcelona OR Valencia)
+AND
+(Gasto histórico: ≥500€)
+AND
+(Temperatura: Super Hot OR Hot)
 ```
+
+**Festival:** Gira The Cure España 2026 (3 ciudades)
+
+**Resultado cálculo:**
+- Madrid VIPs calientes: 1,200
+- Barcelona VIPs calientes: 1,800
+- Valencia VIPs calientes: 600
+- **Total: 3,600 fans**
+
+**Estrategia email personalizado:**
+
+| Ciudad | Subject Personalizado | Venue | Fecha | Fans |
+|--------|----------------------|-------|-------|------|
+| Madrid | "🎸 The Cure Madrid - Acceso VIP WiZink Center" | WiZink Center | 15 junio | 1,200 |
+| Barcelona | "🎸 The Cure Barcelona - Acceso VIP Palau" | Palau Sant Jordi | 17 junio | 1,800 |
+| Valencia | "🎸 The Cure Valencia - Acceso VIP Plaza Toros" | Plaza de Toros | 19 junio | 600 |
+
+**Personalización avanzada:**
+- Hero image: Venue específico de su ciudad
+- Google Maps embed: Cómo llegar desde centro ciudad
+- Parking/transporte local
+- Offer cross-sell: "¿Quieres ver las 3 fechas? Pack 3 ciudades -20%"
+
+**Performance esperado:**
+- Open rate: 68% (super relevante - su ciudad + VIP + banda favorita)
+- Conversion: 22% (792 entradas)
+- Revenue primera ronda: 792 × 280€ = 221,760€
+- Cross-sell pack 3 ciudades: 5% de compradores = 40 fans × 672€ = 26,880€
+- **Revenue total: 248,640€**
+
+**Setup time:** 1 hora (crear 1 segmento + 3 variantes email)
+
+**Conclusión:** Combinar AND + OR permite hiperpersonalización a escala.
 
 **Lógica Final:**
 ```
-(Barcelona OR Tarragona OR Girona OR Lleida)
+(Madrid OR Barcelona OR Valencia)
 AND
-(Temperatura Fría AND Sin compra > 180 días)
+(Gasto ≥500€)
+AND
+(Temperatura Super Hot OR Hot)
 ```
-
-**Resultado**: Fans inactivos de Cataluña.
 
 ---
 
