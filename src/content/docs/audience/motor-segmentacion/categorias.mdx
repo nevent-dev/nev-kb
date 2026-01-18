@@ -38,7 +38,7 @@ import { Aside, Tabs, TabItem } from '@astrojs/starlight/components';
 
 6 categorías principales: (1) Asistencia (eventos pasados, fechas), (2) Atributos (edad, género, ubicación), (3) Consumo (gasto, tipo entrada), (4) Engagement (opens, clicks, temperatura), (5) Canales (email, SMS, web), (6) Nevent Score (RFM automático).
 
-**Ejemplo:** Combinar Asistencia ("Primavera Sound 2023") + Consumo ("Gasto ≥300€") identifica 4,200 fans leales de 80k base.
+**Ejemplo:** Combinar Asistencia ("Tu festival 2023") + Consumo ("Gasto ≥300€") identifica 4,200 fans leales de 80k base.
 :::
 
 ## Preguntas frecuentes sobre criterios de segmentación
@@ -48,7 +48,7 @@ import { Aside, Tabs, TabItem } from '@astrojs/starlight/components';
 Nevent ofrece **6 categorías principales de criterios** para segmentar asistentes y compradores de entradas:
 
 1. **Asistencia (Eventos pasados)** - Filtra por historial de compra
-   - Eventos específicos asistidos (ej: "Primavera Sound 2023")
+   - Eventos específicos asistidos (ej: "Festival multi-día 2023")
    - Fechas de asistencia
    - Tipo de entrada comprada histórico (General, VIP, Early Bird)
 
@@ -146,35 +146,35 @@ Esto excluye VIPs que gastaron 1,500€ en 2020-2021 pero no han comprado desde 
 País: España
 ```
 - Use case: Festivales nacionales vs internacionales
-- Ejemplo: Sónar (60% España, 40% internacional)
+- Ejemplo: Festival internacional (60% España, 40% internacional)
 
 **Nivel 2 - Región/Provincia:**
 ```
-Región: Catalunya
+Región: Tu región
 ```
 - Use case: Festivales regionales, cross-sell eventos cercanos
-- Ejemplo: Cruïlla Barcelona → Fans de Catalunya reciben transporte público info
+- Ejemplo: Festival local → Fans de la región reciben transporte público info
 
 **Nivel 3 - Ciudad + Radio:**
 ```
-Ciudad: Barcelona
+Ciudad: Tu ciudad
 Radio: ≤50km
 ```
 - Use case: Geo-targeting ultra específico, eliminar info alojamiento para locales
-- Ejemplo: Primavera Sound → Fans Barcelona no ven sección hoteles en email
+- Ejemplo: Festival urbano → Fans locales no ven sección hoteles en email
 
 **Casos de uso geo-segmentation:**
 
 **A. Festival local - Eliminar info irrelevante**
 ```
 Segmento Locales:
-Ciudad: Barcelona, ≤50km
+Ciudad: Tu ciudad, ≤50km
 ```
 
 **Email personalizado:**
 - ❌ Sección hoteles (viven ahí)
 - ❌ Info vuelos
-- ✅ Transporte público (Metro L4, Bus H16)
+- ✅ Transporte público (Metro, Bus)
 - ✅ Parking venue (20€/día)
 - ✅ Subject: "🏠 Early Bird vecinos - Desde casa al festival"
 
@@ -186,15 +186,15 @@ Ciudad: Barcelona, ≤50km
 ```
 Segmento Turistas:
 País: NOT España
-OR Región: NOT Catalunya (españoles fuera Catalunya)
+OR Región: NOT Tu región (españoles fuera región)
 ```
 
 **Email personalizado:**
 - ✅ 5 hoteles recomendados cerca venue
-- ✅ Widget comparador vuelos Barcelona
-- ✅ Guía turística 48h (Sagrada Familia, Park Güell)
+- ✅ Widget comparador vuelos
+- ✅ Guía turística 48h
 - ✅ Shuttle bus gratuito hotel→venue
-- ✅ Subject: "✈️ Packs hotel+entrada Barcelona desde 280€"
+- ✅ Subject: "✈️ Packs hotel+entrada desde 280€"
 
 **Performance:** Conversion pack completo 9.2% vs 2.1% entrada sola (valor alto)
 
@@ -222,12 +222,12 @@ Ciudad: Valencia, ≤150km
 
 ---
 
-**Métricas geo-targeting (caso Sónar Barcelona):**
+**Métricas geo-targeting (caso festival internacional):**
 
 | Segmento | Audiencia | Email Focus | Open Rate | Conversion | Revenue |
 |----------|-----------|-------------|-----------|------------|---------|
-| **Locales Catalunya** | 57,000 | Transporte público | 35% | 6.8% | 562k€ |
-| **Nacionales fuera Cat** | 18,000 | Tren AVE Barcelona | 31% | 8.5% | 275k€ |
+| **Locales región** | 57,000 | Transporte público | 35% | 6.8% | 562k€ |
+| **Nacionales fuera región** | 18,000 | Tren de alta velocidad | 31% | 8.5% | 275k€ |
 | **Internacionales** | 20,000 | Packs hotel+vuelo | 29% | 12.1% | 691k€ |
 
 **Total revenue geo-segmented:** 1,528k€ vs 980k€ email masivo (+56%)
@@ -436,9 +436,9 @@ Todo lo relacionado con los eventos a los que han asistido tus fans.
 
 #### Ejemplo 1: Repeat buyers festival específico
 
-**Criterio:** Eventos pasados: "Sónar Barcelona" ≥2
+**Criterio:** Eventos pasados: "Festival de electrónica" ≥2
 
-**Use case:** Anuncio Sónar 2026 a fans leales
+**Use case:** Anuncio festival 2026 a fans leales
 
 **Segmento típico:**
 - Base total: 80,000 contactos
@@ -508,7 +508,7 @@ Valor: Barcelona
 
 #### Ejemplo 3: Geo-targeting festival con turismo
 
-**Criterio:** País: NOT España (festival Sónar Barcelona)
+**Criterio:** País: NOT España (festival internacional)
 
 **Use case:** Promoción packs hotel+entrada a fans internacionales
 
@@ -526,8 +526,8 @@ Valor: Barcelona
 | Resto Europa | 9,600 | 12% | 4-6% |
 
 **Personalización email:**
-- Subject: "✈️ Packs hotel+entrada Barcelona - Sónar 2026"
-- Hero image: Barcelona cityscape
+- Subject: "✈️ Packs hotel+entrada - Festival 2026"
+- Hero image: Ciudad del evento
 - CTA: "Ver packs desde [Ciudad Origen]"
 - Incluir: Vuelos recomendados, hoteles cercanos al venue, guía turística 48h
 
