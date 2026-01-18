@@ -95,6 +95,483 @@ Modelo que clasifica fans automáticamente en 11 segmentos según: Recency (últ
 **Ejemplo:** Mad Cool identificó 680 VIPs At Risk (última compra >180 días, gasto >500€) y recuperó 15-25% con campaña win-back, salvando 81,600€ LTV.
 :::
 
+## Preguntas Frecuentes sobre RFM
+
+### ¿Qué es RFM para festivales?
+
+**RFM** es un modelo de scoring que clasifica fans por 3 dimensiones:
+
+- **R**ecency - ¿Cuándo compró por última vez?
+- **F**requency - ¿Cuántas veces compró?
+- **M**onetary - ¿Cuánto gastó en total?
+
+**Aplicado a festivales y eventos:**
+
+| Dimensión | Malo | Regular | Bueno | Excelente |
+|-----------|------|---------|-------|-----------|
+| **Recency** | +365 días | 180-365 días | 90-180 días | <90 días |
+| **Frequency** | 1 evento | 2-3 eventos | 4-6 eventos | 7+ eventos |
+| **Monetary** | <100€ | 100-300€ | 300-800€ | 800€+ |
+
+**Combinación de R+F+M genera 11 segmentos automáticos:**
+
+1. **Champions** (R alto + F alto + M alto): Mejores fans, compran frecuente y reciente
+2. **Loyal** (R alto + F alto + M medio): Fans leales, compran seguido
+3. **Potential Loyalists** (R alto + F medio + M medio): Prometen, nutrir hacia Loyal
+4. **New Customers** (R alto + F bajo + M bajo): Primera compra reciente
+5. **Promising** (R medio + F bajo + M medio): Potencial, necesitan engagement
+6. **Need Attention** (R medio + F medio + M medio): Riesgo de perder, reactivar
+7. **About to Sleep** (R bajo + F medio + M bajo): Inactivos, última chance
+8. **At Risk** (R bajo + F alto + M alto): **CRÍTICO** - Alto valor pero inactivos
+9. **Can't Lose Them** (R bajo + F alto + M alto): VIPs en riesgo extremo
+10. **Hibernating** (R muy bajo + F medio + M medio): Dormidos, win-back difícil
+11. **Lost** (R muy bajo + F bajo + M bajo): Churned, considerar sunset
+
+**Ventaja vs segmentación manual:**
+- Nevent calcula RFM **automáticamente** (no requieres configuración)
+- Se actualiza en **tiempo real** (cada compra recalcula scoring)
+- **11 segmentos listos** para usar (no necesitas pensar en criterios)
+
+**Ejemplo - Identificar Champions:**
+```
+Filtro manual (tradicional):
+Gasto: ≥800€
+AND Eventos: ≥4
+AND Última compra: ≤90 días
+
+VS
+
+Filtro RFM (Nevent):
+RFM Score: Champions
+```
+
+**Resultado idéntico, pero RFM es 1-click.**
+
+---
+
+### ¿Cómo funcionan modificadores de recencia?
+
+**Modificadores de recencia** filtran fans por "hace cuánto tiempo compraron última entrada".
+
+**Sintaxis en Nevent:**
+```
+Días desde última compra: ≥X, ≤Y
+```
+
+**X** = Mínimo (hace cuánto como mínimo)
+**Y** = Máximo (hace cuánto como máximo)
+
+**Rangos estratégicos y acciones recomendadas:**
+
+**A. Fans ultra recientes (<30 días) - Upsell caliente**
+```
+Días desde última compra: ≥0, ≤30
+```
+- **Probabilidad recompra:** 40-55% (muy alta)
+- **Acción:** Upsell inmediato (upgrade VIP, merchandising, evento relacionado)
+- **Email:** "Gracias por tu compra - Completa tu experiencia con..."
+- **Timing:** 3-7 días post-compra
+- **No ofrecer descuento** (acaban de pagar precio completo)
+
+---
+
+**B. Fans activos recientes (<90 días) - Engagement alto**
+```
+Días desde última compra: ≥0, ≤90
+```
+- **Probabilidad recompra:** 25-40%
+- **Acción:** Cross-sell eventos similares, early bird próximo festival
+- **Email:** Anuncio directo sin descuento (no necesitan incentivo)
+- **Subject:** "Nuevos eventos que te encantarán"
+- **Conversion esperada:** 8-15%
+
+---
+
+**C. Fans tibios (6-12 meses) - Necesitan incentivo**
+```
+Días desde última compra: ≥180, ≤365
+```
+- **Probabilidad recompra:** 15-25%
+- **Acción:** Descuento 10-15% + beneficio adicional (priority access, contenido exclusivo)
+- **Email:** "Te echamos de menos - Vuelve con 10% OFF"
+- **Urgencia:** Código expira en 7 días
+- **Conversion esperada:** 5-10%
+
+---
+
+**D. Fans dormidos (1-2 años) - Win-back agresivo**
+```
+Días desde última compra: ≥365, ≤730
+```
+- **Probabilidad recompra:** 8-15%
+- **Acción:** Win-back campaign con descuento 20%+ y nostalgia
+- **Email secuencia:**
+  1. Nostalgia: "Recuerdas cuando viste [Artista] en [Año]?"
+  2. Incentivo: "20% descuento especial solo para antiguos fans"
+  3. Urgencia: "Última oportunidad - Código expira mañana"
+- **Conversion esperada:** 3-8%
+- **Si no compran:** Mover a "Lost"
+
+---
+
+**E. Fans perdidos (>2 años) - Último intento**
+```
+Días desde última compra: ≥730
+```
+- **Probabilidad recompra:** 2-5%
+- **Acción:** Último email win-back o sunset (eliminar de base activa)
+- **Email:** "Te extrañamos - 25% descuento última oportunidad"
+- **Si no abren/compran en 30 días:** Limpiar de lista (mejora deliverability)
+
+---
+
+**Visualización recencia y probabilidad recompra:**
+
+| Días desde Compra | Recencia | Prob. Recompra | Acción | Incentivo |
+|-------------------|----------|----------------|--------|-----------|
+| 0-30 | Ultra fresca | 40-55% | Upsell | 0% descuento |
+| 31-90 | Fresca | 25-40% | Cross-sell | 0-5% descuento |
+| 91-180 | Media | 15-25% | Engagement | 5-10% descuento |
+| 181-365 | Baja | 8-15% | Reactivación | 10-20% descuento |
+| 366-730 | Muy baja | 3-8% | Win-back | 20-25% descuento |
+| 730+ | Perdida | 2-5% | Sunset | 25-30% descuento |
+
+**Patrón:** Cuanto más tiempo sin comprar, mayor descuento necesitas para reactivar.
+
+---
+
+### ¿Qué son modificadores de frecuencia?
+
+**Modificadores de frecuencia** filtran fans por "cuántas veces compraron / asistieron a eventos".
+
+**Sintaxis en Nevent:**
+```
+Número de eventos asistidos: ≥X, ≤Y
+```
+
+**Segmentación por lealtad (frecuencia):**
+
+| Frecuencia | Clasificación | % Típico Audiencia | LTV Promedio | Estrategia |
+|------------|---------------|-------------------|--------------|------------|
+| **1 evento** | New customer | 45-60% | 120-180€ | Convertir a repeat buyer |
+| **2-3 eventos** | Repeat buyer | 25-35% | 350-600€ | Nutrir hacia loyal |
+| **4-6 eventos** | Loyal fan | 8-15% | 800-1,500€ | Retention y upsell VIP |
+| **7+ eventos** | Super fan | 2-5% | 2,000-8,000€ | Advocacy y maximizar LTV |
+
+**Estrategias diferenciadas por frecuencia:**
+
+---
+
+**1. New Customers (Frequency = 1)**
+```
+Número de eventos: 1
+AND Días desde compra: ≤90 (compraron recientemente)
+```
+
+**Objetivo:** Convertir a repeat buyer (critical window: 6-12 meses)
+
+**Email #1 - Welcome (Post-evento +7 días):**
+- Subject: "Gracias por venir a [Festival] - ¿Qué tal tu experiencia?"
+- Survey: NPS score + feedback
+- Incentivo: "10% descuento próximo evento si respondes survey"
+
+**Email #2 - Cross-sell (30-45 días post-evento):**
+- Subject: "Eventos similares que te pueden gustar"
+- Contenido: 3 eventos del portfolio que match género del primer evento
+- Oferta: "15% descuento 2º evento - Código VUELVE15"
+
+**Repeat rate objetivo:** 30-50% de New Customers en 12 meses
+
+---
+
+**2. Repeat Buyers (Frequency = 2-3)**
+```
+Número de eventos: ≥2, ≤3
+```
+
+**Objetivo:** Nurture hacia Loyal (aumentar engagement)
+
+**Tácticas:**
+- Email mensual con contenido exclusivo (behind-the-scenes, artist interviews)
+- Early access a anuncios (12-24h antes que público general)
+- Descuento moderado 10% (menos que New, más que Loyal)
+- Invitación a eventos especiales (listening parties, meet & greet sorteo)
+
+**Conversion evento siguiente:** 40-60%
+
+---
+
+**3. Loyal Fans (Frequency = 4-6)**
+```
+Número de eventos: ≥4, ≤6
+```
+
+**Objetivo:** Retention (mantenerlos engaged) + Upsell VIP
+
+**Tácticas:**
+- **NO descuentos** (ya están convencidos)
+- Early bird access 48h antes (vs 24h repeat buyers)
+- Upgrade VIP con 15% descuento
+- Merchandising exclusivo
+- Invitación programa fidelidad (puntos, tier status)
+
+**Emails:**
+- Subject: "Acceso VIP exclusivo para ti - [Nombre]"
+- Contenido: Beneficios VIP detallados, testimonials
+- Oferta: "Upgrade a VIP solo 80€ más" (no descuento en entrada, solo upgrade)
+
+**VIP upgrade rate:** 8-14%
+**Retention rate:** 75-85%
+
+---
+
+**4. Super Fans (Frequency = 7+)**
+```
+Número de eventos: ≥7
+```
+
+**Objetivo:** Advocacy (referrals) + Maximizar LTV
+
+**Perfil:**
+- Edad típica: 28-45
+- Gasto histórico: 2,000-8,000€
+- Comportamiento: Compran sin descuentos, toleran subidas precio, refieren amigos
+
+**Tácticas VIP extremo:**
+- Invitación programa embajadores (entradas gratis evento pequeño a cambio de promoción)
+- Meet & greet con artistas garantizado
+- Acceso backstage
+- Call personal de account manager (festivales grandes)
+- Regalos personalizados (merchandising firmado, vinyl limitado)
+
+**Email:**
+- Subject: "Invitación exclusiva: Programa VIP Platino"
+- Contenido: "Eres top 2% de nuestros fans - queremos reconocerlo"
+- Beneficios: Lista de 10 beneficios exclusivos
+- CTA: "Aceptar invitación VIP Platino" (gratis, no es venta)
+
+**Retention rate:** 90-95% (altísimo)
+**Referral rate:** 40-60% traen mínimo 1 amigo
+**LTV incremental:** +30-50% vs Loyal
+
+---
+
+**Correlación Frecuencia → Revenue:**
+
+| Segmento | Fans (de 50k) | % Audiencia | Revenue/Fan | Revenue Total | % Revenue Total |
+|----------|---------------|-------------|-------------|---------------|-----------------|
+| Super fans (7+) | 1,500 | 3% | 400€ | 600,000€ | 31% |
+| Loyal (4-6) | 5,000 | 10% | 250€ | 1,250,000€ | 64% |
+| Repeat (2-3) | 12,500 | 25% | 150€ | 1,875,000€ | ... |
+| New (1) | 25,000 | 50% | 120€ | 3,000,000€ | ... |
+
+**Pareto extremo:** 13% de audiencia (Loyal + Super fans) genera 95% del revenue en long-term.
+
+---
+
+### ¿Puedo combinar recencia y frecuencia?
+
+**Sí. Combinar Recency × Frequency es la base del modelo RFM y genera los segmentos más poderosos.**
+
+**Matriz RFM simplificada (2×2):**
+
+|  | **Alta Frecuencia (≥4 eventos)** | **Baja Frecuencia (≤3 eventos)** |
+|---|---|---|
+| **Alta Recencia (<180 días)** | 🏆 **Champions** (8-12% audiencia)<br>Acción: Upsell VIP, no descuentos | 🌱 **Promising** (15-20% audiencia)<br>Acción: Nurture a leales |
+| **Baja Recencia (≥180 días)** | ⚠️ **At Risk** (5-8% audiencia)<br>Acción: Win-back URGENTE | 😴 **Lost** (50-60% audiencia)<br>Acción: Reactivación masiva o sunset |
+
+---
+
+**Segmento Champions (Alta R + Alta F):**
+```
+Días desde última compra: ≤180
+AND Número eventos: ≥4
+AND Gasto total: ≥500€
+```
+
+**Perfil Champions:**
+- Compraron 4-10 eventos
+- Última compra hace <6 meses
+- Gastaron 500-3,000€ total
+- Open rate emails: 55-70%
+- Conversion rate: 18-28%
+
+**Email strategy Champions:**
+- **Timing:** Primera línea en early bird (48h antes que público)
+- **Descuento:** 0% (no necesitan, compran igual)
+- **Incentivos:** Early access, VIP upgrades, meet & greet, backstage
+- **Frecuencia:** 2-3 emails/semana toleran (high engagement)
+- **Pedir favors:** Reviews, referrals, user-generated content
+
+**Conversion Champions:** 18-28% (vs 2-4% audiencia general) = **7-14x baseline**
+
+---
+
+**Segmento At Risk (Baja R + Alta F):**
+```
+Días desde última compra: ≥180, ≤730
+AND Número eventos: ≥3
+AND Gasto total: ≥300€
+```
+
+**Perfil At Risk:**
+- Compraron 3-8 eventos históricamente (fueron leales)
+- Última compra hace 6-24 meses (ALERTA)
+- Gastaron 300-2,000€ (alto valor en riesgo)
+- Open rate bajó: 10-25% (vs 50-65% cuando activos)
+
+**Por qué están At Risk:**
+- Fatiga (fueron muchos años seguidos)
+- Cambio circunstancias (pareja, hijos, trabajo)
+- Competencia (descubrieron otro festival)
+- Lineup no convence (artistas que les gustan ya no van)
+
+**Win-back urgente (secuencia 3 emails):**
+
+1. **Email #1 - Nostalgia (Día 0):**
+   - Subject: "Te echamos de menos [Nombre] 💔"
+   - Contenido: Fotos eventos pasados, "Fuiste parte de [X] ediciones increíbles"
+   - CTA suave: "Ver próximos eventos" (no venta directa)
+
+2. **Email #2 - Incentivo (Día +5):**
+   - Subject: "20% descuento VIP - Solo para antiguos fans"
+   - Contenido: Código VIPBACK20, expira 7 días
+   - Testimonial: "Volví después de 2 años y fue mejor que nunca"
+
+3. **Email #3 - Urgencia (Día +10):**
+   - Subject: "⏰ Tu descuento expira mañana"
+   - Contenido: Countdown, último chance
+   - Garantía: "Reembolso 100% si no te convence"
+
+**Win-back rate:** 15-25% de At Risk
+**ROI:** 15-30x (bajo costo, alto valor si recuperan)
+
+---
+
+**Segmento Promising (Alta R + Baja F):**
+```
+Días desde última compra: ≤90
+AND Número eventos: 1-2
+```
+
+**Perfil Promising:**
+- Compraron recientemente (engaged)
+- Pero solo 1-2 veces (no son leales todavía)
+- Potencial de convertirse en Loyal si nutres bien
+
+**Nurture strategy:**
+- Email educativo: "10 razones para volver"
+- Contenido exclusivo: Artist interviews, behind-scenes
+- Descuento moderado: 10% (incentivo suave)
+- Social proof: "15,000 fans repiten cada año"
+
+**Conversion próximo evento:** 35-50%
+**Objetivo:** Moverlos de Promising → Loyal en 6-12 meses
+
+---
+
+**Matriz completa RFM (11 segmentos):**
+
+Ver tabla completa en sección "¿Qué segmentos RFM existen?" de este documento.
+
+**Key takeaway:** Recency + Frequency juntos predicen comportamiento futuro 10x mejor que cada dimensión sola.
+
+---
+
+### ¿Cómo identifico VIPs en riesgo?
+
+**VIPs en riesgo** = Alta Frequency + Alto Monetary + Baja Recency = Segmento "At Risk" o "Can't Lose Them" en RFM.
+
+**Segmento "VIP At Risk" exacto:**
+```
+Gasto total histórico: ≥500€
+AND Número de eventos: ≥3
+AND Días desde última compra: ≥180, ≤730
+AND RFM Score: At Risk, Can't Lose Them
+```
+
+**Traducción:** Fan que gastó mucho (≥500€), asistió repetidamente (≥3 eventos), pero no compró en 6-24 meses.
+
+**Red flags adicionales que confirman riesgo:**
+- Email open rate <20% últimos 90 días (vs 55-70% cuando activos)
+- No visitó web en 90 días
+- No interactuó en social media
+- Bounce email (cambió de email sin actualizar)
+
+---
+
+**Tamaño típico segmento:**
+- Base VIP total (≥500€): 8-12% de audiencia
+- VIPs At Risk: 5-10% de VIPs totales
+- Ejemplo: De 10,000 VIPs, 500-1,000 están At Risk
+
+**Valor en riesgo:**
+- VIP At Risk promedio LTV: 800-2,500€
+- 500 VIPs × 850€ LTV = **425,000€ en riesgo**
+- Sin acción: 60-70% churn en próximos 12 meses = **~300k€ perdidos**
+
+---
+
+**Impacto de NO actuar:**
+
+| Métrica | Sin Win-back | Con Win-back Campaign |
+|---------|--------------|----------------------|
+| Churn rate (12 meses) | 60-70% | 30-40% |
+| VIPs perdidos (de 500) | 300-350 | 150-200 |
+| LTV perdido | 255k-298k€ | 128k-170k€ |
+| Revenue recuperado | 0€ | 75-125k€ (15-25% win-back) |
+| **Delta** | - | **130k-220k€ saved/recovered** |
+
+---
+
+**Win-back campaign para VIP At Risk:**
+
+**Secuencia 3 emails (ver detalle completo en FAQ "¿Cómo segmentar asistentes que abrieron email pero no compraron?"):**
+
+1. **Email #1 - Nostalgia + Reconocimiento:**
+   - "Fuiste parte de [X] ediciones desde [Año]"
+   - Fotos personalizadas de eventos que asistió
+   - CTA suave: No venta directa
+
+2. **Email #2 - Incentivo VIP:**
+   - 20% descuento código exclusivo
+   - "Solo 680 VIPs antiguos tienen este código"
+   - Expira 7 días
+
+3. **Email #3 - Urgencia final:**
+   - Countdown timer
+   - "Última oportunidad antes de perder beneficio VIP"
+   - Garantía reembolso
+
+**Performance esperado:**
+- Open rate: 35-45% (nostalgia funciona)
+- Win-back rate: **15-25%**
+- Revenue recuperado: 75-125k€ (de 500 VIPs At Risk)
+- ROI: **25-50x** (bajo costo campaña vs alto LTV recuperado)
+
+---
+
+**Prevención > Recuperación:**
+
+**Mejor estrategia:** Detectar ANTES de que lleguen a At Risk.
+
+**Early warning signals (intervenir cuando detectes):**
+- Champion que NO compró early bird (primera vez en 3 años)
+- Open rate bajó 50%+ en 3 meses (ej: 60% → 30%)
+- No visitó web en 60 días (vs visitas mensuales antes)
+
+**Acción preventiva:**
+- Email: "Notamos que no compraste early bird - ¿Todo OK?"
+- Survey: "¿Qué podemos mejorar?"
+- Call (festivales grandes): Account manager contacta VIP personalmente
+- Incentivo suave: 10% descuento (no 20%, reservar para At Risk real)
+
+**Prevención success rate:** 70-80% retención vs 15-25% recuperación At Risk
+
+**Conclusión:** Prevenir que Champions → At Risk es 3-4x más efectivo que recuperar At Risk → Active.
+
+---
+
 # Modificadores & Análisis RFM
 
 Análisis RFM para festivales con Nevent: los modificadores son potenciadores que transforman criterios básicos en filtros dinámicos ultra específicos. Implementa análisis RFM (Recency, Frequency, Monetary) en tu base de asistentes a festivales y eventos, identificando super fans VIP, compradores early bird habituales y asistentes en riesgo de churn.
