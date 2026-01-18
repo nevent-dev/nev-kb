@@ -72,50 +72,50 @@ export default defineConfig({
 				},
 			],
 
-			// Sidebar - Motor de Segmentación Estructurado
+			// Sidebar
 			sidebar: [
 				{
-					label: 'Audiencia',
+					label: 'Audiencia y segmentación',
 					items: [
 						{
-							label: 'Motor de Segmentación',
+							label: 'Segmentos',
 							items: [
 								{
-									label: 'Introducción',
+									label: 'Introducción a segmentos',
 									slug: 'audience/motor-segmentacion',
 									badge: { text: 'Empezar aquí', variant: 'tip' }
 								},
 								{
-									label: 'Cómo Crear un Segmento',
+									label: 'Cómo crear un segmento',
 									slug: 'audience/motor-segmentacion/crear-segmento'
 								},
 								{
-									label: 'Las 6 Categorías',
+									label: 'Categorías de criterios',
 									slug: 'audience/motor-segmentacion/categorias'
 								},
 								{
-									label: 'Operadores & Lógica Y/O',
+									label: 'Operadores lógicos',
 									slug: 'audience/motor-segmentacion/operadores-logica'
 								},
 								{
-									label: 'Modificadores & RFM',
+									label: 'Modificadores y análisis RFM',
 									slug: 'audience/motor-segmentacion/modificadores-rfm',
 									badge: { text: 'Avanzado', variant: 'note' }
 								},
 								{
-									label: 'Grupos & A/B Testing',
+									label: 'Grupos para A/B testing',
 									slug: 'audience/motor-segmentacion/grupos'
 								},
 								{
-									label: 'Casos de Uso Prácticos',
+									label: 'Casos de uso',
 									slug: 'audience/motor-segmentacion/casos-uso'
 								},
 								{
-									label: 'Mejores Prácticas',
+									label: 'Mejores prácticas',
 									slug: 'audience/motor-segmentacion/mejores-practicas'
 								},
 								{
-									label: 'Preguntas Frecuentes',
+									label: 'Preguntas frecuentes',
 									slug: 'audience/motor-segmentacion/faq'
 								},
 							]

@@ -66,486 +66,139 @@ import { Aside } from '@astrojs/starlight/components';
 **Ejemplo:** Cruïlla Festival recuperó 96 VIPs At Risk (de 680) con secuencia 3 emails en 14 días. ROI: 13,320€ revenue neto ÷ 500€ costo = 26.6x.
 :::
 
-# Casos de Uso Prácticos
+# Casos de uso prácticos
 
 Aprende con ejemplos reales de segmentación para festivales, clubs y eventos que puedes copiar y adaptar a tus campañas de venta de entradas.
 
 ---
 
-## Caso #1: Early Bird Ultra-Targeted - Mad Cool Festival 2026
+## Caso #1: Early bird ultra-targeted - Mad Cool Festival 2026
 
-### Contexto
-- **Festival:** Mad Cool Madrid
-- **Capacidad:** 60,000 asistentes
-- **Base de datos:** 185,000 contactos
-- **Objetivo:** Vender 4,500 early birds (7.5% capacidad) en 14 días
-- **Precio early bird:** 180€ (vs 220€ fase 2, 260€ última hora)
-
-### Segmento Diseñado
-
-**Nombre:** "Early Bird Champions - Mad Cool Lovers"
-
-**Criterios (5 filtros AND):**
-1. Eventos pasados: Mad Cool (cualquier año) ≥1
-2. Temperatura Nevent: ≥Super Hot
-3. Días desde última compra: ≤180
-4. Email opens últimos 90 días: ≥3
-5. Gasto total histórico: ≥150€
-
-**Audiencia resultante:** 5,200 fans (2.8% de base total)
-
-### Estrategia de Campaña
-
-**Email #1 - Acceso VIP Anticipado (Día 0, 10:00h)**
-- **Subject:** "🔐 [Nombre], acceso secreto 24h antes - Mad Cool 2026"
-- **Preheader:** "Solo para super fans - Nadie más sabe esto aún"
-- **Contenido:**
-  - Lineup parcial (3 headliners confirmados)
-  - Precio early bird: 180€ (ahorro 80€ vs precio final)
-  - Countdown 24 horas hasta anuncio público
-- **CTA:** "Acceder a mi early bird VIP"
-- **Resultado:**
-  - Enviados: 5,200
-  - Open rate: 62% (3,224 opens)
-  - Click rate: 38% de opens (1,225 clicks)
-  - **Conversion directa: 8.5% (442 entradas)**
-  - Revenue: 79,560€
-
-**Email #2 - Reminder 6h antes (Día 0, 16:00h)**
-- **Segmento:** Abrieron Email #1 pero NO compraron
-- **Audiencia:** 3,224 - 442 = 2,782 fans
-- **Subject:** "⏰ 6 horas para tu early bird Mad Cool"
-- **Contenido:**
-  - "Vimos que abriste el email - ¿Dudas?"
-  - FAQ rápido (lineup completo cuando, refund policy, alojamiento)
-  - Timer visual 6h countdown
-- **Resultado:**
-  - Open rate: 45% (1,252 opens)
-  - **Recovery rate: 22% (518 compras adicionales)**
-  - Revenue: 93,240€
-
-**Email #3 - Anuncio Público (Día 1, 10:00h)**
-- **Segmento:** Top 5,200 + base general (185k total)
-- **Subject Champions:** "Últimas 800 early birds - Ahora público"
-- **Subject Base:** "🎟️ Early Bird Mad Cool 2026 - Disponible ya"
-- **Contenido:**
-  - Anuncio que ya está público
-  - Contador en tiempo real de entradas restantes
-  - Urgencia: "Se agotaron en 11h el año pasado"
-- **Resultado Champions:**
-  - Open rate: 38%
-  - **Conversion adicional: 4% (208 compras)**
-  - Revenue: 37,440€
-- **Resultado Base General:**
-  - Open rate: 19%
-  - Conversion: 1.9% (3,420 compras)
-  - Revenue: 615,600€
-
-### Resultados Finales
-
-| Métrica | Segmento Champions (5.2k) | Base General (180k) | Lift |
-|---------|---------------------------|---------------------|------|
-| **Open rate promedio** | 58% | 19% | **+3x** |
-| **Click rate promedio** | 34% | 8% | **+4.2x** |
-| **Conversion total** | 22.5% (1,168 ventas) | 1.9% (3,420 ventas) | **+11.8x** |
-| **Revenue Champions** | 210,240€ | - | - |
-| **Revenue Base** | - | 615,600€ | - |
-| **Tiempo medio compra** | 8.7 horas | 42 horas | **-79%** |
-
-**Total early birds vendidos:** 4,588 (objetivo: 4,500) ✅ **102%**
-
-**Insight clave:** 25% del revenue early bird vino de solo 2.8% de la audiencia (segmento Champions)
-
-### Aprendizajes
-
-✅ **Funcionó:**
-- Acceso anticipado 24h generó FOMO masivo y sentimiento VIP
-- Reminder a "opener no-comprador" recuperó 22% (518 ventas)
-- Temperatura + recencia fueron mejores predictores que gasto total
-
-❌ **No funcionó:**
-- Segmento muy estricto (≥Super Hot) dejó fuera fans Hot que habrían convertido
-- Deberíamos haber enviado Email #3 a Champions a las 15:00h (no 10:00h) para espaciar presión
-
-🔄 **Para próxima edición:**
-- Crear Segmento B con temperatura "Hot" (adicional 8k fans)
-- Enviar a Segmento B 12h después de Segmento A (escalonado)
-- Proyección: +18% revenue manteniendo exclusividad
-
----
-
-## Caso 2: Reactivación de VIPs Inactivos
-
-**Objetivo**: Recuperar fans de alto valor que no han comprado recientemente.
+**Objetivo:** Vender 4,500 early birds (7.5% capacidad) a fans leales antes del anuncio público.
 
 ### Segmento
+- Eventos pasados: Mad Cool ≥1
+- Temperatura: ≥Super Hot
+- Última compra: ≤180 días
+- Email opens: ≥3 (últimos 90 días)
+- Gasto histórico: ≥150€
 
-```
-GRUPO A: Alto Valor
-├─ Gasto total: Mayor que 500€
+**Audiencia:** 5,200 fans (2.8% base)
 
-Y
+### Estrategia
+Secuencia 3 emails en 48h: acceso VIP anticipado 24h antes del anuncio público, reminder para quienes abrieron pero no compraron, y lanzamiento público general.
 
-GRUPO B: Inactividad
-├─ Fecha de última compra: Hace más de 180 días
+### Configuración clave
+Email #1 generó 8.5% conversion (442 entradas), Email #2 recuperó 22% de openers (518 entradas adicionales). Acceso anticipado creó FOMO y sentimiento exclusivo.
 
-Y
-
-GRUPO C: Engagement Bajo
-├─ Temperatura Nevent: Es "Frío" O "Muy Frío" O "Congelado"
-```
-
-### Campaña (Secuencia Multi-Email)
-
-**Email 1 (Día 0)**: "Te echamos de menos"
-- Mensaje emocional personalizado
-- Código 20% descuento válido 14 días
-- Recordatorio de eventos próximos
-
-**Email 2 (Día 7 - solo si NO abrió Email 1)**: "Tu descuento exclusivo expira pronto"
-- Subject con urgencia
-- Countdown timer
-- Testimonios de fans
-
-**Email 3 (Día 12 - solo si abrió pero NO compró)**: "Última oportunidad + upgrade VIP gratis"
-- Descuento 20% + upgrade VIP gratis
-- Expira en 48h
-- FAQ sobre beneficios VIP
-
-### Resultado Esperado
-
-- Reactivación: 15-25% (compran en 30 días)
-- ROI: 8-12x
-- Incremento temperatura: 40% suben a "Templado" o superior
+**Resultado:** 22.5% conversion del segmento Champions vs 1.9% base general (11.8x lift). Objetivo cumplido: 4,588 entradas vendidas.
 
 ---
 
-## Caso #3: Geo-Targeting Local vs Turismo - Sónar Barcelona
+## Caso #2: Reactivación de VIPs inactivos
 
-### Contexto
-- **Festival:** Sónar Barcelona (electrónica)
-- **Capacidad:** 18,000 asistentes
-- **Base de datos:** 95,000 contactos
-- **Mix audiencia:** 60% locales Catalunya, 40% nacionales/internacionales
-- **Desafío:** Personalizar info según necesidad alojamiento
-
-### Estrategia: 2 Segmentos Geo
-
-#### Segmento A: Locales Catalunya
-
-**Criterios:**
-- Región: Catalunya (Barcelona, Girona, Tarragona, Lleida)
-- Distancia: ≤150km del venue
-
-**Audiencia:** 57,000 fans (60%)
-
-**Email personalizado:**
-- **Subject:** "🎧 Sónar 2026 - Desde casa al festival (Metro L1 directo)"
-- **Hero image:** Mapa metro Barcelona con venue destacado
-- **Contenido único:**
-  - ❌ Sin sección hoteles
-  - ✅ Transporte público detallado (Metro L1, Bus H16, Renfe)
-  - ✅ Parking Fira Barcelona (20€/día, reserva anticipada)
-  - ✅ Horarios nocturnos metro (hasta 2:00h viernes/sábado)
-  - ✅ Offer: Abono 3 días sin alojamiento (precio reducido)
-
-**Resultado:**
-- Open rate: 35% (19,950 opens)
-- Click rate: 28% (5,586 clicks)
-- Conversion: 6.8% (3,876 entradas)
-- Precio promedio: 145€ (abono 3 días)
-- **Revenue: 562,020€**
-
-#### Segmento B: Nacional/Internacional
-
-**Criterios:**
-- País: España (fuera Catalunya) OR Internacional
-- Distancia: >150km del venue
-
-**Audiencia:** 38,000 fans (40%)
-
-**Email personalizado:**
-- **Subject:** "✈️ Sónar 2026 - Packs hotel+entrada desde 280€"
-- **Hero image:** Barcelona skyline con venue
-- **Contenido único:**
-  - ✅ 5 hoteles recomendados (cerca venue, ratings altos)
-  - ✅ Comparador vuelos Barcelona (widget integrado)
-  - ✅ Guía turística 48h (Sagrada Familia, Park Güell, playa)
-  - ✅ Shuttle bus gratuito hotel→venue (para packs)
-  - ✅ Offer: Pack todo-incluido (entrada 3 días + 2 noches hotel + shuttle)
-
-**Resultado:**
-- Open rate: 29% (11,020 opens)
-- Click rate: 35% (3,857 clicks) - Alto por widget vuelos
-- Conversion pack completo: 9.2% (3,496 packs)
-- Precio promedio pack: 340€ (entrada 180€ + hotel 160€)
-- **Revenue: 1,188,640€**
-- Conversion entrada sola: 2.1% (798 entradas × 180€ = 143,640€)
-
-### Resultados Consolidados
-
-| Métrica | Locales (60%) | Turistas (40%) | Total |
-|---------|---------------|----------------|-------|
-| **Audiencia** | 57,000 | 38,000 | 95,000 |
-| **Open rate** | 35% | 29% | 32.6% |
-| **Conversion** | 6.8% | 11.3% | 8.5% |
-| **Entradas vendidas** | 3,876 | 4,294 | 8,170 |
-| **Revenue** | 562,020€ | 1,332,280€ | **1,894,300€** |
-
-**Revenue turistas vs locales:** +137% (packs alto valor)
-
-### Aprendizajes
-
-✅ **Funcionó:**
-- Geo-targeting evitó bounce: locales no vieron info irrelevante hoteles (+35% open)
-- Packs todo-incluido aumentaron ticket promedio 89% (340€ vs 180€)
-- Widget vuelos integrado aumentó engagement (+7pp click rate)
-
-❌ **No funcionó:**
-- Shuttle bus gratuito fue poco valorado (solo 12% lo usaron)
-- Hoteles "budget" vendieron mejor que "premium" (ajustar mix)
-
-🔄 **Para próxima edición:**
-- Crear segmento C: "Nacionales >500km" (entre local e internacional)
-- Ofrecer tren AVE Barcelona en vez de vuelo (más eco-friendly, mismo target)
-- Test A/B: Pack con hotel 3* vs 4* (optimizar margen vs conversion)
-
----
-
-## Caso #4: Upsell General → VIP - Cruïlla Festival
-
-### Contexto
-- **Festival:** Cruïlla Barcelona
-- **Capacidad:** 25,000 asistentes
-- **Fase:** 14 días antes del evento
-- **Situación:** 18,000 entradas General vendidas, 1,200 VIP disponibles (de 2,500)
-- **Objetivo:** Vender 800 VIP adicionales via upsell
-
-### Segmento Target
-
-**Criterios:**
-- Entrada comprada: General 2026 (ya tienen entrada)
-- Gasto histórico: ≥300€ (han gastado antes, pueden permitirse upgrade)
-- Eventos pasados Cruïlla: ≥1 (conocen el festival, valoran VIP)
-- Temperatura: ≥Warm (engaged)
-
-**Audiencia:** 4,200 fans con entrada General (23% de compradores)
-
-### Email Upsell
-
-**Subject:** "🌟 [Nombre], upgrade a VIP Cruïlla - Últimas 48h"
-
-**Preheader:** "Por solo 80€ más: Acceso backstage, barra premium, baños privados"
-
-**Contenido:**
-- **Hero:** Comparison table General vs VIP
-
-| Beneficio | General (tu entrada) | VIP (upgrade +80€) |
-|-----------|---------------------|-------------------|
-| Acceso festival | ✅ | ✅ |
-| Zona frontal escenarios | ❌ | ✅ Área reservada |
-| Barra premium | ❌ | ✅ Sin colas |
-| Baños privados | ❌ | ✅ |
-| Acceso backstage | ❌ | ✅ Meet & greet |
-| Parking VIP | ❌ | ✅ Gratis |
-| Merchandising | ❌ | ✅ Camiseta exclusiva |
-
-- **Testimonial:** "Hice upgrade el año pasado y fue la mejor decisión - vi a [Artista] desde primera fila. Este año compré VIP directo." - María, VIP 2024-2025
-
-- **Urgencia:** Contador 48h + "Solo quedan 1,200 VIP de 2,500"
-
-- **CTA:** "Hacer upgrade ahora (80€)"
-
-**Garantía:** "Si no quedas satisfecho, te reembolsamos diferencia en 24h"
-
-### Resultados
-
-| Métrica | Valor |
-|---------|-------|
-| **Emails enviados** | 4,200 |
-| **Open rate** | 58% (2,436 opens) - Alto porque ya compraron |
-| **Click rate** | 42% (1,023 clicks) - Comparison table efectiva |
-| **Conversion upgrade** | 7.8% (328 upgrades) |
-| **Revenue incremental** | 328 × 80€ = **26,240€** |
-
-**Bonus inesperado:**
-- 12 fans compraron entrada VIP ADICIONAL para amigo (no upgrade, compra nueva)
-- Revenue adicional: 12 × 180€ = 2,160€
-
-**Revenue total campaña:** 28,400€
-
-### ROI Campaña
-
-| Aspecto | Valor |
-|---------|-------|
-| **Tiempo setup** | 45 minutos (segmento + email) |
-| **Costo envío** | 0€ (incluido Nevent) |
-| **Costo incentivo** | 0€ (no hubo descuento) |
-| **Revenue** | 28,400€ |
-| **Costo oportunidad** | 0€ (ya tenían entrada, no cannibalizó General) |
-| **ROI** | **Infinito** (solo ganancia, cero costo real) |
-
-### Aprendizajes
-
-✅ **Funcionó:**
-- Timing 14 días antes perfecto (ya comprometidos, suficiente tiempo para justificar gasto extra)
-- Comparison table visual fue clave (42% click rate)
-- Garantía "satisfecho o reembolso" eliminó fricción
-- Target fans con gasto >300€ histórico aseguró poder adquisitivo
-
-❌ **No funcionó:**
-- 48h urgencia fue demasiado corto (58% abrieron pero solo 7.8% convertieron)
-- Deberíamos dar 5-7 días para decidir
-- Merchandising exclusivo fue poco valorado (solo 8% lo mencionaron en survey)
-
-🔄 **Para próxima edición:**
-- Enviar primera campaña 21 días antes (reminder 14 días, urgencia 7 días)
-- Reemplazar merchandising por "consumición gratis en barra VIP (20€)"
-- Test A/B: Upgrade 80€ vs 100€ (elasticidad de precio)
-- Crear segmento B: Fans que NO compraron pero tienen historial VIP (oferta entrada VIP directa, no upgrade)
-
----
-
-## Caso #5: Last Minute Recovery - Razzmatazz Club
-
-### Contexto
-- **Venue:** Razzmatazz Barcelona (club, 1,500 capacidad)
-- **Evento:** The XX live (viernes 20 junio)
-- **Fase:** 7 días antes (viernes anterior)
-- **Situación:** 1,100 entradas vendidas, 400 disponibles
-- **Problema:** Evento no se llenará si no actuamos
-
-### Segmento Target
-
-**Criterios:**
-- Género preferido: Indie, Alternativo, Electrónica (match con The XX)
-- Ciudad: Barcelona, ≤30km (evento en 7 días, target solo locales)
-- Eventos pasados Razzmatazz: ≥1 (conocen el venue)
-- Entradas The XX 2026: 0 (aún no compraron)
-- Email opens últimos 60 días: ≥1 (activos)
-
-**Audiencia:** 12,000 fans
-
-### Email Last Minute
-
-**Subject:** "⏰ The XX - Razzmatazz ESTE VIERNES - Últimas entradas"
-
-**Preheader:** "7 días y 400 entradas - Tu última oportunidad"
-
-**Contenido:**
-- **Urgencia real:** Evento en 7 días, no es fake scarcity
-- **Proof of sell-out risk:** "El año pasado The XX sold out 3 días antes - 400 fans se quedaron fuera"
-- **Social proof:** "1,100 de tus amigos ya van"
-- **Hero:** Setlist probable (basado en gira europea actual)
-- **CTA principal:** "Comprar ahora - 35€" (precio estándar, NO descuento)
-- **CTA secundario:** "Añadir a mi calendario" (reduce no-shows)
-
-**Timing envío:** Viernes 13 junio, 19:00h (horario post-trabajo, mindset weekend)
-
-### Resultados
-
-| Métrica | Valor |
-|---------|-------|
-| **Emails enviados** | 12,000 |
-| **Open rate** | 42% (5,040 opens) - Alto por urgencia real |
-| **Click rate** | 18% (907 clicks) |
-| **Conversion** | 5.1% (612 entradas) |
-| **Revenue** | 612 × 35€ = **21,420€** |
-| **Sold out** | ✅ Sí (excedió objetivo de 400) |
-
-**Bonus:**
-- Waiting list generada: 212 fans (para futuro)
-- Add to calendar: 38% de compradores (reduce no-show de 15% a 8%)
-
-### Comparativa vs Precio Dinámico
-
-**Análisis:** ¿Habría sido mejor subir precio por escasez?
-
-| Estrategia | Precio | Conversion | Entradas | Revenue |
-|------------|--------|------------|----------|---------|
-| **A. Precio estándar (elegida)** | 35€ | 5.1% | 612 | 21,420€ |
-| **B. Precio dinámico +20%** | 42€ | ~3.5% (est.) | 420 | 17,640€ |
-| **C. Descuento last minute -15%** | 30€ | ~7% (est.) | 840 | 25,200€ |
-
-**Decisión:** Precio estándar fue correcto porque:
-- Objetivo era llenar (brand reputation)
-- Fans de indie son price-sensitive (no es festival macro)
-- Sold out orgánico genera FOMO para próximos eventos
-
-**Contra-intuitivo:** Descuento habría generado +3,780€ revenue, PERO:
-- Daña percepción valor (¿por qué bajar precio a último momento?)
-- Fans que compraron antes se sienten "estafados"
-- Crea expectativa de "siempre espero al descuento"
-
-### Aprendizajes
-
-✅ **Funcionó:**
-- Urgencia real (7 días) sin descuento evitó race to the bottom
-- Targeting geo Barcelona aseguró compra de impulso (locales pueden decidir en 1 hora)
-- Add to calendar redujo no-shows 7pp (88 fans más que aparecieron)
-- Subject line honesto "ESTE VIERNES" fue más efectivo que clickbait
-
-❌ **No funcionó:**
-- Deberíamos haber enviado reminder 3 días antes (miércoles 18:00h)
-- Waiting list no fue aprovechada (212 fans, podríamos haber ofrecido evento similar)
-
-🔄 **Para próxima vez:**
-- Crear secuencia 3 emails: Día -7, Día -3, Día -1
-- Segmento B: Fans fuera Barcelona >30km (oferta hotel+entrada last minute)
-- Implementar dynamic content: "X de tus amigos van" (social proof personalizado)
-- Post-evento: Email a waiting list ofreciendo próximo indie similar
-
----
-
-## Caso 6: Recuperación de Carritos Abandonados
-
-**Objetivo**: Recuperar fans que empezaron el proceso de compra pero no finalizaron.
+**Objetivo:** Recuperar fans de alto valor que no han comprado en 6+ meses.
 
 ### Segmento
+- Gasto total: >500€
+- Última compra: >180 días
+- Temperatura: Frío/Muy Frío/Congelado
 
-```
-GRUPO A: Engagement con Reserva
-├─ Campaña recibida: "Confirmación de reserva"
-└─ Y Campaña con clic: "Confirmación de reserva"
+### Campaña
+Secuencia 3 emails en 14 días: mensaje emocional con 20% descuento (día 0), reminder urgente si no abrieron (día 7), última oportunidad con upgrade VIP gratis si abrieron pero no compraron (día 12).
 
-Y
-
-GRUPO B: No Completó Compra
-├─ Evento asistido: NO incluye "Evento X"
-   (es decir, clickearon pero no compraron finalmente)
-
-Y
-
-GRUPO C: Ventana de Tiempo
-├─ Días desde el clic: Menor que 7
-```
-
-### Campaña (Secuencia)
-
-**Email 1 (2 horas después de abandono)**: "Tus entradas te esperan"
-- Subject: "¡Casi listo! Completa tu reserva en 2 clics"
-- Recordatorio de lo que seleccionaron
-- CTA directo a checkout
-- Countdown: "Reserva válida 24h"
-
-**Email 2 (24 horas después)**: "Last call + incentivo"
-- Subject: "💳 10% OFF si completas ahora"
-- Descuento 10% O free parking
-- Solo válido 12 horas
-- Testimonios de otros asistentes
-
-**SMS (48 horas después - solo si tienen teléfono verificado)**:
-"[Nombre], tus entradas para [Evento] expiran en 4h. Usa código LAST10 para 10% OFF: [link]"
-
-### Resultado Esperado
-
-- Recovery rate: 25-40%
-- ROI: 15-20x (ventas que se iban a perder)
-- Mejor timing: Email 1 en primera hora (60% de recoveries)
+**Resultado esperado:** 15-25% reactivación, ROI 8-12x, 40% incrementan temperatura a Templado o superior.
 
 ---
 
-## 🎯 Plantillas Rápidas
+## Caso #3: Geo-targeting local vs turismo - Sónar Barcelona
+
+**Objetivo:** Personalizar mensajes según necesidad de alojamiento (locales vs turistas).
+
+### Segmentos
+
+**Segmento A: Locales Catalunya**
+- Región: Catalunya, ≤150km venue
+- Audiencia: 57,000 (60%)
+
+Email enfocado en transporte público, parking, horarios nocturnos metro. Sin info hoteles.
+
+**Segmento B: Nacional/Internacional**
+- España (fuera Catalunya) o internacional, >150km
+- Audiencia: 38,000 (40%)
+
+Email con packs hotel+entrada, comparador vuelos, guía turística, shuttle bus.
+
+### Resultados
+Locales: 6.8% conversion, 562k€ revenue (ticket promedio 145€).
+Turistas: 11.3% conversion, 1,332k€ revenue (packs alto valor 340€).
+
+**Key insight:** Geo-targeting eliminó info irrelevante, aumentando open rate locales +35%. Revenue turistas +137% vs locales por packs todo-incluido.
+
+---
+
+## Caso #4: Upsell general a VIP - Cruïlla Festival
+
+**Objetivo:** Vender 800 upgrades VIP a compradores de entradas General 14 días antes del evento.
+
+### Segmento
+- Entrada comprada: General 2026
+- Gasto histórico: ≥300€
+- Eventos pasados Cruïlla: ≥1
+- Temperatura: ≥Warm
+
+**Audiencia:** 4,200 fans (23% compradores)
+
+### Email
+Subject: "Upgrade a VIP Cruïlla - Últimas 48h" con comparison table General vs VIP. Upgrade por solo 80€ más incluye acceso backstage, barra premium, baños privados, parking gratis. Garantía satisfacción 24h.
+
+### Resultados
+58% open rate, 42% click rate (tabla comparativa efectiva), 7.8% conversion (328 upgrades).
+
+**Revenue:** 28,400€ (328 × 80€ + 12 compras VIP adicionales). ROI infinito (sin costos, solo ganancia incremental).
+
+---
+
+## Caso #5: Last minute recovery - Razzmatazz Club
+
+**Objetivo:** Llenar evento con 400 entradas disponibles 7 días antes (The XX live).
+
+### Segmento
+- Género: Indie/Alternativo/Electrónica
+- Ciudad: Barcelona ≤30km
+- Eventos pasados Razzmatazz: ≥1
+- No compraron The XX 2026
+- Email opens últimos 60 días: ≥1
+
+**Audiencia:** 12,000 fans locales
+
+### Email
+Subject: "The XX - Razzmatazz ESTE VIERNES - Últimas entradas". Urgencia real (no fake scarcity), social proof ("1,100 amigos ya van"), setlist probable. Precio estándar 35€ (sin descuento). Timing: viernes 19:00h post-trabajo.
+
+### Resultados
+42% open rate, 5.1% conversion (612 entradas), 21,420€ revenue. Sold out conseguido. Waiting list de 212 fans generada.
+
+**Key insight:** Urgencia honesta sin descuento preservó valor de marca. Add to calendar redujo no-shows de 15% a 8%.
+
+---
+
+## Caso #6: Recuperación de carritos abandonados
+
+**Objetivo:** Recuperar fans que iniciaron compra pero no finalizaron.
+
+### Segmento
+- Campaña recibida y clickeada: "Confirmación de reserva"
+- Evento NO asistido: "Evento X" (no completaron compra)
+- Días desde clic: &lt;7
+
+### Campaña
+Secuencia 3 pasos: Email 1 (2h después) recordatorio con countdown 24h, Email 2 (24h) con 10% descuento válido 12h, SMS (48h) último aviso si tienen teléfono verificado.
+
+**Resultado esperado:** 25-40% recovery rate, ROI 15-20x. El 60% de recuperaciones ocurren en primera hora tras Email 1.
+
+---
+
+## 🎯 Plantillas rápidas
 
 Puedes copiar estas plantillas y ajustar valores:
 
@@ -583,13 +236,13 @@ Temperatura: Es "Frío" O "Muy Frío"
 
 ---
 
-## 🔗 Próximos Pasos
+## Próximos pasos
 
 Ahora que tienes ejemplos reales:
 
-1. **[Mejores Prácticas](./mejores-practicas)** - Optimiza tus segmentos
+1. **[Mejores prácticas](./mejores-practicas)** - Optimiza tus segmentos
 2. **[FAQ](./faq)** - Respuestas a dudas comunes
-3. **[Volver a Introducción](./index)** - Repasa los fundamentos
+3. **[Volver a introducción](./index)** - Repasa los fundamentos
 
 ---
 
