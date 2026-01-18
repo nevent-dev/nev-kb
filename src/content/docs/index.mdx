@@ -90,7 +90,7 @@ Segmento RFM que identifica fans de alto valor histórico (Frequency alta, Monet
 Ver [Win-back Campaign](#win-back-campaign).
 
 #### Champions
-Segmento RFM de máximo valor: fans con alta Recency (compraron recientemente), alta Frequency (asistieron a muchos eventos) y alto Monetary (gastaron mucho). Criterios típicos: última compra <90 días, 4+ eventos, gasto >500€. Representan 8-12% de audiencia pero generan 25-35% del revenue total. No necesitan descuentos; responden a early access, VIP upgrades y contenido exclusivo. Open rates: 45-65%. Ver [Modificadores RFM](motor-segmentacion/modificadores-rfm.mdx).
+Segmento RFM de máximo valor: fans con alta Recency (compraron recientemente), alta Frequency (asistieron a muchos eventos) y alto Monetary (gastaron mucho). Criterios típicos: última compra &lt;90 días, 4+ eventos, gasto &gt;500€. Representan 8-12% de audiencia pero generan 25-35% del revenue total. No necesitan descuentos; responden a early access, VIP upgrades y contenido exclusivo. Open rates: 45-65%. Ver [Modificadores RFM](motor-segmentacion/modificadores-rfm.mdx).
 
 #### Churn
 Tasa de abandono de fans que dejaron de interactuar o comprar. En festivales, se considera "churned" a un fan que: (a) no compró en últimas 2-3 ediciones del evento, (b) no abre emails en 6+ meses, (c) se dio de baja de comunicaciones. Churn rate típico: 30-40% anual en festivales (vs 5-10% en SaaS). Prevención: segmentación proactiva de "At Risk" antes de que lleguen a "Lost".
@@ -141,15 +141,15 @@ Segmento RFM de fans inactivos con valor medio: Frequency media, Monetary medio,
 Valor monetario total que un fan genera durante toda su relación con la marca. Fórmula simple: LTV = Gasto total histórico. Fórmula predictiva: LTV = (Ticket promedio × Frequency promedio × Años activo). Ejemplos festivales: New customer = 120-180€, Loyal = 800-1,500€, Super fan = 2,000-8,000€. Uso en segmentación: priorizar win-back de VIPs At Risk (LTV alto en peligro). Ver [Gasto](#monetary-valor-monetario).
 
 #### Lost
-Segmento RFM de fans inactivos de bajo valor o muy antigua última compra. Criterios: última compra >24 meses, email opens últimos 6 meses = 0. Representan 30-40% de base de datos. Acción: reactivación masiva con descuento 25-30%, o sunset (limpiar de base). Recovery rate: 2-8%. Mantenerlos en base activa daña deliverability.
+Segmento RFM de fans inactivos de bajo valor o muy antigua última compra. Criterios: última compra &gt;24 meses, email opens últimos 6 meses = 0. Representan 30-40% de base de datos. Acción: reactivación masiva con descuento 25-30%, o sunset (limpiar de base). Recovery rate: 2-8%. Mantenerlos en base activa daña deliverability.
 
 #### Loyal
-Segmento RFM de fans leales: alta Frequency, Monetary medio-alto, Recency alta. Criterios típicos: 3-6 eventos, gasto 300-800€, última compra <180 días. Representan 10-15% de audiencia, generan 18-25% de revenue. Acción: nurture hacia Champions, cross-sell eventos similares, programa de fidelización. Open rate: 35-50%. Descuentos: 5-10% suficiente.
+Segmento RFM de fans leales: alta Frequency, Monetary medio-alto, Recency alta. Criterios típicos: 3-6 eventos, gasto 300-800€, última compra &lt;180 días. Representan 10-15% de audiencia, generan 18-25% de revenue. Acción: nurture hacia Champions, cross-sell eventos similares, programa de fidelización. Open rate: 35-50%. Descuentos: 5-10% suficiente.
 
 ### M
 
 #### Monetary (Valor Monetario)
-En RFM: gasto total histórico de un fan. Métrica de valor del cliente. Rangos típicos festivales: Bajo (<100€), Medio (100-300€), Alto (300-800€), VIP (800€+). Filtro en Nevent: "Gasto total histórico: ≥X, ≤Y". Correlación con conversion: fans con gasto >500€ convierten 5-8x más que nuevos. Ver [Modificadores RFM](motor-segmentacion/modificadores-rfm.mdx).
+En RFM: gasto total histórico de un fan. Métrica de valor del cliente. Rangos típicos festivales: Bajo (&lt;100€), Medio (100-300€), Alto (300-800€), VIP (800€+). Filtro en Nevent: "Gasto total histórico: ≥X, ≤Y". Correlación con conversion: fans con gasto &gt;500€ convierten 5-8x más que nuevos. Ver [Modificadores RFM](motor-segmentacion/modificadores-rfm.mdx).
 
 ### N
 
@@ -178,7 +178,7 @@ Segmento RFM de fans con potencial de crecimiento: Recency alta, Frequency baja,
 ### R
 
 #### Recency (Recencia)
-En RFM: tiempo desde última compra. Métrica más predictiva de recompra. Rangos típicos festivales: Alta (<90 días), Media (90-180), Baja (180-365), Muy baja (365+). Correlación conversion: <90 días = 8-15% conversion, 180-365 días = 3-6%, 365+ días = 1-3%. Filtro en Nevent: "Días desde última compra: ≥X, ≤Y". Ver [Modificadores RFM](motor-segmentacion/modificadores-rfm.mdx).
+En RFM: tiempo desde última compra. Métrica más predictiva de recompra. Rangos típicos festivales: Alta (&lt;90 días), Media (90-180), Baja (180-365), Muy baja (365+). Correlación conversion: &lt;90 días = 8-15% conversion, 180-365 días = 3-6%, 365+ días = 1-3%. Filtro en Nevent: "Días desde última compra: ≥X, ≤Y". Ver [Modificadores RFM](motor-segmentacion/modificadores-rfm.mdx).
 
 #### RFM
 Modelo de scoring que clasifica fans por 3 dimensiones: **R**ecency (cuándo compró última vez), **F**requency (cuántas veces compró), **M**onetary (cuánto gastó total). Combinación genera 11 segmentos automáticos: Champions, Loyal, Potential, New Customers, Promising, Need Attention, About to Sleep, At Risk, Can't Lose Them, Hibernating, Lost. Originalmente usado en retail, adaptado a festivales en Nevent. Ver [Modificadores RFM](motor-segmentacion/modificadores-rfm.mdx).
@@ -189,16 +189,16 @@ Modelo de scoring que clasifica fans por 3 dimensiones: **R**ecency (cuándo com
 Proceso de dividir audiencia total en subgrupos (segmentos) homogéneos con características o comportamientos similares, para enviar mensajes más relevantes. Tipos: (1) Demográfica (edad, género, ubicación), (2) Comportamental (compras, opens, clicks), (3) Psicográfica (preferencias, valores). Beneficio: +60-200% revenue vs email masivo. En Nevent: combinación de 8 categorías de criterios con operadores AND/OR.
 
 #### Segmento
-Subgrupo de audiencia que cumple uno o más criterios específicos. Ejemplos: "VIPs de Barcelona" (Gasto ≥500€ AND Ciudad: Barcelona), "Early Bird Lovers" (Tipo entrada histórico: Early Bird, Pre-sale). Tamaño óptimo: 500-10,000 fans (dependiendo de objetivo). Muy pequeño (<200) = no estadísticamente significativo, muy grande (>50k) = probablemente poco específico.
+Subgrupo de audiencia que cumple uno o más criterios específicos. Ejemplos: "VIPs de Barcelona" (Gasto ≥500€ AND Ciudad: Barcelona), "Early Bird Lovers" (Tipo entrada histórico: Early Bird, Pre-sale). Tamaño óptimo: 500-10,000 fans (dependiendo de objetivo). Muy pequeño (&lt;200) = no estadísticamente significativo, muy grande (&gt;50k) = probablemente poco específico.
 
 #### Sender Reputation
-Puntuación (0-100) que ISPs (Gmail, Outlook) asignan a tu dominio/IP basada en comportamiento de envío. Factores: bounce rate, spam reports, engagement (opens/clicks), volumen, consistencia. Score >80 = excelente deliverability. Segmentación MEJORA reputation porque aumenta engagement (señal positiva). Monitorear con: Google Postmaster Tools, Microsoft SNDS, Sender Score.
+Puntuación (0-100) que ISPs (Gmail, Outlook) asignan a tu dominio/IP basada en comportamiento de envío. Factores: bounce rate, spam reports, engagement (opens/clicks), volumen, consistencia. Score &gt;80 = excelente deliverability. Segmentación MEJORA reputation porque aumenta engagement (señal positiva). Monitorear con: Google Postmaster Tools, Microsoft SNDS, Sender Score.
 
 #### Subject Line
-Línea de asunto del email, factor #1 que determina open rate. Best practices festivales: (1) <50 chars (móvil), (2) incluir nombre evento, (3) urgencia si aplica (⏰, 48h), (4) emoji contextual (🎟️, 🔥), (5) personalización ({{nombre}}), (6) beneficio claro. Test A/B obligatorio. Ejemplos ganadores: "🔐 [Nombre], acceso VIP 24h antes - Mad Cool" (62% open) vs "Mad Cool Early Bird disponible" (28% open).
+Línea de asunto del email, factor #1 que determina open rate. Best practices festivales: (1) &lt;50 chars (móvil), (2) incluir nombre evento, (3) urgencia si aplica (⏰, 48h), (4) emoji contextual (🎟️, 🔥), (5) personalización (\{\{nombre\}\}), (6) beneficio claro. Test A/B obligatorio. Ejemplos ganadores: "🔐 [Nombre], acceso VIP 24h antes - Mad Cool" (62% open) vs "Mad Cool Early Bird disponible" (28% open).
 
 #### Super Fan
-Fan de máximo valor y lealtad: asistió a 7+ eventos, gasto total >2,000€. Representan 2-5% de audiencia pero generan 15-25% de revenue. Comportamiento: compran sin descuentos, early birds, refieren amigos, toleran subidas de precio. Acción: programa VIP exclusivo, meet & greet, merchandising, invitación a eventos privados. LTV: 2,000-8,000€. Retención es prioridad #1 (costo adquirir nuevo super fan: imposible).
+Fan de máximo valor y lealtad: asistió a 7+ eventos, gasto total &gt;2,000€. Representan 2-5% de audiencia pero generan 15-25% de revenue. Comportamiento: compran sin descuentos, early birds, refieren amigos, toleran subidas de precio. Acción: programa VIP exclusivo, meet & greet, merchandising, invitación a eventos privados. LTV: 2,000-8,000€. Retención es prioridad #1 (costo adquirir nuevo super fan: imposible).
 
 ### T
 
