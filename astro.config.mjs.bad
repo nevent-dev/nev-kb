@@ -74,10 +74,10 @@ export default defineConfig({
 
 			// Sidebar
 			sidebar: [
-				{
-					label: 'Primeros pasos',
-					link: '/getting-started'
-				},
+tttt{
+tttttlabel: 'Primeros pasos',
+tttttlink: '/getting-started'
+tttt},
 				{
 					label: 'Audiencia y segmentación',
 					items: [

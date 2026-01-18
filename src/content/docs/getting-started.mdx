@@ -1,0 +1,192 @@
+---
+title: Primeros pasos con Nevent
+description: Guía rápida para empezar a usar Nevent. Aprende lo esencial para crear segmentos, enviar campañas y gestionar tu audiencia de fans.
+template: splash
+hero:
+  title: |
+    Primeros pasos
+    <span class="text-gradient">con Nevent</span>
+  tagline: Todo lo que necesitas para empezar a vender más entradas con email marketing inteligente.
+---
+
+import Schema from '../../components/Schema.astro';
+import { Card, CardGrid } from '@astrojs/starlight/components';
+
+<Schema>{`{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://docs.nevent.com"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Primeros pasos",
+      "item": "https://docs.nevent.com/getting-started"
+    }
+  ]
+}`}</Schema>
+
+## Conceptos fundamentales
+
+<CardGrid>
+  <Card title="Cómo crear un segmento" icon="list">
+    Aprende a dividir tu audiencia en grupos específicos para enviar mensajes ultra relevantes.
+
+    [Guía completa →](/audience/motor-segmentacion/crear-segmento)
+  </Card>
+
+  <Card title="Cómo enviar tu primera campaña de email" icon="email">
+    Crea y envía tu primera campaña paso a paso. Desde configuración hasta análisis de resultados.
+
+    [Empezar ahora →](/campaigns/email-campaigns)
+  </Card>
+
+  <Card title="Personalización de mensajes" icon="pencil">
+    Usa variables dinámicas para personalizar emails con nombre del fan, evento, ciudad y más.
+
+    [Ver ejemplos →](/campaigns/personalization)
+  </Card>
+
+  <Card title="A/B testing de campañas" icon="random">
+    Optimiza tus campañas testeando diferentes subjects, contenidos y horarios de envío.
+
+    [Guía de testing →](/campaigns/ab-testing)
+  </Card>
+</CardGrid>
+
+## Casos de uso más comunes
+
+### Para festivales anuales
+
+**Objetivo:** Vender early bird a tus fans más leales
+
+1. [Crea un segmento](/audience/motor-segmentacion/crear-segmento) de fans VIP:
+   - Temperatura: Caliente o Muy Caliente
+   - Asistió a tu festival: Últimos 2 años
+   - Gasto histórico: Mayor que 150€
+
+2. [Envía campaña early bird](/campaigns/email-campaigns) 48h antes del anuncio público
+
+3. [Reenvía a no abiertos](/campaigns/resend-unopened) con subject diferente
+
+**Resultado esperado:** 15-25% conversión del segmento VIP
+
+---
+
+### Para clubs con eventos semanales
+
+**Objetivo:** Llenar evento cada semana
+
+1. [Segmenta por género musical](/audience/motor-segmentacion/categorias):
+   - Género favorito: Techno/House/Indie (según lineup)
+   - Ciudad: Tu ciudad (≤30km)
+   - Último evento: Hace menos de 60 días
+
+2. [Envía campaña 3 días antes](/campaigns/email-campaigns) del evento
+
+3. [Usa A/B testing](/campaigns/ab-testing) para optimizar subject lines
+
+**Resultado esperado:** 5-8% conversión, 200-400 entradas vendidas
+
+---
+
+### Para recuperar fans inactivos
+
+**Objetivo:** Reactivar fans que dejaron de abrir emails
+
+1. [Identifica fans inactivos](/campaigns/reengagement):
+   - No abrió emails: Últimos 90 días
+   - Gasto histórico: Mayor que 100€
+
+2. [Envía secuencia de reenganche](/campaigns/reengagement) (3 emails en 14 días)
+
+3. Limpia tu lista eliminando no reactivados
+
+**Resultado esperado:** 10-20% reactivación, mejor deliverability
+
+## Recursos esenciales
+
+### Segmentación
+- [Introducción a segmentos](/audience/motor-segmentacion/) - Conceptos básicos
+- [Operadores lógicos](/audience/motor-segmentacion/operadores-logica) - Combina criterios con AND/OR
+- [Casos de uso](/audience/motor-segmentacion/casos-uso) - 6 ejemplos prácticos reales
+
+### Campañas
+- [Introducción a campañas](/campaigns/) - Diferencia entre Email/SMS/Push
+- [Campañas de SMS](/campaigns/sms-campaigns) - Mensajes de texto urgentes
+- [Campañas de push](/campaigns/push-campaigns) - Notificaciones móviles
+
+### Optimización
+- [Reenviar a no abiertos](/campaigns/resend-unopened) - Segunda oportunidad
+- [Mejores prácticas de segmentación](/audience/motor-segmentacion/mejores-practicas) - 9 tips clave
+
+## Preguntas frecuentes para nuevos usuarios
+
+### ¿Por dónde empiezo?
+
+1. **Día 1-2:** Lee [Introducción a segmentos](/audience/motor-segmentacion/) y crea tu primer segmento simple
+2. **Día 3-4:** Envía tu [primera campaña de email](/campaigns/email-campaigns) a ese segmento
+3. **Día 5-7:** Analiza resultados y prueba [A/B testing](/campaigns/ab-testing)
+
+### ¿Qué es más importante: segmentar bien o escribir buen copy?
+
+**Ambos**, pero la segmentación es base:
+
+- Email genérico a toda tu base: 2-5% conversión
+- Email genérico a segmento específico: 8-12% conversión
+- Email personalizado a segmento específico: 15-25% conversión
+
+**Empieza por segmentar bien**, luego optimiza el copy.
+
+### ¿Cuántas campañas debería enviar?
+
+Depende de tu tipo de negocio:
+
+| Tipo | Frecuencia recomendada |
+|------|------------------------|
+| **Festival anual** | 1-2 emails/mes durante campaña |
+| **Club semanal** | 2-3 emails/semana |
+| **Promotora multi-eventos** | 3-5 emails/semana (segmentados) |
+
+**Regla general:** Mejor enviar menos emails más relevantes que muchos genéricos.
+
+### ¿Cómo sé si mis campañas funcionan?
+
+Métricas clave a monitorear:
+
+- **Open rate:** &gt;20% es bueno, &gt;30% es excelente
+- **Click rate:** &gt;3% es bueno, &gt;5% es excelente
+- **Conversion rate:** &gt;2% es bueno, &gt;5% es excelente
+- **Unsubscribe rate:** &lt;0.3% es saludable
+
+Si tus métricas están por debajo:
+1. Revisa [mejores prácticas](/audience/motor-segmentacion/mejores-practicas)
+2. Testea [diferentes subjects](/campaigns/ab-testing)
+3. Mejora [segmentación](/audience/motor-segmentacion/crear-segmento)
+
+## Próximos pasos
+
+Una vez domines lo básico:
+
+1. **Aprende segmentación avanzada:**
+   - [Modificadores y análisis RFM](/audience/motor-segmentacion/modificadores-rfm)
+   - [Grupos para A/B testing](/audience/motor-segmentacion/grupos)
+
+2. **Optimiza tus campañas:**
+   - [Campaña de reenganche](/campaigns/reengagement)
+   - [Personalización avanzada](/campaigns/personalization)
+
+3. **Expande canales:**
+   - [Campañas de SMS](/campaigns/sms-campaigns)
+   - [Campañas de push](/campaigns/push-campaigns)
+
+---
+
+**¿Listo para empezar?**
+
+[Crea tu primer segmento →](/audience/motor-segmentacion/crear-segmento)
