@@ -92,7 +92,7 @@ import { Aside } from '@astrojs/starlight/components';
 
 Modelo que clasifica fans automáticamente en 11 segmentos según: Recency (última compra), Frequency (eventos asistidos), Monetary (gasto total). Segmentos incluyen Champions (8-12% audiencia, generan 25-35% revenue) y At Risk (5-10% audiencia, alto valor en peligro).
 
-**Ejemplo:** Mad Cool identificó 680 VIPs At Risk (última compra >180 días, gasto >500€) y recuperó 15-25% con campaña win-back, salvando 81,600€ LTV.
+**Ejemplo:** Mad Cool identificó 680 VIPs At Risk (última compra &gt;180 días, gasto &gt;500€) y recuperó 15-25% con campaña win-back, salvando 81,600€ LTV.
 :::
 
 ## Preguntas Frecuentes sobre RFM
@@ -109,9 +109,9 @@ Modelo que clasifica fans automáticamente en 11 segmentos según: Recency (últ
 
 | Dimensión | Malo | Regular | Bueno | Excelente |
 |-----------|------|---------|-------|-----------|
-| **Recency** | +365 días | 180-365 días | 90-180 días | <90 días |
+| **Recency** | +365 días | 180-365 días | 90-180 días | &lt;90 días |
 | **Frequency** | 1 evento | 2-3 eventos | 4-6 eventos | 7+ eventos |
-| **Monetary** | <100€ | 100-300€ | 300-800€ | 800€+ |
+| **Monetary** | &lt;100€ | 100-300€ | 300-800€ | 800€+ |
 
 **Combinación de R+F+M genera 11 segmentos automáticos:**
 
@@ -163,7 +163,7 @@ Días desde última compra: ≥X, ≤Y
 
 **Rangos estratégicos y acciones recomendadas:**
 
-**A. Fans ultra recientes (<30 días) - Upsell caliente**
+**A. Fans ultra recientes (&lt;30 días) - Upsell caliente**
 ```
 Días desde última compra: ≥0, ≤30
 ```
@@ -175,7 +175,7 @@ Días desde última compra: ≥0, ≤30
 
 ---
 
-**B. Fans activos recientes (<90 días) - Engagement alto**
+**B. Fans activos recientes (&lt;90 días) - Engagement alto**
 ```
 Días desde última compra: ≥0, ≤90
 ```
@@ -214,7 +214,7 @@ Días desde última compra: ≥365, ≤730
 
 ---
 
-**E. Fans perdidos (>2 años) - Último intento**
+**E. Fans perdidos (&gt;2 años) - Último intento**
 ```
 Días desde última compra: ≥730
 ```
@@ -377,8 +377,8 @@ Número de eventos: ≥7
 
 |  | **Alta Frecuencia (≥4 eventos)** | **Baja Frecuencia (≤3 eventos)** |
 |---|---|---|
-| **Alta Recencia (<180 días)** | 🏆 **Champions** (8-12% audiencia)<br>Acción: Upsell VIP, no descuentos | 🌱 **Promising** (15-20% audiencia)<br>Acción: Nurture a leales |
-| **Baja Recencia (≥180 días)** | ⚠️ **At Risk** (5-8% audiencia)<br>Acción: Win-back URGENTE | 😴 **Lost** (50-60% audiencia)<br>Acción: Reactivación masiva o sunset |
+| **Alta Recencia (&lt;180 días)** | 🏆 **Champions** (8-12% audiencia)<br />Acción: Upsell VIP, no descuentos | 🌱 **Promising** (15-20% audiencia)<br />Acción: Nurture a leales |
+| **Baja Recencia (≥180 días)** | ⚠️ **At Risk** (5-8% audiencia)<br />Acción: Win-back URGENTE | 😴 **Lost** (50-60% audiencia)<br />Acción: Reactivación masiva o sunset |
 
 ---
 
@@ -391,7 +391,7 @@ AND Gasto total: ≥500€
 
 **Perfil Champions:**
 - Compraron 4-10 eventos
-- Última compra hace <6 meses
+- Última compra hace &lt;6 meses
 - Gastaron 500-3,000€ total
 - Open rate emails: 55-70%
 - Conversion rate: 18-28%
@@ -493,7 +493,7 @@ AND RFM Score: At Risk, Can't Lose Them
 **Traducción:** Fan que gastó mucho (≥500€), asistió repetidamente (≥3 eventos), pero no compró en 6-24 meses.
 
 **Red flags adicionales que confirman riesgo:**
-- Email open rate <20% últimos 90 días (vs 55-70% cuando activos)
+- Email open rate &lt;20% últimos 90 días (vs 55-70% cuando activos)
 - No visitó web en 90 días
 - No interactuó en social media
 - Bounce email (cambió de email sin actualizar)
