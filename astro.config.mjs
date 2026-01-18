@@ -44,6 +44,23 @@ export default defineConfig({
 						content: '#8B5CF6', // Violet-500
 					},
 				},
+				// Google Analytics 4
+				{
+					tag: 'script',
+					attrs: {
+						src: 'https://www.googletagmanager.com/gtag/js?id=G-HMCEBRLTBG',
+						async: true,
+					},
+				},
+				{
+					tag: 'script',
+					content: `
+						window.dataLayer = window.dataLayer || [];
+						function gtag(){dataLayer.push(arguments);}
+						gtag('js', new Date());
+						gtag('config', 'G-HMCEBRLTBG');
+					`,
+				},
 			],
 
 			// Social links (aparecen en header)
