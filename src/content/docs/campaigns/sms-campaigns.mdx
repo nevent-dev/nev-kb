@@ -255,7 +255,7 @@ Compra: nevent.es/flash
 ### Recordatorio evento mañana
 
 ```
-{{ first_name }}, mañana es {{ event.name }}!
+`{{ first_name }}`, mañana es {{ event.name }}!
 Puertas: {{ event.doors_time }}
 Tu entrada: {{ ticket.type }}
 Nos vemos 🎉
@@ -280,7 +280,7 @@ nevent.es/fs2026
 ### Código descuento exclusivo
 
 ```
-Solo para ti {{ first_name }}: 15% dto con código VIP15
+Solo para ti `{{ first_name }}`: 15% dto con código VIP15
 Válido 48h
 Compra: nevent.es/vip
 ```
@@ -304,7 +304,7 @@ nevent.es/tonight
 Usa variables dinámicas para personalizar SMS:
 
 ```
-{{ first_name }} - Tu código VIP: {{ person.vip_code }}
+`{{ first_name }}` - Tu código VIP: {{ person.vip_code }}
 {{ event.name }} - {{ event.date }}
 Entrada: {{ ticket.type }}
 ```
@@ -318,10 +318,10 @@ Consulta [Personalización de mensajes](/campaigns/personalization) para más va
 Con solo 160 caracteres, ve directo al punto:
 
 ```
-❌ Hola {{ first_name }}, esperamos que estés teniendo un gran día.
+❌ Hola `{{ first_name }}`, esperamos que estés teniendo un gran día.
    Queríamos informarte sobre una oferta especial...
 
-✅ {{ first_name }}: 20% dto en entradas VIP solo hoy
+✅ `{{ first_name }}`: 20% dto en entradas VIP solo hoy
    nevent.es/vip20
 ```
 

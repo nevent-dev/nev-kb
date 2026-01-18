@@ -39,11 +39,11 @@ Nevent te permite personalizar emails, SMS y notificaciones push usando variable
 
 ## Cómo funciona
 
-Una plantilla con variables como `{{ first_name }} {{ last_name }}` se transforma automáticamente en datos reales al enviar:
+Una plantilla con variables como ``{{ first_name }}` `{{ last_name }}`` se transforma automáticamente en datos reales al enviar:
 
 **Plantilla:**
 ```
-Hola {{ first_name }}, tu entrada para {{ event_name }} está confirmada.
+Hola `{{ first_name }}`, tu entrada para `{{ event_name }}` está confirmada.
 ```
 
 **Email enviado a María:**
@@ -59,10 +59,10 @@ Propiedades estándar de Nevent disponibles para todos los fans:
 
 | Variable | Descripción | Ejemplo |
 |----------|-------------|---------|
-| `{{ email }}` | Email del fan | maria@ejemplo.com |
-| `{{ first_name }}` | Nombre | María |
-| `{{ last_name }}` | Apellido | García |
-| `{{ phone }}` | Teléfono | +34 600 123 456 |
+| ``{{ email }}`` | Email del fan | maria@ejemplo.com |
+| ``{{ first_name }}`` | Nombre | María |
+| ``{{ last_name }}`` | Apellido | García |
+| ``{{ phone }}`` | Teléfono | +34 600 123 456 |
 
 ### Propiedades geográficas
 
@@ -280,7 +280,7 @@ Inserta la fecha del momento de envío:
 
 ```
 {% today "%d/%m/%Y" as today %}
-Fecha de envío: {{ today }}
+Fecha de envío: `{{ today }}`
 ```
 
 ### Días hasta evento
@@ -289,7 +289,7 @@ Calcula tiempo restante:
 
 ```
 {% if days_to_event <= 7 %}
-  ⏰ Tu evento es en {{ days_to_event }} días
+  ⏰ Tu evento es en `{{ days_to_event }}` días
 {% endif %}
 ```
 
@@ -330,7 +330,7 @@ El equipo de {{ event.name }}
 ### SMS de recordatorio
 
 ```
-Hola {{ first_name }}!
+Hola `{{ first_name }}`!
 {{ event.name }} es MAÑANA a las {{ event.time }}.
 Tu entrada: {{ ticket.type }}
 Nos vemos en {{ event.venue }}! 🎵
@@ -339,7 +339,7 @@ Nos vemos en {{ event.venue }}! 🎵
 ### Email segmentado por gasto
 
 ```
-Hola {{ first_name }},
+Hola `{{ first_name }}`,
 
 {% if person.total_spend >= 500 %}
   Como fan VIP (gasto total: {% currency_format person.total_spend %}),
@@ -347,7 +347,7 @@ Hola {{ first_name }},
 {% elif person.total_spend >= 200 %}
   Acceso anticipado para ti: 24h antes del público general.
 {% else %}
-  Venta de entradas el {{ sale_date }}.
+  Venta de entradas el `{{ sale_date }}`.
 {% endif %}
 
 {{ event.name }} - {{ event.date|date:"F Y" }}
@@ -370,7 +370,7 @@ Hola {{ first_name }},
 Protege contra datos faltantes:
 
 ```
-❌ Hola {{ first_name }},
+❌ Hola `{{ first_name }}`,
 ✅ Hola {{ first_name|default:"fan" }},
 ```
 
@@ -388,8 +388,8 @@ Si el nombre está vacío, el primer caso muestra "Hola ," (mal). El segundo "Ho
 No abuses de la personalización:
 
 ```
-❌ Hola {{ first_name }} de {{ city }}, {{ region }}, {{ country }}...
-✅ Hola {{ first_name }}, como fan de {{ city }}...
+❌ Hola `{{ first_name }}` de `{{ city }}`, `{{ region }}`, `{{ country }}`...
+✅ Hola `{{ first_name }}`, como fan de `{{ city }}`...
 ```
 
 Demasiada personalización parece invasivo.

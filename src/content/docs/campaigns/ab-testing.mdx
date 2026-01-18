@@ -1,0 +1,528 @@
+---
+title: Cómo hacer A/B testing de campañas de email
+description: Guía completa para optimizar campañas de email con A/B testing en Nevent. Aprende qué testear, cómo configurar tests y analizar resultados.
+sidebar:
+  order: 5
+---
+
+import Schema from '../../../components/Schema.astro';
+import { Aside } from '@astrojs/starlight/components';
+
+<Schema>{`{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Cómo hacer A/B testing de campañas de email en Nevent",
+  "description": "Guía paso a paso para optimizar campañas de email con pruebas A/B",
+  "totalTime": "PT2H",
+  "tool": {
+    "@type": "SoftwareApplication",
+    "name": "Nevent",
+    "applicationCategory": "Marketing Automation"
+  },
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Define qué testear",
+      "text": "Elige una variable: subject line, contenido, o hora de envío. Solo una variable por test."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Crea la campaña base",
+      "text": "Configura tu campaña normal con destinatarios y contenido"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "Activa A/B test",
+      "text": "Haz clic en 'Crear A/B test' para generar variante B automáticamente"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 4,
+      "name": "Modifica la variante B",
+      "text": "Cambia solo la variable que estás testeando (ej: cambia subject line)"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 5,
+      "name": "Configura el test",
+      "text": "Elige métrica ganadora (opens/clicks/conversiones), tamaño del test (10-50%) y duración"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 6,
+      "name": "Envía y espera resultados",
+      "text": "El sistema enviará a ambos grupos y automáticamente enviará la variante ganadora al resto"
+    }
+  ]
+}`}</Schema>
+
+<Schema>{`{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://docs.nevent.com"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Campañas",
+      "item": "https://docs.nevent.com/campaigns"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "A/B Testing",
+      "item": "https://docs.nevent.com/campaigns/ab-testing"
+    }
+  ]
+}`}</Schema>
+
+# Cómo hacer A/B testing de campañas de email
+
+El A/B testing te permite comparar dos versiones de una campaña para descubrir cuál funciona mejor con tus fans. Este artículo explica cómo configurar y analizar pruebas A/B.
+
+## ¿Qué es A/B testing?
+
+Un A/B test divide tu audiencia en dos grupos:
+- **Grupo A**: Recibe la versión original (variante A)
+- **Grupo B**: Recibe la versión modificada (variante B)
+
+Después de un periodo de prueba, Nevent identifica la **variante ganadora** y la envía automáticamente al resto de fans.
+
+**Ejemplo:**
+```
+Audiencia: 10,000 fans
+
+Test (40%):
+  - 2,000 fans reciben Subject A: "Early Bird disponible"
+  - 2,000 fans reciben Subject B: "⏰ Últimas 48h Early Bird"
+
+Ganador:
+  - Subject B obtiene 34% open rate (vs 22% de A)
+  - Los 6,000 fans restantes reciben automáticamente Subject B
+```
+
+## Qué puedes testear
+
+### 1. Subject lines
+
+El test más común y con mayor impacto en open rate.
+
+**Variables a testear:**
+
+| Variable | Ejemplo A | Ejemplo B |
+|----------|-----------|-----------|
+| **Personalización** | "Early Bird disponible" | "``{{ first_name }}``, Early Bird para ti" |
+| **Longitud** | "Festival Verano 2026: Venta anticipada" | "Venta anticipada" |
+| **Pregunta vs afirmación** | "Últimas entradas disponibles" | "¿Quieres tu entrada?" |
+| **Emojis** | "Early Bird disponible" | "🎸 Early Bird disponible" |
+| **Urgencia** | "Entradas a la venta" | "Quedan 24h para Early Bird" |
+| **Números** | "Descuento en entradas" | "20% descuento en entradas" |
+
+<Aside type="tip">
+**Regla de oro de subject lines:** Los de ~7 palabras obtienen open rates de hasta 30%. Ni muy cortos ni muy largos.
+</Aside>
+
+### 2. Contenido del email
+
+Testea elementos visuales y de copy dentro del email.
+
+**Qué testear:**
+
+- **CTA (call-to-action):**
+  - Variante A: Botón azul "Comprar entradas"
+  - Variante B: Botón rojo "Asegura tu entrada ahora"
+
+- **Layout:**
+  - Variante A: Imagen del lineup arriba
+  - Variante B: Texto primero, imagen abajo
+
+- **Imágenes:**
+  - Variante A: Foto del headliner
+  - Variante B: Poster del festival
+
+- **Longitud del copy:**
+  - Variante A: Email largo (500+ palabras)
+  - Variante B: Email corto (150 palabras)
+
+- **Oferta:**
+  - Variante A: "20% descuento"
+  - Variante B: "Ahorra 30€ en tu entrada"
+
+<Aside type="caution">
+**Importante:** Solo cambia UN elemento a la vez. Si cambias subject + imagen + CTA, no sabrás qué causó la diferencia.
+</Aside>
+
+### 3. Hora de envío
+
+Testea diferentes horarios manteniendo el contenido idéntico.
+
+**Ejemplo:**
+- Variante A: Envío martes 10:00 AM
+- Variante B: Envío martes 6:00 PM
+
+<Aside type="note">
+Para tests de hora de envío, configura el tamaño de test al **100%** (50% cada variante) ya que no hay "ganador" posterior a enviar.
+</Aside>
+
+## Cómo crear un A/B test
+
+### Paso 1: Crea tu campaña normal
+
+1. Ve a **Campañas** → **Crear campaña**
+2. Selecciona **Email**
+3. Configura destinatarios y crea el contenido
+
+### Paso 2: Activa A/B testing
+
+1. En la pantalla de configuración del email, haz clic en **"Crear A/B test"** (encima del campo subject line)
+2. Nevent crea automáticamente una **Variante B** idéntica a la A
+
+### Paso 3: Modifica la variante B
+
+Cambia SOLO el elemento que quieres testear:
+
+**Si testeas subject:**
+- Variante A: Mantén el subject original
+- Variante B: Cambia solo el subject line
+
+**Si testeas contenido:**
+- Variante A: Email original
+- Variante B: Cambia un elemento (CTA, imagen, layout)
+
+**Si testeas hora:**
+- Ambas idénticas en contenido
+- Programa horarios diferentes
+
+### Paso 4: Configura el test
+
+#### Métrica ganadora
+
+Selecciona qué métrica determinará el ganador:
+
+| Métrica | Cuándo usarla | Ejemplo |
+|---------|---------------|---------|
+| **Open rate** | Tests de subject line, preview text, remitente | "¿Qué subject genera más aperturas?" |
+| **Click rate** | Tests de CTA, contenido, imágenes | "¿Qué botón genera más clics?" |
+| **Conversion rate** | Tests de oferta, urgencia, precio | "¿Qué descuento genera más ventas?" |
+
+#### Tamaño del test
+
+Usa el slider para definir qué % de fans participa en el test:
+
+```
+Ejemplo con 10,000 fans y test 40%:
+
+Grupo A: 20% (2,000 fans) → Recibe variante A
+Grupo B: 20% (2,000 fans) → Recibe variante B
+Restante: 60% (6,000 fans) → Recibirá variante ganadora
+```
+
+**Recomendaciones de tamaño:**
+
+| Tamaño audiencia | Tamaño test recomendado | Mínimo por variante |
+|------------------|-------------------------|---------------------|
+| &lt;1,000 fans | 100% (50% cada uno) | 500 fans |
+| 1,000 - 5,000 | 40-60% | 200-300 fans |
+| 5,000 - 20,000 | 20-40% | 500-1,000 fans |
+| &gt;20,000 | 10-20% | 1,000-2,000 fans |
+
+<Aside type="tip">
+Para resultados estadísticamente significativos, cada variante debe tener **mínimo 100-200 fans**. Con menos, el ruido es demasiado alto.
+</Aside>
+
+#### Duración del test
+
+Nevent recomienda duraciones según la métrica:
+
+| Métrica | Duración recomendada | Por qué |
+|---------|---------------------|---------|
+| **Opens** | 2-4 horas | La mayoría abre en primeras horas |
+| **Clicks** | 6-12 horas | Necesitan tiempo para decidir |
+| **Conversiones** | 24-48 horas | Ciclo completo de decisión de compra |
+
+Puedes personalizar la duración manualmente.
+
+### Paso 5: Envía el test
+
+1. Revisa configuración
+2. Haz clic en **"Programar A/B test"**
+3. Nevent enviará automáticamente:
+   - Variante A al grupo A
+   - Variante B al grupo B
+   - Al finalizar el test, variante ganadora al resto
+
+## Cómo analizar resultados
+
+### Dashboard de resultados
+
+Después del envío, ve a la pestaña **"Resultados A/B"**:
+
+```
+Variante A:
+  - Enviados: 2,000
+  - Opens: 440 (22% open rate)
+  - Clicks: 88 (4% click rate)
+  - Conversiones: 18 (2% conversion)
+
+Variante B:
+  - Enviados: 2,000
+  - Opens: 680 (34% open rate) ← GANADOR
+  - Clicks: 136 (6.8% click rate)
+  - Conversiones: 27 (4% conversion)
+
+Ganador: Variante B (+55% open rate vs A)
+Enviado a: 6,000 fans restantes
+```
+
+### Significancia estadística
+
+Nevent indica si el resultado es **estadísticamente significativo**:
+
+- ✅ **Significativo**: Diferencia real, no suerte
+- ⚠️ **No significativo**: Diferencia puede ser azar, necesitas más datos
+
+**Para mejorar significancia:**
+- Aumenta tamaño de la audiencia de test
+- Aumenta duración del test
+- Testea diferencias más marcadas (no cambios sutiles)
+
+### Seleccionar ganador manualmente
+
+Si quieres terminar el test antes:
+
+1. Ve a **Resultados A/B**
+2. Haz clic en **"Seleccionar ganador manualmente"**
+3. Elige A o B
+4. Nevent enviará inmediatamente esa variante al resto
+
+<Aside type="caution">
+Solo selecciona manual si tienes razones claras. Dejar que el test complete da resultados más confiables.
+</Aside>
+
+## Ejemplos de A/B tests exitosos
+
+### Test #1: Personalización en subject
+
+**Festival electrónico con 15,000 fans**
+
+```
+Variante A: "Lineup revelado - Festival 2026"
+Variante B: "``{{ first_name }}``, el lineup que esperabas"
+
+Resultados:
+  - Variante A: 24% open rate
+  - Variante B: 38% open rate (+58%)
+
+Ganador: B
+Insight: Personalización funciona para anuncios importantes
+```
+
+---
+
+### Test #2: Urgencia vs informativo
+
+**Club con evento próximo, 8,000 fans locales**
+
+```
+Variante A: "Evento este sábado - Últimas entradas"
+Variante B: "⏰ FALTAN 48H - Solo quedan 50 entradas"
+
+Resultados:
+  - Variante A: 18% open, 3.2% conversion
+  - Variante B: 31% open, 8.1% conversion (+153%)
+
+Ganador: B
+Insight: Urgencia real + escasez específica aumenta conversión
+```
+
+---
+
+### Test #3: CTA button color
+
+**Festival anual, test de contenido, 20,000 fans**
+
+```
+Variante A: Botón azul "Comprar entradas"
+Variante B: Botón rojo "Asegurar mi entrada ahora"
+
+Resultados:
+  - Variante A: 42% open, 6.2% click
+  - Variante B: 41% open, 9.8% click (+58%)
+
+Ganador: B
+Insight: Color rojo + copy urgente en CTA mejora clicks
+```
+
+---
+
+### Test #4: Longitud del email
+
+**Newsletter mensual, 12,000 suscriptores**
+
+```
+Variante A: Email largo (600 palabras, 4 eventos detallados)
+Variante B: Email corto (150 palabras, bullets de 4 eventos + CTAs)
+
+Resultados:
+  - Variante A: 28% open, 2.1% click
+  - Variante B: 27% open, 5.4% click (+157%)
+
+Ganador: B
+Insight: Emails concisos con CTAs claros generan más acción
+```
+
+## Mejores prácticas
+
+### 1. Testea una variable a la vez
+
+```
+❌ Mal - Múltiples cambios:
+  Variante A: Subject "Oferta", botón azul, imagen arriba
+  Variante B: Subject "Descuento 20%", botón rojo, imagen abajo
+  → No sabes qué causó la diferencia
+
+✅ Bien - Un cambio:
+  Variante A: Subject "Oferta disponible"
+  Variante B: Subject "20% descuento disponible"
+  → Sabes que el cambio de subject causó el resultado
+```
+
+### 2. Testea diferencias significativas
+
+Los cambios sutiles no generan resultados claros:
+
+```
+❌ Cambio sutil:
+  A: "Early Bird disponible"
+  B: "Early Bird ya disponible"
+  → Diferencia mínima, difícil medir impacto
+
+✅ Cambio claro:
+  A: "Early Bird disponible"
+  B: "🔥 Últimas 24h Early Bird - 30% dto"
+  → Diferencia clara, resultados medibles
+```
+
+### 3. Respeta el tamaño mínimo de muestra
+
+```
+❌ Muestra muy pequeña:
+  500 fans total → 250 por variante
+  → Resultados no confiables
+
+✅ Muestra adecuada:
+  5,000 fans total → test 40% = 1,000 por variante
+  → Resultados estadísticamente válidos
+```
+
+### 4. Espera el tiempo completo
+
+No termines el test prematuramente:
+
+```
+❌ Decisión apresurada:
+  Test de conversión después de 2 horas
+  → No da tiempo a que fans compren
+
+✅ Tiempo adecuado:
+  Test de conversión después de 24-48 horas
+  → Ciclo completo de decisión
+```
+
+### 5. Documenta y aprende
+
+Guarda los resultados de cada test:
+
+```
+Test #12 - Festival Verano 2026 Early Bird
+Fecha: 15/01/2026
+Hipótesis: Emoji en subject aumentará opens
+Variante A: "Early Bird disponible"
+Variante B: "🎸 Early Bird disponible"
+Resultado: B ganó (+12% open rate)
+Aprendizaje: Emoji musical funciona para festivales
+Próximo test: Testear 2 emojis vs 1
+```
+
+## Ideas de tests para promotores
+
+### Subject lines
+
+1. **Personalización:** Con/sin nombre del fan
+2. **Emojis:** Con/sin emoji relacionado con música
+3. **Longitud:** Corto (3-5 palabras) vs largo (10-12 palabras)
+4. **Pregunta vs afirmación:** "¿Listo para el festival?" vs "Te esperamos en el festival"
+5. **Urgencia:** "Quedan X días" vs sin urgencia
+6. **Números:** "20% descuento" vs "Descuento especial"
+
+### Contenido
+
+1. **CTA position:** Arriba vs abajo
+2. **CTA copy:** "Comprar" vs "Asegurar entrada" vs "Reservar ahora"
+3. **Imagen principal:** Headliner vs poster completo vs venue
+4. **Proof social:** Con/sin "1,200 fans ya compraron"
+5. **Precio:** Mostrar precio vs "Desde X€" vs sin precio
+6. **Garantía:** Con/sin "Devolución 100% hasta 7 días antes"
+
+### Ofertas
+
+1. **Descuento %:** "20% dto" vs "Ahorra 25€"
+2. **Urgencia:** "Hoy" vs "Esta semana" vs sin deadline
+3. **Bundling:** Entrada sola vs entrada + parking vs entrada + bebida
+4. **Tiers:** General vs VIP upgrade
+5. **Early bird:** Precio con descuento vs precio normal después
+
+## Herramientas de análisis
+
+Después de varios A/B tests, analiza patrones:
+
+### Patrones por segmento
+
+```
+VIPs (gasto &gt;300€):
+  - Prefieren subjects sin emojis (más serios)
+  - Click rate +40% con "Acceso anticipado VIP"
+  - Mejor hora: Martes 11:00 AM
+
+Fans locales (&lt;50km):
+  - Prefieren info de transporte en email
+  - Click rate +25% con mapa de ubicación
+  - Mejor hora: Jueves 6:00 PM
+
+Fans jóvenes (18-25 años):
+  - Prefieren emojis en subject (+18% opens)
+  - Mejor día: Viernes
+  - Mejor hora: 8:00 PM
+```
+
+### Dashboard de insights
+
+Crea un documento con tus learnings:
+
+```
+SUBJECT LINES:
+✅ Funciona: Emojis 🎸, urgencia real, personalización con nombre
+❌ No funciona: ALL CAPS, múltiples signos !!!, clickbait
+
+CTAs:
+✅ Funciona: Botones rojos/naranjas, copy urgente, "Asegurar" > "Comprar"
+❌ No funciona: CTAs genéricos, múltiples CTAs, texto vs botón
+
+TIMING:
+✅ Funciona: Martes-Jueves 10-14h, Viernes 18-20h
+❌ No funciona: Lunes AM, Sábado-Domingo, después de 22h
+```
+
+## Próximos pasos
+
+- [Grupos para A/B testing](/audience/motor-segmentacion/grupos) - Divide segmentos en grupos para tests
+- [Cómo crear campañas de email](/campaigns/email-campaigns) - Proceso completo de creación
+- [Reenviar a no abiertos](/campaigns/resend-unopened) - Estrategia para recuperar engagement

@@ -1,0 +1,643 @@
+---
+title: Cómo crear una campaña de reenganche
+description: Estrategias para recuperar fans inactivos con campañas de reenganche efectivas. Incluye segmentación, mensajes y secuencias probadas.
+sidebar:
+  order: 7
+---
+
+import Schema from '../../../components/Schema.astro';
+import { Aside } from '@astrojs/starlight/components';
+
+<Schema>{`{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Cómo crear una campaña de reenganche para fans inactivos",
+  "description": "Gu\u00eda para recuperar engagement de fans que no interact\u00faan hace meses",
+  "totalTime": "PT3H",
+  "tool": {
+    "@type": "SoftwareApplication",
+    "name": "Nevent",
+    "applicationCategory": "Marketing Automation"
+  },
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Identifica fans inactivos",
+      "text": "Segmenta: Sin abrir emails en 90+ d\u00edas AND Sin compras en 180+ d\u00edas"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Crea mensaje emocional",
+      "text": "Subject honesto: 'Te extra\u00f1amos' o '\u00bfSeguimos en contacto?'"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "Ofrece incentivo",
+      "text": "Descuento exclusivo o acceso anticipado para volver"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 4,
+      "name": "Da opci\u00f3n de salida",
+      "text": "Incluye link para darse de baja honestamente"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 5,
+      "name": "Secuencia de 3 emails",
+      "text": "Email 1: emocional, Email 2: incentivo, Email 3: \u00faltima oportunidad"
+    }
+  ]
+}`}</Schema>
+
+<Schema>{`{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://docs.nevent.com"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Campa\u00f1as",
+      "item": "https://docs.nevent.com/campaigns"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Campa\u00f1a de reenganche",
+      "item": "https://docs.nevent.com/campaigns/reengagement"
+    }
+  ]
+}`}</Schema>
+
+# Cómo crear una campaña de reenganche
+
+Las campañas de reenganche recuperan fans inactivos que dejaron de abrir emails o asistir a eventos. Este artículo explica cómo crear secuencias efectivas para reconectar con tu audiencia dormida.
+
+## ¿Qué es una campaña de reenganche?
+
+Una campaña de reenganche es un intento final de recuperar fans que han dejado de interactuar contigo antes de eliminarlos de tu lista.
+
+### Por qué son importantes
+
+**Problema: Engagement decae naturalmente**
+- El 20-30% de tu lista se vuelve inactiva cada año
+- Fans inactivos reducen tu open rate general
+- ISPs (Gmail, Outlook) penalizan listas con baja interacción
+- Pagas por contactos que no leen tus emails
+
+**Solución: Campaña de reenganche**
+- Recupera 10-25% de fans inactivos
+- Limpia tu lista (los que no responden)
+- Mejora deliverability al eliminar inactivos
+- Reduce costos de email marketing
+
+## Cuándo lanzar una campaña de reenganche
+
+### Definición de "inactivo"
+
+Depende de tu frecuencia de envío:
+
+| Tu frecuencia de emails | Definición de inactivo |
+|-------------------------|------------------------|
+| **Diaria** (ej: club con eventos diarios) | No abre en 30+ días |
+| **Semanal** (ej: club con eventos semanales) | No abre en 60+ días |
+| **Mensual** (ej: newsletter mensual) | No abre en 90+ días |
+| **Ocasional** (ej: festival anual) | No abre en 180+ días |
+
+### Criterios de segmentación
+
+Crea segmento con estos filtros:
+
+**Básico:**
+```
+Email abiertos en últimos 90 días: 0
+AND
+Email recibidos en últimos 90 días: Mayor que 3
+```
+
+**Avanzado:**
+```
+Email abiertos en últimos 90 días: 0
+AND
+Compras en últimos 180 días: 0
+AND
+Temperatura: Frío O Muy Frío O Congelado
+AND
+Fecha suscripción: Hace más de 90 días (excluye nuevos)
+```
+
+<Aside type="tip">
+Excluye suscriptores muy nuevos (&lt;90 días). Dales tiempo de engancharse naturalmente antes de considerarlos inactivos.
+</Aside>
+
+## Tipos de campañas de reenganche
+
+### 1. Reenganche simple (1 email)
+
+**Cuándo usar:** Primera vez que haces reenganche, audiencia pequeña (&lt;5,000)
+
+**Estructura:**
+- Subject emocional
+- Mensaje honesto
+- Incentivo claro
+- Opción fácil de baja
+
+**Ejemplo:**
+
+```
+Subject: ¿Seguimos en contacto, `{{ first_name }}`?
+
+Hola `{{ first_name }}`,
+
+Hemos notado que no abres nuestros emails desde hace meses.
+
+Quizás ya no te interesa lo que hacemos, y está bien.
+O tal vez nuestros emails se perdieron en tu inbox.
+
+Si todavía quieres saber de nuestros eventos:
+→ Haz clic aquí para confirmar que sigues interesado
+
+Como gracias por volver, tienes 20% descuento en tu próxima entrada.
+Código: BACK20 (válido 30 días)
+
+Si prefieres no recibir más emails, entendemos completamente:
+→ Darte de baja
+
+Saludos,
+El equipo de [Tu Marca]
+```
+
+---
+
+### 2. Secuencia de reenganche (3 emails)
+
+**Cuándo usar:** Audiencia grande (&gt;5,000), quieres maximizar recuperación
+
+**Timing:** Envía con 7-10 días de separación
+
+#### Email 1: Emocional (Día 0)
+
+```
+Subject: Te extrañamos, `{{ first_name }}` 💙
+
+Hola `{{ first_name }}`,
+
+No hemos sabido de ti en `{{ days_since_last_open }}` días.
+
+¿Todavía te interesa:
+  ✓ Descubrir nuevos artistas
+  ✓ Acceso early bird a eventos
+  ✓ Ofertas exclusivas
+
+Si la respuesta es sí, solo haz clic aquí:
+[Botón: Sí, sigo interesado]
+
+Si no, está bien. Entendemos que tus prioridades cambian.
+
+Nos vemos (o no),
+[Tu Nombre]
+```
+
+**Objetivo:** Reconexión emocional, sin presión
+
+---
+
+#### Email 2: Incentivo (Día 7-10)
+
+Solo envía a quienes NO abrieron Email 1:
+
+```
+Subject: `{{ first_name }}`, esto es para ti: 25% dto
+
+Hola `{{ first_name }}`,
+
+Última semana te escribimos pero no tuvimos respuesta.
+
+Queremos darte una última oportunidad de volver:
+
+🎁 25% descuento en cualquier evento
+Código: COMEBACK25
+Válido hasta {{ date_30_days_from_now }}
+
+Solo para fans que hemos extrañado como tú.
+
+[Botón: Activar mi descuento]
+
+Si esto tampoco te interesa, probablemente dejaremos de escribirte.
+
+Saludos,
+[Tu Marca]
+```
+
+**Objetivo:** Incentivo tangible para volver
+
+---
+
+#### Email 3: Última oportunidad (Día 14-20)
+
+Solo envía a quienes NO abrieron Email 1 ni 2:
+
+```
+Subject: Última oportunidad de quedarte, `{{ first_name }}`
+
+`{{ first_name }}`,
+
+Esta es nuestra última comunicación.
+
+Si no respondes a este email, te daremos de baja de nuestra lista.
+
+¿Por qué?
+Porque respetamos tu inbox. Si no abres nuestros emails,
+no tiene sentido seguir enviándote.
+
+Si quieres quedarte:
+[Botón: Quiero seguir recibiendo emails]
+
+Si no haces clic en 7 días, te eliminaremos automáticamente.
+
+Ha sido un gusto,
+El equipo de [Tu Marca]
+
+PD: Si te vas, siempre puedes volver a suscribirte en [link]
+```
+
+**Objetivo:** Call to action urgente, honestidad absoluta
+
+---
+
+### 3. Reenganche con encuesta
+
+**Cuándo usar:** Quieres entender por qué dejaron de interactuar
+
+**Estructura:**
+
+```
+Subject: Ayúdanos a mejorar (2 minutos)
+
+Hola `{{ first_name }}`,
+
+No hemos sabido de ti en meses. Queremos mejorar.
+
+¿Podrías decirnos por qué dejaste de abrir nuestros emails?
+
+[Botón: Responder encuesta (2 min)]
+
+Preguntas de la encuesta:
+1. ¿Por qué no abres nuestros emails?
+   □ Demasiados emails
+   □ Contenido no relevante
+   □ Ya no me interesa el género
+   □ No vivo cerca de los eventos
+   □ Otro: ____
+
+2. ¿Qué te haría volver?
+   □ Menos emails
+   □ Mejores ofertas
+   □ Eventos diferentes
+   □ Ya no estoy interesado
+
+Como agradecimiento: 30% descuento si vuelves.
+```
+
+**Beneficio:** Data para optimizar futuras campañas
+
+## Estrategias de subject lines
+
+### Emocionales
+
+```
+✅ "Te extrañamos, `{{ first_name }}`"
+✅ "`{{ first_name }}`, ¿todavía ahí?"
+✅ "¿Seguimos en contacto?"
+✅ "Última vez que te escribimos"
+```
+
+### Honestos/Directos
+
+```
+✅ "¿Quieres que dejemos de escribirte?"
+✅ "Déjanos saber si sigues interesado"
+✅ "Danos una última oportunidad"
+✅ "Confirmación necesaria: ¿Sigues con nosotros?"
+```
+
+### Con incentivo
+
+```
+✅ "`{{ first_name }}`: 25% descuento de bienvenida de vuelta"
+✅ "Regalo exclusivo para fans que vuelven"
+✅ "Tu código de reactivación: BACK30"
+```
+
+### Con urgencia
+
+```
+✅ "Última llamada, `{{ first_name }}`"
+✅ "7 días para decidir si te quedas"
+✅ "Te eliminamos en 48h (a menos que...)"
+```
+
+<Aside type="caution">
+**Evita clickbait falso:** No digas "te eliminamos en 48h" si no vas a hacerlo. La honestidad es crítica en reenganche.
+</Aside>
+
+## Elementos clave de un email de reenganche
+
+### 1. Honestidad radical
+
+No finjas que todo está bien:
+
+```
+❌ "¡Tenemos novedades increíbles para ti!"
+✅ "Notamos que no abres nuestros emails desde hace meses"
+
+❌ "No querrás perderte esto"
+✅ "Entendemos si ya no te interesa lo que hacemos"
+```
+
+### 2. Reconocimiento del problema
+
+```
+✅ "Quizás enviamos demasiados emails"
+✅ "Tal vez nuestro contenido no es relevante para ti"
+✅ "Sabemos que tu inbox está saturado"
+```
+
+### 3. Llamado a la acción simple
+
+Un solo CTA claro:
+
+```
+❌ Múltiples opciones confusas:
+  - Ver eventos
+  - Actualizar preferencias
+  - Leer blog
+  - Seguirnos en Instagram
+
+✅ Una opción clara:
+  [Botón grande: Quiero seguir recibiendo emails]
+```
+
+### 4. Opción de salida fácil
+
+```
+✅ "Si prefieres no recibir más emails, haz clic aquí"
+✅ "Darte de baja es un clic, sin resentimientos"
+✅ "Respetamos tu decisión si quieres irte"
+```
+
+### 5. Incentivo (opcional pero efectivo)
+
+```
+✅ "20% descuento si vuelves"
+✅ "Acceso VIP a próximo evento"
+✅ "Primera entrada a mitad de precio"
+✅ "Regalo: bebida gratis en tu próximo evento"
+```
+
+## Análisis de resultados
+
+### Métricas esperadas
+
+| Métrica | Rango típico | Bueno | Excelente |
+|---------|--------------|-------|-----------|
+| **Open rate** | 5-15% | 15-25% | &gt;25% |
+| **Click rate** | 2-8% | 8-12% | &gt;12% |
+| **Reactivación** | 5-15% | 15-25% | &gt;25% |
+| **Unsubscribe** | 1-5% | &lt;2% | &lt;1% |
+
+**Tasa de reactivación** = Fans que abrieron O clickearon ÷ Total enviados
+
+### Ejemplo de análisis
+
+**Campaña de reenganche - Festival Indie**
+
+```
+Segmento: No abrió emails en 120+ días
+Enviados: 3,200 fans
+
+Email 1 (Emocional):
+  - Open rate: 18% (576 abiertos)
+  - Click rate: 6% (192 clics)
+  - Reactivados: 192 (6%)
+
+Email 2 (Incentivo) - Solo a no abiertos:
+  - Enviados: 2,624
+  - Open rate: 12% (315 abiertos)
+  - Click rate: 8% (252 clics)
+  - Reactivados adicionales: 252 (9.6%)
+
+Email 3 (Última oportunidad) - Solo a no abiertos:
+  - Enviados: 2,309
+  - Open rate: 8% (185 abiertos)
+  - Click rate: 5% (115 clics)
+  - Reactivados adicionales: 115 (5%)
+
+Total reactivados: 559 de 3,200 (17.5%)
+No respondieron: 2,641 (82.5%) → Eliminar de lista
+
+Resultado:
+  ✅ Recuperamos 559 fans engaged
+  ✅ Limpiamos 2,641 contactos muertos
+  ✅ Open rate general subirá (menos inactivos)
+  ✅ Mejor deliverability
+```
+
+## Qué hacer después del reenganche
+
+### Con los reactivados
+
+**1. Agradece su vuelta**
+
+Envía un email de bienvenida de vuelta:
+
+```
+Subject: ¡Bienvenido de vuelta, `{{ first_name }}`! 🎉
+
+Nos alegra que sigas con nosotros.
+
+Aquí está tu código de descuento prometido: BACK20
+Válido en cualquier evento hasta `{{ date }}`
+
+¿Qué puedes esperar de nosotros?
+  - 1-2 emails por semana
+  - Anuncios de eventos
+  - Ofertas early bird
+  - Lineups y artistas
+
+Puedes actualizar tus preferencias aquí: [link]
+
+¡Nos vemos pronto!
+```
+
+**2. Reduce frecuencia inicialmente**
+
+No los bombardees inmediatamente:
+
+```
+Primeras 4 semanas: 1 email/semana
+Después: Frecuencia normal
+```
+
+**3. Monitorea engagement**
+
+Crea segmento de seguimiento:
+
+```
+Nombre: "Reactivados - Monitoreo"
+Filtros:
+  - Recibió campaña "Reenganche Email 1/2/3"
+  - Abrió campaña "Reenganche Email 1/2/3"
+  - Fecha de reactivación: Últimos 90 días
+```
+
+Revisa cada mes:
+- ¿Siguen abriendo emails?
+- ¿Han comprado?
+- ¿Necesitan otro empujón?
+
+### Con los no reactivados
+
+**1. Elimínalos de tu lista activa**
+
+```
+Acción: Dar de baja automáticamente
+
+O
+
+Acción: Mover a lista "Suprimidos - No Contactar"
+```
+
+**2. Guárdalos en lista separada (opcional)**
+
+Para intentos futuros (6-12 meses después):
+
+```
+Lista: "Inactivos - Reintento Anual"
+Uso: Una vez al año, email de "última última oportunidad"
+```
+
+**3. Analiza patrones**
+
+¿Por qué se fueron?
+
+```
+Segmenta los no reactivados:
+  - Por ciudad (¿eventos no relevantes geográficamente?)
+  - Por género favorito (¿lineup no interesante?)
+  - Por edad (¿mensaje no resuena?)
+  - Por fecha de alta (¿se fueron todos de cierta campaña?)
+```
+
+## Mejores prácticas
+
+### 1. Honestidad ante todo
+
+```
+✅ "Notamos que no abres nuestros emails"
+✅ "Entendemos si ya no te interesa"
+✅ "Te eliminaremos si no respondes"
+
+❌ "¡Te hemos extrañado!" (falso entusiasmo)
+❌ "Oferta especial solo para ti" (mentira, es para 5,000)
+❌ "No querrás perderte esto" (manipulación)
+```
+
+### 2. Respeta la decisión
+
+Si alguien no responde tras 3 intentos, **déjalo ir**:
+
+```
+❌ Intentar reenganche cada mes
+❌ Cambiar subject para "engañar" apertura
+❌ Seguir enviando pese a 0 engagement
+
+✅ Eliminar de lista tras 3 intentos
+✅ Ofrecer resubscripción fácil en futuro
+✅ Mejorar para que nuevos fans no se vayan
+```
+
+### 3. Limita incentivos
+
+No acostumbres a fans a solo abrir cuando hay descuento:
+
+```
+✅ Incentivo moderado:
+  - 15-25% descuento
+  - Válido 30 días
+  - Solo para reenganche
+
+❌ Incentivo excesivo:
+  - 50% descuento
+  - Válido solo 48h
+  - "La mejor oferta de la historia"
+```
+
+### 4. Frecuencia de campañas
+
+No hagas reenganche constantemente:
+
+```
+✅ 1-2 veces al año máximo
+✅ Solo cuando el segmento es &gt;10% de tu lista
+✅ Tras eventos importantes sin respuesta
+
+❌ Cada mes
+❌ Inmediatamente tras 30 días de inactividad
+❌ Más de 3 intentos por fan
+```
+
+## Prevención: Evita la inactividad
+
+Mejor que reenganche es prevenir la salida:
+
+### 1. Onboarding fuerte
+
+Primeros 30 días son críticos:
+
+```
+Secuencia de bienvenida (7 días):
+  Día 0: Email bienvenida + qué esperar
+  Día 2: Presenta tu marca y valores
+  Día 5: Próximos eventos
+  Día 7: Oferta especial primer evento
+```
+
+### 2. Preferencias de comunicación
+
+Deja que fans elijan frecuencia:
+
+```
+Preferencias:
+  □ Todos los emails (2-3 por semana)
+  □ Solo eventos importantes (1 por semana)
+  □ Solo mi género favorito
+  □ Solo mi ciudad
+```
+
+### 3. Monitoreo de engagement
+
+Crea alerta cuando engagement baja:
+
+```
+Segmento: "At Risk"
+  - No abre últimos 5 emails
+  - Antes era engaged (abrió &gt;50% de emails)
+
+Acción: Email personalizado antes de perderlo
+```
+
+## Próximos pasos
+
+- [Reenviar a no abiertos](/campaigns/resend-unopened) - Táctica de corto plazo para una campaña
+- [A/B testing](/campaigns/ab-testing) - Optimiza tus emails para evitar inactividad
+- [Casos de uso de segmentación](/audience/motor-segmentacion/casos-uso) - Segmenta mejor para mayor relevancia

@@ -138,6 +138,18 @@ export default defineConfig({
 							slug: 'campaigns/personalization'
 						},
 						{
+							label: 'A/B testing de campañas',
+							slug: 'campaigns/ab-testing'
+						},
+						{
+							label: 'Reenviar a no abiertos',
+							slug: 'campaigns/resend-unopened'
+						},
+						{
+							label: 'Campaña de reenganche',
+							slug: 'campaigns/reengagement'
+						},
+						{
 							label: 'Campañas de SMS',
 							slug: 'campaigns/sms-campaigns'
 						},
