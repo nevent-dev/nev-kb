@@ -5,8 +5,10 @@ sidebar:
   order: 6
 ---
 
-<script type="application/ld+json">
-{`{
+import Schema from '../../../../components/Schema.astro';
+import { Aside } from '@astrojs/starlight/components';
+
+<Schema>{`{
   "@context": "https://schema.org",
   "@graph": [
     {
@@ -54,10 +56,7 @@ sidebar:
       ]
     }
   ]
-}`}
-</script>
-
-import { Aside } from '@astrojs/starlight/components';
+}`}</Schema>
 
 # Casos de Uso Prácticos
 

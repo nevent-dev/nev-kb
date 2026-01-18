@@ -8,8 +8,10 @@ sidebar:
     variant: tip
 ---
 
-<script type="application/ld+json">
-{
+import Schema from '../../../../components/Schema.astro';
+import { CardGrid, LinkCard, Aside } from '@astrojs/starlight/components';
+
+<Schema>{`{
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
@@ -26,10 +28,7 @@ sidebar:
       "item": "https://docs.nevent.com/audience/motor-segmentacion"
     }
   ]
-}
-</script>
-
-import { CardGrid, LinkCard, Aside } from '@astrojs/starlight/components';
+}`}</Schema>
 
 # Motor de Segmentación de Nevent
 

@@ -5,8 +5,10 @@ sidebar:
   order: 5
 ---
 
-<script type="application/ld+json">
-{
+import Schema from '../../../../components/Schema.astro';
+import { Aside } from '@astrojs/starlight/components';
+
+<Schema>{`{
   "@context": "https://schema.org",
   "@type": "HowTo",
   "name": "Cómo Hacer A/B Testing con Grupos en Nevent",
@@ -61,11 +63,9 @@ sidebar:
       "text": "Identifica el grupo ganador (mejor performance en tu métrica objetivo) y aplica esa variante a futuras campañas. Si fue un test piloto con 10%, ahora envía la versión ganadora al 90% restante."
     }
   ]
-}
-</script>
+}`}</Schema>
 
-<script type="application/ld+json">
-{
+<Schema>{`{
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
@@ -88,10 +88,7 @@ sidebar:
       "item": "https://docs.nevent.com/audience/motor-segmentacion/grupos"
     }
   ]
-}
-</script>
-
-import { Aside } from '@astrojs/starlight/components';
+}`}</Schema>
 
 # Grupos & A/B Testing
 

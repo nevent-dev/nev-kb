@@ -8,8 +8,10 @@ sidebar:
     variant: note
 ---
 
-<script type="application/ld+json">
-{
+import Schema from '../../../../components/Schema.astro';
+import { Aside } from '@astrojs/starlight/components';
+
+<Schema>{`{
   "@context": "https://schema.org",
   "@type": "HowTo",
   "name": "Cómo Implementar Análisis RFM con Modificadores en Nevent",
@@ -58,11 +60,9 @@ sidebar:
       "text": "Usa preview para ver el tamaño del segmento. Si es muy pequeño o muy grande, ajusta los umbrales: cambia días de recencia (30, 60, 90, 180), número de eventos en frecuencia (2, 3, 5, 8, 10) o monto de gasto (100€, 200€, 500€). Itera hasta obtener segmento de tamaño óptimo."
     }
   ]
-}
-</script>
+}`}</Schema>
 
-<script type="application/ld+json">
-{
+<Schema>{`{
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
@@ -85,10 +85,7 @@ sidebar:
       "item": "https://docs.nevent.com/audience/motor-segmentacion/modificadores-rfm"
     }
   ]
-}
-</script>
-
-import { Aside } from '@astrojs/starlight/components';
+}`}</Schema>
 
 # Modificadores & Análisis RFM
 

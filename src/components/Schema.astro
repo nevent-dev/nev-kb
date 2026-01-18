@@ -1,0 +1,5 @@
+---
+const html = await Astro.slots.render('default');
+---
+
+<script type="application/ld+json" set:html={html} />
