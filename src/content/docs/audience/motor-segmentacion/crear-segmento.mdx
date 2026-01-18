@@ -1,61 +1,88 @@
 ---
-title: Crear Segmentos de Fans - Tutorial Nevent 2025
-description: Crea segmentos de asistentes a festivales en 5 minutos: tutorial paso a paso con ejemplos reales. Filtra por RFM, temperatura y comportamiento para vender entradas VIP.
+title: "Crear Segmentos de Fans - Tutorial Nevent 2025"
+description: "Crea segmentos de asistentes a festivales en 5 minutos: tutorial paso a paso con ejemplos reales. Filtra por RFM, temperatura y comportamiento para vender entradas VIP."
 sidebar:
   order: 2
 ---
 
 <script type="application/ld+json">
-{
+{`{
   "@context": "https://schema.org",
-  "@type": "HowTo",
-  "name": "Cómo Crear un Segmento de Asistentes a Festivales",
-  "description": "Guía paso a paso para crear segmentos de audiencia de compradores de entradas y asistentes a eventos en Nevent",
-  "totalTime": "PT5M",
-  "tool": {
-    "@type": "SoftwareApplication",
-    "name": "Nevent",
-    "applicationCategory": "Marketing Automation"
-  },
-  "step": [
+  "@graph": [
     {
-      "@type": "HowToStep",
-      "position": 1,
-      "name": "Elige una Categoría",
-      "text": "Decide qué tipo de información quieres usar para filtrar: Asistencia (eventos, artistas, géneros), Atributos del Fan (edad, ubicación, idioma), Consumo (compras, gasto), Interacción (emails, clics), Canales (app móvil, redes sociales) o Nevent Score (nivel de engagement)."
+      "@type": "HowTo",
+      "name": "Cómo Crear un Segmento de Asistentes a Festivales",
+      "description": "Guía paso a paso para crear segmentos de audiencia de compradores de entradas y asistentes a eventos en Nevent",
+      "totalTime": "PT5M",
+      "tool": {
+        "@type": "SoftwareApplication",
+        "name": "Nevent",
+        "applicationCategory": "Marketing Automation"
+      },
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Elige una Categoría",
+          "text": "Decide qué tipo de información quieres usar para filtrar: Asistencia (eventos, artistas, géneros), Atributos del Fan (edad, ubicación, idioma), Consumo (compras, gasto), Interacción (emails, clics), Canales (app móvil, redes sociales) o Nevent Score (nivel de engagement)."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Selecciona un Criterio",
+          "text": "Dentro de cada categoría, elige el filtro específico que necesitas. Por ejemplo, en Asistencia puedes elegir ciudad del evento, evento específico, tipo de entrada, fecha de compra, número de eventos asistidos o artista favorito."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Define el Operador",
+          "text": "Decide cómo quieres comparar ese valor: Es igual a, Mayor que, Contiene, Entre, En los últimos días, etc. Por ejemplo: Ciudad es Barcelona, Edad mayor que 25, Email contiene @gmail.com."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Ingresa el Valor",
+          "text": "Escribe o selecciona el valor específico que buscas. Para criterios como ciudades, eventos o artistas, Nevent te muestra un buscador con sugerencias automáticas basadas en tus datos reales."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Combina Filtros (Opcional)",
+          "text": "Combina múltiples filtros con lógica Y/O. Ejemplo: Ciudad es Madrid Y Edad mayor que 25. O usa grupos para lógica compleja: (Madrid O Barcelona O Valencia) Y (Eventos >= 2)."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "Previsualiza",
+          "text": "Antes de guardar, ve cuántos fans cumplen tus criterios. La preview muestra número estimado de fans, ejemplos de 10-20 perfiles reales, distribución geográfica y distribución por temperatura Nevent."
+        }
+      ]
     },
     {
-      "@type": "HowToStep",
-      "position": 2,
-      "name": "Selecciona un Criterio",
-      "text": "Dentro de cada categoría, elige el filtro específico que necesitas. Por ejemplo, en Asistencia puedes elegir ciudad del evento, evento específico, tipo de entrada, fecha de compra, número de eventos asistidos o artista favorito."
-    },
-    {
-      "@type": "HowToStep",
-      "position": 3,
-      "name": "Define el Operador",
-      "text": "Decide cómo quieres comparar ese valor: Es igual a, Mayor que, Contiene, Entre, En los últimos días, etc. Por ejemplo: Ciudad es Barcelona, Edad mayor que 25, Email contiene @gmail.com."
-    },
-    {
-      "@type": "HowToStep",
-      "position": 4,
-      "name": "Ingresa el Valor",
-      "text": "Escribe o selecciona el valor específico que buscas. Para criterios como ciudades, eventos o artistas, Nevent te muestra un buscador con sugerencias automáticas basadas en tus datos reales."
-    },
-    {
-      "@type": "HowToStep",
-      "position": 5,
-      "name": "Combina Filtros (Opcional)",
-      "text": "Combina múltiples filtros con lógica Y/O. Ejemplo: Ciudad es Madrid Y Edad mayor que 25. O usa grupos para lógica compleja: (Madrid O Barcelona O Valencia) Y (Eventos >= 2)."
-    },
-    {
-      "@type": "HowToStep",
-      "position": 6,
-      "name": "Previsualiza",
-      "text": "Antes de guardar, ve cuántos fans cumplen tus criterios. La preview muestra número estimado de fans, ejemplos de 10-20 perfiles reales, distribución geográfica y distribución por temperatura Nevent."
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://docs.nevent.com"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Motor de Segmentación",
+          "item": "https://docs.nevent.com/audience/motor-segmentacion"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Cómo Crear un Segmento",
+          "item": "https://docs.nevent.com/audience/motor-segmentacion/crear-segmento"
+        }
+      ]
     }
   ]
-}
+}`}
 </script>
 
 import { Aside } from '@astrojs/starlight/components';
