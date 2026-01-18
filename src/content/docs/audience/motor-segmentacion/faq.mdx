@@ -1,0 +1,451 @@
+---
+title: FAQ Segmentación de Asistentes a Festivales | Nevent
+description: Preguntas frecuentes sobre segmentación de compradores de entradas. Temperatura Nevent, grupos, exportación y deliverability de emails.
+sidebar:
+  order: 8
+---
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Cuántos filtros puedo combinar?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No hay límite técnico, pero la recomendación práctica es: campañas simples 2-4 filtros, campañas segmentadas 5-8 filtros, campañas ultra específicas 10+ filtros. Más filtros = audiencia más pequeña y específica."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Los segmentos se actualizan automáticamente?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí, los segmentos son dinámicos por defecto. Cada vez que ejecutas una campaña, Nevent recalcula quién cumple los criterios en ese momento. Puedes guardar segmentos estáticos (frozen) que congelen la lista en un momento específico."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Puedo guardar un segmento estático (frozen)?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí, al guardar el segmento puedes elegir dinámico (recomendado) que se actualiza automáticamente, o estático que congela la lista de fans en ese momento exacto. Útil para estudios de cohortes, campañas multi-paso y análisis histórico."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Puedo exportar mi segmento?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí, puedes exportar la lista de fans a CSV para análisis externo, importar a otras plataformas, reportes para stakeholders o backup. El export incluye nombre, email, teléfono y campos básicos."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cómo sé si mi segmento es demasiado pequeño?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Guía rápida: menos de 50 fans es muy pequeño (considera ampliar), 50-200 pequeño (OK para ofertas exclusivas), 200-1000 medio (ideal para segmentación), 1000-10000 grande (óptimo para campañas), más de 10000 muy grande (considera sub-segmentar)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué pasa si un fan cumple múltiples segmentos?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Recibirá múltiples emails si está en múltiples campañas activas. Para evitarlo: usa exclusiones (no recibió email en últimos 7 días), planifica calendario espaciando campañas, prioriza segmentos o usa fatigue filters."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Puedo ver qué fans están en mi segmento antes de enviar?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí, la función Preview te muestra número total estimado, lista de 10-50 fans de ejemplo con perfiles completos, distribución geográfica y distribución por temperatura Nevent. Úsala para validar antes de ejecutar."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Los segmentos afectan el deliverability?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Indirectamente sí. Segmentos bien hechos mejoran deliverability: fans engaged abren más (mejor sender reputation), menos spam complaints, mensajes relevantes (menos unsubscribes) y open rate alto. Segmentos mal hechos lo empeoran con bajo open rate, sobre-contacto y mensajes irrelevantes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Puedo combinar segmentos existentes?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No directamente, pero puedes replicar la lógica. Ver los filtros del Segmento A y Segmento B, luego crear Segmento C que combine ambos con lógica Y/O."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué es la Temperatura Nevent exactamente?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Es un score predictivo (0-100) que Nevent calcula automáticamente basado en frecuencia de asistencia, recencia de compras, gasto total, engagement con emails, interacción con la plataforma y velocidad de compra. La escala va de Congelado (0-16) a Muy Caliente (84-100)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Puedo crear mis propios criterios personalizados?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí, a través de campos personalizados. Creas un campo, asignas valores a tus fans, usas el criterio 'Campo personalizado' en segmentación y filtras por ese campo y valor."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Los grupos cambian con el tiempo?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Un fan siempre estará en el mismo grupo. La asignación se basa en un hash del user_id, que es determinístico y permanente. Esto es crucial para consistencia en tests A/B de largo plazo."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Puedo seleccionar múltiples grupos para una campaña?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí. Puedes enviar a un solo grupo, rango de grupos o grupos específicos. Por ejemplo: Semana 1 envía a Grupo 1 (test piloto), Semana 2 envía a Grupos 2-10 (rollout completo)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuánto tarda en calcularse un segmento grande?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Depende del tamaño y complejidad. Menos de 10K fans con filtros simples: menos de 1 segundo preview. 100K-500K fans con filtros complejos: 3-8 segundos preview, 45-90 segundos ejecución completa. Más de 500K: 10-15 segundos preview, 2-5 minutos ejecución."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Los segmentos consumen créditos o tienen costo?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. La creación y ejecución de segmentos es ilimitada y gratuita. Solo pagas por emails enviados, SMS enviados y push notifications según tu plan."
+      }
+    }
+  ]
+}
+</script>
+
+import { Aside } from '@astrojs/starlight/components';
+
+# Preguntas Frecuentes
+
+Respuestas rápidas a las dudas más comunes sobre segmentación de asistentes a festivales, clubs y eventos.
+
+---
+
+## General
+
+### ¿Cuántos filtros puedo combinar?
+
+**Respuesta**: No hay límite técnico, pero la recomendación práctica es:
+
+- **Campañas simples**: 2-4 filtros
+- **Campañas segmentadas**: 5-8 filtros
+- **Campañas ultra específicas**: 10+ filtros
+
+Más filtros = audiencia más pequeña y específica.
+
+<Aside type="tip">
+Empieza con 2-3 filtros. Si tu audiencia es demasiado grande, ve agregando más criterios.
+</Aside>
+
+---
+
+### ¿Los segmentos se actualizan automáticamente?
+
+**Respuesta**: Sí, los segmentos son **dinámicos** por defecto.
+
+Cada vez que ejecutas una campaña, Nevent recalcula quién cumple los criterios en ese momento.
+
+**Ejemplo:**
+- **Hoy**: Creas segmento "Temperatura Caliente" → 1,000 fans
+- **Mañana**: 50 nuevos fans se vuelven "Calientes"
+- **Ejecutas campaña**: Se envía a 1,050 fans (los actuales)
+
+**Excepción**: Puedes guardar segmentos "estáticos" (frozen) que congelen la lista en un momento específico.
+
+---
+
+### ¿Puedo guardar un segmento "estático" (frozen)?
+
+**Respuesta**: Sí, al guardar el segmento puedes elegir:
+
+- **Dinámico** (recomendado): Se actualiza automáticamente
+- **Estático**: Congela la lista de fans en ese momento exacto
+
+**Cuándo usar segmentos estáticos:**
+- Estudios de cohortes (seguimiento longitudinal del mismo grupo)
+- Campañas multi-paso donde necesitas consistencia
+- Análisis histórico ("Fans que asistieron a Festival 2024")
+- Compliance (conservar quién dio consent en fecha X)
+
+---
+
+### ¿Puedo exportar mi segmento?
+
+**Respuesta**: Sí, puedes exportar la lista de fans a **CSV** para:
+
+- Análisis externo (Excel, Google Sheets)
+- Importar a otras plataformas
+- Reportes para stakeholders
+- Backup
+
+**El export incluye**: Nombre, email, teléfono, y campos básicos.
+
+<Aside type="caution" title="GDPR">
+Solo exporta fans que dieron consentimiento y usa los datos responsablemente según la ley de protección de datos.
+</Aside>
+
+---
+
+### ¿Cómo sé si mi segmento es demasiado pequeño?
+
+**Respuesta**: Guía rápida por tipo de campaña:
+
+| Tamaño | Evaluación | Acción |
+|--------|------------|--------|
+| < 50 | Muy pequeño | ⚠️ Considera ampliar |
+| 50-200 | Pequeño | ✅ OK para ofertas exclusivas |
+| 200-1,000 | Medio | ✅ Ideal para segmentación |
+| 1,000-10,000 | Grande | ✅ Óptimo para campañas |
+| \> 10,000 | Muy grande | ⚠️ Considera sub-segmentar |
+
+**Excepción**: Si tu base total es pequeña (< 500 fans), un segmento de 30-50 puede ser razonable.
+
+---
+
+## Comportamiento y Lógica
+
+### ¿Qué pasa si un fan cumple múltiples segmentos?
+
+**Respuesta**: Recibirá **múltiples emails** si está en múltiples campañas activas.
+
+**Cómo evitarlo:**
+
+1. **Usa exclusiones**: "No recibió email en últimos 7 días"
+2. **Planifica calendario**: Espacía tus campañas
+3. **Prioriza segmentos**: Define jerarquía (VIPs primero, luego generales)
+4. **Usa fatigue filters**: Nevent puede limitar automáticamente emails por fan/semana
+
+---
+
+### ¿Puedo ver qué fans están en mi segmento antes de enviar?
+
+**Respuesta**: Sí, la función **Preview** te muestra:
+
+- Número total estimado
+- Lista de 10-50 fans de ejemplo con perfiles completos
+- Distribución geográfica (si aplica)
+- Distribución por temperatura Nevent
+
+Usa esto para **validar** antes de ejecutar y asegurarte que el segmento tiene sentido.
+
+---
+
+### ¿Los segmentos afectan el deliverability?
+
+**Respuesta**: Indirectamente, **sí**.
+
+**Segmentos bien hechos mejoran deliverability:**
+- ✅ Fans engaged abren más → mejor sender reputation
+- ✅ Menos spam complaints → ISPs confían en ti
+- ✅ Mensajes relevantes → menos unsubscribes
+- ✅ Open rate alto → Gmail/Outlook te priorizan
+
+**Segmentos mal hechos empeoran deliverability:**
+- ❌ Enviar a fans inactivos → bajo open rate → spam folder
+- ❌ Sobre-contactar → spam complaints
+- ❌ Mensajes irrelevantes → unsubscribes
+- ❌ Audiencia fría → engagement bajo
+
+**Conclusión**: Segmentación efectiva es **clave** para buen deliverability.
+
+---
+
+### ¿Puedo combinar segmentos existentes?
+
+**Respuesta**: No directamente, pero puedes replicar la lógica:
+
+**Proceso:**
+1. Ver los filtros del **Segmento A**
+2. Ver los filtros del **Segmento B**
+3. Crear **Segmento C** que combine ambos con lógica Y/O
+
+**Ejemplo:**
+- **Segmento A**: "Fans de Barcelona"
+- **Segmento B**: "VIPs con gasto > 500€"
+- **Segmento C nuevo**: "Fans de Barcelona **Y** VIPs con gasto > 500€"
+
+---
+
+## Criterios y Categorías
+
+### ¿Qué es la "Temperatura Nevent" exactamente?
+
+**Respuesta**: Es un **score predictivo** (0-100) que Nevent calcula automáticamente para cada fan basado en:
+
+- Frecuencia de asistencia a eventos
+- Recencia de compras
+- Gasto total histórico
+- Engagement con emails (aperturas, clics)
+- Interacción con la plataforma
+- Velocidad de compra (early bird vs last minute)
+
+**Escala:**
+- 🔥 **Muy Caliente** (84-100): Super fans ultra engaged
+- 🔥 **Caliente** (67-83): Fans muy activos
+- 🌡️ **Templado** (51-66): Engagement moderado
+- ❄️ **Frío** (34-50): Engagement bajo
+- ❄️ **Muy Frío** (17-33): Poco engagement
+- 🧊 **Congelado** (0-16): Inactivos o muy nuevos
+
+**Uso práctico:**
+- 🔥 **Muy Caliente**: Target para VIP y exclusivas
+- 🌡️ **Templado**: Mayoría de campañas generales
+- ❄️ **Frío**: Campañas de reactivación y win-back
+
+<Aside type="note">
+No necesitas entender el algoritmo. Solo interpreta la temperatura como "qué tan probable es que este fan compre/engage".
+</Aside>
+
+---
+
+### ¿Puedo crear mis propios criterios personalizados?
+
+**Respuesta**: Sí, a través de **campos personalizados**.
+
+**Cómo funciona:**
+1. Creas un campo personalizado (ej: "Tipo de Cliente")
+2. Asignas valores a tus fans (ej: "Empresa", "Individual", "Prensa")
+3. Usas el criterio "Campo personalizado" en segmentación
+4. Filtras por `Campo = "Tipo de Cliente"` y `Valor = "Empresa"`
+
+**Ejemplos de campos personalizados útiles:**
+- Tier de fidelidad (Bronze, Silver, Gold, Platinum)
+- Industria (Tech, Finance, Healthcare)
+- Origen de adquisición (Facebook, Google, Referral)
+- Customer Success Manager asignado
+
+---
+
+### No encuentro el criterio que busco, ¿qué hago?
+
+**Posibles razones:**
+
+1. **Está en otra categoría**: Ej: buscar "Ciudad" en Consumo en vez de Atributos del Fan
+2. **No está sincronizado aún**: El campo no se ha importado desde tu ticketera
+3. **Necesitas campo personalizado**: Tienes que crearlo manualmente
+4. **No existe**: La funcionalidad no está disponible aún
+
+**Solución:**
+- Revisa la [referencia completa de categorías](/audience/motor-segmentacion/categorias)
+- Contacta a soporte: soporte@nevent.com
+- Solicita nuevos criterios (roadmap de producto)
+
+---
+
+## Grupos y Testing
+
+### ¿Los grupos cambian con el tiempo?
+
+**Respuesta**: **No**. Un fan siempre estará en el mismo grupo.
+
+La asignación de grupo se basa en un hash del `user_id`, que es **determinístico** y **permanente**.
+
+**Ejemplo**: Si hoy Fan X está en Grupo 5 de 10, en 6 meses seguirá en Grupo 5.
+
+Esto es crucial para **consistencia** en tests A/B de largo plazo.
+
+---
+
+### ¿Puedo seleccionar múltiples grupos para una campaña?
+
+**Respuesta**: Sí. Puedes enviar a:
+
+- **Un solo grupo**: Grupo 1
+- **Rango de grupos**: Grupos 1-5
+- **Grupos específicos**: Grupos 1, 3, 7, 9
+
+**Ejemplo de uso:**
+```
+Semana 1: Envía a Grupo 1 (test piloto)
+Semana 2: Si funciona, envía a Grupos 2-10 (rollout completo)
+```
+
+---
+
+### ¿Cómo divido 13,456 fans en 10 grupos?
+
+**Respuesta**: Nevent lo hace **automáticamente** con distribución balanceada:
+
+- Grupos 1-6: ~1,346 fans cada uno
+- Grupos 7-10: ~1,345 fans cada uno
+
+La diferencia es mínima (±1 fan). El algoritmo garantiza balance.
+
+---
+
+### ¿Puedo ver qué fans están en cada grupo?
+
+**Respuesta**: Sí, en la **preview del segmento** puedes:
+
+1. Seleccionar un grupo específico (ej: Grupo 3)
+2. Ver la lista completa de fans en ese grupo
+3. Exportar ese grupo a CSV si necesitas
+
+---
+
+
+## Performance y Técnico
+
+### ¿Cuánto tarda en calcularse un segmento grande?
+
+**Respuesta**: Depende del tamaño y complejidad:
+
+| Tamaño Base | Complejidad | Tiempo Preview | Tiempo Ejecución Completa |
+|-------------|-------------|----------------|---------------------------|
+| < 10K fans | Simple (2-3 filtros) | < 1 seg | 5-10 seg |
+| 10K-100K | Media (5-7 filtros) | 1-3 seg | 15-30 seg |
+| 100K-500K | Compleja (10+ filtros) | 3-8 seg | 45-90 seg |
+| \> 500K | Muy compleja | 10-15 seg | 2-5 min |
+
+**Preview** usa sampling para ser ultra rápido (P95 < 2 seg).
+**Ejecución completa** procesa todos los fans para el envío.
+
+---
+
+### ¿Los segmentos consumen créditos o tienen costo?
+
+**Respuesta**: **No**. La creación y ejecución de segmentos es **ilimitada y gratuita**.
+
+Solo pagas por:
+- Emails enviados
+- SMS enviados
+- Push notifications (según tu plan)
+
+Puedes crear, editar, previsualizar y ejecutar segmentos sin límite.
+
+---
+
+## 🔗 Más Ayuda
+
+¿No encontraste tu respuesta?
+
+- 📖 [Volver a Introducción](./index)
+- 📚 [Ver Casos de Uso](./casos-uso)
+- 💬 Contacta a soporte: soporte@nevent.com
+
+---
+
+**¿Listo para dominar la segmentación?** 🎯
+
+[Vuelve al Motor de Segmentación: guía completa con 6 categorías y RFM →](./index)

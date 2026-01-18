@@ -1,0 +1,343 @@
+---
+title: Operadores AND/OR para Segmentar Fans - Guía Nevent
+description: Combina filtros con lógica Y/O para crear audiencias ultra específicas: aprende 12 operadores y casos de uso reales para segmentar compradores VIP y aumentar conversión.
+sidebar:
+  order: 4
+---
+
+import { Tabs, TabItem, Aside } from '@astrojs/starlight/components';
+
+# Operadores & Lógica Y/O
+
+Combinar filtros para venta de entradas: los operadores te dicen a Nevent cómo comparar cada criterio de asistentes. La lógica Y/O te permite combinar múltiples filtros para crear audiencias súper específicas de compradores de entradas para festivales y eventos.
+
+---
+
+## Operadores: Cómo Comparar Valores
+
+<Tabs>
+  <TabItem label="Texto" icon="document">
+
+### Para Texto (Nombres, Emails, Ciudades)
+
+| Operador | Ejemplo | Cuándo Usarlo |
+|----------|---------|---------------|
+| **Es igual a** | Ciudad es "Barcelona" | Coincidencia exacta |
+| **No es igual a** | Ciudad no es "Madrid" | Excluir una opción |
+| **Contiene** | Email contiene "@gmail.com" | Buscar dentro del texto |
+| **No contiene** | Nombre no contiene "Test" | Excluir registros de prueba |
+| **Empieza con** | Código postal empieza con "28" | Filtrar por prefijo |
+| **Termina con** | Email termina con "@empresa.com" | Filtrar por sufijo/dominio |
+| **Tiene valor** | Teléfono tiene valor | Campo no está vacío |
+| **Está vacío** | Teléfono está vacío | Campo sin completar |
+
+  </TabItem>
+
+  <TabItem label="Números" icon="list">
+
+### Para Números (Edad, Gasto, Cantidad)
+
+| Operador | Ejemplo | Cuándo Usarlo |
+|----------|---------|---------------|
+| **Es igual a** | Edad es 25 | Coincidencia exacta |
+| **No es igual a** | Edad no es 18 | Excluir valor específico |
+| **Mayor que** | Gasto mayor que 200€ | Por encima de un umbral |
+| **Mayor o igual** | Edad mayor o igual que 18 | Incluye el valor mínimo |
+| **Menor que** | Eventos asistidos menor que 2 | Fans nuevos |
+| **Menor o igual** | Gasto menor o igual que 50€ | Fans de bajo ticket |
+| **Entre** | Edad entre 25 y 35 | Rango específico |
+
+<Aside type="tip">
+Para montos de dinero, Nevent trabaja internamente en **céntimos**. El sistema te muestra euros pero almacena como céntimos para precisión.
+</Aside>
+
+  </TabItem>
+
+  <TabItem label="Fechas" icon="calendar">
+
+### Para Fechas (Compras, Eventos, Nacimientos)
+
+| Operador | Ejemplo | Cuándo Usarlo |
+|----------|---------|---------------|
+| **Antes de** | Compra antes del 1 Enero 2024 | Fans históricos |
+| **Después de** | Compra después del 1 Mayo 2025 | Fans recientes |
+| **En los últimos X días** | Compra en los últimos 30 días | Actividad reciente |
+| **Hace más de X días** | Sin compra hace más de 90 días | Fans inactivos |
+| **Entre fechas** | Evento entre Jun-Sep 2025 | Temporada específica |
+| **Es igual a** | Fecha de evento es 15-Ago-2025 | Día exacto |
+
+<Aside type="note">
+Los operadores de "últimos X días" y "hace más de X días" son **dinámicos**: se calculan cada vez que ejecutas el segmento basándose en la fecha actual.
+</Aside>
+
+  </TabItem>
+
+  <TabItem label="Sí/No" icon="approve">
+
+### Para Booleanos (Sí/No, True/False)
+
+| Operador | Ejemplo | Cuándo Usarlo |
+|----------|---------|---------------|
+| **Es verdadero** | App descargada es Sí | Tiene la característica |
+| **Es falso** | Instagram conectado es No | No tiene la característica |
+
+
+  </TabItem>
+</Tabs>
+
+---
+
+## Lógica Y/O: Combinando Filtros
+
+### AND (Y) - Todos los filtros deben cumplirse
+
+Piensa en AND como requisitos **obligatorios**. El fan debe cumplir **TODAS** las condiciones.
+
+**Ejemplo 1: Early Bird VIP Local**
+```
+Filtro 1: Ciudad de residencia es "Madrid"
+Y
+Filtro 2: Días de antelación mayor que 30
+Y
+Filtro 3: Gasto total mayor que 500€
+```
+
+**Resultado**: Solo fans que cumplen LAS 3 condiciones → Audiencia muy específica y calificada.
+
+**Visualización:**
+```
+[Madrid] ∩ [Early Bird] ∩ [VIP] = Segmento Final
+```
+
+---
+
+### OR (O) - Al menos uno de los filtros debe cumplirse
+
+Usa OR para **expandir** tu audiencia con opciones alternativas. El fan solo necesita cumplir UNA de las condiciones.
+
+**Ejemplo 2: Tour Multi-Ciudad**
+```
+Filtro 1: Ciudad es "Madrid"
+O
+Filtro 2: Ciudad es "Barcelona"
+O
+Filtro 3: Ciudad es "Valencia"
+```
+
+**Resultado**: Fans de CUALQUIERA de las tres ciudades → Audiencia más amplia.
+
+**Visualización:**
+```
+[Madrid] ∪ [Barcelona] ∪ [Valencia] = Segmento Final
+```
+
+---
+
+### Combinaciones Avanzadas: Grupos
+
+El verdadero poder viene de **combinar** AND y OR usando **grupos**.
+
+**Concepto clave:**
+- **Dentro de un grupo**: los filtros se unen con **OR**
+- **Entre grupos**: se unen con **AND**
+
+**Ejemplo 3: Campaña de Reactivación Geográfica**
+
+```
+GRUPO A (Ubicación) - Al menos UNO:
+  - Provincia es "Barcelona"
+  O
+  - Provincia es "Tarragona"
+  O
+  - Provincia es "Girona"
+  O
+  - Provincia es "Lleida"
+
+      Y (entre grupos)
+
+GRUPO B (Engagement) - TODOS:
+  - Temperatura Nevent es "Frío"
+  Y
+  - Sin compra hace más de 180 días
+```
+
+**Lógica Final:**
+```
+(Barcelona OR Tarragona OR Girona OR Lleida)
+AND
+(Temperatura Fría AND Sin compra > 180 días)
+```
+
+**Resultado**: Fans inactivos de Cataluña.
+
+---
+
+## 📊 Ejemplos Visuales
+
+### Ejemplo Simple con 2 Filtros
+
+**Caso**: Jóvenes de Madrid
+
+```
+┌─────────────────┐
+│ Edad 18-35      │ ──┐
+└─────────────────┘   │
+                       ├── AND ──> [Resultado: 1,234 fans]
+┌─────────────────┐   │
+│ Ciudad = Madrid │ ──┘
+└─────────────────┘
+```
+
+### Ejemplo Medio con Grupos
+
+**Caso**: Fans VIP multi-ciudad
+
+```
+┌──────────────────────────────┐
+│ GRUPO 1: Ubicación           │
+│ ├─ Madrid                    │
+│ ├─ Barcelona       (OR)      │
+│ └─ Valencia                  │
+└──────────────────────────────┘
+              │
+              │ AND
+              │
+┌──────────────────────────────┐
+│ GRUPO 2: VIP Status          │
+│ ├─ Gasto > 500€              │
+│ └─ Eventos >= 3    (AND)     │
+└──────────────────────────────┘
+              │
+              ▼
+       [Resultado: 456 fans]
+```
+
+### Ejemplo Complejo Multi-Grupo
+
+**Caso**: Super Fans Calientes Geolocalizados
+
+```
+GRUPO A: Demografía
+├─ Edad entre 25-40
+└─ (Provincia Madrid OR Barcelona)
+        │
+        │ AND
+        │
+GRUPO B: Comportamiento
+├─ Eventos asistidos >= 5
+├─ Gasto total > 300€
+└─ Compra en últimos 365 días
+        │
+        │ AND
+        │
+GRUPO C: Engagement
+├─ (Temperatura Caliente OR Muy Caliente)
+└─ App móvil descargada = Sí
+        │
+        ▼
+   [Resultado: 234 fans]
+   Super fans engaged y alcanzables
+```
+
+---
+
+## 💡 Tips para Lógica Efectiva
+
+### 1. Empieza con AND, expande con OR
+
+❌ **Mal - Demasiado amplio:**
+```
+Ciudad es Madrid
+O
+Ciudad es Barcelona
+O
+Ciudad es Valencia
+O
+Edad > 18
+O
+Gasto > 0€
+```
+**Resultado**: Básicamente toda tu base de datos.
+
+✅ **Bien - Específico pero escalable:**
+```
+(Ciudad es Madrid O Barcelona O Valencia)
+Y
+(Edad entre 25-40)
+Y
+(Gasto > 100€)
+```
+**Resultado**: Audiencia específica pero razonable.
+
+### 2. Usa Grupos para Categorizar
+
+Agrupa filtros relacionados:
+
+```
+GRUPO "Ubicación": (Madrid O Barcelona O Valencia)
+GRUPO "Demografía": (Edad 25-40 Y Género Femenino)
+GRUPO "Comportamiento": (Eventos >= 2 Y Gasto > 200€)
+```
+
+Esto hace tu segmento más **legible** y **mantenible**.
+
+
+---
+
+## 🎯 Casos de Uso por Complejidad
+
+### Nivel 1: Principiante (1-2 filtros con AND)
+
+```
+Ciudad es "Barcelona"
+```
+**Uso**: Email masivo local
+
+### Nivel 2: Intermedio (1 grupo OR + filtros AND)
+
+```
+(Ciudad es "Madrid" O "Barcelona")
+Y
+Edad entre 25-35
+```
+**Uso**: Campaña demográfica multi-ciudad
+
+### Nivel 3: Avanzado (Múltiples grupos)
+
+```
+GRUPO A: (Madrid O Barcelona O Valencia)
+Y
+GRUPO B: (Eventos >= 3 Y Gasto > 300€)
+Y
+GRUPO C: (Temperatura Caliente O Muy Caliente)
+```
+**Uso**: VIP campaign altamente segmentada
+
+### Nivel 4: Experto (Combinaciones complejas)
+
+```
+GRUPO A: ((Provincia Madrid) O (Provincia Barcelona))
+Y
+GRUPO B: ((Eventos >= 5) Y (Días antelación > 21))
+Y
+GRUPO C: ((Gasto > 500€) O (Temperatura Muy Caliente))
+Y
+GRUPO D: ((Email abierto "Campaign X") Y NO (Evento asistido "Festival X"))
+```
+**Uso**: Recuperación de carrito abandonado para VIPs early bird
+
+---
+
+## 🔗 Próximos Pasos
+
+Ahora que dominas operadores y lógica:
+
+1. **[Aprende sobre Grupos](./grupos)** - A/B testing y envíos progresivos
+2. **[Ve Casos de Uso Reales](./casos-uso)** - Ejemplos completos con lógica avanzada
+3. **[Mejores Prácticas](./mejores-practicas)** - Optimiza tus segmentos
+
+---
+
+**¿Listo para crear segmentos complejos?** 🎯
+
+[Aplica operadores en 6 ejemplos reales: VIPs, early bird, multi-ciudad →](./casos-uso)

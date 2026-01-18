@@ -1,0 +1,312 @@
+---
+title: Crear Segmentos de Fans - Tutorial Nevent 2025
+description: Crea segmentos de asistentes a festivales en 5 minutos: tutorial paso a paso con ejemplos reales. Filtra por RFM, temperatura y comportamiento para vender entradas VIP.
+sidebar:
+  order: 2
+---
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Cómo Crear un Segmento de Asistentes a Festivales",
+  "description": "Guía paso a paso para crear segmentos de audiencia de compradores de entradas y asistentes a eventos en Nevent",
+  "totalTime": "PT5M",
+  "tool": {
+    "@type": "SoftwareApplication",
+    "name": "Nevent",
+    "applicationCategory": "Marketing Automation"
+  },
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Elige una Categoría",
+      "text": "Decide qué tipo de información quieres usar para filtrar: Asistencia (eventos, artistas, géneros), Atributos del Fan (edad, ubicación, idioma), Consumo (compras, gasto), Interacción (emails, clics), Canales (app móvil, redes sociales) o Nevent Score (nivel de engagement)."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Selecciona un Criterio",
+      "text": "Dentro de cada categoría, elige el filtro específico que necesitas. Por ejemplo, en Asistencia puedes elegir ciudad del evento, evento específico, tipo de entrada, fecha de compra, número de eventos asistidos o artista favorito."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "Define el Operador",
+      "text": "Decide cómo quieres comparar ese valor: Es igual a, Mayor que, Contiene, Entre, En los últimos días, etc. Por ejemplo: Ciudad es Barcelona, Edad mayor que 25, Email contiene @gmail.com."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 4,
+      "name": "Ingresa el Valor",
+      "text": "Escribe o selecciona el valor específico que buscas. Para criterios como ciudades, eventos o artistas, Nevent te muestra un buscador con sugerencias automáticas basadas en tus datos reales."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 5,
+      "name": "Combina Filtros (Opcional)",
+      "text": "Combina múltiples filtros con lógica Y/O. Ejemplo: Ciudad es Madrid Y Edad mayor que 25. O usa grupos para lógica compleja: (Madrid O Barcelona O Valencia) Y (Eventos >= 2)."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 6,
+      "name": "Previsualiza",
+      "text": "Antes de guardar, ve cuántos fans cumplen tus criterios. La preview muestra número estimado de fans, ejemplos de 10-20 perfiles reales, distribución geográfica y distribución por temperatura Nevent."
+    }
+  ]
+}
+</script>
+
+import { Aside } from '@astrojs/starlight/components';
+
+# Cómo Crear un Segmento
+
+Cómo crear segmentos de asistentes a festivales con Nevent: el proceso es tan simple como filtrar contactos en tu teléfono, pero infinitamente más poderoso para vender entradas de festivales y eventos.
+
+## Proceso Paso a Paso
+
+### Paso 1: Elige una Categoría
+
+Primero, decide qué tipo de información quieres usar para filtrar:
+
+- **Asistencia**: Eventos, artistas, géneros musicales
+- **Atributos del Fan**: Edad, ubicación, idioma
+- **Consumo**: Compras, gasto total, productos
+- **Interacción**: Emails abiertos, clics, engagement
+- **Canales**: App móvil, redes sociales, verificaciones
+- **Nevent Score®**: Nivel de engagement predictivo
+
+<Aside type="tip">
+**Consejo para principiantes**: Empieza con categorías simples como "Atributos del Fan" (edad, ciudad) antes de avanzar a comportamiento complejo.
+</Aside>
+
+### Paso 2: Selecciona un Criterio
+
+Dentro de cada categoría, elige el filtro específico que necesitas.
+
+**Ejemplo**: En la categoría "Asistencia", puedes elegir:
+- Ciudad del evento
+- Evento específico
+- Tipo de entrada
+- Fecha de compra
+- Número de eventos asistidos
+- Artista favorito
+- Y muchos más...
+
+[Explora las 8 categorías de criterios: eventos, gasto, ubicación, temperatura →](./categorias)
+
+### Paso 3: Define el Operador
+
+Decide cómo quieres comparar ese valor:
+
+- **Es igual a**: Ciudad es "Madrid"
+- **Mayor que**: Edad mayor que 25
+- **Contiene**: Email contiene "@gmail.com"
+- **Entre**: Gasto entre 100€ y 500€
+- **En los últimos**: Compra en los últimos 30 días
+
+[Aprende operadores de comparación: es igual, mayor que, contiene, entre fechas →](./operadores-logica)
+
+### Paso 4: Ingresa el Valor
+
+Escribe o selecciona el valor específico que buscas.
+
+**Ejemplo**: Si elegiste "Ciudad del evento" y "es igual a", ahora seleccionas "Barcelona" de la lista.
+
+Puedes combinar múltiples criterios usando operadores AND/OR. Por ejemplo, "VIPs de Barcelona" requiere [combinar gasto Y ubicación con operador AND](./operadores-logica#operador-and).
+
+<Aside type="note">
+Para criterios como ciudades, eventos o artistas, Nevent te muestra un buscador con sugerencias automáticas basadas en tus datos reales.
+</Aside>
+
+### Paso 5: Combina Filtros (Opcional)
+
+Aquí es donde se pone interesante. Puedes combinar múltiples filtros con lógica **Y** / **O**.
+
+**Ejemplo simple con Y:**
+```
+Filtro 1: Ciudad es "Madrid"
+Y
+Filtro 2: Edad mayor que 25
+```
+**Resultado**: Solo fans de Madrid mayores de 25 años.
+
+**Ejemplo con O:**
+```
+Grupo de ciudades:
+  - Ciudad es "Madrid" O
+  - Ciudad es "Barcelona" O
+  - Ciudad es "Valencia"
+```
+**Resultado**: Fans de cualquiera de las tres ciudades.
+
+[Domina la lógica Y/O: combina múltiples criterios con operadores booleanos →](./operadores-logica)
+
+### Paso 6: Previsualiza
+
+Antes de guardar, ve cuántos fans cumplen tus criterios y revisa algunos perfiles de ejemplo.
+
+**La preview te muestra:**
+- Número estimado de fans que califican
+- Ejemplos de 10-20 perfiles reales
+- Distribución geográfica (si aplicable)
+- Distribución por temperatura Nevent
+
+
+---
+
+## 📝 Ejemplo Completo: Primer Segmento
+
+Vamos a crear un segmento juntos paso a paso:
+
+**Objetivo**: Enviar oferta early bird a fans locales que suelen comprar con anticipación.
+
+### Configuración del Segmento
+
+**Nombre del segmento**: "Early Bird Madrid 2025"
+
+**Filtros:**
+
+1. **Grupo A - Ubicación (todos deben cumplirse)**
+   - Criterio: Ciudad de residencia
+   - Operador: Es igual a
+   - Valor: Madrid
+
+2. **Grupo B - Comportamiento de compra (todos deben cumplirse)**
+   - Criterio: Días de antelación promedio
+   - Operador: Mayor que
+   - Valor: 21 días
+
+   Y además:
+
+   - Criterio: Número de eventos asistidos
+   - Operador: Mayor o igual que
+   - Valor: 2
+
+**Lógica combinada:**
+```
+(Ciudad es Madrid)
+Y
+(Días antelación > 21 Y Eventos asistidos >= 2)
+```
+
+**Preview esperado**: ~500-2,000 fans (depende de tu base de datos)
+
+**Resultado**: Fans de Madrid que históricamente compran con anticipación y han ido a múltiples eventos. Audience calificada para ofertas early bird.
+
+---
+
+## ✅ Checklist Antes de Guardar
+
+Antes de ejecutar tu segmento, verifica:
+
+- [ ] ¿El tamaño de la audiencia es razonable? (ni 0 fans ni 100% de tu base)
+- [ ] ¿Los criterios tienen sentido para tu objetivo?
+- [ ] ¿Revisaste la preview de fans de ejemplo?
+- [ ] ¿El nombre del segmento es descriptivo? (ej: "VIP_Madrid_Q1_2025" mejor que "Segmento 1")
+
+---
+
+## 🎯 Tamaños de Audiencia Recomendados
+
+| Tipo de Campaña | Tamaño Ideal | Notas |
+|-----------------|--------------|-------|
+| Email masivo general | 1,000+ fans | Maximiza alcance |
+| Promoción segmentada | 300-1,000 fans | Balance entre especificidad y volumen |
+| Oferta VIP exclusiva | 50-300 fans | Alta calificación, baja cantidad |
+| Test A/B (por variante) | 100+ fans | Necesitas volumen para significancia estadística |
+| Campaña micro-targeting | 20-100 fans | Solo para super fans o eventos boutique |
+
+Si tu segmento tiene:
+- **< 20 fans**: Demasiado específico, considera ampliar
+- **> 50,000 fans**: Muy amplio, considera sub-segmentar para mayor relevancia
+
+---
+
+## 💡 Tips para tu Primer Segmento
+
+### Empieza Simple
+
+❌ **No hagas esto al principio:**
+```
+(Ciudad es "Madrid" O "Barcelona")
+Y (Edad 25-40)
+Y (Eventos >= 3)
+Y (Gasto > 200€)
+Y (Temperatura "Caliente")
+Y (No abrió email en 30 días)
+```
+
+✅ **Haz esto primero:**
+```
+Ciudad es "Madrid"
+```
+
+Mide resultados, aprende, y luego ve agregando complejidad.
+
+### Documenta tus Segmentos
+
+Cuando guardes un segmento, usa un naming convention claro:
+
+- ✅ `VIP_Reactivacion_Madrid_Q1_2025`
+- ✅ `EarlyBird_Festival_Barcelona_Verano`
+- ✅ `Nuevos_Fans_Ultimos_30dias`
+- ❌ `Segmento 1`
+- ❌ `Test xyz`
+- ❌ `Campaign_final_final_v2`
+
+### Guarda Segmentos Exitosos
+
+Si un segmento genera buenos resultados (high open rate, conversion, etc.):
+1. Guárdalo con nombre descriptivo
+2. Documenta qué campaña usaste y los resultados
+3. Reutilízalo en campañas similares
+4. Compártelo con tu equipo
+
+---
+
+## 🐛 Troubleshooting Común
+
+### "Mi segmento tiene 0 fans"
+
+**Causas comunes:**
+- Criterios demasiado restrictivos (muchos filtros con Y)
+- Valor que no existe en tu base de datos (ej: Ciudad "Madri" con typo)
+- Fechas fuera de rango
+
+**Solución**: Elimina filtros uno por uno hasta ver fans en la preview.
+
+### "Mi segmento incluye toda mi base de datos"
+
+**Causas comunes:**
+- Solo usas filtros con O (demasiado amplio)
+- Criterios muy generales (ej: "País es España" sin más filtros)
+
+**Solución**: Agrega más criterios con Y para restringir.
+
+### "No encuentro el criterio que busco"
+
+**Posibles razones:**
+- El criterio existe pero está en otra categoría (ej: buscar "Ciudad" en Consumo en vez de Atributos)
+- El campo no está sincronizado desde tu ticketera aún
+- Necesitas un campo personalizado
+
+**Solución**: Revisa la [referencia completa de categorías](./categorias) o contacta a soporte.
+
+---
+
+## 🔗 Próximos Pasos
+
+Una vez que domines crear segmentos básicos:
+
+1. **[Explora las 6 Categorías](./categorias)** - Descubre todos los criterios disponibles
+2. **[Aprende Lógica Y/O Avanzada](./operadores-logica)** - Crea segmentos complejos
+3. **[Ve Casos de Uso Reales](./casos-uso)** - Inspírate con ejemplos
+4. **[Mejores Prácticas](./mejores-practicas)** - Optimiza tus resultados
+
+---
+
+**¿Listo para crear tu primer segmento?** 🎯
+
+[Ver 6 casos de uso de segmentación para festivales: Early bird, VIPs, reactivación →](./casos-uso)

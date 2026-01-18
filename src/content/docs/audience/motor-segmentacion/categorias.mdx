@@ -1,0 +1,396 @@
+---
+title: 6 Categorías de Segmentación Nevent - Referencia Completa
+description: Referencia completa: 60+ criterios de segmentación para festivales organizados en 6 categorías (Asistencia, Atributos, Consumo, Engagement, Canales, Nevent Score). Con ejemplos.
+sidebar:
+  order: 3
+---
+
+import { Aside, Tabs, TabItem } from '@astrojs/starlight/components';
+
+# Las 6 Categorías de Segmentación
+
+Criterios de segmentación para festivales: Nevent organiza todos los filtros en 6 categorías diseñadas para promotores. Cada categoría te permite filtrar asistentes y compradores de entradas desde una perspectiva diferente: asistencia, demografía, consumo, engagement, canales y Nevent Score predictivo.
+
+---
+
+## 1️⃣ Asistencia
+
+Todo lo relacionado con los eventos a los que han asistido tus fans.
+
+### Criterios Más Útiles
+
+| Criterio | Qué es | Ejemplo de Uso |
+|----------|--------|----------------|
+| **Ciudad del evento** | Ubicación geográfica de eventos asistidos | Fans que fueron a eventos en Barcelona |
+| **Evento específico** | Filtrar por un evento concreto | Fans que asistieron a "Primavera Sound 2024" |
+| **Tipo de entrada** | VIP, General, Early Bird, etc. | Fans que compraron entradas VIP |
+| **Número de eventos asistidos** | Cantidad de eventos únicos | Fans que han ido a 5+ eventos (super fans) |
+| **Días de antelación de compra** | Cuánto anticiparon la compra | Fans que compran con 30+ días de anticipación |
+| **Artista favorito** | Artistas que han visto en vivo | Fans que vieron a "Bad Bunny" |
+| **Género musical** | Rock, Electrónica, Pop, etc. | Fans de música electrónica |
+| **Fecha de compra** | Cuándo compraron | Fans que compraron en diciembre 2024 |
+| **Fecha del evento** | Cuándo fue el evento | Fans que asistieron a eventos en verano 2024 |
+| **Nombre del evento** | Buscar por texto en nombre | Eventos que contienen "Festival" |
+
+### Casos de Uso
+
+**Ejemplo 1: Festival Tour**
+```
+Criterio: Número de eventos asistidos
+Operador: Mayor o igual que
+Valor: 3
+
+Y
+
+Criterio: Género musical
+Operador: Es
+Valor: Electrónica
+```
+**Resultado**: Super fans de música electrónica → Target para festivales EDM
+
+**Ejemplo 2: Early Bird Local**
+```
+Criterio: Ciudad del evento
+Operador: Es
+Valor: Valencia
+
+Y
+
+Criterio: Días de antelación
+Operador: Mayor que
+Valor: 30
+```
+**Resultado**: Fans de Valencia que compran temprano → Oferta early bird exclusiva
+
+---
+
+## 2️⃣ Atributos del Fan
+
+Información demográfica y personal de tus fans.
+
+### Criterios Más Útiles
+
+| Criterio | Qué es | Ejemplo de Uso |
+|----------|--------|----------------|
+| **Edad** | Edad actual del fan | Fans entre 25-35 años |
+| **Género** | Masculino, Femenino, Otro | Segmentar por género |
+| **Ciudad de residencia** | Dónde vive el fan | Fans que viven en Madrid |
+| **Provincia** | Provincia de residencia | Fans de la Comunidad de Madrid |
+| **País** | País de residencia | Fans internacionales (Francia, Portugal) |
+| **Idioma** | Idioma preferido | Fans que hablan inglés |
+| **Código postal** | CP de residencia | Fans del código postal 28001 |
+| **Etiquetas personalizadas** | Tags creados por ti | Fans con etiqueta "VIP" o "Prensa" |
+| **Campos personalizados** | Datos custom que recolectas | Fan con "Tipo Cliente" = "Empresa" |
+
+### Casos de Uso
+
+**Ejemplo 1: Campaña Joven Local**
+```
+Criterio: Edad
+Operador: Entre
+Valor: 18 y 28
+
+Y
+
+Criterio: Provincia
+Operador: Es
+Valor: Barcelona
+```
+**Resultado**: Jóvenes de Barcelona → Oferta de festival universitario
+
+**Ejemplo 2: Expansión Internacional**
+```
+Criterio: País
+Operador: Es
+Valor: Portugal O Francia O Italia
+
+Y
+
+Criterio: Idioma
+Operador: Es
+Valor: Español
+```
+**Resultado**: Fans internacionales que hablan español → Tour por Europa
+
+---
+
+## 3️⃣ Consumo
+
+Comportamiento de compra y gasto de tus fans.
+
+### Criterios Más Útiles
+
+| Criterio | Qué es | Ejemplo de Uso |
+|----------|--------|----------------|
+| **Gasto total** | Dinero total gastado | Fans que gastaron más de 500€ (VIPs) |
+| **Gasto en entradas** | Solo en tickets | Fans con alto gasto en entradas vs merchandising |
+| **Recarga cashless** | Si recargaron pulsera | Fans que usan cashless (más engaged) |
+| **Importe recargado** | Cuánto recargaron | Fans que recargaron 100€+ |
+| **Complementos comprados** | Merchandising, parking, etc. | Fans que compraron parking |
+| **Suplementos** | Upgrades, VIP packages | Fans que compraron upgrade a VIP |
+| **Fecha de compra** | Última transacción | Fans que no compran hace 180+ días |
+
+### Casos de Uso
+
+**Ejemplo 1: VIP Re-engagement**
+```
+Criterio: Gasto total
+Operador: Mayor que
+Valor: 500€ (50000 céntimos)
+
+Y
+
+Criterio: Fecha de compra
+Operador: Hace más de X días
+Valor: 180 días
+```
+**Resultado**: VIPs inactivos → Campaña win-back con descuento especial
+
+Para festivales medianos, recomendamos clasificar VIPs con gasto ≥500€. Este umbral varía según ticket promedio; consulta nuestra [guía de mejores prácticas para calcular umbrales VIP según tipo de evento](./mejores-practicas#umbrales-vip).
+
+**Ejemplo 2: Upsell Cashless**
+```
+Criterio: Recargó cashless
+Operador: Es verdadero
+
+Y
+
+Criterio: Importe recargado
+Operador: Menor que
+Valor: 50€
+```
+**Resultado**: Fans que usan cashless pero poco → Incentivo para recargar más
+
+---
+
+## 4️⃣ Interacción
+
+Cómo tus fans interactúan con tus comunicaciones.
+
+### Criterios Más Útiles
+
+| Criterio | Qué es | Ejemplo de Uso |
+|----------|--------|----------------|
+| **Campaña recibida** | Recibieron un email específico | Fans que recibieron "Black Friday 2024" |
+| **Campaña abierta** | Abrieron el email | Fans engaged que leen tus emails |
+| **Campaña con clic** | Hicieron clic en un link | Fans interesados (considerando compra) |
+| **Días para abrir** | Qué tan rápido abren | Fans que abren en primeras 24h (very engaged) |
+| **Días para hacer clic** | Velocidad de engagement | Fans que clickean inmediatamente |
+| **Enlaces cortos clickeados** | URLs trackables | Fans que clickearon link específico |
+
+### Casos de Uso
+
+**Ejemplo 1: Recuperación de Carrito Abandonado**
+```
+Criterio: Campaña recibida
+Operador: Es
+Valor: "Confirmación Reserva Festival X"
+
+Y
+
+Criterio: Campaña abierta
+Operador: Es
+Valor: "Confirmación Reserva Festival X"
+
+PERO NO (excluir):
+
+Criterio: Evento asistido
+Operador: Es
+Valor: "Festival X"
+```
+**Resultado**: Fans que reservaron pero no compraron → Recordatorio con urgencia
+
+**Ejemplo 2: Super Engaged Fans**
+```
+Criterio: Días para abrir
+Operador: Menor que
+Valor: 2 días
+
+Y
+
+Criterio: Días para hacer clic
+Operador: Menor que
+Valor: 3 días
+```
+**Resultado**: Fans que responden rápido → Target para ofertas flash exclusivas
+
+---
+
+## 5️⃣ Canales
+
+Presencia de tus fans en diferentes plataformas.
+
+### Criterios Disponibles
+
+| Criterio | Qué es | Ejemplo de Uso |
+|----------|--------|----------------|
+| **App móvil descargada** | Tiene tu app instalada | Fans con app → Push notifications |
+| **Instagram conectado** | Vinculó su cuenta de Instagram | Fans en IG → Contest de Instagram |
+| **TikTok conectado** | Vinculó su cuenta de TikTok | Fans en TikTok → Campaña viral |
+| **Teléfono verificado** | Número verificado | Fans alcanzables por SMS |
+
+### Casos de Uso
+
+**Ejemplo 1: Push Notification Campaign**
+```
+Criterio: App móvil descargada
+Operador: Es verdadero
+
+Y
+
+Criterio: Ciudad
+Operador: Es
+Valor: Madrid
+```
+**Resultado**: Fans con app en Madrid → Push notification de evento local
+
+**Ejemplo 2: Social Media Contest**
+```
+Criterio: Instagram conectado
+Operador: Es verdadero
+
+Y
+
+Criterio: TikTok conectado
+Operador: Es verdadero
+```
+**Resultado**: Fans activos en redes → Contest multi-plataforma
+
+
+---
+
+## 6️⃣ Nevent Score®
+
+Analítica predictiva que mide el nivel de engagement de cada fan.
+
+### Criterios Disponibles
+
+| Criterio | Qué es | Valores |
+|----------|--------|---------|
+| **Temperatura Nevent** | Nivel de engagement en 6 categorías | Congelado, Muy Frío, Frío, Templado, Caliente, Muy Caliente |
+| **Valor de Score** | Número exacto de 0-100 | Score preciso para segmentación granular |
+
+### Escala de Temperatura
+
+| Temperatura | Score | Significado | Uso Recomendado |
+|-------------|-------|-------------|-----------------|
+| 🔥 **Muy Caliente** | 84-100 | Super fans ultra engaged | VIP experiences, meet & greets, pre-sales |
+| 🔥 **Caliente** | 67-83 | Fans muy activos | Early birds, ofertas exclusivas |
+| 🌡️ **Templado** | 51-66 | Engagement moderado | Campañas generales, newsletters |
+| ❄️ **Frío** | 34-50 | Engagement bajo | Contenido educational, engagement campaigns |
+| ❄️ **Muy Frío** | 17-33 | Poco engagement | Win-back con incentivos fuertes |
+| 🧊 **Congelado** | 0-16 | Inactivos o nuevos | Bienvenida (nuevos) o reactivación agresiva |
+
+### ¿Cómo se calcula?
+
+El Nevent Score® analiza automáticamente:
+- Frecuencia de asistencia a eventos
+- Recencia de compras
+- Gasto total histórico
+- Engagement con emails (aperturas, clics)
+- Interacción con la plataforma
+- Velocidad de compra (early bird vs last minute)
+
+**No necesitas hacer nada**: Nevent lo calcula y actualiza automáticamente cada semana.
+
+### Casos de Uso
+
+**Ejemplo 1: Oferta VIP Exclusiva**
+```
+Criterio: Temperatura Nevent
+Operador: Es
+Valor: Muy Caliente O Caliente
+
+Y
+
+Criterio: Ciudad
+Operador: Es
+Valor: Madrid
+```
+**Resultado**: Super fans de Madrid → Invitación a evento VIP privado
+
+**Ejemplo 2: Campaña de Reactivación**
+```
+Criterio: Temperatura Nevent
+Operador: Es
+Valor: Muy Frío O Congelado
+
+Y
+
+Criterio: Gasto total
+Operador: Mayor que
+Valor: 200€
+```
+**Resultado**: Ex-VIPs que se enfriaron → Win-back con descuento 30%
+
+**Ejemplo 3: Segmentación por Score Exacto**
+```
+Criterio: Valor Nevent Score
+Operador: Entre
+Valor: 70 y 90
+```
+**Resultado**: Fans en rango específico → Testing de nuevas ofertas
+
+---
+
+## 🎯 Combinando Categorías
+
+El verdadero poder viene de combinar categorías:
+
+**Ejemplo: Super Fan Local VIP**
+```
+CATEGORÍA: Atributos del Fan
+├─ Ciudad: Madrid
+
+Y
+
+CATEGORÍA: Asistencia
+├─ Número de eventos: >= 5
+
+Y
+
+CATEGORÍA: Consumo
+├─ Gasto total: > 500€
+
+Y
+
+CATEGORÍA: Nevent Score®
+├─ Temperatura: Muy Caliente
+```
+
+**Resultado**: Super fans VIP de Madrid ultra engaged → Tu audiencia más valiosa para ofertas premium.
+
+---
+
+## 📊 Criterios Más Populares
+
+Según nuestros clientes, estos son los criterios más usados:
+
+### Top 10 Criterios
+
+1. **Ciudad de residencia** (geo-targeting)
+2. **Temperatura Nevent** (engagement level)
+3. **Número de eventos asistidos** (loyalty)
+4. **Gasto total** (VIP identification)
+5. **Edad** (demographic targeting)
+6. **Fecha de compra** (recency)
+7. **Campaña abierta** (engagement tracking)
+8. **Ciudad del evento** (event location preferences)
+9. **App móvil descargada** (channel availability)
+10. **Tipo de entrada** (ticket tier preferences)
+
+---
+
+## 🔗 Próximos Pasos
+
+Ahora que conoces todas las categorías:
+
+1. **[Aprende a usar Operadores](./operadores-logica)** - Cómo comparar y combinar criterios
+2. **[Ve Casos de Uso Reales](./casos-uso)** - Inspiración con ejemplos completos
+3. **[Mejores Prácticas](./mejores-practicas)** - Tips para optimizar resultados
+
+---
+
+**¿Listo para crear segmentos avanzados?** 🎯
+
+[Análisis RFM: identifica Champions y VIPs en riesgo automáticamente →](./modificadores-rfm)
