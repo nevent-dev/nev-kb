@@ -55,137 +55,56 @@ export default defineConfig({
 				},
 			],
 
-			// Sidebar en orden lógico de onboarding
+			// Sidebar - Motor de Segmentación Estructurado
 			sidebar: [
 				{
-					label: 'Inicio',
+					label: 'Audiencia',
 					items: [
-						{ label: 'Bienvenido', slug: 'index' },
-					],
-				},
-			{
-				label: 'Marca',
-				autogenerate: { directory: 'brand' },
-				collapsed: false,
-			},				// {
-				// 	label: 'Creación de Cuenta',
-		{
-			label: 'Comunicación',
-			autogenerate: { directory: 'communication' },
-			collapsed: false,
-		},				// 	autogenerate: { directory: '01-cuenta' },
-				// 	collapsed: false,
-		{
-			label: 'Integraciones',
-			autogenerate: { directory: 'integrations' },
-			collapsed: false,
-		},				// 	badge: { text: 'Empezar', variant: 'tip' },
-				// },
-		{
-			label: 'Legal',
-			autogenerate: { directory: 'legal' },
-			collapsed: false,
-		},				// {
-				// 	label: 'Configuración Inicial',
-		{
-			label: 'Facturación',
-			autogenerate: { directory: 'billing' },
-			collapsed: false,
-		},				// 	autogenerate: { directory: '02-configuracion' },
-				// 	collapsed: true,
-		{
-			label: 'Organización',
-			autogenerate: { directory: 'organization' },
-			collapsed: false,
-		},
-		{
-			label: 'Avanzado',
-			autogenerate: { directory: 'advanced' },
-			collapsed: false,
-		},				// },
-				// {
-				// 	label: 'Integraciones y Sincronización',
-				// 	autogenerate: { directory: '03-integraciones' },
-				// 	collapsed: true,
-				// },
-				// {
-				// 	label: 'Importación de Datos',
-				// 	autogenerate: { directory: '04-importacion-datos' },
-				// 	collapsed: true,
-				// },
-				// {
-				// 	label: 'Audiencia / Fans',
-				// 	autogenerate: { directory: '05-audiencia' },
-				// 	collapsed: true,
-				// },
-				// {
-				// 	label: 'Etiquetas',
-				// 	autogenerate: { directory: '06-etiquetas' },
-				// 	collapsed: true,
-				// },
-				// {
-				// 	label: 'Segmentación',
-				// 	autogenerate: { directory: '07-segmentacion' },
-				// 	collapsed: true,
-				// },
-				// {
-				// 	label: 'Canales de Comunicación',
-				// 	autogenerate: { directory: '08-canales' },
-				// 	collapsed: true,
-				// },
-				// {
-				// 	label: 'Plantillas',
-				// 	autogenerate: { directory: '09-plantillas' },
-				// 	collapsed: true,
-				// },
-				// {
-				// 	label: 'Campañas',
-				// 	autogenerate: { directory: '10-campanas' },
-				// 	collapsed: true,
-				// },
-				// {
-				// 	label: 'Newsletters',
-				// 	autogenerate: { directory: '11-newsletters' },
-				// 	collapsed: true,
-				// },
-				// {
-				// 	label: 'Experiencias / Eventos',
-				// 	autogenerate: { directory: '12-experiencias' },
-				// 	collapsed: true,
-				// 	badge: { text: 'Sincronizado', variant: 'note' },
-				// },
-				// {
-				// 	label: 'Lineup de Artistas',
-				// 	autogenerate: { directory: '13-lineup' },
-				// 	collapsed: true,
-				// 	badge: { text: 'Spotify', variant: 'success' },
-				// },
-				// {
-				// 	label: 'Merchandising',
-				// 	autogenerate: { directory: '14-merchandising' },
-				// 	collapsed: true,
-				// },
-				// {
-				// 	label: 'Ventas y Compras',
-				// 	autogenerate: { directory: '15-ventas' },
-				// 	collapsed: true,
-				// 	badge: { text: 'Solo lectura', variant: 'caution' },
-				// },
-				// {
-				// 	label: 'Gamificación',
-				// 	autogenerate: { directory: '16-gamificacion' },
-				// 	collapsed: true,
-				// },
-				// {
-				// 	label: 'Chatbot',
-				// 	autogenerate: { directory: '17-chatbot' },
-				// 	collapsed: true,
-				// },
-				// {
-				// 	label: 'Herramientas y Analytics',
-				// 	autogenerate: { directory: '18-herramientas' },
-				// 	collapsed: true,
-				// },
+						{
+							label: 'Motor de Segmentación',
+							items: [
+								{
+									label: 'Introducción',
+									slug: 'audience/motor-segmentacion',
+									badge: { text: 'Empezar aquí', variant: 'tip' }
+								},
+								{
+									label: 'Cómo Crear un Segmento',
+									slug: 'audience/motor-segmentacion/crear-segmento'
+								},
+								{
+									label: 'Las 6 Categorías',
+									slug: 'audience/motor-segmentacion/categorias'
+								},
+								{
+									label: 'Operadores & Lógica Y/O',
+									slug: 'audience/motor-segmentacion/operadores-logica'
+								},
+								{
+									label: 'Modificadores & RFM',
+									slug: 'audience/motor-segmentacion/modificadores-rfm',
+									badge: { text: 'Avanzado', variant: 'note' }
+								},
+								{
+									label: 'Grupos & A/B Testing',
+									slug: 'audience/motor-segmentacion/grupos'
+								},
+								{
+									label: 'Casos de Uso Prácticos',
+									slug: 'audience/motor-segmentacion/casos-uso'
+								},
+								{
+									label: 'Mejores Prácticas',
+									slug: 'audience/motor-segmentacion/mejores-practicas'
+								},
+								{
+									label: 'Preguntas Frecuentes',
+									slug: 'audience/motor-segmentacion/faq'
+								},
+							]
+						}
+					]
+				}
 			],
 
 			// Customización de UI
