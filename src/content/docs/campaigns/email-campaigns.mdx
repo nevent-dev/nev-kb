@@ -1,0 +1,250 @@
+---
+title: Cómo crear y enviar una campaña de email
+description: Guía paso a paso para crear campañas de email en Nevent, desde la configuración hasta el envío.
+sidebar:
+  order: 1
+---
+
+import Schema from '../../../components/Schema.astro';
+import { Aside } from '@astrojs/starlight/components';
+
+<Schema>{`{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Cómo crear y enviar una campaña de email en Nevent",
+  "description": "Guía paso a paso para crear y enviar campañas de email a fans de eventos",
+  "totalTime": "PT15M",
+  "tool": {
+    "@type": "SoftwareApplication",
+    "name": "Nevent",
+    "applicationCategory": "Marketing Automation"
+  },
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Configuración inicial",
+      "text": "Crea la campaña, asígnale un nombre descriptivo y selecciona Email como canal"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Selecciona destinatarios",
+      "text": "Elige las listas o segmentos a los que enviarás. Puedes combinar hasta 15 segmentos o excluir grupos específicos"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "Diseña el contenido",
+      "text": "Selecciona una plantilla, personaliza el subject, remitente y contenido. Opcionalmente crea variantes para A/B testing"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 4,
+      "name": "Programa el envío",
+      "text": "Revisa todos los detalles y programa para envío inmediato o futuro"
+    }
+  ]
+}`}</Schema>
+
+<Schema>{`{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://docs.nevent.com"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Campañas",
+      "item": "https://docs.nevent.com/campaigns"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Campañas de email",
+      "item": "https://docs.nevent.com/campaigns/email-campaigns"
+    }
+  ]
+}`}</Schema>
+
+# Cómo crear y enviar una campaña de email
+
+Una campaña de email es un envío único a un grupo de contactos predeterminado. Este artículo explica cómo crear y enviar campañas paso a paso.
+
+## Antes de empezar
+
+Necesitas:
+- Una lista o segmento de destinatarios creado
+- (Opcional) Plantillas de email reutilizables
+
+Si aún no has creado segmentos, consulta [Cómo crear un segmento](/audience/motor-segmentacion/crear-segmento).
+
+## Campañas vs Flujos
+
+| Aspecto | Campaña | Flujo |
+|---------|---------|-------|
+| **Activación** | Manual, programada por ti | Automática, basada en comportamientos |
+| **Audiencia** | Lista o segmento predefinido | Dinámica, según triggers |
+| **Uso típico** | Newsletter, anuncio de evento | Bienvenida, carrito abandonado |
+
+## Proceso de creación
+
+### Paso 1: Configuración
+
+1. Ve a la sección **Campañas**
+2. Haz clic en **Crear campaña**
+3. Asigna un **nombre** descriptivo (ej: "Anuncio Festival Verano 2026")
+4. Selecciona **Email** como tipo de canal
+5. (Opcional) Añade **etiquetas** organizativas
+
+<Aside type="tip">
+Usa nombres descriptivos que incluyan fecha o evento. Ejemplo: "2026-05-Early-Bird-Festival" en lugar de "Campaña 1".
+</Aside>
+
+### Paso 2: Destinatarios
+
+1. Selecciona la **lista o segmento** objetivo
+   - Puedes combinar hasta **15 listas/segmentos**
+   - Verás el número estimado de destinatarios
+2. (Opcional) Activa **Smart Sending** para evitar saturar a fans que recibieron emails recientes
+3. (Opcional) Usa **"No enviar a"** para excluir grupos específicos
+
+**Ejemplo de configuración:**
+```
+Enviar a:
+  - Fans de Barcelona
+  - Temperatura: Caliente o Muy Caliente
+
+No enviar a:
+  - Ya compraron entrada Festival 2026
+```
+
+### Paso 3: Contenido
+
+1. **Selecciona plantilla:**
+   - Plantillas guardadas
+   - Biblioteca de plantillas de Nevent
+   - Crear desde cero
+
+2. **Configura remitente:**
+   - **Nombre del remitente**: Tu evento o marca
+   - **Email del remitente**: email verificado (ej: hola@tufestival.com)
+   - **Subject line**: Línea de asunto atractiva
+
+3. **Diseña el email:**
+   - **Editor drag-and-drop**: Bloques visuales
+   - **Solo texto**: Emails simples sin diseño
+   - **HTML**: Código personalizado
+
+4. **(Opcional) A/B Testing:**
+   - Crea variantes del email
+   - Prueba diferentes subjects o contenidos
+   - Aprende más en [Grupos para A/B testing](/audience/motor-segmentacion/grupos)
+
+<Aside type="caution">
+Todos los emails deben incluir un enlace de cancelación de suscripción. Las plantillas de Nevent lo incluyen automáticamente.
+</Aside>
+
+### Paso 4: Programar y enviar
+
+1. **Revisa todos los detalles:**
+   - Destinatarios correctos
+   - Subject sin errores
+   - Links funcionando
+   - Personalización configurada
+
+2. **Elige cuándo enviar:**
+   - **Enviar ahora**: Se enviará en minutos
+   - **Programar**: Selecciona fecha y hora futura
+
+3. Haz clic en **Enviar campaña** o **Programar campaña**
+
+<Aside type="note">
+Las campañas programadas se encolan y se envían dentro de los minutos siguientes a la hora programada.
+</Aside>
+
+## Casos de uso comunes
+
+### Anuncio de lineup
+Envía email a toda tu base de fans cuando anuncies el cartel del festival.
+
+**Segmento sugerido:** Todos los fans activos (temperatura Templado o superior)
+
+### Venta early bird
+Ofrece entradas anticipadas a tus fans más leales antes del anuncio público.
+
+**Segmento sugerido:** Fans con gasto &gt;200€ Y última compra &lt;180 días
+
+### Recordatorio de evento
+Recuerda a los asistentes confirmados los detalles del evento próximo.
+
+**Segmento sugerido:** Compraron entrada para evento X Y evento es en &lt;7 días
+
+### Newsletter mensual
+Mantén engagement con contenido regular sobre próximos eventos.
+
+**Segmento sugerido:** Fans que abrieron al menos 1 email en últimos 60 días
+
+## Personalización
+
+Usa variables dinámicas para personalizar cada email:
+
+- `{{ first_name }}` - Nombre del fan
+- `{{ event_name }}` - Nombre del evento
+- `{{ city }}` - Ciudad del fan
+
+Consulta la [Guía de personalización](/campaigns/personalization) para más opciones.
+
+## Seguimiento de resultados
+
+Después del envío, revisa las métricas clave:
+
+- **Open rate**: % de destinatarios que abrieron el email
+- **Click rate**: % que hicieron clic en enlaces
+- **Conversion rate**: % que completaron la acción objetivo (compra, registro)
+- **Unsubscribes**: Bajas de suscripción
+
+Usa estos datos para optimizar futuras campañas.
+
+## Mejores prácticas
+
+### Subject lines efectivos
+- Mantén entre 40-60 caracteres
+- Usa emojis con moderación (1-2 máximo)
+- Crea urgencia honesta sin clickbait
+- Testea variantes con A/B testing
+
+**Ejemplos:**
+- ✅ "Early Bird disponible - Festival Verano 2026"
+- ✅ "🎸 Lineup completo revelado + venta entradas"
+- ❌ "No vas a creer esto..." (clickbait)
+- ❌ "¡¡¡ÚLTIMA OPORTUNIDAD COMPRA YA!!!" (spam)
+
+### Timing óptimo
+- **Anuncios importantes**: Martes-Jueves 10:00-14:00
+- **Ventas flash**: Viernes tarde (15:00-19:00)
+- **Newsletters**: Miércoles 11:00
+
+Evita lunes temprano y viernes tarde para emails que requieren atención.
+
+### Frecuencia
+- **Eventos regulares (clubs)**: 1-2 emails por semana
+- **Festivales anuales**:
+  - Pre-anuncio: 1 email/mes
+  - Venta activa: 2-3 emails/mes
+  - Semana del evento: 1 email cada 2-3 días
+
+<Aside type="tip">
+Usa Smart Sending para evitar saturar a fans que ya recibieron otros emails tuyos recientemente.
+</Aside>
+
+## Siguientes pasos
+
+- [Personalización de mensajes](/campaigns/personalization) - Variables dinámicas y condicionales
+- [Grupos para A/B testing](/audience/motor-segmentacion/grupos) - Testea variantes de subject y contenido
+- [Casos de uso de segmentación](/audience/motor-segmentacion/casos-uso) - Ejemplos de campañas efectivas

@@ -1,0 +1,495 @@
+---
+title: Cómo crear y enviar una campaña de notificaciones push
+description: Guía paso a paso para crear campañas de push notifications en Nevent para usuarios de tu app móvil.
+sidebar:
+  order: 4
+---
+
+import Schema from '../../../components/Schema.astro';
+import { Aside } from '@astrojs/starlight/components';
+
+<Schema>{`{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Cómo crear y enviar una campaña de notificaciones push en Nevent",
+  "description": "Guía paso a paso para crear y enviar campañas de push notifications a usuarios de apps de eventos",
+  "totalTime": "PT10M",
+  "tool": {
+    "@type": "SoftwareApplication",
+    "name": "Nevent",
+    "applicationCategory": "Marketing Automation"
+  },
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Configuración inicial",
+      "text": "Crea la campaña y selecciona Push como canal"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Selecciona destinatarios",
+      "text": "Elige segmentos con app instalada y push tokens activos"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "Elige tipo de notificación",
+      "text": "Estándar (visible) o silenciosa (comportamiento in-app)"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 4,
+      "name": "Configura el mensaje",
+      "text": "Escribe título y cuerpo (178 caracteres máx), añade imagen opcional"
+    }
+  ]
+}`}</Schema>
+
+<Schema>{`{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://docs.nevent.com"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Campañas",
+      "item": "https://docs.nevent.com/campaigns"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Campañas de push",
+      "item": "https://docs.nevent.com/campaigns/push-campaigns"
+    }
+  ]
+}`}</Schema>
+
+# Cómo crear y enviar una campaña de notificaciones push
+
+Las notificaciones push permiten enviar mensajes instantáneos a fans que tienen tu app móvil instalada. Este artículo explica cómo crear y enviar campañas de push.
+
+## ¿Qué es una notificación push?
+
+Una notificación push es un mensaje que aparece en el dispositivo móvil del usuario, incluso cuando la app está cerrada.
+
+**Casos de uso típicos:**
+- Anuncio de lineup o artista sorpresa
+- Recordatorio de evento (1 día antes, 1 hora antes)
+- Ofertas exclusivas para app users
+- Alertas de última hora
+- Gamificación in-app
+
+## Antes de empezar
+
+Requisitos imprescindibles:
+
+1. **Push notifications configuradas** en tu cuenta de Nevent
+2. **Usuarios con app instalada** y push tokens asignados
+3. **Usuarios que aceptaron** recibir notificaciones push
+
+<Aside type="note">
+Solo recibirán el mensaje usuarios que:
+- Descargaron tu app
+- Dieron permiso para recibir notificaciones
+- Tienen un push token activo
+</Aside>
+
+## Tipos de notificaciones
+
+### Notificaciones estándar
+
+Notificaciones **visibles** que aparecen en la pantalla del dispositivo.
+
+**Características:**
+- Aparecen en pantalla de bloqueo
+- Hacen sonido/vibración (configurable)
+- Usuari puede hacer tap para abrir app
+- Pueden incluir imagen o GIF (iOS)
+
+**Uso típico:** Promociones, recordatorios, anuncios
+
+### Notificaciones silenciosas
+
+Notificaciones **invisibles** que activan comportamientos dentro de la app sin mostrar mensaje.
+
+**Características:**
+- No aparecen en pantalla
+- No hacen sonido
+- Disparan lógica en background de la app
+- Útiles para sincronización de datos
+
+**Uso típico:** Actualizar contenido, sincronizar datos, triggers internos
+
+## Proceso de creación
+
+### Paso 1: Configuración inicial
+
+1. Ve a la sección **Campañas**
+2. Haz clic en **Crear campaña**
+3. Asigna un **nombre** descriptivo
+4. Selecciona **Push** como tipo de canal
+5. (Opcional) Añade etiquetas organizativas
+
+### Paso 2: Destinatarios
+
+1. Selecciona **lista o segmento** objetivo
+   - Solo usuarios con app instalada recibirán la notificación
+2. (Opcional) Excluye grupos con **"No enviar a"**
+
+**Ejemplo de segmentación:**
+```
+Enviar a:
+  - App instalada: Sí
+  - Push token: Existe
+  - Ciudad: Barcelona
+
+No enviar a:
+  - Ya compró entrada
+```
+
+<Aside type="tip">
+Crea un segmento base "App users activos" que filtres por app instalada + push token activo. Reutilízalo en todas tus campañas push.
+</Aside>
+
+### Paso 3: Tipo de notificación
+
+Selecciona el tipo:
+
+- **Estándar**: Notificación visible
+- **Silenciosa**: Sin notificación visual
+
+Para la mayoría de casos, usa **estándar**.
+
+### Paso 4: Contenido (Notificación estándar)
+
+#### Mensaje
+
+- **Título**: Encabezado de la notificación
+- **Cuerpo**: Mensaje principal (máximo **178 caracteres**)
+
+**Ejemplo:**
+```
+Título: Festival Indie 2026
+Cuerpo: ¡Lineup revelado! The XX, Arctic Monkeys, y más.
+       Entradas desde 89€
+```
+
+#### Imagen o GIF (solo iOS)
+
+- Añade imagen de impacto visual
+- Formatos: JPG, PNG, GIF
+- Tamaño recomendado: 1038x1038px
+- Peso máximo: 10MB
+
+#### Acción al abrir
+
+Define qué pasa cuando el usuario hace tap:
+
+- **Abrir app**: Va a la pantalla principal
+- **Deep link**: Navega a pantalla específica dentro de la app
+
+**Ejemplo de deep link:**
+```
+nevent://events/festival-indie-2026
+nevent://tickets/buy?event_id=12345
+```
+
+#### Badge count (solo iOS)
+
+Número que aparece en el icono de la app.
+
+- Deja en blanco para no cambiar
+- Usa número específico (ej: 1, 5)
+- Útil para indicar notificaciones pendientes
+
+#### Sonido (solo iOS)
+
+- **Activado**: Hace sonido al llegar
+- **Desactivado**: Notificación silenciosa (pero visible)
+
+### Paso 5: Custom data (Avanzado)
+
+Añade hasta **10 pares clave-valor** para enviar datos adicionales a la app.
+
+**Uso típico:**
+- IDs de eventos
+- Códigos de descuento
+- Flags de comportamiento
+
+**Ejemplo:**
+```
+event_id: 12345
+discount_code: APP20
+show_popup: true
+```
+
+Tu equipo de desarrollo usa estos datos para personalizar comportamiento de la app.
+
+### Paso 6: Previsualizar
+
+1. Previsualiza cómo se verá en iOS y Android
+2. Envía **notificación de prueba** a tu dispositivo
+3. Verifica que personalización funciona
+
+### Paso 7: Programar y enviar
+
+1. Revisa todos los detalles
+2. Programa el envío:
+   - **Enviar ahora**
+   - **Programar** para fecha/hora específica
+3. Haz clic en **Enviar campaña**
+
+<Aside type="note">
+Las notificaciones push se envían casi instantáneamente. A diferencia de email o SMS, no hay cola de espera.
+</Aside>
+
+## Casos de uso
+
+### Anuncio de lineup
+
+```
+Título: 🎸 Lineup Revelado
+Cuerpo: The XX, Arctic Monkeys, HAIM y 40 artistas más.
+       Compra en la app con 10% dto
+Acción: nevent://events/festival-2026
+Imagen: lineup-poster.jpg
+```
+
+**Segmento:** Todos los app users interesados en el evento
+
+---
+
+### Recordatorio 1 día antes
+
+```
+Título: Mañana es {{ event.name }}!
+Cuerpo: Puertas {{ event.doors_time }}.
+       Tu entrada {{ ticket.type }} está lista.
+       Revisa detalles en la app 🎉
+Acción: nevent://my-tickets/{{ order.id }}
+```
+
+**Segmento:** Compradores con evento mañana
+
+---
+
+### Oferta flash exclusiva app
+
+```
+Título: ⚡ Solo en la app: 2x1 en bebidas
+Cuerpo: Válido las próximas 2 horas.
+       Activa tu código en la app ahora.
+Acción: nevent://rewards/flash-sale
+Custom data:
+  promo_code: 2X1DRINK
+  expires_at: 2026-06-15T23:59:59
+```
+
+**Segmento:** App users a &lt;5km del evento (durante el evento)
+
+---
+
+### Gamificación: Check-in
+
+```
+Título: Check-in y gana puntos
+Cuerpo: Haz check-in en {{ event.name }} y
+       consigue 50 puntos VIP 🏆
+Acción: nevent://check-in
+Badge: 1
+```
+
+**Segmento:** App users con entrada + geolocalización en venue
+
+---
+
+### Encuesta post-evento
+
+```
+Título: ¿Cómo estuvo {{ event.name }}?
+Cuerpo: Cuéntanos tu experiencia (2 min).
+       Gana descuento 15% para próximo evento.
+Acción: nevent://survey/post-event
+Custom data:
+  event_id: {{ event.id }}
+  survey_id: 789
+```
+
+**Segmento:** Asistieron al evento + 24h después del evento
+
+## Personalización
+
+Usa variables dinámicas:
+
+```
+{{ first_name }} - Personaliza saludo
+{{ event.name }} - Nombre del evento
+{{ ticket.type }} - Tipo de entrada
+{{ event.doors_time }} - Hora de puertas
+{{ person.points }} - Puntos del usuario
+```
+
+Consulta [Personalización de mensajes](/campaigns/personalization) para más variables.
+
+## Mejores prácticas
+
+### Mensaje conciso
+
+Con 178 caracteres, ve directo al punto:
+
+```
+❌ Hola {{ first_name }}, esperamos que estés teniendo
+   un gran día. Queríamos contarte sobre...
+
+✅ {{ first_name }}: Lineup revelado.
+   Compra ahora con 10% dto app
+```
+
+### Título impactante
+
+El título es lo primero que ven:
+
+```
+❌ Notificación importante
+✅ 🔥 Venta flash: 2h restantes
+```
+
+### Timing inteligente
+
+**Evita:**
+- ❌ Antes de 9:00 AM
+- ❌ Después de 10:00 PM
+- ❌ Madrugada (1-7 AM)
+
+**Óptimo:**
+- ✅ 10:00 AM - 1:00 PM (mañana productiva)
+- ✅ 6:00 PM - 8:00 PM (tarde relajada)
+
+### Frecuencia controlada
+
+Límites recomendados:
+
+- **Festival anual**: 1-2 push/semana durante campaña
+- **Eventos regulares**: 2-3 push/semana máximo
+- **Durante evento**: 3-5 push durante el día del evento
+
+<Aside type="caution">
+Enviar demasiadas notificaciones push lleva a que usuarios desactiven permisos o desinstalen la app.
+</Aside>
+
+### Aporta valor
+
+Cada push debe tener valor claro:
+
+```
+❌ Hola! Tenemos novedades
+✅ 20% dto solo hoy - código: APP20
+
+❌ Revisa la app
+✅ Tu entrada digital ya disponible
+
+❌ Nuevo contenido
+✅ Setlist confirmado - escúchalo ahora
+```
+
+### Usa deep links
+
+No envíes a home de la app, lleva a contenido específico:
+
+```
+❌ Acción: Abrir app
+✅ Acción: nevent://tickets/buy?event_id=123
+
+❌ Acción: Abrir app
+✅ Acción: nevent://my-tickets/order-456
+```
+
+### Imágenes impactantes
+
+Las push con imagen tienen **2-3x más engagement**:
+
+- Usa imagen del artista headliner
+- Lineup poster visual
+- Foto del venue
+- GIF animado para más impacto
+
+## Notificaciones push vs Otros canales
+
+| Aspecto | Push | Email | SMS |
+|---------|------|-------|-----|
+| **Open rate** | 90% | 20-30% | 98% |
+| **Visibilidad** | Instantánea | Horas | Minutos |
+| **Longitud** | 178 caracteres | Ilimitado | 160 caracteres |
+| **Requisito** | App instalada | Email | Teléfono + consentimiento |
+| **Coste** | Gratis | Muy bajo | Medio-alto |
+| **Uso óptimo** | App users, tiempo real | Contenido extenso | Urgencia sin app |
+
+**Estrategia combinada:**
+1. **Push**: Primero a app users (gratis, alta apertura)
+2. **SMS**: Si no abrieron push en 2h (urgente)
+3. **Email**: Para contenido extenso y detalles
+
+## Métricas clave
+
+Analiza después del envío:
+
+- **Envíos**: Cuántas notificaciones se enviaron
+- **Entregas**: Cuántas llegaron a dispositivos
+- **Opens**: Cuántos usuarios abrieron (hicieron tap)
+- **Conversiones**: Cuántos completaron acción objetivo
+
+**Benchmarks normales:**
+- Delivery rate: &gt;95%
+- Open rate: 20-40% (varía según relevancia)
+- Conversion: 5-15%
+
+## Problemas comunes
+
+### Baja tasa de entrega
+
+**Causas:**
+- Usuario desinstaló la app
+- Usuario desactivó permisos push
+- Push token expirado
+
+**Solución:**
+- Segmenta por "Push token activo"
+- Limpia tu base regularmente
+
+### Baja tasa de apertura
+
+**Causas:**
+- Mensaje no relevante
+- Timing incorrecto
+- Demasiadas notificaciones (fatiga)
+
+**Solución:**
+- Mejora segmentación
+- Testea horarios
+- Reduce frecuencia
+
+### Usuarios desactivan notificaciones
+
+**Causas:**
+- Envías demasiadas push
+- Contenido no valioso
+- Notificaciones genéricas
+
+**Solución:**
+- Máximo 2-3 push/semana
+- Solo mensajes con valor real
+- Personaliza por comportamiento
+
+## Siguientes pasos
+
+- [Personalización de mensajes](/campaigns/personalization) - Variables dinámicas para push
+- [Introducción a segmentos](/audience/motor-segmentacion/) - Crea audiencias de app users
+- [Cómo crear campañas de email](/campaigns/email-campaigns) - Canal complementario

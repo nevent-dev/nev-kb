@@ -121,6 +121,31 @@ export default defineConfig({
 							]
 						}
 					]
+				},
+				{
+					label: 'Campañas',
+					items: [
+						{
+							label: 'Introducción a campañas',
+							slug: 'campaigns'
+						},
+						{
+							label: 'Campañas de email',
+							slug: 'campaigns/email-campaigns'
+						},
+						{
+							label: 'Personalización de mensajes',
+							slug: 'campaigns/personalization'
+						},
+						{
+							label: 'Campañas de SMS',
+							slug: 'campaigns/sms-campaigns'
+						},
+						{
+							label: 'Campañas de push',
+							slug: 'campaigns/push-campaigns'
+						}
+					]
 				}
 			],
 

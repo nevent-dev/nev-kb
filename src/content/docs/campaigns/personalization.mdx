@@ -1,0 +1,414 @@
+---
+title: Personalización de mensajes
+description: Usa variables dinámicas y lógica condicional para personalizar emails, SMS y notificaciones push en Nevent.
+sidebar:
+  order: 2
+---
+
+import Schema from '../../../components/Schema.astro';
+import { Aside } from '@astrojs/starlight/components';
+
+<Schema>{`{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://docs.nevent.com"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Campañas",
+      "item": "https://docs.nevent.com/campaigns"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Personalización de mensajes",
+      "item": "https://docs.nevent.com/campaigns/personalization"
+    }
+  ]
+}`}</Schema>
+
+# Personalización de mensajes
+
+Nevent te permite personalizar emails, SMS y notificaciones push usando variables dinámicas que se reemplazan automáticamente con datos del destinatario.
+
+## Cómo funciona
+
+Una plantilla con variables como `{{ first_name }} {{ last_name }}` se transforma automáticamente en datos reales al enviar:
+
+**Plantilla:**
+```
+Hola {{ first_name }}, tu entrada para {{ event_name }} está confirmada.
+```
+
+**Email enviado a María:**
+```
+Hola María, tu entrada para Festival Verano 2026 está confirmada.
+```
+
+## Variables de perfil
+
+### Propiedades básicas
+
+Propiedades estándar de Nevent disponibles para todos los fans:
+
+| Variable | Descripción | Ejemplo |
+|----------|-------------|---------|
+| `{{ email }}` | Email del fan | maria@ejemplo.com |
+| `{{ first_name }}` | Nombre | María |
+| `{{ last_name }}` | Apellido | García |
+| `{{ phone }}` | Teléfono | +34 600 123 456 |
+
+### Propiedades geográficas
+
+Datos de ubicación del fan:
+
+| Variable | Descripción | Ejemplo |
+|----------|-------------|---------|
+| `{{ person.City }}` | Ciudad | Barcelona |
+| `{{ person.Region }}` | Región/Provincia | Barcelona |
+| `{{ person.Country }}` | País | España |
+| `{{ person.PostalCode }}` | Código postal | 08001 |
+
+Para dirección completa y zona horaria, usa sintaxis de lookup:
+
+```
+{{ person|lookup:"$address1" }}
+{{ person|lookup:"$timezone" }}
+```
+
+### Propiedades personalizadas
+
+Para propiedades custom que has añadido a perfiles de fans:
+
+**Propiedades simples:**
+```
+{{ person.favorite_genre }}
+{{ person.vip_status }}
+```
+
+**Propiedades con espacios o caracteres especiales:**
+```
+{{ person|lookup:'Género Favorito' }}
+{{ person|lookup:'Número de Eventos' }}
+```
+
+## Variables de eventos
+
+Cuando envías campañas relacionadas con eventos específicos, puedes usar datos del evento:
+
+| Variable | Descripción | Ejemplo |
+|----------|-------------|---------|
+| `{{ event.name }}` | Nombre del evento | Festival Indie 2026 |
+| `{{ event.date }}` | Fecha del evento | 15 de junio de 2026 |
+| `{{ event.venue }}` | Recinto | Parc del Fòrum |
+| `{{ event.city }}` | Ciudad del evento | Barcelona |
+
+<Aside type="note">
+Las variables de eventos solo funcionan en flujos activados por eventos específicos o en campañas vinculadas a un evento concreto.
+</Aside>
+
+## Variables de compra
+
+Para emails relacionados con compras de entradas:
+
+| Variable | Descripción | Ejemplo |
+|----------|-------------|---------|
+| `{{ order.total }}` | Total de la orden | 145.00 |
+| `{{ order.tickets }}` | Número de entradas | 2 |
+| `{{ order.id }}` | ID de orden | NE-2026-08432 |
+| `{{ ticket.type }}` | Tipo de entrada | VIP |
+
+## Enlaces de gestión
+
+### Cancelar suscripción
+
+Todos los emails deben incluir enlace para darse de baja:
+
+```
+{% unsubscribe %}
+```
+
+Genera automáticamente: "Darte de baja"
+
+Para personalizar el texto:
+
+```
+<a href="{% unsubscribe_link %}">No quiero recibir más emails</a>
+```
+
+### Preferencias
+
+Permite a fans gestionar sus preferencias de comunicación:
+
+```
+{% manage_preferences %}
+```
+
+### Ver en navegador
+
+Añade opción para ver el email en un navegador:
+
+```
+{% web_view %}
+```
+
+## Lógica condicional
+
+### If statements
+
+Muestra contenido solo si se cumple una condición:
+
+```
+{% if person.vip_status == "VIP" %}
+  Como fan VIP, tienes acceso anticipado 24h antes.
+{% endif %}
+```
+
+**Ejemplo con else:**
+
+```
+{% if person.tickets > 0 %}
+  Tienes {{ person.tickets }} entradas confirmadas.
+{% else %}
+  Aún no has comprado entradas. ¡No te quedes fuera!
+{% endif %}
+```
+
+**Condiciones múltiples:**
+
+```
+{% if person.city == "Barcelona" %}
+  El festival está en tu ciudad. Transporte: Metro L4 o Bus H16.
+{% elif person.city == "Madrid" %}
+  Vuelos desde Madrid: 45€ ida y vuelta.
+{% else %}
+  Consulta opciones de transporte y alojamiento.
+{% endif %}
+```
+
+### Comparadores disponibles
+
+| Comparador | Uso | Ejemplo |
+|------------|-----|---------|
+| `==` | Igual a | `{% if city == "Barcelona" %}` |
+| `!=` | Diferente de | `{% if ticket_type != "VIP" %}` |
+| `>` | Mayor que | `{% if tickets > 2 %}` |
+| `>=` | Mayor o igual | `{% if spend >= 200 %}` |
+| `<` | Menor que | `{% if days_to_event < 7 %}` |
+| `<=` | Menor o igual | `{% if age <= 25 %}` |
+
+### For loops
+
+Itera sobre listas de elementos (ej: entradas compradas):
+
+```
+Tus entradas:
+{% for ticket in order.tickets %}
+  - {{ ticket.type }} - {{ ticket.price }}€
+{% endfor %}
+```
+
+**Resultado para un fan con 2 entradas:**
+```
+Tus entradas:
+  - General - 80€
+  - VIP - 150€
+```
+
+## Filtros de formato
+
+### Default (valor por defecto)
+
+Muestra un valor alternativo si la variable está vacía:
+
+```
+Hola {{ first_name|default:"fan" }},
+```
+
+Si `first_name` está vacío, muestra "Hola fan,".
+
+### Title (capitalización)
+
+Formatea nombres correctamente sin importar cómo fueron ingresados:
+
+```
+{{ first_name|title }} {{ last_name|title }}
+```
+
+Convierte "MARÍA garcía" en "María García".
+
+### Upper / Lower
+
+Fuerza mayúsculas o minúsculas:
+
+```
+{{ city|upper }}  → BARCELONA
+{{ email|lower }}  → maria@ejemplo.com
+```
+
+### Currency (formato moneda)
+
+Muestra cantidades con símbolo de moneda:
+
+```
+Total: {% currency_format order.total %}
+```
+
+Resultado: "Total: 145,00 €"
+
+### Date (formato fecha)
+
+Formatea fechas:
+
+```
+Tu evento es el {{ event.date|date:"d \de F \de Y" }}
+```
+
+Resultado: "Tu evento es el 15 de junio de 2026"
+
+## Variables de tiempo
+
+### Fecha actual
+
+Inserta la fecha del momento de envío:
+
+```
+{% today "%d/%m/%Y" as today %}
+Fecha de envío: {{ today }}
+```
+
+### Días hasta evento
+
+Calcula tiempo restante:
+
+```
+{% if days_to_event <= 7 %}
+  ⏰ Tu evento es en {{ days_to_event }} días
+{% endif %}
+```
+
+## Ejemplos prácticos
+
+### Email de confirmación de compra
+
+```
+Hola {{ first_name|default:"fan" }},
+
+¡Tu compra está confirmada! 🎉
+
+Evento: {{ event.name }}
+Fecha: {{ event.date|date:"d \de F, Y" }}
+Lugar: {{ event.venue }}, {{ event.city }}
+
+Tus entradas:
+{% for ticket in order.tickets %}
+  {{ ticket.type }} - {{ ticket.price }}€
+{% endfor %}
+
+Total pagado: {% currency_format order.total %}
+
+ID de orden: {{ order.id }}
+
+{% if event.city == person.City %}
+  Como el evento es en tu ciudad, puedes llegar en transporte público.
+{% else %}
+  Recuerda reservar alojamiento y transporte con antelación.
+{% endif %}
+
+Nos vemos pronto,
+El equipo de {{ event.name }}
+
+{% manage_preferences %} | {% unsubscribe %}
+```
+
+### SMS de recordatorio
+
+```
+Hola {{ first_name }}!
+{{ event.name }} es MAÑANA a las {{ event.time }}.
+Tu entrada: {{ ticket.type }}
+Nos vemos en {{ event.venue }}! 🎵
+```
+
+### Email segmentado por gasto
+
+```
+Hola {{ first_name }},
+
+{% if person.total_spend >= 500 %}
+  Como fan VIP (gasto total: {% currency_format person.total_spend %}),
+  tienes acceso exclusivo 48h antes del anuncio público.
+{% elif person.total_spend >= 200 %}
+  Acceso anticipado para ti: 24h antes del público general.
+{% else %}
+  Venta de entradas el {{ sale_date }}.
+{% endif %}
+
+{{ event.name }} - {{ event.date|date:"F Y" }}
+```
+
+### Push notification condicional
+
+```
+{% if days_to_event == 1 %}
+  🎉 ¡Mañana es {{ event.name }}! Revisa tu entrada.
+{% elif days_to_event == 7 %}
+  📅 Una semana para {{ event.name }}. ¿Ya tienes tu outfit?
+{% endif %}
+```
+
+## Mejores prácticas
+
+### Siempre usa valores por defecto
+
+Protege contra datos faltantes:
+
+```
+❌ Hola {{ first_name }},
+✅ Hola {{ first_name|default:"fan" }},
+```
+
+Si el nombre está vacío, el primer caso muestra "Hola ," (mal). El segundo "Hola fan," (bien).
+
+### Testea antes de enviar
+
+1. Envía un email de prueba a ti mismo
+2. Verifica que todas las variables se reemplazan correctamente
+3. Prueba con perfiles que tengan datos completos e incompletos
+4. Confirma que la lógica condicional funciona
+
+### Personaliza con moderación
+
+No abuses de la personalización:
+
+```
+❌ Hola {{ first_name }} de {{ city }}, {{ region }}, {{ country }}...
+✅ Hola {{ first_name }}, como fan de {{ city }}...
+```
+
+Demasiada personalización parece invasivo.
+
+### Segmenta en lugar de condicionales complejos
+
+Si tu email tiene muchos `{% if %}` diferentes, probablemente deberías crear **segmentos separados** y enviar **campañas distintas**:
+
+```
+❌ Un email con 10 condicionales diferentes
+
+✅ 3 campañas a 3 segmentos:
+   - VIPs de Barcelona
+   - VIPs de otras ciudades
+   - Fans no-VIP
+```
+
+## Recursos relacionados
+
+- [Cómo crear una campaña de email](/campaigns/email-campaigns) - Proceso completo de creación
+- [Introducción a segmentos](/audience/motor-segmentacion/) - Crea audiencias específicas
+- [Grupos para A/B testing](/audience/motor-segmentacion/grupos) - Testea variantes personalizadas

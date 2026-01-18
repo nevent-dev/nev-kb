@@ -1,0 +1,95 @@
+---
+title: Campañas
+description: Envía mensajes puntuales a tu audiencia de fans a través de email, SMS y notificaciones push.
+sidebar:
+  order: 2
+---
+
+import Schema from '../../../components/Schema.astro';
+import { Aside } from '@astrojs/starlight/components';
+
+<Schema>{`{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://docs.nevent.com"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Campañas",
+      "item": "https://docs.nevent.com/campaigns"
+    }
+  ]
+}`}</Schema>
+
+# Campañas
+
+Las campañas te permiten enviar mensajes puntuales a segmentos específicos de tu audiencia para promocionar eventos, vender entradas o mantener engagement con tus fans.
+
+## ¿Qué es una campaña?
+
+Una campaña es un envío único a un grupo de contactos predeterminado. A diferencia de los flujos automatizados que se activan por comportamientos, las campañas son envíos manuales que tú programas y ejecutas.
+
+**Ejemplos de campañas:**
+- Anuncio de lineup de festival
+- Venta flash de entradas early bird
+- Newsletter mensual con próximos eventos
+- Recordatorio de evento próximo
+- Encuesta post-evento
+
+## Tipos de campañas
+
+Nevent soporta tres canales de comunicación:
+
+### Email
+El canal principal para comunicación detallada con fans. Ideal para anuncios de eventos, venta de entradas y contenido extenso.
+
+[Cómo crear una campaña de email →](/campaigns/email-campaigns)
+
+### SMS
+Mensajes de texto cortos para comunicaciones urgentes y recordatorios. Alto engagement pero requiere consentimiento explícito.
+
+[Cómo crear una campaña de SMS →](/campaigns/sms-campaigns)
+
+### Push notifications
+Notificaciones móviles para fans que tienen tu app instalada. Perfectas para alertas en tiempo real y ofertas exclusivas.
+
+[Cómo crear una campaña de push →](/campaigns/push-campaigns)
+
+## Campañas vs Flujos
+
+| Aspecto | Campaña | Flujo |
+|---------|---------|-------|
+| **Activación** | Manual, programada por ti | Automática, basada en comportamientos |
+| **Audiencia** | Lista o segmento predefinido | Dinámica, según triggers |
+| **Uso típico** | Anuncios, newsletters, promociones | Bienvenida, carritos abandonados, follow-ups |
+| **Frecuencia** | Puntual (una vez) | Recurrente (cada vez que se cumple condición) |
+
+<Aside type="tip">
+Usa campañas para comunicaciones puntuales que controlas tú. Usa flujos para automatizar mensajes recurrentes basados en acciones de fans.
+</Aside>
+
+## Primeros pasos
+
+1. **[Crea tu primer segmento](/audience/motor-segmentacion/crear-segmento)** - Define a quién enviarás la campaña
+2. **Elige el canal apropiado** - Email para contenido extenso, SMS para urgencia, Push para app users
+3. **Diseña tu mensaje** - Usa plantillas o crea desde cero
+4. **Programa y envía** - Inmediato o programado
+
+## Mejores prácticas
+
+- **Segmenta correctamente**: Envía mensajes relevantes a audiencias específicas
+- **Testea antes de enviar**: Verifica links, imágenes y personalización
+- **Respeta la frecuencia**: No satures a tus fans con demasiados mensajes
+- **Mide resultados**: Analiza open rate, click rate y conversiones
+
+## Recursos relacionados
+
+- [Introducción a segmentos](/audience/motor-segmentacion/) - Aprende a crear audiencias
+- [Personalización de mensajes](/campaigns/personalization) - Variables dinámicas y contenido personalizado
+- [Operadores lógicos](/audience/motor-segmentacion/operadores-logica) - Combina criterios para segmentación avanzada
