@@ -162,6 +162,16 @@ export default defineConfig({
 							slug: 'campaigns/push-campaigns'
 						}
 					]
+				},
+				{
+					label: 'Configuración',
+					items: [
+						{
+							label: 'Canales de comunicación',
+							slug: 'configuracion/canales',
+							badge: { text: 'Nuevo', variant: 'success' }
+						}
+					]
 				}
 			],
 

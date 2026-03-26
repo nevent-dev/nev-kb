@@ -1,0 +1,291 @@
+---
+title: Configuración de Canales de Comunicación
+description: Guía completa para configurar Email, SMS, WhatsApp y Analytics en Nevent
+sidebar:
+  order: 1
+---
+
+import { Aside } from '@astrojs/starlight/components';
+
+# Configuración de Canales de Comunicación
+
+## Introducción
+
+La configuración de canales es el punto de partida para establecer cómo te comunicarás con tu audiencia a través de Nevent. Aquí defines tu identidad de marca en cada canal (Email, SMS, WhatsApp y Analytics) para que tus campañas lleguen con la información correcta y sean medibles desde el primer día.
+
+Una configuración bien ejecutada desde el inicio evita problemas de deliverability, mejora el reconocimiento de marca y te permite medir el retorno de inversión de tus campañas. Piensa en esta sección como los cimientos de tu estrategia de comunicación.
+
+## Requisitos Previos
+
+Antes de comenzar, asegúrate de tener:
+
+- **Acceso a tu cuenta de Nevent Admin** con permisos de administrador
+- **Identidad de marca definida**: nombre de tu organización, logo y colores corporativos (configurados en "Tu marca")
+- **Dominio de correo verificado** (si planeas usar un remitente personalizado para emails)
+- **Cuenta de WhatsApp Business** (opcional, solo si usarás este canal)
+- **IDs de píxeles de Meta y Google Analytics** (opcional, pero altamente recomendado para tracking)
+
+## Acceso a la Configuración de Canales
+
+Desde el panel principal de Nevent Admin, accede a **Herramientas** → **Canales** en el menú lateral izquierdo. Verás una interfaz con 4 pestañas: Correo electrónico, SMS, WhatsApp y Analytics.
+
+![Acceso a Canales](/images/configuracion/canales/paso-2-email-tab.png)
+
+---
+
+## Paso 1: Configurar Correo Electrónico
+
+El canal de email es el más completo y probablemente el que más usarás. Aquí defines quién aparece como remitente y cómo personalizas la firma de tus comunicaciones.
+
+![Configuración de Email](/images/configuracion/canales/paso-2-email-tab.png)
+
+### 1.1 Destinatarios en Copia de Campañas
+
+Este campo te permite añadir direcciones de email que recibirán una copia de **todas las campañas de email** que envíes. Es útil para:
+
+- Monitorear la calidad de las comunicaciones que salen
+- Crear un archivo histórico en un buzón compartido
+- Mantener informado al equipo directivo
+
+**Cómo configurarlo:**
+- Introduce los emails separados por comas o presionando Enter
+- Ejemplo: `marketing@tufestival.com, director@tufestival.com`
+
+<Aside type="caution">
+No abuses de esta función. Cada email en copia consume recursos y puede saturar buzones internos si envías campañas frecuentes.
+</Aside>
+
+### 1.2 Configurar Remitente
+
+El remitente es el nombre que tus destinatarios verán en el campo "De:" (From) al recibir tus emails. Esta es una de las decisiones más importantes porque afecta directamente las tasas de apertura.
+
+**Opciones disponibles:**
+
+1. **Usar nombre de organización** (por defecto): Aparecerá el nombre que configuraste en "Tu marca". Ejemplo: "Euforia Festival"
+2. **Personalizar nombre del remitente**: Puedes crear un nombre diferente, como "Equipo Euforia" o "Tickets Euforia"
+
+**Mejores prácticas:**
+- Usa un nombre reconocible para tu audiencia. Si tus fans te conocen como "Euforia", no uses "EF Events Ltd."
+- Mantén consistencia entre campañas. Cambiar constantemente el remitente confunde a los suscriptores
+- Evita nombres genéricos como "Info" o "Noreply" que reducen apertura
+
+### 1.3 Personalizar Firma de Email
+
+La firma aparece al final de cada email que envías. Úsala para incluir información legal, enlaces a redes sociales o datos de contacto.
+
+**Ejemplo de firma efectiva:**
+
+```
+---
+Euforia Festival 2026
+Canet d'en Berenguer, Valencia
+📧 info@euforiafestival.com | 🌐 www.euforiafestival.com
+
+¿Ya no quieres recibir estos emails? [Cancelar suscripción]
+```
+
+<Aside type="note">
+El enlace de cancelación de suscripción se añade automáticamente por Nevent para cumplir con GDPR y regulaciones de email marketing.
+</Aside>
+
+---
+
+## Paso 2: Configurar SMS
+
+El canal de SMS es directo, inmediato y tiene tasas de apertura superiores al 90%. Sin embargo, requiere una configuración específica relacionada con los Sender IDs.
+
+![Configuración de SMS](/images/configuracion/canales/paso-3-sms-tab.png)
+
+### 2.1 Habilitar SMS
+
+Activa el toggle "Habilitar SMS" para poder enviar mensajes de texto desde tus campañas de marketing. Si no activas esta opción, no podrás seleccionar SMS como canal en tus campañas.
+
+<Aside type="tip">
+Incluso si no planeas usar SMS de inmediato, activarlo te permite hacer pruebas y tener el canal listo cuando lo necesites.
+</Aside>
+
+### 2.2 Añadir Sender IDs
+
+Los Sender IDs son los identificadores alfanuméricos que aparecen como remitente en los SMS enviados. A diferencia del email, en SMS no puedes usar un dominio; debes usar un texto corto que identifique tu marca.
+
+**Restricciones técnicas:**
+- Máximo 11 caracteres
+- Solo letras (A-Z) y números (0-9)
+- No se permiten espacios ni caracteres especiales
+- Se recomienda usar mayúsculas para mejor visibilidad
+
+**Ejemplos válidos:**
+- EUFORIA
+- NEVENT
+- ALERTS
+- INFO2026
+
+**Ejemplos NO válidos:**
+- Euforia Festival (demasiado largo)
+- EUFORIA! (caracteres especiales)
+- EUF 2026 (espacios)
+
+**Cómo añadir un Sender ID:**
+1. Haz clic en el botón "+ Añadir"
+2. Introduce tu Sender ID respetando las restricciones
+3. El sistema validará automáticamente el formato
+4. Puedes añadir múltiples Sender IDs para diferentes tipos de comunicaciones
+
+**Estrategia recomendada:**
+- **EUFORIA**: Para comunicaciones generales de marca
+- **ALERTS**: Para notificaciones urgentes o alertas
+- **TICKETS**: Para confirmaciones de compra
+
+### 2.3 Establecer Sender ID por Defecto
+
+Una vez que has añadido varios Sender IDs, marca uno como predeterminado. Este será el que se use automáticamente en nuevas campañas de SMS, aunque siempre podrás cambiarlo manualmente al crear cada campaña.
+
+<Aside type="tip">
+Usa tu nombre de marca principal como Sender ID por defecto para maximizar el reconocimiento.
+</Aside>
+
+---
+
+## Paso 3: Conectar WhatsApp Business
+
+WhatsApp es el canal más personal y conversacional. Nevent se integra con WhatsApp Business API para permitirte enviar campañas y comunicarte profesionalmente con tu audiencia.
+
+![Configuración de WhatsApp](/images/configuracion/canales/paso-4-whatsapp-tab.png)
+
+### ¿Por qué conectar WhatsApp Business?
+
+- **Campañas de marketing**: Envía promociones, recordatorios y anuncios directamente a WhatsApp
+- **Métricas en tiempo real**: Visualiza entregas, lecturas y respuestas al instante
+- **Confirmación de lectura**: Sabes exactamente cuándo leyeron tu mensaje
+
+### Cómo conectar WhatsApp Business
+
+1. Haz clic en el botón verde "Conectar WhatsApp Business"
+2. Serás redirigido al flujo de autenticación de Meta/Facebook
+3. Selecciona o crea tu cuenta de WhatsApp Business
+4. Autoriza a Nevent para enviar mensajes en tu nombre
+5. Una vez conectado, volverás a Nevent y verás el estado "Conectado"
+
+**Requisitos:**
+- Tener una cuenta de WhatsApp Business (no la app regular de WhatsApp)
+- Cuenta de Meta Business verificada
+- Número de teléfono verificado y asociado a WhatsApp Business
+
+<Aside type="caution">
+Una vez conectado, el número de WhatsApp Business quedará vinculado a Nevent. No podrás usar ese número simultáneamente en otras plataformas de envío masivo.
+</Aside>
+
+---
+
+## Paso 4: Configurar Analytics
+
+El tracking de analytics te permite medir el impacto de tus campañas en métricas de negocio reales: visitas al sitio web, conversiones, ventas de tickets, etc.
+
+![Configuración de Analytics](/images/configuracion/canales/paso-5-analytics-tab.png)
+
+### 4.1 Meta Pixel (Facebook Pixel)
+
+El Meta Pixel rastrea las acciones que los usuarios realizan en tu sitio web después de interactuar con tus campañas. Es esencial para medir ROI y crear audiencias de retargeting en Facebook/Instagram.
+
+**Cómo configurarlo:**
+
+1. **Obtén tu ID de Pixel:**
+   - Accede a Facebook Events Manager (https://business.facebook.com/events_manager)
+   - Copia el ID de tu píxel (formato numérico: 123456789012345)
+
+2. **Pégalo en Nevent:**
+   - Introduce el ID en el campo "ID del píxel"
+   - Activa el toggle "Estado" para comenzar el tracking
+
+3. **Verifica la instalación:**
+   - Usa la extensión "Meta Pixel Helper" en Chrome
+   - Visita tu sitio web y confirma que el píxel se dispara
+
+**Qué puedes medir:**
+- Cuántas personas visitaron tu web después de recibir un email
+- Cuántas completaron la compra de tickets
+- Costo por adquisición (CPA) de cada campaña
+
+### 4.2 Google Analytics
+
+Google Analytics te da una visión más amplia del comportamiento de los usuarios en tu sitio web, incluyendo páginas vistas, tiempo de sesión y flujos de navegación.
+
+**Cómo configurarlo:**
+
+1. **Obtén tu ID de Medición:**
+   - Accede a Google Analytics (https://analytics.google.com)
+   - Ve a Administración → Flujos de datos
+   - Copia el ID de medición (formato: G-XXXXXXXXXX)
+
+2. **Intégralo en Nevent:**
+   - Pega el ID en el campo "ID de medición"
+   - Activa el toggle "Estado"
+
+3. **Configura objetivos (recomendado):**
+   - Define conversiones en Google Analytics (ej: "Compra completada")
+   - Esto te permitirá ver qué campañas generan más conversiones
+
+<Aside type="caution">
+Asegúrate de usar el ID de medición correcto (GA4: G-XXXXXXXXXX). Los IDs antiguos de Universal Analytics (UA-XXXXXXXXX) no funcionarán.
+</Aside>
+
+---
+
+## Mejores Prácticas
+
+### Email
+- **Personaliza el remitente** con un nombre que genere confianza. "Euforia Festival" funciona mejor que "noreply@system.com"
+- **Mantén una firma consistente** con información de contacto y enlaces legales
+- **Evita destinatarios en copia excesivos**. Si necesitas reportes, usa las métricas integradas de Nevent
+
+### SMS
+- **Usa Sender IDs descriptivos** que identifiquen inmediatamente tu marca
+- **Reserva diferentes Sender IDs** para diferentes tipos de mensajes (promociones vs. alertas)
+- **Recuerda el límite de 11 caracteres**. Sé conciso y claro
+
+### WhatsApp
+- **Obtén consentimiento explícito** antes de enviar campañas por WhatsApp (es requerido por Meta)
+- **Usa plantillas aprobadas** para comunicaciones masivas
+- **Responde rápido** a los mensajes. WhatsApp es un canal conversacional, no solo broadcast
+
+### Analytics
+- **Activa ambos píxeles** (Meta y Google Analytics) para tener visibilidad completa
+- **Configura conversiones desde el inicio**. Medir después es más difícil
+- **Revisa los datos semanalmente** para identificar qué campañas están funcionando
+
+---
+
+## Preguntas Frecuentes
+
+**¿Puedo cambiar el Sender ID de SMS después de configurarlo?**
+
+Sí, puedes añadir, eliminar o cambiar el Sender ID por defecto en cualquier momento. Sin embargo, los SMS ya enviados mantendrán el Sender ID que tenían al momento del envío.
+
+**¿Qué pasa si no activo Analytics?**
+
+Podrás seguir enviando campañas, pero no tendrás visibilidad sobre qué sucede después de que el usuario interactúa con tu comunicación. No sabrás cuántos visitaron tu web o compraron tickets.
+
+**¿Necesito WhatsApp Business API o la app regular?**
+
+Necesitas WhatsApp Business API, que es diferente de la app gratuita de WhatsApp Business. La API permite integraciones con plataformas como Nevent para envíos masivos.
+
+**¿Puedo usar diferentes remitentes de email para diferentes campañas?**
+
+Sí. Lo que configuras aquí es el remitente **por defecto**, pero al crear cada campaña podrás personalizarlo si lo necesitas.
+
+**¿Los destinatarios en copia reciben todos los emails individuales o un resumen?**
+
+Reciben una copia de cada email individual enviado en la campaña. Si envías 5,000 emails, recibirán 5,000 copias. Usa esta función con precaución.
+
+---
+
+## Próximos Pasos
+
+Ahora que has configurado tus canales de comunicación, estás listo para:
+
+1. **Crear tu primera campaña de email** - Diseña y envía comunicaciones profesionales
+2. **Segmentar tu audiencia** - Envía mensajes relevantes a cada grupo de fans
+3. **Configurar automatizaciones** - Configura flujos automáticos basados en comportamiento
+4. **Medir resultados con Analytics** - Aprende a interpretar las métricas de tus campañas
+
+La configuración de canales es un paso que solo haces una vez, pero sus efectos se notan en cada campaña que envías. Tómate el tiempo necesario para hacerlo bien.
