@@ -1,0 +1,98 @@
+---
+title: Permisos y seguridad de Nevent MCP
+description: Entiende qué puede y no puede hacer la IA en cada modo de acceso de Nevent MCP. OAuth 2.1, aislamiento de sesiones y privacidad de datos explicados sin tecnicismos.
+sidebar:
+  order: 5
+---
+
+Antes de conectar Nevent MCP a tu asistente de IA, es útil entender qué nivel de acceso tiene la IA sobre tus datos. Nevent te da control sobre esto con tres modos de operación.
+
+## Los tres modos de acceso
+
+Cuando conectas Nevent MCP, el acceso de la IA a tus datos está controlado por un modo de operación. El modo determina qué puede consultar la IA y qué acciones puede ejecutar.
+
+### Modo solo lectura (READ_ONLY)
+
+La IA puede ver y analizar datos, pero no puede modificar nada.
+
+**Qué puede hacer:**
+- Consultar métricas de campañas, aperturas, clics, ingresos
+- Analizar datos de eventos y ventas de entradas
+- Listar segmentos, plantillas y campañas existentes
+- Ver el rendimiento de tus campañas de publicidad
+- Revisar el estado de tus short URLs y sus clics
+- Comprobar el estado de tu dominio de envío
+
+**Qué no puede hacer:**
+- Crear, modificar ni eliminar campañas
+- Crear ni editar segmentos de audiencia
+- Programar ni lanzar envíos
+- Modificar plantillas de email
+- Crear ni actualizar short URLs
+
+Este es el modo más conservador. Perfecto para análisis y consultas del día a día cuando quieres asegurarte de que la IA nunca cambia nada.
+
+:::tip[Consejo]
+Si compartes acceso a Nevent MCP con tu equipo o con un proveedor externo, el modo READ_ONLY es la opción más segura.
+:::
+
+### Modo estándar (STANDARD)
+
+La IA puede consultar datos y también realizar acciones habituales de marketing.
+
+**Qué puede hacer:**
+- Todo lo que puede hacer en READ_ONLY
+- Crear borradores de campañas
+- Crear y actualizar segmentos de audiencia
+- Crear y actualizar plantillas de email
+- Crear y actualizar short URLs
+- Programar campañas para envío futuro (requiere confirmación explícita)
+
+**Qué no puede hacer:**
+- Lanzar campañas al instante sin confirmación
+- Operaciones avanzadas de administración
+
+Este es el modo recomendado para uso diario por parte del equipo de marketing. Da capacidad de acción sin acceso a funciones más sensibles.
+
+### Modo completo (FULL)
+
+La IA tiene acceso completo a todas las funciones disponibles.
+
+**Qué puede hacer:**
+- Todo lo que puede hacer en STANDARD
+- Acceso completo a todas las herramientas disponibles
+
+:::caution[Importante]
+El modo FULL da a la IA capacidad de ejecutar todas las acciones disponibles. Úsalo solo si sabes exactamente lo que estás haciendo y en entornos donde tienes control total sobre las conversaciones.
+:::
+
+## Cómo funciona la autorización
+
+Cuando conectas Nevent MCP a Claude o ChatGPT, el proceso de autorización usa **OAuth 2.1** — el mismo estándar que usa "Iniciar sesión con Google" o "Continuar con Facebook".
+
+Esto significa:
+
+1. **Tu contraseña nunca llega a Claude ni a ChatGPT.** Introduces tus credenciales directamente en la pantalla de Nevent, no en el asistente de IA.
+2. **Nevent emite un token de sesión temporal.** Este token es lo que usa la IA para consultar tus datos. Caduca automáticamente.
+3. **Puedes revocar el acceso en cualquier momento.** Desde la configuración de tu cuenta de Nevent puedes desactivar los tokens activos.
+
+## Aislamiento de sesiones
+
+Cada conversación que abres en Claude o ChatGPT con Nevent MCP activo crea una **sesión independiente**. Esto tiene dos implicaciones importantes:
+
+- Si cambias de organización (tenant) en una conversación, ese cambio no afecta a otras conversaciones abiertas al mismo tiempo.
+- Cuando cierras la conversación, la sesión se cierra y el token deja de ser válido para nuevas consultas.
+
+Si trabajas con múltiples organizaciones de Nevent (por ejemplo, gestionas varios festivales), puedes cambiar entre ellas dentro de una misma conversación sin cerrar sesión. Ver la guía de [multi-tenant para desarrolladores](/nevent-ai/developers/multi-tenant) si necesitas más detalles técnicos.
+
+## Privacidad de los datos
+
+Los datos de tu cuenta de Nevent que consulta la IA durante una conversación **no se usan para entrenar los modelos de lenguaje** de Anthropic (Claude) ni de OpenAI (ChatGPT).
+
+Los datos fluyen desde Nevent hacia el asistente de IA solo dentro del contexto de cada conversación. Nevent no almacena el contenido de tus conversaciones con el asistente.
+
+## Siguiente paso
+
+- [Preguntas frecuentes sobre Nevent MCP](/nevent-ai/preguntas-frecuentes)
+- [Conectar Claude con Nevent MCP](/nevent-ai/conectar-claude)
+- [Para desarrolladores: configuración avanzada](/nevent-ai/developers)

@@ -1,0 +1,84 @@
+---
+title: Preguntas frecuentes sobre Nevent MCP
+description: Respuestas a las dudas más comunes sobre Nevent MCP — compatibilidad, permisos, errores, equipo y cómo deshacer acciones.
+sidebar:
+  order: 6
+---
+
+## ¿Necesito permisos de administrador en Nevent para usar MCP?
+
+Sí. Nevent MCP se conecta con tu cuenta de Nevent Admin y necesitas tener acceso activo a la organización. Si no puedes iniciar sesión en [admin.nevent.es](https://admin.nevent.es), no podrás autorizar el conector.
+
+Si tienes acceso limitado (por ejemplo, acceso de solo lectura), el conector funcionará pero solo podrás consultar datos — no podrás crear ni modificar nada, independientemente del modo configurado.
+
+## ¿Qué versiones de Claude y ChatGPT son compatibles?
+
+**Claude:** Los conectores MCP están disponibles en Claude.ai con plan Pro o superior. No están disponibles en el plan gratuito. Claude Code (la herramienta de línea de comandos) también es compatible — ver la [guía para desarrolladores](/nevent-ai/developers/claude-code).
+
+**ChatGPT:** Los conectores MCP en ChatGPT requieren plan Plus, Pro o Team. La disponibilidad puede variar según la región. Consulta la documentación de OpenAI para confirmar si tu cuenta los tiene habilitados.
+
+## ¿Puedo deshacer un envío programado?
+
+Una campaña en estado **"Programada"** sí puede cancelarse — hazlo desde la lista de campañas en Nevent Admin antes de que llegue la hora de envío.
+
+Una campaña en estado **"Enviando"** o **"Enviada"** no puede deshacerse. Los emails ya han salido de los servidores.
+
+Por eso, cuando le pides a la IA que programe un envío, Nevent MCP requiere que confirmes explícitamente antes de ejecutar la acción. Si le dices "programa la campaña para el lunes", el asistente te pedirá que confirmes antes de hacerlo.
+
+## ¿Qué pasa si le pregunto algo que el asistente no entiende?
+
+El asistente responderá con una aclaración. Si la pregunta es ambigua, te pedirá más contexto. Si hace referencia a datos que no existen (por ejemplo, un evento que no está en tu cuenta), te lo dirá.
+
+Si el asistente responde que no tiene acceso a esa información, comprueba:
+1. Que el conector de Nevent está activo en esa sesión
+2. Que los datos que buscas existen en tu cuenta
+3. Que el modo de operación te permite acceder a esa función
+
+## ¿Funciona con una cuenta de equipo? ¿Pueden usar Nevent MCP varios miembros?
+
+Sí. Cada miembro del equipo puede conectar Nevent MCP con su propia cuenta de Claude o ChatGPT. Cada conexión es independiente: usa las credenciales del usuario que la configura y respeta los permisos que ese usuario tiene en Nevent.
+
+No se comparte ningún token entre usuarios. Si Ana conecta Nevent MCP en su Claude, sus sesiones son completamente independientes de las de Marcos.
+
+## ¿Nevent MCP puede modificar o eliminar datos sin que yo lo pida?
+
+No. Nevent MCP solo ejecuta acciones cuando tú se las pides explícitamente. El asistente no toma iniciativas por su cuenta.
+
+Además, las acciones de escritura (crear campañas, crear segmentos, programar envíos) requieren un modo de operación de STANDARD o FULL. En el modo READ_ONLY predeterminado, el asistente solo puede consultar datos, nunca modificarlos.
+
+## ¿Cómo sé en qué organización está trabajando la IA?
+
+Al inicio de una conversación con Nevent MCP activo, la sesión usa la organización asociada a las credenciales que usaste al autorizar el conector. Es tu organización principal en Nevent.
+
+Si tienes acceso a varias organizaciones, puedes pedirle a la IA que liste las organizaciones disponibles y que cambie a una diferente dentro de la misma conversación.
+
+## ¿Qué pasa con mis datos? ¿Los usa la IA para entrenarse?
+
+No. Los datos de tu cuenta de Nevent que aparecen en las conversaciones no se usan para entrenar los modelos de lenguaje de Anthropic ni de OpenAI. Los datos fluyen dentro del contexto de la conversación y no salen de la infraestructura de Nevent hacia los servidores de entrenamiento de los modelos.
+
+Para más detalles, consulta la guía de [permisos y seguridad](/nevent-ai/permisos-y-seguridad).
+
+## El conector muestra error "401 Unauthorized". ¿Qué hago?
+
+Este error significa que el token de sesión ha caducado o que tus credenciales de Nevent han cambiado. Para resolverlo:
+
+1. Ve a Settings → Connectors en Claude o ChatGPT
+2. Elimina el conector de Nevent
+3. Añade el conector de nuevo con la URL `https://mcp.nevent.ai/mcp`
+4. Autoriza de nuevo con tus credenciales de Nevent
+
+Si el error persiste, verifica que tu cuenta de Nevent Admin está activa accediendo directamente a [admin.nevent.es](https://admin.nevent.es).
+
+## ¿Puedo usar Nevent MCP sin conexión a internet?
+
+No. Nevent MCP necesita conexión a internet para consultar los datos de tu cuenta en tiempo real. Funciona desde cualquier dispositivo y red, pero requiere acceso a `mcp.nevent.ai` y a las APIs de Nevent.
+
+## Tengo más preguntas. ¿Dónde puedo escribir?
+
+Escríbenos a [support@nevent.ai](mailto:support@nevent.ai). El equipo de soporte de Nevent te responderá en un máximo de 24 horas laborables.
+
+## Siguiente paso
+
+- [Ver casos de uso con ejemplos de preguntas](/nevent-ai/casos-de-uso)
+- [Conectar Claude con Nevent MCP](/nevent-ai/conectar-claude)
+- [Para desarrolladores: documentación técnica](/nevent-ai/developers)

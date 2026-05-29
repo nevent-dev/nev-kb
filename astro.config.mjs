@@ -75,54 +75,57 @@ export default defineConfig({
 			// Sidebar
 			sidebar: [
 				{
-					label: 'Primeros pasos',
-					link: '/getting-started'
-				},
-				{
-					label: 'Audiencia y segmentación',
+					label: 'Audiencia',
 					items: [
 						{
-							label: 'Segmentos',
-							items: [
-								{
-									label: 'Introducción a segmentos',
-									slug: 'audience/motor-segmentacion',
-									badge: { text: 'Empezar aquí', variant: 'tip' }
-								},
-								{
-									label: 'Cómo crear un segmento',
-									slug: 'audience/motor-segmentacion/crear-segmento'
-								},
-								{
-									label: 'Categorías de criterios',
-									slug: 'audience/motor-segmentacion/categorias'
-								},
-								{
-									label: 'Operadores lógicos',
-									slug: 'audience/motor-segmentacion/operadores-logica'
-								},
-								{
-									label: 'Modificadores y análisis RFM',
-									slug: 'audience/motor-segmentacion/modificadores-rfm',
-									badge: { text: 'Avanzado', variant: 'note' }
-								},
-								{
-									label: 'Grupos para A/B testing',
-									slug: 'audience/motor-segmentacion/grupos'
-								},
-								{
-									label: 'Casos de uso',
-									slug: 'audience/motor-segmentacion/casos-uso'
-								},
-								{
-									label: 'Mejores prácticas',
-									slug: 'audience/motor-segmentacion/mejores-practicas'
-								},
-								{
-									label: 'Preguntas frecuentes',
-									slug: 'audience/motor-segmentacion/faq'
-								},
-							]
+							label: 'Cómo crear un segmento',
+							slug: 'audiencia/crear-segmento',
+							badge: { text: 'Nuevo', variant: 'tip' }
+						},
+						{
+							label: 'Criterios de segmentación',
+							slug: 'audiencia/criterios-segmentacion',
+							badge: { text: 'Nuevo', variant: 'tip' }
+						},
+						{
+							label: 'Modificadores de segmentación',
+							slug: 'audiencia/modificadores',
+							badge: { text: 'Nuevo', variant: 'tip' }
+						}
+					]
+				},
+				{
+					label: 'Suscripciones',
+					items: [
+						{
+							label: 'Crear una suscripción',
+							slug: 'suscripciones/crear-formulario',
+							badge: { text: 'Nuevo', variant: 'tip' }
+						},
+						{
+							label: 'Ajustes generales',
+							slug: 'suscripciones/configuracion-general',
+							badge: { text: 'Nuevo', variant: 'tip' }
+						},
+						{
+							label: 'Campos del formulario',
+							slug: 'suscripciones/campos-formulario',
+							badge: { text: 'Nuevo', variant: 'tip' }
+						},
+						{
+							label: 'Apariencia del formulario',
+							slug: 'suscripciones/apariencia-formulario',
+							badge: { text: 'Nuevo', variant: 'tip' }
+						},
+						{
+							label: 'Automatizaciones',
+							slug: 'suscripciones/automatizaciones-formulario',
+							badge: { text: 'Nuevo', variant: 'tip' }
+						},
+						{
+							label: 'Suscriptores',
+							slug: 'suscripciones/suscriptores-formulario',
+							badge: { text: 'Nuevo', variant: 'tip' }
 						}
 					]
 				},
@@ -130,38 +133,76 @@ export default defineConfig({
 					label: 'Campañas',
 					items: [
 						{
-							label: 'Introducción a campañas',
-							slug: 'campaigns'
+							label: 'Crear una campaña de email',
+							slug: 'campanas/crear-campana',
+							badge: { text: 'Nuevo', variant: 'tip' }
 						},
 						{
-							label: 'Campañas de email',
-							slug: 'campaigns/email-campaigns'
+							label: 'Canales de campaña',
+							slug: 'campanas/canales-campana',
+							badge: { text: 'Nuevo', variant: 'tip' }
 						},
 						{
-							label: 'Personalización de mensajes',
-							slug: 'campaigns/personalization'
+							label: 'Marketing vs transaccional',
+							slug: 'campanas/tipos-campana',
+							badge: { text: 'Nuevo', variant: 'tip' }
 						},
 						{
-							label: 'A/B testing de campañas',
-							slug: 'campaigns/ab-testing'
+							label: 'Asunto y vista previa',
+							slug: 'campanas/asunto-y-previsualizacion',
+							badge: { text: 'Nuevo', variant: 'tip' }
 						},
 						{
-							label: 'Reenviar a no abiertos',
-							slug: 'campaigns/resend-unopened'
+							label: 'Programar o enviar',
+							slug: 'campanas/programar-campana',
+							badge: { text: 'Nuevo', variant: 'tip' }
 						},
 						{
-							label: 'Campaña de reenganche',
-							slug: 'campaigns/reengagement'
-						},
-						{
-							label: 'Campañas de SMS',
-							slug: 'campaigns/sms-campaigns'
-						},
-						{
-							label: 'Campañas de push',
-							slug: 'campaigns/push-campaigns'
+							label: 'Estados de una campaña',
+							slug: 'campanas/estados-campana',
+							badge: { text: 'Nuevo', variant: 'tip' }
 						}
 					]
+				},
+				{
+					label: 'Configuración',
+					items: [
+						{
+							label: 'Configurar dominio de email',
+							slug: 'configuracion/dominio-email',
+							badge: { text: 'Nuevo', variant: 'tip' }
+						},
+						{
+							label: 'Configurar envío de SMS',
+							slug: 'configuracion/configurar-sms',
+							badge: { text: 'Nuevo', variant: 'tip' }
+						}
+					]
+				},
+				{
+					label: 'Nevent AI',
+					items: [
+						{ label: 'Qué es Nevent MCP', slug: 'nevent-ai', badge: { text: 'Nuevo', variant: 'tip' } },
+						{ label: 'Casos de uso', slug: 'nevent-ai/casos-de-uso' },
+						{ label: 'Conectar con Claude', slug: 'nevent-ai/conectar-claude' },
+						{ label: 'Conectar con ChatGPT', slug: 'nevent-ai/conectar-chatgpt' },
+						{ label: 'Permisos y seguridad', slug: 'nevent-ai/permisos-y-seguridad' },
+						{ label: 'Preguntas frecuentes', slug: 'nevent-ai/preguntas-frecuentes' },
+						{
+							label: 'Para desarrolladores',
+							collapsed: true,
+							items: [
+								{ label: 'Visión general', slug: 'nevent-ai/developers' },
+								{ label: 'Claude Code', slug: 'nevent-ai/developers/claude-code' },
+								{ label: 'Claude Desktop', slug: 'nevent-ai/developers/claude-desktop' },
+								{ label: 'Cursor, Cline, Continue, VS Code', slug: 'nevent-ai/developers/cursor-cline-continue' },
+								{ label: 'Instalación local', slug: 'nevent-ai/developers/instalacion-local' },
+								{ label: 'Multi-tenant', slug: 'nevent-ai/developers/multi-tenant' },
+								{ label: 'Herramientas disponibles', slug: 'nevent-ai/developers/herramientas' },
+								{ label: 'Troubleshooting', slug: 'nevent-ai/developers/troubleshooting' },
+							],
+						},
+					],
 				}
 			],
 

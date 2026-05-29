@@ -1,0 +1,73 @@
+---
+title: Qué es Nevent MCP
+description: Habla con tu CRM de eventos desde Claude o ChatGPT. Consulta campañas, analíticas, audiencias y anuncios en lenguaje natural, en tiempo real.
+sidebar:
+  order: 1
+  badge:
+    text: 'Nuevo'
+    variant: tip
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+
+Imagina poder preguntarle a Claude: "¿Qué campaña de email tuvo mejor tasa de apertura el mes pasado?" y recibir la respuesta en segundos, con datos reales de tu cuenta de Nevent. Eso es exactamente lo que hace Nevent MCP.
+
+**Nevent MCP** conecta tu CRM de eventos con Claude y ChatGPT para que puedas consultar y gestionar tus datos en lenguaje natural, sin abrir el panel de administración, sin exportar Excel y sin buscar entre menús.
+
+## Qué puedes hacer con Nevent MCP
+
+Estas son algunas de las preguntas que puedes hacerle a tu asistente de IA una vez conectado:
+
+- "Muéstrame las inscripciones del Festival X por tipo de entrada"
+- "¿Qué campañas enviadas el mes pasado tuvieron una tasa de apertura superior al 30%?"
+- "Crea un segmento con todos los asistentes que compraron entrada VIP en 2025 pero no han abierto ningún email en los últimos 90 días"
+- "Programa la campaña 'Summer Gala' para el próximo lunes a las 10:00"
+- "Compara el ROAS de nuestras campañas de Meta en marzo"
+- "¿Cuántas supresiones acumulamos este mes y cuáles son los motivos principales?"
+
+Todo desde la ventana de chat de Claude o ChatGPT. Sin cambiar de pestaña.
+
+## Qué es MCP (sin tecnicismos)
+
+MCP son las siglas de "Model Context Protocol" — un estándar abierto que permite a los asistentes de IA como Claude o ChatGPT conectarse a sistemas externos y leer o modificar datos en tiempo real.
+
+Piénsalo como un conector. Igual que conectas Slack con Google Calendar para que te mande recordatorios, Nevent MCP conecta tu CRM de eventos con el asistente de IA. Cuando le haces una pregunta sobre tus campañas o tu audiencia, el asistente consulta los datos de Nevent en ese momento y te da una respuesta actualizada.
+
+No necesitas saber programar para usarlo. La conexión se configura en un par de clics.
+
+## Qué cubre Nevent MCP
+
+<CardGrid>
+  <Card title="Campañas" icon="rocket">
+    Consulta métricas, crea borradores y programa envíos de campañas de email, SMS y WhatsApp.
+  </Card>
+  <Card title="Analíticas" icon="bars">
+    Pregunta sobre rendimiento de eventos, tasa de apertura, clics, ingresos y más, con filtros por fecha, segmento o tipo de entrada.
+  </Card>
+  <Card title="Audiencias" icon="list-format">
+    Crea y previsualia segmentos de contactos usando criterios de comportamiento, compra o interacción.
+  </Card>
+  <Card title="Paid media" icon="magnifier">
+    Compara el ROAS de tus campañas en Meta y Google, analiza grupos de anuncios y atribuye ventas de entradas.
+  </Card>
+  <Card title="Short URLs" icon="open-book">
+    Genera links de seguimiento por usuario, mide el CTR de tus campañas y consulta qué usuarios hicieron clic.
+  </Card>
+  <Card title="Plantillas" icon="document">
+    Lista y previsualiza tus plantillas de email con datos reales antes de usarlas en una campaña.
+  </Card>
+</CardGrid>
+
+## Cómo conectarlo
+
+Hay dos formas de usar Nevent MCP:
+
+**Opción recomendada — sin instalación.** Añade `https://mcp.nevent.ai/mcp` como conector en Claude.ai o ChatGPT. Nevent gestiona todo el servidor. Tú solo te autenticas con tu cuenta de Nevent y listo.
+
+**Opción local — para técnicos.** Instala el paquete `mcp-nevent` en tu máquina y conéctalo con tu clave JWT. Útil si desarrollas integraciones o prefieres control total. Ver la [sección para desarrolladores](/nevent-ai/developers).
+
+## Siguiente paso
+
+- [Conectar Claude con Nevent MCP](/nevent-ai/conectar-claude)
+- [Conectar ChatGPT con Nevent MCP](/nevent-ai/conectar-chatgpt)
+- [Ver casos de uso con ejemplos reales](/nevent-ai/casos-de-uso)

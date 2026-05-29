@@ -1,0 +1,141 @@
+---
+title: Instalación local de Nevent MCP
+description: Instala y configura mcp-nevent en local. Variables de entorno completas para modos stdio y HTTP, build desde fuente y comandos de arranque.
+sidebar:
+  order: 5
+---
+
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+Esta guía cubre la instalación local del paquete `mcp-nevent`. Úsala si necesitas control total sobre la versión, quieres contribuir al proyecto, o prefieres no depender del servidor hosted.
+
+## Instalación rápida
+
+<Tabs>
+  <TabItem label="Uso directo con npx">
+    ```bash
+    npx mcp-nevent
+    ```
+    Requiere que `NEVENT_JWT_TOKEN` esté definida en el entorno.
+  </TabItem>
+  <TabItem label="Instalación global">
+    ```bash
+    npm install -g mcp-nevent
+    mcp-nevent
+    ```
+  </TabItem>
+  <TabItem label="Desde el repo">
+    ```bash
+    git clone https://github.com/nevent/mcp-nevent
+    cd mcp-nevent
+    npm install
+    npm run build
+    node dist/index.js
+    ```
+  </TabItem>
+</Tabs>
+
+## Variables de entorno
+
+### Modo stdio
+
+Estas variables aplican cuando el servidor arranca como proceso stdio (el modo por defecto, usado por Claude Desktop, Cursor, Cline, etc.):
+
+| Variable | Requerida | Valor por defecto | Descripción |
+|----------|-----------|-------------------|-------------|
+| `NEVENT_JWT_TOKEN` | **Sí** | — | Token JWT para autenticarse con la Data API de Nevent |
+| `NEVENT_DATA_API_URL` | No | `https://data.nevent.es` | URL base de la Data API |
+| `NEVENT_OPERATION_MODE` | No | `READ_ONLY` | `READ_ONLY` \| `STANDARD` \| `FULL` |
+
+Ejemplo de arranque completo en modo stdio:
+
+```bash
+export NEVENT_JWT_TOKEN=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
+export NEVENT_OPERATION_MODE=STANDARD
+node dist/index.js
+```
+
+### Modo HTTP
+
+Estas variables aplican cuando montas tu propia instancia del servidor HTTP de Nevent MCP (equivalente al servidor hosted en `mcp.nevent.ai`):
+
+| Variable | Requerida | Valor por defecto | Descripción |
+|----------|-----------|-------------------|-------------|
+| `MCP_JWT_SECRET` | **Sí** | — | Clave de firma JWT para los tokens de acceso MCP (mínimo 32 caracteres) |
+| `MONGODB_URI` | **Sí** | — | URI de conexión a MongoDB para almacenar tokens OAuth |
+| `MCP_TRANSPORT` | **Sí** | `stdio` | Establecer a `http` para activar el modo HTTP |
+| `MCP_PORT` | No | `3000` | Puerto HTTP del servidor |
+| `MCP_SERVER_URL` | No | `http://localhost:{port}` | URL pública HTTPS del servidor (necesaria para OAuth) |
+| `NEVENT_API_URL` | No | `https://api.nevent.es` | URL de la API de Nevent (auth y endpoints de tenant) |
+| `NEVENT_DATA_API_URL` | No | `https://data.nevent.es` | URL base de la Data API |
+| `NEVENT_OPERATION_MODE` | No | `READ_ONLY` | `READ_ONLY` \| `STANDARD` \| `FULL` |
+| `MCP_ALLOWED_ORIGINS` | No | `*` | Orígenes CORS permitidos (separados por comas) |
+
+Ejemplo de arranque en modo HTTP:
+
+```bash
+MCP_JWT_SECRET=mi-secreto-de-al-menos-32-caracteres \
+MONGODB_URI=mongodb://localhost:27017/mcp-nevent \
+MCP_TRANSPORT=http \
+MCP_SERVER_URL=https://mcp.mi-dominio.com \
+NEVENT_OPERATION_MODE=STANDARD \
+node dist/index.js
+```
+
+## Build desde el código fuente
+
+```bash
+# 1. Clona el repositorio
+git clone https://github.com/nevent/mcp-nevent
+cd mcp-nevent
+
+# 2. Instala dependencias
+npm install
+
+# 3. Compila TypeScript
+npm run build
+
+# 4. Arranca en modo stdio
+export NEVENT_JWT_TOKEN=tu_token
+node dist/index.js
+
+# 5. O arranca en modo HTTP
+MCP_JWT_SECRET=secreto-largo MONGODB_URI=mongodb://... MCP_TRANSPORT=http node dist/index.js
+```
+
+## Modos de operación en detalle
+
+El modo de operación controla qué herramientas de escritura están disponibles:
+
+| Modo | Herramientas disponibles |
+|------|-------------------------|
+| `READ_ONLY` (por defecto) | Todas las herramientas de consulta. Ninguna herramienta de escritura. |
+| `STANDARD` | Consulta + crear/actualizar campañas, segmentos, plantillas y short URLs. Programar envíos. |
+| `FULL` | Acceso completo a todas las herramientas disponibles. |
+
+Si una herramienta de escritura se invoca en modo `READ_ONLY`, el servidor devuelve el error `operation_mode_blocked`. Ver la [tabla de errores](/nevent-ai/developers/troubleshooting#códigos-de-error).
+
+## Obtener el NEVENT_JWT_TOKEN
+
+El token JWT de Nevent se obtiene de la API de autenticación:
+
+```bash
+curl -X POST https://api.nevent.es/auth/login \
+  -H "Content-Type: application/json" \
+  -d '{
+    "email": "tu@email.com",
+    "password": "tu_password"
+  }'
+```
+
+La respuesta incluye un campo `token` (el access token JWT) y un `refreshToken`. Usa el valor de `token` como `NEVENT_JWT_TOKEN`.
+
+:::caution[Importante]
+Los tokens JWT tienen una duración limitada. Si el token caduca, las herramientas devolverán `invalid_token`. El servidor renueva automáticamente el token cuando detecta un 401 del API, siempre que el refresh token siga siendo válido.
+:::
+
+## Siguiente paso
+
+- [Modelo multi-tenant](/nevent-ai/developers/multi-tenant)
+- [Referencia de herramientas](/nevent-ai/developers/herramientas)
+- [Códigos de error y troubleshooting](/nevent-ai/developers/troubleshooting)

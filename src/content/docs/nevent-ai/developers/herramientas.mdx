@@ -1,0 +1,137 @@
+---
+title: Referencia de herramientas de Nevent MCP
+description: Las 52 herramientas disponibles en Nevent MCP agrupadas por categoría — analytics, campañas, plantillas, entregabilidad, paid media, short URLs y segmentos.
+sidebar:
+  order: 7
+---
+
+Nevent MCP expone 52 herramientas organizadas en 7 categorías. Las herramientas de lectura están disponibles en todos los modos de operación. Las herramientas de escritura requieren modo `STANDARD` o `FULL`.
+
+## Analytics y segmentación
+
+Herramientas para consultar datos de eventos, analíticas y construir audiencias.
+
+| Herramienta | Descripción |
+|-------------|-------------|
+| `nevent_analytics_capabilities` | Descubre las tablas de datos disponibles — llama primero si no sabes qué datos existen |
+| `nevent_analytics_table_schema` | Obtiene las definiciones de columna para una tabla específica |
+| `nevent_analytics_query` | Ejecuta una consulta con dimensiones, métricas, filtros y rangos de fechas |
+| `nevent_analytics_filter_values` | Obtiene los valores distintos de un campo para construir filtros válidos |
+| `nevent_campaign_report` | Informe completo de rendimiento de campaña — 13 consultas paralelas en una sola llamada |
+| `nevent_segmentation_criteria` | Lista todos los criterios disponibles para construir segmentos de audiencia |
+| `nevent_dimension_values` | Autocompletado de valores para un criterio de segmentación |
+| `nevent_segment_preview` | Previsualiza el tamaño estimado de la audiencia sin guardar |
+| `nevent_segment_execute` | Ejecuta un segmento y devuelve los contactos coincidentes paginados |
+| `nevent_help` | Guía contextual en sesión por tema (workflows, errores, tenants, analytics) |
+
+### Workflow recomendado para analytics
+
+```
+1. nevent_analytics_capabilities   → descubrir tablas disponibles
+2. nevent_analytics_table_schema   → obtener nombres de columna exactos
+3. nevent_analytics_filter_values  → obtener valores válidos para filtros
+4. nevent_analytics_query          → ejecutar la consulta
+```
+
+## Multi-tenant y gestión de segmentos
+
+Herramientas para cambiar de organización y gestionar segmentos guardados.
+
+| Herramienta | Descripción |
+|-------------|-------------|
+| `nevent_list_tenants` | Lista todos los tenants accesibles al usuario autenticado |
+| `nevent_switch_tenant` | Establece el tenant activo para esta sesión MCP |
+| `nevent_reset_tenant` | Restaura el tenant de origen tras una operación cross-tenant (SUPERADMIN) |
+| `nevent_list_segments` | Lista los segmentos guardados del tenant activo |
+| `nevent_get_segment` | Obtiene la definición de filtros y metadatos de un segmento |
+| `nevent_create_segment` | Crea y persiste un nuevo segmento de audiencia |
+| `nevent_update_segment` | Modifica el nombre o la definición de filtros de un segmento existente |
+
+## Campañas
+
+Herramientas para consultar, crear y programar campañas de email, SMS y WhatsApp.
+
+| Herramienta | Descripción |
+|-------------|-------------|
+| `nevent_list_campaigns` | Lista campañas con estado, canal y métricas de engagement |
+| `nevent_get_campaign` | Detalle completo de la campaña: contenido, métricas y links rastreados |
+| `nevent_get_campaign_insights` | Insights generados por IA y anomalías para una campaña |
+| `nevent_create_campaign` | Crea un borrador de campaña (EMAIL/SMS/WhatsApp) |
+| `nevent_schedule_campaign` | Programa un borrador para su envío (requiere `confirmed=true`) |
+
+### Workflow recomendado para crear y programar una campaña
+
+```
+1. nevent_get_sending_profile      → verificar que el dominio de envío está validado
+2. nevent_get_suppressions_summary → comprobar tasa de supresiones (alerta si > 2%)
+3. nevent_list_segments            → seleccionar audiencia (obtener segment_id)
+4. nevent_segment_preview          → confirmar recuento de audiencia con el usuario
+5. nevent_list_templates           → seleccionar plantilla de email (obtener template_id)
+6. nevent_get_template             → inspeccionar contenido de la plantilla antes de enviar
+7. nevent_create_campaign          → crear DRAFT (no se envían mensajes todavía)
+8. nevent_schedule_campaign        → programar envío (confirmed=true requerido)
+```
+
+## Plantillas de email
+
+Herramientas para gestionar y previsualizar plantillas de email.
+
+| Herramienta | Descripción |
+|-------------|-------------|
+| `nevent_list_templates` | Lista las plantillas de email del tenant activo |
+| `nevent_get_template` | Contenido completo de la plantilla: fuente MJML/HTML, asunto y métricas de uso |
+| `nevent_create_template` | Crea una nueva plantilla de email |
+| `nevent_update_template` | Actualiza el contenido o las etiquetas de una plantilla existente |
+| `nevent_clone_template` | Duplica una plantilla existente |
+| `nevent_rename_template` | Renombra una plantilla sin re-renderizar el contenido |
+| `nevent_preview_template` | Previsualiza con resolución de merge-tags contra un usuario de muestra |
+| `nevent_send_test_template` | Envía un email de prueba real via SES a hasta 10 destinatarios |
+
+## Entregabilidad
+
+Herramientas para monitorizar la salud del dominio de envío y las supresiones.
+
+| Herramienta | Descripción |
+|-------------|-------------|
+| `nevent_get_sending_profile` | Validación del dominio de remitente y estado de calentamiento |
+| `nevent_get_suppressions_summary` | Resumen de supresiones con tendencia de 30 días y desglose por motivo |
+
+## Paid media
+
+11 herramientas para analizar el rendimiento de campañas en Meta y Google.
+
+| Herramienta | Descripción |
+|-------------|-------------|
+| `nevent_paid_ads_status` | Comprueba si una cuenta de proveedor está conectada y cuándo se sincronizaron los datos por última vez |
+| `nevent_paid_ads_health` | Superficie del estado de throttle, feature gate enrollment y sincronizaciones obsoletas |
+| `nevent_list_paid_campaigns` | Lista todas las campañas sincronizadas con presupuesto y estado |
+| `nevent_get_paid_campaign_insights` | Métricas diarias: gasto, CTR, CPM, CPC, ROAS |
+| `nevent_paid_attribution` | Vincula campañas a ventas de entradas e ingresos via coincidencia UTM |
+| `nevent_list_paid_ad_groups` | Lista grupos de anuncios, opcionalmente filtrados por campaña |
+| `nevent_get_paid_ad_group_insights` | Métricas diarias para un grupo de anuncios |
+| `nevent_get_paid_ad_group_comparative_stats` | Comparativa del grupo de anuncios vs sus hermanos en la campaña |
+| `nevent_get_paid_ad_group_targeting` | Configuración completa de targeting de audiencia |
+| `nevent_list_paid_ads` | Lista anuncios individuales con campos UTM |
+| `nevent_get_paid_ad_creative` | Creativo del anuncio: body, título, CTA, imágenes/vídeos |
+
+## Short URLs
+
+9 herramientas para crear, gestionar y analizar links de seguimiento.
+
+| Herramienta | Tier | Descripción |
+|-------------|------|-------------|
+| `nevent_list_short_urls` | Lectura | Lista paginada de todos los short URLs con recuento de clics. Filtra por `isActive` o busca por título/URL. |
+| `nevent_get_short_url` | Lectura | Detalle completo de un short URL — id, shortCode, longUrl, tags, metadata, clickCount, isParent. |
+| `nevent_get_short_url_metrics` | Lectura | Analíticas agregadas en N días: totalClicks, uniqueVisitors, clicksByDay, clicksByDevice, clicksByCountry, topReferers. |
+| `nevent_get_short_url_campaign_metrics` | Lectura | CTR a nivel de campaña — un link padre y todas sus variantes por usuario. Devuelve avgClicksPerUrl, clickThroughRate, topUsersByClicks. |
+| `nevent_get_short_url_clicks` | Lectura | Registros individuales de clics ordenados más reciente primero: clickedAt, device, country, UTMs, isPaidTraffic. |
+| `nevent_list_short_url_user_links` | Lectura | Todas las variantes de short URL por usuario creadas bajo un link padre/campaña. |
+| `nevent_create_short_url` | Escritura | Crea un nuevo short URL. Soporta customShortCode, expiresAt, tags y metadata. |
+| `nevent_update_short_url` | Escritura | Actualiza título, longUrl, isActive, tags, metadata o expiración. Los cambios aplican de inmediato. |
+| `nevent_create_bulk_user_short_urls` | Escritura | Genera variantes de seguimiento por usuario para una campaña — cada usuario recibe un link único con atribución de clics. |
+
+## Siguiente paso
+
+- [Códigos de error y troubleshooting](/nevent-ai/developers/troubleshooting)
+- [Modelo multi-tenant](/nevent-ai/developers/multi-tenant)
+- [Instalación local y variables de entorno](/nevent-ai/developers/instalacion-local)

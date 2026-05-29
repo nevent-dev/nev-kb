@@ -1,0 +1,185 @@
+---
+title: Troubleshooting de Nevent MCP
+description: Códigos de error del servidor MCP de Nevent, formato de respuesta de error y soluciones a los problemas más comunes de conexión y configuración.
+sidebar:
+  order: 8
+---
+
+## Códigos de error
+
+Todas las herramientas de Nevent MCP devuelven errores estructurados con un campo `code` legible por máquina.
+
+| Código | Tipo | Significado | Recuperación |
+|--------|------|-------------|--------------|
+| `invalid_token` | `authentication_error` | JWT ausente, caducado o malformado | Reautenticar; verificar `NEVENT_JWT_TOKEN` |
+| `forbidden` | `authentication_error` | Rol insuficiente (ADMIN / SUPERADMIN requerido) | Usar una cuenta con el rol necesario |
+| `not_found` | `not_found` | El recurso no existe o pertenece a otro tenant | Verificar el ID; comprobar el tenant activo |
+| `rate_limit_exceeded` | `rate_limit_error` | Demasiadas peticiones — `param` contiene los segundos de retry-after | Esperar y reintentar |
+| `server_error` | `api_error` | API upstream con 5xx — error transitorio | Reintentar con backoff exponencial |
+| `network_error` | `api_error` | No se pudo alcanzar la API upstream (timeout o DNS) | Verificar conectividad; comprobar `NEVENT_API_URL` |
+| `segment_not_found` | `not_found` | ID de segmento no encontrado en el tenant activo | Verificar el ID con `nevent_list_segments` |
+| `invalid_segment_definition` | `invalid_request` | Falla la validación del DSL de segmento | Comprobar criterion_ids contra `nevent_segmentation_criteria` |
+| `missing_update_fields` | `invalid_request` | Llamada de actualización sin campos que modificar | Proporcionar al menos `name` o `definition` |
+| `tenant_required` | `invalid_request` | La herramienta requiere tenant activo | Llamar a `nevent_switch_tenant` primero |
+| `operation_mode_blocked` | `invalid_request` | Herramienta de escritura llamada en modo READ_ONLY | Establecer `NEVENT_OPERATION_MODE=STANDARD` o `FULL` |
+| `feature_gate_not_enrolled` | `not_found` | El tenant no está inscrito en el piloto de insights del proveedor | Contactar con el admin para activar `MODULE_ATTRIBUTION` |
+
+## Formato de respuesta de error
+
+```json
+{
+  "error": {
+    "type": "authentication_error | invalid_request | api_error | rate_limit_error | not_found",
+    "message": "Explicación legible con orientación accionable",
+    "code": "código_legible_por_máquina",
+    "param": "parámetro_infractor (cuando aplica)"
+  }
+}
+```
+
+## Problemas comunes
+
+### Claude no detecta las herramientas de Nevent
+
+**Síntoma:** Claude responde sin mencionar las herramientas de Nevent o dice que no tiene acceso a datos de Nevent.
+
+**Diagnóstico:**
+
+1. Verifica que el servidor MCP está registrado:
+   ```bash
+   claude mcp list  # para Claude Code
+   ```
+   Para Claude Desktop, comprueba que `claude_desktop_config.json` tiene el bloque `nevent` y que la sintaxis JSON es válida.
+
+2. Comprueba que el proceso del servidor arranca correctamente:
+   ```bash
+   NEVENT_JWT_TOKEN=tu_token node dist/index.js
+   ```
+   El servidor debe arrancar sin errores. Si hay un error de módulo no encontrado, ejecuta `npm run build` primero.
+
+3. Reinicia el cliente. Claude Desktop y Cursor cargan los servidores MCP al arrancar — un cambio en la configuración requiere reiniciar la aplicación.
+
+### Error 401 Unauthorized
+
+**Síntoma:** Las herramientas devuelven `invalid_token`.
+
+**Causas comunes:**
+- El token JWT ha caducado
+- La variable `NEVENT_JWT_TOKEN` no está definida o tiene espacios extra
+- El token pertenece a un entorno diferente (dev vs producción)
+
+**Solución:**
+```bash
+# Verificar que el token está definido
+echo $NEVENT_JWT_TOKEN
+
+# Obtener un token fresco
+curl -X POST https://api.nevent.es/auth/login \
+  -H "Content-Type: application/json" \
+  -d '{"email": "tu@email.com", "password": "tu_password"}' \
+  | jq '.token'
+```
+
+### Tenant switch falló
+
+**Síntoma:** `nevent_switch_tenant` devuelve error o el tenant activo no cambia.
+
+**Causas comunes:**
+- El `tenantId` no existe o no es accesible con el rol del usuario actual
+- El JWT actual no tiene los permisos de OWNER o SUPERADMIN necesarios para acceder al tenant destino
+
+**Solución:**
+
+1. Llama a `nevent_list_tenants` para obtener los IDs exactos de los tenants accesibles
+2. Verifica que el `tenantId` que pasas a `nevent_switch_tenant` está en esa lista
+3. Comprueba el rol del usuario en la consola de Nevent Admin
+
+### La herramienta de escritura devuelve `operation_mode_blocked`
+
+**Síntoma:** Intentas crear una campaña o un segmento y el servidor devuelve `operation_mode_blocked`.
+
+**Solución:**
+```bash
+# En modo stdio
+export NEVENT_OPERATION_MODE=STANDARD
+
+# En claude_desktop_config.json
+{
+  "env": {
+    "NEVENT_OPERATION_MODE": "STANDARD"
+  }
+}
+```
+
+### `feature_gate_not_enrolled` en paid media insights
+
+**Síntoma:** Las herramientas `nevent_paid_attribution` o `nevent_get_paid_campaign_insights` devuelven `feature_gate_not_enrolled`.
+
+**Causa:** El tenant no está inscrito en el módulo `MODULE_ATTRIBUTION`, que está en fase piloto.
+
+**Solución:** Contacta con el equipo de Nevent en [support@nevent.ai](mailto:support@nevent.ai) para activar el módulo de atribución en tu cuenta.
+
+### El servidor HTTP no responde (modo self-hosted)
+
+**Síntoma:** El servidor arranca pero las peticiones HTTP fallan o el OAuth no funciona.
+
+**Verificaciones:**
+
+1. `MCP_TRANSPORT=http` está definido — sin esto, el servidor arranca en modo stdio
+2. `MCP_JWT_SECRET` tiene al menos 32 caracteres
+3. `MONGODB_URI` es accesible desde el servidor
+4. `MCP_SERVER_URL` apunta a la URL pública HTTPS del servidor (necesaria para el redirect OAuth)
+
+```bash
+# Test básico del endpoint
+curl https://tu-servidor/health
+```
+
+### Claude Desktop en macOS no hereda las variables de entorno
+
+**Síntoma:** El servidor arranca pero `NEVENT_JWT_TOKEN` no está definido.
+
+**Causa:** En macOS, las apps GUI no heredan las variables de entorno del shell (`.zshrc`, `.bashrc`).
+
+**Solución:** Incluye el token directamente en `claude_desktop_config.json`:
+
+```json
+{
+  "mcpServers": {
+    "nevent": {
+      "command": "node",
+      "args": ["/ruta/a/dist/index.js"],
+      "env": {
+        "NEVENT_JWT_TOKEN": "tu_token_aqui"
+      }
+    }
+  }
+}
+```
+
+## Obtener ayuda contextual en sesión
+
+El servidor incluye una herramienta de ayuda que el agente puede invocar cuando tiene dudas:
+
+```
+nevent_help({ topic: "errors" })
+nevent_help({ topic: "workflows" })
+nevent_help({ topic: "tenants" })
+nevent_help({ topic: "analytics" })
+```
+
+Estas respuestas están ajustadas al contexto del servidor y la versión actual.
+
+## Soporte
+
+Si el problema persiste después de revisar esta guía, escribe a [support@nevent.ai](mailto:support@nevent.ai) con:
+- Versión del paquete (`mcp-nevent --version` o la versión del package.json)
+- Modo de transporte (stdio o HTTP)
+- El código de error exacto de la respuesta
+- Los pasos para reproducir el problema
+
+## Siguiente paso
+
+- [Referencia de herramientas](/nevent-ai/developers/herramientas)
+- [Variables de entorno completas](/nevent-ai/developers/instalacion-local)
+- [Modelo multi-tenant](/nevent-ai/developers/multi-tenant)
