@@ -1,0 +1,97 @@
+---
+title: Modelo multi-tenant de Nevent MCP
+description: Cómo funciona el modelo jerárquico de tenants en Nevent MCP. Herramientas de switch y reset, contrato de rotación de JWT y garantías de aislamiento por sesión.
+sidebar:
+  order: 6
+---
+
+Nevent usa un modelo de tenants jerárquico. Nevent MCP te permite cambiar de tenant dentro de una sesión y trabajar con múltiples organizaciones sin reiniciar la conexión.
+
+## Modelo de acceso por rol
+
+| Rol | Qué puede ver |
+|-----|--------------|
+| `SUPERADMIN` | Todos los tenants del sistema |
+| `OWNER` | Su propio tenant y todos los tenants hijo |
+| `ADMIN` | Solo su propio tenant |
+
+El rol del usuario autenticado (el JWT usado al iniciar sesión) determina qué tenants son accesibles mediante `nevent_list_tenants`.
+
+## Flujo básico de trabajo multi-tenant
+
+```
+1. nevent_list_tenants    → listar los tenants accesibles (devuelve tenant IDs)
+2. nevent_switch_tenant   → establecer el tenant activo para esta sesión
+3. nevent_reset_tenant    → restaurar el tenant de origen (solo SUPERADMIN)
+```
+
+### Ejemplo de conversación
+
+```
+Usuario: "Lista los tenants disponibles"
+→ nevent_list_tenants devuelve [tenant-abc, tenant-xyz, tenant-def]
+
+Usuario: "Cambia al tenant-xyz"
+→ nevent_switch_tenant({ tenantId: "tenant-xyz" })
+→ Respuesta: { active_tenant_id: "tenant-xyz" }
+
+Usuario: "Lista las campañas"
+→ nevent_list_campaigns consulta en contexto de tenant-xyz
+
+Usuario: "Vuelve al tenant original"
+→ nevent_reset_tenant()
+→ Respuesta: { active_tenant_id: "tenant-abc" }
+```
+
+## Contrato de `nevent_switch_tenant`
+
+Cuando llamas a `nevent_switch_tenant`:
+
+1. El servidor MCP llama al endpoint de tenant-switch en la API de Nevent con `{ tenantId }`.
+2. La API valida que el portador del JWT tiene acceso al tenant destino y devuelve un nuevo access token con scope al nuevo tenant.
+3. El servidor MCP actualiza el JWT en `DataClient` (analytics) y `PaidMediaClient` (paid media) de forma **atómica**.
+4. Todas las caches en memoria (capabilities, segmentation criteria) se **invalidan** — las llamadas posteriores obtendrán datos frescos del nuevo contexto de tenant.
+5. `activeTenantId` se actualiza desde el claim `tenantId` del nuevo JWT.
+
+## Contrato de `nevent_reset_tenant`
+
+Cuando llamas a `nevent_reset_tenant`:
+
+1. El servidor lee `homeTenantId` — el tenant ID capturado del JWT original al crear la sesión.
+2. Llama al endpoint de tenant-switch con `{ tenantId: homeTenantId }`.
+3. Misma invalidación de caches y rotación de JWT que en `nevent_switch_tenant`.
+4. Si `homeTenantId` no está disponible (el JWT original no tenía claim `tenantId`), la herramienta devuelve error.
+
+## Garantías de aislamiento
+
+- **Scope de sesión:** el contexto de tenant es por sesión. Cambiar de tenant en una conversación no afecta a ninguna otra sesión activa del mismo usuario u otros usuarios.
+- **Atomicidad de JWT:** la rotación de JWT es atómica. Si la llamada a la API falla, ninguno de los dos clientes (DataClient ni PaidMediaClient) se actualiza. El tenant activo no cambia en caso de error.
+- **Respuesta verificable:** la respuesta de `nevent_switch_tenant` incluye `active_tenant_id` para que el agente pueda verificar que el switch se completó correctamente antes de continuar.
+
+## Herramientas de gestión de segmentos en multi-tenant
+
+Las operaciones de segmentos (`nevent_list_segments`, `nevent_get_segment`, `nevent_create_segment`, `nevent_update_segment`) siempre operan sobre el **tenant activo** en ese momento.
+
+Si necesitas listar los segmentos de un tenant específico:
+
+```
+1. nevent_switch_tenant({ tenantId: "tenant-xyz" })
+2. nevent_list_segments  → lista segmentos de tenant-xyz
+3. nevent_reset_tenant   → restaura tenant original
+```
+
+## Herramienta `nevent_help`
+
+Si el agente tiene dudas sobre el flujo de trabajo multi-tenant, puede invocar:
+
+```
+nevent_help({ topic: "tenants" })
+```
+
+Esta herramienta proporciona guía contextual en sesión sobre workflows, errores y el modelo multi-tenant sin necesidad de consultar documentación externa.
+
+## Siguiente paso
+
+- [Referencia completa de las 52 herramientas](/nevent-ai/developers/herramientas)
+- [Códigos de error y troubleshooting](/nevent-ai/developers/troubleshooting)
+- [Instalación local y variables de entorno](/nevent-ai/developers/instalacion-local)

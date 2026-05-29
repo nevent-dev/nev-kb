@@ -1,0 +1,190 @@
+---
+title: Nevent MCP en Cursor, Cline, Continue y VS Code
+description: Configura Nevent MCP en Cursor, Cline, Continue y la extensión MCP de VS Code. Ficheros de configuración JSON y variables de entorno para cada cliente.
+sidebar:
+  order: 4
+---
+
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+Todos estos clientes usan un formato de configuración JSON similar al de Claude Desktop. La estructura del bloque `mcpServers` es idéntica — solo cambia la ubicación del fichero.
+
+## Cursor
+
+Cursor busca la configuración de MCP en un fichero JSON dentro de la carpeta del proyecto o en la configuración global del usuario.
+
+### Configuración a nivel de proyecto
+
+Crea o edita el fichero `.cursor/mcp.json` en la raíz de tu proyecto:
+
+```json
+{
+  "mcpServers": {
+    "nevent": {
+      "command": "node",
+      "args": ["/ruta/absoluta/a/mcp-nevent/dist/index.js"],
+      "env": {
+        "NEVENT_JWT_TOKEN": "tu_nevent_jwt_token",
+        "NEVENT_OPERATION_MODE": "STANDARD"
+      }
+    }
+  }
+}
+```
+
+### Configuración global de usuario
+
+Para que Nevent MCP esté disponible en todos tus proyectos de Cursor, edita el fichero de configuración global de MCP. En macOS:
+
+```
+~/.cursor/mcp.json
+```
+
+El formato es idéntico al de la configuración de proyecto.
+
+### Con npx (sin ruta local)
+
+```json
+{
+  "mcpServers": {
+    "nevent": {
+      "command": "npx",
+      "args": ["-y", "mcp-nevent"],
+      "env": {
+        "NEVENT_JWT_TOKEN": "tu_nevent_jwt_token"
+      }
+    }
+  }
+}
+```
+
+### Verificar en Cursor
+
+Abre la paleta de comandos (Cmd/Ctrl + Shift + P) y busca **MCP: List servers** o comprueba en el panel de ajustes de Cursor que el servidor `nevent` aparece como activo.
+
+---
+
+## Cline
+
+Cline (extensión de VS Code) gestiona los servidores MCP desde su panel lateral de configuración o desde un fichero JSON.
+
+### Desde la interfaz de Cline
+
+1. Abre el panel de Cline en VS Code
+2. Haz clic en el icono de ajustes (rueda dentada)
+3. Selecciona **MCP Servers**
+4. Haz clic en **Add Server**
+5. Elige el modo **Command** y rellena:
+   - **Name:** `nevent`
+   - **Command:** `node /ruta/absoluta/a/mcp-nevent/dist/index.js`
+   - **Environment variables:** `NEVENT_JWT_TOKEN=tu_token`
+
+### Desde el fichero de configuración de Cline
+
+Cline guarda su configuración de MCP en:
+
+```
+~/Library/Application Support/Code/User/globalStorage/saoudrizwan.claude-dev/settings/cline_mcp_settings.json
+```
+
+Añade el bloque de Nevent:
+
+```json
+{
+  "mcpServers": {
+    "nevent": {
+      "command": "node",
+      "args": ["/ruta/absoluta/a/mcp-nevent/dist/index.js"],
+      "env": {
+        "NEVENT_JWT_TOKEN": "tu_nevent_jwt_token",
+        "NEVENT_OPERATION_MODE": "STANDARD"
+      },
+      "disabled": false,
+      "autoApprove": []
+    }
+  }
+}
+```
+
+---
+
+## Continue
+
+Continue (extensión de VS Code y JetBrains) configura los servidores MCP en su fichero `config.json`.
+
+### Ubicación del fichero
+
+```
+~/.continue/config.json
+```
+
+### Añadir Nevent MCP
+
+En la sección `mcpServers` del fichero `config.json`:
+
+```json
+{
+  "mcpServers": [
+    {
+      "name": "nevent",
+      "command": "node",
+      "args": ["/ruta/absoluta/a/mcp-nevent/dist/index.js"],
+      "env": {
+        "NEVENT_JWT_TOKEN": "tu_nevent_jwt_token",
+        "NEVENT_OPERATION_MODE": "STANDARD"
+      }
+    }
+  ]
+}
+```
+
+:::note[Nota]
+Continue usa un array para `mcpServers` (a diferencia de Cursor y Cline que usan un objeto). Asegúrate de respetar el formato correcto para no romper la configuración existente.
+:::
+
+---
+
+## VS Code (extensión MCP oficial)
+
+Si usas la extensión oficial de MCP para VS Code, la configuración se añade en los ajustes de usuario de VS Code (`settings.json`):
+
+```json
+{
+  "mcp.servers": {
+    "nevent": {
+      "command": "node",
+      "args": ["/ruta/absoluta/a/mcp-nevent/dist/index.js"],
+      "env": {
+        "NEVENT_JWT_TOKEN": "tu_nevent_jwt_token",
+        "NEVENT_OPERATION_MODE": "STANDARD"
+      }
+    }
+  }
+}
+```
+
+Abre los ajustes de VS Code con Cmd/Ctrl + Shift + P → **Open User Settings (JSON)** y añade el bloque dentro del objeto raíz.
+
+---
+
+## Usando la URL hosted en lugar de stdio
+
+Todos los clientes anteriores también aceptan servidores MCP remotos via HTTP. Si el cliente lo soporta, puedes usar la URL hosted de Nevent en lugar del comando local:
+
+```json
+{
+  "mcpServers": {
+    "nevent": {
+      "url": "https://mcp.nevent.ai/mcp"
+    }
+  }
+}
+```
+
+Consulta la documentación de tu cliente específico para confirmar si soporta el transporte HTTP y cuál es la clave correcta (`url`, `serverUrl`, `endpoint`, etc.).
+
+## Siguiente paso
+
+- [Variables de entorno completas y build desde fuente](/nevent-ai/developers/instalacion-local)
+- [Referencia de las 52 herramientas](/nevent-ai/developers/herramientas)
+- [Troubleshooting: problemas comunes](/nevent-ai/developers/troubleshooting)

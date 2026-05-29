@@ -1,0 +1,92 @@
+---
+title: Cómo conectar Nevent MCP con Claude
+description: Conecta tu cuenta de Nevent a Claude.ai en menos de 2 minutos. Paso a paso para empezar a consultar tus datos de eventos desde el chat.
+sidebar:
+  order: 3
+---
+
+En menos de 2 minutos tendrás Claude conectado a tu CRM de Nevent. A partir de ahí, puedes preguntarle sobre tus campañas, audiencias, analíticas y anuncios directamente desde el chat.
+
+No necesitas instalar nada. Todo funciona desde la configuración de Claude.ai en el navegador.
+
+## Antes de empezar
+
+Necesitas tener:
+- Una cuenta activa en [Claude.ai](https://claude.ai) (plan Pro o superior — los conectores no están disponibles en el plan gratuito)
+- Una cuenta activa en [Nevent](https://admin.nevent.es) con acceso de administrador
+
+## Paso 1: abre la configuración de Claude
+
+Entra en [claude.ai](https://claude.ai) y haz clic en tu nombre o avatar en la esquina inferior izquierda de la barra lateral. Se abre un menú contextual.
+
+{/* TODO: captura — barra lateral de Claude.ai con el menú de usuario desplegado. Señalar la opción "Settings". Guardar en /images/guias/nevent-ai/conectar-claude/paso-1.png */}
+
+Selecciona **Settings** (Configuración) en el menú.
+
+## Paso 2: ve a la sección de conectores
+
+Dentro de la configuración, busca en el menú izquierdo la sección **Connectors** (Conectores) o **Integrations** (Integraciones), según la versión de Claude que tengas.
+
+{/* TODO: captura — panel de configuración de Claude.ai con la sección Connectors visible en el menú lateral. Guardar en /images/guias/nevent-ai/conectar-claude/paso-2.png */}
+
+Haz clic en **Connectors**.
+
+## Paso 3: añade un conector personalizado
+
+En la sección de conectores verás los conectores que tienes configurados actualmente (si es la primera vez, estará vacío). Haz clic en el botón **Add custom connector** o **Add connector** para añadir uno nuevo.
+
+{/* TODO: captura — página de Connectors con el botón "Add custom connector" visible. Guardar en /images/guias/nevent-ai/conectar-claude/paso-3.png */}
+
+## Paso 4: introduce la URL de Nevent MCP
+
+Aparece un campo donde introducir la URL del servidor MCP. Escribe exactamente esta dirección:
+
+```
+https://mcp.nevent.ai/mcp
+```
+
+{/* TODO: captura — formulario con el campo URL y la dirección "https://mcp.nevent.ai/mcp" introducida. Guardar en /images/guias/nevent-ai/conectar-claude/paso-4.png */}
+
+Haz clic en **Save** o **Confirm** para guardar.
+
+## Paso 5: autoriza el acceso con tu cuenta de Nevent
+
+Claude abrirá una ventana de autorización de Nevent. Verás la pantalla de login de Nevent.
+
+{/* TODO: captura — pantalla de autorización OAuth con el formulario de login de Nevent. Guardar en /images/guias/nevent-ai/conectar-claude/paso-5.png */}
+
+Introduce tu email y contraseña de Nevent Admin y haz clic en **Iniciar sesión**. Nevent verificará tus credenciales y devolverá el control a Claude.
+
+:::note[Nota]
+Esta autorización usa OAuth 2.1, el mismo estándar que usa "Iniciar sesión con Google". Nevent nunca comparte tu contraseña con Claude — solo emite un token de sesión temporal.
+:::
+
+## Paso 6: confirma que el conector está activo
+
+Después de autorizar, vuelves a la pantalla de conectores. El conector de Nevent aparece ahora en la lista con el estado **Connected** (Conectado).
+
+{/* TODO: captura — pantalla de Connectors mostrando el conector Nevent con estado Connected. Guardar en /images/guias/nevent-ai/conectar-claude/paso-6.png */}
+
+Ya está. El conector está activo.
+
+## Resultado: prueba la conexión
+
+Abre una conversación nueva en Claude y escribe tu primera pregunta:
+
+```
+Lista mis últimas 5 campañas de email con su tasa de apertura
+```
+
+Claude consultará tu cuenta de Nevent y te responderá con los datos reales en segundos.
+
+{/* TODO: captura — chat de Claude.ai con la pregunta y una respuesta con tabla de campañas. Guardar en /images/guias/nevent-ai/conectar-claude/resultado.png */}
+
+:::tip[Consejo]
+Si Claude responde que no puede acceder a los datos de Nevent, verifica que el conector aparece como "Connected" en Settings → Connectors. Si el problema persiste, revisa las [preguntas frecuentes](/nevent-ai/preguntas-frecuentes).
+:::
+
+## Siguiente paso
+
+- [Casos de uso con ejemplos de preguntas reales](/nevent-ai/casos-de-uso)
+- [Entender los modos de acceso y permisos](/nevent-ai/permisos-y-seguridad)
+- [Conectar ChatGPT en lugar de Claude](/nevent-ai/conectar-chatgpt)

@@ -1,0 +1,96 @@
+---
+title: Cómo conectar Nevent MCP con ChatGPT
+description: Conecta tu cuenta de Nevent a ChatGPT para consultar campañas, analíticas y audiencias desde el chat. Guía paso a paso con la URL del servidor MCP.
+sidebar:
+  order: 4
+---
+
+ChatGPT también puede conectarse a Nevent MCP para que puedas consultar y gestionar tus datos de eventos desde el chat. El proceso es similar al de Claude: introduces la URL del servidor y autorizas con tu cuenta de Nevent.
+
+El tiempo estimado es de unos 2-3 minutos.
+
+## Antes de empezar
+
+Necesitas tener:
+- Una cuenta en [ChatGPT](https://chatgpt.com) con plan Plus, Pro o Team (los conectores MCP requieren plan de pago)
+- Una cuenta activa en [Nevent](https://admin.nevent.es) con acceso de administrador
+
+:::note[Nota]
+La disponibilidad de conectores MCP en ChatGPT puede variar según la región y el tipo de cuenta. Si no ves la opción de conectores en tu configuración, comprueba que tu plan lo incluye o consulta la documentación oficial de OpenAI.
+:::
+
+## Paso 1: abre la configuración de ChatGPT
+
+Entra en [chatgpt.com](https://chatgpt.com) y haz clic en tu avatar o en el botón de menú en la parte superior izquierda. Selecciona **Settings** (Configuración) en el menú desplegable.
+
+{/* TODO: captura — panel lateral de ChatGPT con el menú de usuario abierto y la opción Settings visible. Guardar en /images/guias/nevent-ai/conectar-chatgpt/paso-1.png */}
+
+## Paso 2: ve a la sección de conectores
+
+Dentro de la configuración, busca la sección **Connectors** o **Plugins & Integrations** en el panel izquierdo.
+
+{/* TODO: captura — configuración de ChatGPT con la sección Connectors visible. Guardar en /images/guias/nevent-ai/conectar-chatgpt/paso-2.png */}
+
+Haz clic en **Connectors**.
+
+## Paso 3: añade un conector MCP personalizado
+
+Busca el botón para añadir un conector nuevo. Puede llamarse **Add custom MCP**, **Connect**, o **Add integration**, dependiendo de la versión de ChatGPT.
+
+{/* TODO: captura — página de Connectors en ChatGPT con el botón para añadir un conector. Guardar en /images/guias/nevent-ai/conectar-chatgpt/paso-3.png */}
+
+Haz clic en ese botón.
+
+## Paso 4: introduce la URL de Nevent MCP
+
+Aparece un campo para introducir la URL del servidor. Escribe:
+
+```
+https://mcp.nevent.ai/mcp
+```
+
+{/* TODO: captura — formulario con el campo URL y "https://mcp.nevent.ai/mcp" introducido. Guardar en /images/guias/nevent-ai/conectar-chatgpt/paso-4.png */}
+
+Haz clic en **Save** o **Add** para continuar.
+
+## Paso 5: autoriza con tu cuenta de Nevent
+
+ChatGPT lanzará el flujo de autorización OAuth. Se abre la pantalla de login de Nevent.
+
+{/* TODO: captura — ventana de autorización OAuth con el formulario de login de Nevent. Guardar en /images/guias/nevent-ai/conectar-chatgpt/paso-5.png */}
+
+Introduce tu email y contraseña de Nevent Admin y confirma el acceso. Nevent te pedirá que confirmes que autorizas el acceso desde ChatGPT.
+
+:::note[Nota]
+Como en Claude, esta autorización usa OAuth 2.1. ChatGPT nunca recibe tu contraseña de Nevent, solo un token temporal de sesión que caduca automáticamente.
+:::
+
+## Paso 6: verifica que el conector está activo
+
+Vuelves a la pantalla de conectores. El conector de Nevent aparece en la lista con el estado conectado.
+
+{/* TODO: captura — lista de conectores en ChatGPT mostrando Nevent con estado conectado. Guardar en /images/guias/nevent-ai/conectar-chatgpt/paso-6.png */}
+
+## Resultado: prueba la conexión
+
+Abre una conversación nueva en ChatGPT y escribe:
+
+```
+Muéstrame las métricas de mis últimas campañas de email en Nevent
+```
+
+ChatGPT consultará los datos de tu cuenta de Nevent y te mostrará la respuesta con información en tiempo real.
+
+:::tip[Consejo]
+Si ChatGPT no responde con datos de Nevent, escribe "¿Qué herramientas tienes disponibles?" para ver si el conector está activo en esa conversación. Algunos modelos de ChatGPT requieren activar el conector en cada conversación nueva.
+:::
+
+## Alternativa: ChatGPT no muestra la opción de conectores
+
+Si tu cuenta de ChatGPT no tiene la sección de conectores MCP disponible, puedes usar Nevent MCP desde Claude siguiendo la [guía de conexión con Claude](/nevent-ai/conectar-claude), que tiene soporte de conectores en todos los planes Pro.
+
+## Siguiente paso
+
+- [Ver todos los casos de uso con ejemplos](/nevent-ai/casos-de-uso)
+- [Entender los permisos y modos de acceso](/nevent-ai/permisos-y-seguridad)
+- [Preguntas frecuentes](/nevent-ai/preguntas-frecuentes)

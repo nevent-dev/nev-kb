@@ -1,0 +1,155 @@
+---
+title: Nevent MCP en Claude Desktop
+description: Configura Nevent MCP en la app de escritorio de Claude. JSON de configuración para macOS y Windows con rutas absolutas y variables de entorno.
+sidebar:
+  order: 3
+---
+
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+Claude Desktop carga los servidores MCP desde un fichero de configuración JSON. Este fichero se edita manualmente — Claude Desktop no tiene interfaz gráfica para gestionar servidores MCP.
+
+## Ubicación del fichero de configuración
+
+<Tabs>
+  <TabItem label="macOS">
+    ```
+    ~/Library/Application Support/Claude/claude_desktop_config.json
+    ```
+  </TabItem>
+  <TabItem label="Windows">
+    ```
+    %APPDATA%\Claude\claude_desktop_config.json
+    ```
+    Es equivalente a: `C:\Users\TuUsuario\AppData\Roaming\Claude\claude_desktop_config.json`
+  </TabItem>
+</Tabs>
+
+Si el fichero no existe, créalo. Si ya existe, añade el bloque `nevent` al objeto `mcpServers`.
+
+## Configuración mínima (modo stdio)
+
+```json
+{
+  "mcpServers": {
+    "nevent": {
+      "command": "node",
+      "args": ["/ruta/absoluta/a/mcp-nevent/dist/index.js"],
+      "env": {
+        "NEVENT_JWT_TOKEN": "tu_nevent_jwt_token"
+      }
+    }
+  }
+}
+```
+
+Sustituye `/ruta/absoluta/a/mcp-nevent/dist/index.js` por la ruta real donde tienes el paquete clonado y compilado.
+
+## Usando npx (sin clonar el repo)
+
+Si prefieres no clonar el repo, puedes usar `npx`:
+
+```json
+{
+  "mcpServers": {
+    "nevent": {
+      "command": "npx",
+      "args": ["mcp-nevent"],
+      "env": {
+        "NEVENT_JWT_TOKEN": "tu_nevent_jwt_token"
+      }
+    }
+  }
+}
+```
+
+:::caution[Importante]
+Con `npx`, Claude Desktop descarga y ejecuta el paquete cada vez que arranca. Asegúrate de tener conexión a internet cuando abras Claude Desktop, o usa la instalación global en su lugar.
+:::
+
+## Instalación global (recomendado para uso frecuente)
+
+Instala el paquete una vez de forma global:
+
+```bash
+npm install -g mcp-nevent
+```
+
+Luego en la configuración de Claude Desktop:
+
+```json
+{
+  "mcpServers": {
+    "nevent": {
+      "command": "mcp-nevent",
+      "env": {
+        "NEVENT_JWT_TOKEN": "tu_nevent_jwt_token"
+      }
+    }
+  }
+}
+```
+
+## Con modo de operación explícito
+
+Para habilitar escritura, añade `NEVENT_OPERATION_MODE`:
+
+```json
+{
+  "mcpServers": {
+    "nevent": {
+      "command": "node",
+      "args": ["/ruta/absoluta/a/mcp-nevent/dist/index.js"],
+      "env": {
+        "NEVENT_JWT_TOKEN": "tu_nevent_jwt_token",
+        "NEVENT_OPERATION_MODE": "STANDARD"
+      }
+    }
+  }
+}
+```
+
+Los valores válidos son `READ_ONLY` (por defecto), `STANDARD` y `FULL`. Ver descripción de cada modo en la guía de [permisos y seguridad](/nevent-ai/permisos-y-seguridad).
+
+## Ruta con variables de entorno del sistema (macOS)
+
+En macOS, Claude Desktop no hereda las variables de entorno del shell. Si tienes el token en tu `.zshrc` o `.bashrc`, debes incluirlo explícitamente en el JSON o usar la ruta completa al binario de `node`:
+
+```json
+{
+  "mcpServers": {
+    "nevent": {
+      "command": "/usr/local/bin/node",
+      "args": ["/Users/tu_usuario/proyectos/mcp-nevent/dist/index.js"],
+      "env": {
+        "NEVENT_JWT_TOKEN": "tu_token_aqui"
+      }
+    }
+  }
+}
+```
+
+Para encontrar la ruta de `node` en tu sistema:
+
+```bash
+which node
+```
+
+## Verificar que funciona
+
+1. Guarda los cambios en `claude_desktop_config.json`
+2. Cierra Claude Desktop completamente
+3. Abre Claude Desktop de nuevo
+4. Inicia una nueva conversación y escribe:
+
+```
+¿Qué herramientas de Nevent tienes disponibles?
+```
+
+Claude Desktop mostrará las herramientas disponibles si el servidor MCP está cargado correctamente. Si no responde con herramientas de Nevent, revisa el [troubleshooting](/nevent-ai/developers/troubleshooting).
+
+## Siguiente paso
+
+- [Configuración en Cursor, Cline, Continue y VS Code](/nevent-ai/developers/cursor-cline-continue)
+- [Variables de entorno completas](/nevent-ai/developers/instalacion-local)
+- [Troubleshooting](/nevent-ai/developers/troubleshooting)
