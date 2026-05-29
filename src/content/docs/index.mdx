@@ -1,47 +1,33 @@
 ---
 title: Centro de ayuda de Nevent
-description: Documentación oficial de Nevent. Aprende a usar la plataforma de marketing para promotores de festivales, clubs y eventos.
+description: Documentación oficial de Nevent. Aprende a sacar el máximo a tu plataforma de live events.
 template: splash
 hero:
   title: |
     Centro de ayuda
     <span class="text-gradient">Nevent</span>
-  tagline: Aprende a usar Nevent para gestionar audiencias, crear campañas y vender más entradas.
+  tagline: Documentación, guías y referencias para sacar el máximo a tu plataforma de live events.
   actions:
-    - text: Motor de segmentación
-      link: /audience/motor-segmentacion/
+    - text: Descubrir Nevent AI
+      link: /nevent-ai/
       icon: right-arrow
       variant: primary
 ---
 
-## Audiencia y segmentación
+import { Card, CardGrid } from '@astrojs/starlight/components';
 
-Aprende a crear y gestionar segmentos de audiencia para tus campañas de email.
+<CardGrid>
+  <Card title="Nevent AI (MCP)" icon="star">
+    Conecta Nevent con Claude y ChatGPT. Pregunta por tus campañas, segmentos y métricas en lenguaje natural.
 
-### Primeros pasos
+    [Empezar con Nevent AI →](/nevent-ai/)
+  </Card>
+  <Card title="Para desarrolladores" icon="setting">
+    Instalación local, configuración avanzada y referencia de las 52 herramientas disponibles.
 
-- [Introducción a segmentos](/audience/motor-segmentacion/) - Qué son los segmentos y cómo funcionan
-- [Cómo crear un segmento](/audience/motor-segmentacion/crear-segmento) - Tutorial paso a paso
-- [Categorías de criterios](/audience/motor-segmentacion/categorias) - Filtros disponibles para segmentar
-
-### Funcionalidades avanzadas
-
-- [Modificadores y análisis RFM](/audience/motor-segmentacion/modificadores-rfm) - Filtros de recencia y frecuencia
-- [Operadores lógicos](/audience/motor-segmentacion/operadores-logica) - Cómo combinar criterios con AND/OR
-- [Grupos para A/B testing](/audience/motor-segmentacion/grupos) - Dividir segmentos en grupos de control
-
-### Ejemplos y mejores prácticas
-
-- [Casos de uso prácticos](/audience/motor-segmentacion/casos-uso) - Ejemplos de segmentos listos para usar
-- [Mejores prácticas](/audience/motor-segmentacion/mejores-practicas) - Recomendaciones para optimizar tus segmentos
-- [Preguntas frecuentes](/audience/motor-segmentacion/faq) - Respuestas a dudas comunes
-
----
-
-## ¿Necesitas ayuda?
-
-Si no encuentras lo que buscas en esta documentación, contacta con nuestro equipo de soporte:
-
-- **Email**: support@nevent.es
-
----
+    [Ver documentación técnica →](/nevent-ai/developers/)
+  </Card>
+  <Card title="Más guías próximamente" icon="open-book">
+    Estamos preparando guías de campañas, segmentación, suscripciones y configuración.
+  </Card>
+</CardGrid>
