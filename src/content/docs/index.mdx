@@ -1,33 +1,122 @@
 ---
 title: Centro de ayuda de Nevent
-description: Documentación oficial de Nevent. Aprende a sacar el máximo a tu plataforma de live events.
+description: Habla con tu plataforma de live events en lenguaje natural. Conecta Nevent con Claude o ChatGPT en 2 minutos.
 template: splash
 hero:
   title: |
-    Centro de ayuda
-    <span class="text-gradient">Nevent</span>
-  tagline: Documentación, guías y referencias para sacar el máximo a tu plataforma de live events.
+    Habla con tu CRM<br/>de <span class="text-gradient">live events</span>
+  tagline: |
+    Conecta Nevent con Claude o ChatGPT y pregunta por tus campañas, segmentos, métricas o paid ads en lenguaje natural. Sin SQL, sin paneles, sin esperas.
   actions:
-    - text: Descubrir Nevent AI
-      link: /nevent-ai/
+    - text: Conectar con Claude
+      link: /nevent-ai/conectar-claude/
       icon: right-arrow
       variant: primary
+    - text: Conectar con ChatGPT
+      link: /nevent-ai/conectar-chatgpt/
+      icon: external
+      variant: secondary
+    - text: Para desarrolladores
+      link: /nevent-ai/developers/
+      icon: seti:json
+      variant: minimal
 ---
 
-import { Card, CardGrid } from '@astrojs/starlight/components';
+import { Card, CardGrid, LinkCard, Tabs, TabItem, Aside, Badge } from '@astrojs/starlight/components';
+
+## Pregunta cualquier cosa sobre tus eventos
+
+Una vez conectado, escribe directamente en Claude o ChatGPT como si hablaras con un compañero del equipo.
 
 <CardGrid>
-  <Card title="Nevent AI (MCP)" icon="star">
-    Conecta Nevent con Claude y ChatGPT. Pregunta por tus campañas, segmentos y métricas en lenguaje natural.
-
-    [Empezar con Nevent AI →](/nevent-ai/)
+  <Card title="Analítica" icon="rocket">
+    *"¿Cuántas entradas vendí para EventX por tipo de ticket en los últimos 7 días?"*
   </Card>
-  <Card title="Para desarrolladores" icon="setting">
-    Instalación local, configuración avanzada y referencia de las 52 herramientas disponibles.
-
-    [Ver documentación técnica →](/nevent-ai/developers/)
+  <Card title="Campañas" icon="email">
+    *"¿Qué campañas del último mes tuvieron un open rate por encima del 30%?"*
   </Card>
-  <Card title="Más guías próximamente" icon="open-book">
-    Estamos preparando guías de campañas, segmentación, suscripciones y configuración.
+  <Card title="Segmentación" icon="magnifier">
+    *"Créame un segmento de asistentes que compraron VIP en 2025 pero no han abierto un email en 90 días."*
+  </Card>
+  <Card title="Envíos" icon="setting">
+    *"Programa la campaña 'Summer Gala' para el lunes que viene a las 10:00 CET."*
+  </Card>
+  <Card title="Paid media" icon="bars">
+    *"Compara el ROAS de mis campañas de Meta Ads en marzo."*
+  </Card>
+  <Card title="Short URLs" icon="external">
+    *"Genera links únicos por usuario para 'Summer Gala' y dime quién hizo clic."*
   </Card>
 </CardGrid>
+
+## Por qué usar Nevent AI
+
+<CardGrid>
+  <Card title="Hosted en 2 minutos" icon="approve-check">
+    Sin instalación, sin configuración local. Añades `https://mcp.nevent.ai/mcp` como conector en Claude o ChatGPT, autorizas con tu cuenta de Nevent y listo.
+  </Card>
+  <Card title="52 herramientas" icon="puzzle">
+    9 categorías: analítica, segmentación, campañas, templates, deliverability, paid media (Meta · Google · TikTok), short URLs y multi-tenant.
+  </Card>
+  <Card title="Tus datos, tu cuenta" icon="seti:lock">
+    Autenticación OAuth 2.1 por usuario. Cada sesión está aislada. Los datos no se usan para entrenar modelos.
+  </Card>
+  <Card title="Tres niveles de permisos" icon="setting">
+    `READ_ONLY` (solo consulta), `STANDARD` (consulta + crear borradores) o `FULL` (envíos en vivo). Tú decides qué puede hacer el asistente.
+  </Card>
+  <Card title="Multi-tenant nativo" icon="document">
+    Si gestionas varias cuentas, cambia de tenant dentro de la misma conversación sin volver a autenticar.
+  </Card>
+  <Card title="Compatible con todo" icon="seti:plan">
+    Claude.ai, ChatGPT, Claude Desktop, Claude Code, Cursor, Cline, Continue y VS Code.
+  </Card>
+</CardGrid>
+
+## Para cada perfil
+
+<Tabs>
+  <TabItem label="Marketer / Promotor">
+    Crea segmentos hablando, programa envíos por voz al asistente y consulta el rendimiento de cualquier campaña sin abrir el panel.
+
+    <LinkCard title="Empieza por aquí" description="Conecta Claude en 2 minutos y prueba con los ejemplos del primer apartado." href="/nevent-ai/conectar-claude/" />
+  </TabItem>
+  <TabItem label="Analista de datos">
+    Consulta el data warehouse de Nevent en lenguaje natural. Descubre tablas, dimensiones y métricas disponibles sin escribir SQL.
+
+    <LinkCard title="Casos de uso" description="Ejemplos reales de análisis con Nevent MCP." href="/nevent-ai/casos-de-uso/" />
+  </TabItem>
+  <TabItem label="Developer">
+    Integra Nevent en tu flujo: Claude Code, Cursor, VS Code o cualquier cliente MCP. Modo stdio local o HTTP hosted con OAuth.
+
+    <LinkCard title="Documentación técnica" description="Instalación, transportes, configuración y referencia de las 52 tools." href="/nevent-ai/developers/" />
+  </TabItem>
+</Tabs>
+
+## Empieza ahora
+
+<CardGrid>
+  <LinkCard
+    title="Qué es Nevent AI"
+    description="Concepto, alcance y casos de uso en 2 minutos de lectura."
+    href="/nevent-ai/"
+  />
+  <LinkCard
+    title="Permisos y seguridad"
+    description="OAuth 2.1, modos de operación y aislamiento multi-tenant."
+    href="/nevent-ai/permisos-y-seguridad/"
+  />
+  <LinkCard
+    title="Preguntas frecuentes"
+    description="Compatibilidad, deshacer envíos, permisos de cuenta y más."
+    href="/nevent-ai/preguntas-frecuentes/"
+  />
+  <LinkCard
+    title="Referencia de herramientas"
+    description="Las 52 tools del MCP agrupadas por categoría."
+    href="/nevent-ai/developers/herramientas/"
+  />
+</CardGrid>
+
+<Aside type="tip" title="¿Aún no tienes cuenta de Nevent?">
+  Nevent AI es una capa sobre tu cuenta de Nevent. Si todavía no la tienes, escríbenos a [support@nevent.es](mailto:support@nevent.es) o visita [nevent.ai](https://nevent.ai).
+</Aside>
