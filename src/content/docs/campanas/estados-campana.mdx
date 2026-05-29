@@ -1,0 +1,195 @@
+---
+title: Los estados de una campaña en Nevent
+description: Conoce todos los estados por los que pasa una campaña en Nevent — desde borrador hasta enviada — y qué acciones puedes hacer en cada uno.
+sidebar:
+  order: 6
+---
+
+import { Aside } from '@astrojs/starlight/components';
+
+Una campaña en Nevent no es estática: pasa por diferentes estados desde que la creas hasta que tus contactos reciben el mensaje. Conocer cada estado te ayuda a saber exactamente en qué punto está tu campaña y qué puedes hacer con ella en cada momento.
+
+## El ciclo de vida de una campaña
+
+Cuando creas y lanzas una campaña de email, el flujo habitual es este:
+
+```
+Borrador → Programada → En cola → Enviando → Enviada
+                ↓
+            Pausada → Reanudar → En cola → Enviando → Enviada
+                ↓
+           Detenida
+```
+
+No todas las campañas pasan por todos los estados. Si lanzas una campaña con "Enviar ahora", pasa directamente de Borrador a En cola (y nunca toca Programada). Si nadie la interrumpe, llegará a Enviada sin pasar por Pausada ni Detenida.
+
+Puedes ver el estado actual de cada campaña en la columna **Estado** de la lista Campañas → Mis campañas. El filtro **Todos los estados** de la parte superior te permite filtrar la lista por cualquiera de los estados.
+
+![La lista de campañas con el filtro de estados desplegado mostrando todas las opciones disponibles](/images/guias/campanas/estados-campana/03-filtro-todos-estados.png)
+
+---
+
+## Borrador
+
+Una campaña está en **Borrador** cuando la has creado o empezado a configurar, pero todavía no la has lanzado. Es el estado inicial de toda campaña nueva.
+
+El estado Borrador significa que la campaña está guardada en el sistema pero no ha generado ningún envío. Puedes volver a editarla tantas veces como necesites, cambiar cualquier parámetro — nombre, canal, audiencia, contenido, programación — y el sistema guarda los cambios automáticamente.
+
+![Lista de campañas mostrando una campaña en estado Borrador con el icono de lápiz junto al badge](/images/guias/campanas/estados-campana/01-lista-campanas-estado-borrador.png)
+
+**Acciones disponibles en Borrador:**
+
+![Menú de acciones de una campaña en estado Borrador mostrando las opciones Editar borrador, Copiar ID de campaña y Archivar campaña](/images/guias/campanas/estados-campana/02-acciones-borrador.png)
+
+- **Editar borrador** — Vuelve al asistente de creación en el punto donde lo dejaste
+- **Copiar ID de campaña** — Copia el identificador único de la campaña al portapapeles (útil para soporte técnico o integraciones)
+- **Archivar campaña** — Elimina el borrador permanentemente. Esta acción no se puede deshacer
+
+<Aside type="caution">
+Archivar una campaña en Borrador la elimina de forma permanente. Si quieres pausar el trabajo y retomarlo más tarde, simplemente cierra el asistente — el borrador se guarda automáticamente y puedes volver con "Editar borrador".
+</Aside>
+
+---
+
+## Programada
+
+Una campaña está **Programada** cuando la has lanzado con una fecha y hora de envío futura. El sistema tiene registrado el momento exacto en que debe empezar a enviarse y está a la espera.
+
+En la columna Fecha de la lista de campañas verás la fecha y hora programada. La campaña permanece en este estado hasta que llega ese momento, en que pasa automáticamente a En cola.
+
+**Acciones disponibles en Programada:**
+
+- **Ver detalles** — Accede a la vista de detalle de la campaña con el resumen de configuración
+- **Pausar** — Detiene la campaña antes de que se envíe. Pasa al estado Pausada
+- **Copiar ID de campaña** — Copia el identificador al portapapeles
+
+<Aside type="tip">
+Si detectas un error en una campaña programada (asunto equivocado, audiencia incorrecta), pausa la campaña desde el menú de acciones. Esto evita el envío mientras corriges el problema. Después puedes reanudarla o modificarla y volver a programarla.
+</Aside>
+
+---
+
+## En cola
+
+Una campaña está **En cola** cuando ha llegado el momento de enviarse (o se lanzó con "Enviar ahora") y el sistema está procesando el envío. La campaña está en la fila de procesamiento de Nevent.
+
+Este estado suele ser muy breve — en la mayoría de casos apenas dura unos segundos antes de pasar a Enviando. Lo verás en campañas de pequeña audiencia casi como un estado de transición.
+
+**Acciones disponibles en En cola:**
+
+- **Ver detalles** — Consulta la configuración de la campaña
+- **Detener campaña** — Cancela el envío antes de que empiece. La campaña pasa a Detenida
+- **Copiar ID de campaña**
+
+<Aside type="note">
+En este estado el sistema está preparando los mensajes para cada destinatario. Todavía no ha salido ningún email de los servidores de Nevent, por lo que es posible detener la campaña si detectas un problema de último minuto.
+</Aside>
+
+---
+
+## Enviando
+
+Una campaña está **Enviando** cuando los emails están saliendo activamente hacia los servidores de correo de tus contactos. El sistema está procesando los envíos uno a uno (o en lotes) según la audiencia seleccionada.
+
+Puedes ver el progreso del envío en la vista de detalle de la campaña (haz clic en "Ver detalles" desde el menú de acciones). La pantalla de resumen muestra un banner "Campaña en curso" y las métricas de enviados, entregados y aperturas se actualizan en tiempo real.
+
+**Acciones disponibles en Enviando:**
+
+- **Ver detalles** — Accede al resumen con métricas en tiempo real
+- **Detener campaña** — Interrumpe el envío. Los emails ya entregados no se pueden revertir; los que estaban en cola dejarán de enviarse. La campaña pasa a Detenida
+- **Copiar ID de campaña**
+
+<Aside type="caution">
+Detener una campaña en estado Enviando es irreversible para los mensajes ya entregados. Si la detienes, los contactos que ya recibieron el email lo seguirán teniendo en su bandeja de entrada. Solo se cancela el envío para los destinatarios que aún no lo han recibido.
+</Aside>
+
+---
+
+## Enviada
+
+Una campaña está **Enviada** cuando el proceso de envío ha completado. Nevent ha procesado todos los destinatarios de los segmentos seleccionados y el envío ha finalizado.
+
+Este es el estado final normal de una campaña que se ha ejecutado correctamente. Desde aquí puedes acceder a las analíticas completas: tasas de apertura, clics, rebotes, bajas y conversiones.
+
+**Acciones disponibles en Enviada:**
+
+- **Ver detalles** — Accede al dashboard de analíticas con todas las métricas de la campaña
+- **Copiar ID de campaña**
+
+<Aside type="note">
+Una campaña Enviada no se puede editar ni reenviar directamente. Si necesitas enviar una versión modificada, puedes usar "Copiar ID de campaña" para referenciarla, o crear una nueva campaña con el mismo contenido.
+</Aside>
+
+---
+
+## Pausada
+
+Una campaña está **Pausada** cuando se ha detenido temporalmente antes de su envío. Esto ocurre cuando pausas manualmente una campaña que estaba en estado Programada.
+
+La pausa es reversible: puedes reanudar la campaña desde el menú de acciones y el sistema la volverá a programar o la enviará según la configuración original.
+
+**Acciones disponibles en Pausada:**
+
+- **Reanudar** — Vuelve a activar la campaña. Si tenía una fecha programada, se respeta; si se lanzó con "Enviar ahora", entra en cola de inmediato
+- **Ver detalles** — Consulta la configuración de la campaña
+- **Detener campaña** — Cancela definitivamente la campaña. Pasa a Detenida
+- **Copiar ID de campaña**
+
+<Aside type="tip">
+La pausa es ideal para situaciones donde necesitas tiempo para revisar o corregir algo antes del envío: un evento aplazado, un cambio de precios de última hora, o una auditoría de la lista de destinatarios. Pausa ahora, corrige y reanuda cuando estés listo.
+</Aside>
+
+---
+
+## Detenida
+
+Una campaña está **Detenida** cuando su envío ha sido cancelado manualmente de forma definitiva. Puede haberse detenido desde los estados En cola, Enviando o Pausada.
+
+La vista de detalle de una campaña Detenida muestra un banner informativo con la descripción "Esta campaña fue detenida manualmente" y el nombre del usuario que la detuvo, la fecha y la razón (si se indicó al detenerla).
+
+A diferencia de Pausada, la detención no tiene marcha atrás: una campaña Detenida no se puede reanudar.
+
+**Acciones disponibles en Detenida:**
+
+- **Ver detalles** — Accede al resumen con las métricas parciales del envío (si se envió algo antes de detenerla)
+- **Copiar ID de campaña**
+
+<Aside type="note">
+Si detienes una campaña por error, la única forma de continuar es crear una nueva campaña. Puedes tomar como referencia la campaña detenida (misma audiencia, mismo contenido) pero tendrás que configurarla de nuevo.
+</Aside>
+
+---
+
+## Resumen comparativo
+
+| Estado | Descripción | ¿Editable? | Acciones principales |
+|--------|-------------|------------|---------------------|
+| **Borrador** | Creada pero no lanzada | Sí, completamente | Editar, Archivar, Copiar ID |
+| **Programada** | Lanzada con fecha futura | No | Pausar, Ver detalles, Copiar ID |
+| **En cola** | En procesamiento, pendiente de envío | No | Detener, Ver detalles, Copiar ID |
+| **Enviando** | Emails saliendo activamente | No | Detener, Ver detalles, Copiar ID |
+| **Enviada** | Envío completado | No | Ver detalles, Copiar ID |
+| **Pausada** | Pausada antes del envío | No | Reanudar, Detener, Ver detalles |
+| **Detenida** | Cancelada definitivamente | No | Ver detalles, Copiar ID |
+
+---
+
+## Preguntas frecuentes
+
+**¿Puedo editar una campaña después de lanzarla?**
+No. Una vez que una campaña deja el estado Borrador, ya no se puede editar su contenido, audiencia ni configuración. Si necesitas corregir algo en una campaña Programada, pausa primero y luego contacta con soporte — actualmente no hay opción de volver al asistente de edición desde ese estado.
+
+**¿Qué diferencia hay entre Pausada y Detenida?**
+Pausada es temporal y reversible: puedes reanudar la campaña en cualquier momento. Detenida es permanente: una campaña detenida no se puede reactivar. Usa Pausar cuando necesites tiempo para revisar algo; usa Detener solo si estás seguro de que no quieres enviar esa campaña.
+
+**¿Qué ocurre con los emails ya enviados si detengo la campaña?**
+Los emails que ya llegaron a la bandeja de entrada de tus contactos no se pueden retirar. La detención solo afecta a los mensajes que aún no han sido procesados (los que estaban en cola esperando su turno).
+
+**¿Puedo ver quién pausó o detuvo una campaña?**
+Sí. En la vista de detalle de una campaña Detenida, el panel de resumen muestra el nombre del usuario que la detuvo y la fecha exacta. Para campañas Pausadas, esa información no está disponible actualmente en la interfaz.
+
+**¿Cuánto tiempo puede estar una campaña en estado Programada?**
+No hay límite de tiempo. Puedes programar una campaña para dentro de seis meses y quedará en estado Programada hasta esa fecha. Ten en cuenta que la audiencia se evalúa en el momento del envío, no en el momento de la programación, por lo que los contactos que se añadan al segmento después de lanzar la campaña también la recibirán.
+
+**¿Por qué mi campaña aparece como "En cola" durante varios minutos?**
+En momentos de alto volumen de envíos, la cola de procesamiento puede tardar más de lo habitual. Si llevas más de 10 minutos sin ver avance, contacta con el equipo de soporte desde el chat de soporte de Nevent Admin.

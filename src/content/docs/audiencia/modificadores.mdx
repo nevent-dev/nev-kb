@@ -1,0 +1,116 @@
+---
+title: Modificadores de segmentación — frecuencia, período y ubicación
+description: Aprende a usar los modificadores de segmentación en Nevent para filtrar por cuántas veces ocurrió algo, cuándo y dónde. Segmentación RFM para promotores de eventos.
+sidebar:
+  order: 3
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+
+Los [criterios de segmentación](/audiencia/criterios-segmentacion) te dicen **qué** filtrar. Los modificadores te dicen **cómo de preciso** quieres ser.
+
+Con un criterio básico puedes encontrar a quienes asistieron a un evento. Con un modificador puedes encontrar a quienes asistieron **al menos 3 veces** en **los últimos 12 meses**. Esa diferencia es la que separa una lista genérica de un segmento de verdad útil.
+
+Esta guía te llevará unos 5 minutos.
+
+## Qué son los modificadores
+
+Los modificadores son opciones adicionales que aparecen en ciertos criterios. No se muestran siempre — Nevent los activa únicamente cuando la propiedad seleccionada los admite.
+
+Los reconocerás por dos iconos en la esquina superior derecha del criterio: `#` para frecuencia y el reloj para período de tiempo. Cuando el criterio los soporta, puedes activarlos haciendo clic.
+
+![Criterio "Asistencia → Evento asistido" configurado con los botones de modificadores de frecuencia y período de tiempo visibles y activos en la esquina superior derecha del criterio](/images/guias/audiencia/modificadores/criterio-con-modificadores.png)
+
+:::note[Nota]
+Los modificadores son opcionales. Un criterio sin modificadores sigue funcionando con normalidad — simplemente sin el filtro adicional de frecuencia o tiempo.
+:::
+
+## Período de tiempo
+
+El modificador de período de tiempo limita el criterio a una ventana temporal concreta. En lugar de filtrar por toda la historia del contacto, filtras solo por lo que ocurrió **en los últimos N días, semanas o meses**.
+
+El icono es el reloj. Cuando lo activas, aparece una fila adicional debajo del criterio:
+
+`🕐 en los últimos | 7 | días ▼`
+
+Puedes cambiar el número y la unidad de tiempo.
+
+**Cuándo usarlo:** cuando lo que importa es la actividad reciente, no el historial completo. Un fan que abrió un email hace tres años no es lo mismo que uno que lo abrió la semana pasada.
+
+**Unidades disponibles:** horas, días, semanas, meses.
+
+**Ejemplo práctico:** quieres enviar una campaña a quienes han comprado entrada en los últimos 6 meses, no a quienes compraron hace 4 años. Configura el criterio `Consumo → Fecha de compra general` y activa el modificador de período con valor `6 meses`.
+
+:::tip[Consejo]
+Combina el período de tiempo con el criterio `Interacción → Campañas abiertas` para crear un segmento de "fans activos": contactos que han abierto al menos un email tuyo en los últimos 60 días. Son los más receptivos a nuevas campañas y los que más protegen tu reputación de envío.
+:::
+
+## Frecuencia
+
+El modificador de frecuencia filtra por **cuántas veces** ha ocurrido algo. No solo si ocurrió, sino cuántas veces.
+
+El icono es `#`. Cuando lo activas, aparece una fila con tres elementos:
+
+`# | operador ▼ | número`
+
+Los operadores disponibles son:
+
+| Operador | Qué hace |
+|----------|----------|
+| Al menos | El evento ocurrió N veces o más |
+| Exactamente | El evento ocurrió exactamente N veces |
+| Como máximo | El evento ocurrió N veces o menos |
+
+**Cuándo usarlo:** cuando la repetición es lo que define la lealtad. Alguien que ha asistido a 4 ediciones de tu festival es muy diferente a alguien que fue una sola vez.
+
+**Ejemplo práctico:** quieres identificar a tus fans más fieles — los que han asistido a 3 o más eventos tuyos. Selecciona `Asistencia → Evento asistido`, activa el modificador de frecuencia y configura `Al menos | 3`.
+
+![Criterio de asistencia con el modificador de frecuencia activado, mostrando la fila "# | Al menos | 1 veces" debajo del selector de evento](/images/guias/audiencia/modificadores/modificador-frecuencia.png)
+
+:::tip[Consejo]
+La frecuencia + el período de tiempo es la combinación más potente de la plataforma. "Ha asistido al menos 2 veces en los últimos 12 meses" te da exactamente a los fans que están activos ahora, no solo en el pasado. Es el análisis de recencia y frecuencia que los equipos de marketing de grandes marcas pagan mucho por tener.
+:::
+
+## Ubicación del evento
+
+La ubicación no es un modificador de botón como los anteriores — está integrada directamente en los criterios de la categoría **Asistencia**. Puedes filtrar por dónde se celebró el evento al que asistió el contacto.
+
+Las propiedades disponibles son:
+
+| Propiedad | Qué filtra |
+|-----------|-----------|
+| País del evento | País donde se celebró el evento |
+| Comunidad Autónoma del evento | CCAA donde se celebró |
+| Provincia del evento | Provincia del evento |
+| Ciudad del evento | Ciudad del evento |
+| Código postal del evento | Código postal del recinto |
+
+**Cuándo usarlo:** cuando organizas eventos en varias ciudades o regiones y quieres segmentar por territorio. Los fans de Barcelona que fueron a tu evento en Barcelona tienen más probabilidad de ir al próximo en su ciudad.
+
+**Ejemplo práctico:** tienes eventos en Madrid y Barcelona. Antes de anunciar una nueva fecha en Madrid, crea un segmento con `Asistencia → Ciudad del evento = Madrid` para enviar el anuncio primero a quienes ya fueron a esa plaza.
+
+:::tip[Consejo]
+Combina la ubicación con el criterio `Atributos del fan → Ciudad del usuario` para afinar aún más: fans que viven en Madrid **y** que han asistido a eventos en Madrid tienen una doble señal de interés local.
+:::
+
+## Cómo apilar modificadores
+
+Los modificadores de frecuencia y período se pueden activar a la vez sobre el mismo criterio. La condición resultante combina ambos: no es "ocurrió N veces" ni "ocurrió en los últimos X meses" — es **ambas a la vez**.
+
+![Criterio de asistencia con los dos modificadores activos simultáneamente: frecuencia "Al menos 1 veces" y período "en los últimos 7 días", con los dos botones de modificadores resaltados en la cabecera del criterio](/images/guias/audiencia/modificadores/modificadores-combinados.png)
+
+**Ejemplo de segmento complejo:** quieres llegar exactamente a los fans más valiosos de Madrid del último año.
+
+- Criterio 1: `Asistencia → Ciudad del evento = Madrid`
+- Criterio 2: `Asistencia → Evento asistido` + Frecuencia `Al menos 2` + Período `últimos 12 meses`
+
+El resultado es: contactos que han ido a 2 o más de tus eventos en Madrid en el último año. Ese es un segmento de alta precisión que ninguna newsletter masiva puede conseguir.
+
+:::note[Nota]
+No todos los criterios admiten todos los modificadores. Los modificadores de frecuencia y período aparecen principalmente en criterios de la categoría **Asistencia** e **Interacción**. Si el botón aparece en gris, ese criterio no soporta ese modificador.
+:::
+
+## Siguiente paso
+
+- [Todos los criterios de segmentación](/audiencia/criterios-segmentacion)
+- [Cómo crear un segmento](/audiencia/crear-segmento)

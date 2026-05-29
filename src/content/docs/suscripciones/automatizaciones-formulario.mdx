@@ -1,0 +1,105 @@
+---
+title: Cómo configurar automatizaciones en un formulario de suscripción
+description: "Configura automatizaciones en formularios de suscripción de Nevent: asigna carpetas y campos personalizados automáticamente a cada nuevo suscriptor."
+sidebar:
+  order: 5
+---
+
+La sección **Automatizaciones** te permite definir acciones que se ejecutan de forma automática cada vez que alguien se suscribe a través de tu formulario. Sin intervención manual, cada nuevo suscriptor quedará organizado según las reglas que configures aquí.
+
+## Cómo acceder a Automatizaciones
+
+1. Ve a **Audiencia → Suscripciones**.
+2. Haz clic sobre el formulario que quieras configurar.
+3. En la barra lateral del editor, selecciona **Automatizaciones**.
+
+![Vista completa de la sección Automatizaciones con los bloques de carpetas y campos personalizados](/images/guias/suscripciones/automatizaciones-formulario/paso-1.png)
+
+La pantalla se divide en dos bloques independientes. Cada uno controla un tipo de asignación diferente. Las dos automatizaciones son acumulativas: puedes activar una, las dos o ninguna.
+
+---
+
+## Asignación automática de carpetas
+
+Cuando configuras una o varias carpetas en este bloque, cada nuevo suscriptor queda asignado a esas carpetas en el momento en que completa el formulario.
+
+![Bloque de Asignación Automática de Carpetas con el selector de carpetas desplegable](/images/guias/suscripciones/automatizaciones-formulario/paso-2.png)
+
+### Cómo añadir una carpeta
+
+1. Haz clic en el selector **Agregar carpeta**.
+2. Escribe el nombre de la carpeta o desplázate por la lista para encontrarla.
+3. Selecciona la carpeta. Aparecerá como etiqueta dentro del selector.
+4. Repite el proceso para añadir más carpetas si necesitas asignar a varias a la vez.
+5. Haz clic en **Guardar** en la barra superior para que los cambios tengan efecto.
+
+:::note[Nota]
+Las carpetas deben existir previamente en tu cuenta antes de poder seleccionarlas aquí. Si no aparece la carpeta que buscas, créala primero en la sección **Audiencia → Fans**.
+:::
+
+### Cómo quitar una carpeta
+
+Haz clic en la **X** que aparece junto al nombre de la carpeta en el selector para eliminarla de la lista. Guarda los cambios para que se apliquen.
+
+### Qué ocurre con los suscriptores existentes
+
+La asignación automática solo afecta a los suscriptores que se inscriban **a partir del momento en que guardes la configuración**. Los suscriptores registrados antes de activar esta automatización no se modifican de forma retroactiva.
+
+:::caution[Atención]
+Si desactivas o cambias las carpetas configuradas, los suscriptores ya asignados mantienen sus carpetas. El cambio solo afecta a las nuevas suscripciones.
+:::
+
+---
+
+## Asignación automática de campos personalizados
+
+Este bloque permite fijar el valor de uno o varios campos personalizados para cada nuevo suscriptor. Cuando alguien completa el formulario, esos campos quedan rellenados automáticamente con los valores que hayas definido.
+
+Es útil, por ejemplo, para etiquetar el origen de cada suscriptor (canal, campaña, evento) o para pre-rellenar cualquier campo de segmentación desde el momento de la suscripción.
+
+### Requisito previo: crear campos personalizados
+
+Para poder usarlos aquí, los campos personalizados deben estar creados previamente en la sección **Ajustes → Campos personalizados** (accesible desde el menú de usuarios).
+
+Si no hay campos personalizados disponibles en tu cuenta, verás el aviso:
+
+> *No hay campos personalizados disponibles. Crea algunos en la sección de Usuarios.*
+
+El botón **+ Añadir campo personalizado** permanece desactivado hasta que exista al menos un campo en tu cuenta.
+
+:::tip[Consejo]
+Los campos personalizados son reutilizables: un mismo campo puede usarse en varios formularios con distintos valores. Por ejemplo, un campo "Origen" puede tener el valor "Newsletter Web" en un formulario y "Descarga App" en otro.
+:::
+
+### Cómo añadir una asignación
+
+1. Haz clic en **+ Añadir campo personalizado**.
+2. En la fila que aparece, selecciona el campo en el primer desplegable.
+3. Introduce el valor que se asignará automáticamente a cada nuevo suscriptor.
+4. Repite para añadir más asignaciones si necesitas varios campos.
+5. Haz clic en **Guardar** para aplicar los cambios.
+
+### Cómo eliminar una asignación
+
+Cada fila de asignación incluye un botón de eliminación. Haz clic en él para quitar esa asignación del formulario y guarda para confirmar.
+
+---
+
+## Guardar los cambios
+
+Los cambios en Automatizaciones no se aplican de forma automática. Debes hacer clic en el botón **Guardar** de la barra superior para que tengan efecto.
+
+El botón **Deshacer** revierte todos los cambios no guardados al último estado guardado, sin confirmación previa.
+
+:::caution[Atención]
+Si navegas a otra sección del editor sin haber guardado, los cambios se perderán. Asegúrate de hacer clic en **Guardar** antes de salir de Automatizaciones.
+:::
+
+---
+
+## Siguiente paso
+
+Con las automatizaciones configuradas, los suscriptores quedan organizados y etiquetados desde el momento en que se inscriben. El siguiente paso habitual es:
+
+- **[Suscriptores](/suscripciones/suscriptores-formulario)** — consulta la lista de contactos del formulario, filtra por fecha y gestiona bajas o eliminaciones
+- **[Instalación](#)** — obtén el código de instalación para integrar el formulario en tu web

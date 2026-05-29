@@ -1,0 +1,154 @@
+---
+title: Canales de campaña en Nevent — email, push, SMS y WhatsApp
+description: Descubre los 4 canales de campaña en Nevent y cuándo usar cada uno. Guía comparativa para promotores de eventos.
+sidebar:
+  order: 2
+---
+
+import { Aside } from '@astrojs/starlight/components';
+
+Cuando creas una campaña en Nevent, el **paso 2 del asistente** te pide que elijas el canal por el que quieres enviarla. Esta elección define el formato del mensaje, el coste del envío, las tasas de apertura que puedes esperar y, en algunos casos, si necesitas una configuración previa.
+
+Nevent ofrece cuatro canales: **Email**, **Push**, **SMS** y **WhatsApp**. Cada uno tiene sus fortalezas y su momento óptimo de uso.
+
+## Los cuatro canales en el asistente
+
+El paso **Canal** muestra las cuatro opciones como tarjetas seleccionables. El panel derecho actualiza en tiempo real la información del canal que tienes el cursor encima: tasa de apertura promedio de la industria, descripción del canal y cualquier requisito previo.
+
+![Pantalla del paso 2 del asistente de nueva campaña mostrando los cuatro canales disponibles: Solo Email, Solo Push, Solo SMS y Solo WhatsApp en beta](/images/guias/campanas/canales-campana/paso2-canal-overview.png)
+
+Haz clic sobre la tarjeta del canal que necesitas y pulsa **Siguiente** para continuar.
+
+---
+
+## Email
+
+El canal de email es el punto de partida natural para cualquier campaña de marketing de eventos. Está disponible para todas las organizaciones sin configuración adicional, siempre que tengas configurado el dominio de envío en Ajustes.
+
+**Cuándo usarlo:**
+
+- Anuncios de nuevos eventos o aperturas de temporada
+- Newsletters con novedades del festival o actualizaciones de cartel
+- Campañas de preventa y ofertas early bird
+- Seguimiento post-evento para fidelizar a los asistentes
+- Cualquier contenido que requiera más de dos frases: descripciones de artistas, mapas del recinto, instrucciones de acceso
+
+El email soporta contenido rico: imágenes, botones, columnas, texto formateado, variables de personalización. El editor visual de Nevent (GrapesJS Studio) te permite construir emails visualmente sin tocar código.
+
+**Tasa de apertura promedio:** >21% en la industria de eventos.
+
+<Aside type="tip">
+El email es el único canal que incluye el paso adicional de **Tipo de campaña** (marketing vs. transaccional). Si tu campaña es un anuncio o newsletter, elige Marketing. Si es una confirmación de compra o aviso urgente, elige Transaccional. Puedes leer más en [Tipos de campaña en Nevent](/campanas/tipos-campana).
+</Aside>
+
+---
+
+## Push
+
+Las notificaciones push se envían a través de la **Superapp de Nevent** — la app móvil que los asistentes instalan para gestionar sus entradas y seguir sus eventos favoritos. Para recibir notificaciones push, el contacto debe haber instalado la app y haber dado permiso de notificaciones en su dispositivo.
+
+**Cuándo usarlo:**
+
+- Anuncios urgentes el mismo día del evento (cambio de horario, acceso alternativo, sorpresa de cartel)
+- Recordatorios de apertura de puertas o inicio del evento
+- Promociones flash de muy corta duración donde la inmediatez es clave
+- Reactivación de contactos que no han abierto los últimos emails
+
+El push es el canal más inmediato: el mensaje aparece en la pantalla del teléfono del usuario en segundos. Su limitación es que el contenido es breve — un título y una línea de texto — y que depende de que el contacto tenga la app instalada con notificaciones activas.
+
+**Tasa de apertura promedio:** >50%.
+
+<Aside type="note">
+No necesitas configuración adicional para usar Push si tu organización ya está integrada con la Superapp de Nevent. El alcance de una campaña push depende de cuántos contactos de tu segmento tengan la app instalada con notificaciones activas — el panel derecho del asistente te muestra esta estimación al seleccionar la audiencia.
+</Aside>
+
+---
+
+## SMS
+
+El SMS llega directamente al teléfono del destinatario sin depender de apps ni conexión a internet — basta con cobertura. Es el canal con la tasa de apertura más alta de los cuatro y la práctica totalidad de los mensajes se leen en los primeros minutos después de la recepción.
+
+**Cuándo usarlo:**
+
+- Campañas de último minuto donde necesitas máxima garantía de llegada
+- Recordatorios de evento el día anterior o el mismo día
+- Alertas urgentes que no pueden esperar a que el usuario abra su email
+- Audiencias con baja tasa de apertura de email pero alta penetración móvil
+
+El SMS tiene una limitación de longitud (160 caracteres en un solo mensaje; más caracteres se facturan como mensajes concatenados) y no soporta imágenes ni links con formato. Es puro texto, lo que lo hace directo y efectivo.
+
+**Tasa de apertura promedio:** >98%.
+
+<Aside type="caution">
+El canal SMS requiere activación previa. Si ves la tarjeta de SMS deshabilitada en el asistente, ve a **Ajustes → Configuración de SMS** para activar el servicio e introducir los datos de tu proveedor. Sin esta configuración no podrás seleccionar el canal.
+</Aside>
+
+---
+
+## WhatsApp (Beta)
+
+WhatsApp es el canal de mensajería de mayor penetración en España y Latinoamérica. A diferencia del SMS, soporta texto enriquecido, imágenes, botones interactivos y una experiencia conversacional que los usuarios ya conocen de su vida cotidiana.
+
+**Cuándo usarlo:**
+
+- Campañas donde quieres incluir imagen del cartel o del artista junto al texto
+- Comunicaciones que se benefician del formato conversacional (respuestas, confirmaciones)
+- Audiencias donde la tasa de apertura de email es baja pero WhatsApp es el canal principal
+- Campañas de recuperación dirigidas a segmentos que no han respondido a email ni push
+
+La principal diferencia con SMS es la riqueza de contenido posible: puedes adjuntar la imagen del evento, incluir un botón directo a la compra de entradas y estructurar el mensaje en párrafos con emojis. La limitación actual es que el canal está en **fase Beta**, lo que significa que las funcionalidades pueden evolucionar y el soporte está en desarrollo activo.
+
+**Tasa de apertura promedio:** >95%.
+
+<Aside type="caution">
+WhatsApp también requiere activación previa en Ajustes. Además, el uso de la API de WhatsApp Business implica aceptar las políticas de Meta y tiene un coste por conversación. Habla con tu contacto en Nevent para conocer las condiciones actuales del canal Beta.
+</Aside>
+
+---
+
+## Comparativa de canales
+
+| Canal | Apertura | Mejor para | Requisito previo | Coste |
+|---|---|---|---|---|
+| Email | >21% | Newsletters, anuncios, contenido largo | Dominio configurado | Incluido |
+| Push | >50% | Urgencias del día, inmediatez | App instalada por el contacto | Incluido |
+| SMS | >98% | Último minuto, máxima garantía de llegada | Activar en Ajustes → SMS | Por mensaje |
+| WhatsApp | >95% | Contenido visual, conversacional | Activar en Ajustes (Beta) | Por conversación |
+
+---
+
+## Estrategia multicanal para eventos
+
+Los promotores que obtienen mejores resultados no eligen un único canal: combinan varios en función del momento del ciclo de vida del evento.
+
+**Un patrón habitual para un festival:**
+
+1. **Email** — Anuncio inicial del evento, 3–4 semanas antes. Máximo detalle: cartel completo, precios, fecha, ubicación.
+2. **Email** — Recordatorio de preventa 48 horas antes del cierre de la fase. Urgencia moderada.
+3. **Push o SMS** — El día del evento, apertura de puertas y acceso al recinto. Inmediatez máxima.
+4. **WhatsApp** — Recuperación de carritos abandonados o audiencias que no abrieron los emails anteriores.
+
+<Aside type="tip">
+La clave de una buena estrategia multicanal no es enviar más mensajes, sino enviar el mensaje correcto por el canal adecuado en el momento oportuno. Un SMS de bienvenida el día de apertura de puertas tiene un impacto muy diferente al mismo mensaje enviado una semana antes.
+</Aside>
+
+No necesitas activar todos los canales desde el primer día. El Email es suficiente para empezar — es el canal más completo, siempre disponible y el que mejor funciona para la mayoría de campañas de marketing de eventos. Añade SMS y WhatsApp cuando quieras ampliar el alcance o necesites mayor inmediatez.
+
+---
+
+## Preguntas frecuentes
+
+**¿Puedo combinar varios canales en una misma campaña?**
+No en una sola campaña. Cada campaña usa un único canal. Para una estrategia multicanal, crea campañas separadas — una por canal — y coordina las fechas de envío desde el paso de Programación de cada una.
+
+**¿Por qué la tarjeta de SMS o WhatsApp aparece deshabilitada?**
+Porque el canal no está activado en tu organización. Ve a Ajustes → Configuración de SMS (o WhatsApp) para habilitarlo. Si no ves esa opción en Ajustes, contacta con soporte de Nevent para que activen el canal en tu cuenta.
+
+**¿Cómo sé cuántos contactos de mi segmento recibirán el push?**
+En el paso de Audiencia del asistente, el panel derecho muestra el alcance estimado por canal: contactos totales en el segmento vs. contactos con push activado. El número de push suele ser menor que el total porque requiere que el contacto tenga la app instalada con notificaciones.
+
+**¿El SMS se cobra aunque el mensaje no llegue al destinatario?**
+El modelo de facturación depende del proveedor configurado en Ajustes. En general, el SMS se factura por envío (intento de entrega), no por lectura confirmada. Consulta las condiciones de tu proveedor para los detalles de facturación y los casos de número no válido o buzón lleno.
+
+**¿Puedo cambiar el canal después de crear la campaña?**
+Sí, mientras la campaña esté en estado **Borrador**. Desde el asistente puedes navegar al paso 2 (Canal) y cambiar la selección. Ten en cuenta que cambiar de Email a otro canal eliminará la configuración de plantilla y tipo de campaña, ya que esos pasos son exclusivos del canal Email.

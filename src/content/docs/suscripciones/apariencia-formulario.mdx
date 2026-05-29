@@ -1,0 +1,209 @@
+---
+title: Cómo personalizar la apariencia de tu formulario de suscripción
+description: Aprende a personalizar colores, tipografía, bordes y diseño de tu formulario de suscripción en Nevent. Guía completa con todas las opciones disponibles.
+sidebar:
+  order: 4
+---
+
+En esta guía verás cómo usar la sección **Apariencia** de tu formulario de suscripción. Aquí controlas el aspecto visual completo del widget: texto, colores, tipografía, espaciado, bordes y el botón de envío.
+
+Todos los cambios se reflejan en tiempo real en la **Vista Previa** de la derecha.
+
+![Vista general de la sección Apariencia con las opciones de Contenido y Contenedor expandidas, y la Vista Previa del formulario a la derecha](/images/guias/suscripciones/apariencia-formulario/paso-1.png)
+
+## Cómo llegar a esta sección
+
+Desde el menú superior, ve a **Audiencia → Suscripciones**, haz clic en el nombre de tu formulario y selecciona **Apariencia** en la barra lateral izquierda.
+
+Si acabas de crear un formulario y elegiste la opción de personalizar el diseño, el asistente te lleva directamente aquí.
+
+## Guardar y restablecer cambios
+
+En la parte superior derecha encontrarás dos botones:
+
+- **Guardar** — aplica todos los cambios pendientes. Los cambios no se hacen efectivos hasta que hagas clic aquí.
+- **Restablecer** — descarta todos los cambios no guardados y vuelve al último estado guardado.
+
+:::caution[Atención]
+El botón **Restablecer** revierte los cambios al instante, sin pedir confirmación. Si llevas varios minutos ajustando valores, guarda frecuentemente para no perder trabajo.
+:::
+
+## La Vista Previa
+
+A la derecha del editor hay una columna fija con la **Vista Previa**. Se actualiza en tiempo real con cada ajuste que hagas.
+
+La Vista Previa muestra exactamente cómo verá el formulario un visitante de tu web: título, descripción, campos y botón de envío con todos los estilos aplicados.
+
+---
+
+## Sección Contenido
+
+La sección **Contenido** controla los textos que aparecen dentro del formulario.
+
+| Campo | Descripción |
+|---|---|
+| **Título** | Encabezado principal del formulario. Por ejemplo: "Suscríbete a nuestro newsletter" |
+| **Descripción** | Texto explicativo que aparece debajo del título. Puedes usarlo para indicar qué recibirán los suscriptores |
+| **Texto del botón** | El texto del botón de envío. Por defecto es "Suscribirse" |
+
+:::tip[Consejo]
+El título y la descripción son los primeros elementos que lee un visitante. Usa un título directo que deje claro qué se lleva el usuario al suscribirse. Evita textos genéricos como "Regístrate aquí".
+:::
+
+---
+
+## Sección Contenedor
+
+El **Contenedor** controla el aspecto de la caja que envuelve todo el formulario.
+
+![Vista de la sección Contenedor con las opciones de espaciado, borde y ancho máximo, y la Vista Previa del formulario](/images/guias/suscripciones/apariencia-formulario/paso-2.png)
+
+| Opción | Descripción |
+|---|---|
+| **Color de fondo** | Color de la caja del formulario. Por defecto blanco (`#ffffff`) |
+| **Dirección** | Disposición de los elementos: Columna (vertical) o Fila (horizontal) |
+| **Campos por fila** | Número de campos que se muestran en una misma fila (1, 2, 3...) |
+| **Padding interno** | Espacio entre el borde del contenedor y su contenido (0–100 px) |
+| **Espaciado entre elementos** | Separación vertical entre cada elemento del formulario (0–50 px) |
+| **Radio de borde** | Redondez de las esquinas del contenedor (0–50 px). A 0 las esquinas son rectas |
+| **Grosor de borde** | Grosor de la línea exterior del contenedor (0–5 px) |
+| **Color de borde** | Color de esa línea |
+| **Sombra** | Sombra CSS del contenedor. Acepta cualquier valor CSS válido, como `0 4px 20px rgba(0,0,0,0.1)` |
+| **Ancho máximo** | Anchura máxima del formulario (200–800 px). Útil para controlar el tamaño en webs con columnas anchas |
+
+:::note[Nota]
+Si vas a insertar el formulario en una columna estrecha de tu web, ajusta el **Ancho máximo** para que no desborde el diseño de tu página.
+:::
+
+---
+
+## Sección Ancho de campos
+
+Esta sección controla qué fracción del ancho total ocupa cada elemento del formulario.
+
+Para cada campo y elemento adicional puedes elegir entre cuatro anchos: **1/4**, **1/2**, **3/4** o **Completo**. Por defecto todos están en **Completo**.
+
+Los elementos disponibles dependen de los campos que hayas activado en la sección **Campos**. Como mínimo siempre aparecen:
+
+- Los campos que hayas añadido (por ejemplo, Correo electrónico)
+- **Términos legales** (si está activado)
+- **Botón de envío**
+
+Al final de la sección hay una **Vista Previa de la distribución** que muestra visualmente cómo quedarán los elementos en la fila.
+
+:::tip[Consejo]
+Si activas **Columna** en el Contenedor y pones **Campos por fila** a 2, puedes poner el campo de email a **1/2** y el botón también a **1/2** para conseguir un formulario de una sola línea muy compacto.
+:::
+
+---
+
+## Sección Título
+
+Controla el estilo tipográfico del texto del título del formulario.
+
+![Vista de la sección Título con tamaño de fuente, grosor, fuente y color, más la sección Subtítulo](/images/guias/suscripciones/apariencia-formulario/paso-3.png)
+
+| Opción | Descripción |
+|---|---|
+| **Título oculto** | Toggle para ocultar el título en el formulario sin eliminarlo |
+| **Tamaño de fuente** | Tamaño en px del título (10–72 px). Por defecto 24 px |
+| **Grosor** | Peso de la fuente: Normal, Seminegrita, Negrita, etc. |
+| **Fuente** | Tipografía del título. Por defecto `inherit` (hereda la fuente de tu web) |
+| **Color** | Color del texto del título |
+
+:::note[Nota]
+Usar `inherit` tanto en la fuente del título como en la del subtítulo hace que el formulario adopte automáticamente la tipografía de tu web, sin necesidad de configurarlo. Solo cambia esto si quieres una fuente diferente a la de tu página.
+:::
+
+---
+
+## Sección Subtítulo
+
+Mismas opciones que el Título, pero aplicadas al texto de descripción del formulario.
+
+| Opción | Descripción |
+|---|---|
+| **Subtítulo oculto** | Toggle para ocultar la descripción en el formulario |
+| **Tamaño de fuente** | Tamaño en px del subtítulo (8–32 px). Por defecto 16 px |
+| **Grosor** | Peso de la fuente: Normal, Seminegrita, Negrita, etc. |
+| **Fuente** | Tipografía del subtítulo. Por defecto `inherit` |
+| **Color** | Color del texto del subtítulo |
+
+---
+
+## Sección Campos de entrada
+
+Controla el aspecto de los campos de texto dentro del formulario: el input de email y cualquier otro campo que hayas añadido.
+
+![Vista de la sección Campos de entrada con opciones de color, borde, altura, fuente del texto y fuente del placeholder](/images/guias/suscripciones/apariencia-formulario/paso-4.png)
+
+| Opción | Descripción |
+|---|---|
+| **Color de fondo** | Color interior del campo de texto |
+| **Color de texto** | Color del texto que escribe el usuario |
+| **Color de borde** | Color del borde del campo en estado normal |
+| **Color de borde al enfocar** | Color del borde cuando el campo está activo (al hacer clic) |
+| **Grosor de borde** | Grosor del borde del campo (0–10 px) |
+| **Radio de borde** | Redondez de las esquinas del campo (0–50 px) |
+| **Altura** | Altura del campo de texto (30–80 px). Por defecto 44 px |
+| **Tamaño de fuente** | Tamaño del texto dentro del campo (10–24 px) |
+| **Fuente del texto** | Tipografía del texto que escribe el usuario |
+| **Fuente del placeholder** | Tipografía del texto de ejemplo (placeholder) |
+| **Color del placeholder** | Color del texto de ejemplo dentro del campo vacío |
+| **Fuente de etiqueta** | Tipografía del label que aparece encima del campo |
+| **Color de etiqueta** | Color del label |
+| **Tamaño de etiqueta** | Tamaño en px del label (8–24 px) |
+| **Padding** | Espaciado interior del campo, en formato CSS (por ejemplo, `0 12px`) |
+| **Ocultar etiquetas** | Toggle para ocultar todos los labels del formulario |
+| **Ocultar hints** | Toggle para ocultar los textos de ayuda debajo de cada campo |
+
+---
+
+## Sección Botón CTA
+
+Controla el estilo del botón de envío del formulario.
+
+| Opción | Descripción |
+|---|---|
+| **Color de fondo** | Color del botón en estado normal |
+| **Color de texto** | Color del texto dentro del botón |
+| **Color de fondo al pasar el ratón** | Color del botón cuando el cursor lo roza (hover) |
+| **Color de borde** | Color del borde del botón |
+| **Grosor de borde** | Grosor del borde del botón (0–10 px) |
+| **Radio de borde** | Redondez de las esquinas del botón (0–50 px) |
+| **Altura** | Altura del botón (30–80 px). Por defecto 44 px |
+| **Tamaño de fuente** | Tamaño del texto del botón (12–24 px) |
+| **Fuente del texto** | Tipografía del texto del botón |
+| **Grosor de fuente** | Peso tipográfico del texto del botón (Normal, Seminegrita, Negrita...) |
+
+:::tip[Consejo]
+El color del botón es el elemento con más impacto visual en la conversión del formulario. Usa el color primario de tu marca para que el botón destaque y sea reconocible como una acción de llamada.
+:::
+
+---
+
+## Sección Avanzado
+
+La sección **Avanzado** tiene dos opciones globales que afectan a todo el formulario.
+
+| Opción | Descripción |
+|---|---|
+| **Fuente global** | Aplica una fuente de Google Fonts a todo el formulario. Busca la fuente por nombre en el selector |
+| **Versión del script** | Versión del script del widget que se cargará en tu web. Por defecto "2025-2 (Recomendada)" |
+
+:::note[Nota]
+La **Fuente global** requiere la versión del script 2025-2 o posterior. Si cambias la fuente y no se aplica en tu web, verifica que estás usando la versión recomendada. El widget incluye soporte para fuentes personalizadas y Google Fonts en esta versión.
+:::
+
+:::tip[Consejo]
+Si la tipografía de tu web ya es reconocible, deja todos los campos de fuente en `inherit` y solo usa la **Fuente global** si quieres algo específico para el formulario. Menos configuración es normalmente menos riesgo de inconsistencias visuales.
+:::
+
+---
+
+## Siguiente paso
+
+Con la apariencia configurada, los siguientes pasos habituales son:
+
+- **[Automatizaciones](/suscripciones/automatizaciones-formulario)** — configura acciones automáticas cuando alguien se suscribe
+- **[Instalación](#)** — obtén el código para instalar el formulario en tu web

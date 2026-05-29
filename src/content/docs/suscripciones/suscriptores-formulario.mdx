@@ -1,0 +1,94 @@
+---
+title: Cómo ver y gestionar los suscriptores de un formulario
+description: Aprende a consultar, filtrar y exportar los suscriptores de tus formularios de suscripción en Nevent, y a dar de baja o eliminar contactos de forma individual o masiva.
+sidebar:
+  order: 6
+---
+
+import { Steps, Aside } from '@astrojs/starlight/components';
+
+La sección **Suscriptores** te permite ver todos los contactos que se han apuntado a un formulario concreto, filtrarlos por distintos criterios, exportarlos y gestionar su estado (baja o eliminación). Es el lugar desde donde controlas quién forma parte de cada lista.
+
+## Cómo acceder a la sección Suscriptores
+
+<Steps>
+1. En el menú lateral, ve a **Audiencia → Suscripciones**.
+2. Haz clic sobre el formulario que quieras consultar.
+3. En la barra lateral del editor, selecciona **Suscriptores**.
+</Steps>
+
+Llegarás a la pantalla principal de suscriptores, que muestra la tabla con todos los contactos del formulario.
+
+![Vista principal de la sección Suscriptores con la tabla completa de contactos](/images/guias/suscripciones/suscriptores-formulario/paso-1.png)
+
+## La tabla de suscriptores
+
+La tabla muestra una fila por cada suscriptor. Puedes ordenar los resultados haciendo clic en el encabezado de cualquier columna.
+
+| Columna | Qué muestra |
+|---|---|
+| **Email** | Dirección de correo del suscriptor |
+| **Nombre** | Nombre y apellidos (si se capturaron en el formulario) |
+| **Estado** | Estado actual de la suscripción: **Confirmado**, **Pendiente** o **Dado de baja** |
+| **Fecha de suscripción** | Fecha en que el contacto completó el formulario (formato DD/MM/AAAA) |
+| **Acciones** | Botón de eliminar individual |
+
+Al pie de la tabla encontrarás la paginación: el indicador "Mostrando X a Y de Z" te dice cuántos suscriptores hay en total. Puedes cambiar el número de filas visibles por página usando el selector de la esquina inferior derecha.
+
+## Filtrar suscriptores
+
+### Buscar por email o nombre
+
+El campo de búsqueda **"Buscar por email, nombre…"** filtra los resultados en tiempo real mientras escribes. Puedes usarlo con el dominio completo del email, solo con el nombre o con cualquier fragmento de texto.
+
+![Búsqueda activa mostrando 2 resultados para el término "ana"](/images/guias/suscripciones/suscriptores-formulario/paso-2.png)
+
+### Filtrar por rango de fechas
+
+El selector **"Rango de fechas"** te permite acotar los resultados a un período concreto. Haz clic sobre el campo para introducir las fechas manualmente o usar el calendario.
+
+![Campo de rango de fechas con el calendario disponible](/images/guias/suscripciones/suscriptores-formulario/paso-3.png)
+
+Para limpiar todos los filtros activos y volver a ver la lista completa, haz clic en el botón **"Limpiar"**.
+
+## Exportar suscriptores
+
+El botón **"Exportar suscriptores"** está disponible en la barra superior de la pantalla, junto al nombre del formulario.
+
+<Aside type="caution">
+La exportación está disponible como función, pero actualmente puede mostrar un error al generarse el archivo. Si ves el mensaje "No se pudieron exportar los suscriptores", contacta con el equipo de soporte o inténtalo de nuevo más tarde.
+</Aside>
+
+![Mensaje de error al intentar exportar los suscriptores](/images/guias/suscripciones/suscriptores-formulario/paso-5.png)
+
+## Gestionar suscriptores de forma individual
+
+Cada fila de la tabla incluye un botón de **papelera** en la columna Acciones. Al hacer clic, aparece un diálogo de confirmación con el email del suscriptor afectado.
+
+![Diálogo de confirmación para eliminar un suscriptor individual](/images/guias/suscripciones/suscriptores-formulario/paso-7.png)
+
+- Haz clic en **Eliminar** para confirmar la acción. Esta operación no se puede deshacer.
+- Haz clic en **Cancelar** para cerrar el diálogo sin realizar cambios.
+
+<Aside type="tip">
+Eliminar un suscriptor lo borra permanentemente de este formulario. Si solo quieres que deje de recibir comunicaciones sin perder el registro, usa la acción de **"Dar de baja"** en cambio.
+</Aside>
+
+## Acciones masivas
+
+Puedes seleccionar varios suscriptores a la vez usando la casilla de verificación de cada fila, o marcar todos de una vez con el checkbox del encabezado de la tabla.
+
+![Tabla con todos los suscriptores seleccionados y la barra de acciones masivas visible](/images/guias/suscripciones/suscriptores-formulario/paso-6.png)
+
+Cuando hay al menos un suscriptor seleccionado, aparece una barra de acciones masivas con dos opciones:
+
+| Acción | Qué hace |
+|---|---|
+| **Dar de baja** | Cambia el estado del suscriptor a "Dado de baja". Conserva el registro en la lista pero deja de recibir comunicaciones. |
+| **Eliminar** | Elimina permanentemente los suscriptores seleccionados de este formulario. |
+
+Al hacer clic en cualquiera de las dos opciones, aparece un diálogo de confirmación que indica el número de suscriptores afectados y recuerda que la acción no se puede deshacer.
+
+![Diálogo de confirmación de acción masiva con las opciones Cancelar, Dar de baja y Eliminar](/images/guias/suscripciones/suscriptores-formulario/paso-8.png)
+
+El diálogo incluye las opciones **Cancelar**, **Dar de baja** y **Eliminar**, de modo que puedes cambiar de acción en el último momento si lo necesitas.

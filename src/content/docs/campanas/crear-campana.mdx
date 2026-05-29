@@ -1,0 +1,231 @@
+---
+title: Cómo crear una campaña de email en Nevent
+description: Aprende a crear y enviar tu primera campaña de email en Nevent paso a paso, desde elegir el canal hasta programar el envío o lanzarla al momento.
+sidebar:
+  order: 1
+---
+
+import { Steps, Aside } from '@astrojs/starlight/components';
+
+Cuando tienes un evento entre manos, los emails son tu canal directo con la audiencia que ya te conoce y ha dado permiso para que le escribas. Una campaña bien hecha puede marcar la diferencia entre un evento sold out y uno con entradas sin vender.
+
+En esta guía recorres el flujo completo de creación de una campaña de email en Nevent, desde la primera pantalla hasta el momento antes de pulsar "Lanzar". El proceso completo te lleva entre 10 y 15 minutos la primera vez; bastante menos cuando ya tienes tus plantillas preparadas.
+
+## Por qué enviar campañas de email a tu audiencia
+
+El email sigue siendo el canal de marketing con mayor retorno para eventos. A diferencia de las redes sociales, donde el algoritmo decide quién ve tu contenido, el email llega directamente a la bandeja de entrada de personas que eligieron estar ahí.
+
+Para un promotor de eventos, las campañas de email tienen tres momentos clave: el anuncio inicial del evento (genera expectativa y primeras ventas), los recordatorios previos (reactivan a quienes vieron el anuncio pero no compraron) y el follow-up posterior (fideliza a los asistentes para el próximo evento). Cada uno de estos momentos tiene su propio ritmo y mensaje.
+
+Nevent te permite segmentar tu audiencia con precisión — por historial de compra, segmento de edad, ubicación, asistencia a eventos anteriores — para que cada email llegue a quien tiene más probabilidad de comprar, no a toda tu base de datos.
+
+## Antes de empezar
+
+Antes de crear tu primera campaña, asegúrate de tener:
+
+- **Una cuenta activa en Nevent** con acceso a la organización correcta
+- **El dominio de email configurado** en Ajustes → Configuración de email (si no lo tienes, los emails pueden ir a spam)
+- **Al menos un segmento de audiencia** creado en la sección Audiencia
+- **Una plantilla de email** diseñada en Campañas → Plantillas (o créala durante el proceso)
+
+<Aside type="tip">
+Si aún no tienes plantillas, puedes crearlas desde Campañas → Plantillas → Diseñar → Email. Nevent incluye una plantilla base para eventos que puedes adaptar en minutos.
+</Aside>
+
+## Paso 1: ve a la sección de campañas
+
+Desde cualquier pantalla de Nevent Admin, despliega el menú **Campañas** en la barra de navegación superior. Verás las opciones: Mis campañas, Plantillas, Analytics, Paid Ads y Configuración.
+
+![El menú Campañas desplegado muestra las opciones disponibles](/images/guias/campanas/crear-campana/paso-1-menu-campanas.png)
+
+Haz clic en **Mis campañas**. Si es la primera vez, la lista estará vacía con el mensaje "No hay campañas todavía". La tabla muestra las columnas Canal, Nombre, Objetivo, Estado, Fecha, Audiencia, Enviados, Aperturas, Clics e Ingresos — todos los datos que necesitas para seguir el rendimiento de cada campaña.
+
+![Lista de campañas vacía con el botón Nueva campaña en la esquina superior derecha](/images/guias/campanas/crear-campana/paso-1-lista-campanas.png)
+
+## Paso 2: nombra tu campaña
+
+Haz clic en el botón **+ Nueva campaña** en la esquina superior derecha. Se abre el asistente de creación con 8 pasos en el panel izquierdo.
+
+![Primera pantalla del asistente mostrando el campo de nombre de la campaña](/images/guias/campanas/crear-campana/paso-2-nueva-campana-wizard.png)
+
+El primer paso es **Información básica**. Escribe un nombre interno para la campaña — este nombre solo lo ves tú, no tus contactos. Elige un nombre que te ayude a identificarla después: incluir la fecha y el objetivo funciona bien (por ejemplo, "Newsletter Enero 2026 — Ofertas early bird").
+
+![El campo de nombre relleno con el nombre de la campaña](/images/guias/campanas/crear-campana/paso-2-nombre-campana.png)
+
+<Aside type="note">
+El nombre de la campaña se guarda automáticamente como borrador en cuanto empiezas a escribir. Si cierras el navegador y vuelves más tarde, tu progreso estará guardado.
+</Aside>
+
+Opcionalmente puedes asignar la campaña a una carpeta para organizar tu biblioteca de campañas. Pulsa **Siguiente** cuando estés listo.
+
+## Paso 3: elige el canal de comunicación
+
+El paso **Canal** te pregunta por qué vía quieres enviar la campaña. Las opciones disponibles son:
+
+- **Solo Email** — Envía un email aunque el contacto tenga push activado. Es el canal con mayor índice de apertura para campañas de marketing de eventos (>21% en la industria).
+- **Solo Push** — Envía únicamente notificación push si el contacto la tiene habilitada en la Superapp de Nevent.
+- **Solo SMS** — Requiere activación previa en Ajustes.
+- **Solo WhatsApp** (Beta) — Requiere activación previa en Ajustes.
+
+![Pantalla de selección de canal con las cuatro opciones disponibles](/images/guias/campanas/crear-campana/paso-3-canal-comunicacion.png)
+
+Selecciona **Solo Email** para el happy path de esta guía y pulsa **Siguiente**.
+
+![El canal Solo Email seleccionado y resaltado](/images/guias/campanas/crear-campana/paso-3-canal-email-seleccionado.png)
+
+<Aside type="tip">
+El panel derecho muestra tasas de apertura promedio de la industria para cada canal: Email >21%, SMS >98%, Push >50%, WhatsApp >95%. El SMS tiene la mayor tasa de apertura, pero requiere un número de teléfono verificado y tiene un coste por envío.
+</Aside>
+
+## Paso 4: selecciona el tipo de campaña
+
+El paso **Tipo de campaña** define las reglas de envío y el propósito del mensaje:
+
+- **Campaña de marketing** — Respeta las preferencias de comunicación de los contactos. Solo se envía a usuarios que han dado consentimiento explícito para recibir emails de marketing. Es el tipo correcto para newsletters, promociones y anuncios de eventos.
+- **Campaña transaccional** — Se envía independientemente de las preferencias de marketing. Reservado para comunicaciones críticas como confirmaciones de compra, recordatorios de acceso o facturas.
+
+![Pantalla de tipo de campaña con las dos opciones explicadas](/images/guias/campanas/crear-campana/paso-4-tipo-campana.png)
+
+Para anunciar un evento o enviar una newsletter, selecciona **Campaña de marketing** y pulsa **Siguiente**.
+
+<Aside type="caution">
+No uses el tipo Transaccional para campañas de marketing. Además de ir contra las normativas GDPR, puede dañar la reputación de tu dominio de envío si los destinatarios marcan el email como spam.
+</Aside>
+
+## Paso 5: elige la plantilla de contenido
+
+El paso **Contenido** muestra tu biblioteca de plantillas de email. Aquí seleccionas la plantilla base que usará esta campaña.
+
+![Paso de contenido mostrando las plantillas disponibles](/images/guias/campanas/crear-campana/paso-5-contenido-plantillas.png)
+
+Si aún no tienes plantillas creadas, ve a **Campañas → Plantillas → Diseñar → Email**. Nevent abre el editor visual (GrapesJS Studio) con una plantilla prediseñada para eventos que incluye: logo, banner del evento, título, line-up, fecha, ubicación, precio y botón de compra.
+
+![Editor visual de email con la plantilla de evento prediseñada y los bloques de contenido en el panel izquierdo](/images/guias/campanas/crear-campana/paso-5b-editor-plantilla.png)
+
+El editor tiene tres paneles: **Añadir** (bloques de contenido como texto, imagen, botón, divisor, social, hero y layouts de columnas), **Estilos** (colores y tipografía globales) y **Media** (biblioteca de imágenes). Cuando tu plantilla esté lista, pulsa **Guardar como** y asígnale un nombre. La plantilla quedará disponible en la biblioteca para reutilizarla en futuras campañas.
+
+De vuelta en el paso Contenido, haz clic sobre la plantilla que quieres usar — se resaltará con un borde azul y mostrará una vista previa en el panel derecho.
+
+![La plantilla seleccionada aparece resaltada con el tick de selección](/images/guias/campanas/crear-campana/paso-5-contenido-plantilla-seleccionada.png)
+
+Pulsa **Siguiente** para continuar.
+
+<Aside type="note">
+En este paso solo seleccionas la plantilla base. El contenido real del email (textos, imágenes, links) se edita desde la sección Plantillas. Si necesitas personalizar el contenido para una campaña específica, edita la plantilla antes de llegar a este paso o crea una copia de ella.
+</Aside>
+
+## Paso 6: define la audiencia
+
+El paso **Segmentación** muestra los segmentos de audiencia disponibles en tu organización. Los segmentos son grupos de contactos definidos por criterios específicos — puedes crearlos desde la sección Audiencia.
+
+![Lista de segmentos disponibles para seleccionar como audiencia](/images/guias/campanas/crear-campana/paso-6-segmentacion-audiencia.png)
+
+Haz clic sobre el segmento o segmentos que recibirán la campaña. Puedes seleccionar varios. Cada segmento muestra el número de contactos que contiene.
+
+Al seleccionar un segmento, el panel derecho actualiza las estadísticas de audiencia en tiempo real: número total de contactos alcanzados y lista de segmentos seleccionados.
+
+![El segmento seleccionado aparece resaltado y el panel derecho muestra 3 contactos alcanzados](/images/guias/campanas/crear-campana/paso-6-segmento-seleccionado.png)
+
+Pulsa **Siguiente** cuando hayas seleccionado tu audiencia.
+
+<Aside type="tip">
+Si necesitas llegar a toda tu base de datos, crea un segmento "Todos los contactos" desde Audiencia → Nuevo segmento sin añadir ningún filtro. Nevent incluirá a todos los contactos que cumplan los criterios de la campaña (en este caso, los que tengan consentimiento de marketing si usas el tipo Marketing).
+</Aside>
+
+## Paso 7: escribe el asunto y la vista previa
+
+El paso **Asunto** (llamado internamente "Encabezado del email") configura lo que ven tus contactos en su bandeja de entrada antes de abrir el email.
+
+![Pantalla de asunto con el campo de remitente, asunto y texto de vista previa](/images/guias/campanas/crear-campana/paso-7-asunto-email.png)
+
+Hay tres elementos que configurar:
+
+**Remitente** — Elige entre usar la configuración global de tu organización (el nombre de remitente definido en Ajustes) o personalizarlo para esta campaña concreta. La mayoría de veces la configuración global es suficiente.
+
+**Asunto** — El titular del email. Tienes hasta 60 caracteres. El botón con el icono de persona te permite insertar variables de personalización como el nombre del destinatario (`{{firstName}}`), lo que aumenta significativamente las tasas de apertura. Escribe un asunto directo que genere curiosidad o urgencia.
+
+**Texto de vista previa** — El texto secundario que aparece junto al asunto en la bandeja de entrada (el "preheader"). Tienes hasta 90 caracteres. Usa este espacio para ampliar el asunto o añadir un gancho adicional — es el segundo elemento más importante para conseguir que abran el email.
+
+![El formulario con el asunto y la vista previa rellenados y el panel de bandeja de entrada actualizado](/images/guias/campanas/crear-campana/paso-7-asunto-rellenado.png)
+
+El panel superior muestra una simulación de cómo quedará el email en la bandeja de entrada del destinatario, con tu nombre de remitente, el asunto y el texto de vista previa. Revísala antes de continuar.
+
+Pulsa **Siguiente** cuando el encabezado esté listo.
+
+## Paso 8: programa el envío
+
+El paso **Programación** define cuándo se enviará la campaña. Hay dos opciones:
+
+- **Enviar ahora** — La campaña se lanza en cuanto confirmes en el paso de revisión. Útil para anuncios urgentes o cuando ya tienes todo preparado.
+- **Programar envío** — Al seleccionar esta opción aparece un campo de fecha y hora (formato dd/MM/yyyy HH:mm). La campaña se enviará automáticamente en ese momento.
+
+![Las dos opciones de programación: enviar ahora y programar envío](/images/guias/campanas/crear-campana/paso-8-programacion-envio.png)
+
+![La opción Programar envío seleccionada muestra el selector de fecha y hora](/images/guias/campanas/crear-campana/paso-8-programar-envio.png)
+
+<Aside type="tip">
+Para campañas de anuncio de evento, los mejores horarios de apertura suelen ser martes y jueves entre las 10:00 y las 12:00, o los domingos por la tarde. Evita los lunes por la mañana (bandeja de entrada saturada) y los viernes por la tarde (el usuario ya está desconectado mentalmente).
+</Aside>
+
+Elige tu opción y pulsa **Siguiente**.
+
+## Paso 9: revisa y lanza la campaña
+
+El último paso es la **Revisión** — un resumen completo de toda la configuración de la campaña antes de enviarla.
+
+![Pantalla de revisión mostrando el resumen completo de la campaña con todos los parámetros configurados](/images/guias/campanas/crear-campana/paso-9-revision-campana.png)
+
+La pantalla muestra una tabla con todos los parámetros:
+
+| Campo | Valor |
+|-------|-------|
+| Información básica | Nombre interno de la campaña |
+| Canal | El canal seleccionado (Solo Email, etc.) |
+| Tipo de campaña | Marketing o Transaccional |
+| Audiencia | Número de contactos y segmentos seleccionados |
+| Mensaje | Asunto y texto de vista previa |
+| Remitente | El nombre y dirección de envío |
+| Programación | Enviar ahora o la fecha programada |
+
+Cada fila tiene un icono de lápiz para volver a ese paso y editar el valor sin perder el resto de la configuración.
+
+Cuando todo sea correcto, pulsa **Lanzar campaña**. Si has elegido "Enviar ahora", la campaña entrará en cola de envío inmediatamente. Si has programado una fecha, quedará en estado "Programada" hasta ese momento.
+
+<Aside type="caution">
+Una vez lanzada, una campaña con "Enviar ahora" no se puede cancelar. Si ves algún error en la revisión, corrígelo antes de pulsar "Lanzar campaña".
+</Aside>
+
+## Resultado: la campaña en el panel
+
+Después de lanzar la campaña vuelves automáticamente a la lista de Mis campañas, donde aparece la nueva entrada con su estado actualizado. Las métricas de Enviados, Aperturas, Clics e Ingresos se irán actualizando en tiempo real a medida que los destinatarios interactúen con el email.
+
+## Las secciones relacionadas en detalle
+
+Este artículo cubre el flujo completo de creación. Hay partes del proceso que merecen su propio artículo en profundidad:
+
+- **Editor de plantillas** — Cómo usar el editor visual GrapesJS para diseñar emails desde cero, trabajar con bloques, columnas, imágenes y variables de personalización
+- **Segmentación avanzada** — Cómo construir segmentos de audiencia con múltiples criterios para llegar exactamente a quien quieres
+- **Personalización de mensajes** — Cómo usar variables dinámicas (`{{firstName}}`, `{{eventName}}`, etc.) para que cada email se sienta personal
+- **Analytics de campañas** — Cómo interpretar las métricas de apertura, clics e ingresos desde Campañas → Analytics
+
+## Preguntas frecuentes
+
+**¿Puedo editar una campaña después de lanzarla?**
+No. Una vez enviada, la campaña es inmutable. Sí puedes duplicarla desde la lista de campañas para crear una nueva versión con cambios.
+
+**¿Por qué el paso de Contenido muestra "No hay plantillas disponibles"?**
+Necesitas crear al menos una plantilla primero. Ve a Campañas → Plantillas → Diseñar → Email. Una vez guardada la plantilla, vuelve al asistente de creación — tu borrador habrá guardado el progreso hasta ese punto.
+
+**¿Qué diferencia hay entre el asunto y el texto de vista previa?**
+El asunto es el texto principal en negrita que ve el destinatario en su bandeja de entrada. El texto de vista previa (preheader) es el texto secundario que aparece justo después, en gris. Juntos forman los primeros 130–150 caracteres que deciden si alguien abre o no el email.
+
+**¿Puedo enviar una campaña a más de un segmento a la vez?**
+Sí. En el paso de Audiencia puedes seleccionar múltiples segmentos haciendo clic sobre cada uno. Nevent deduplica automáticamente los contactos que pertenezcan a más de un segmento para que no reciban el email dos veces.
+
+**¿Qué ocurre si programo un envío y luego quiero cancelarlo?**
+Las campañas en estado "Programada" pueden cancelarse desde la lista de Mis campañas antes de que llegue la hora de envío. Una vez iniciado el proceso de envío, ya no es posible detenerlo.
+
+## Siguiente paso
+
+- Aprende a [crear segmentos de audiencia](/audiencia/crear-segmento) para afinar a quién llegan tus campañas
+- Configura tu [dominio de email](/configuracion/dominio-email) para mejorar la entregabilidad y evitar que tus emails vayan a spam

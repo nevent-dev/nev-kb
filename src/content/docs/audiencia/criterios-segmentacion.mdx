@@ -1,0 +1,246 @@
+---
+title: Todos los criterios de segmentación en Nevent
+description: Referencia completa de todas las categorías, propiedades y operadores disponibles para crear segmentos en Nevent. Filtra por asistencia, compras, canales e interacción.
+sidebar:
+  order: 2
+---
+
+Esta es la referencia completa de todos los criterios que puedes usar para crear segmentos en Nevent. Si todavía no has creado tu primer segmento, empieza por [la guía básica](/audiencia/crear-segmento).
+
+Este artículo te llevará unos 8 minutos de lectura. Guárdalo en favoritos: es la consulta rápida que necesitarás cada vez que construyas un segmento nuevo.
+
+## Cómo funcionan los criterios
+
+Cada condición de un segmento tiene exactamente tres partes: una **categoría** (el área de datos), una **propiedad** (el dato concreto) y un **operador + valor** (la comparación). Por ejemplo: `Consumo → Gasto total → Mayor que → 50€`.
+
+![El constructor de criterios de segmentación mostrando el desplegable de categorías con las 6 opciones disponibles](/images/guias/audiencia/criterios-segmentacion/categorias.png)
+
+Puedes combinar múltiples condiciones dentro de un mismo grupo (todas deben cumplirse, operador **Y**) o crear grupos separados (basta con que se cumpla uno, operador **O**).
+
+## Operadores disponibles
+
+Los operadores varían según el tipo de dato de cada propiedad. Nevent solo te muestra los operadores válidos para la propiedad que hayas elegido.
+
+![Desplegable de propiedades dentro de la categoría Asistencia mostrando todas las propiedades disponibles como Evento asistido, Tipo de entrada, Número de eventos asistidos y más](/images/guias/audiencia/criterios-segmentacion/propiedades.png)
+
+### Propiedades de tipo número o importe
+
+| Operador | Qué hace |
+|----------|----------|
+| Igual a | El valor es exactamente ese número |
+| Diferente de | El valor es cualquier número excepto ese |
+| Mayor que | El valor supera ese número |
+| Mayor o igual que | El valor es ese número o lo supera |
+| Menor que | El valor está por debajo de ese número |
+| Menor o igual que | El valor es ese número o está por debajo |
+| Entre | El valor está dentro de un rango (de X a Y) |
+| Tiene valor | El campo tiene algún dato registrado |
+| No tiene valor | El campo está vacío |
+
+### Propiedades de tipo lista o entidad (eventos, etiquetas, campañas…)
+
+| Operador | Qué hace |
+|----------|----------|
+| Es igual a | Coincide con la opción seleccionada |
+| No es igual a | No coincide con la opción seleccionada |
+| Tiene valor | Tiene algún dato en ese campo |
+| No tiene valor | No tiene ningún dato en ese campo |
+
+### Propiedades de tipo fecha
+
+| Operador | Qué hace |
+|----------|----------|
+| Antes de | La fecha es anterior a la indicada |
+| Después de | La fecha es posterior a la indicada |
+| Entre fechas | La fecha cae dentro de un rango |
+| En la fecha | La fecha coincide exactamente |
+| Tiene fecha | El campo tiene alguna fecha registrada |
+| Sin fecha | El campo no tiene fecha |
+
+### Propiedades de tipo sí/no
+
+Para propiedades booleanas (como "App móvil descargada" o "Acepta comunicaciones por mail"), no hay operador. Nevent te muestra directamente dos botones: **Sí** o **No**.
+
+![Desplegable de operadores para la propiedad Número de eventos asistidos, mostrando opciones como Mayor que, Menor que, Entre, Tiene valor y No tiene valor](/images/guias/audiencia/criterios-segmentacion/operadores.png)
+
+:::note[Nota]
+Algunas propiedades admiten modificadores adicionales: **Frecuencia** (cuántas veces ha ocurrido algo) y **Período de tiempo** (en los últimos N días/semanas/meses). Aparecen como botones junto al criterio cuando esa propiedad los soporta.
+:::
+
+## Asistencia
+
+Filtra por la participación de tus contactos en eventos: a qué eventos fueron, cuántas veces han asistido, qué tipo de entrada compraron o cuándo compraron.
+
+**Ejemplo de uso:** Quieres enviar una campaña solo a quienes vinieron a tu festival el año pasado para ofrecerles acceso anticipado a la venta de la próxima edición.
+
+| Propiedad | Qué filtra |
+|-----------|-----------|
+| Evento asistido | Ha asistido a un evento concreto (selección de eventos) |
+| Evento con etiqueta | Ha asistido a eventos con una etiqueta determinada |
+| Tipo de entrada | El tipo de entrada que compró (VIP, General, etc.) |
+| Nombre del tipo de entrada | El nombre exacto del tipo de entrada (búsqueda por texto) |
+| País del evento | País donde se celebró el evento al que asistió |
+| Comunidad Autónoma del evento | CCAA donde se celebró el evento |
+| Provincia del evento | Provincia donde se celebró el evento |
+| Ciudad del evento | Ciudad donde se celebró el evento |
+| Código postal del evento | Código postal del lugar del evento |
+| Fecha de compra | Cuándo compró la entrada |
+| Año de compra | El año en que compró la entrada |
+| Mes de compra | El mes en que compró la entrada |
+| Días hasta el evento | Cuántos días faltaban para el evento cuando compró |
+| Fecha del evento | La fecha de inicio del evento al que asistió |
+| Nombre del evento | El nombre completo del evento |
+| Número de eventos asistidos | Cuántos eventos distintos ha asistido en total |
+| Artista del evento asistido | Artista que actuó en los eventos a los que fue |
+| Género musical del evento asistido | Género musical de los eventos a los que fue |
+
+:::tip[Consejo]
+Combina **Número de eventos asistidos** con **Consumo → Gasto total** para identificar a tus asistentes más fieles que, sin embargo, gastan poco. Son el público ideal para una oferta de upgrade o un pack de complementos.
+:::
+
+## Atributos del fan
+
+Filtra por las características personales del contacto: su edad, ubicación, idioma o las etiquetas que le has asignado manualmente.
+
+**Ejemplo de uso:** Tienes una campaña en catalán y quieres enviarla solo a fans cuyo idioma preferido sea el catalán.
+
+| Propiedad | Qué filtra |
+|-----------|-----------|
+| Género | Género del contacto |
+| Edad | Edad exacta o rango de edad |
+| Grupo generacional | Gen Z, Millennials, Gen X o Baby Boomers |
+| Grupo de edad marketing | Segmentos estándar: 18-24, 25-34, 35-44, 45-54, 55-64, 65+ |
+| Código postal | Código postal del domicilio del contacto |
+| País del usuario | País donde reside |
+| Provincia del usuario | Provincia donde reside |
+| Ciudad del usuario | Ciudad donde reside |
+| Idioma | Idioma preferido configurado en su perfil |
+| Teléfono | Si tiene teléfono registrado (o no) |
+| Fecha de nacimiento | Fecha de nacimiento exacta |
+| Etiqueta del usuario | Etiquetas que le has asignado manualmente |
+| Artista que le gusta al fan | Artistas marcados como favoritos en el perfil |
+| Género musical que le gusta al fan | Géneros musicales marcados como favoritos |
+| Campo personalizado | Cualquier campo extra que hayas creado para tu organización |
+
+:::tip[Consejo]
+Las **etiquetas de usuario** son tu herramienta más flexible. Puedes asignarlas manualmente o a través de automatizaciones, y después usarlas como criterio de segmento para construir cualquier agrupación que la plataforma no cubra de forma nativa.
+:::
+
+## Canales
+
+Filtra por los canales de comunicación que tiene activos cada contacto: si descargó la app, si aceptó emails comerciales o si tiene cuentas de redes sociales conectadas.
+
+**Ejemplo de uso:** Quieres enviar una notificación push a quienes tienen la app, y un email a los que no la tienen pero sí aceptan comunicaciones comerciales.
+
+| Propiedad | Qué filtra |
+|-----------|-----------|
+| App móvil descargada | Ha descargado la app móvil (Sí / No) |
+| Acepta comunicaciones comerciales por mail | Ha dado consentimiento para recibir emails de marketing (Sí / No) |
+| Teléfono | Tiene número de teléfono verificado (Sí / No) |
+| Instagram | Tiene cuenta de Instagram conectada (Sí / No) |
+| TikTok | Tiene cuenta de TikTok conectada (Sí / No) |
+
+:::tip[Consejo]
+Antes de crear cualquier campaña de email, aplica siempre el filtro **Acepta comunicaciones comerciales por mail → Sí**. Esto garantiza que solo llegas a contactos que han dado su consentimiento explícito, protegiendo tu reputación de envío y el cumplimiento del RGPD.
+:::
+
+## Consumo
+
+Filtra por el historial de compras y el gasto de cada contacto: cuánto ha gastado en total, si ha comprado complementos concretos o si ha recargado su pulsera cashless.
+
+**Ejemplo de uso:** Quieres identificar a los compradores de entradas VIP de los últimos dos años para invitarles a un evento exclusivo.
+
+| Propiedad | Qué filtra |
+|-----------|-----------|
+| Gasto total | Importe total acumulado en todas sus compras |
+| Gasto en entradas | Importe gastado específicamente en entradas |
+| Gasto medio por asistencia | Gasto promedio del contacto por evento al que asiste |
+| Fecha de compra general | Cuándo realizó cualquier compra |
+| Complemento comprado | Ha comprado un complemento concreto |
+| Complemento con etiqueta | Ha comprado complementos con una etiqueta determinada |
+| Ha recargado cashless | Ha recargado su pulsera cashless (Sí / No) |
+| Importe recargado en cashless | Cantidad total recargada en la pulsera |
+
+:::tip[Consejo]
+**Gasto medio por asistencia** es uno de los criterios más valiosos para detectar calidad de cliente. Un fan que va a muchos eventos pero gasta poco por evento tiene potencial de monetización que todavía no has activado. Un fan que gasta mucho aunque solo va una vez al año es un cliente de alto valor que merece un trato diferencial.
+:::
+
+## Interacción
+
+Filtra por cómo ha respondido el contacto a tus campañas: si ha recibido, abierto o clicado campañas concretas, o si ha interactuado con enlaces cortos.
+
+**Ejemplo de uso:** Quieres reactivar a contactos que llevan más de 90 días sin abrir ninguna de tus campañas de email.
+
+| Propiedad | Qué filtra |
+|-----------|-----------|
+| Campaña recibida | Ha recibido una campaña concreta |
+| Ha recibido campaña con etiqueta | Ha recibido campañas con una etiqueta determinada |
+| Campañas abiertas | Ha abierto una campaña concreta |
+| Ha abierto campaña con etiqueta | Ha abierto campañas con etiqueta específica |
+| Campañas clickeadas | Ha hecho clic en una campaña concreta |
+| Ha hecho click en campaña con etiqueta | Ha hecho clic en campañas con etiqueta específica |
+| Días para abrir campaña | Cuántos días tardó en abrir la campaña desde que la recibió |
+| Días para hacer clic | Cuántos días tardó en hacer clic desde que recibió la campaña |
+| Enlace corto clickeado | Ha hecho clic en un enlace corto (magic link) concreto |
+| Código de enlace corto | El código del enlace corto con el que interactuó |
+
+:::tip[Consejo]
+Usa el modificador de **Período de tiempo** junto a **Campañas abiertas** para construir segmentos de "fans activos": por ejemplo, contactos que han abierto al menos una campaña en los últimos 60 días. Estos son tus fans más receptivos — enviarles campañas mejora tus métricas generales y protege la reputación de tu dominio.
+:::
+
+## Nevent Score®
+
+El Nevent Score® es una puntuación calculada automáticamente por Nevent que mide el nivel de engagement global de cada fan con tu marca. Combina asistencia, consumo e interacción para generar un único número entre 0 y 100.
+
+**Ejemplo de uso:** Quieres hacer una campaña exclusiva solo para tus superfans — los que tienen un score "Muy caliente" — antes de abrir la venta general.
+
+| Propiedad | Qué filtra |
+|-----------|-----------|
+| Nevent Score® - Temperatura | Nivel cualitativo: Congelado, Muy frío, Frío, Templado, Caliente o Muy caliente |
+| Nevent Score® - Valor | Puntuación numérica exacta (de 0 a 100) |
+
+:::note[Nota]
+El Score se recalcula periódicamente. Usar **Temperatura** es más estable para segmentos que quieres mantener en el tiempo; usar **Valor numérico** es más preciso si necesitas un umbral exacto.
+:::
+
+## Combinaciones poderosas
+
+El valor real de los segmentos no está en cada criterio por separado, sino en cómo los combinas. Aquí tienes cuatro recetas que puedes usar directamente.
+
+### Superfans que no tienen la app
+
+Tus fans más fieles que aún no tienen la app descargada son el público perfecto para una campaña de descarga. Ya te conocen y confían en ti.
+
+- **Asistencia:** Número de eventos asistidos ≥ 3
+- **Canales:** App móvil descargada → No
+
+### Compradores VIP inactivos en email
+
+Compraron entrada VIP pero llevan tiempo sin abrir tus emails. Merecen un toque más personal antes de que se enfríen del todo.
+
+- **Asistencia:** Tipo de entrada → Es igual a → VIP (o el nombre de tu categoría)
+- **Interacción:** Campañas abiertas → No tiene valor *(o usa el modificador de tiempo para limitar al período que te interese)*
+
+### Nuevos contactos que aún no han comprado
+
+Acaban de entrar en tu base de datos. Tienen interés, pero todavía no han dado el paso de comprar. Un mensaje de bienvenida con contenido de valor puede convertirlos.
+
+- **Atributos del fan:** Etiqueta del usuario → Es igual a → nueva-entrada *(si usas etiquetas para marcar nuevos registros)*
+- **Consumo:** Gasto total → Igual a → 0€
+
+### Alto gasto, bajo engagement digital
+
+Fans que gastan mucho en tus eventos pero casi no interactúan con tus canales digitales. Tienen potencial para convertirse en superfans si los activas en el canal correcto.
+
+- **Consumo:** Gasto total → Mayor que → 100€ *(adapta el umbral a tu realidad)*
+- **Nevent Score® - Temperatura:** Es igual a → Frío o Muy frío
+
+:::tip[Consejo]
+Guarda tus combinaciones más usadas como segmentos con nombres descriptivos. Cuando tengas 20 o 30 segmentos activos, los nombres claros como "VIP sin app — 2025" o "Fans activos — email" te ahorrarán mucho tiempo.
+:::
+
+## Siguiente paso
+
+- [Cómo crear un segmento](/audiencia/crear-segmento)
+- [Configurar dominio de email](/configuracion/dominio-email)
+- [Configurar envío de SMS](/configuracion/configurar-sms)

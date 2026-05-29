@@ -1,0 +1,169 @@
+---
+title: Cómo programar o enviar una campaña en Nevent
+description: Aprende a enviar una campaña de inmediato o programarla para una fecha y hora concretas en Nevent. Incluye la revisión final antes de lanzar.
+sidebar:
+  order: 5
+---
+
+import { Aside } from '@astrojs/starlight/components';
+
+Cuando una campaña llega al paso 7 del asistente, has completado el grueso del trabajo: canal, tipo, contenido, audiencia y asunto ya están configurados. Este último paso de configuración decide cuándo sale el email, y el siguiente hace de red de seguridad antes de pulsar "Lanzar".
+
+Esta guía cubre en detalle el **Paso 7 — Programación** y el **Paso 8 — Revisión** del asistente de campañas de Nevent.
+
+## Paso 7: elige cuándo se envía la campaña
+
+La pantalla **Programación de envío** te ofrece dos opciones excluyentes.
+
+![Pantalla del paso 7 — Programación de envío — con las dos opciones disponibles: Enviar ahora y Programar envío](/images/guias/campanas/programar-campana/paso-7-opciones-programacion.png)
+
+### Enviar ahora
+
+Selecciona **ENVIAR AHORA** cuando quieras que la campaña salga en cuanto confirmes en el paso de revisión. La campaña no se envía al pulsar "Siguiente" — todavía tienes una pantalla de revisión antes de confirmar el lanzamiento.
+
+![Paso 7 con la opción Enviar ahora seleccionada y el botón Siguiente activo](/images/guias/campanas/programar-campana/paso-7-enviar-ahora-seleccionado.png)
+
+Esta opción es la más habitual cuando ya tienes todo preparado y quieres lanzar de inmediato: anuncios urgentes, campañas de últimas entradas, o cuando el momento preciso de envío no es crítico.
+
+<Aside type="caution">
+Una vez lanzada con "Enviar ahora", la campaña entra en cola de envío de forma inmediata. No hay posibilidad de detenerla. Revisa bien el paso 8 antes de pulsar "Lanzar campaña".
+</Aside>
+
+### Programar envío
+
+Selecciona **PROGRAMAR ENVÍO** para elegir una fecha y hora de salida. Al marcar esta opción aparece el campo **HORA PROGRAMADA** con el selector de fecha y hora.
+
+![Paso 7 con la opción Programar envío seleccionada y el campo de fecha y hora visible](/images/guias/campanas/programar-campana/paso-7-programar-envio-selector-fecha.png)
+
+El campo acepta el formato `dd/MM/yyyy HH:mm` — día, mes, año y hora en formato 24h. Puedes escribir la fecha directamente en el campo o usar el calendario visual que aparece al hacer clic en el icono de calendario.
+
+El calendario muestra el mes actual con los días del mes. Debajo del calendario hay un selector de hora con botones de incremento y decremento para las horas y los minutos. Los botones **Hoy** y **Limpiar** te permiten saltar al día de hoy o borrar la selección.
+
+<Aside type="note">
+El botón **Siguiente** queda deshabilitado mientras no hayas seleccionado una fecha y hora. Antes de continuar, asegúrate de que el campo muestra la fecha correcta en lugar del placeholder `dd/MM/yyyy HH:mm`.
+</Aside>
+
+<Aside type="tip">
+Para campañas de anuncio de evento o lanzamiento de entradas, los mejores horarios de apertura en España suelen ser **martes y jueves entre las 10:00 y las 12:00** y los **domingos entre las 18:00 y las 20:00**. Evita los lunes por la mañana (bandeja de entrada saturada tras el fin de semana) y los viernes por la tarde (el usuario ya está mentalmente desconectado).
+</Aside>
+
+### Consideraciones de zona horaria
+
+La hora que introduces corresponde a la zona horaria configurada en tu organización. Si tu organización está configurada en hora de Madrid (Europe/Madrid), y programas el envío a las 10:00, el email saldrá a las 10:00 hora de Madrid — que en verano (CEST, UTC+2) equivale a las 08:00 UTC.
+
+Si tu audiencia está distribuida en varias zonas horarias, ten en cuenta que el envío es simultáneo para todos los destinatarios.
+
+### Cuándo usar cada opción
+
+| Situación | Opción recomendada |
+|-----------|-------------------|
+| Anuncio urgente o flash sale | Enviar ahora |
+| Newsletter semanal planificada | Programar envío |
+| Recordatorio previo al evento | Programar envío (2–3 días antes) |
+| Campaña de última hora (< 2h) | Enviar ahora |
+| Test A/B de horario de envío | Programar envío (duplica la campaña) |
+
+Una vez elegida la opción (y rellenada la fecha si has elegido programar), pulsa **Siguiente** para ir a la revisión.
+
+## Paso 8: revisa todo antes de lanzar
+
+La pantalla **Revisión** es el último punto de control antes de enviar la campaña. Muestra un resumen de todos los parámetros configurados en los pasos anteriores.
+
+![Pantalla del paso 8 — Revisión — con el resumen completo de la campaña y el botón Lanzar campaña](/images/guias/campanas/programar-campana/paso-8-revision-resumen.png)
+
+### Qué muestra la pantalla de revisión
+
+La revisión lista todos los parámetros de la campaña en una tabla:
+
+| Campo | Qué revisar |
+|-------|-------------|
+| **Información básica** | El nombre interno de la campaña |
+| **Canal** | Confirma que sea "Solo Email" u otro canal elegido |
+| **Tipo de campaña** | Marketing o Transaccional — crítico para el cumplimiento GDPR |
+| **Audiencia** | Número de contactos que recibirán el email y segmentos seleccionados |
+| **Mensaje** | Asunto y texto de vista previa tal como los verá el destinatario |
+| **Remitente** | Nombre y dirección desde la que sale el email |
+| **Programación** | "Enviar ahora" o la fecha y hora programada |
+
+### Cómo editar desde la revisión
+
+Cada fila tiene un icono de lápiz a la derecha. Al pulsarlo, el asistente te lleva directamente al paso correspondiente para que edites ese campo sin perder el resto de la configuración. Cuando guardes el cambio en ese paso, pulsa **Siguiente** repetidamente hasta volver a la revisión.
+
+<Aside type="tip">
+Antes de pulsar "Lanzar campaña", comprueba especialmente: (1) la audiencia — el número de contactos es el que recibirá el email; (2) el asunto — es lo primero que verá el destinatario; (3) la programación — confirma "Enviar ahora" o la fecha correcta.
+</Aside>
+
+### Guardar sin enviar
+
+El botón **Guardar borrador** está disponible en todos los pasos, incluida la revisión. Si no estás listo para lanzar, pulsa "Guardar borrador" y la campaña quedará en estado **Borrador** en tu lista de campañas. Puedes volver a ella en cualquier momento desde Campañas → Mis campañas.
+
+### Lanzar la campaña
+
+Cuando todo esté correcto, pulsa **Lanzar campaña**:
+
+- Si elegiste **Enviar ahora**: la campaña entra en cola de envío de inmediato. En pocos minutos empezará a llegar a las bandejas de entrada de tus contactos. El estado en la lista de campañas cambiará a **Enviando** y luego a **Enviada**.
+- Si elegiste **Programar envío**: la campaña queda en estado **Programada**. El envío se iniciará automáticamente en la fecha y hora que configuraste. No necesitas hacer nada más.
+
+<Aside type="caution">
+Si el botón "Lanzar campaña" aparece deshabilitado, revisa que todos los pasos estén completos: que tengas una plantilla de contenido asignada, al menos un segmento de audiencia seleccionado, y el asunto rellenado. El sistema no puede enviar una campaña con pasos incompletos.
+</Aside>
+
+## Después de lanzar
+
+Tras pulsar "Lanzar campaña", el asistente te devuelve a la lista **Mis campañas**. La nueva campaña aparece en la tabla con su estado actualizado. Las columnas Enviados, Aperturas, Clics e Ingresos empezarán a mostrar datos en cuanto los destinatarios interactúen con el email.
+
+## Cancelar o editar una campaña programada
+
+Si has programado una campaña para el futuro y necesitas cancelarla o editarla antes de la hora de envío:
+
+1. Ve a **Campañas → Mis campañas**
+2. Localiza la campaña en estado **Programada**
+3. Usa el menú **Más opciones** (tres puntos) en la fila de la campaña
+4. Selecciona la opción de cancelar o editar el borrador
+
+Una vez que comienza el proceso de envío, ya no es posible detenerlo. Actúa antes de la hora programada.
+
+<Aside type="note">
+Una campaña ya enviada es inmutable — no se puede editar ni reenviar a los mismos destinatarios. Si necesitas corregir un error, duplica la campaña desde la lista, corrígela y envíala de nuevo. Considera filtrar los contactos para no enviarles el mismo email dos veces.
+</Aside>
+
+## Tips para promotores de eventos
+
+Nevent está diseñado para el marketing de eventos. Estas son las mejores prácticas de timing para campañas de venta de entradas:
+
+**Anuncio inicial del evento (4–8 semanas antes):**
+Envía en martes o jueves por la mañana. El objetivo es generar expectativa y capturar las primeras ventas de quienes ya te conocen y estaban esperando el anuncio.
+
+**Recordatorio de preventa o early bird (1–2 semanas antes del fin de oferta):**
+La urgencia funciona mejor cuando el plazo es visible. Menciona la fecha de cierre en el asunto. Programa el envío para martes o miércoles — da tiempo al usuario a decidir antes del fin de semana.
+
+**Campaña de últimas entradas:**
+Cuando queden menos del 20% de entradas disponibles, envía inmediatamente con "Enviar ahora". La urgencia real no necesita timing perfecto — necesita velocidad.
+
+**Recordatorio D-7 (una semana antes del evento):**
+Para quienes ya compraron: logística, acceso, horarios. Para quienes no compraron: última oportunidad. Son dos emails distintos si tienes los segmentos configurados.
+
+**Recordatorio D-1 (día anterior al evento):**
+Solo a compradores. Información práctica: cómo llegar, qué traer, a qué hora abren puertas. Estos emails tienen tasas de apertura superiores al 60%.
+
+## Preguntas frecuentes
+
+**¿Puedo cambiar la fecha de una campaña ya programada?**
+Sí, mientras no haya comenzado el envío. Ve a Mis campañas, abre el borrador de la campaña programada y navega al paso 7 para cambiar la fecha.
+
+**¿Qué zona horaria usa Nevent para el envío programado?**
+La zona horaria de tu organización, configurada en Ajustes. Compruébala antes de programar campañas para audiencias internacionales.
+
+**¿Puedo programar el mismo email a dos horas distintas para probar cuál funciona mejor?**
+No directamente. Duplica la campaña desde la lista (menú Más opciones → Duplicar), cambia la hora de envío en el duplicado y compara las métricas de apertura en Campañas → Analytics una vez que ambas hayan salido.
+
+**¿Qué pasa si mi audiencia tiene 0 contactos en el momento del envío programado?**
+El sistema intentará enviar a los contactos del segmento en el momento del envío. Si el segmento está vacío en ese instante, la campaña se marcará como enviada con 0 destinatarios.
+
+**¿Puedo enviar a varios segmentos con horarios distintos?**
+No en una sola campaña. Cada campaña tiene una única programación. Si necesitas horarios distintos por segmento, crea una campaña por segmento.
+
+## Artículos relacionados
+
+- [Cómo crear una campaña de email en Nevent](/campanas/crear-campana) — flujo completo de los 8 pasos
+- [Cómo escribir el asunto y la vista previa de una campaña](/campanas/asunto-y-previsualizacion) — el paso 6, justo antes de Programación

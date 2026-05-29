@@ -1,0 +1,162 @@
+---
+title: Cómo configurar el asunto y la vista previa de tu campaña
+description: Aprende a escribir el asunto, el texto de vista previa y configurar el remitente de tus campañas en Nevent paso a paso.
+sidebar:
+  order: 4
+---
+
+import { Aside } from '@astrojs/starlight/components';
+
+El asunto de un email es el factor que más influye en si alguien lo abre o lo ignora. Antes de que el destinatario vea una sola línea de tu contenido, ya tomó una decisión basándose en tres cosas: quién lo envía, qué dice el asunto y el texto de vista previa. El paso 6 del asistente de campañas — **Asunto** — es donde configuras exactamente eso.
+
+Esta guía te explica cada elemento de la pantalla "Encabezado del email" y cómo sacarle el máximo partido.
+
+## La pantalla Encabezado del email
+
+Cuando llegas al paso 6, ves una pantalla dividida en dos zonas: el formulario de configuración a la izquierda y la vista previa del email a la derecha. En la parte superior del formulario hay una simulación de bandeja de entrada que se actualiza en tiempo real mientras escribes.
+
+![Vista general del paso 6 "Asunto" mostrando la simulación de bandeja de entrada, las opciones de remitente, el campo de asunto con contador de caracteres y el campo de texto de vista previa](/images/guias/campanas/asunto-y-previsualizacion/01-vista-general-asunto.png)
+
+La simulación de bandeja de entrada muestra exactamente cómo verá el destinatario tu email antes de abrirlo: el nombre del remitente en negrita a la izquierda, la marca de tiempo a la derecha, el asunto en el centro y el texto de vista previa en gris junto a él. Úsala como referencia mientras rellenas los campos.
+
+---
+
+## Configurar el remitente
+
+La sección **Remitente** tiene dos opciones:
+
+**Usar configuración global** — Utiliza el nombre de remitente que definiste en Ajustes → Configuración de email para toda la organización. En el ejemplo de la captura, aparece como "Euforia festival". Esta es la opción recomendada para la mayoría de campañas, ya que mantiene coherencia en la bandeja de entrada de tus contactos.
+
+**Personalizar para esta campaña** — Permite escribir un nombre de remitente distinto solo para esta campaña. Al seleccionar esta opción, aparece un campo de texto donde puedes escribir el nombre que quieras (por ejemplo, "Equipo de entradas Euforia" o "Samuel de Euforia Festival").
+
+![El remitente configurado como "Personalizar para esta campaña" con el campo de texto visible para escribir un nombre personalizado](/images/guias/campanas/asunto-y-previsualizacion/03-remitente-personalizado.png)
+
+<Aside type="tip">
+Usa un remitente personalizado cuando envíes un tipo de comunicación diferente a lo habitual, como un mensaje del artista headliner o una comunicación de última hora. Para newsletters y anuncios regulares, el nombre global es suficiente y genera reconocimiento de marca.
+</Aside>
+
+<Aside type="caution">
+El nombre del remitente es diferente a la dirección de email de envío. La dirección (el dominio) se configura en Ajustes → Configuración de email y no cambia por campaña. Lo que personalizas aquí es únicamente el nombre que aparece antes de la "@" en la bandeja de entrada.
+</Aside>
+
+---
+
+## La línea de asunto
+
+El campo **Asunto** es el texto principal que ve el destinatario en negrita en su bandeja de entrada. Tiene un límite de **60 caracteres** — el contador en la esquina inferior derecha del campo te indica cuántos llevas usados (por ejemplo, "48/60").
+
+Los clientes de email como Gmail o Outlook recortan el asunto a partir de los 60 caracteres aproximadamente en escritorio, y antes en móvil. Si tu asunto es más largo, el resto queda oculto con puntos suspensivos.
+
+### Cómo escribir un buen asunto para eventos
+
+Un asunto eficaz para eventos hace una de estas tres cosas — o las combina:
+
+- **Genera urgencia**: "Últimas 50 entradas para Euforia Festival"
+- **Activa el FOMO**: "El line-up completo ya está aquí — no te lo pierdas"
+- **Es directo y concreto**: "Tu entrada para Euforia Festival ya está disponible"
+
+Evita asuntos genéricos como "Newsletter de marzo" o "Novedades del festival". El destinatario recibe decenas de emails al día — el tuyo tiene que destacar por lo que dice, no por quién lo manda.
+
+<Aside type="tip">
+Los asuntos con números concretos funcionan especialmente bien en eventos: "Quedan 3 días para el precio early bird" o "15 artistas confirmados para Euforia Festival" son más convincentes que los genéricos. La especificidad genera credibilidad y urgencia a la vez.
+</Aside>
+
+---
+
+## Personalizar el asunto con merge tags
+
+A la derecha del campo de asunto hay un botón con un icono de persona — es el botón **Personalizar**. Al pulsarlo se despliega un menú con las variables dinámicas disponibles.
+
+![El menú desplegable de personalización mostrando los campos estándar disponibles: Nombre, Apellido, Nombre completo, Email, Teléfono y Fecha de nacimiento](/images/guias/campanas/asunto-y-previsualizacion/02-personalizar-merge-tags.png)
+
+Los campos disponibles en la sección **Campos estándar** son:
+
+| Variable | Qué inserta |
+|----------|-------------|
+| Nombre | El nombre del contacto |
+| Apellido | El apellido del contacto |
+| Nombre completo | Nombre y apellido juntos |
+| Email | La dirección de email del contacto |
+| Teléfono | El número de teléfono |
+| Fecha de nacimiento | La fecha de nacimiento del contacto |
+
+Al seleccionar uno, Nevent inserta la variable en la posición del cursor dentro del campo de asunto. El formato es `{{firstName}}`, `{{lastName}}`, etc.
+
+Por ejemplo, en lugar de escribir "Tu entrada para Euforia Festival ya disponible", puedes escribir "{{firstName}}, tu entrada para Euforia Festival ya está aquí". Cuando el email se envíe, Nevent sustituye `{{firstName}}` por el nombre real de cada destinatario.
+
+<Aside type="note">
+Nevent muestra automáticamente un aviso bajo el campo de asunto cuando detecta que no has usado personalización: "Personaliza el asunto con el nombre del destinatario para mejorar las tasas de apertura". No es obligatorio, pero los estudios del sector muestran que los asuntos con el nombre del destinatario tienen tasas de apertura entre un 10% y un 26% más altas.
+</Aside>
+
+<Aside type="caution">
+Asegúrate de que los contactos de tu audiencia tienen el campo que usas en la variable relleno. Si un contacto no tiene nombre registrado, Nevent enviará la variable vacía o con un valor por defecto. Revisa la calidad de tu base de datos antes de usar personalización.
+</Aside>
+
+---
+
+## El texto de vista previa
+
+El campo **Texto de vista previa** es el texto gris que aparece junto al asunto en la bandeja de entrada, justo después del guion o punto. También se conoce como "preheader". Tiene un límite de **90 caracteres** (el contador muestra "70/90" en el ejemplo).
+
+Este texto es el segundo elemento más importante para conseguir aperturas, después del asunto. Muchos promotores lo dejan vacío o lo ignoran, lo que hace que los clientes de email rellenen ese espacio con el primer texto del email — a menudo algo irrelevante como "Ver email en el navegador" o "Cancelar suscripción".
+
+### Qué escribir en el texto de vista previa
+
+El preheader debe complementar el asunto, no repetirlo. Si el asunto es el titular, el preheader es el subtítulo que da un motivo adicional para abrir.
+
+Algunos patrones que funcionan bien para eventos:
+
+- **Asunto**: "Tu entrada para Euforia Festival ya disponible" / **Vista previa**: "Descubre el line-up completo y reserva tu plaza antes de que se agoten"
+- **Asunto**: "Últimas 50 entradas early bird" / **Vista previa**: "El precio sube el viernes. Ahorra 15€ reservando hoy"
+- **Asunto**: "{{firstName}}, el line-up de Euforia ya está aquí" / **Vista previa**: "20 artistas confirmados. Fechas, precios y toda la info dentro"
+
+<Aside type="tip">
+Si no se te ocurre qué escribir en el preheader, intenta responder a la pregunta implícita del asunto. Si el asunto dice "Últimas entradas disponibles", el preheader puede responder "¿Por qué comprar ahora?" con algo como "El aforo se completa este fin de semana".
+</Aside>
+
+---
+
+## La simulación de bandeja de entrada
+
+En la parte superior del formulario, dentro del recuadro "Vista previa en bandeja de entrada", Nevent muestra una simulación en tiempo real de cómo quedará el encabezado de tu email. Se actualiza automáticamente cada vez que cambias el remitente, el asunto o el texto de vista previa.
+
+La simulación muestra:
+- **Nombre del remitente** en negrita a la izquierda
+- **Marca de tiempo** ("Ahora") a la derecha
+- **Asunto** en texto normal
+- **Texto de vista previa** en gris, separado por un guion
+
+Esta previsualización refleja aproximadamente cómo se ve en Gmail para escritorio. El aspecto exacto varía según el cliente de email del destinatario (Outlook, Apple Mail, Hotmail, etc.), pero el contenido es el mismo.
+
+---
+
+## La vista previa del email
+
+A la derecha de la pantalla, el panel **Vista previa** muestra el cuerpo completo del email con la plantilla que seleccionaste en el paso anterior. Tiene dos modos:
+
+- **Vista desktop** — Muestra el email a ancho completo, como se ve en un ordenador
+- **Vista mobile** — Estrecha el email para simular cómo se ve en un smartphone
+
+![Vista previa del email en modo móvil mostrando el email de Euforia Festival con el logo, el banner del evento y el contenido estructurado en columna única](/images/guias/campanas/asunto-y-previsualizacion/04-vista-previa-mobile.png)
+
+La vista mobile es especialmente útil porque más del 60% de los emails de marketing se abren en dispositivos móviles. Comprueba que el diseño de tu plantilla se adapta bien antes de continuar.
+
+<Aside type="note">
+La vista previa del panel derecho muestra el contenido de la plantilla, no el asunto ni el remitente. Para revisar el encabezado completo, usa la simulación de bandeja de entrada en la parte superior del formulario.
+</Aside>
+
+---
+
+## Cuándo continuar
+
+Una vez que hayas configurado el remitente, escrito el asunto y el texto de vista previa, y revisado la simulación de bandeja de entrada, pulsa **Siguiente** para pasar al paso 7 (Programación), donde defines cuándo se enviará la campaña.
+
+Si quieres guardar el progreso sin continuar todavía, pulsa **Guardar borrador** en la parte inferior izquierda. El asistente guardará todo lo que has rellenado hasta este punto y podrás retomarlo más tarde desde Campañas → Mis campañas.
+
+---
+
+## Artículos relacionados
+
+- [Cómo crear una campaña de email en Nevent](/campanas/crear-campana) — El flujo completo del asistente de creación, de principio a fin
+- [Programar el envío de una campaña](/campanas/programar-campana) — Cómo elegir el momento óptimo de envío en el paso 7
+- [Estados de una campaña](/campanas/estados-campana) — Qué significa cada estado (Borrador, Programada, Enviando, Completada)

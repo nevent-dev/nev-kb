@@ -1,0 +1,98 @@
+---
+title: Tipos de campaña en Nevent — marketing vs transaccional
+description: Aprende la diferencia entre campañas de marketing y transaccionales en Nevent. Elige el tipo correcto para respetar el consentimiento de tu audiencia.
+sidebar:
+  order: 3
+---
+
+import { Aside } from '@astrojs/starlight/components';
+
+Cuando creas una campaña de email en Nevent, el paso 3 del asistente te pide que elijas el **tipo de campaña**. Esta decisión determina a quién llega tu mensaje y bajo qué condiciones legales lo hace.
+
+Hay dos tipos: **Marketing** y **Transaccional**. La diferencia no es solo semántica — afecta directamente a cuántos contactos recibirán el email y a si estás cumpliendo con el RGPD.
+
+## Los dos tipos de campaña
+
+![El paso 3 del asistente muestra las dos opciones: Campaña de Marketing seleccionada en azul y Campaña Transaccional sin seleccionar](/images/guias/campanas/tipos-campana/paso-3-tipo-marketing-seleccionado.png)
+
+### Campaña de marketing
+
+Una campaña de marketing **respeta las preferencias de comunicación** de cada contacto. Nevent solo envía el email a los contactos que han dado consentimiento explícito para recibir comunicaciones de marketing.
+
+Esto incluye cualquier contenido de naturaleza comercial o promocional:
+
+- Anuncios de nuevos eventos
+- Preventa y ofertas early bird
+- Newsletters con novedades del festival
+- Recordatorios de compra (retargeting)
+- Comunicaciones de fidelización post-evento
+
+Si un contacto ha pedido no recibir marketing — o simplemente nunca ha dado su consentimiento — no recibirá la campaña. Esto es lo correcto, tanto legal como éticamente.
+
+### Campaña transaccional
+
+Una campaña transaccional **se envía a todos los contactos** independientemente de sus preferencias de marketing. Está pensada exclusivamente para comunicaciones críticas u operativas que el destinatario necesita recibir por haber realizado una acción concreta.
+
+Ejemplos válidos de uso transaccional:
+
+- Confirmación de compra de entrada
+- Cambio de fecha, hora o sede de un evento
+- Instrucciones de acceso el día del evento
+- Factura o comprobante de pago
+- Alerta de seguridad o aviso urgente
+
+![El paso 3 con Campaña Transaccional seleccionada en azul](/images/guias/campanas/tipos-campana/paso-3-tipo-transaccional-seleccionado.png)
+
+<Aside type="caution">
+El tipo transaccional existe para casos extremadamente concretos. Si tienes dudas sobre si tu mensaje es transaccional, probablemente no lo es. Usar el tipo transaccional para enviar promociones o newsletters a contactos que no han dado consentimiento viola el RGPD y puede exponer tu organización a sanciones.
+</Aside>
+
+## Cuándo usar cada tipo
+
+| Situación | Tipo correcto |
+|---|---|
+| Anunciar el line-up de tu festival | Marketing |
+| Abrir la preventa de entradas | Marketing |
+| Enviar newsletter mensual a fans | Marketing |
+| Ofrecer descuento de último minuto | Marketing |
+| Confirmar la compra de una entrada | Transaccional |
+| Notificar un cambio de fecha del evento | Transaccional |
+| Enviar las instrucciones de acceso | Transaccional |
+| Emitir una factura a un comprador | Transaccional |
+
+## Por qué importa esta distinción
+
+### RGPD y consentimiento
+
+El Reglamento General de Protección de Datos (RGPD) obliga a que cualquier comunicación de marketing se base en el consentimiento explícito del destinatario. Nevent aplica este requisito automáticamente cuando seleccionas el tipo Marketing: filtra tu base de contactos y solo incluye a quienes han optado por recibir tus emails.
+
+Las comunicaciones transaccionales tienen una base legal diferente — el **interés legítimo** vinculado a una relación contractual ya existente (como haber comprado una entrada). Por eso pueden enviarse sin consentimiento de marketing. Pero esa excepción es estricta: el mensaje debe estar directamente relacionado con la acción que el contacto realizó.
+
+### Reputación de tu dominio
+
+Enviar comunicaciones de marketing disfrazadas de transaccionales tiene consecuencias prácticas. Los contactos que no esperan tu email tienen muchas más probabilidades de marcarlo como spam. Eso daña la reputación de tu dominio de envío y reduce la entregabilidad de todas tus futuras campañas, incluidas las legítimas.
+
+<Aside type="tip">
+Si necesitas comunicarte con toda tu base de contactos — incluyendo quienes no tienen consentimiento de marketing — la solución correcta no es usar el tipo transaccional. Es trabajar en hacer crecer tu lista de contactos con consentimiento: formularios de suscripción, opt-in en la compra de entradas y comunicaciones de reactivación bien diseñadas.
+</Aside>
+
+## Cómo seleccionar el tipo en el asistente
+
+El tipo de campaña se elige en el **paso 3** del asistente de nueva campaña. Solo aparece este paso cuando el canal seleccionado es **Solo Email** — las campañas de Push, SMS y WhatsApp no tienen esta distinción.
+
+1. Llega al paso 3 desde el asistente de campaña (Campañas → Nueva campaña → paso 1 Información básica → paso 2 Canal → paso 3 Tipo de campaña).
+2. Haz clic sobre la tarjeta del tipo que necesitas. La tarjeta seleccionada se resalta en azul.
+3. El panel lateral derecho muestra un resumen de ambos tipos como referencia rápida.
+4. Pulsa **Siguiente** para continuar al paso 4 (Contenido).
+
+<Aside type="note">
+Una vez guardado el borrador, puedes volver al paso 3 desde el panel de navegación lateral del asistente para cambiar el tipo antes de lanzar la campaña.
+</Aside>
+
+## Errores frecuentes
+
+**Usar Transaccional para newsletters o promociones.** Es el error más habitual. Puede parecer una solución rápida para llegar a más contactos, pero viola el RGPD y puede resultar en sanciones, quejas ante la AEPD y daño permanente a la reputación de tu dominio.
+
+**Usar Marketing para confirmaciones de compra.** En este caso el problema es diferente: un contacto que acaba de comprar una entrada puede no tener consentimiento de marketing todavía. Si usas el tipo Marketing, esa confirmación crítica podría no llegar. Las confirmaciones de compra deben ser siempre Transaccional.
+
+**No actualizar el tipo al duplicar una campaña.** Si duplicas una campaña existente, verifica que el tipo sigue siendo el correcto para el nuevo uso. El tipo se copia junto con el resto de la configuración.

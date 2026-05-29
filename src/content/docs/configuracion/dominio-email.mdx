@@ -1,0 +1,172 @@
+---
+title: Cómo configurar tu dominio de email en Nevent
+description: Aprende a autenticar tu dominio para enviar emails de marketing con tu marca. Configura SPF, DKIM y DMARC paso a paso en menos de 10 minutos.
+sidebar:
+  order: 1
+---
+
+En esta guía aprenderás a conectar tu propio dominio a Nevent para que tus emails de marketing lleguen con tu nombre y tu marca, no como un envío genérico. El proceso de configuración tarda unos 10 minutos; la verificación puede tardar hasta 72 horas.
+
+## Por qué necesitas un dominio propio
+
+Cuando envías campañas desde Nevent sin un dominio configurado, tus emails salen como "via nevent.es". Esto funciona, pero tiene un coste invisible: los servidores de correo (Gmail, Outlook, etc.) confían menos en remitentes que no tienen sus propias firmas digitales.
+
+Configurar tu dominio te aporta tres cosas concretas:
+
+**Tus emails llegan al inbox, no al spam.** Los proveedores de correo comprueban que el dominio del remitente está autenticado. Sin autenticación, hay más riesgo de que tus campañas acaben en la carpeta de spam de tus asistentes.
+
+**Tus contactos te reconocen.** En lugar de "via nevent.es", ven directamente tu dominio. Genera más confianza y mejora las tasas de apertura.
+
+**Proteges tu reputación de envío.** Los registros SPF, DKIM y DMARC evitan que alguien pueda suplantar tu dominio para enviar emails falsos en tu nombre.
+
+## Antes de empezar
+
+Necesitas dos cosas antes de iniciar la configuración:
+
+- **Un dominio propio** — por ejemplo, `tufestival.com`. Si aún no tienes uno, puedes comprar uno en GoDaddy, Namecheap, OVH o tu proveedor habitual.
+- **Acceso al panel DNS de ese dominio** — es el panel donde se gestionan los registros de tu dominio. Suele estar en el mismo sitio donde compraste el dominio, o en tu proveedor de hosting.
+
+:::note[Nota]
+Si no sabes cómo acceder al panel DNS, no te preocupes. Al final de esta guía te explicamos exactamente qué decirle a la persona que gestiona tu web. Es algo que cualquier técnico conoce y le llevará pocos minutos.
+:::
+
+## Paso 1: ve a configuración de dominio dedicado
+
+En el menú principal de Nevent no hay un acceso directo a esta sección. Tienes que ir a **Ajustes** y buscar "Dominio dedicado" en el menú lateral izquierdo.
+
+La ruta directa es: `Ajustes → Dominio dedicado`
+
+La pantalla inicial te muestra los tres beneficios principales de configurar un dominio propio y un botón para empezar.
+
+![Pantalla inicial de dominio dedicado en Nevent, mostrando los beneficios de configurar un dominio propio y el botón Crear](/images/guias/configuracion/dominio-email/paso-1.png)
+
+Haz clic en **Crear** para iniciar el asistente de configuración.
+
+## Paso 2: introduce tu dominio raíz
+
+El asistente tiene tres pasos. El primero te pide el **dominio raíz** de tu organización.
+
+El dominio raíz es el dominio principal que usas para tu web o tus emails. Por ejemplo, si tu web es `tufestival.com`, ese es tu dominio raíz. No incluyas el `www` ni ningún prefijo.
+
+![Asistente de configuración en el paso 1, con el campo de dominio raíz vacío y el botón Siguiente desactivado](/images/guias/configuracion/dominio-email/paso-2.png)
+
+Escribe tu dominio (por ejemplo, `euforiafestival.com`) y haz clic en **Siguiente**.
+
+![Campo de dominio raíz relleno con el ejemplo euforiafestival.com, con el botón Siguiente activo](/images/guias/configuracion/dominio-email/paso-2-relleno.png)
+
+## Paso 3: elige un subdominio para envíos
+
+El segundo paso del asistente te pide un **subdominio** específico para los envíos de email marketing.
+
+Un subdominio es un prefijo que añades a tu dominio raíz. Recomendamos usar `email` o `marketing`. El resultado final sería, por ejemplo, `email.tufestival.com`. Este subdominio aparecerá en las cabeceras técnicas del email, no en el nombre que ven tus contactos.
+
+![Asistente en el paso 2, con el campo de subdominio para rellenar y el dominio raíz ya configurado visible como sufijo](/images/guias/configuracion/dominio-email/paso-3.png)
+
+Escribe el subdominio elegido (por ejemplo, `email`) y haz clic en **Siguiente**.
+
+![Campo de subdominio relleno con el valor email, mostrando el resultado completo email.euforiafestival.com](/images/guias/configuracion/dominio-email/paso-3-relleno.png)
+
+## Paso 4: confirma la configuración
+
+El tercer paso te muestra un resumen con el dominio raíz y el subdominio que has elegido. Revisa que todo es correcto antes de continuar.
+
+![Resumen de configuración mostrando el dominio raíz y el subdominio completo antes de confirmar](/images/guias/configuracion/dominio-email/paso-4.png)
+
+Si algo no está bien, haz clic en **Anterior** para corregirlo. Si todo es correcto, haz clic en **Configurar dominio**.
+
+Nevent procesará la solicitud y generará los registros DNS que necesitas añadir. Esto tarda unos segundos.
+
+## Paso 5: copia los registros DNS
+
+Una vez procesada la solicitud, Nevent te muestra los registros DNS que tienes que añadir en el panel de tu proveedor de dominio. Son cuatro tipos de registros:
+
+**Registros DKIM** — son dos o tres registros de tipo `CNAME`. Son la firma digital que garantiza que tus emails son auténticos y no han sido modificados en el camino. Sin ellos, Gmail puede marcar tus emails como no seguros.
+
+**Registro SPF** — un registro de tipo `TXT`. Le dice a los servidores de correo que Nevent tiene autorización para enviar emails en nombre de tu dominio. Sin él, tus emails pueden ser rechazados.
+
+**Registro MAIL FROM** — un registro de tipo `MX`. Gestiona cómo se manejan los rebotes (emails que no llegan a su destinatario).
+
+**Registro DMARC** — un registro de tipo `TXT`. Define qué debe hacer un servidor de correo cuando un email falla las comprobaciones anteriores. Protege tu dominio de suplantaciones.
+
+![Pantalla de registros DNS mostrando los registros DKIM 1 y DKIM 2 de tipo CNAME, con los campos Nombre, Tipo y Valor para copiar, y el estado Pendiente](/images/guias/configuracion/dominio-email/paso-5.png)
+
+![Registros SPF de tipo TXT y MAIL FROM de tipo MX, con sus valores exactos para copiar en el proveedor de dominio](/images/guias/configuracion/dominio-email/paso-5b.png)
+
+![Registro DMARC de tipo TXT y bloque informativo sobre el tiempo de verificación de hasta 72 horas](/images/guias/configuracion/dominio-email/paso-5c.png)
+
+:::caution[Importante]
+No necesitas entender qué significan estos registros para configurarlos. Solo tienes que copiar y pegar exactamente los valores que te muestra Nevent en el panel DNS de tu dominio.
+:::
+
+Cada registro tiene tres campos que debes copiar:
+- **Nombre** — dónde se aplica el registro dentro de tu dominio
+- **Tipo** — CNAME, TXT o MX según el registro
+- **Valor** — el contenido exacto del registro
+
+Usa el botón de copiar que aparece junto a cada campo para evitar errores al transcribir.
+
+## Paso 6: añade los registros en tu proveedor de dominio
+
+Este es el paso que requiere acceder al panel DNS de tu dominio. El proceso varía según el proveedor, pero en todos los casos es el mismo concepto: crear un nuevo registro DNS con el nombre, tipo y valor que te indica Nevent.
+
+Los proveedores más habituales en España y Latinoamérica son:
+
+| Proveedor | Dónde encontrar los DNS |
+|-----------|------------------------|
+| GoDaddy | Mis dominios → DNS → Gestionar |
+| Namecheap | Lista de dominios → Manage → Advanced DNS |
+| OVH / OVHcloud | Web Cloud → Nombres de dominio → Zona DNS |
+| Cloudflare | Selecciona tu dominio → DNS → Registros |
+| Arsys | Mis productos → Dominios → Gestionar DNS |
+| IONOS / 1&1 | Dominios → DNS → Editar entradas DNS |
+
+:::tip[Consejo]
+Si no sabes cómo acceder al panel DNS, copia los registros que te muestra Nevent y envíaselos a quien gestione tu web con este mensaje: "Necesito que añadas estos registros DNS en mi dominio para configurar el envío de emails de marketing." Cualquier técnico sabrá hacerlo en pocos minutos.
+:::
+
+## Paso 7: verifica el dominio en Nevent
+
+Una vez hayas añadido todos los registros DNS, vuelve a la página **Dominio dedicado** en Nevent y haz clic en **Verificar estado**.
+
+![Botón Verificar estado en la parte inferior de la pantalla de registros DNS, junto al bloque informativo sobre tiempos de propagación](/images/guias/configuracion/dominio-email/paso-7.png)
+
+Los cambios DNS tardan en propagarse por internet. Puede ser cuestión de minutos o puede tardar hasta 72 horas, dependiendo de tu proveedor. Si la verificación falla la primera vez, espera unas horas y vuelve a intentarlo.
+
+Cuando la verificación es exitosa, el estado del dominio cambia a **Verificado** y aparece un mensaje de confirmación en verde.
+
+## Resultado
+
+Tras enviar la configuración, el dominio queda en estado **Esperando verificación** mientras Nevent espera que los registros DNS se propaguen. Verás el dominio configurado, el estado de verificación y los botones para consultar los registros o verificar manualmente.
+
+![Pantalla de dominio configurado mostrando el dominio email.euforiafestival.com en estado Esperando verificación, con los botones Ver registros DNS, Verificar estado y Eliminar dominio](/images/guias/configuracion/dominio-email/resultado.png)
+
+Una vez verificado, Nevent utilizará tu dominio para todos los envíos de email marketing. Tus contactos verán tu nombre y tu dominio en el campo "De" del email, y los servidores de correo reconocerán tu identidad digital.
+
+:::tip[Consejo]
+Después de verificar tu dominio, asegúrate de tener tu **información legal** completa en Ajustes → Legal (nombre de empresa, política de privacidad y términos). Nevent lo requiere para garantizar el cumplimiento de las normativas anti-spam como la RGPD.
+:::
+
+## Preguntas frecuentes
+
+**¿Cuánto tarda en verificarse el dominio?**
+
+La propagación DNS puede tardar entre unos minutos y 72 horas. Depende de tu proveedor de dominio. Si después de 72 horas sigue sin verificarse, comprueba que los registros están exactamente como te indicó Nevent y que no hay errores tipográficos.
+
+**¿Qué hago si la verificación falla?**
+
+Primero, espera unas horas y vuelve a intentarlo. Si sigue fallando, revisa que los registros están añadidos correctamente en tu panel DNS. Los errores más comunes son: copiar un punto de más al final del nombre del registro, o añadir comillas innecesarias al valor. Si el problema persiste, contacta con el soporte de Nevent desde el chat de la plataforma.
+
+**¿Puedo usar varios dominios?**
+
+Por el momento, Nevent permite configurar un único dominio de envío por organización. Si necesitas cambiar de dominio, puedes eliminar el actual y configurar uno nuevo.
+
+**¿Afecta esto a los emails que ya tengo configurados?**
+
+No. La configuración del dominio solo afecta a los nuevos envíos de campañas. Los emails transaccionales (confirmaciones de compra, etc.) pueden tener una configuración diferente.
+
+## Siguiente paso
+
+Con tu dominio verificado, ya estás listo para crear campañas de email que lleguen con tu propia identidad:
+
+- [Cómo crear una campaña de email](/campaigns/email-campaigns)
+- [Personalización de mensajes en campañas](/campaigns/personalization)
