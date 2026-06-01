@@ -18,4 +18,198 @@
 		-webkit-text-fill-color: transparent;
 		background-clip: text;
 	}
+
+	/* ── FRENTE 3: HERO POLISH ─────────────────────────────────────────── */
+
+	/* Fondo con gradiente sutil + respiración visual en el contenedor hero */
+	.hero {
+		background: linear-gradient(
+			135deg,
+			rgb(var(--sl-color-accent) / 0.05) 0%,
+			rgb(151 92 248 / 0.05) 100%
+		);
+		border-radius: 1rem;
+		padding: 3rem 2rem;
+	}
+
+	/* ── FRENTE 1: VERTICAL RHYTHM ─────────────────────────────────────── */
+
+	/* Ancho óptimo de lectura para el cuerpo del artículo */
+	.sl-markdown-content {
+		--content-max-width: 72ch;
+		font-size: 1rem;
+		line-height: 1.7;
+	}
+
+	/* La mayoría del contenido respeta el ancho de lectura */
+	.sl-markdown-content > * {
+		max-width: var(--content-max-width);
+	}
+
+	/* Excepciones que pueden ocupar todo el ancho disponible */
+	.sl-markdown-content > figure,
+	.sl-markdown-content > img,
+	.sl-markdown-content > table,
+	.sl-markdown-content > .expressive-code,
+	.sl-markdown-content > .starlight-aside,
+	.sl-markdown-content > .card-grid {
+		max-width: none;
+	}
+
+	/* Headings: escala tipográfica modular (ratio 1.25) + interlineado ajustado */
+	.sl-markdown-content h1 {
+		font-size: 2.25rem;
+		line-height: 1.2;
+		font-weight: 700;
+	}
+
+	.sl-markdown-content h2 {
+		font-size: 1.625rem;
+		line-height: 1.25;
+		font-weight: 650;
+		margin-top: 3rem;
+		margin-bottom: 1rem;
+	}
+
+	.sl-markdown-content h3 {
+		font-size: 1.25rem;
+		line-height: 1.35;
+		font-weight: 600;
+		margin-top: 2rem;
+		margin-bottom: 0.75rem;
+	}
+
+	.sl-markdown-content h4 {
+		font-size: 1.0625rem;
+		line-height: 1.4;
+		font-weight: 600;
+		margin-top: 1.5rem;
+		margin-bottom: 0.5rem;
+	}
+
+	/* Primer heading no necesita margen superior — el container ya tiene padding */
+	.sl-markdown-content > h2:first-child,
+	.sl-markdown-content > h3:first-child {
+		margin-top: 0;
+	}
+
+	/* Párrafos y listas: ritmo vertical consistente */
+	.sl-markdown-content p,
+	.sl-markdown-content ul,
+	.sl-markdown-content ol {
+		margin-bottom: 1.25rem;
+	}
+
+	.sl-markdown-content li {
+		margin-bottom: 0.5rem;
+	}
+
+	.sl-markdown-content li:last-child {
+		margin-bottom: 0;
+	}
+
+	/* Regla de oro: espaciado entre bloques consecutivos */
+	.sl-markdown-content > * + * {
+		margin-top: 1.25rem;
+	}
+
+	/* Más respiración antes de headings y bloques destacados */
+	.sl-markdown-content > * + h2 {
+		margin-top: 3rem;
+	}
+
+	.sl-markdown-content > * + h3 {
+		margin-top: 2rem;
+	}
+
+	.sl-markdown-content > * + figure,
+	.sl-markdown-content > * + img,
+	.sl-markdown-content > * + .expressive-code,
+	.sl-markdown-content > * + table,
+	.sl-markdown-content > * + .card-grid {
+		margin-top: 2rem;
+	}
+
+	/* ── FRENTE 4: TRATAMIENTO DE IMÁGENES ─────────────────────────────── */
+
+	/* Frame, sombra y redondeo para todas las imágenes del contenido.
+	   Se excluyen imágenes dentro de callouts (evita frame doble)
+	   y las marcadas con .no-frame para casos excepcionales. */
+	.sl-markdown-content img:not(.starlight-aside img):not(.no-frame) {
+		border-radius: 0.5rem;
+		border: 1px solid var(--sl-color-hairline);
+		box-shadow:
+			0 2px 8px rgb(0 0 0 / 6%),
+			0 1px 2px rgb(0 0 0 / 4%);
+		margin: 2rem auto;
+		display: block;
+		max-width: 100%;
+	}
+
+	/* Modo oscuro: sombra más profunda sobre fondos oscuros */
+	:root[data-theme='dark'] .sl-markdown-content img:not(.starlight-aside img):not(.no-frame) {
+		box-shadow:
+			0 2px 8px rgb(0 0 0 / 30%),
+			0 1px 2px rgb(0 0 0 / 20%);
+	}
+
+	/* ── FRENTE 5: TABLAS PULIDAS ───────────────────────────────────────── */
+
+	/* Contenedor de tabla: scroll horizontal en móvil, bordes redondeados */
+	.sl-markdown-content table {
+		display: block;
+		overflow-x: auto;
+		border-collapse: separate;
+		border-spacing: 0;
+		width: 100%;
+		margin: 2rem 0;
+		border: 1px solid var(--sl-color-hairline);
+		border-radius: 0.5rem;
+		background: var(--sl-color-bg);
+		box-shadow: 0 1px 2px rgb(0 0 0 / 4%);
+	}
+
+	/* Cabecera con tinte de color de marca */
+	.sl-markdown-content thead {
+		background: rgb(var(--sl-color-accent) / 0.08);
+	}
+
+	/* Celdas de cabecera */
+	.sl-markdown-content th {
+		padding: 0.875rem 1.25rem;
+		text-align: left;
+		font-weight: 600;
+		font-size: 0.9375rem;
+		color: var(--sl-color-text);
+		border-bottom: 1px solid var(--sl-color-hairline);
+	}
+
+	/* Celdas de datos */
+	.sl-markdown-content td {
+		padding: 0.875rem 1.25rem;
+		border-top: 1px solid var(--sl-color-hairline);
+		vertical-align: top;
+		line-height: 1.6;
+	}
+
+	/* Primera fila del tbody no necesita borde superior (ya lo tiene el thead) */
+	.sl-markdown-content tbody tr:first-child td {
+		border-top: none;
+	}
+
+	/* Zebra striping: filas pares con tinte muy sutil */
+	.sl-markdown-content tbody tr:nth-child(even) {
+		background: rgb(var(--sl-color-accent) / 0.025);
+	}
+
+	/* Hover: feedback visual suave */
+	.sl-markdown-content tbody tr:hover {
+		background: rgb(var(--sl-color-accent) / 0.05);
+		transition: background 0.15s ease;
+	}
+
+	/* Código dentro de celdas no rompe línea */
+	.sl-markdown-content td code {
+		white-space: nowrap;
+	}
 }
