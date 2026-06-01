@@ -77,10 +77,37 @@ export default defineConfig({
 				{
 					label: 'Nevent AI',
 					items: [
-						{ label: 'Qué es Nevent MCP', slug: 'nevent-ai', badge: { text: 'Nuevo', variant: 'tip' } },
-						{ label: 'Casos de uso', slug: 'nevent-ai/casos-de-uso' },
+						{ label: 'Qué es Nevent IA', slug: 'nevent-ai', badge: { text: 'Nuevo', variant: 'tip' } },
 						{ label: 'Conectar con Claude', slug: 'nevent-ai/conectar-claude' },
 						{ label: 'Conectar con ChatGPT', slug: 'nevent-ai/conectar-chatgpt' },
+						{
+							label: 'Lo que puedes hacer',
+							items: [
+								{ label: 'Visión general', slug: 'nevent-ai/que-puedes-hacer' },
+								{ label: 'Analítica de eventos', slug: 'nevent-ai/que-puedes-hacer/analitica' },
+								{ label: 'Campañas', slug: 'nevent-ai/que-puedes-hacer/campanas' },
+								{ label: 'Audiencia y segmentos', slug: 'nevent-ai/que-puedes-hacer/audiencia' },
+								{ label: 'Plantillas de email', slug: 'nevent-ai/que-puedes-hacer/plantillas' },
+								{ label: 'Publicidad de pago', slug: 'nevent-ai/que-puedes-hacer/paid-media' },
+								{ label: 'Tracking de enlaces', slug: 'nevent-ai/que-puedes-hacer/short-urls' },
+								{ label: 'Entregabilidad', slug: 'nevent-ai/que-puedes-hacer/deliverability' },
+								{ label: 'Gestión multi-cuenta', slug: 'nevent-ai/que-puedes-hacer/multi-cuenta' },
+							],
+						},
+						{
+							label: 'Casos prácticos',
+							items: [
+								{ label: 'Visión general', slug: 'nevent-ai/casos-practicos' },
+								{ label: 'Lanzar un evento', slug: 'nevent-ai/casos-practicos/lanzar-un-evento' },
+								{ label: 'Recuperar audiencia dormida', slug: 'nevent-ai/casos-practicos/recuperar-audiencia-dormida' },
+								{ label: 'Diagnosticar una campaña floja', slug: 'nevent-ai/casos-practicos/diagnosticar-campana-floja' },
+								{ label: 'Optimizar inversión publicitaria', slug: 'nevent-ai/casos-practicos/optimizar-inversion-publicitaria' },
+								{ label: 'Cierre de mes y reporting', slug: 'nevent-ai/casos-practicos/cierre-de-mes-y-reporting' },
+								{ label: 'Colaboraciones con influencers', slug: 'nevent-ai/casos-practicos/colaboraciones-con-influencers' },
+								{ label: 'Gestionar varios clientes', slug: 'nevent-ai/casos-practicos/gestionar-varios-clientes' },
+							],
+						},
+						{ label: 'Frases listas para usar', slug: 'nevent-ai/frases-listas-para-usar' },
 						{ label: 'Permisos y seguridad', slug: 'nevent-ai/permisos-y-seguridad' },
 						{ label: 'Preguntas frecuentes', slug: 'nevent-ai/preguntas-frecuentes' },
 						{
