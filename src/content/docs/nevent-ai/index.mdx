@@ -8,7 +8,7 @@ sidebar:
     variant: tip
 ---
 
-import { Card, CardGrid } from '@astrojs/starlight/components';
+import { Card, CardGrid, LinkCard, Aside } from '@astrojs/starlight/components';
 
 Imagina poder preguntarle a Claude: "¿Qué campaña de email tuvo mejor tasa de apertura el mes pasado?" y recibir la respuesta en segundos, con datos reales de tu cuenta de Nevent. Eso es exactamente lo que hace Nevent MCP.
 
@@ -66,8 +66,37 @@ Hay dos formas de usar Nevent MCP:
 
 **Opción local — para técnicos.** Instala el paquete `mcp-nevent` en tu máquina y conéctalo con tu clave JWT. Útil si desarrollas integraciones o prefieres control total. Ver la [sección para desarrolladores](/nevent-ai/developers).
 
-## Siguiente paso
+## Profundiza por dónde te interese
 
-- [Conectar Claude con Nevent MCP](/nevent-ai/conectar-claude)
-- [Conectar ChatGPT con Nevent MCP](/nevent-ai/conectar-chatgpt)
-- [Ver casos de uso con ejemplos reales](/nevent-ai/casos-de-uso)
+<CardGrid>
+  <LinkCard
+    title="Lo que puedes hacer"
+    description="Alcance real por área: analítica, campañas, audiencia, plantillas, paid media, short URLs, entregabilidad y multi-cuenta."
+    href="/nevent-ai/que-puedes-hacer/"
+  />
+  <LinkCard
+    title="Casos prácticos"
+    description="Flujos completos de promotores reales: lanzar un evento, recuperar audiencia dormida, optimizar paid media, cerrar el mes…"
+    href="/nevent-ai/casos-practicos/"
+  />
+  <LinkCard
+    title="Frases listas para usar"
+    description="Catálogo de preguntas que puedes copiar y pegar para empezar rápido."
+    href="/nevent-ai/frases-listas-para-usar/"
+  />
+  <LinkCard
+    title="Permisos y seguridad"
+    description="Cómo controlas qué puede hacer el asistente en tu cuenta. OAuth, niveles de acceso y privacidad."
+    href="/nevent-ai/permisos-y-seguridad/"
+  />
+</CardGrid>
+
+## Empieza a usarlo
+
+- [Conectar Claude con Nevent IA](/nevent-ai/conectar-claude/)
+- [Conectar ChatGPT con Nevent IA](/nevent-ai/conectar-chatgpt/)
+- [Preguntas frecuentes](/nevent-ai/preguntas-frecuentes/)
+
+<Aside type="tip" title="Nevent IA forma parte de la plataforma de Nevent">
+Conoce el resto de la plataforma en [nevent.ai](https://nevent.ai/es) o [pide información sin compromiso](https://nevent.ai/es/solicitar-informacion).
+</Aside>
