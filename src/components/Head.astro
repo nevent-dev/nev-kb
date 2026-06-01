@@ -36,7 +36,7 @@ const hasEntry = entry != null;
 const locale = starlightRoute?.locale;
 
 const SITE = 'https://help.nevent.ai';
-const DEFAULT_OG_IMAGE = `${SITE}/og-image.svg`;
+const DEFAULT_OG_IMAGE = `${SITE}/og-image.png`;
 
 // ── Derive canonical URL ─────────────────────────────────────────────────────
 // entry.id is the file path relative to src/content/docs, e.g. "nevent-ai/faq.mdx"
@@ -184,9 +184,31 @@ interface FaqPair {
 }
 
 /**
+ * Titles to exclude from the FAQPage schema.
+ * These navigation headings ("Siguiente paso", "Next step", etc.) are not
+ * genuine Q&A entries and would produce low-quality FAQ schema if included.
+ * Comparison is case-insensitive and trims surrounding whitespace.
+ */
+const FAQ_BLACKLIST = new Set([
+  'siguiente paso',
+  'siguientes pasos',
+  'next step',
+  'next steps',
+]);
+
+/**
+ * Returns true if the given FAQ question title should be excluded from the
+ * FAQPage schema (i.e. it matches a known non-Q&A navigation heading).
+ */
+function isBlacklistedFaqTitle(title: string): boolean {
+  return FAQ_BLACKLIST.has(title.trim().toLowerCase());
+}
+
+/**
  * Extracts FAQ Q&A pairs from raw MDX body text.
  * Splits on ## H2 headings; each heading becomes a Question,
  * following paragraphs become the acceptedAnswer text.
+ * Navigation-only sections (e.g. "Siguiente paso") are filtered out.
  */
 function extractFaqsFromBody(body: string): FaqPair[] {
   const pairs: FaqPair[] = [];
@@ -195,6 +217,8 @@ function extractFaqsFromBody(body: string): FaqPair[] {
     const lines = section.split('\n');
     const question = lines[0]?.trim();
     if (!question) continue;
+    // Skip blacklisted navigation headings
+    if (isBlacklistedFaqTitle(question)) continue;
     const answerLines: string[] = [];
     for (const line of lines.slice(1)) {
       if (line.startsWith('#')) break;
@@ -232,7 +256,7 @@ const organizationSchema = {
   '@type': 'Organization',
   name: 'Nevent',
   url: 'https://nevent.ai',
-  logo: `${SITE}/favicon.svg`,
+  logo: `${SITE}/favicon.png`,
   description:
     'Plataforma de marketing y CRM para promotores de eventos en vivo (festivales, conciertos, clubs, ferias, deportes).',
   sameAs: ['https://github.com/nevent'],
@@ -245,14 +269,13 @@ const techArticleSchema = {
   headline: pageTitle,
   description: pageDescription,
   inLanguage,
-  datePublished: '2025-01-01',
   dateModified,
   url: canonicalUrl,
   author: { '@type': 'Organization', name: 'Nevent' },
   publisher: {
     '@type': 'Organization',
     name: 'Nevent',
-    logo: { '@type': 'ImageObject', url: `${SITE}/favicon.svg` },
+    logo: { '@type': 'ImageObject', url: `${SITE}/favicon.png` },
   },
 };
 
@@ -311,6 +334,7 @@ const breadcrumbJson = breadcrumbSchema ? toSafeJsonLd(breadcrumbSchema) : null;
   <Fragment set:html={
     [
       `<meta property="og:image" content="${ogImageUrl}">`,
+      `<meta property="og:image:type" content="image/png">`,
       `<meta property="og:image:width" content="1200">`,
       `<meta property="og:image:height" content="630">`,
       `<meta property="og:image:alt" content="Nevent Help Center">`,
