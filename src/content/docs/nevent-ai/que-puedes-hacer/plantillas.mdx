@@ -1,0 +1,81 @@
+---
+title: Trabaja con tus plantillas de email desde el chat
+description: Lista, previsualiza, clona y edita plantillas de email. Envía pruebas reales a tu bandeja de entrada antes de usar una plantilla en campaña.
+sidebar:
+  order: 5
+---
+
+import { Aside, Badge } from '@astrojs/starlight/components';
+
+Antes de lanzar un email masivo, siempre conviene revisar la plantilla: que los datos personalizados se muestren bien, que el asunto no esté truncado, que el diseño se vea correcto. Normalmente eso implica abrir el editor, buscar la plantilla, previsualizar y enviarte una prueba.
+
+Con Nevent IA puedes hacer esa revisión desde el chat. El asistente puede previsualizar la plantilla con datos de un contacto real, clonarla para una campaña nueva o enviarte directamente una prueba a tu email.
+
+Sofía, community manager de un club nocturno, tiene cuatro plantillas base que rota cada semana. Antes de usar una, le pide al asistente que se la muestre con los datos de un asistente concreto para comprobar que la personalización funciona.
+
+## Lo que puedes preguntar
+
+Disponible en modo "Solo consultar" y superiores:
+
+- "Lista todas mis plantillas de email"
+- "¿Qué plantillas he usado en los últimos 3 meses?"
+- "Muéstrame el contenido completo de la plantilla 'Confirmación de compra'"
+- "¿Cuántas veces se ha usado la plantilla 'Newsletter mensual'?"
+- "Previsualiza la plantilla 'Agenda de la semana' con datos de un asistente real"
+
+## Lo que el asistente puede preparar por ti
+
+<Badge text="Consultar y preparar" variant="tip" /> Disponible en modo STANDARD o superior.
+
+Además de consultar, el asistente puede:
+
+- **Crear una plantilla nueva** — describe el contenido y el asistente genera la estructura base en tu cuenta
+- **Actualizar una plantilla** — modifica el asunto, el contenido o las etiquetas de una plantilla existente
+- **Clonar una plantilla** — duplica una plantilla para usarla como base de una variante sin modificar el original
+- **Renombrar una plantilla** — cambia el nombre sin tocar el contenido
+- **Previsualizar con datos reales** — el asistente resuelve las variables de personalización usando un contacto de muestra
+- **Enviar una prueba** — manda el email de prueba a hasta 10 destinatarios para validar el diseño en bandeja de entrada real
+
+:::tip[Consejo]
+Usa la función de previsualización con datos reales antes de lanzar cualquier campaña con personalización. Así detectas si alguna variable como el nombre o el evento aparece en blanco.
+:::
+
+## Así lo usa Sofía antes de cada envío semanal
+
+Sofía tiene una plantilla llamada 'Agenda de la semana' que usa cada miércoles. Antes de crear el borrador de la campaña, quiere asegurarse de que la personalización funciona correctamente.
+
+> "Lista mis plantillas y dime cuándo fue la última vez que usé cada una"
+
+El asistente muestra las cuatro plantillas activas con la fecha del último uso.
+
+> "Previsualiza 'Agenda de la semana' con datos de un asistente real"
+
+El asistente resuelve las variables (nombre, ciudad, próximo evento) con datos de un contacto de la base de datos y muestra cómo quedaría el email en el inbox.
+
+> "Hay una variable que aparece en blanco. Renombra la plantilla como 'Agenda semanal v2' y actualiza el campo de bienvenida para que tenga un texto de reserva si el nombre está vacío"
+
+El asistente actualiza la plantilla.
+
+> "Envíame una prueba a mi email antes de usarla en la campaña"
+
+El asistente envía el email de prueba. Sofía lo revisa en su bandeja, todo correcto.
+
+> "Crea un borrador de campaña usando 'Agenda semanal v2' para el segmento 'Activos últimos 30 días'"
+
+La plantilla revisada queda lista para la campaña del miércoles.
+
+## Combínalo con
+
+- [Campañas](/nevent-ai/que-puedes-hacer/campanas) — usa la plantilla revisada en un borrador de campaña
+- [Audiencia y segmentos](/nevent-ai/que-puedes-hacer/audiencia) — crea el segmento correcto para la campaña que usa esta plantilla
+- [Caso práctico: diagnosticar una campaña floja](/nevent-ai/casos-practicos/diagnosticar-campana-floja)
+
+## Lo que no puede hacer todavía
+
+- No puede editar el diseño visual (bloques, colores, imágenes) desde el chat — eso se hace en el editor visual de Nevent
+- No puede importar plantillas desde otras plataformas (Mailchimp, Klaviyo)
+- La creación de plantillas desde cero es funcional pero produce HTML básico; para diseños más elaborados conviene usar el editor visual
+
+<Aside type="tip" title="Esto forma parte de Email Marketing de Nevent">
+Las plantillas que gestionas aquí forman parte del módulo de [Email Marketing de Nevent](https://nevent.ai/es/features/email-marketing). [Pide información](https://nevent.ai/es/solicitar-informacion) para ver todas las capacidades del editor visual.
+</Aside>

@@ -1,0 +1,79 @@
+---
+title: Gestiona varias cuentas de Nevent desde una sola conversación
+description: Si gestionas varios promotores o festivales, cambia de cuenta con una instrucción y trabaja con los datos de cada cliente sin cerrar sesión.
+sidebar:
+  order: 9
+---
+
+import { Aside, Badge } from '@astrojs/starlight/components';
+
+Si trabajas para varios promotores o gestionas diferentes eventos bajo marcas distintas, sabes lo que implica: abrir sesión, cerrar sesión, abrir otra cuenta, buscar el dato, volver. Con Nevent IA, puedes cambiar de cuenta con una sola instrucción dentro de la misma conversación.
+
+No hace falta cerrar y reabrir el chat. Le dices al asistente que cambie al promotor X, y todas las consultas siguientes usan los datos de ese promotor.
+
+Lucía es directora de marketing en una agencia que gestiona cuatro promotores distintos. Cada lunes prepara el resumen semanal de todos sus clientes. Con Nevent IA, lo hace en una sola sesión sin saltar entre pestañas.
+
+## Lo que puedes preguntar
+
+Disponible si tu acceso de Nevent incluye más de una cuenta:
+
+- "¿Qué cuentas tengo disponibles en mi acceso de Nevent?"
+- "Cambia al promotor 'Festival de Jazz de Vigo'"
+- "¿En qué cuenta estoy trabajando ahora mismo?"
+- "Vuelve a mi cuenta principal"
+
+## Lo que el asistente puede preparar por ti
+
+<Badge text="Solo consultar" variant="note" /> El cambio de cuenta es una operación de sesión. No crea ni modifica datos.
+
+El asistente puede:
+
+- **Listar las cuentas accesibles** — muestra todos los promotores o festivales a los que tienes acceso con tu usuario de Nevent
+- **Cambiar la cuenta activa** — a partir de ese momento, todas las consultas usan los datos del promotor seleccionado
+- **Volver a la cuenta de origen** — especialmente útil después de revisar las cuentas de varios clientes
+
+:::note[Nota]
+El cambio de cuenta es por sesión. Si abres otra conversación en Claude o ChatGPT, esa sesión empieza siempre en tu cuenta principal. El cambio no persiste entre conversaciones.
+:::
+
+## Así lo usa Lucía un lunes por la mañana
+
+Lucía gestiona cuatro promotores: un festival de jazz, una sala de conciertos, una feria B2B y un club nocturno. Cada lunes prepara el resumen semanal de cada uno.
+
+> "¿Qué cuentas tengo disponibles?"
+
+El asistente lista las cuatro cuentas accesibles con su nombre.
+
+> "Cambia al Festival de Jazz de Vigo"
+
+El asistente confirma el cambio y a partir de aquí trabaja con los datos del festival.
+
+> "¿Cuántas entradas vendieron la semana pasada y cuál es el ritmo respecto al año pasado?"
+
+Datos del festival de jazz.
+
+> "Cambia a la Sala Apolo Madrid"
+
+El asistente cambia de cuenta.
+
+> "¿Cuántas campañas de email se enviaron esta semana y cuál fue el open rate medio?"
+
+Datos de la sala de conciertos.
+
+Lucía repite el proceso para los otros dos clientes y en veinte minutos tiene el resumen de los cuatro. Antes tardaba más de una hora abriendo y cerrando sesiones.
+
+## Combínalo con
+
+- [Analítica](/nevent-ai/que-puedes-hacer/analitica) — consulta datos de ventas de cada promotor tras cambiar de cuenta
+- [Campañas](/nevent-ai/que-puedes-hacer/campanas) — revisa el estado de los envíos de cada cliente en la misma sesión
+- [Caso práctico: cierre de mes y reporting](/nevent-ai/casos-practicos/cierre-de-mes-y-reporting)
+
+## Lo que no puede hacer todavía
+
+- No puede ejecutar la misma consulta en todas las cuentas simultáneamente; hay que cambiar de cuenta y preguntar una a una
+- El acceso a cuentas de otros promotores depende de los permisos configurados en Nevent; si no tienes acceso a una cuenta, el asistente tampoco puede acceder
+- No puede crear datos en una cuenta mientras está activa otra
+
+<Aside type="tip" title="Pensado para agencias y multi-promotores">
+La gestión multi-cuenta está diseñada para agencias y promotores con varios festivales. Descubre más sobre cómo [gestionar múltiples eventos en Nevent](https://nevent.ai/es/soluciones/gestionar-multiples-eventos) o [conviértete en partner](https://nevent.ai/es/partners). [Pide información](https://nevent.ai/es/solicitar-informacion) para ver las opciones de acceso multi-cuenta.
+</Aside>

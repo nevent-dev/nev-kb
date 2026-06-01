@@ -1,0 +1,77 @@
+---
+title: Comprueba la salud de tus envíos de email
+description: Consulta el estado de tu dominio de envío, la tasa de supresiones y los motivos de rebote. Detecta problemas de entregabilidad antes de que afecten a tus campañas.
+sidebar:
+  order: 8
+---
+
+import { Aside, Badge } from '@astrojs/starlight/components';
+
+Un email que no llega a la bandeja de entrada es como una campaña que nunca se lanzó. La mayoría de los problemas de entregabilidad se detectan tarde: cuando el open rate ya cayó, cuando los rebotes se acumularon, o cuando el dominio empieza a quedar marcado como spam.
+
+Con Nevent IA puedes hacer una comprobación rápida antes de cada envío importante. En dos preguntas sabes si tu dominio está bien configurado y si tienes algún indicador de alerta que revisar.
+
+Carlos, manager de sala, hace una revisión exprés cada vez que va a enviar una campaña de más de 5.000 contactos. Le lleva tres minutos y le ha evitado más de un problema.
+
+## Lo que puedes preguntar
+
+Disponible en modo "Solo consultar" y superiores:
+
+- "¿Mi dominio de envío está validado y configurado correctamente?"
+- "¿Cuántas supresiones acumulamos en los últimos 30 días y cuáles son los motivos?"
+- "¿La tasa de rebotes de este mes está dentro de los límites normales?"
+- "¿Cuántas supresiones por spam tuvimos en el último envío?"
+- "¿Cuál es la tendencia de supresiones en los últimos tres meses? ¿Sube o baja?"
+- "¿Cuántos contactos están actualmente suprimidos por rebote duro en mi lista?"
+
+## Lo que el asistente puede preparar por ti
+
+<Badge text="Solo consultar" variant="note" /> Las herramientas de entregabilidad son de solo lectura. El asistente informa y alerta, pero la gestión del dominio o la limpieza de listas se realiza desde el panel de Nevent.
+
+El asistente puede:
+
+- **Revisar el estado del dominio** — validación DNS, estado de calentamiento, posibles alertas
+- **Resumir las supresiones** — total acumulado, desglose por motivo (rebote, spam, desuscripción manual) y tendencia a 30 días
+- **Alertar si hay indicadores de riesgo** — si la tasa de supresiones por spam supera el 0,1% o los rebotes duros están por encima del 2%, el asistente lo señala
+
+:::caution[Importante]
+Una tasa de supresiones por spam superior al 0,1% es una señal de alerta seria. Si el asistente detecta ese nivel, revisa la calidad del segmento y el historial de envíos antes de hacer el próximo envío masivo.
+:::
+
+## Así lo usa Carlos antes de un envío grande
+
+Carlos va a enviar la campaña de preventa de temporada a su base de datos completa: 8.200 contactos. Antes de programarla, hace una comprobación rápida.
+
+> "¿Mi dominio de envío está validado y hay alguna alerta activa?"
+
+El asistente confirma que el dominio está validado y que no hay alertas activas.
+
+> "¿Cuántas supresiones tuvimos en el último mes y por qué motivo?"
+
+El asistente devuelve el resumen: 340 supresiones, de las cuales 280 son rebotes blandos, 45 rebotes duros y 15 por queja de spam.
+
+> "¿El 15 por ciento de queja de spam es normal para mi histórico?"
+
+El asistente compara con los tres meses anteriores. La tasa actual es ligeramente superior a la media pero está dentro del rango normal.
+
+> "¿La tendencia de supresiones está subiendo o bajando respecto a los últimos tres meses?"
+
+El asistente muestra la evolución mensual. La tendencia es estable, sin picos preocupantes.
+
+Carlos confirma que puede enviar sin riesgo. La campaña queda programada.
+
+## Combínalo con
+
+- [Campañas](/nevent-ai/que-puedes-hacer/campanas) — revisa entregabilidad antes de programar un envío importante
+- [Audiencia y segmentos](/nevent-ai/que-puedes-hacer/audiencia) — filtra los suprimidos del segmento antes de crear la campaña
+- [Caso práctico: diagnosticar una campaña floja](/nevent-ai/casos-practicos/diagnosticar-campana-floja)
+
+## Lo que no puede hacer todavía
+
+- No puede eliminar contactos suprimidos ni limpiar la lista desde el chat
+- No gestiona la configuración de DNS del dominio (eso requiere acceso al panel y al proveedor de dominio)
+- No tiene datos de entregabilidad de campañas enviadas fuera de Nevent
+
+<Aside type="tip" title="Entregabilidad incluida en Nevent">
+La salud de tus envíos es parte del sistema de [comunicación omnicanal de Nevent](https://nevent.ai/es/soluciones/comunicacion-omnicanal-eventos). [Pide información](https://nevent.ai/es/solicitar-informacion) si quieres una revisión de la configuración de tu dominio de envío.
+</Aside>

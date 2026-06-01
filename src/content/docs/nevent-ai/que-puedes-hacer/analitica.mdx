@@ -1,0 +1,85 @@
+---
+title: Pregunta lo que quieras a tus datos de eventos
+description: Consulta ventas, asistencia, ingresos y métricas de campañas en tiempo real. Filtra por fecha, tipo de entrada o segmento con una sola pregunta.
+sidebar:
+  order: 2
+---
+
+import { Aside, Badge } from '@astrojs/starlight/components';
+
+Cada vez que necesitas un dato de tu evento, abres el panel, navegas por menús, buscas el filtro correcto y exportas un Excel que luego tienes que interpretar. Eso cuesta tiempo, y en la fase previa a un lanzamiento, el tiempo es lo que menos sobra.
+
+Con Nevent IA, haces la pregunta en lenguaje normal y obtienes la respuesta al momento. Sin menús. Sin exportar nada.
+
+Carlos, manager de una sala de conciertos en Madrid, abre el chat el lunes por la mañana antes de la reunión de equipo. En tres minutos tiene las cifras de la semana anterior desglosadas por tipo de entrada y las compara con el mismo período del mes pasado. Todo desde la ventana de Claude.
+
+## Lo que puedes preguntar
+
+Estas consultas están disponibles en cualquier modo de acceso:
+
+- "Muéstrame las inscripciones del concierto del viernes desglosadas por tipo de entrada"
+- "¿Cuál fue el ingreso total de mis eventos en abril?"
+- "¿Qué evento tuvo más ventas en el primer trimestre?"
+- "Compara la asistencia de las últimas tres ediciones del festival"
+- "¿Cuántas entradas VIP quedan disponibles para el show del sábado?"
+- "¿Cuántas entradas se vendieron en las primeras 48 horas de venta?"
+- "¿Qué tipo de entrada se vende más en mis eventos de verano?"
+- "Dame el desglose de ingresos por canal de venta del evento 'Noche Eléctrica'"
+- "¿Qué tablas de datos tengo disponibles en mi cuenta?" ← pregunta útil si no sabes por dónde empezar
+
+:::tip[Consejo]
+Si no estás seguro de qué datos tienes, empieza preguntando qué información hay disponible en tu cuenta. El asistente te explica qué tablas y métricas puedes consultar.
+:::
+
+## Lo que el asistente puede preparar por ti
+
+<Badge text="Solo consultar" variant="note" /> Disponible en todos los modos.
+
+Con cualquier nivel de acceso, el asistente puede:
+
+- Cruzar datos de varias tablas en una sola respuesta (ventas + asistencia + canal)
+- Aplicar filtros complejos que en el panel requerirían varios pasos
+- Detectar tendencias y anomalías en el rendimiento de tus eventos
+- Generar comparativas entre períodos, eventos o tipos de entrada
+- Calcular métricas derivadas como el ticket medio, la tasa de conversión o el % de ocupación
+
+No necesitas saber exactamente cómo están organizados tus datos. El asistente descubre la estructura de tu cuenta antes de responder, así que puedes preguntar en lenguaje natural y él hace la traducción internamente.
+
+## Así lo usa Carlos un lunes por la mañana
+
+Carlos tiene cinco shows programados este mes en su sala. Antes de la reunión de equipo del lunes, necesita un resumen rápido de la semana anterior.
+
+> "¿Cuántas entradas vendimos la semana pasada en total y desglosado por show?"
+
+El asistente devuelve una tabla con los cinco eventos, las entradas vendidas y el porcentaje de aforo cubierto para cada uno.
+
+> "¿Qué show tiene peor ritmo de ventas respecto a las semanas anteriores?"
+
+El asistente identifica el show con menor progresión de ventas y lo señala.
+
+> "Compara ese show con el mismo tipo de evento del mes pasado"
+
+Obtiene una comparativa directa: precio medio, canal de venta, día de semana.
+
+> "¿Cuánto ingresamos en total entre todos los shows de la semana?"
+
+Cifra total de ingresos, desglosada entre preventa y taquilla.
+
+Con cuatro preguntas, Carlos tiene el resumen de la semana listo para la reunión. Lo que antes le llevaba abrir tres informes distintos ahora lo hace en cuatro minutos.
+
+## Combínalo con
+
+- [Campañas](/nevent-ai/que-puedes-hacer/campanas) — para cruzar datos de ventas con el rendimiento de los envíos de email
+- [Publicidad de pago](/nevent-ai/que-puedes-hacer/paid-media) — para relacionar ingresos de entradas con el gasto publicitario
+- [Caso práctico: diagnose una campaña floja](/nevent-ai/casos-practicos/diagnosticar-campana-floja)
+
+## Lo que no puede hacer todavía
+
+- No puede modificar datos de ventas ni entradas (eso se gestiona desde el panel de Nevent)
+- No tiene acceso a datos de taquilla física si no están integrados con Nevent
+- No puede generar gráficas visuales directamente (devuelve tablas y textos estructurados)
+- Las consultas complejas con muchos filtros encadenados pueden tardar unos segundos más
+
+<Aside type="tip" title="Esto forma parte de Nevent Analytics">
+Los datos que consultas aquí vienen de [Nevent Analytics](https://nevent.ai/es/features/event-analytics), el módulo de métricas e inteligencia de negocio de Nevent. [Pide información](https://nevent.ai/es/solicitar-informacion) para verlo en acción en tu cuenta.
+</Aside>

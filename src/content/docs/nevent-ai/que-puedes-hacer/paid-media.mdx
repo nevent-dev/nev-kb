@@ -1,0 +1,83 @@
+---
+title: Analiza y optimiza tu publicidad de pago desde el chat
+description: Consulta el rendimiento de Meta, Google y TikTok Ads. Compara ROAS, analiza grupos de anuncios y atribuye ventas de entradas a cada campaña publicitaria.
+sidebar:
+  order: 6
+---
+
+import { Aside, Badge } from '@astrojs/starlight/components';
+
+Cuando inviertes en publicidad para un festival o un evento, la pregunta siempre es la misma: ¿qué está funcionando y qué está quemando dinero? Para responderla, normalmente tienes que abrir el Ads Manager de Meta, el de Google, y después cruzar esos datos con las ventas en Nevent. Ese cruce manual es donde se pierde la información.
+
+Con Nevent IA, le preguntas directamente qué campaña publicitaria generó más ventas de entradas y obtienes la respuesta en segundos. El asistente cruza el gasto de Meta o Google con las ventas de Nevent a través de la atribución UTM.
+
+Marta, organizadora de un festival de jazz, gestiona 12.000 euros de presupuesto publicitario en Meta para el lanzamiento de la edición anual. Cada semana le pregunta al asistente qué grupos de anuncios están convirtiendo y reasigna el presupuesto en consecuencia.
+
+## Lo que puedes preguntar
+
+Disponible en modo "Solo consultar" y superiores:
+
+- "¿La cuenta de Meta Ads está conectada y sincronizada correctamente?"
+- "Lista todas mis campañas de Meta activas con su presupuesto y estado"
+- "¿Cuál fue el ROAS de mis campañas de Meta en abril?"
+- "Muéstrame el CTR diario de la campaña 'Festival de Jazz 2026 — Lanzamiento'"
+- "¿Qué grupos de anuncios tuvieron el CPM más bajo la semana pasada?"
+- "¿Cuánto gastamos en publicidad en marzo y cuántas entradas se atribuyen a esas campañas?"
+- "Compara el rendimiento de mis campañas de Meta vs Google en el primer trimestre"
+- "¿Qué creatividad de anuncio tuvo mejor CTR la semana pasada?"
+- "Muéstrame el targeting del grupo de anuncios 'Audiencia lookalike 18-35'"
+
+## Lo que el asistente puede preparar por ti
+
+<Badge text="Solo consultar" variant="note" /> Las herramientas de paid media son de solo lectura. El asistente analiza y compara, pero no modifica las campañas en Meta, Google ni TikTok.
+
+El asistente puede:
+
+- **Comparar el rendimiento entre campañas** — ROAS, CPM, CPC, CTR, gasto total
+- **Atribuir ventas de entradas a campañas** — qué campaña publicitaria generó qué ventas en Nevent
+- **Detectar grupos de anuncios con bajo rendimiento** — señala los que tienen CPM alto o CTR bajo respecto a la media
+- **Analizar la progresión diaria de métricas** — útil para detectar caídas bruscas de rendimiento
+- **Comparar una creatividad con sus "hermanas"** — un anuncio respecto a los demás del mismo grupo
+
+:::tip[Consejo]
+La atribución de ventas funciona a través de UTMs. Para que el asistente pueda relacionar el gasto publicitario con las ventas de entradas, asegúrate de que tus campañas llevan UTMs configurados en los enlaces de destino.
+:::
+
+## Así lo usa Marta una semana antes del lanzamiento
+
+Marta tiene diez grupos de anuncios activos en Meta con un presupuesto total de 12.000 euros para el período de lanzamiento.
+
+> "Lista todos mis grupos de anuncios activos de la campaña 'Jazz 2026 Lanzamiento' con su gasto y ROAS esta semana"
+
+El asistente muestra los diez grupos con gasto, ROAS y CTR para los últimos siete días.
+
+> "¿Cuáles tienen un ROAS por debajo de 1,5?"
+
+El asistente identifica tres grupos de anuncios con ROAS inferior a 1,5.
+
+> "¿Qué diferencias hay entre esos tres y los que sí están funcionando bien?"
+
+El asistente compara los targeting, creatividades y CTR entre los grupos con bajo rendimiento y los que están por encima de la media.
+
+> "¿Cuántas entradas en total se han vendido esta semana que se puedan atribuir a estas campañas de Meta?"
+
+El asistente cruza las ventas de Nevent con los UTMs de Meta y devuelve el número de entradas atribuidas y el coste por entrada.
+
+Con esa información, Marta decide pausar los tres grupos con bajo ROAS y reasignar ese presupuesto a los que están convirtiendo.
+
+## Combínalo con
+
+- [Analítica](/nevent-ai/que-puedes-hacer/analitica) — relaciona el gasto publicitario con el total de ingresos del evento
+- [Short URLs y tracking](/nevent-ai/que-puedes-hacer/short-urls) — complementa la atribución UTM con links de seguimiento por canal
+- [Caso práctico: optimizar inversión publicitaria](/nevent-ai/casos-practicos/optimizar-inversion-publicitaria)
+
+## Lo que no puede hacer todavía
+
+- No puede modificar presupuestos ni pausar campañas directamente en Meta o Google (requiere acción en el Ads Manager)
+- No tiene datos de TikTok Ads si la integración no está configurada en tu cuenta de Nevent
+- La atribución funciona con UTMs; si no los usas, el asistente no puede vincular gasto con ventas
+- Los datos de paid media tienen un desfase de sincronización de algunas horas respecto a tiempo real
+
+<Aside type="tip" title="Esto forma parte de Nevent Paid Media">
+El módulo de [Nevent Paid Media](https://nevent.ai/es/features/paid-media) y de [atribución de marketing](https://nevent.ai/es/features/marketing-attribution) son los que hacen posible cruzar gasto publicitario con ventas de entradas. [Pide información](https://nevent.ai/es/solicitar-informacion) para ver cómo funciona con tus campañas.
+</Aside>
