@@ -1,0 +1,95 @@
+---
+title: Cómo Sofía descubrió por qué su campaña tuvo un 8% de open rate
+description: Diagnóstico completo de una campaña con bajo rendimiento. Análisis de métricas, detección de anomalías y plan de mejora para el próximo envío.
+sidebar:
+  order: 4
+---
+
+import { Aside, Steps } from '@astrojs/starlight/components';
+
+## Quién y cuándo
+
+Sofía gestiona las comunicaciones de un club nocturno con programa semanal. Envía entre dos y tres campañas de email por semana. El open rate habitual ronda el 22-25%.
+
+El viernes pasado envió la campaña de la agenda del fin de semana y obtuvo un 8% de apertura. Quiere entender qué pasó antes de repetir el mismo error el próximo miércoles.
+
+## El antes vs. el después
+
+| Proceso | Sin Nevent IA | Con Nevent IA |
+|---------|--------------|---------------|
+| Revisar métricas de la campaña | Abrir el panel, navegar al informe | Una pregunta al asistente |
+| Comparar con campañas anteriores | Exportar varias campañas y comparar en Excel | Una pregunta al asistente |
+| Detectar anomalías | Revisión manual sin metodología clara | Análisis automático con detección de patrones |
+| Extraer conclusiones accionables | Ningún sistema | El asistente sintetiza los hallazgos |
+
+## Lo que necesitas
+
+- Cuenta de Nevent con [Nevent Analytics](https://nevent.ai/es/features/event-analytics) activo
+- Nevent IA conectado en Claude o ChatGPT
+- Nivel de acceso "Solo consultar" (es suficiente para el diagnóstico)
+- Tiempo estimado: 10 minutos
+
+## Paso a paso
+
+<Steps>
+1. **Recuperar las métricas de la campaña problemática** — Sofía empieza por los datos concretos.
+
+   > "Dame las métricas completas de la campaña 'Agenda fin de semana 20 junio': aperturas, clics, desuscripciones, rebotes y hora de envío"
+
+   El asistente devuelve: open rate 8,2%, CTR 0,9%, 3 desuscripciones, 12 rebotes blandos. Hora de envío: viernes 18:45.
+
+2. **Comparar con campañas similares** — Los datos solos no dicen nada sin contexto.
+
+   > "¿Cuál es el open rate medio de mis últimas diez campañas de email del viernes?"
+
+   El asistente calcula: media del 23,4%.
+
+   > "¿Y cuánto fue el más bajo antes de esta campaña?"
+
+   El asistente identifica el mínimo histórico anterior: 16,8%, en febrero.
+
+3. **Analizar la campaña con detección de anomalías** — Sofía quiere saber si el asistente detecta algo que ella no ve.
+
+   > "Analiza la campaña 'Agenda fin de semana 20 junio' y dime si hay alguna anomalía respecto a mis patrones habituales"
+
+   El asistente identifica tres factores inusuales: la hora de envío fue 45 minutos más tarde de la media habitual, el asunto tenía 72 caracteres (el promedio es 48), y el segmento incluía 340 contactos que no abrían emails desde hace más de 90 días.
+
+4. **Profundizar en cada factor** — Sofía quiere entender cuál tuvo más impacto.
+
+   > "De esos tres factores, ¿el segmento con contactos inactivos puede explicar la bajada? ¿Si los excluyo, cuánto sería el open rate estimado?"
+
+   El asistente calcula: excluyendo los 340 inactivos, el open rate de los 2.800 restantes fue del 14,9%. Todavía bajo, pero más cercano a lo esperado.
+
+   > "¿El asunto de 72 caracteres es significativamente diferente de los que funcionan bien?"
+
+   El asistente compara los asuntos con mejor open rate: los cinco mejores tienen entre 38 y 52 caracteres.
+
+5. **Extraer el plan de mejora** — Con el diagnóstico claro, Sofía puede actuar.
+
+   > "Resume en tres puntos qué debería cambiar en la próxima campaña del viernes para mejorar el open rate"
+
+   El asistente sintetiza: (1) enviar antes de las 18:00, (2) reducir el asunto a menos de 55 caracteres, (3) excluir del segmento a los contactos que no abren desde hace más de 60 días.
+
+6. **Crear el segmento mejorado para el próximo envío** — Sofía quiere aplicar la tercera recomendación de inmediato.
+
+   > "Crea un segmento con mis suscriptores activos excluyendo a quienes no han abierto ningún email en los últimos 60 días. Guárdalo como 'Activos últimos 60 días'"
+
+   El asistente crea el segmento: 3.120 personas.
+</Steps>
+
+## Por qué funciona
+
+El diagnóstico es posible gracias a [Nevent Analytics](https://nevent.ai/es/features/event-analytics), que registra las métricas de cada campaña y permite comparaciones históricas. La detección de anomalías que hace el asistente no es magia: analiza el rendimiento de la campaña concreta contra los patrones históricos de la cuenta y señala lo que se desvía de la norma.
+
+El resultado práctico es que Sofía no tiene que ser analista de datos para mejorar sus campañas. Le hace las preguntas correctas al asistente y este le devuelve un diagnóstico accionable.
+
+## Variantes
+
+- Este mismo flujo aplica a campañas de SMS o WhatsApp con bajo CTR.
+- Si el problema no es el open rate sino el CTR (muchos abren, pocos hacen clic), el diagnóstico se enfoca en el contenido y el call-to-action en lugar del asunto y el segmento.
+- Para un festival, puedes comparar el rendimiento de campañas equivalentes entre ediciones anuales en lugar de entre semanas.
+
+<Aside type="tip" title="¿Quieres entender mejor el rendimiento de tus campañas?">
+[Nevent Analytics](https://nevent.ai/es/features/event-analytics) + [Email Marketing de Nevent](https://nevent.ai/es/features/email-marketing) te dan toda la información que necesitas para mejorar cada envío.
+**[Pide información sin compromiso →](https://nevent.ai/es/solicitar-informacion)**
+</Aside>

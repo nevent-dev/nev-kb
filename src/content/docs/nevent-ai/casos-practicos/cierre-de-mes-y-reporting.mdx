@@ -1,0 +1,110 @@
+---
+title: Cómo Lucía prepara el informe mensual de cuatro clientes en 30 minutos
+description: Reporting mensual multi-cliente con Nevent IA. Cambio de cuenta sin cerrar sesión, extracción de métricas clave y resumen listo para el cliente.
+sidebar:
+  order: 6
+---
+
+import { Aside, Steps } from '@astrojs/starlight/components';
+
+## Quién y cuándo
+
+Lucía es directora de marketing en una agencia que gestiona las comunicaciones de cuatro promotores distintos: un festival de jazz, una sala de conciertos, una feria B2B y un club nocturno.
+
+El último día hábil de cada mes prepara el informe mensual de cada cliente: métricas de email, ventas de entradas, rendimiento de campañas y comparativa con el mes anterior. Antes le llevaba más de dos horas abriendo y cerrando sesiones en Nevent. Ahora lo hace en 30 minutos con Nevent IA.
+
+## El antes vs. el después
+
+| Proceso | Sin Nevent IA | Con Nevent IA |
+|---------|--------------|---------------|
+| Cambiar de una cuenta a otra | Cerrar sesión, iniciar con otra cuenta | Una instrucción al asistente |
+| Extraer métricas de email del mes | Navegar al informe, exportar | Una pregunta |
+| Comparar con el mes anterior | Exportar mes anterior, comparar en Excel | Una pregunta |
+| Extraer ventas del período | Ir a otra sección del panel, filtrar | Una pregunta |
+| Redactar el resumen del cliente | Manual | El asistente puede sintetizar |
+
+## Lo que necesitas
+
+- Cuenta de Nevent con acceso a múltiples promotores
+- [Nevent Analytics](https://nevent.ai/es/features/event-analytics) activo en cada cuenta
+- Nevent IA conectado en Claude o ChatGPT
+- Nivel de acceso "Solo consultar" (es suficiente para el reporting)
+- Tiempo estimado: 30 minutos para cuatro clientes
+
+## Paso a paso
+
+<Steps>
+1. **Ver las cuentas disponibles** — Lucía empieza confirmando qué cuentas tiene accesibles.
+
+   > "¿Qué cuentas tengo disponibles en Nevent?"
+
+   El asistente lista las cuatro cuentas con sus nombres.
+
+2. **Informe del primer cliente: Festival de Jazz** — Lucía empieza por el cliente más grande.
+
+   > "Cambia al Festival de Jazz de Vigo"
+
+   El asistente confirma el cambio.
+
+   > "Dame el resumen de mayo: número de campañas de email enviadas, open rate medio, CTR medio y total de entradas vendidas"
+
+   El asistente devuelve las métricas clave del mes.
+
+   > "Compara esas métricas con las de abril"
+
+   El asistente muestra la comparativa mes a mes. El open rate bajó un 3%, las ventas subieron un 18%.
+
+3. **Informe del segundo cliente: Sala de conciertos** — Lucía cambia de cuenta sin cerrar el chat.
+
+   > "Cambia a la Sala Apolo Madrid"
+
+   El asistente cambia la cuenta activa.
+
+   > "Mismo resumen que antes: campañas de email en mayo, open rate medio, CTR medio y entradas vendidas. Y compara con abril"
+
+   El asistente devuelve los datos de la sala con la comparativa.
+
+4. **Informe del tercer cliente: Feria B2B** — Lucía continúa.
+
+   > "Cambia a la Feria de Negocios Barcelona"
+
+   > "Dame el resumen de mayo para email. Y dime también cuántas inscripciones a la feria se registraron en mayo vs abril"
+
+   El asistente devuelve métricas de email e inscripciones con comparativa.
+
+5. **Informe del cuarto cliente: Club nocturno** — Último cliente.
+
+   > "Cambia al Club Nocturno Babel"
+
+   > "Resumen de mayo: campañas de email, open rate, CTR. Y dime cuál fue la campaña con mejor open rate del mes"
+
+   El asistente devuelve el resumen y destaca la campaña con mejor rendimiento.
+
+6. **Volver a la cuenta principal** — Una vez terminados los cuatro informes.
+
+   > "Vuelve a mi cuenta principal"
+
+   El asistente restaura la cuenta de origen.
+
+7. **Sintetizar el resumen ejecutivo** — Lucía quiere un resumen de los cuatro clientes para adjuntar al email.
+
+   > "Con los datos que hemos revisado de los cuatro clientes este mes, ¿puedes hacer un resumen de dos párrafos con los puntos más destacados: qué fue bien y qué necesita atención?"
+
+   El asistente genera el texto del resumen con los puntos más relevantes de cada cuenta.
+</Steps>
+
+## Por qué funciona
+
+El flujo es posible gracias a dos capacidades. Por un lado, la gestión [multi-cuenta de Nevent](https://nevent.ai/es/soluciones/gestionar-multiples-eventos), que permite a una agencia o a un promotor con varios festivales gestionar todos desde un único acceso. Por otro, [Nevent Analytics](https://nevent.ai/es/features/event-analytics), que centraliza las métricas de email y ventas en un mismo sistema.
+
+Nevent IA elimina el tiempo de navegación: en lugar de abrir cuatro cuentas distintas, Lucía da una instrucción de cambio y todas las consultas siguientes usan automáticamente los datos de la cuenta activa.
+
+## Variantes
+
+- Si gestionas más de cuatro cuentas, el proceso es el mismo; simplemente repites el ciclo de cambio de cuenta y preguntas para cada cliente.
+- Puedes ajustar las métricas que pides según lo que cada cliente valora: algunos priorizan ventas, otros open rate, otros el crecimiento de la base de datos.
+- Si el informe final es para un cliente externo, puedes pedirle al asistente que formatee el resumen de forma más formal o que lo estructure con los KPIs que hayas acordado previamente.
+
+<Aside type="tip" title="¿Gestionas varios promotores o festivales?">
+La gestión [multi-cuenta de Nevent](https://nevent.ai/es/soluciones/gestionar-multiples-eventos) está diseñada para agencias y grupos de promotores. [Pide información](https://nevent.ai/es/solicitar-informacion) para ver cómo funciona con tu estructura.
+</Aside>

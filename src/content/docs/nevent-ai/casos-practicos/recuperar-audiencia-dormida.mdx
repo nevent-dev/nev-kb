@@ -1,0 +1,95 @@
+---
+title: Cómo Carlos recuperó asistentes que no compraban en 12 meses
+description: Campaña de reactivación para contactos inactivos. Segmento preciso, revisión de entregabilidad y borrador de email en menos de 15 minutos.
+sidebar:
+  order: 3
+---
+
+import { Aside, Steps, LinkCard } from '@astrojs/starlight/components';
+
+## Quién y cuándo
+
+Carlos gestiona una sala de conciertos en Madrid con una media de cinco shows al mes. Tiene una base de datos de 12.000 contactos, pero sabe que un buen porcentaje no ha comprado ni abierto un email en el último año.
+
+Antes de la temporada de otoño, quiere intentar recuperar a esa audiencia dormida con una campaña específica. No quiere enviarla a toda la base, porque eso arrastraría métricas de aperturas hacia abajo y podría generar más supresiones.
+
+## El antes vs. el después
+
+| Proceso | Sin Nevent IA | Con Nevent IA |
+|---------|--------------|---------------|
+| Identificar contactos inactivos | Exportar lista, filtrar en Excel | Descripción en lenguaje natural |
+| Verificar tamaño del segmento | Contar filas en Excel | Previsualización instantánea |
+| Comprobar entregabilidad | Revisar panel manualmente | Una pregunta al asistente |
+| Preparar borrador de campaña | Navegar entre secciones del panel | Una instrucción al asistente |
+
+## Lo que necesitas
+
+- Cuenta de Nevent con [Email Marketing](https://nevent.ai/es/features/email-marketing) activo
+- Nevent IA conectado en Claude o ChatGPT
+- Nivel de acceso "Consultar y preparar" (mínimo)
+- Tiempo estimado: 15 minutos
+
+## Paso a paso
+
+<Steps>
+1. **Definir quién es la audiencia dormida** — Carlos quiere los contactos que no han comprado entrada ni abierto un email en los últimos 12 meses.
+
+   > "Previsualiza un segmento con contactos que no han comprado ninguna entrada en los últimos 12 meses y que no han abierto ninguno de mis emails en ese mismo período"
+
+   El asistente calcula: 4.200 personas.
+
+2. **Afinar para evitar contactos demasiado fríos** — Contactos que llevan más de dos años inactivos tienen muy pocas probabilidades de reactivarse y pueden generar quejas de spam.
+
+   > "¿Cuántos de esos 4.200 se registraron hace más de 3 años y nunca han comprado?"
+
+   El asistente filtra: 1.800 contactos con esas características.
+
+   > "Excluye a esos 1.800 del segmento. Guárdalo como 'Dormidos reactivables otoño 2026'"
+
+   El segmento resultante: 2.400 personas.
+
+3. **Comprobar el estado del dominio antes de enviar** — Una campaña de reactivación a contactos inactivos tiene mayor riesgo de generar quejas. Mejor revisar el estado del dominio antes.
+
+   > "¿Mi dominio de envío está validado y cuál es la tasa de supresiones por spam del último mes?"
+
+   El asistente confirma que el dominio está bien y que la tasa de spam está en 0,05%, por debajo del límite de alerta.
+
+4. **Preparar el borrador** — Carlos tiene una plantilla específica para campañas de reactivación.
+
+   > "Crea un borrador de campaña de email para el segmento 'Dormidos reactivables otoño 2026' usando la plantilla 'Te echamos de menos'. Asunto: 'Ha pasado un tiempo... ¿vuelves a la sala?'"
+
+   El asistente crea el borrador.
+
+5. **Programar el envío** — Las campañas de reactivación funcionan mejor entre semana por la mañana.
+
+   > "Programa ese borrador para el próximo jueves a las 10:30"
+
+   El asistente solicita confirmación y Carlos confirma.
+
+6. **Revisar resultados 48 horas después** — Carlos quiere saber si la campaña tuvo el efecto esperado.
+
+   > "¿Cuántas personas abrieron la campaña 'Te echamos de menos'? ¿Y cuántas hicieron clic?"
+
+   El asistente devuelve las métricas de apertura y clic.
+
+   > "¿Cuántos de los que hicieron clic compraron una entrada en las siguientes 48 horas?"
+
+   El asistente cruza los datos de clic con las ventas posteriores.
+</Steps>
+
+## Por qué funciona
+
+Este flujo combina la [segmentación de audiencia](https://nevent.ai/es/soluciones/segmentar-audiencia-eventos) de Nevent —que permite construir listas con criterios de inactividad muy precisos— con el módulo de [fidelización de asistentes](https://nevent.ai/es/soluciones/fidelizar-asistentes-eventos), diseñado para reconectar con audiencias que llevan tiempo sin interactuar.
+
+La clave está en el paso de previsualización: Carlos no envía a 12.000 personas, sino a 2.400 que tienen perfil de reactivación real. Eso protege su reputación de envío y mejora las probabilidades de éxito de la campaña.
+
+## Variantes
+
+- Para un festival anual, la audiencia dormida puede definirse como "asistentes a ediciones anteriores que no han comprado para la edición actual" en lugar de inactividad por tiempo.
+- Si tienes varios niveles de inactividad (6 meses, 12 meses, 24 meses), puedes crear segmentos separados y enviar mensajes distintos con ofertas escalonadas.
+- La misma lógica funciona para SMS o WhatsApp si tienes esos canales activos en tu cuenta.
+
+<Aside type="tip" title="¿Quieres ver cómo funciona la reactivación en tu cuenta?">
+[Nevent](https://nevent.ai/es/soluciones/fidelizar-asistentes-eventos) tiene herramientas específicas para recuperar y fidelizar asistentes.
+**[Pide información sin compromiso →](https://nevent.ai/es/solicitar-informacion)**
+</Aside>
