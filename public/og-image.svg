@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <!-- Background gradient -->
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6D28D9;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8B5CF6;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="card" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.08" />
+      <stop offset="100%" style="stop-color:#ffffff;stop-opacity:0.03" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)" />
+
+  <!-- Subtle grid pattern -->
+  <rect width="1200" height="630" fill="none" stroke="#ffffff" stroke-opacity="0.04" />
+  <line x1="0" y1="210" x2="1200" y2="210" stroke="#ffffff" stroke-opacity="0.04" stroke-width="1"/>
+  <line x1="0" y1="420" x2="1200" y2="420" stroke="#ffffff" stroke-opacity="0.04" stroke-width="1"/>
+  <line x1="400" y1="0" x2="400" y2="630" stroke="#ffffff" stroke-opacity="0.04" stroke-width="1"/>
+  <line x1="800" y1="0" x2="800" y2="630" stroke="#ffffff" stroke-opacity="0.04" stroke-width="1"/>
+
+  <!-- Card background -->
+  <rect x="80" y="80" width="1040" height="470" rx="24" fill="url(#card)" stroke="#ffffff" stroke-opacity="0.1" stroke-width="1"/>
+
+  <!-- Nevent logo (star/sparkle shape) -->
+  <g transform="translate(120, 170)">
+    <path fill-rule="evenodd" d="M81 36 64 0 47 36l-1 2-9-10a6 6 0 0 0-9 9l10 10h-2L0 64l36 17h2L28 91a6 6 0 1 0 9 9l9-10 1 2 17 36 17-36v-2l9 10a6 6 0 1 0 9-9l-9-9 2-1 36-17-36-17-2-1 9-9a6 6 0 1 0-9-9l-9 10v-2Zm-17 2-2 5c-4 8-11 15-19 19l-5 2 5 2c8 4 15 11 19 19l2 5 2-5c4-8 11-15 19-19l5-2-5-2c-8-4-15-11-19-19l-2-5Z" clip-rule="evenodd" fill="white" fill-opacity="0.9"/>
+    <path d="M118 19a6 6 0 0 0-9-9l-3 3a6 6 0 1 0 9 9l3-3Zm-96 4c-2 2-6 2-9 0l-3-3a6 6 0 1 1 9-9l3 3c3 2 3 6 0 9Zm0 82c-2-2-6-2-9 0l-3 3a6 6 0 1 0 9 9l3-3c3-2 3-6 0-9Zm96 4a6 6 0 0 1-9 9l-3-3a6 6 0 1 1 9-9l3 3Z" fill="white" fill-opacity="0.9"/>
+  </g>
+
+  <!-- Nevent wordmark -->
+  <text x="280" y="240" font-family="system-ui, -apple-system, sans-serif" font-size="72" font-weight="700" fill="white" fill-opacity="0.95" letter-spacing="-1">Nevent</text>
+
+  <!-- Separator line -->
+  <rect x="120" y="270" width="960" height="2" fill="#ffffff" fill-opacity="0.15" rx="1"/>
+
+  <!-- Help Center label -->
+  <text x="120" y="340" font-family="system-ui, -apple-system, sans-serif" font-size="48" font-weight="400" fill="white" fill-opacity="0.85">Help Center</text>
+
+  <!-- Tagline -->
+  <text x="120" y="400" font-family="system-ui, -apple-system, sans-serif" font-size="28" font-weight="400" fill="white" fill-opacity="0.6">Documentación oficial · MCP · AI Integration</text>
+
+  <!-- URL badge -->
+  <rect x="120" y="440" width="330" height="52" rx="26" fill="#ffffff" fill-opacity="0.12" stroke="#ffffff" stroke-opacity="0.2" stroke-width="1"/>
+  <text x="285" y="473" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="500" fill="white" fill-opacity="0.8" text-anchor="middle">help.nevent.ai</text>
+</svg>
