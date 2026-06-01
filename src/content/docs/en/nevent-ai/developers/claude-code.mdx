@@ -1,0 +1,108 @@
+---
+title: Nevent AI in Claude Code
+description: How to add Nevent AI as a server in Claude Code CLI, both in local stdio mode and in remote HTTP mode with the hosted URL.
+sidebar:
+  order: 2
+---
+
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+Claude Code (Anthropic's CLI tool) supports MCP servers in both stdio mode and remote HTTP mode. Nevent AI works with both.
+
+## Option A: remote HTTP mode (recommended)
+
+Connects directly to the Nevent hosted server. No local installation, no manual JWT.
+
+```bash
+claude mcp add --transport http nevent https://mcp.nevent.ai/mcp
+```
+
+Claude Code adds the server to your MCP configuration and will ask you to authenticate with your Nevent account the first time you use it.
+
+To verify it is registered:
+
+```bash
+claude mcp list
+```
+
+## Option B: local stdio mode
+
+Uses the local npm package with JWT authentication.
+
+### Step 1: get your Nevent JWT token
+
+The Nevent JWT token is obtained by authenticating against the Nevent Admin API. You can use the long-lived token available in your account settings at [admin.nevent.es](https://admin.nevent.es), or generate one via API:
+
+```bash
+curl -X POST https://api.nevent.es/auth/login \
+  -H "Content-Type: application/json" \
+  -d '{"email": "your@email.com", "password": "your_password"}'
+```
+
+The response includes a `token` field which is your `NEVENT_JWT_TOKEN`.
+
+### Step 2: add the MCP server to Claude Code
+
+If you have installed the package globally:
+
+```bash
+export NEVENT_JWT_TOKEN=your_token_here
+claude mcp add nevent -- mcp-nevent
+```
+
+If you are using the local repo (after cloning and building):
+
+```bash
+export NEVENT_JWT_TOKEN=your_token_here
+claude mcp add nevent -- node /absolute/path/to/mcp-nevent/dist/index.js
+```
+
+:::note[Note]
+The `NEVENT_JWT_TOKEN` environment variable must be available in the shell where you run Claude Code. You can add it to your `.zshrc` or `.bashrc` to avoid exporting it every time.
+:::
+
+### Step 3: verify the configuration
+
+```bash
+claude mcp list
+```
+
+You should see `nevent` in the list of configured servers. In the first conversation where you use a Nevent tool, Claude Code will initialize the connection automatically.
+
+## Configure the operation mode
+
+By default the server starts in `READ_ONLY` mode. To enable writes:
+
+```bash
+# Standard mode (create campaigns, segments, schedule sends)
+export NEVENT_OPERATION_MODE=STANDARD
+
+# Full mode
+export NEVENT_OPERATION_MODE=FULL
+```
+
+Or include it in the registration command:
+
+```bash
+claude mcp add nevent --env NEVENT_JWT_TOKEN=your_token --env NEVENT_OPERATION_MODE=STANDARD -- node /path/to/dist/index.js
+```
+
+## Use in conversations
+
+Once configured, Claude Code has access to all Nevent tools in conversations. You can invoke them directly:
+
+```
+Which email campaigns do I have active this month?
+```
+
+Or explore the available tools:
+
+```
+Show me what Nevent tools are available
+```
+
+## Next step
+
+- [Full environment variables](/en/nevent-ai/developers/local-installation/)
+- [Tools reference](/en/nevent-ai/developers/tools/)
+- [Troubleshooting](/en/nevent-ai/developers/troubleshooting/)

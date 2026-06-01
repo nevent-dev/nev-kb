@@ -1,0 +1,97 @@
+---
+title: Nevent AI multi-tenant model
+description: How the hierarchical tenant model works in Nevent AI. Switch and reset tools, JWT rotation contract and per-session isolation guarantees.
+sidebar:
+  order: 6
+---
+
+Nevent uses a hierarchical tenant model. Nevent AI lets you switch tenants within a session and work with multiple organizations without restarting the connection.
+
+## Role-based access model
+
+| Role | What it can see |
+|------|----------------|
+| `SUPERADMIN` | All tenants in the system |
+| `OWNER` | Their own tenant and all child tenants |
+| `ADMIN` | Only their own tenant |
+
+The role of the authenticated user (the JWT used at login) determines which tenants are accessible through `nevent_list_tenants`.
+
+## Basic multi-tenant workflow
+
+```
+1. nevent_list_tenants    → list accessible tenants (returns tenant IDs)
+2. nevent_switch_tenant   → set the active tenant for this session
+3. nevent_reset_tenant    → restore the origin tenant (SUPERADMIN only)
+```
+
+### Example conversation
+
+```
+User: "List the available tenants"
+→ nevent_list_tenants returns [tenant-abc, tenant-xyz, tenant-def]
+
+User: "Switch to tenant-xyz"
+→ nevent_switch_tenant({ tenantId: "tenant-xyz" })
+→ Response: { active_tenant_id: "tenant-xyz" }
+
+User: "List the campaigns"
+→ nevent_list_campaigns queries in the context of tenant-xyz
+
+User: "Go back to the original tenant"
+→ nevent_reset_tenant()
+→ Response: { active_tenant_id: "tenant-abc" }
+```
+
+## `nevent_switch_tenant` contract
+
+When you call `nevent_switch_tenant`:
+
+1. The MCP server calls the tenant-switch endpoint on the Nevent API with `{ tenantId }`.
+2. The API validates that the JWT bearer has access to the destination tenant and returns a new access token scoped to the new tenant.
+3. The MCP server updates the JWT in `DataClient` (analytics) and `PaidMediaClient` (paid media) **atomically**.
+4. All in-memory caches (capabilities, segmentation criteria) are **invalidated** — subsequent calls will get fresh data from the new tenant context.
+5. `activeTenantId` is updated from the `tenantId` claim in the new JWT.
+
+## `nevent_reset_tenant` contract
+
+When you call `nevent_reset_tenant`:
+
+1. The server reads `homeTenantId` — the tenant ID captured from the original JWT when the session was created.
+2. It calls the tenant-switch endpoint with `{ tenantId: homeTenantId }`.
+3. Same cache invalidation and JWT rotation as in `nevent_switch_tenant`.
+4. If `homeTenantId` is not available (the original JWT had no `tenantId` claim), the tool returns an error.
+
+## Isolation guarantees
+
+- **Session scope:** the tenant context is per session. Switching tenants in one conversation does not affect any other active sessions from the same user or other users.
+- **JWT atomicity:** JWT rotation is atomic. If the API call fails, neither client (DataClient nor PaidMediaClient) is updated. The active tenant does not change on error.
+- **Verifiable response:** the response from `nevent_switch_tenant` includes `active_tenant_id` so the agent can verify the switch completed correctly before continuing.
+
+## Segment management tools in multi-tenant
+
+Segment operations (`nevent_list_segments`, `nevent_get_segment`, `nevent_create_segment`, `nevent_update_segment`) always operate on the **currently active tenant**.
+
+If you need to list the segments of a specific tenant:
+
+```
+1. nevent_switch_tenant({ tenantId: "tenant-xyz" })
+2. nevent_list_segments  → lists segments for tenant-xyz
+3. nevent_reset_tenant   → restores original tenant
+```
+
+## `nevent_help` tool
+
+If the agent has questions about the multi-tenant workflow, it can invoke:
+
+```
+nevent_help({ topic: "tenants" })
+```
+
+This tool provides in-session contextual guidance on workflows, errors and the multi-tenant model without needing to consult external documentation.
+
+## Next step
+
+- [Full reference for all 52 tools](/en/nevent-ai/developers/tools/)
+- [Error codes and troubleshooting](/en/nevent-ai/developers/troubleshooting/)
+- [Local installation and environment variables](/en/nevent-ai/developers/local-installation/)

@@ -82,8 +82,10 @@ export default defineConfig({
 				},
 			],
 
-			// Sidebar
+			// Sidebar — ES (raíz) y EN (/en/)
+			// Starlight selecciona automáticamente los items del locale activo
 			sidebar: [
+				// ─── Español (root) ────────────────────────────────────────────
 				{
 					label: 'Nevent AI',
 					items: [
@@ -113,8 +115,6 @@ export default defineConfig({
 								{ label: 'Diagnosticar una campaña floja', slug: 'nevent-ai/casos-practicos/diagnosticar-campana-floja' },
 								{ label: 'Optimizar inversión publicitaria', slug: 'nevent-ai/casos-practicos/optimizar-inversion-publicitaria' },
 								{ label: 'Cierre de mes y reporting', slug: 'nevent-ai/casos-practicos/cierre-de-mes-y-reporting' },
-								{ label: 'Colaboraciones con influencers', slug: 'nevent-ai/casos-practicos/colaboraciones-con-influencers' },
-								{ label: 'Gestionar varios clientes', slug: 'nevent-ai/casos-practicos/gestionar-varios-clientes' },
 							],
 						},
 						{ label: 'Frases listas para usar', slug: 'nevent-ai/frases-listas-para-usar' },
@@ -135,7 +135,59 @@ export default defineConfig({
 							],
 						},
 					],
-				}
+				},
+				// ─── English (/en/) — uses href to bypass slug validation ─────────
+				// Starlight uses href-based items for cross-locale links with different slugs
+				{
+					label: 'Nevent AI',
+					items: [
+						{ label: 'What is Nevent AI', link: '/en/nevent-ai/', badge: { text: 'New', variant: 'tip' } },
+						{ label: 'Connect with Claude', link: '/en/nevent-ai/connect-claude/' },
+						{ label: 'Connect with ChatGPT', link: '/en/nevent-ai/connect-chatgpt/' },
+						{
+							label: 'What you can do',
+							items: [
+								{ label: 'Overview', link: '/en/nevent-ai/what-you-can-do/' },
+								{ label: 'Event analytics', link: '/en/nevent-ai/what-you-can-do/analytics/' },
+								{ label: 'Campaigns', link: '/en/nevent-ai/what-you-can-do/campaigns/' },
+								{ label: 'Audience and segments', link: '/en/nevent-ai/what-you-can-do/audience/' },
+								{ label: 'Email templates', link: '/en/nevent-ai/what-you-can-do/templates/' },
+								{ label: 'Paid advertising', link: '/en/nevent-ai/what-you-can-do/paid-media/' },
+								{ label: 'Link tracking', link: '/en/nevent-ai/what-you-can-do/link-tracking/' },
+								{ label: 'Deliverability', link: '/en/nevent-ai/what-you-can-do/deliverability/' },
+								{ label: 'Multi-account management', link: '/en/nevent-ai/what-you-can-do/multi-account/' },
+							],
+						},
+						{
+							label: 'Use cases',
+							items: [
+								{ label: 'Overview', link: '/en/nevent-ai/use-cases/' },
+								{ label: 'Launching an event', link: '/en/nevent-ai/use-cases/launching-an-event/' },
+								{ label: 'Winning back dormant audience', link: '/en/nevent-ai/use-cases/winning-back-dormant-audience/' },
+								{ label: 'Diagnosing an underperforming campaign', link: '/en/nevent-ai/use-cases/diagnosing-an-underperforming-campaign/' },
+								{ label: 'Optimizing ad spend', link: '/en/nevent-ai/use-cases/optimizing-ad-spend/' },
+								{ label: 'Monthly close and reporting', link: '/en/nevent-ai/use-cases/monthly-close-and-reporting/' },
+							],
+						},
+						{ label: 'Ready-to-use prompts', link: '/en/nevent-ai/ready-to-use-prompts/' },
+						{ label: 'Permissions and security', link: '/en/nevent-ai/permissions-and-security/' },
+						{ label: 'FAQ', link: '/en/nevent-ai/faq/' },
+						{
+							label: 'For developers',
+							collapsed: true,
+							items: [
+								{ label: 'Overview', link: '/en/nevent-ai/developers/' },
+								{ label: 'Claude Code', link: '/en/nevent-ai/developers/claude-code/' },
+								{ label: 'Claude Desktop', link: '/en/nevent-ai/developers/claude-desktop/' },
+								{ label: 'Cursor, Cline, Continue, VS Code', link: '/en/nevent-ai/developers/cursor-cline-continue/' },
+								{ label: 'Local installation', link: '/en/nevent-ai/developers/local-installation/' },
+								{ label: 'Multi-tenant', link: '/en/nevent-ai/developers/multi-tenant/' },
+								{ label: 'Available tools', link: '/en/nevent-ai/developers/tools/' },
+								{ label: 'Troubleshooting', link: '/en/nevent-ai/developers/troubleshooting/' },
+							],
+						},
+					],
+				},
 			],
 
 			// Customización de UI
@@ -143,14 +195,17 @@ export default defineConfig({
 				'./src/styles/custom.css',
 			],
 
-			// i18n (preparado para español)
+			// i18n — español en raíz, inglés bajo /en/
 			defaultLocale: 'root',
 			locales: {
 				root: {
 					label: 'Español',
 					lang: 'es',
 				},
-				// Futuro: en: { label: 'English', lang: 'en' },
+				en: {
+					label: 'English',
+					lang: 'en',
+				},
 			},
 		}),
 	],

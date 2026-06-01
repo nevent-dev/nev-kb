@@ -1,0 +1,79 @@
+---
+title: Create and manage audience segments with a phrase
+description: Build contact segments using behavioral, purchase or interaction criteria. Preview the size before saving.
+sidebar:
+  order: 4
+---
+
+import { Aside, Badge } from '@astrojs/starlight/components';
+
+Segmenting an audience in a traditional CRM means opening the segment builder, adding criteria one by one, previewing, correcting errors and saving. If the segment is complex — attendees who bought in 2024 but not in 2025, who live in Madrid, and who didn't open your last email — you're looking at ten minutes of work.
+
+With Nevent AI, that description you just read is the prompt. One sentence. And the assistant calculates how many people qualify before you have to decide whether to save it.
+
+Marta organizes a jazz festival with 18,000 annual attendees. Three weeks before opening season pass sales, she needs to identify her most loyal attendees to give them early access. She does it in four minutes from the chat.
+
+## What you can ask
+
+Available in "Read-only" mode and above:
+
+- "List all my saved segments with the number of contacts in each one"
+- "How many people are in the 'VIP attendees' segment?"
+- "Show me the filters for the 'Recurring fans' segment"
+- "What criteria are available for creating a segment?"
+- "Preview how many people would be in a segment of attendees from Barcelona who have bought in the last 12 months"
+- "What values can I use to filter by city?"
+
+## What the assistant can prepare for you
+
+<Badge text="Read and prepare" variant="tip" /> Available in Read and prepare mode or higher.
+
+Beyond querying, the assistant can:
+
+- **Create a new segment** — describe in plain language who they are, and the assistant builds the filters and saves it to your account
+- **Update an existing segment** — modify the criteria of an already-saved segment without having to rebuild it from scratch
+- **Preview before saving** — the assistant always calculates the estimated segment size before persisting it, so you can confirm it makes sense
+
+The preview is especially useful: if you describe a segment that is too restrictive and the result is "23 people," you know you need to broaden the criteria before using it in a campaign.
+
+## How Marta uses it three weeks before the festival
+
+Marta's festival opens season pass sales in three weeks. She wants to give early access to the most loyal attendees: those who have attended two or more consecutive years.
+
+> "What criteria can I use to create a segment based on historical attendance?"
+
+The assistant lists the available criteria related to purchase history and attendance.
+
+> "Preview a segment with attendees who bought a ticket for the 2024 edition and the 2023 edition"
+
+The assistant calculates: 4,200 people.
+
+> "Add the filter that they haven't canceled or requested a refund in either edition"
+
+New preview: 3,800 people.
+
+> "Good. Save it as 'Loyal 2 editions 2023-2024'"
+
+The assistant creates the segment in the Nevent account.
+
+> "Of those 3,800, how many have a valid email and are not on the suppression list?"
+
+The assistant crosses the segment with deliverability data and returns the number of reachable contacts.
+
+Marta has the segment ready for the early access campaign. Without opening the segment builder.
+
+## Combine it with
+
+- [Campaigns](/en/nevent-ai/what-you-can-do/campaigns/) — use the newly created segment in a campaign draft
+- [Analytics](/en/nevent-ai/what-you-can-do/analytics/) — validate segment behavior with historical sales data
+- [Use case: winning back dormant audience](/en/nevent-ai/use-cases/winning-back-dormant-audience/)
+
+## What it cannot do yet
+
+- It cannot delete segments (requires manual action in the panel for safety)
+- Segments with very complex logic (three or more nested condition groups) may need manual adjustment afterwards
+- It cannot combine external data (Mailchimp lists, Excel) with Nevent criteria in the same segment
+
+<Aside type="tip" title="This is part of Nevent audience segmentation">
+The segmentation power you use here is backed by Nevent's [event audience segmentation](https://nevent.ai/en/solutions/segment-event-audience) module. [Request information](https://nevent.ai/en/request-information) to see it with your own data.
+</Aside>

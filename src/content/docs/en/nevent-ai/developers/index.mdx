@@ -1,0 +1,110 @@
+---
+title: Nevent AI — Developer overview
+description: Architecture, transports and entry points for the Nevent MCP server v1.2.1. Technical reference for integrators and developers.
+sidebar:
+  order: 1
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+
+**Nevent AI** is a [Model Context Protocol](https://modelcontextprotocol.io/) server that exposes 52 tools on top of the Nevent events CRM (campaigns, analytics, segments, paid media, short URLs). Available as a hosted service at `https://mcp.nevent.ai/mcp` and as a local npm package (`mcp-nevent` v1.2.1).
+
+## Transport modes
+
+Nevent AI supports two transport modes:
+
+| Mode | Transport | When to use |
+|------|-----------|-------------|
+| **Hosted (HTTP)** | Streamable HTTP over `https://mcp.nevent.ai/mcp` | Recommended — no installation, OAuth 2.1, multi-tenant |
+| **Local (stdio)** | stdin/stdout via `npx mcp-nevent` | Local development, CI/CD integrations, access from Claude Code |
+
+## Architecture
+
+```
+LLM (Claude / ChatGPT)
+        |
+        | MCP over Streamable HTTP or stdio
+        v
+  ┌─────────────────┐
+  │  Nevent AI      │  mcp.nevent.ai (hosted) or local (node dist/index.js)
+  └─────────────────┘
+        |
+        | REST + JWT
+        v
+  Nevent APIs (analytics, campaigns, segments, paid media)
+```
+
+**Hosted (HTTP):** OAuth 2.1. The MCP server acts as an authorization server, issuing short-lived JWTs after validating Nevent credentials. Each session is isolated — there are no shared service accounts.
+
+**Local (stdio):** Direct authentication with `NEVENT_JWT_TOKEN`. The stdio process is invoked by the MCP client (Claude Desktop, Cursor, etc.) and communicates over stdin/stdout.
+
+## Repository structure
+
+```
+src/
+├── index.ts                        # Entry point — stdio vs HTTP transport selection
+├── server.ts                       # MCP server factory (transport-agnostic)
+├── server-instructions.ts          # Server-level LLM instructions (session init)
+├── auth/
+│   ├── oauth-provider.ts           # OAuth 2.1 provider (login, token exchange)
+│   ├── oauth-stores.ts             # MongoDB-backed OAuth stores
+│   ├── token-service.ts            # JWT sign/verify with MCP_JWT_SECRET
+│   └── login-page.ts               # HTML login page renderer
+├── clients/
+│   ├── base-client.ts              # Shared HTTP client (JWT auth, 401 auto-refresh)
+│   ├── data-client.ts              # Data API client with TTL caches
+│   ├── paid-media-client.ts        # Paid media endpoints client
+│   ├── template-client.ts          # Template operation endpoints
+│   └── session-clients.ts          # Per-session aggregate with atomic JWT rotation
+├── config/
+│   ├── operation-mode.ts           # READ_ONLY | STANDARD | FULL operation guard
+│   └── timeouts.ts                 # Centralised timeout constants
+├── tools/                          # One file per tool category
+├── schemas/                        # Zod validation schemas per category
+└── types/                          # TypeScript types per domain
+```
+
+### Key design decisions
+
+- **SessionClients** provides atomic JWT rotation — if a tenant switch or 401 refresh fails mid-flight, neither client (data nor paid media) is updated.
+- **TTL caches** (5 min) in `DataClient` for capabilities and segmentation criteria reduce API calls on repeated invocations within a session.
+- **Operation mode guard** (`READ_ONLY` / `STANDARD` / `FULL`) controls which write tools are available, protecting against accidental mutations.
+
+## npm package
+
+```bash
+npm install -g mcp-nevent
+# or
+npx mcp-nevent
+```
+
+- **Current version:** 1.2.1
+- **Package:** [`mcp-nevent`](https://www.npmjs.com/package/mcp-nevent)
+- **License:** MIT
+
+## Configuration guides by client
+
+<CardGrid>
+  <Card title="Claude Code" icon="setting">
+    Add as an MCP server in Claude Code CLI, both stdio and remote HTTP.
+    [View guide](/en/nevent-ai/developers/claude-code/)
+  </Card>
+  <Card title="Claude Desktop" icon="document">
+    Configure `claude_desktop_config.json` on macOS and Windows.
+    [View guide](/en/nevent-ai/developers/claude-desktop/)
+  </Card>
+  <Card title="Cursor, Cline, Continue, VS Code" icon="puzzle">
+    Configuration for IDEs and code extensions.
+    [View guide](/en/nevent-ai/developers/cursor-cline-continue/)
+  </Card>
+  <Card title="Local installation" icon="rocket">
+    Environment variables, stdio and HTTP modes, building from source.
+    [View guide](/en/nevent-ai/developers/local-installation/)
+  </Card>
+</CardGrid>
+
+## Tools and errors reference
+
+- [52 available tools (full reference)](/en/nevent-ai/developers/tools/)
+- [Error codes and troubleshooting](/en/nevent-ai/developers/troubleshooting/)
+- [Multi-tenant model](/en/nevent-ai/developers/multi-tenant/)

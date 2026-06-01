@@ -1,0 +1,84 @@
+---
+title: Frequently asked questions about Nevent AI
+description: Answers to the most common questions about Nevent AI — compatibility, permissions, errors, team use and how to undo actions.
+sidebar:
+  order: 6
+---
+
+## Do I need administrator permissions in Nevent to use Nevent AI?
+
+Yes. Nevent AI connects to your Nevent Admin account and you need active access to the organization. If you cannot sign in to [admin.nevent.es](https://admin.nevent.es), you won't be able to authorize the connector.
+
+If you have limited access (for example, read-only access), the connector will work but you'll only be able to query data — you won't be able to create or modify anything, regardless of the configured mode.
+
+## Which versions of Claude and ChatGPT are compatible?
+
+**Claude:** MCP connectors are available in Claude.ai with a Pro plan or higher. They are not available on the free plan. Claude Code (the command-line tool) is also compatible — see the [developers guide](/en/nevent-ai/developers/claude-code/).
+
+**ChatGPT:** MCP connectors in ChatGPT require a Plus, Pro or Team plan. Availability may vary by region. Check the OpenAI documentation to confirm whether your account has them enabled.
+
+## Can I undo a scheduled send?
+
+A campaign with **"Scheduled"** status can be canceled — do so from the campaigns list in Nevent Admin before the send time arrives.
+
+A campaign with **"Sending"** or **"Sent"** status cannot be undone. The emails have already left the servers.
+
+That's why, when you ask the AI to schedule a send, Nevent AI requires you to explicitly confirm before executing the action. If you say "schedule the campaign for Monday," the assistant will ask you to confirm before doing it.
+
+## What happens if I ask something the assistant doesn't understand?
+
+The assistant will respond with a clarification. If the question is ambiguous, it will ask for more context. If it refers to data that doesn't exist (for example, an event that isn't in your account), it will tell you.
+
+If the assistant responds that it doesn't have access to that information, check:
+1. That the Nevent connector is active in that session
+2. That the data you're looking for exists in your account
+3. That your operation mode allows access to that feature
+
+## Does it work with a team account? Can multiple team members use Nevent AI?
+
+Yes. Each team member can connect Nevent AI with their own Claude or ChatGPT account. Each connection is independent: it uses the credentials of the user who sets it up and respects the permissions that user has in Nevent.
+
+No token is shared between users. If Ana connects Nevent AI in her Claude, her sessions are completely independent from those of Marcos.
+
+## Can Nevent AI modify or delete data without my asking?
+
+No. Nevent AI only executes actions when you explicitly ask it to. The assistant does not take initiative on its own.
+
+Additionally, write actions (creating campaigns, creating segments, scheduling sends) require an operation mode of Read and prepare or Read, prepare and send. In the default Read-only mode, the assistant can only query data, never modify it.
+
+## How do I know which organization the AI is working in?
+
+At the start of a conversation with Nevent AI active, the session uses the organization associated with the credentials you used when authorizing the connector. That is your main organization in Nevent.
+
+If you have access to multiple organizations, you can ask the AI to list the available organizations and switch to a different one within the same conversation.
+
+## What happens with my data? Does the AI use it for training?
+
+No. The data from your Nevent account that appears in conversations is not used to train the language models of Anthropic or OpenAI. Data flows within the context of the conversation and does not leave Nevent's infrastructure toward the model training servers.
+
+For more detail, see the [permissions and security](/en/nevent-ai/permissions-and-security/) guide.
+
+## The connector shows a "401 Unauthorized" error. What do I do?
+
+This error means the session token has expired or your Nevent credentials have changed. To fix it:
+
+1. Go to Settings → Connectors in Claude or ChatGPT
+2. Remove the Nevent connector
+3. Add the connector again with the URL `https://mcp.nevent.ai/mcp`
+4. Authorize again with your Nevent credentials
+
+If the error persists, verify that your Nevent Admin account is active by accessing [admin.nevent.es](https://admin.nevent.es) directly.
+
+## Can I use Nevent AI without an internet connection?
+
+No. Nevent AI needs an internet connection to query your account data in real time. It works from any device and network, but requires access to `mcp.nevent.ai` and the Nevent APIs.
+
+## I have more questions. Where can I write?
+
+Write to us at [support@nevent.ai](mailto:support@nevent.ai). The Nevent support team will respond within a maximum of 24 business hours.
+
+## Next step
+
+- [See use cases with example questions](/en/nevent-ai/use-cases/)
+- [Connect Claude to Nevent AI](/en/nevent-ai/connect-claude/)
+- [For developers: technical documentation](/en/nevent-ai/developers/)

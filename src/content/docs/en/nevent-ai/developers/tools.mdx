@@ -1,0 +1,137 @@
+---
+title: Nevent AI tools reference
+description: The 52 available tools in Nevent AI grouped by category — analytics, campaigns, templates, deliverability, paid media, short URLs and segments.
+sidebar:
+  order: 7
+---
+
+Nevent AI exposes 52 tools organized in 7 categories. Read tools are available in all operation modes. Write tools require `STANDARD` or `FULL` mode.
+
+## Analytics and segmentation
+
+Tools for querying event data, analytics and building audiences.
+
+| Tool | Description |
+|------|-------------|
+| `nevent_analytics_capabilities` | Discover available data tables — call first if you don't know what data exists |
+| `nevent_analytics_table_schema` | Get column definitions for a specific table |
+| `nevent_analytics_query` | Execute a query with dimensions, metrics, filters and date ranges |
+| `nevent_analytics_filter_values` | Get distinct values for a field to build valid filters |
+| `nevent_campaign_report` | Full campaign performance report — 13 parallel queries in a single call |
+| `nevent_segmentation_criteria` | List all available criteria for building audience segments |
+| `nevent_dimension_values` | Autocomplete values for a segmentation criterion |
+| `nevent_segment_preview` | Preview the estimated audience size without saving |
+| `nevent_segment_execute` | Execute a segment and return matching contacts paginated |
+| `nevent_help` | In-session contextual guide by topic (workflows, errors, tenants, analytics) |
+
+### Recommended analytics workflow
+
+```
+1. nevent_analytics_capabilities   → discover available tables
+2. nevent_analytics_table_schema   → get exact column names
+3. nevent_analytics_filter_values  → get valid values for filters
+4. nevent_analytics_query          → execute the query
+```
+
+## Multi-tenant and segment management
+
+Tools for switching organizations and managing saved segments.
+
+| Tool | Description |
+|------|-------------|
+| `nevent_list_tenants` | List all tenants accessible to the authenticated user |
+| `nevent_switch_tenant` | Set the active tenant for this MCP session |
+| `nevent_reset_tenant` | Restore the origin tenant after a cross-tenant operation (SUPERADMIN) |
+| `nevent_list_segments` | List the saved segments for the active tenant |
+| `nevent_get_segment` | Get the filter definition and metadata for a segment |
+| `nevent_create_segment` | Create and persist a new audience segment |
+| `nevent_update_segment` | Modify the name or filter definition of an existing segment |
+
+## Campaigns
+
+Tools for querying, creating and scheduling email, SMS and WhatsApp campaigns.
+
+| Tool | Description |
+|------|-------------|
+| `nevent_list_campaigns` | List campaigns with status, channel and engagement metrics |
+| `nevent_get_campaign` | Full campaign detail: content, metrics and tracked links |
+| `nevent_get_campaign_insights` | AI-generated insights and anomalies for a campaign |
+| `nevent_create_campaign` | Create a campaign draft (EMAIL/SMS/WhatsApp) |
+| `nevent_schedule_campaign` | Schedule a draft for sending (requires `confirmed=true`) |
+
+### Recommended workflow for creating and scheduling a campaign
+
+```
+1. nevent_get_sending_profile      → verify the sending domain is validated
+2. nevent_get_suppressions_summary → check suppression rate (alert if > 2%)
+3. nevent_list_segments            → select audience (get segment_id)
+4. nevent_segment_preview          → confirm audience count with the user
+5. nevent_list_templates           → select email template (get template_id)
+6. nevent_get_template             → inspect template content before sending
+7. nevent_create_campaign          → create DRAFT (no messages sent yet)
+8. nevent_schedule_campaign        → schedule send (confirmed=true required)
+```
+
+## Email templates
+
+Tools for managing and previewing email templates.
+
+| Tool | Description |
+|------|-------------|
+| `nevent_list_templates` | List email templates for the active tenant |
+| `nevent_get_template` | Full template content: MJML/HTML source, subject and usage metrics |
+| `nevent_create_template` | Create a new email template |
+| `nevent_update_template` | Update the content or tags of an existing template |
+| `nevent_clone_template` | Duplicate an existing template |
+| `nevent_rename_template` | Rename a template without re-rendering the content |
+| `nevent_preview_template` | Preview with merge-tag resolution against a sample user |
+| `nevent_send_test_template` | Send a real test email via SES to up to 10 recipients |
+
+## Deliverability
+
+Tools for monitoring sending domain health and suppressions.
+
+| Tool | Description |
+|------|-------------|
+| `nevent_get_sending_profile` | Sender domain validation and warm-up status |
+| `nevent_get_suppressions_summary` | Suppression summary with 30-day trend and breakdown by reason |
+
+## Paid media
+
+11 tools for analyzing campaign performance on Meta and Google.
+
+| Tool | Description |
+|------|-------------|
+| `nevent_paid_ads_status` | Check whether a provider account is connected and when data was last synced |
+| `nevent_paid_ads_health` | Surface throttle status, feature gate enrollment and stale syncs |
+| `nevent_list_paid_campaigns` | List all synced campaigns with budget and status |
+| `nevent_get_paid_campaign_insights` | Daily metrics: spend, CTR, CPM, CPC, ROAS |
+| `nevent_paid_attribution` | Link campaigns to ticket sales and revenue via UTM matching |
+| `nevent_list_paid_ad_groups` | List ad groups, optionally filtered by campaign |
+| `nevent_get_paid_ad_group_insights` | Daily metrics for an ad group |
+| `nevent_get_paid_ad_group_comparative_stats` | Ad group comparison vs its siblings in the campaign |
+| `nevent_get_paid_ad_group_targeting` | Full audience targeting configuration |
+| `nevent_list_paid_ads` | List individual ads with UTM fields |
+| `nevent_get_paid_ad_creative` | Ad creative: body, headline, CTA, images/videos |
+
+## Short URLs
+
+9 tools for creating, managing and analyzing tracking links.
+
+| Tool | Tier | Description |
+|------|------|-------------|
+| `nevent_list_short_urls` | Read | Paginated list of all short URLs with click count. Filter by `isActive` or search by title/URL. |
+| `nevent_get_short_url` | Read | Full detail of a short URL — id, shortCode, longUrl, tags, metadata, clickCount, isParent. |
+| `nevent_get_short_url_metrics` | Read | Aggregated analytics over N days: totalClicks, uniqueVisitors, clicksByDay, clicksByDevice, clicksByCountry, topReferers. |
+| `nevent_get_short_url_campaign_metrics` | Read | Campaign-level CTR — a parent link and all its per-user variants. Returns avgClicksPerUrl, clickThroughRate, topUsersByClicks. |
+| `nevent_get_short_url_clicks` | Read | Individual click records ordered most recent first: clickedAt, device, country, UTMs, isPaidTraffic. |
+| `nevent_list_short_url_user_links` | Read | All per-user short URL variants created under a parent link/campaign. |
+| `nevent_create_short_url` | Write | Create a new short URL. Supports customShortCode, expiresAt, tags and metadata. |
+| `nevent_update_short_url` | Write | Update title, longUrl, isActive, tags, metadata or expiration. Changes apply immediately. |
+| `nevent_create_bulk_user_short_urls` | Write | Generate per-user tracking variants for a campaign — each user gets a unique link with click attribution. |
+
+## Next step
+
+- [Error codes and troubleshooting](/en/nevent-ai/developers/troubleshooting/)
+- [Multi-tenant model](/en/nevent-ai/developers/multi-tenant/)
+- [Local installation and environment variables](/en/nevent-ai/developers/local-installation/)

@@ -1,0 +1,85 @@
+---
+title: Ask anything about your event data
+description: Query sales, attendance, revenue and campaign metrics in real time. Filter by date, ticket type or segment with a single question.
+sidebar:
+  order: 2
+---
+
+import { Aside, Badge } from '@astrojs/starlight/components';
+
+Every time you need a data point about your event, you open the dashboard, navigate through menus, find the right filter and export a spreadsheet you then have to interpret. That costs time, and in the run-up to a launch, time is the one thing in short supply.
+
+With Nevent AI, you ask the question in plain language and get the answer instantly. No menus. No exporting anything.
+
+Carlos, manager of a concert venue in Madrid, opens the chat on Monday morning before the team meeting. In three minutes he has the previous week's figures broken down by ticket type, compared against the same period last month. All from the Claude window.
+
+## What you can ask
+
+These queries are available in any access mode:
+
+- "Show me registrations for Friday's concert broken down by ticket type"
+- "What was the total revenue from my events in April?"
+- "Which event had the most sales in the first quarter?"
+- "Compare attendance across the last three editions of the festival"
+- "How many VIP tickets are still available for Saturday's show?"
+- "How many tickets were sold in the first 48 hours of sales?"
+- "Which ticket type sells best at my summer events?"
+- "Give me the revenue breakdown by sales channel for the 'Electric Night' event"
+- "What data tables do I have available in my account?" ← useful question if you don't know where to start
+
+:::tip[Tip]
+If you're not sure what data you have, start by asking what information is available in your account. The assistant explains what tables and metrics you can query.
+:::
+
+## What the assistant can prepare for you
+
+<Badge text="Read-only" variant="note" /> Available in all modes.
+
+With any access level, the assistant can:
+
+- Cross data from multiple tables in a single response (sales + attendance + channel)
+- Apply complex filters that would require several steps in the dashboard
+- Detect trends and anomalies in your event performance
+- Generate comparisons between periods, events or ticket types
+- Calculate derived metrics like average ticket value, conversion rate or % occupancy
+
+You don't need to know exactly how your data is organized. The assistant discovers the structure of your account before responding, so you can ask in plain language and it handles the translation internally.
+
+## How Carlos uses it on a Monday morning
+
+Carlos has five shows scheduled this month at his venue. Before the Monday team meeting, he needs a quick summary of the previous week.
+
+> "How many tickets did we sell last week in total and broken down by show?"
+
+The assistant returns a table with the five events, tickets sold and percentage of capacity filled for each one.
+
+> "Which show has the worst sales pace compared to previous weeks?"
+
+The assistant identifies the show with the slowest sales progression and flags it.
+
+> "Compare that show with the same type of event from last month"
+
+He gets a direct comparison: average price, sales channel, day of the week.
+
+> "How much revenue did we bring in total across all shows last week?"
+
+Total revenue figure, broken down between advance sales and door.
+
+With four questions, Carlos has the weekly summary ready for the meeting. What used to mean opening three separate reports now takes four minutes.
+
+## Combine it with
+
+- [Campaigns](/en/nevent-ai/what-you-can-do/campaigns/) — cross sales data with email send performance
+- [Paid advertising](/en/nevent-ai/what-you-can-do/paid-media/) — relate ticket revenue to advertising spend
+- [Use case: diagnosing an underperforming campaign](/en/nevent-ai/use-cases/diagnosing-an-underperforming-campaign/)
+
+## What it cannot do yet
+
+- It cannot modify sales or ticket data (that is managed from the Nevent panel)
+- It does not have access to physical box office data if that is not integrated with Nevent
+- It cannot generate visual charts directly (it returns structured tables and text)
+- Complex queries with many chained filters may take a few extra seconds
+
+<Aside type="tip" title="This is part of Nevent Analytics">
+The data you query here comes from [Nevent Analytics](https://nevent.ai/en/features/event-analytics), the metrics and business intelligence module of Nevent. [Request information](https://nevent.ai/en/request-information) to see it in action in your account.
+</Aside>

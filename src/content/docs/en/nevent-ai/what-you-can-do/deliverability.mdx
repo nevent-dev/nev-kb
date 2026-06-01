@@ -1,0 +1,77 @@
+---
+title: Check the health of your email sends
+description: Query the status of your sending domain, suppression rate and bounce reasons. Detect deliverability problems before they affect your campaigns.
+sidebar:
+  order: 8
+---
+
+import { Aside, Badge } from '@astrojs/starlight/components';
+
+An email that doesn't reach the inbox is like a campaign that was never launched. Most deliverability problems are detected too late: when the open rate has already dropped, when bounces have accumulated, or when the domain starts being flagged as spam.
+
+With Nevent AI you can do a quick check before each important send. Two questions and you know whether your domain is properly configured and whether there are any warning indicators to review.
+
+Carlos, venue manager, does a quick check every time he's about to send a campaign to more than 5,000 contacts. It takes him three minutes and has saved him more than one problem.
+
+## What you can ask
+
+Available in "Read-only" mode and above:
+
+- "Is my sending domain validated and configured correctly?"
+- "How many suppressions have we accumulated in the last 30 days and what are the reasons?"
+- "Is this month's bounce rate within normal limits?"
+- "How many spam suppressions did we have in the last send?"
+- "What is the suppression trend over the last three months? Is it going up or down?"
+- "How many contacts are currently suppressed due to hard bounces in my list?"
+
+## What the assistant can prepare for you
+
+<Badge text="Read-only" variant="note" /> Deliverability tools are read-only. The assistant reports and alerts, but domain management and list cleaning are done from the Nevent panel.
+
+The assistant can:
+
+- **Review domain status** — DNS validation, warm-up status, possible alerts
+- **Summarize suppressions** — total accumulated, breakdown by reason (bounce, spam, manual unsubscribe) and 30-day trend
+- **Alert if there are risk indicators** — if the spam suppression rate exceeds 0.1% or hard bounces are above 2%, the assistant flags it
+
+:::caution[Important]
+A spam suppression rate above 0.1% is a serious warning signal. If the assistant detects that level, review the segment quality and sending history before your next mass send.
+:::
+
+## How Carlos uses it before a large send
+
+Carlos is about to send the season presale campaign to his full database: 8,200 contacts. Before scheduling it, he does a quick check.
+
+> "Is my sending domain validated and are there any active alerts?"
+
+The assistant confirms the domain is validated and there are no active alerts.
+
+> "How many suppressions did we have last month and for what reason?"
+
+The assistant returns the summary: 340 suppressions, of which 280 are soft bounces, 45 hard bounces and 15 spam complaints.
+
+> "Is the 15 spam complaints normal for my history?"
+
+The assistant compares with the previous three months. The current rate is slightly above average but within the normal range.
+
+> "Is the suppression trend going up or down compared to the last three months?"
+
+The assistant shows the monthly progression. The trend is stable, with no concerning spikes.
+
+Carlos confirms he can send without risk. The campaign is scheduled.
+
+## Combine it with
+
+- [Campaigns](/en/nevent-ai/what-you-can-do/campaigns/) — review deliverability before scheduling an important send
+- [Audience and segments](/en/nevent-ai/what-you-can-do/audience/) — filter out suppressed contacts from the segment before creating the campaign
+- [Use case: diagnosing an underperforming campaign](/en/nevent-ai/use-cases/diagnosing-an-underperforming-campaign/)
+
+## What it cannot do yet
+
+- It cannot delete suppressed contacts or clean the list from the chat
+- It does not manage DNS domain configuration (that requires access to the panel and domain provider)
+- It does not have deliverability data for campaigns sent outside of Nevent
+
+<Aside type="tip" title="Deliverability is included in Nevent">
+The health of your sends is part of Nevent's [omnichannel event communication](https://nevent.ai/en/solutions/omnichannel-event-communication) system. [Request information](https://nevent.ai/en/request-information) if you want a review of your sending domain configuration.
+</Aside>

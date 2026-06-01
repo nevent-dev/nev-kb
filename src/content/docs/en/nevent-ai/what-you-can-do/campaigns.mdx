@@ -1,0 +1,80 @@
+---
+title: Query and prepare email, SMS and WhatsApp campaigns
+description: Analyze the performance of your sends, create drafts and schedule email, SMS and WhatsApp campaigns without opening the admin panel.
+sidebar:
+  order: 3
+---
+
+import { Aside, Badge } from '@astrojs/starlight/components';
+
+How many times have you opened the dashboard just to check whether a campaign has been sent, or to look up the open rate of the last email? That thirty-second query ends up being five minutes of navigation.
+
+With Nevent AI, the answer comes in one question. And if you need to prepare the next send, the assistant can put together the draft for you.
+
+Sofía, community manager of a nightclub, schedules between two and three email campaigns a week. Before each send she reviews the results of the previous one to adjust the subject line and timing. She does it all from the chat without switching tabs.
+
+## What you can ask
+
+Available in "Read-only" mode and above:
+
+- "Which campaigns sent this month had an open rate above 25%?"
+- "Show me the performance of the last email campaign — opens, clicks, unsubscribes and bounces"
+- "What status is the 'Summer Night' campaign in? Has it been sent yet?"
+- "List all campaigns in draft status"
+- "Compare the last three SMS campaigns by click rate"
+- "How many people unsubscribed from the last email?"
+- "What time of day has the best open rate across my last 10 campaigns?"
+- "Give me the full analysis of the 'Season opening' campaign with anomaly detection"
+
+## What the assistant can prepare for you
+
+<Badge text="Read and prepare" variant="tip" /> Available in Read and prepare mode or higher.
+
+Beyond querying, the assistant can:
+
+- **Create a campaign draft** — specify the channel (email, SMS, WhatsApp), the target segment and the template, and the assistant builds the draft in your account
+- **Schedule a send** — give it the date and time and the assistant schedules the campaign (always with your explicit confirmation before scheduling)
+- **Generate analysis and insights** — the assistant detects anomalous patterns, compares with previous campaigns and suggests improvements
+
+:::caution[Important]
+Scheduling or launching campaigns requires your explicit confirmation. The assistant always asks for confirmation before scheduling a send. It never does it automatically.
+:::
+
+## How Sofía uses it on a Wednesday afternoon
+
+Sofía needs to prepare the Friday email for next week's show.
+
+> "How did the last Friday email campaign go? I want open rate, clicks and unsubscribes"
+
+The assistant returns the metrics for the last Friday send and compares them with the average of her last five campaigns.
+
+> "The open rate was 18%, lower than usual. Any anomalies detected?"
+
+The assistant analyzes the campaign in depth: the subject line was longer than usual, the send time was 30 minutes later, and the segment included contacts who hadn't opened in 60 days.
+
+> "Got it. Create an email draft for the show on Friday the 14th, using the 'Active last 30 days' segment and the 'Weekly schedule' template"
+
+The assistant creates the draft in the Nevent account. Sofía reviews it in the panel and adjusts the subject line.
+
+> "Schedule that draft for Wednesday at 18:00"
+
+The assistant asks for confirmation, Sofía confirms, and the campaign is scheduled.
+
+The whole process: ten minutes. Before it took twice as long and she still skipped the step of reviewing previous performance.
+
+## Combine it with
+
+- [Analytics](/en/nevent-ai/what-you-can-do/analytics/) — cross campaign metrics with ticket sales data
+- [Audience and segments](/en/nevent-ai/what-you-can-do/audience/) — create the right segment before preparing the draft
+- [Use case: winning back dormant audience](/en/nevent-ai/use-cases/winning-back-dormant-audience/)
+
+## What it cannot do yet
+
+- It cannot edit the HTML content or design of an already-created campaign (that is done in the Nevent visual editor)
+- It cannot send campaigns instantly without explicit confirmation
+- It does not manage campaigns on external channels not integrated with Nevent (Mailchimp, Brevo, etc.)
+- Creating multichannel campaigns in a single step (email + SMS + WhatsApp simultaneously) requires separate steps
+
+<Aside type="tip" title="This is part of Nevent Email Marketing">
+The campaigns you prepare here run through [Nevent Email Marketing](https://nevent.ai/en/features/email-marketing), designed specifically for event promoters. [Request information](https://nevent.ai/en/request-information) if you want to see it in action.
+</Aside>

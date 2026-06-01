@@ -1,0 +1,98 @@
+---
+title: Permissions and security in Nevent AI
+description: Understand what the AI can and cannot do in each Nevent AI access mode. OAuth 2.1, session isolation and data privacy explained without jargon.
+sidebar:
+  order: 5
+---
+
+Before connecting Nevent AI to your AI assistant, it helps to understand what level of access the AI has to your data. Nevent gives you control over this with three operation modes.
+
+## The three access modes
+
+When you connect Nevent AI, the AI's access to your data is controlled by an operation mode. The mode determines what the AI can query and what actions it can execute.
+
+### Read-only mode
+
+The AI can view and analyze data, but cannot modify anything.
+
+**What it can do:**
+- Query campaign metrics, opens, clicks, revenue
+- Analyze event data and ticket sales
+- List existing segments, templates and campaigns
+- View the performance of your advertising campaigns
+- Review the status of your short URLs and their clicks
+- Check the status of your sending domain
+
+**What it cannot do:**
+- Create, modify or delete campaigns
+- Create or edit audience segments
+- Schedule or launch sends
+- Modify email templates
+- Create or update short URLs
+
+This is the most conservative mode. Perfect for day-to-day analysis and queries when you want to make sure the AI never changes anything.
+
+:::tip[Tip]
+If you share Nevent AI access with your team or an external provider, Read-only mode is the safest option.
+:::
+
+### Read and prepare mode
+
+The AI can query data and also perform common marketing actions.
+
+**What it can do:**
+- Everything it can do in Read-only mode
+- Create campaign drafts
+- Create and update audience segments
+- Create and update email templates
+- Create and update short URLs
+- Schedule campaigns for future sends (requires explicit confirmation)
+
+**What it cannot do:**
+- Launch campaigns instantly without confirmation
+- Advanced administration operations
+
+This is the recommended mode for daily use by the marketing team. It provides the ability to act without access to more sensitive functions.
+
+### Read, prepare and send mode
+
+The AI has full access to all available features.
+
+**What it can do:**
+- Everything it can do in Read and prepare mode
+- Full access to all available tools
+
+:::caution[Important]
+Read, prepare and send mode gives the AI the ability to execute all available actions. Only use it if you know exactly what you are doing and in environments where you have full control over conversations.
+:::
+
+## How authorization works
+
+When you connect Nevent AI to Claude or ChatGPT, the authorization process uses **OAuth 2.1** — the same standard used by "Sign in with Google" or "Continue with Facebook".
+
+This means:
+
+1. **Your password never reaches Claude or ChatGPT.** You enter your credentials directly on the Nevent screen, not in the AI assistant.
+2. **Nevent issues a temporary session token.** This token is what the AI uses to query your data. It expires automatically.
+3. **You can revoke access at any time.** From your Nevent account settings you can deactivate active tokens.
+
+## Session isolation
+
+Every conversation you open in Claude or ChatGPT with Nevent AI active creates an **independent session**. This has two important implications:
+
+- If you switch organization (account) in one conversation, that change does not affect other conversations open at the same time.
+- When you close the conversation, the session closes and the token is no longer valid for new queries.
+
+If you work with multiple Nevent organizations (for example, you manage several festivals), you can switch between them within the same conversation without signing out. See the [multi-tenant guide for developers](/en/nevent-ai/developers/multi-tenant/) if you need more technical detail.
+
+## Data privacy
+
+The data from your Nevent account that the AI queries during a conversation **is not used to train the language models** of Anthropic (Claude) or OpenAI (ChatGPT).
+
+Data flows from Nevent to the AI assistant only within the context of each conversation. Nevent does not store the content of your conversations with the assistant.
+
+## Next step
+
+- [Frequently asked questions about Nevent AI](/en/nevent-ai/faq/)
+- [Connect Claude to Nevent AI](/en/nevent-ai/connect-claude/)
+- [For developers: advanced configuration](/en/nevent-ai/developers/)

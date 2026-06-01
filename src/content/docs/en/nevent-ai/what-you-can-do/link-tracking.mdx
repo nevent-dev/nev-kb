@@ -1,0 +1,83 @@
+---
+title: Generate and measure tracking links for your campaigns
+description: Create tracking links per user or per channel, measure clicks, devices and countries. Know exactly which influencer or campaign drives the most ticket sales.
+sidebar:
+  order: 7
+---
+
+import { Aside, Badge } from '@astrojs/starlight/components';
+
+When you launch a campaign with twenty influencers and sales go up, do you know which of the twenty is driving the most traffic? If they all share the same link, you'll never know.
+
+With Nevent AI you can generate in a single step a unique tracking link for each influencer. When someone clicks, Nevent knows who generated it. That way you can identify your best collaborators with real data, not Instagram screenshots.
+
+David, commercial director of a B2B trade fair, launches each edition with an ambassador program. This year he has 30 collaborators and needs to know, at the close of registrations, which five generated the highest return.
+
+## What you can ask
+
+Available in "Read-only" mode and above:
+
+- "List all my active short URLs with their click count"
+- "How many clicks has the ticket sales page link had this week?"
+- "Show me the detail of the 'festival-2026-main' link: clicks by day, device and country"
+- "Who are the 10 users with the most clicks on the 'B2B Fair Ambassadors' campaign links?"
+- "Which countries are the clicks to the festival link coming from?"
+- "What device do most people who click my links use?"
+- "What is the overall click rate of the influencer campaign? And per user?"
+- "Show me the last 50 clicks on the 'summer-2026' link with date, device and country"
+
+## What the assistant can prepare for you
+
+<Badge text="Read and prepare" variant="tip" /> Available in Read and prepare mode or higher.
+
+The assistant can:
+
+- **Create a short URL** — with a custom code, expiration date, tags or metadata
+- **Update a short URL** — change the destination, the title, activate or deactivate the link
+- **Generate links per user in bulk** — create a unique link for each collaborator in a single instruction; each link has individual attribution
+- **Deactivate a link** — useful when a campaign ends and you want to avoid residual clicks
+
+:::tip[Tip]
+When using the per-user link generator for an influencer program, also specify a campaign tag. That way you can filter all links from the same program with a single query later.
+:::
+
+## How David uses it at the close of his fair's registrations
+
+David's B2B fair closes registrations in 48 hours. He needs to know which ambassadors generated the most traffic to include them in the closing report.
+
+> "List all active links from the 'Ambassadors Fair 2026' campaign with the click count for each one"
+
+The assistant returns the 30 links with their accumulated clicks.
+
+> "Who are the five collaborators with the most clicks?"
+
+The assistant sorts and filters the ranking.
+
+> "For the collaborator with the most clicks, show me clicks by day over the last week"
+
+The assistant shows the daily progression to identify whether the traffic peak was on a specific day or consistent.
+
+> "How many of those clicks came from mobile and how many from desktop?"
+
+Device breakdown for the leading collaborator.
+
+> "Give me the overall CTR for the campaign: total clicks divided by links created"
+
+The assistant calculates the overall click rate for the ambassador program.
+
+With that report, David can present at the close which collaborators generated the most impact, backed by data.
+
+## Combine it with
+
+- [Paid advertising](/en/nevent-ai/what-you-can-do/paid-media/) — complement UTM attribution with individual tracking links
+- [Campaigns](/en/nevent-ai/what-you-can-do/campaigns/) — include tracking links in your email or SMS sends
+
+## What it cannot do yet
+
+- It cannot generate tracking links with custom domain integration from the chat (domain configuration is done in the panel)
+- It cannot export the click list to CSV directly (requires manual download from the panel)
+- The maximum number of links per batch is 500 in a single instruction
+
+<Aside type="tip" title="This is part of Nevent Analytics">
+Link tracking is integrated into [Nevent Analytics](https://nevent.ai/en/features/event-analytics) so you can cross click data with sales metrics. [Request information](https://nevent.ai/en/request-information) to see it in action.
+</Aside>

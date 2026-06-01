@@ -1,0 +1,81 @@
+---
+title: Work with your email templates from the chat
+description: List, preview, clone and edit email templates. Send real test emails to your inbox before using a template in a campaign.
+sidebar:
+  order: 5
+---
+
+import { Aside, Badge } from '@astrojs/starlight/components';
+
+Before launching a mass email, it's always worth reviewing the template: that personalized data displays correctly, that the subject line isn't truncated, that the design looks right. Normally that means opening the editor, finding the template, previewing it and sending yourself a test.
+
+With Nevent AI you can do that review from the chat. The assistant can preview the template with data from a real contact, clone it for a new campaign, or send you a test directly to your email.
+
+Sofía, community manager of a nightclub, has four base templates she rotates each week. Before using one, she asks the assistant to show it with the data of a specific attendee to check that the personalization works.
+
+## What you can ask
+
+Available in "Read-only" mode and above:
+
+- "List all my email templates"
+- "Which templates have I used in the last 3 months?"
+- "Show me the full content of the 'Purchase confirmation' template"
+- "How many times has the 'Monthly newsletter' template been used?"
+- "Preview the 'Weekly schedule' template with data from a real attendee"
+
+## What the assistant can prepare for you
+
+<Badge text="Read and prepare" variant="tip" /> Available in Read and prepare mode or higher.
+
+Beyond querying, the assistant can:
+
+- **Create a new template** — describe the content and the assistant generates the base structure in your account
+- **Update a template** — modify the subject line, content or tags of an existing template
+- **Clone a template** — duplicate a template to use as the base for a variant without modifying the original
+- **Rename a template** — change the name without touching the content
+- **Preview with real data** — the assistant resolves personalization variables using a sample contact
+- **Send a test** — send the test email to up to 10 recipients to validate the design in a real inbox
+
+:::tip[Tip]
+Use the preview with real data feature before launching any campaign with personalization. That way you catch any variable like name or event that appears blank.
+:::
+
+## How Sofía uses it before each weekly send
+
+Sofía has a template called 'Weekly schedule' that she uses every Wednesday. Before creating the campaign draft, she wants to make sure the personalization works correctly.
+
+> "List my templates and tell me when I last used each one"
+
+The assistant shows the four active templates with the date of last use.
+
+> "Preview 'Weekly schedule' with data from a real attendee"
+
+The assistant resolves the variables (name, city, next event) with data from a contact in the database and shows how the email would look in the inbox.
+
+> "There's a variable that appears blank. Rename the template 'Weekly schedule v2' and update the welcome field to have fallback text if the name is empty"
+
+The assistant updates the template.
+
+> "Send me a test to my email before using it in the campaign"
+
+The assistant sends the test email. Sofía reviews it in her inbox — everything looks correct.
+
+> "Create a campaign draft using 'Weekly schedule v2' for the 'Active last 30 days' segment"
+
+The reviewed template is ready for Wednesday's campaign.
+
+## Combine it with
+
+- [Campaigns](/en/nevent-ai/what-you-can-do/campaigns/) — use the reviewed template in a campaign draft
+- [Audience and segments](/en/nevent-ai/what-you-can-do/audience/) — create the right segment for the campaign using this template
+- [Use case: diagnosing an underperforming campaign](/en/nevent-ai/use-cases/diagnosing-an-underperforming-campaign/)
+
+## What it cannot do yet
+
+- It cannot edit the visual design (blocks, colors, images) from the chat — that is done in the Nevent visual editor
+- It cannot import templates from other platforms (Mailchimp, Klaviyo)
+- Creating templates from scratch is functional but produces basic HTML; for more elaborate designs use the visual editor
+
+<Aside type="tip" title="This is part of Nevent Email Marketing">
+The templates you manage here are part of the [Nevent Email Marketing](https://nevent.ai/en/features/email-marketing) module. [Request information](https://nevent.ai/en/request-information) to see all the capabilities of the visual editor.
+</Aside>

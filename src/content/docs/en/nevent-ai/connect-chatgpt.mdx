@@ -1,0 +1,96 @@
+---
+title: How to connect Nevent AI to ChatGPT
+description: Connect your Nevent account to ChatGPT to query campaigns, analytics and audiences from the chat. Step-by-step guide with the server URL.
+sidebar:
+  order: 4
+---
+
+ChatGPT can also connect to Nevent AI so you can query and manage your event data from the chat. The process is similar to Claude: you enter the server URL and authorize with your Nevent account.
+
+Estimated time: about 2–3 minutes.
+
+## Before you start
+
+You need:
+- A [ChatGPT](https://chatgpt.com) account with a Plus, Pro or Team plan (MCP connectors require a paid plan)
+- An active [Nevent](https://admin.nevent.es) account with administrator access
+
+:::note[Note]
+MCP connector availability in ChatGPT may vary by region and account type. If you don't see the connectors option in your settings, check that your plan includes it or refer to the official OpenAI documentation.
+:::
+
+## Step 1: open ChatGPT settings
+
+Go to [chatgpt.com](https://chatgpt.com) and click your avatar or the menu button in the top-left. Select **Settings** in the dropdown menu.
+
+{/* TODO: screenshot — ChatGPT sidebar with the user menu open and the Settings option visible. Save to /images/guias/nevent-ai/connect-chatgpt/step-1.png */}
+
+## Step 2: go to the connectors section
+
+Inside settings, look for the **Connectors** or **Plugins & Integrations** section in the left panel.
+
+{/* TODO: screenshot — ChatGPT settings with the Connectors section visible. Save to /images/guias/nevent-ai/connect-chatgpt/step-2.png */}
+
+Click **Connectors**.
+
+## Step 3: add a custom MCP connector
+
+Look for the button to add a new connector. It may be called **Add custom MCP**, **Connect**, or **Add integration**, depending on your version of ChatGPT.
+
+{/* TODO: screenshot — Connectors page in ChatGPT with the button to add a connector. Save to /images/guias/nevent-ai/connect-chatgpt/step-3.png */}
+
+Click that button.
+
+## Step 4: enter the Nevent AI URL
+
+A field appears to enter the server URL. Type:
+
+```
+https://mcp.nevent.ai/mcp
+```
+
+{/* TODO: screenshot — form with the URL field and "https://mcp.nevent.ai/mcp" entered. Save to /images/guias/nevent-ai/connect-chatgpt/step-4.png */}
+
+Click **Save** or **Add** to continue.
+
+## Step 5: authorize with your Nevent account
+
+ChatGPT will launch the OAuth authorization flow. The Nevent login screen opens.
+
+{/* TODO: screenshot — OAuth authorization window with the Nevent login form. Save to /images/guias/nevent-ai/connect-chatgpt/step-5.png */}
+
+Enter your Nevent Admin email and password and confirm access. Nevent will ask you to confirm that you authorize access from ChatGPT.
+
+:::note[Note]
+As with Claude, this authorization uses OAuth 2.1. ChatGPT never receives your Nevent password, only a temporary session token that expires automatically.
+:::
+
+## Step 6: verify the connector is active
+
+You return to the connectors screen. The Nevent connector appears in the list with a connected status.
+
+{/* TODO: screenshot — connectors list in ChatGPT showing Nevent with connected status. Save to /images/guias/nevent-ai/connect-chatgpt/step-6.png */}
+
+## Result: test the connection
+
+Open a new conversation in ChatGPT and type:
+
+```
+Show me the metrics for my latest email campaigns in Nevent
+```
+
+ChatGPT will query your Nevent account data and show you the response with real-time information.
+
+:::tip[Tip]
+If ChatGPT does not respond with Nevent data, type "What tools do you have available?" to see if the connector is active in that conversation. Some ChatGPT models require activating the connector in each new conversation.
+:::
+
+## Alternative: ChatGPT does not show the connectors option
+
+If your ChatGPT account does not have the MCP connectors section available, you can use Nevent AI from Claude by following the [Claude connection guide](/en/nevent-ai/connect-claude/), which has connector support on all Pro plans.
+
+## Next step
+
+- [See all use cases with examples](/en/nevent-ai/use-cases/)
+- [Understand permissions and access modes](/en/nevent-ai/permissions-and-security/)
+- [Frequently asked questions](/en/nevent-ai/faq/)

@@ -1,0 +1,95 @@
+---
+title: How Carlos won back attendees who hadn't bought in 12 months
+description: Reactivation campaign for inactive contacts. Precise segment, deliverability review and email draft in under 15 minutes.
+sidebar:
+  order: 3
+---
+
+import { Aside, Steps, LinkCard } from '@astrojs/starlight/components';
+
+## Who and when
+
+Carlos manages a concert venue in Madrid with an average of five shows per month. He has a database of 12,000 contacts, but knows a good percentage haven't bought or opened an email in the past year.
+
+Before the autumn season, he wants to try to win back that dormant audience with a targeted campaign. He doesn't want to send it to the full database, because that would drag open rate metrics down and could generate more suppressions.
+
+## Before vs. after
+
+| Process | Without Nevent AI | With Nevent AI |
+|---------|-------------------|----------------|
+| Identify inactive contacts | Export list, filter in Excel | Plain-language description |
+| Verify segment size | Count rows in Excel | Instant preview |
+| Check deliverability | Review panel manually | One question to the assistant |
+| Prepare campaign draft | Navigate between panel sections | One instruction to the assistant |
+
+## What you need
+
+- Nevent account with [Email Marketing](https://nevent.ai/en/features/email-marketing) active
+- Nevent AI connected in Claude or ChatGPT
+- "Read and prepare" access level (minimum)
+- Estimated time: 15 minutes
+
+## Step by step
+
+<Steps>
+1. **Define who the dormant audience is** — Carlos wants contacts who haven't bought a ticket or opened an email in the last 12 months.
+
+   > "Preview a segment with contacts who haven't bought any ticket in the last 12 months and haven't opened any of my emails in that same period"
+
+   The assistant calculates: 4,200 people.
+
+2. **Refine to avoid overly cold contacts** — Contacts who have been inactive for more than two years have very little chance of reactivating and can generate spam complaints.
+
+   > "How many of those 4,200 registered more than 3 years ago and have never bought?"
+
+   The assistant filters: 1,800 contacts with those characteristics.
+
+   > "Exclude those 1,800 from the segment. Save it as 'Reactivatable dormant autumn 2026'"
+
+   Resulting segment: 2,400 people.
+
+3. **Check domain status before sending** — A reactivation campaign to inactive contacts carries a higher risk of generating complaints. Better to review the domain status first.
+
+   > "Is my sending domain validated and what is the spam suppression rate for the last month?"
+
+   The assistant confirms the domain is in good shape and the spam rate is at 0.05%, below the warning threshold.
+
+4. **Prepare the draft** — Carlos has a specific template for reactivation campaigns.
+
+   > "Create an email campaign draft for the 'Reactivatable dormant autumn 2026' segment using the 'We miss you' template. Subject: 'It's been a while... will you come back?'"
+
+   The assistant creates the draft.
+
+5. **Schedule the send** — Reactivation campaigns work best on weekday mornings.
+
+   > "Schedule that draft for next Thursday at 10:30"
+
+   The assistant requests confirmation and Carlos confirms.
+
+6. **Review results 48 hours later** — Carlos wants to know if the campaign had the expected effect.
+
+   > "How many people opened the 'We miss you' campaign? And how many clicked?"
+
+   The assistant returns the open and click metrics.
+
+   > "How many of those who clicked bought a ticket in the following 48 hours?"
+
+   The assistant crosses click data with subsequent sales.
+</Steps>
+
+## Why it works
+
+This workflow combines Nevent's [audience segmentation](https://nevent.ai/en/solutions/segment-event-audience) — which allows building lists with very precise inactivity criteria — with the [attendee retention](https://nevent.ai/en/solutions/retain-event-attendees) module, designed to reconnect with audiences that haven't interacted in a while.
+
+The key is the preview step: Carlos doesn't send to 12,000 people, but to 2,400 who have a real reactivation profile. That protects his sending reputation and improves the campaign's chances of success.
+
+## Variants
+
+- For an annual festival, the dormant audience can be defined as "attendees from previous editions who haven't bought for the current edition" rather than inactivity by time.
+- If you have different levels of inactivity (6 months, 12 months, 24 months), you can create separate segments and send different messages with tiered offers.
+- The same logic works for SMS or WhatsApp if you have those channels active in your account.
+
+<Aside type="tip" title="Want to see how reactivation works in your account?">
+[Nevent](https://nevent.ai/en/solutions/retain-event-attendees) has specific tools for winning back and retaining attendees.
+**[Request information with no commitment →](https://nevent.ai/en/request-information)**
+</Aside>

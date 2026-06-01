@@ -1,0 +1,92 @@
+---
+title: How to connect Nevent AI to Claude
+description: Connect your Nevent account to Claude.ai in under 2 minutes. Step-by-step guide to start querying your event data from the chat.
+sidebar:
+  order: 3
+---
+
+In under 2 minutes you'll have Claude connected to your Nevent CRM. From there, you can ask about your campaigns, audiences, analytics and ads directly from the chat.
+
+You don't need to install anything. Everything works from Claude.ai settings in your browser.
+
+## Before you start
+
+You need:
+- An active [Claude.ai](https://claude.ai) account (Pro plan or higher — connectors are not available on the free plan)
+- An active [Nevent](https://admin.nevent.es) account with administrator access
+
+## Step 1: open Claude settings
+
+Go to [claude.ai](https://claude.ai) and click your name or avatar in the bottom-left corner of the sidebar. A context menu opens.
+
+{/* TODO: screenshot — Claude.ai sidebar with the user menu expanded. Highlight the "Settings" option. Save to /images/guias/nevent-ai/connect-claude/step-1.png */}
+
+Select **Settings** in the menu.
+
+## Step 2: go to the connectors section
+
+Inside settings, look in the left menu for the **Connectors** or **Integrations** section, depending on your version of Claude.
+
+{/* TODO: screenshot — Claude.ai settings panel with the Connectors section visible in the side menu. Save to /images/guias/nevent-ai/connect-claude/step-2.png */}
+
+Click **Connectors**.
+
+## Step 3: add a custom connector
+
+In the connectors section you'll see any connectors you currently have set up (if this is your first time, it will be empty). Click the **Add custom connector** or **Add connector** button to add a new one.
+
+{/* TODO: screenshot — Connectors page with the "Add custom connector" button visible. Save to /images/guias/nevent-ai/connect-claude/step-3.png */}
+
+## Step 4: enter the Nevent AI URL
+
+A field appears where you enter the server URL. Type this address exactly:
+
+```
+https://mcp.nevent.ai/mcp
+```
+
+{/* TODO: screenshot — form with the URL field and "https://mcp.nevent.ai/mcp" entered. Save to /images/guias/nevent-ai/connect-claude/step-4.png */}
+
+Click **Save** or **Confirm** to save.
+
+## Step 5: authorize access with your Nevent account
+
+Claude will open a Nevent authorization window. You'll see the Nevent login screen.
+
+{/* TODO: screenshot — OAuth authorization screen with the Nevent login form. Save to /images/guias/nevent-ai/connect-claude/step-5.png */}
+
+Enter your Nevent Admin email and password and click **Sign in**. Nevent verifies your credentials and returns control to Claude.
+
+:::note[Note]
+This authorization uses OAuth 2.1, the same standard used by "Sign in with Google". Nevent never shares your password with Claude — it only issues a temporary session token.
+:::
+
+## Step 6: confirm the connector is active
+
+After authorizing, you return to the connectors screen. The Nevent connector now appears in the list with the status **Connected**.
+
+{/* TODO: screenshot — Connectors screen showing the Nevent connector with Connected status. Save to /images/guias/nevent-ai/connect-claude/step-6.png */}
+
+That's it. The connector is active.
+
+## Result: test the connection
+
+Open a new conversation in Claude and type your first question:
+
+```
+List my last 5 email campaigns with their open rate
+```
+
+Claude will query your Nevent account and reply with real data in seconds.
+
+{/* TODO: screenshot — Claude.ai chat with the question and a response showing a campaigns table. Save to /images/guias/nevent-ai/connect-claude/result.png */}
+
+:::tip[Tip]
+If Claude responds that it can't access Nevent data, verify that the connector shows as "Connected" in Settings → Connectors. If the problem persists, check the [frequently asked questions](/en/nevent-ai/faq).
+:::
+
+## Next step
+
+- [Use cases with real question examples](/en/nevent-ai/use-cases/)
+- [Understand access modes and permissions](/en/nevent-ai/permissions-and-security/)
+- [Connect ChatGPT instead of Claude](/en/nevent-ai/connect-chatgpt/)
