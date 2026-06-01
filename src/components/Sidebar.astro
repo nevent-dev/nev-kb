@@ -1,0 +1,91 @@
+---
+/**
+ * Custom Sidebar component with per-locale filtering.
+ *
+ * Problem: Starlight uses a single global sidebar array, so both the ES and EN
+ * groups are present in `Astro.locals.starlightRoute.sidebar` for every page.
+ *
+ * The EN group uses `link:` items with absolute paths like `/en/nevent-ai/...`.
+ * Starlight's sidebar processing adds a locale prefix to link: items when
+ * rendering on non-root locale pages, turning `/en/nevent-ai/` into
+ * `/en/en/nevent-ai/` on EN locale pages (double-prefix bug).
+ *
+ * The ES group uses `slug:` items. On ES pages these produce `/nevent-ai/...`
+ * hrefs. On EN pages Starlight adds the locale prefix, producing `/en/nevent-ai/...`.
+ *
+ * Filtering strategy (applied to top-level sidebar entries):
+ *
+ *   ES page (locale === undefined):
+ *     - Keep entries whose first link href does NOT start with /en/
+ *     - (ES group hrefs: /nevent-ai/... — keep)
+ *     - (EN group hrefs: /en/nevent-ai/... — discard)
+ *
+ *   EN page (locale === 'en'):
+ *     - Discard entries whose first link href starts with /en/ but NOT /en/en/
+ *       (these are ES slug: items auto-prefixed with /en/ by Starlight)
+ *     - Keep entries whose first link href starts with /en/en/
+ *       (these are the EN link: items double-prefixed — wanted content)
+ *     - Strip the redundant /en/ from every href in the kept group so that
+ *       links resolve correctly (e.g. /en/en/nevent-ai/ → /en/nevent-ai/)
+ */
+import MobileMenuFooter from 'virtual:starlight/components/MobileMenuFooter';
+import SidebarPersister from '@astrojs/starlight/components/SidebarPersister.astro';
+import SidebarSublist from '@astrojs/starlight/components/SidebarSublist.astro';
+import type { SidebarEntry } from '@astrojs/starlight/utils/routing/types';
+
+const { sidebar, locale } = Astro.locals.starlightRoute;
+
+/** Recursively finds the first link href in a sidebar entry tree. */
+function getFirstHref(entry: SidebarEntry): string | null {
+	if (entry.type === 'link') return entry.href;
+	for (const child of entry.entries) {
+		const found = getFirstHref(child);
+		if (found) return found;
+	}
+	return null;
+}
+
+/**
+ * Recursively strips a leading "/en/en/" double-prefix from all link hrefs,
+ * replacing it with "/en/". This corrects Starlight's double-prefixing of
+ * absolute link: items when rendering on EN locale pages.
+ */
+function fixDoubleEnPrefix(entry: SidebarEntry): SidebarEntry {
+	if (entry.type === 'link') {
+		const fixedHref = entry.href.replace(/^\/en\/en\//, '/en/');
+		return { ...entry, href: fixedHref };
+	}
+	return {
+		...entry,
+		entries: entry.entries.map(fixDoubleEnPrefix),
+	};
+}
+
+let processedSidebar: SidebarEntry[];
+
+if (locale === 'en') {
+	// EN page: keep only the EN link: group (double-prefixed hrefs) and fix them
+	processedSidebar = sidebar
+		.filter((entry) => {
+			const firstHref = getFirstHref(entry);
+			if (!firstHref) return true;
+			return firstHref.startsWith('/en/en/');
+		})
+		.map(fixDoubleEnPrefix);
+} else {
+	// ES/root page: keep only entries whose first link does NOT start with /en/
+	processedSidebar = sidebar.filter((entry) => {
+		const firstHref = getFirstHref(entry);
+		if (!firstHref) return true;
+		return !firstHref.startsWith('/en/');
+	});
+}
+---
+
+<SidebarPersister>
+	<SidebarSublist sublist={processedSidebar} />
+</SidebarPersister>
+
+<div class="md:sl-hidden">
+	<MobileMenuFooter />
+</div>
