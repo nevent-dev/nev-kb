@@ -1,0 +1,79 @@
+---
+title: Crea y gestiona segmentos de audiencia con una frase
+description: Construye segmentos de contactos usando criterios de comportamiento, compra o interacción. Previsualiza el tamaño antes de guardar.
+sidebar:
+  order: 4
+---
+
+import { Aside, Badge } from '@astrojs/starlight/components';
+
+Segmentar una audiencia en un CRM tradicional implica abrir el constructor de segmentos, añadir criterio por criterio, previsualizar, corregir errores y guardar. Si el segmento es complejo —asistentes que compraron en 2024 pero no en 2025, que viven en Madrid, y que no abrieron tu último email— estás mirando a diez minutos de trabajo.
+
+Con Nevent IA, esa descripción que acabas de leer es el prompt. Una frase. Y el asistente calcula cuántas personas encajan antes de que tengas que decidir si guardarlo o no.
+
+Marta organiza un festival de jazz con 18.000 asistentes anuales. Tres semanas antes de abrir la venta de abonos, necesita identificar a sus asistentes más fieles para darles acceso anticipado. Lo hace en cuatro minutos desde el chat.
+
+## Lo que puedes preguntar
+
+Disponible en modo "Solo consultar" y superiores:
+
+- "Lista todos mis segmentos guardados con el número de contactos de cada uno"
+- "¿Cuántas personas hay en el segmento 'Asistentes VIP'?"
+- "Muéstrame los filtros del segmento 'Fans recurrentes'"
+- "¿Cuáles son los criterios disponibles para crear un segmento?"
+- "Previsualiza cuántas personas entrarían en un segmento de asistentes de Barcelona que han comprado en los últimos 12 meses"
+- "¿Qué valores puedo usar para filtrar por ciudad?"
+
+## Lo que el asistente puede preparar por ti
+
+<Badge text="Consultar y preparar" variant="tip" /> Disponible en modo STANDARD o superior.
+
+Además de consultar, el asistente puede:
+
+- **Crear un segmento nuevo** — describe en lenguaje natural quiénes son, y el asistente construye los filtros y lo guarda en tu cuenta
+- **Actualizar un segmento existente** — modifica los criterios de uno ya guardado sin tener que rehacerlo desde cero
+- **Previsualizar antes de guardar** — el asistente siempre calcula el tamaño estimado del segmento antes de persistirlo, para que puedas confirmar que tiene sentido
+
+La previsualización es especialmente útil: si describes un segmento demasiado restrictivo y el resultado es "23 personas", sabes que tienes que ampliar los criterios antes de usarlo en una campaña.
+
+## Así lo usa Marta tres semanas antes del festival
+
+El festival de Marta abre la venta de abonos dentro de tres semanas. Quiere dar acceso anticipado a los asistentes más fieles: los que han ido dos o más años consecutivos.
+
+> "¿Qué criterios puedo usar para crear un segmento basado en asistencia histórica?"
+
+El asistente lista los criterios disponibles relacionados con historial de compra y asistencia.
+
+> "Previsualiza un segmento con asistentes que compraron entrada en la edición 2024 y en la 2023"
+
+El asistente calcula: 4.200 personas.
+
+> "Añade el filtro de que no hayan cancelado o pedido reembolso en ninguna de las dos ediciones"
+
+Nueva previsualización: 3.800 personas.
+
+> "Perfecto. Guárdalo como 'Fieles 2 ediciones 2023-2024'"
+
+El asistente crea el segmento en la cuenta de Nevent.
+
+> "¿Cuántos de esos 3.800 tienen email válido y no están en la lista de supresiones?"
+
+El asistente cruza el segmento con los datos de entregabilidad y devuelve el número de contactos alcanzables.
+
+Marta tiene el segmento listo para la campaña de acceso anticipado. Sin abrir el constructor de segmentos.
+
+## Combínalo con
+
+- [Campañas](/nevent-ai/que-puedes-hacer/campanas) — usa el segmento recién creado en un borrador de campaña
+- [Analítica](/nevent-ai/que-puedes-hacer/analitica) — valida el comportamiento del segmento con datos de ventas históricas
+- [Caso práctico: recuperar audiencia dormida](/nevent-ai/casos-practicos/recuperar-audiencia-dormida)
+
+## Lo que no puede hacer todavía
+
+- No puede eliminar segmentos (requiere acción manual en el panel por seguridad)
+- Segmentos con lógica muy compleja (tres o más grupos de condiciones anidados) pueden necesitar ajuste manual posterior
+- No puede combinar datos externos (listas de Mailchimp, Excel) con criterios de Nevent en el mismo segmento
+
+<Aside type="tip" title="Esto forma parte de la segmentación de audiencia de Nevent">
+La potencia de segmentación que usas aquí está respaldada por el módulo de [segmentación de audiencia para eventos](https://nevent.ai/es/soluciones/segmentar-audiencia-eventos) de Nevent. [Pide información](https://nevent.ai/es/solicitar-informacion) para verlo con tus propios datos.
+</Aside>

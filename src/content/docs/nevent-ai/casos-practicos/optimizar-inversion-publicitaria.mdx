@@ -1,0 +1,94 @@
+---
+title: Cómo Marta reasignó 12.000 euros de presupuesto en Meta con datos reales
+description: Análisis de ROAS por grupo de anuncios, atribución de ventas de entradas y reasignación de presupuesto publicitario en una sesión con Nevent IA.
+sidebar:
+  order: 5
+---
+
+import { Aside, Steps } from '@astrojs/starlight/components';
+
+## Quién y cuándo
+
+Marta organiza un festival de jazz con un presupuesto publicitario de 12.000 euros para el período de lanzamiento de la edición 2026. Tiene diez grupos de anuncios activos en Meta, todos dirigidos a audiencias distintas y con creatividades diferentes.
+
+A falta de dos semanas para el cierre de la venta de abonos, quiere saber cuáles están convirtiendo y cuáles están consumiendo presupuesto sin resultados. Su objetivo: concentrar el gasto en lo que funciona.
+
+## El antes vs. el después
+
+| Proceso | Sin Nevent IA | Con Nevent IA |
+|---------|--------------|---------------|
+| Ver rendimiento de todos los grupos | Abrir Ads Manager de Meta | Una pregunta al asistente |
+| Cruzar gasto con ventas de entradas | Export de Meta + export de Nevent + Excel | Una pregunta al asistente |
+| Identificar grupos de bajo rendimiento | Revisión manual fila por fila | El asistente filtra y clasifica |
+| Entender la causa del bajo rendimiento | Análisis manual de targeting y creatividades | El asistente compara automáticamente |
+
+## Lo que necesitas
+
+- Cuenta de Nevent con [Nevent Paid Media](https://nevent.ai/es/features/paid-media) y [atribución de marketing](https://nevent.ai/es/features/marketing-attribution) activos
+- Campañas de Meta con UTMs configurados en los links de destino
+- Nevent IA conectado en Claude o ChatGPT
+- Nivel de acceso "Solo consultar" (es suficiente para el análisis)
+- Tiempo estimado: 15 minutos
+
+## Paso a paso
+
+<Steps>
+1. **Ver el rendimiento global de las campañas de Meta** — Marta necesita una foto del estado actual.
+
+   > "Lista todos mis grupos de anuncios activos de Meta con su gasto acumulado y ROAS de los últimos 7 días"
+
+   El asistente devuelve una tabla con los diez grupos: gasto, ROAS, CTR, CPM y estado de sincronización.
+
+2. **Identificar los grupos con bajo ROAS** — Marta quiere separar lo que funciona de lo que no.
+
+   > "¿Cuáles tienen un ROAS por debajo de 1,5 esta semana?"
+
+   El asistente identifica tres grupos con ROAS inferior a 1,5.
+
+3. **Entender por qué esos tres están flojos** — Antes de pausarlos, Marta quiere entender la causa.
+
+   > "Compara esos tres grupos con los que están por encima de ROAS 2. ¿Qué diferencias hay en targeting, CPM y CTR?"
+
+   El asistente compara: los tres grupos con bajo ROAS tienen CPMs más altos (22€ vs 14€ de media) y CTRs más bajos (0,6% vs 1,4%). Dos de ellos usan audiencias de interés amplio; los de mejor rendimiento usan audiencias lookalike del 1%.
+
+4. **Atribuir ventas de entradas a las campañas** — El ROAS de Meta puede diferir de las ventas reales en Nevent si hay discrepancias en la atribución.
+
+   > "¿Cuántas entradas en total se han vendido esta semana que se puedan atribuir a campañas de Meta a través de UTMs?"
+
+   El asistente cruza los datos de ventas de Nevent con los UTMs de Meta: 340 entradas atribuidas, con un coste por entrada de 24 euros de media.
+
+5. **Profundizar en los grupos que mejor convierten** — Marta quiere entender qué tiene en común lo que funciona para replicarlo.
+
+   > "De los grupos con ROAS superior a 2, ¿cuál tiene mejor coste por entrada vendida?"
+
+   El asistente identifica el grupo con mejor coste por conversión: 'Lookalike asistentes 2024 — Creatividad B', con un coste de 16 euros por entrada.
+
+6. **Comparar las creatividades del grupo ganador** — Para entender si el rendimiento es por la audiencia o por la creatividad.
+
+   > "¿Cuántos anuncios tiene ese grupo y cómo se distribuye el gasto entre ellos? ¿Alguna creatividad destaca?"
+
+   El asistente lista los tres anuncios del grupo. La creatividad B tiene el 78% del gasto automatizado por Meta y el CTR más alto.
+
+7. **Planificar la reasignación** — Con todos los datos sobre la mesa, Marta toma la decisión.
+
+   > "Resume qué haría con el presupuesto si quiero maximizar ventas de entradas: qué grupos pausar y cuánto redirigir a los que funcionan"
+
+   El asistente sintetiza la recomendación: pausar los tres grupos de bajo ROAS (liberan 3.200 euros), aumentar el presupuesto de los dos grupos lookalike con mejor coste por conversión.
+</Steps>
+
+## Por qué funciona
+
+Este análisis combina [Nevent Paid Media](https://nevent.ai/es/features/paid-media) —que sincroniza los datos de Meta, Google y TikTok— con el módulo de [atribución de marketing](https://nevent.ai/es/features/marketing-attribution) de Nevent, que cruza el gasto publicitario con las ventas reales de entradas a través de UTMs.
+
+La diferencia respecto a ver los datos solo en Meta Ads Manager es que Nevent añade la capa de las ventas reales. Un grupo puede tener buen CTR en Meta pero generar pocas ventas si la audiencia no convierte en la página de compra. El cruce con los datos de Nevent resuelve esa discrepancia.
+
+## Variantes
+
+- Si usas Google Ads además de Meta, puedes pedir al asistente que compare el ROAS entre plataformas en la misma consulta.
+- Para un evento de sala con presupuesto más pequeño (500-2.000 euros), el mismo análisis aplica pero a nivel de anuncio individual en lugar de grupo.
+- Si aún no tienes UTMs configurados, el asistente puede ayudarte a entender qué datos de atribución están disponibles con tu configuración actual.
+
+<Aside type="tip" title="¿Quieres ver cuánto de tu presupuesto está generando ventas reales?">
+[Nevent Paid Media](https://nevent.ai/es/features/paid-media) conecta tu inversión publicitaria con las ventas de entradas.
+**[Pide información sin compromiso →](https://nevent.ai/es/solicitar-informacion)**
+</Aside>

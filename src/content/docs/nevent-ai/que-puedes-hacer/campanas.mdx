@@ -1,0 +1,80 @@
+---
+title: Consulta y prepara campañas de email, SMS y WhatsApp
+description: Analiza el rendimiento de tus envíos, crea borradores y programa campañas de email, SMS y WhatsApp sin abrir el panel de administración.
+sidebar:
+  order: 3
+---
+
+import { Aside, Badge } from '@astrojs/starlight/components';
+
+¿Cuántas veces has abierto el panel solo para comprobar si una campaña ya se envió, o para saber el open rate del último email? Esa consulta de treinta segundos acaba siendo cinco minutos de navegación.
+
+Con Nevent IA, la respuesta llega en una pregunta. Y si necesitas preparar el siguiente envío, el asistente puede armar el borrador por ti.
+
+Sofía, community manager de un club nocturno, programa entre dos y tres campañas de email por semana. Antes de cada envío revisa los resultados del anterior para ajustar el asunto y la hora. Lo hace todo desde el chat sin cambiar de pestaña.
+
+## Lo que puedes preguntar
+
+Disponible en modo "Solo consultar" y superiores:
+
+- "¿Qué campañas enviadas este mes tuvieron una tasa de apertura superior al 25%?"
+- "Muéstrame el rendimiento de la última campaña de email — aperturas, clics, desuscripciones y rebotes"
+- "¿En qué estado está la campaña 'Noche de Verano'? ¿Ya se envió?"
+- "Lista todas las campañas en estado borrador"
+- "Compara las tres últimas campañas de SMS por tasa de clic"
+- "¿Cuántas personas se desuscribieron en el último email?"
+- "¿Qué hora del día tiene mejor tasa de apertura en mis últimas 10 campañas?"
+- "Dame el análisis completo de la campaña 'Apertura temporada' con detección de anomalías"
+
+## Lo que el asistente puede preparar por ti
+
+<Badge text="Consultar y preparar" variant="tip" /> Disponible en modo STANDARD o superior.
+
+Además de consultar, el asistente puede:
+
+- **Crear un borrador de campaña** — especifica el canal (email, SMS, WhatsApp), el segmento de destino y la plantilla, y el asistente arma el borrador en tu cuenta
+- **Programar un envío** — dale la fecha y hora y el asistente programa la campaña (siempre con confirmación explícita tuya antes de programar)
+- **Generar análisis e insights** — el asistente detecta patrones anómalos, compara con campañas anteriores y propone mejoras
+
+:::caution[Importante]
+Programar o lanzar campañas requiere que confirmes explícitamente la acción. El asistente siempre te pide confirmación antes de programar un envío. Nunca lo hace de forma automática.
+:::
+
+## Así lo usa Sofía una tarde de miércoles
+
+Sofía tiene que preparar el email del viernes para el show de la semana que viene.
+
+> "¿Cómo fue la última campaña de email del viernes? Quiero open rate, clics y desuscripciones"
+
+El asistente devuelve las métricas del último envío del viernes y las compara con el promedio de sus últimas cinco campañas.
+
+> "El open rate fue del 18%, más bajo de lo habitual. ¿Alguna anomalía detectada?"
+
+El asistente analiza la campaña en profundidad: el asunto era más largo de lo habitual, la hora de envío fue 30 minutos más tarde, y el segmento incluía contactos que no abrían desde hace 60 días.
+
+> "Perfecto. Crea un borrador de email para el show del viernes 14, usando el segmento 'Activos últimos 30 días' y la plantilla 'Agenda semanal'"
+
+El asistente crea el borrador en la cuenta de Nevent. Sofía lo revisa en el panel y ajusta el asunto.
+
+> "Programa ese borrador para el miércoles a las 18:00"
+
+El asistente le pide confirmación, Sofía confirma, y la campaña queda programada.
+
+Todo el proceso: diez minutos. Antes le llevaba el doble y aun así se saltaba el paso de revisar el rendimiento anterior.
+
+## Combínalo con
+
+- [Analítica](/nevent-ai/que-puedes-hacer/analitica) — cruza métricas de campaña con datos de ventas de entradas
+- [Audiencia y segmentos](/nevent-ai/que-puedes-hacer/audiencia) — crea el segmento correcto antes de preparar el borrador
+- [Caso práctico: recuperar audiencia dormida](/nevent-ai/casos-practicos/recuperar-audiencia-dormida)
+
+## Lo que no puede hacer todavía
+
+- No puede editar el contenido HTML o el diseño de una campaña ya creada (eso se hace en el editor visual de Nevent)
+- No puede enviar campañas de forma instantánea sin confirmación explícita
+- No gestiona campañas de canales externos no integrados con Nevent (Mailchimp, Brevo, etc.)
+- La creación de campañas multicanal en un solo paso (email + SMS + WhatsApp simultáneos) requiere pasos separados
+
+<Aside type="tip" title="Esto forma parte de Email Marketing de Nevent">
+Las campañas que preparas aquí se ejecutan a través de [Email Marketing de Nevent](https://nevent.ai/es/features/email-marketing), diseñado específicamente para promotores de eventos. [Pide información](https://nevent.ai/es/solicitar-informacion) si quieres verlo en funcionamiento.
+</Aside>

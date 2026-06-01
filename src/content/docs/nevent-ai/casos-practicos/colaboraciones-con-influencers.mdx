@@ -1,0 +1,95 @@
+---
+title: Cómo David lanzó un programa de 30 embajadores para su feria B2B
+description: Crear links de seguimiento individuales para 30 influencers, medir clics y generar el ranking de rendimiento al cierre del programa.
+sidebar:
+  order: 7
+---
+
+import { Aside, Steps } from '@astrojs/starlight/components';
+
+## Quién y cuándo
+
+David es director comercial de una feria B2B con unas 5.000 inscripciones por edición. Para la edición de otoño, ha reclutado a 30 profesionales del sector como embajadores: periodistas, consultores y referentes del mundo empresarial que van a promover la feria en sus redes y newsletters.
+
+El problema habitual: todos comparten el mismo link de inscripción, así que al cierre es imposible saber quién generó qué. Este año David quiere datos reales para decidir a quién invitar de nuevo y a quién no.
+
+## El antes vs. el después
+
+| Proceso | Sin Nevent IA | Con Nevent IA |
+|---------|--------------|---------------|
+| Crear 30 links individuales | Manual uno a uno o Excel + herramienta externa | Un solo prompt |
+| Medir clics por colaborador | Sin datos o herramienta externa | Pregunta directa al asistente |
+| Generar ranking de rendimiento | Excel manual | Una pregunta |
+| Informe de cierre del programa | Horas de trabajo manual | Minutos con el asistente |
+
+## Lo que necesitas
+
+- Cuenta de Nevent con tracking de enlaces activo
+- Nevent IA conectado en Claude o ChatGPT
+- Nivel de acceso "Consultar y preparar"
+- Tiempo estimado: 10 minutos para crear los links, 5 minutos para el informe de cierre
+
+## Paso a paso
+
+<Steps>
+1. **Crear los 30 links en un solo paso** — David tiene la lista de sus 30 embajadores con sus nombres.
+
+   > "Crea links de seguimiento individuales para cada uno de estos 30 colaboradores para la campaña 'Embajadores Feria B2B 2026'. El link de destino es https://feria-b2b.nevent.es/inscripcion. Etiquétalos todos con la campaña 'embajadores-2026'. Los nombres son: [lista de 30 nombres]"
+
+   El asistente genera los 30 links con atribución individual. David recibe la lista con el link único de cada colaborador para distribuirlos.
+
+2. **Seguimiento a mitad del programa** — A las dos semanas del lanzamiento, David quiere ver cómo va.
+
+   > "Lista todos los links de la campaña 'embajadores-2026' con los clics acumulados de cada colaborador"
+
+   El asistente devuelve los 30 links ordenados por clics.
+
+   > "¿Cuáles son los cinco colaboradores con más clics hasta ahora?"
+
+   El asistente muestra el top 5 con su número de clics.
+
+3. **Analizar la calidad del tráfico del líder** — No todos los clics son iguales. David quiere saber de dónde viene el tráfico del colaborador con más clics.
+
+   > "Del colaborador con más clics, muéstrame los clics desglosados por país, dispositivo y si es tráfico de pago o tráfico orgánico"
+
+   El asistente muestra el desglose: el 82% del tráfico viene de España, el 91% desde móvil, todo es tráfico orgánico.
+
+4. **Detectar links sin actividad** — David quiere saber si hay colaboradores que no han empezado a promover.
+
+   > "¿Qué colaboradores tienen cero clics después de dos semanas?"
+
+   El asistente identifica siete links sin actividad.
+
+5. **Medir el CTR global del programa** — David necesita una métrica resumen del programa para el informe intermedio.
+
+   > "¿Cuál es el CTR global del programa? Clics totales dividido entre links activos"
+
+   El asistente calcula la tasa de clic global.
+
+6. **Informe de cierre del programa** — Al finalizar el período de inscripciones, David hace la evaluación final.
+
+   > "Lista los 30 colaboradores ordenados por clics de mayor a menor, y dime cuántos de esos clics corresponden a días de pico de actividad"
+
+   El asistente devuelve el ranking completo con la distribución temporal.
+
+   > "¿Cuál fue la tasa de clic promedio por colaborador y cuántos están por encima de esa media?"
+
+   El asistente calcula la media y clasifica a los colaboradores en "por encima" y "por debajo".
+</Steps>
+
+## Por qué funciona
+
+El tracking de enlaces individuales es posible gracias al módulo de seguimiento de [Nevent Analytics](https://nevent.ai/es/features/event-analytics), que registra cada clic con su atribución al colaborador correspondiente. Si además la feria tiene UTMs configurados, el sistema puede cruzar esos clics con las inscripciones reales.
+
+Esto convierte un programa de embajadores de "confianza ciega" a un programa con datos. David sabe exactamente qué cinco colaboradores generaron el 70% del tráfico y puede tomar decisiones de renovación con esa información.
+
+## Variantes
+
+- Para un festival de música, puedes usar el mismo flujo con influencers de redes sociales que promocionan el festival a cambio de acreditaciones.
+- Si quieres medir conversiones (no solo clics), asegúrate de que los links de destino tienen UTMs configurados para poder cruzar con las ventas de entradas en Nevent.
+- Para programas más grandes (100+ colaboradores), puedes crear los links en lotes y usar etiquetas para agruparlos por categoría (prensa, consultores, medios, etc.).
+
+<Aside type="tip" title="¿Quieres medir el retorno real de tus colaboraciones?">
+La [atribución de marketing de Nevent](https://nevent.ai/es/features/marketing-attribution) te permite saber qué canal, influencer o campaña genera más inscripciones.
+**[Pide información sin compromiso →](https://nevent.ai/es/solicitar-informacion)**
+</Aside>
