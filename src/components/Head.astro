@@ -1,0 +1,330 @@
+---
+/**
+ * Head.astro — Custom Starlight Head override.
+ *
+ * Responsibilities:
+ *   1. Inject JSON-LD structured data (Schema.org) for rich results and AI Overviews:
+ *      - Organization (homepage only, ES + EN)
+ *      - TechArticle (every documentation page)
+ *      - FAQPage (preguntas-frecuentes + faq pages)
+ *      - BreadcrumbList (all pages except homepage)
+ *   2. Inject og:image meta tags (global default + per-page override via frontmatter `ogImage`).
+ *
+ * Important: Starlight calls <Head /> without props. Route data must be read
+ * from `Astro.locals.starlightRoute`, not from `Astro.props`.
+ *
+ * This component renders AFTER the default Starlight <Head> (via the components override),
+ * so it MUST NOT duplicate tags already emitted by Starlight:
+ *   canonical, hreflang, og:title, og:description, og:url, og:locale, og:type,
+ *   og:site_name, twitter:card, description, viewport, charset.
+ *
+ * Per-page og:image override:
+ *   Add `ogImage: /my-custom-image.png` to any page's frontmatter.
+ *
+ * Registration in astro.config.mjs:
+ *   starlight({ components: { Head: './src/components/Head.astro' } })
+ */
+
+import Default from '@astrojs/starlight/components/Head.astro';
+
+// ── Access route data from locals (Starlight's canonical pattern) ─────────────
+const starlightRoute = Astro.locals.starlightRoute;
+
+// Guard for special pages (404) that may not have a full route context
+const entry = starlightRoute?.entry;
+const hasEntry = entry != null;
+const locale = starlightRoute?.locale;
+
+const SITE = 'https://help.nevent.ai';
+const DEFAULT_OG_IMAGE = `${SITE}/og-image.svg`;
+
+// ── Derive canonical URL ─────────────────────────────────────────────────────
+// entry.id is the file path relative to src/content/docs, e.g. "nevent-ai/faq.mdx"
+const rawId = hasEntry ? (entry.id ?? '') : '';
+const slug = rawId.replace(/\.(mdx?|astro)$/, '').replace(/\/index$/, '');
+// EN homepage: entry.id = 'en/index' → slug = 'en' after stripping /index suffix.
+// We must also treat slug === 'en' as root so the EN homepage is handled correctly.
+const isRoot = slug === 'index' || slug === '' || slug === 'en';
+
+const langPrefix = locale === 'en' ? '/en' : '';
+// For root pages: canonicalUrl = SITE + langPrefix + '/'
+// For deep pages: strip locale prefix from slug, then prepend langPrefix.
+const pageSlug = isRoot ? '' : `/${slug.replace(/^en\//, '')}`;
+const canonicalUrl = `${SITE}${langPrefix}${pageSlug}/`;
+
+// ── Page metadata ─────────────────────────────────────────────────────────────
+const pageTitle = hasEntry ? (entry.data.title ?? 'Nevent Help Center') : 'Nevent Help Center';
+const pageDescription = hasEntry
+  ? (entry.data.description ?? 'Documentación oficial de Nevent AI')
+  : 'Documentación oficial de Nevent AI';
+const inLanguage = locale === 'en' ? 'en' : 'es';
+
+// lastUpdated from Starlight (ISO string or Date)
+const rawLastUpdated = hasEntry ? entry.data.lastUpdated : undefined;
+const dateModified = rawLastUpdated
+  ? rawLastUpdated instanceof Date
+    ? rawLastUpdated.toISOString()
+    : String(rawLastUpdated)
+  : new Date().toISOString().split('T')[0];
+
+// Per-page og:image override via frontmatter `ogImage: /custom.png`
+const ogImageOverride = hasEntry
+  ? ((entry.data as Record<string, unknown>).ogImage as string | undefined)
+  : undefined;
+const ogImageUrl = ogImageOverride ? `${SITE}${ogImageOverride}` : DEFAULT_OG_IMAGE;
+
+// ── Route classification ──────────────────────────────────────────────────────
+// slug is relative path without locale prefix and without extension
+const isFaqPage =
+  slug === 'nevent-ai/preguntas-frecuentes' ||
+  slug === 'en/nevent-ai/faq';
+
+// ── Breadcrumb generation ─────────────────────────────────────────────────────
+/**
+ * Segment → human-readable labels for ES and EN.
+ * Keys are URL path segments (lowercase, hyphenated).
+ */
+const SEGMENT_LABELS: Record<string, { es: string; en: string }> = {
+  'nevent-ai': { es: 'Nevent AI', en: 'Nevent AI' },
+  'que-puedes-hacer': { es: 'Lo que puedes hacer', en: 'What you can do' },
+  'what-you-can-do': { es: 'Lo que puedes hacer', en: 'What you can do' },
+  'casos-practicos': { es: 'Casos prácticos', en: 'Use cases' },
+  'use-cases': { es: 'Casos prácticos', en: 'Use cases' },
+  'developers': { es: 'Para desarrolladores', en: 'For developers' },
+  'preguntas-frecuentes': { es: 'Preguntas frecuentes', en: 'FAQ' },
+  'faq': { es: 'Preguntas frecuentes', en: 'FAQ' },
+  'conectar-claude': { es: 'Conectar con Claude', en: 'Connect with Claude' },
+  'connect-claude': { es: 'Conectar con Claude', en: 'Connect with Claude' },
+  'conectar-chatgpt': { es: 'Conectar con ChatGPT', en: 'Connect with ChatGPT' },
+  'connect-chatgpt': { es: 'Conectar con ChatGPT', en: 'Connect with ChatGPT' },
+  'permisos-y-seguridad': { es: 'Permisos y seguridad', en: 'Permissions and security' },
+  'permissions-and-security': { es: 'Permisos y seguridad', en: 'Permissions and security' },
+  'frases-listas-para-usar': { es: 'Frases listas para usar', en: 'Ready-to-use prompts' },
+  'ready-to-use-prompts': { es: 'Frases listas para usar', en: 'Ready-to-use prompts' },
+  'herramientas': { es: 'Herramientas disponibles', en: 'Available tools' },
+  'tools': { es: 'Herramientas disponibles', en: 'Available tools' },
+  'instalacion-local': { es: 'Instalación local', en: 'Local installation' },
+  'local-installation': { es: 'Instalación local', en: 'Local installation' },
+  'claude-code': { es: 'Claude Code', en: 'Claude Code' },
+  'claude-desktop': { es: 'Claude Desktop', en: 'Claude Desktop' },
+  'cursor-cline-continue': { es: 'Cursor, Cline, Continue, VS Code', en: 'Cursor, Cline, Continue, VS Code' },
+  'multi-tenant': { es: 'Multi-tenant', en: 'Multi-tenant' },
+  'troubleshooting': { es: 'Troubleshooting', en: 'Troubleshooting' },
+  'lanzar-un-evento': { es: 'Lanzar un evento', en: 'Launching an event' },
+  'launching-an-event': { es: 'Lanzar un evento', en: 'Launching an event' },
+  'recuperar-audiencia-dormida': { es: 'Recuperar audiencia dormida', en: 'Winning back dormant audience' },
+  'winning-back-dormant-audience': { es: 'Recuperar audiencia dormida', en: 'Winning back dormant audience' },
+  'diagnosticar-campana-floja': { es: 'Diagnosticar campaña floja', en: 'Diagnosing an underperforming campaign' },
+  'diagnosing-an-underperforming-campaign': { es: 'Diagnosticar campaña floja', en: 'Diagnosing an underperforming campaign' },
+  'optimizar-inversion-publicitaria': { es: 'Optimizar inversión publicitaria', en: 'Optimizing ad spend' },
+  'optimizing-ad-spend': { es: 'Optimizar inversión publicitaria', en: 'Optimizing ad spend' },
+  'cierre-de-mes-y-reporting': { es: 'Cierre de mes y reporting', en: 'Monthly close and reporting' },
+  'monthly-close-and-reporting': { es: 'Cierre de mes y reporting', en: 'Monthly close and reporting' },
+  'analitica': { es: 'Analítica de eventos', en: 'Event analytics' },
+  'analytics': { es: 'Analítica de eventos', en: 'Event analytics' },
+  'campanas': { es: 'Campañas', en: 'Campaigns' },
+  'campaigns': { es: 'Campañas', en: 'Campaigns' },
+  'audiencia': { es: 'Audiencia y segmentos', en: 'Audience and segments' },
+  'audience': { es: 'Audiencia y segmentos', en: 'Audience and segments' },
+  'plantillas': { es: 'Plantillas de email', en: 'Email templates' },
+  'templates': { es: 'Plantillas de email', en: 'Email templates' },
+  'paid-media': { es: 'Publicidad de pago', en: 'Paid advertising' },
+  'short-urls': { es: 'Tracking de enlaces', en: 'Link tracking' },
+  'link-tracking': { es: 'Tracking de enlaces', en: 'Link tracking' },
+  'deliverability': { es: 'Entregabilidad', en: 'Deliverability' },
+  'multi-cuenta': { es: 'Gestión multi-cuenta', en: 'Multi-account management' },
+  'multi-account': { es: 'Gestión multi-cuenta', en: 'Multi-account management' },
+};
+
+/**
+ * Builds a BreadcrumbList itemListElement array from the page's slug.
+ * The homepage is always position 1 (Inicio/Home).
+ */
+function buildBreadcrumbs(
+  pageSlugClean: string,
+  lang: string
+): Array<{ '@type': string; position: number; name: string; item: string }> {
+  // Remove locale prefix from slug for segment processing
+  const cleanSlug = pageSlugClean.replace(/^en\//, '');
+  const segments = cleanSlug ? cleanSlug.split('/') : [];
+
+  const homeLabel = lang === 'en' ? 'Home' : 'Inicio';
+  const homeUrl = lang === 'en' ? `${SITE}/en/` : `${SITE}/`;
+  const langBase = lang === 'en' ? '/en' : '';
+
+  const crumbs: Array<{ '@type': string; position: number; name: string; item: string }> = [
+    { '@type': 'ListItem', position: 1, name: homeLabel, item: homeUrl },
+  ];
+
+  let cumulativePath = langBase;
+  for (let i = 0; i < segments.length; i++) {
+    const seg = segments[i];
+    if (!seg) continue;
+    cumulativePath += `/${seg}`;
+    const labelEntry = SEGMENT_LABELS[seg];
+    const label = labelEntry
+      ? lang === 'en'
+        ? labelEntry.en
+        : labelEntry.es
+      : seg.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase());
+    crumbs.push({
+      '@type': 'ListItem',
+      position: i + 2,
+      name: label,
+      item: `${SITE}${cumulativePath}/`,
+    });
+  }
+  return crumbs;
+}
+
+// ── FAQ pairs extraction ──────────────────────────────────────────────────────
+interface FaqPair {
+  question: string;
+  answer: string;
+}
+
+/**
+ * Extracts FAQ Q&A pairs from raw MDX body text.
+ * Splits on ## H2 headings; each heading becomes a Question,
+ * following paragraphs become the acceptedAnswer text.
+ */
+function extractFaqsFromBody(body: string): FaqPair[] {
+  const pairs: FaqPair[] = [];
+  const sections = body.split(/^##\s+/m);
+  for (const section of sections.slice(1)) {
+    const lines = section.split('\n');
+    const question = lines[0]?.trim();
+    if (!question) continue;
+    const answerLines: string[] = [];
+    for (const line of lines.slice(1)) {
+      if (line.startsWith('#')) break;
+      answerLines.push(line);
+    }
+    const answer = answerLines
+      .join('\n')
+      .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1') // [text](url) → text
+      .replace(/\*\*([^*]+)\*\*/g, '$1')         // **bold** → plain
+      .replace(/\*([^*]+)\*/g, '$1')             // *italic* → plain
+      .replace(/`([^`]+)`/g, '$1')               // `code` → plain
+      .replace(/\n{3,}/g, '\n\n')
+      .trim();
+    if (question && answer) pairs.push({ question, answer });
+  }
+  return pairs;
+}
+
+type FrontmatterFaq = { q: string; a: string };
+const frontmatterFaqs = hasEntry
+  ? ((entry.data as Record<string, unknown>).faqs as FrontmatterFaq[] | undefined)
+  : undefined;
+
+const faqPairs: FaqPair[] = isFaqPage
+  ? frontmatterFaqs
+    ? frontmatterFaqs.map((f) => ({ question: f.q, answer: f.a }))
+    : extractFaqsFromBody(entry?.body ?? '')
+  : [];
+
+// ── Schema objects ─────────────────────────────────────────────────────────────
+
+/** Organization — homepage only */
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'Nevent',
+  url: 'https://nevent.ai',
+  logo: `${SITE}/favicon.svg`,
+  description:
+    'Plataforma de marketing y CRM para promotores de eventos en vivo (festivales, conciertos, clubs, ferias, deportes).',
+  sameAs: ['https://github.com/nevent'],
+};
+
+/** TechArticle — every doc page */
+const techArticleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'TechArticle',
+  headline: pageTitle,
+  description: pageDescription,
+  inLanguage,
+  datePublished: '2025-01-01',
+  dateModified,
+  url: canonicalUrl,
+  author: { '@type': 'Organization', name: 'Nevent' },
+  publisher: {
+    '@type': 'Organization',
+    name: 'Nevent',
+    logo: { '@type': 'ImageObject', url: `${SITE}/favicon.svg` },
+  },
+};
+
+/** FAQPage — preguntas-frecuentes + faq pages */
+const faqPageSchema =
+  isFaqPage && faqPairs.length > 0
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: faqPairs.map((pair) => ({
+          '@type': 'Question',
+          name: pair.question,
+          acceptedAnswer: { '@type': 'Answer', text: pair.answer },
+        })),
+      }
+    : null;
+
+/** BreadcrumbList — all pages except homepage */
+const breadcrumbItems = !isRoot ? buildBreadcrumbs(slug, inLanguage) : [];
+const breadcrumbSchema =
+  !isRoot && breadcrumbItems.length > 1
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: breadcrumbItems,
+      }
+    : null;
+
+// ── Serialize to JSON strings for is:inline injection ─────────────────────────
+/**
+ * Safely serializes a value to a JSON string safe for inline <script> injection.
+ *
+ * JSON.stringify does NOT escape the `</` sequence. If any field value ever
+ * contains `</script>`, the browser would prematurely close the JSON-LD block
+ * — a classic script-injection vector. Replacing `</` with `<\/` produces
+ * JSON that is still valid (parsers accept the escaped solidus) while
+ * preventing the browser parser from misinterpreting the closing tag.
+ *
+ * @param obj - The value to serialize.
+ * @returns A JSON string safe for injection inside a <script> element.
+ */
+function toSafeJsonLd(obj: unknown): string {
+  return JSON.stringify(obj).replace(/<\//g, '<\\/');
+}
+
+const organizationJson = toSafeJsonLd(organizationSchema);
+const techArticleJson = toSafeJsonLd(techArticleSchema);
+const faqPageJson = faqPageSchema ? toSafeJsonLd(faqPageSchema) : null;
+const breadcrumbJson = breadcrumbSchema ? toSafeJsonLd(breadcrumbSchema) : null;
+---
+
+<!-- Render default Starlight Head (canonical, hreflang, og:title, og:description, etc.) -->
+<Default />
+
+{hasEntry && (
+  <Fragment set:html={
+    [
+      `<meta property="og:image" content="${ogImageUrl}">`,
+      `<meta property="og:image:width" content="1200">`,
+      `<meta property="og:image:height" content="630">`,
+      `<meta property="og:image:alt" content="Nevent Help Center">`,
+      `<meta name="twitter:image" content="${ogImageUrl}">`,
+      isRoot
+        ? `<script type="application/ld+json">${organizationJson}</script>`
+        : '',
+      `<script type="application/ld+json">${techArticleJson}</script>`,
+      faqPageJson
+        ? `<script type="application/ld+json">${faqPageJson}</script>`
+        : '',
+      breadcrumbJson
+        ? `<script type="application/ld+json">${breadcrumbJson}</script>`
+        : '',
+    ].join('\n')
+  } />
+)}

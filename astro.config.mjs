@@ -32,6 +32,39 @@ export default defineConfig({
 				}
 				return true;
 			},
+			// Enrich each sitemap <url> entry with changefreq, priority and lastmod.
+			// lastmod defaults to the current build date (ISO 8601); a future iteration
+			// can replace new Date() with per-page git mtime via a Vite plugin.
+			// Priority rules:
+			//   1.0 → homepage (/)
+			//   0.9 → /en/ homepage
+			//   0.8 → top-level section roots (/nevent-ai/, /en/nevent-ai/)
+			//   0.7 → all other pages (default)
+			serialize(item) {
+				const url = item.url;
+				const buildDate = new Date().toISOString().split('T')[0];
+
+				let priority = 0.7;
+				let changefreq = /** @type {'weekly'|'monthly'} */ ('weekly');
+
+				if (url === 'https://help.nevent.ai/' || url === 'https://help.nevent.ai/en/') {
+					priority = url.includes('/en/') ? 0.9 : 1.0;
+					changefreq = 'weekly';
+				} else if (
+					url === 'https://help.nevent.ai/nevent-ai/' ||
+					url === 'https://help.nevent.ai/en/nevent-ai/'
+				) {
+					priority = 0.8;
+					changefreq = 'weekly';
+				}
+
+				return {
+					...item,
+					changefreq,
+					priority,
+					lastmod: buildDate,
+				};
+			},
 		}),
 
 		starlight({
@@ -221,6 +254,9 @@ export default defineConfig({
 				// Starlight uses a single global sidebar array; without this override both
 				// the ES and EN groups render on every page.
 				Sidebar: './src/components/Sidebar.astro',
+				// Custom Head injects JSON-LD structured data (Organization, TechArticle,
+				// FAQPage, BreadcrumbList) and og:image meta tags on every page.
+				Head: './src/components/Head.astro',
 			},
 
 			// Customización de UI

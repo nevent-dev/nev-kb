@@ -1,89 +1,139 @@
 ---
 title: How to connect Nevent AI to Claude
-description: Connect your Nevent account to Claude.ai in under 2 minutes. Step-by-step guide to start querying your event data from the chat.
+description: Connect your Nevent account to Claude Desktop in under 3 minutes. Step-by-step from the interface, no file editing or installation required.
 sidebar:
   order: 3
 ---
 
-In under 2 minutes you'll have Claude connected to your Nevent CRM. From there, you can ask about your campaigns, audiences, analytics and ads directly from the chat.
+In under three minutes you'll have Nevent connected to **Claude Desktop**. No configuration files to edit, no tools to install, no tokens to manage — everything is done from the Claude Desktop interface.
 
-You don't need to install anything. Everything works from Claude.ai settings in your browser.
+From there you can ask things like "show me the campaigns with the highest conversions" or "give me the segments with the most contacts" directly from the chat.
 
-## Before you start
+## What is this
 
-You need:
-- An active [Claude.ai](https://claude.ai) account (Pro plan or higher — connectors are not available on the free plan)
-- An active [Nevent](https://admin.nevent.es) account with administrator access
+The Nevent MCP is a connection that allows Claude to talk directly to your Nevent account. Once connected, you can use natural language to query data, create segments, analyze campaigns or manage short URLs, all from Claude Desktop.
 
-## Step 1: open Claude settings
+Examples of things you can ask Claude once connected:
+- List my latest campaigns and tell me which has the best open rate
+- How many clicks has my latest short URL had
+- Create a segment with users who attended my last event
 
-Go to [claude.ai](https://claude.ai) and click your name or avatar in the bottom-left corner of the sidebar. A context menu opens.
+## What you need
 
-{/* TODO: screenshot — Claude.ai sidebar with the user menu expanded. Highlight the "Settings" option. Save to /images/guias/nevent-ai/connect-claude/step-1.png */}
+- **Claude Desktop** installed on your computer. Download it from [claude.ai/download](https://claude.ai/download) if you don't have it yet.
+- **An active Nevent account.** If you don't have access, contact support.
 
-Select **Settings** in the menu.
+## Connect Nevent to Claude Desktop, step by step
 
-## Step 2: go to the connectors section
+### Step 1. Open Claude Desktop
 
-Inside settings, look in the left menu for the **Connectors** or **Integrations** section, depending on your version of Claude.
+Launch the Claude Desktop application on your computer.
 
-{/* TODO: screenshot — Claude.ai settings panel with the Connectors section visible in the side menu. Save to /images/guias/nevent-ai/connect-claude/step-2.png */}
+{/* TODO: screenshot — Claude Desktop open, main screen. Save to /images/guias/nevent-ai/connect-claude/paso1.png */}
 
-Click **Connectors**.
+### Step 2. Open Settings
 
-## Step 3: add a custom connector
+Open the application settings:
+- On **Mac**: press `cmd + ,` or go to the Claude → Settings menu.
+- On **Windows**: press `ctrl + ,` or go to the File → Settings menu.
 
-In the connectors section you'll see any connectors you currently have set up (if this is your first time, it will be empty). Click the **Add custom connector** or **Add connector** button to add a new one.
+{/* TODO: screenshot — Claude Desktop Settings menu. Save to /images/guias/nevent-ai/connect-claude/paso2.png */}
 
-{/* TODO: screenshot — Connectors page with the "Add custom connector" button visible. Save to /images/guias/nevent-ai/connect-claude/step-3.png */}
+### Step 3. Go to the Connectors section
 
-## Step 4: enter the Nevent AI URL
+In the settings panel, look for a section called **Connectors**, **Integrations** or **Extensions** (the exact name depends on the language and version of Claude Desktop).
 
-A field appears where you enter the server URL. Type this address exactly:
-
-```
-https://mcp.nevent.ai/mcp
-```
-
-{/* TODO: screenshot — form with the URL field and "https://mcp.nevent.ai/mcp" entered. Save to /images/guias/nevent-ai/connect-claude/step-4.png */}
-
-Click **Save** or **Confirm** to save.
-
-## Step 5: authorize access with your Nevent account
-
-Claude will open a Nevent authorization window. You'll see the Nevent login screen.
-
-{/* TODO: screenshot — OAuth authorization screen with the Nevent login form. Save to /images/guias/nevent-ai/connect-claude/step-5.png */}
-
-Enter your Nevent Admin email and password and click **Sign in**. Nevent verifies your credentials and returns control to Claude.
-
-:::note[Note]
-This authorization uses OAuth 2.1, the same standard used by "Sign in with Google". Nevent never shares your password with Claude — it only issues a temporary session token.
+:::note
+If you don't see this section, your version of Claude Desktop may be outdated. Update to the latest version from [claude.ai/download](https://claude.ai/download) and try again.
 :::
 
-## Step 6: confirm the connector is active
+{/* TODO: screenshot — Connectors section inside Settings. Save to /images/guias/nevent-ai/connect-claude/paso3.png */}
 
-After authorizing, you return to the connectors screen. The Nevent connector now appears in the list with the status **Connected**.
+### Step 4. Click "Add Custom Connector"
 
-{/* TODO: screenshot — Connectors screen showing the Nevent connector with Connected status. Save to /images/guias/nevent-ai/connect-claude/step-6.png */}
+Look for the **Add Custom Connector** button or similar and click it.
 
-That's it. The connector is active.
+{/* TODO: screenshot — Add Custom Connector button. Save to /images/guias/nevent-ai/connect-claude/paso4.png */}
 
-## Result: test the connection
+### Step 5. Fill in the form
 
-Open a new conversation in Claude and type your first question:
+A form will appear with two fields. Fill them in exactly as follows:
 
-```
-List my last 5 email campaigns with their open rate
-```
+| Field | Value |
+|---|---|
+| **Name** | Nevent |
+| **URL** | `https://mcp.nevent.ai/mcp` |
 
-Claude will query your Nevent account and reply with real data in seconds.
-
-{/* TODO: screenshot — Claude.ai chat with the question and a response showing a campaigns table. Save to /images/guias/nevent-ai/connect-claude/result.png */}
-
-:::tip[Tip]
-If Claude responds that it can't access Nevent data, verify that the connector shows as "Connected" in Settings → Connectors. If the problem persists, check the [frequently asked questions](/en/nevent-ai/faq).
+:::note
+Copy the URL exactly as it appears: with `https://` at the beginning and `/mcp` at the end. One character of difference will prevent the connection.
 :::
+
+{/* TODO: screenshot — connector form with Name and URL filled in. Save to /images/guias/nevent-ai/connect-claude/paso5.png */}
+
+### Step 6. Click "Connect"
+
+Click **Connect** or **Add**. Claude Desktop will automatically open a browser window for you to sign in to Nevent.
+
+{/* TODO: screenshot — Connect button / browser window opening. Save to /images/guias/nevent-ai/connect-claude/paso6.png */}
+
+### Step 7. Sign in to Nevent
+
+In the browser window that has opened, enter your usual Nevent credentials (the same username and password you use to log in to the admin panel).
+
+:::note
+This authorization uses OAuth 2.1, the same standard as "Sign in with Google". Nevent never shares your password with Claude — it only issues a temporary session token.
+:::
+
+{/* TODO: screenshot — Nevent OAuth login screen. Save to /images/guias/nevent-ai/connect-claude/paso7.png */}
+
+### Step 8. Return to Claude Desktop
+
+Close the browser window (or it will close itself) and return to Claude Desktop. You should see **Nevent** in your list of active connectors with the status "Connected".
+
+{/* TODO: screenshot — connector list with Nevent in Connected status. Save to /images/guias/nevent-ai/connect-claude/paso8.png */}
+
+## Verify it works
+
+Open a new conversation in Claude Desktop. In the writing bar, click the tools icon (or the `+` button) and check that **Nevent** appears in the list of available tools.
+
+{/* TODO: screenshot — chat tools list with Nevent visible. Save to /images/guias/nevent-ai/connect-claude/comprobar.png */}
+
+## Your first test
+
+Type any of these messages in the chat to verify the connection works:
+
+- List my latest campaigns
+- Give me the segments with the most contacts
+- How many clicks has my latest short URL had
+
+Claude will respond with real data from your Nevent account.
+
+{/* TODO: screenshot — Claude response with real Nevent data. Save to /images/guias/nevent-ai/connect-claude/resultado.png */}
+
+## What you can ask
+
+Here are some of the things you can do with the connector active. You don't need to know anything technical: just write what you want in natural language.
+
+| You want to... | Ask Claude... |
+|---|---|
+| View your recent campaigns | Show me the last 10 campaigns and their main metrics |
+| Analyze campaign performance | How many opens and clicks did my last email campaign have |
+| Create an audience segment | Create a segment with attendees of my festival on June 15 |
+| Explore your database | What type of users convert most in my events |
+| Generate a short URL | Make me a short URL to send to my VIP list for the next concert |
+| View link statistics | How many clicks has the short URL I created last week had |
+| Review advertising campaigns | How are my Meta campaigns doing this month |
+| Prepare the next send | Help me write an email to promote my next summer festival |
+
+## If something doesn't work
+
+| Problem | Solution |
+|---|---|
+| I don't see "Connectors" in Settings | Update Claude Desktop to the latest version from [claude.ai/download](https://claude.ai/download). |
+| Error connecting after entering the URL | Check that the URL is exactly `https://mcp.nevent.ai/mcp`, with the `s` in https and `/mcp` at the end, with no spaces or extra characters. |
+| The Nevent login fails | Check that your Nevent account is active. If it persists, contact [support@nevent.ai](mailto:support@nevent.ai). |
+| I don't see "Nevent" in the chat tools list | Close Claude Desktop completely (`cmd+Q` on Mac, or from the system tray on Windows) and reopen it. |
+| Claude says it doesn't have access to Nevent | The token may have expired. Go to Settings → Connectors, remove the Nevent connector and repeat the process from Step 4. |
 
 ## Next step
 
