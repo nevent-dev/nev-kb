@@ -4,10 +4,19 @@ import starlight from '@astrojs/starlight';
 import sitemap from '@astrojs/sitemap';
 import starlightThemeNova from 'starlight-theme-nova';
 import starlightLlmsTxt from 'starlight-llms-txt';
+import remarkGfm from 'remark-gfm';
 
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://help.nevent.ai',
+
+	// Enable GitHub Flavored Markdown (GFM) tables in .mdx files.
+	// Astro 6 / @astrojs/mdx do not include remark-gfm automatically for MDX
+	// (unlike .md files which have GFM active by default). Without this, markdown
+	// tables render as pipe-delimited plain text instead of <table> elements.
+	markdown: {
+		remarkPlugins: [remarkGfm],
+	},
 
 	integrations: [
 		// Sitemap for SEO (reduces indexing time by 50%)
