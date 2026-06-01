@@ -1,0 +1,122 @@
+---
+title: Nevent Help Center
+description: Talk to your live events platform in plain language. Connect Nevent to Claude or ChatGPT in 2 minutes.
+template: splash
+hero:
+  title: |
+    Talk to your live events<br/><span class="text-gradient">CRM</span>
+  tagline: |
+    Connect Nevent to Claude or ChatGPT and ask about your campaigns, segments, metrics or paid ads in plain language. No SQL, no dashboards, no waiting.
+  actions:
+    - text: Connect with Claude
+      link: /en/nevent-ai/connect-claude/
+      icon: right-arrow
+      variant: primary
+    - text: Connect with ChatGPT
+      link: /en/nevent-ai/connect-chatgpt/
+      icon: external
+      variant: secondary
+    - text: For developers
+      link: /en/nevent-ai/developers/
+      icon: seti:json
+      variant: minimal
+---
+
+import { Card, CardGrid, LinkCard, Tabs, TabItem, Aside, Badge } from '@astrojs/starlight/components';
+
+## Ask anything about your events
+
+Once connected, type directly in Claude or ChatGPT as if you were talking to a teammate.
+
+<CardGrid>
+  <Card title="Analytics" icon="rocket">
+    *"How many tickets did I sell for EventX by ticket type in the last 7 days?"*
+  </Card>
+  <Card title="Campaigns" icon="email">
+    *"Which campaigns from last month had an open rate above 30%?"*
+  </Card>
+  <Card title="Segmentation" icon="magnifier">
+    *"Create a segment of attendees who bought VIP tickets in 2025 but haven't opened an email in 90 days."*
+  </Card>
+  <Card title="Sends" icon="setting">
+    *"Schedule the 'Summer Gala' campaign for next Monday at 10:00 CET."*
+  </Card>
+  <Card title="Paid media" icon="bars">
+    *"Compare the ROAS of my Meta Ads campaigns in March."*
+  </Card>
+  <Card title="Short URLs" icon="external">
+    *"Generate unique links per user for 'Summer Gala' and tell me who clicked."*
+  </Card>
+</CardGrid>
+
+## Why use Nevent AI
+
+<CardGrid>
+  <Card title="Live in 2 minutes" icon="approve-check">
+    No installation, no local setup. Add `https://mcp.nevent.ai/mcp` as a connector in Claude or ChatGPT, authorize with your Nevent account, and you're done.
+  </Card>
+  <Card title="52 tools" icon="puzzle">
+    9 categories: analytics, segmentation, campaigns, templates, deliverability, paid media (Meta · Google · TikTok), short URLs and multi-account.
+  </Card>
+  <Card title="Your data, your account" icon="seti:lock">
+    OAuth 2.1 authentication per user. Each session is isolated. Your data is not used to train models.
+  </Card>
+  <Card title="Three permission levels" icon="setting">
+    Read-only (consult only), Read and prepare (consult + create drafts) or Read, prepare and send (live sends). You decide what the assistant can do.
+  </Card>
+  <Card title="Native multi-account" icon="document">
+    If you manage multiple accounts, switch between them within the same conversation without re-authenticating.
+  </Card>
+  <Card title="Compatible with everything" icon="seti:plan">
+    Claude.ai, ChatGPT, Claude Desktop, Claude Code, Cursor, Cline, Continue and VS Code.
+  </Card>
+</CardGrid>
+
+## For every profile
+
+<Tabs>
+  <TabItem label="Marketer / Promoter">
+    Create segments by talking, schedule sends by voice to the assistant and check the performance of any campaign without opening the dashboard.
+
+    <LinkCard title="Start here" description="Connect Claude in 2 minutes and try the examples in the first section." href="/en/nevent-ai/connect-claude/" />
+  </TabItem>
+  <TabItem label="Data analyst">
+    Query the Nevent data warehouse in plain language. Discover available tables, dimensions and metrics without writing SQL.
+
+    <LinkCard title="Use cases" description="Real analysis examples with Nevent AI." href="/en/nevent-ai/use-cases/" />
+  </TabItem>
+  <TabItem label="Developer">
+    Integrate Nevent into your workflow: Claude Code, Cursor, VS Code or any MCP-compatible client. Local stdio mode or hosted HTTP with OAuth.
+
+    <LinkCard title="Technical documentation" description="Installation, transports, configuration and reference for all 52 tools." href="/en/nevent-ai/developers/" />
+  </TabItem>
+</Tabs>
+
+## Get started now
+
+<CardGrid>
+  <LinkCard
+    title="What is Nevent AI"
+    description="Concept, scope and use cases in a 2-minute read."
+    href="/en/nevent-ai/"
+  />
+  <LinkCard
+    title="Permissions and security"
+    description="OAuth 2.1, operation modes and multi-account isolation."
+    href="/en/nevent-ai/permissions-and-security/"
+  />
+  <LinkCard
+    title="Frequently asked questions"
+    description="Compatibility, undoing sends, account permissions and more."
+    href="/en/nevent-ai/faq/"
+  />
+  <LinkCard
+    title="Tools reference"
+    description="All 52 tools grouped by category."
+    href="/en/nevent-ai/developers/tools/"
+  />
+</CardGrid>
+
+<Aside type="tip" title="Don't have a Nevent account yet?">
+  Nevent AI is a layer on top of your Nevent account. If you don't have one yet, email us at [support@nevent.es](mailto:support@nevent.es) or visit [nevent.ai](https://nevent.ai).
+</Aside>
