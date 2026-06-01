@@ -1,5 +1,19 @@
 /* Nevent Brand Colors sobre tema Nova */
 
+/*
+ * Logo en dark mode: el wordmark "nevent." es texto negro sobre fondo transparente.
+ * En tema oscuro sería invisible, por eso se invierte con CSS filter.
+ * Se usa filter: invert(1) para pasar a blanco, brightness(1.1) para compensar
+ * el ligero gris que introduce invert en algunos sistemas.
+ * El selector .site-title img cubre el elemento que Starlight renderiza
+ * cuando logo.replacesTitle = true.
+ */
+:root[data-theme='dark'] .site-title img,
+:root[data-theme='dark'] a.site-title img,
+:root[data-theme='dark'] header .site-title img {
+	filter: invert(1) brightness(1.1);
+}
+
 @layer nevent-brand {
 	:root {
 		/* Colores primarios de Nevent */

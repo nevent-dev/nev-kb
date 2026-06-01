@@ -80,6 +80,13 @@ export default defineConfig({
 			title: 'Nevent Help Center',
 			description: 'Knowledge Base de Nevent - La fuente única de verdad del conocimiento de la compañía',
 
+			// Logo wordmark — replaces the text title in the header.
+			// replacesTitle: true hides the site title text so only the image shows.
+			logo: {
+				src: './src/assets/logo.png',
+				replacesTitle: true,
+			},
+
 			// Plugins: Theme Nova + llms.txt para asistentes de IA
 			plugins: [
 				starlightThemeNova(),
@@ -100,14 +107,22 @@ export default defineConfig({
 
 			// Configuración SEO
 			head: [
-				// Favicon
+				// Favicons (multi-resolution)
 				{
 					tag: 'link',
-					attrs: {
-						rel: 'icon',
-						href: '/favicon.svg',
-						type: 'image/svg+xml',
-					},
+					attrs: { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico', sizes: 'any' },
+				},
+				{
+					tag: 'link',
+					attrs: { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/favicon-32x32.png' },
+				},
+				{
+					tag: 'link',
+					attrs: { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/favicon-16x16.png' },
+				},
+				{
+					tag: 'link',
+					attrs: { rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-touch-icon.png' },
 				},
 				// Meta theme color
 				{
