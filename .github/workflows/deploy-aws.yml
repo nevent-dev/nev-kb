@@ -51,19 +51,23 @@ jobs:
 
           # HTML files with short cache (1 minute for quick updates)
           # NOTE: --exclude must come BEFORE --include for AWS CLI filter precedence
+          # --delete removes orphan HTMLs when pages are deleted from the repo
           aws s3 sync . s3://help.nevent.ai/ \
+            --delete \
             --cache-control "public, max-age=60, must-revalidate" \
             --exclude "*" \
             --include "*.html"
 
           # Pagefind search index (1 hour cache)
           aws s3 sync . s3://help.nevent.ai/ \
+            --delete \
             --cache-control "public, max-age=3600" \
             --exclude "*" \
             --include "pagefind/*"
 
           # Sitemaps (1 hour cache)
           aws s3 sync . s3://help.nevent.ai/ \
+            --delete \
             --cache-control "public, max-age=3600" \
             --exclude "*" \
             --include "sitemap-*.xml"
