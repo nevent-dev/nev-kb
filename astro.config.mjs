@@ -11,7 +11,28 @@ export default defineConfig({
 
 	integrations: [
 		// Sitemap for SEO (reduces indexing time by 50%)
-		sitemap(),
+		// Filter out Starlight i18n fallback pages: these are Spanish-slug pages that
+		// Starlight automatically serves under /en/ when no English translation exists.
+		// Including them in the sitemap causes duplicate-content issues for SEO.
+		// Pattern: any /en/ URL that contains a Spanish path segment (casos-practicos,
+		// que-puedes-hacer, conectar-, frases-listas-para-usar, permisos-y-seguridad,
+		// preguntas-frecuentes, herramientas, instalacion-local).
+		sitemap({
+			filter: (page) => {
+				// Starlight i18n fallback: when an EN translation does not exist for a page,
+				// Starlight serves the ES (root locale) content at /en/<spanish-slug>/.
+				// These duplicate URLs must be excluded from the sitemap to avoid SEO
+				// duplicate-content penalties. The list below contains path segments that
+				// appear ONLY in ES (root locale) slugs — they have different EN equivalents.
+				const SPANISH_ONLY_SLUG_PATTERN =
+					/\/(casos-practicos|que-puedes-hacer|conectar-claude|conectar-chatgpt|frases-listas-para-usar|permisos-y-seguridad|preguntas-frecuentes|herramientas|instalacion-local|analitica|campanas|audiencia|plantillas|short-urls|multi-cuenta|lanzar-un-evento|recuperar-audiencia-dormida|diagnosticar-campana-floja|optimizar-inversion-publicitaria|cierre-de-mes-y-reporting)\//;
+				// Exclude pages under /en/ whose path matches a Spanish-only slug
+				if (page.startsWith('https://help.nevent.ai/en/') && SPANISH_ONLY_SLUG_PATTERN.test(page)) {
+					return false;
+				}
+				return true;
+			},
+		}),
 
 		starlight({
 			title: 'Nevent Help Center',
@@ -136,8 +157,12 @@ export default defineConfig({
 						},
 					],
 				},
-				// ─── English (/en/) — uses href to bypass slug validation ─────────
-				// Starlight uses href-based items for cross-locale links with different slugs
+				// ─── English (/en/) — uses link: with absolute paths ────────────────
+				// These paths are absolute so Starlight does not add an /en/ prefix.
+				// The custom Sidebar.astro component:
+				//   - strips the double /en/en/ prefix that Starlight adds when rendering
+				//     link: items on EN locale pages
+				//   - filters this group out entirely when rendering ES locale pages
 				{
 					label: 'Nevent AI',
 					items: [
@@ -189,6 +214,14 @@ export default defineConfig({
 					],
 				},
 			],
+
+			// Custom component overrides
+			components: {
+				// Filter sidebar by locale so each language sees only its own entries.
+				// Starlight uses a single global sidebar array; without this override both
+				// the ES and EN groups render on every page.
+				Sidebar: './src/components/Sidebar.astro',
+			},
 
 			// Customización de UI
 			customCss: [
