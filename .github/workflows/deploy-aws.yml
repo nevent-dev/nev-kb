@@ -50,33 +50,41 @@ jobs:
             --exclude "sitemap-*.xml"
 
           # HTML files with short cache (1 minute for quick updates)
+          # NOTE: --exclude must come BEFORE --include for AWS CLI filter precedence
           aws s3 sync . s3://help.nevent.ai/ \
             --cache-control "public, max-age=60, must-revalidate" \
-            --include "*.html" \
-            --exclude "*"
+            --exclude "*" \
+            --include "*.html"
 
           # Pagefind search index (1 hour cache)
           aws s3 sync . s3://help.nevent.ai/ \
             --cache-control "public, max-age=3600" \
-            --include "pagefind/*" \
-            --exclude "*"
+            --exclude "*" \
+            --include "pagefind/*"
 
           # Sitemaps (1 hour cache)
           aws s3 sync . s3://help.nevent.ai/ \
             --cache-control "public, max-age=3600" \
-            --include "sitemap-*.xml" \
-            --exclude "*"
+            --exclude "*" \
+            --include "sitemap-*.xml"
+
+          # llms.txt files (1 hour cache, text/plain)
+          aws s3 sync . s3://help.nevent.ai/ \
+            --cache-control "public, max-age=3600" \
+            --content-type "text/plain; charset=utf-8" \
+            --exclude "*" \
+            --include "llms*.txt"
+
+          # robots.txt (1 hour cache, text/plain)
+          aws s3 cp robots.txt s3://help.nevent.ai/robots.txt \
+            --cache-control "public, max-age=3600" \
+            --content-type "text/plain; charset=utf-8"
 
       - name: Invalidate CloudFront cache
         run: |
           aws cloudfront create-invalidation \
             --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} \
-            --paths \
-              "/index.html" \
-              "/404.html" \
-              "/pagefind/*" \
-              "/sitemap-*.xml" \
-              "/*/index.html"
+            --paths "/*"
 
       - name: Deployment summary
         run: |
