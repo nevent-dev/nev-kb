@@ -1,0 +1,155 @@
+---
+title: Nevent AI in Claude Desktop
+description: Configure Nevent AI in the Claude desktop app. Configuration JSON for macOS and Windows with absolute paths and environment variables.
+sidebar:
+  order: 3
+---
+
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+Claude Desktop loads MCP servers from a JSON configuration file. This file is edited manually — Claude Desktop has no graphical interface for managing MCP servers.
+
+## Configuration file location
+
+<Tabs>
+  <TabItem label="macOS">
+    ```
+    ~/Library/Application Support/Claude/claude_desktop_config.json
+    ```
+  </TabItem>
+  <TabItem label="Windows">
+    ```
+    %APPDATA%\Claude\claude_desktop_config.json
+    ```
+    Equivalent to: `C:\Users\YourUser\AppData\Roaming\Claude\claude_desktop_config.json`
+  </TabItem>
+</Tabs>
+
+If the file does not exist, create it. If it already exists, add the `nevent` block to the `mcpServers` object.
+
+## Minimal configuration (stdio mode)
+
+```json
+{
+  "mcpServers": {
+    "nevent": {
+      "command": "node",
+      "args": ["/absolute/path/to/mcp-nevent/dist/index.js"],
+      "env": {
+        "NEVENT_JWT_TOKEN": "your_nevent_jwt_token"
+      }
+    }
+  }
+}
+```
+
+Replace `/absolute/path/to/mcp-nevent/dist/index.js` with the real path where you have the package cloned and compiled.
+
+## Using npx (without cloning the repo)
+
+If you prefer not to clone the repo, you can use `npx`:
+
+```json
+{
+  "mcpServers": {
+    "nevent": {
+      "command": "npx",
+      "args": ["mcp-nevent"],
+      "env": {
+        "NEVENT_JWT_TOKEN": "your_nevent_jwt_token"
+      }
+    }
+  }
+}
+```
+
+:::caution[Important]
+With `npx`, Claude Desktop downloads and runs the package every time it starts. Make sure you have an internet connection when opening Claude Desktop, or use the global installation instead.
+:::
+
+## Global installation (recommended for frequent use)
+
+Install the package once globally:
+
+```bash
+npm install -g mcp-nevent
+```
+
+Then in the Claude Desktop configuration:
+
+```json
+{
+  "mcpServers": {
+    "nevent": {
+      "command": "mcp-nevent",
+      "env": {
+        "NEVENT_JWT_TOKEN": "your_nevent_jwt_token"
+      }
+    }
+  }
+}
+```
+
+## With explicit operation mode
+
+To enable writes, add `NEVENT_OPERATION_MODE`:
+
+```json
+{
+  "mcpServers": {
+    "nevent": {
+      "command": "node",
+      "args": ["/absolute/path/to/mcp-nevent/dist/index.js"],
+      "env": {
+        "NEVENT_JWT_TOKEN": "your_nevent_jwt_token",
+        "NEVENT_OPERATION_MODE": "STANDARD"
+      }
+    }
+  }
+}
+```
+
+Valid values are `READ_ONLY` (default), `STANDARD` and `FULL`. See the description of each mode in the [permissions and security](/en/nevent-ai/permissions-and-security/) guide.
+
+## Path with system environment variables (macOS)
+
+On macOS, Claude Desktop does not inherit shell environment variables. If you have the token in your `.zshrc` or `.bashrc`, you must include it explicitly in the JSON or use the full path to the `node` binary:
+
+```json
+{
+  "mcpServers": {
+    "nevent": {
+      "command": "/usr/local/bin/node",
+      "args": ["/Users/your_user/projects/mcp-nevent/dist/index.js"],
+      "env": {
+        "NEVENT_JWT_TOKEN": "your_token_here"
+      }
+    }
+  }
+}
+```
+
+To find the path to `node` on your system:
+
+```bash
+which node
+```
+
+## Verify it works
+
+1. Save the changes to `claude_desktop_config.json`
+2. Fully close Claude Desktop
+3. Open Claude Desktop again
+4. Start a new conversation and type:
+
+```
+What Nevent tools do you have available?
+```
+
+Claude Desktop will show the available tools if the MCP server is loaded correctly. If it does not respond with Nevent tools, check the [troubleshooting guide](/en/nevent-ai/developers/troubleshooting/).
+
+## Next step
+
+- [Configuration in Cursor, Cline, Continue and VS Code](/en/nevent-ai/developers/cursor-cline-continue/)
+- [Full environment variables](/en/nevent-ai/developers/local-installation/)
+- [Troubleshooting](/en/nevent-ai/developers/troubleshooting/)
