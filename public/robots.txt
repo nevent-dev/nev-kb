@@ -1,4 +1,36 @@
+# Nevent Help Center — robots.txt
+# Documentación oficial de Nevent IA y del MCP de Nevent.
+# Contexto curado para asistentes de IA en /llms.txt y /llms-full.txt
+
 User-agent: *
+Allow: /
+
+# Crawlers de IA (declarados explícitamente)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: CCBot
 Allow: /
 
 Sitemap: https://help.nevent.ai/sitemap-index.xml

@@ -3,6 +3,7 @@ import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 import sitemap from '@astrojs/sitemap';
 import starlightThemeNova from 'starlight-theme-nova';
+import starlightLlmsTxt from 'starlight-llms-txt';
 
 // https://astro.build/config
 export default defineConfig({
@@ -16,8 +17,17 @@ export default defineConfig({
 			title: 'Nevent Help Center',
 			description: 'Knowledge Base de Nevent - La fuente única de verdad del conocimiento de la compañía',
 
-			// Theme Nova
-			plugins: [starlightThemeNova()],
+			// Plugins: Theme Nova + llms.txt para asistentes de IA
+			plugins: [
+				starlightThemeNova(),
+				starlightLlmsTxt({
+					projectName: 'Nevent Help Center',
+					description:
+						'Documentación oficial de Nevent IA y del MCP de Nevent. Conecta tu CRM de live events con Claude o ChatGPT y consulta campañas, audiencias, paid media y analítica en lenguaje natural.',
+					details:
+						'Nevent es la plataforma de marketing y CRM para promotores de eventos en vivo (festivales, conciertos, clubs, ferias, deportes). El MCP de Nevent permite integrar la plataforma con cualquier asistente de IA compatible con Model Context Protocol y operar sobre campañas (email, SMS, WhatsApp, push), segmentos, plantillas, paid media (Meta, Google, TikTok), short URLs, deliverability y reporting multi-cuenta.',
+				}),
+			],
 
 			// Mostrar última actualización en cada página
 			lastUpdated: true,
