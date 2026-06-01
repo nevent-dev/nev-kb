@@ -1,0 +1,95 @@
+---
+title: How Sofía discovered why her campaign had an 8% open rate
+description: Full diagnosis of an underperforming campaign. Metrics analysis, anomaly detection and improvement plan for the next send.
+sidebar:
+  order: 4
+---
+
+import { Aside, Steps } from '@astrojs/starlight/components';
+
+## Who and when
+
+Sofía manages communications for a nightclub with a weekly program. She sends between two and three email campaigns a week. The usual open rate is around 22–25%.
+
+Last Friday she sent the weekend schedule campaign and got an 8% open rate. She wants to understand what happened before repeating the same mistake next Wednesday.
+
+## Before vs. after
+
+| Process | Without Nevent AI | With Nevent AI |
+|---------|-------------------|----------------|
+| Review campaign metrics | Open the panel, navigate to the report | One question to the assistant |
+| Compare with previous campaigns | Export multiple campaigns and compare in Excel | One question to the assistant |
+| Detect anomalies | Manual review with no clear methodology | Automatic analysis with pattern detection |
+| Extract actionable conclusions | No system | The assistant synthesizes the findings |
+
+## What you need
+
+- Nevent account with [Nevent Analytics](https://nevent.ai/en/features/event-analytics) active
+- Nevent AI connected in Claude or ChatGPT
+- "Read-only" access level (sufficient for the diagnosis)
+- Estimated time: 10 minutes
+
+## Step by step
+
+<Steps>
+1. **Retrieve the metrics for the problematic campaign** — Sofía starts with the concrete data.
+
+   > "Give me the full metrics for the 'Weekend schedule June 20' campaign: opens, clicks, unsubscribes, bounces and send time"
+
+   The assistant returns: open rate 8.2%, CTR 0.9%, 3 unsubscribes, 12 soft bounces. Send time: Friday 18:45.
+
+2. **Compare with similar campaigns** — Data alone says nothing without context.
+
+   > "What is the average open rate for my last ten Friday email campaigns?"
+
+   The assistant calculates: 23.4% average.
+
+   > "And what was the lowest one before this campaign?"
+
+   The assistant identifies the previous historical minimum: 16.8%, in February.
+
+3. **Analyze the campaign with anomaly detection** — Sofía wants to know if the assistant spots something she doesn't see.
+
+   > "Analyze the 'Weekend schedule June 20' campaign and tell me if there are any anomalies compared to my usual patterns"
+
+   The assistant identifies three unusual factors: the send time was 45 minutes later than the usual average, the subject line had 72 characters (the average is 48), and the segment included 340 contacts who hadn't opened emails for more than 90 days.
+
+4. **Dig into each factor** — Sofía wants to understand which had the most impact.
+
+   > "Of those three factors, can the segment with inactive contacts explain the drop? If I exclude them, what would the estimated open rate be?"
+
+   The assistant calculates: excluding the 340 inactive contacts, the open rate for the remaining 2,800 was 14.9%. Still low, but closer to what was expected.
+
+   > "Is a 72-character subject line significantly different from the ones that perform well?"
+
+   The assistant compares against the best-performing subject lines: the top five have between 38 and 52 characters.
+
+5. **Extract the improvement plan** — With the diagnosis clear, Sofía can act.
+
+   > "Summarize in three points what I should change in the next Friday campaign to improve the open rate"
+
+   The assistant synthesizes: (1) send before 18:00, (2) keep the subject line under 55 characters, (3) exclude contacts who haven't opened in more than 60 days from the segment.
+
+6. **Create the improved segment for the next send** — Sofía wants to apply the third recommendation right away.
+
+   > "Create a segment with my active subscribers excluding those who haven't opened any email in the last 60 days. Save it as 'Active last 60 days'"
+
+   The assistant creates the segment: 3,120 people.
+</Steps>
+
+## Why it works
+
+The diagnosis is possible thanks to [Nevent Analytics](https://nevent.ai/en/features/event-analytics), which records the metrics of each campaign and allows historical comparisons. The anomaly detection the assistant performs isn't magic: it analyzes the specific campaign's performance against the account's historical patterns and flags what deviates from the norm.
+
+The practical result is that Sofía doesn't have to be a data analyst to improve her campaigns. She asks the right questions to the assistant and gets an actionable diagnosis back.
+
+## Variants
+
+- This same workflow applies to SMS or WhatsApp campaigns with a low CTR.
+- If the problem isn't the open rate but the CTR (many people open, few click), the diagnosis focuses on content and call-to-action rather than subject line and segment.
+- For a festival, you can compare the performance of equivalent campaigns between annual editions rather than between weeks.
+
+<Aside type="tip" title="Want to better understand your campaign performance?">
+[Nevent Analytics](https://nevent.ai/en/features/event-analytics) + [Nevent Email Marketing](https://nevent.ai/en/features/email-marketing) give you all the information you need to improve every send.
+**[Request information with no commitment →](https://nevent.ai/en/request-information)**
+</Aside>

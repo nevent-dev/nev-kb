@@ -1,0 +1,95 @@
+---
+title: How David launched a 30-ambassador program for his B2B trade fair
+description: Creating individual tracking links for 30 influencers, measuring clicks and generating the performance ranking at the close of the program.
+sidebar:
+  order: 7
+---
+
+import { Aside, Steps } from '@astrojs/starlight/components';
+
+## Who and when
+
+David is commercial director of a B2B trade fair with around 5,000 registrations per edition. For the autumn edition, he has recruited 30 industry professionals as ambassadors: journalists, consultants and business sector figures who will promote the fair through their networks and newsletters.
+
+The usual problem: everyone shares the same registration link, so at the close it's impossible to know who generated what. This year David wants real data to decide who to invite back and who not to.
+
+## Before vs. after
+
+| Process | Without Nevent AI | With Nevent AI |
+|---------|-------------------|----------------|
+| Create 30 individual links | Manual one by one or Excel + external tool | A single prompt |
+| Measure clicks per collaborator | No data or external tool | Direct question to the assistant |
+| Generate performance ranking | Manual Excel | One question |
+| Program close report | Hours of manual work | Minutes with the assistant |
+
+## What you need
+
+- Nevent account with link tracking active
+- Nevent AI connected in Claude or ChatGPT
+- "Read and prepare" access level
+- Estimated time: 10 minutes to create the links, 5 minutes for the close report
+
+## Step by step
+
+<Steps>
+1. **Create all 30 links in a single step** — David has the list of his 30 ambassadors with their names.
+
+   > "Create individual tracking links for each of these 30 collaborators for the 'B2B Fair Ambassadors 2026' campaign. The destination link is https://b2b-fair.nevent.es/registration. Tag them all with the campaign 'ambassadors-2026'. The names are: [list of 30 names]"
+
+   The assistant generates the 30 links with individual attribution. David receives the list with each collaborator's unique link to distribute to them.
+
+2. **Mid-program check-in** — Two weeks into the launch, David wants to see how it's going.
+
+   > "List all links from the 'ambassadors-2026' campaign with the accumulated clicks for each collaborator"
+
+   The assistant returns the 30 links sorted by clicks.
+
+   > "Who are the five collaborators with the most clicks so far?"
+
+   The assistant shows the top 5 with their click count.
+
+3. **Analyze the quality of the leader's traffic** — Not all clicks are equal. David wants to know where the top collaborator's traffic is coming from.
+
+   > "For the collaborator with the most clicks, show me clicks broken down by country, device and whether it's paid or organic traffic"
+
+   The assistant shows the breakdown: 82% of traffic comes from Spain, 91% from mobile, all organic.
+
+4. **Detect links with no activity** — David wants to know if any collaborators haven't started promoting yet.
+
+   > "Which collaborators have zero clicks after two weeks?"
+
+   The assistant identifies seven links with no activity.
+
+5. **Measure the program's overall CTR** — David needs a summary metric for the interim report.
+
+   > "What is the overall CTR for the program? Total clicks divided by active links"
+
+   The assistant calculates the overall click rate.
+
+6. **Program close report** — At the end of the registration period, David does the final evaluation.
+
+   > "List the 30 collaborators sorted by clicks from highest to lowest, and tell me how many of those clicks correspond to peak activity days"
+
+   The assistant returns the full ranking with the temporal distribution.
+
+   > "What was the average click rate per collaborator and how many are above that average?"
+
+   The assistant calculates the average and classifies collaborators as "above" and "below."
+</Steps>
+
+## Why it works
+
+Individual link tracking is possible thanks to the [Nevent Analytics](https://nevent.ai/en/features/event-analytics) tracking module, which records each click with its attribution to the corresponding collaborator. If the fair also has UTMs configured, the system can cross those clicks with actual registrations.
+
+This turns an ambassador program from "blind trust" into a data-driven program. David knows exactly which five collaborators generated 70% of the traffic and can make renewal decisions with that information.
+
+## Variants
+
+- For a music festival, you can use the same workflow with social media influencers promoting the festival in exchange for accreditations.
+- If you want to measure conversions (not just clicks), make sure the destination links have UTMs configured so you can cross with ticket sales in Nevent.
+- For larger programs (100+ collaborators), you can create links in batches and use tags to group them by category (press, consultants, media, etc.).
+
+<Aside type="tip" title="Want to measure the real return of your collaborations?">
+Nevent's [marketing attribution](https://nevent.ai/en/features/marketing-attribution) lets you know which channel, influencer or campaign drives the most registrations.
+**[Request information with no commitment →](https://nevent.ai/en/request-information)**
+</Aside>

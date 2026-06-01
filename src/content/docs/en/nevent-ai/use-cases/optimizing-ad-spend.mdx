@@ -1,0 +1,94 @@
+---
+title: How Marta reallocated €12,000 of Meta budget using real data
+description: ROAS analysis by ad group, ticket sales attribution and advertising budget reallocation in a single session with Nevent AI.
+sidebar:
+  order: 5
+---
+
+import { Aside, Steps } from '@astrojs/starlight/components';
+
+## Who and when
+
+Marta organizes a jazz festival with an advertising budget of €12,000 for the launch period of the 2026 edition. She has ten active ad groups in Meta, all targeting different audiences and using different creatives.
+
+With two weeks until the close of season pass sales, she wants to know which ones are converting and which are consuming budget without results. Her goal: concentrate spend on what works.
+
+## Before vs. after
+
+| Process | Without Nevent AI | With Nevent AI |
+|---------|-------------------|----------------|
+| View performance of all groups | Open Meta Ads Manager | One question to the assistant |
+| Cross spend with ticket sales | Meta export + Nevent export + Excel | One question to the assistant |
+| Identify underperforming groups | Manual row-by-row review | The assistant filters and classifies |
+| Understand why they're underperforming | Manual analysis of targeting and creatives | The assistant compares automatically |
+
+## What you need
+
+- Nevent account with [Nevent Paid Media](https://nevent.ai/en/features/paid-media) and [marketing attribution](https://nevent.ai/en/features/marketing-attribution) active
+- Meta campaigns with UTMs configured in destination links
+- Nevent AI connected in Claude or ChatGPT
+- "Read-only" access level (sufficient for the analysis)
+- Estimated time: 15 minutes
+
+## Step by step
+
+<Steps>
+1. **View the global performance of Meta campaigns** — Marta needs a snapshot of the current state.
+
+   > "List all my active Meta ad groups with their accumulated spend and ROAS for the last 7 days"
+
+   The assistant returns a table with the ten groups: spend, ROAS, CTR, CPM and sync status.
+
+2. **Identify the groups with low ROAS** — Marta wants to separate what works from what doesn't.
+
+   > "Which ones have a ROAS below 1.5 this week?"
+
+   The assistant identifies three ad groups with ROAS below 1.5.
+
+3. **Understand why those three are underperforming** — Before pausing them, Marta wants to understand the cause.
+
+   > "Compare those three groups with the ones above ROAS 2. What differences are there in targeting, CPM and CTR?"
+
+   The assistant compares: the three low-ROAS groups have higher CPMs (€22 vs €14 average) and lower CTRs (0.6% vs 1.4%). Two of them use broad interest audiences; the better-performing ones use 1% lookalike audiences.
+
+4. **Attribute ticket sales to the campaigns** — Meta's ROAS can differ from actual Nevent sales if there are attribution discrepancies.
+
+   > "How many tickets in total have been sold this week that can be attributed to Meta campaigns through UTMs?"
+
+   The assistant crosses Nevent sales data with Meta UTMs: 340 attributed tickets, with an average cost per ticket of €24.
+
+5. **Dig into the best-converting groups** — Marta wants to understand what the top performers have in common so she can replicate it.
+
+   > "Of the groups with ROAS above 2, which has the best cost per ticket sold?"
+
+   The assistant identifies the group with the best cost per conversion: 'Lookalike attendees 2024 — Creative B', with a cost of €16 per ticket.
+
+6. **Compare the creatives in the winning group** — To understand whether the performance comes from the audience or the creative.
+
+   > "How many ads does that group have and how is spend distributed between them? Does any creative stand out?"
+
+   The assistant lists the three ads in the group. Creative B has 78% of spend automatically allocated by Meta and the highest CTR.
+
+7. **Plan the reallocation** — With all the data on the table, Marta makes her decision.
+
+   > "Summarize what you'd do with the budget to maximize ticket sales: which groups to pause and how much to redirect to the ones that are working"
+
+   The assistant synthesizes the recommendation: pause the three low-ROAS groups (freeing up €3,200), increase the budget for the two lookalike groups with the best cost per conversion.
+</Steps>
+
+## Why it works
+
+This analysis combines [Nevent Paid Media](https://nevent.ai/en/features/paid-media) — which syncs data from Meta, Google and TikTok — with Nevent's [marketing attribution](https://nevent.ai/en/features/marketing-attribution) module, which crosses advertising spend with actual ticket sales through UTMs.
+
+The difference compared to viewing data only in Meta Ads Manager is that Nevent adds the real sales layer. A group can have good CTR in Meta but generate few sales if the audience doesn't convert on the purchase page. Crossing with Nevent data resolves that discrepancy.
+
+## Variants
+
+- If you use Google Ads in addition to Meta, you can ask the assistant to compare ROAS between platforms in the same query.
+- For a venue event with a smaller budget (€500–€2,000), the same analysis applies but at the individual ad level rather than group level.
+- If you don't have UTMs configured yet, the assistant can help you understand what attribution data is available with your current setup.
+
+<Aside type="tip" title="Want to see how much of your budget is generating real sales?">
+[Nevent Paid Media](https://nevent.ai/en/features/paid-media) connects your advertising investment with ticket sales.
+**[Request information with no commitment →](https://nevent.ai/en/request-information)**
+</Aside>

@@ -1,0 +1,99 @@
+---
+title: How Lucía manages four clients without losing track
+description: Account switching without signing out, reviewing each promoter's data and returning to the main account. All from a single conversation with Nevent AI.
+sidebar:
+  order: 8
+---
+
+import { Aside, Steps } from '@astrojs/starlight/components';
+
+## Who and when
+
+Lucía runs the marketing department of an agency working with four event promoters. Each client has their own Nevent account, and Lucía has access to all of them from her agency user.
+
+The problem before: every time she needed to check something for a different client, she had to sign out of Nevent, sign in with another account, or ask someone to send her screenshots. Now she switches accounts with a single phrase and works with each client's data without interruptions.
+
+## Before vs. after
+
+| Process | Without Nevent AI | With Nevent AI |
+|---------|-------------------|----------------|
+| Switch from one client to another | Sign out, new session, navigate | One instruction to the assistant |
+| Check an urgent data point for a client | 5–10 minutes between session switches | 30 seconds |
+| Compare metrics between two clients | Impossible in real time | Account switch and query |
+| Keep the thread of a working session | Lost when switching accounts | Continuous conversation |
+
+## What you need
+
+- Nevent account with access to multiple promoters (agency access or parent account)
+- Nevent AI connected in Claude or ChatGPT
+- "Read-only" access level (sufficient for queries)
+- Estimated time: variable, but account switches are instantaneous
+
+## Step by step
+
+<Steps>
+1. **See which accounts are available** — Lucía always starts by confirming what she has access to.
+
+   > "Which accounts do I have available in my Nevent access?"
+
+   The assistant lists: Vigo Jazz Festival, Sala Apolo Madrid, Barcelona Business Fair, Club Nocturno Babel.
+
+2. **Query the first client's data** — Lucía has an urgent question from the festival.
+
+   > "Switch to the Vigo Jazz Festival"
+
+   The assistant confirms the account switch.
+
+   > "How many tickets were sold yesterday?"
+
+   The assistant returns the festival data.
+
+3. **Switch to the second client without closing the chat** — Lucía needs to check a campaign from the venue.
+
+   > "Switch to Sala Apolo Madrid"
+
+   The assistant switches the active account. All subsequent queries use the venue's data.
+
+   > "Which email campaigns are in draft status?"
+
+   The assistant lists the venue's drafts.
+
+4. **Confirm which account she's working in** — If Lucía has made several switches in the same session, she may lose track.
+
+   > "Which account am I working in right now?"
+
+   The assistant confirms the active account.
+
+5. **Cross-account query (with manual switch)** — Lucía wants to compare sales from two clients in the same period.
+
+   > "Tell me the tickets sold in May at Sala Apolo"
+
+   > "Switch to the Vigo Jazz Festival"
+
+   > "And the tickets sold in May at the festival?"
+
+   With two account switches and two questions, Lucía has the comparison.
+
+6. **Return to the origin account** — When done, Lucía restores her main account.
+
+   > "Go back to my main account"
+
+   The assistant confirms it has returned to the origin account.
+</Steps>
+
+## Why it works
+
+Multi-account management is possible thanks to Nevent's architecture for [managing multiple events](https://nevent.ai/en/solutions/manage-multiple-events), which allows an agency user to access multiple accounts under a single login. Nevent AI respects that structure: when Lucía asks it to switch accounts, the assistant authenticates the switch with her access and from that point on uses the new client's data.
+
+The switch is per session: if Lucía opens a new conversation in Claude or ChatGPT, it always starts on her main account. The switch does not persist between conversations, which ensures there is no risk of accidentally working with the wrong client's data.
+
+## Variants
+
+- If you manage more than four accounts, the process is the same; you can ask for the list of available accounts at any time rather than having to remember them all.
+- If a collaborator at your agency needs limited access to a single client account, that is configured in Nevent's permissions, not in Nevent AI.
+- For promoters with multiple festivals under the same brand (not an agency), the flow is identical: each festival can be a separate account with its own data.
+
+<Aside type="tip" title="Do you manage events for multiple clients or have several festivals?">
+Nevent's multi-account access is designed for agencies and promoter groups. Discover the options for [managing multiple events](https://nevent.ai/en/solutions/manage-multiple-events) or become a [Nevent partner](https://nevent.ai/en/partners).
+**[Request information with no commitment →](https://nevent.ai/en/request-information)**
+</Aside>
