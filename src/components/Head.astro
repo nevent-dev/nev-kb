@@ -42,9 +42,13 @@ const DEFAULT_OG_IMAGE = `${SITE}/og-image.svg`;
 // entry.id is the file path relative to src/content/docs, e.g. "nevent-ai/faq.mdx"
 const rawId = hasEntry ? (entry.id ?? '') : '';
 const slug = rawId.replace(/\.(mdx?|astro)$/, '').replace(/\/index$/, '');
-const isRoot = slug === 'index' || slug === '';
+// EN homepage: entry.id = 'en/index' → slug = 'en' after stripping /index suffix.
+// We must also treat slug === 'en' as root so the EN homepage is handled correctly.
+const isRoot = slug === 'index' || slug === '' || slug === 'en';
 
 const langPrefix = locale === 'en' ? '/en' : '';
+// For root pages: canonicalUrl = SITE + langPrefix + '/'
+// For deep pages: strip locale prefix from slug, then prepend langPrefix.
 const pageSlug = isRoot ? '' : `/${slug.replace(/^en\//, '')}`;
 const canonicalUrl = `${SITE}${langPrefix}${pageSlug}/`;
 
@@ -278,10 +282,26 @@ const breadcrumbSchema =
     : null;
 
 // ── Serialize to JSON strings for is:inline injection ─────────────────────────
-const organizationJson = JSON.stringify(organizationSchema);
-const techArticleJson = JSON.stringify(techArticleSchema);
-const faqPageJson = faqPageSchema ? JSON.stringify(faqPageSchema) : null;
-const breadcrumbJson = breadcrumbSchema ? JSON.stringify(breadcrumbSchema) : null;
+/**
+ * Safely serializes a value to a JSON string safe for inline <script> injection.
+ *
+ * JSON.stringify does NOT escape the `</` sequence. If any field value ever
+ * contains `</script>`, the browser would prematurely close the JSON-LD block
+ * — a classic script-injection vector. Replacing `</` with `<\/` produces
+ * JSON that is still valid (parsers accept the escaped solidus) while
+ * preventing the browser parser from misinterpreting the closing tag.
+ *
+ * @param obj - The value to serialize.
+ * @returns A JSON string safe for injection inside a <script> element.
+ */
+function toSafeJsonLd(obj: unknown): string {
+  return JSON.stringify(obj).replace(/<\//g, '<\\/');
+}
+
+const organizationJson = toSafeJsonLd(organizationSchema);
+const techArticleJson = toSafeJsonLd(techArticleSchema);
+const faqPageJson = faqPageSchema ? toSafeJsonLd(faqPageSchema) : null;
+const breadcrumbJson = breadcrumbSchema ? toSafeJsonLd(breadcrumbSchema) : null;
 ---
 
 <!-- Render default Starlight Head (canonical, hreflang, og:title, og:description, etc.) -->
