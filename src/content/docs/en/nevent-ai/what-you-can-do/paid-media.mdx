@@ -1,0 +1,83 @@
+---
+title: Analyze and optimize your paid advertising from the chat
+description: Query the performance of Meta, Google and TikTok Ads. Compare ROAS, analyze ad groups and attribute ticket sales to each advertising campaign.
+sidebar:
+  order: 6
+---
+
+import { Aside, Badge } from '@astrojs/starlight/components';
+
+When you invest in advertising for a festival or event, the question is always the same: what's working and what's burning money? To answer it, you normally have to open Meta Ads Manager, then Google's, and then manually cross that data with sales in Nevent. That manual cross-referencing is where information gets lost.
+
+With Nevent AI, you ask directly which advertising campaign generated the most ticket sales and get the answer in seconds. The assistant crosses Meta or Google spend with Nevent sales through UTM attribution.
+
+Marta, organizer of a jazz festival, manages €12,000 in Meta advertising budget for the annual edition launch. Every week she asks the assistant which ad groups are converting and reallocates the budget accordingly.
+
+## What you can ask
+
+Available in "Read-only" mode and above:
+
+- "Is the Meta Ads account connected and synced correctly?"
+- "List all my active Meta campaigns with their budget and status"
+- "What was the ROAS of my Meta campaigns in April?"
+- "Show me the daily CTR of the 'Jazz Festival 2026 — Launch' campaign"
+- "Which ad groups had the lowest CPM last week?"
+- "How much did we spend on advertising in March and how many tickets are attributed to those campaigns?"
+- "Compare the performance of my Meta vs Google campaigns in Q1"
+- "Which ad creative had the best CTR last week?"
+- "Show me the targeting of the 'Lookalike audience 18-35' ad group"
+
+## What the assistant can prepare for you
+
+<Badge text="Read-only" variant="note" /> Paid media tools are read-only. The assistant analyzes and compares, but does not modify campaigns in Meta, Google or TikTok.
+
+The assistant can:
+
+- **Compare performance between campaigns** — ROAS, CPM, CPC, CTR, total spend
+- **Attribute ticket sales to campaigns** — which advertising campaign generated which sales in Nevent
+- **Detect underperforming ad groups** — flags those with high CPM or low CTR compared to the average
+- **Analyze the daily progression of metrics** — useful for detecting sharp performance drops
+- **Compare a creative against its "siblings"** — one ad versus the others in the same group
+
+:::tip[Tip]
+Sales attribution works through UTMs. For the assistant to be able to link advertising spend to ticket sales, make sure your campaigns have UTMs configured in the destination links.
+:::
+
+## How Marta uses it a week before launch
+
+Marta has ten active ad groups in Meta with a total budget of €12,000 for the launch period.
+
+> "List all my active ad groups for the 'Jazz 2026 Launch' campaign with their spend and ROAS this week"
+
+The assistant shows the ten groups with spend, ROAS and CTR for the last seven days.
+
+> "Which ones have a ROAS below 1.5?"
+
+The assistant identifies three ad groups with ROAS below 1.5.
+
+> "What are the differences between those three and the ones that are performing well?"
+
+The assistant compares targeting, creatives and CTR between the underperforming groups and those above average.
+
+> "How many tickets in total have been sold this week that can be attributed to these Meta campaigns?"
+
+The assistant crosses Nevent sales with Meta UTMs and returns the number of attributed tickets and cost per ticket.
+
+With that information, Marta decides to pause the three low-ROAS groups and reallocate that budget to the ones that are converting.
+
+## Combine it with
+
+- [Analytics](/en/nevent-ai/what-you-can-do/analytics/) — relate advertising spend to total event revenue
+- [Link tracking](/en/nevent-ai/what-you-can-do/link-tracking/) — complement UTM attribution with per-channel tracking links
+- [Use case: optimizing ad spend](/en/nevent-ai/use-cases/optimizing-ad-spend/)
+
+## What it cannot do yet
+
+- It cannot modify budgets or pause campaigns directly in Meta or Google (requires action in Ads Manager)
+- It does not have TikTok Ads data if the integration is not configured in your Nevent account
+- Attribution works with UTMs; if you don't use them, the assistant cannot link spend to sales
+- Paid media data has a sync lag of several hours compared to real time
+
+<Aside type="tip" title="This is part of Nevent Paid Media">
+The [Nevent Paid Media](https://nevent.ai/en/features/paid-media) and [marketing attribution](https://nevent.ai/en/features/marketing-attribution) modules make it possible to cross advertising spend with ticket sales. [Request information](https://nevent.ai/en/request-information) to see how it works with your campaigns.
+</Aside>
