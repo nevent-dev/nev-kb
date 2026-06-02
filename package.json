@@ -17,10 +17,12 @@
     "@astrojs/sitemap": "^3.7.3",
     "@astrojs/starlight": "^0.39.2",
     "astro": "^6.4.2",
+    "astro-feelback": "^0.3.4",
     "sharp": "^0.34.2",
     "starlight-llms-txt": "^0.10.0",
     "starlight-page-actions": "^0.6.0",
-    "starlight-theme-nova": "^0.11.11"
+    "starlight-theme-nova": "^0.11.11",
+    "web-vitals": "^5.3.0"
   },
   "devDependencies": {
     "slugify": "^1.6.6",

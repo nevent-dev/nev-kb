@@ -1,36 +1,82 @@
 # Nevent Help Center — robots.txt
 # Documentación oficial de Nevent IA y del MCP de Nevent.
 # Contexto curado para asistentes de IA en /llms.txt y /llms-full.txt
+# Última actualización: 2026-06-01
 
 User-agent: *
 Allow: /
 
-# Crawlers de IA (declarados explícitamente)
+# === LLM Crawlers — Allowlist explícita para indexación y entrenamiento de IA ===
+
+# OpenAI ChatGPT (training)
 User-agent: GPTBot
 Allow: /
 
+# OpenAI ChatGPT-User (browse mode, real-time)
 User-agent: ChatGPT-User
 Allow: /
 
+# OpenAI search bot
 User-agent: OAI-SearchBot
 Allow: /
 
+# Anthropic Claude (training)
 User-agent: ClaudeBot
 Allow: /
 
+# Anthropic Claude (user-triggered)
 User-agent: Claude-Web
 Allow: /
 
+# Anthropic Claude (search)
 User-agent: anthropic-ai
 Allow: /
 
-User-agent: PerplexityBot
-Allow: /
-
+# Google AI/Gemini (separado de Googlebot para entrenamiento)
 User-agent: Google-Extended
 Allow: /
 
+# Perplexity AI
+User-agent: PerplexityBot
+Allow: /
+
+# Common Crawl (usado por muchos LLMs para entrenamiento)
 User-agent: CCBot
 Allow: /
 
+# Meta AI
+User-agent: FacebookBot
+Allow: /
+
+User-agent: Meta-ExternalAgent
+Allow: /
+
+# Meta-ExternalFetcher (bot de preview de Meta)
+User-agent: Meta-ExternalFetcher
+Allow: /
+
+# Microsoft Bing AI / Copilot
+User-agent: bingbot
+Allow: /
+
+# Apple Intelligence
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# Mistral AI
+User-agent: MistralAI-User
+Allow: /
+
+# Cohere AI
+User-agent: cohere-ai
+Allow: /
+
+# Bytedance / Doubao
+User-agent: Bytespider
+Allow: /
+
+# === Sitemaps ===
 Sitemap: https://help.nevent.ai/sitemap-index.xml
