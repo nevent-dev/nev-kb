@@ -253,6 +253,25 @@ export default defineConfig({
 				//     link: items on EN locale pages
 				//   - filters this group out entirely when rendering ES locale pages
 				{
+					label: 'Audience',
+					items: [
+						{
+							label: 'Segmentation Engine',
+							items: [
+								{ label: 'Introduction', link: '/en/audience/segmentation-engine/', badge: { text: 'Start here', variant: 'tip' } },
+								{ label: 'Creating a segment', link: '/en/audience/segmentation-engine/creating-a-segment/' },
+								{ label: 'The 6 categories', link: '/en/audience/segmentation-engine/categories/' },
+								{ label: 'Operators & AND/OR logic', link: '/en/audience/segmentation-engine/operators-and-logic/' },
+								{ label: 'Modifiers & RFM analysis', link: '/en/audience/segmentation-engine/modifiers-and-rfm/', badge: { text: 'Advanced', variant: 'note' } },
+								{ label: 'Groups & A/B testing', link: '/en/audience/segmentation-engine/groups/' },
+								{ label: 'Use cases', link: '/en/audience/segmentation-engine/use-cases/' },
+								{ label: 'Best practices', link: '/en/audience/segmentation-engine/best-practices/' },
+								{ label: 'FAQ', link: '/en/audience/segmentation-engine/faq/' },
+							],
+						},
+					],
+				},
+				{
 					label: 'Nevent AI',
 					items: [
 						{ label: 'What is Nevent AI', link: '/en/nevent-ai/', badge: { text: 'New', variant: 'tip' } },

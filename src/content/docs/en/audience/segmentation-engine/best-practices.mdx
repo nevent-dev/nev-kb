@@ -1,0 +1,379 @@
+---
+title: "Segmentation best practices for email - festivals 2026"
+description: "9 golden rules for festival segmentation: achieve open rates above 45%, conversion above 12% and ROI of 15x. Avoid audience fatigue and sell more tickets."
+sidebar:
+  order: 7
+---
+
+import Schema from '../../../../../components/Schema.astro';
+import { Aside } from '@astrojs/starlight/components';
+
+<Schema>{`{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://docs.nevent.com"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Segmentation Engine",
+      "item": "https://docs.nevent.com/en/audience/segmentation-engine"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Best Practices",
+      "item": "https://docs.nevent.com/en/audience/segmentation-engine/best-practices"
+    }
+  ]
+}`}</Schema>
+
+:::tip[Quick definition]
+**What are the best practices for segmentation?**
+
+9 rules: (1) Start with RFM, (2) Minimum size 500 fans, (3) Test one variable at a time, (4) Avoid over-segmentation (no more than 15 segments), (5) Update criteria each campaign, (6) Always measure, (7) Combine max 3-5 criteria, (8) Respect frequency, (9) Clean up inactive contacts.
+
+**Example:** A promoter with 50k fans who created 25 segments generated audience fatigue (12% open rate). They consolidated to 8 segments and recovered 28% open (+16pp).
+:::
+
+# Segmentation Best Practices
+
+Apply these 9 rules to maximise the impact of your festival and event attendee segments, increase ticket sale conversion and improve the ROI of your email marketing campaigns.
+
+---
+
+## 1. Preview Before Sending
+
+Always use the **Preview** function to:
+
+✅ See the estimated size of your audience
+✅ Review 10-20 example profiles
+✅ Detect if the segment is too small or too large
+✅ Verify that the filters are correct
+
+### Target Sizes
+
+### What is the ideal segment size for each type of festival campaign?
+
+| Campaign Type | Ideal Size |
+|---------------|------------|
+| Mass email | 1,000+ fans |
+| Segmented promotion | 300-1,000 fans |
+| Exclusive VIP offer | 50-300 fans |
+| A/B test (per variant) | 100+ fans |
+
+**If your segment has:**
+- < 50 fans: Too specific → consider broadening
+- \> 10,000 fans: Too broad → consider sub-segmenting
+
+---
+
+## 2. Start Simple, Iterate Towards Complexity
+
+### First Campaign
+
+❌ **Do not do this:**
+```
+(City equals "Madrid" OR "Barcelona")
+AND (Age 25-40)
+AND (Events >= 3)
+AND (Spend > €200)
+AND (Temperature "Hot")
+AND (Did not open email in 30 days)
+```
+
+✅ **Do this:**
+```
+City equals "Madrid"
+```
+
+### Recommended Progression
+
+1. **Weeks 1-2**: Simple segments (1-2 criteria)
+2. **Weeks 3-4**: Add behaviour (spend, attendance)
+3. **Month 2**: Combine demographics + behaviour
+4. **Month 3+**: Advanced multi-group segments
+
+**Measure results** at each iteration and learn which criteria make the most difference.
+
+---
+
+## 3. Document Your Successful Segments
+
+### Naming Convention
+
+✅ **Good names:**
+- `VIP_Reactivation_Madrid_Q1_2026`
+- `EarlyBird_Festival_Barcelona_Summer`
+- `New_Fans_Last_30days`
+- `Test_SubjectLine_Group_A`
+
+❌ **Bad names:**
+- `Segment 1`
+- `Test xyz`
+- `Campaign_final_final_v2`
+- `asdf`
+
+### What to Document
+
+When a segment produces good results:
+
+1. **Save it** with a descriptive name
+2. **Note down**:
+   - Which campaign you ran
+   - Results (open rate, click, conversion)
+   - Date of execution
+   - Key learnings
+3. **Reuse it** in similar campaigns
+4. **Share it** with your team
+
+**Documentation example:**
+```
+Name: VIP_Reactivation_Madrid_Q1_2026
+Date: 15 Jan 2026
+Audience: 456 fans
+Campaign: 3-step email sequence with 20% discount
+Results:
+  - Open: 48%
+  - Click: 18%
+  - Conversion: 22%
+  - ROI: 12x
+Learnings: 20% discount is the sweet spot, 30% cannibalises margins
+```
+
+---
+
+## 4. Respect Audience Fatigue
+
+Do not over-contact the same segments.
+
+### ❌ Bad Example
+
+```
+Monday: Email to "Fans in Madrid"
+Tuesday: Email to "Fans aged 25-35 in Madrid"
+Wednesday: Email to "Fans who bought in Madrid"
+
+→ Same fan receives 3 emails in 3 days
+```
+
+### ✅ Done Well
+
+```
+Monday: Email to "Fans in Madrid who did NOT receive an email in the last 7 days"
+Thursday: Email to a completely different audience (Barcelona)
+Next Monday: You can contact Madrid again
+```
+
+### General Rules
+
+| Frequency | Audience |
+|-----------|----------|
+| **Maximum 2-3 emails/week** | To the same segment |
+| **Minimum 3-5 days** | Between emails to the same fan |
+| **1 email/day** | For Very Hot, highly engaged VIPs only |
+
+**Exception**: Automated sequences for welcome, abandoned carts, etc. (transactional flows).
+
+The optimal frequency depends on segment temperature. For specific questions, see our [FAQ section on frequency and deliverability](./faq#frequency).
+
+---
+
+## 5. Use Groups for Small Tests
+
+Before sending to 50,000 fans, **test with a small group**.
+
+### Recommended Workflow
+
+1. **Split** your segment into 10 groups
+2. **Send** only to Group 1 (10% of your base)
+3. **Wait** 24-48h and measure results
+4. **If it works well** → send to Groups 2-10
+5. **If it does not work** → adjust and test again
+
+**Benefits:**
+- ✅ You reduce the risk of burning your entire audience
+- ✅ You can adjust the message based on early data
+- ✅ You catch errors (broken links, typos) with minimal impact
+
+<Aside type="tip">
+A test with 10% of your base (Group 1) gives you **enough data** for informed decisions without risking 100%.
+</Aside>
+
+---
+
+## 6. Combine Behaviour + Demographics
+
+The best segments combine **WHO** the fan is with **WHAT** they have done.
+
+### Weak (Demographics Only)
+
+```
+Age 25-35 in Barcelona
+```
+**Problem**: Too broad, poor predictor of engagement.
+
+### Better (Behaviour Only)
+
+```
+Attended 3+ festivals
+```
+**Better**, but ignores geographic and demographic context.
+
+### Optimal (Combined)
+
+```
+Age 25-35 in Barcelona
+AND
+Attended 3+ festivals
+AND
+Temperature "Hot"
+```
+**High conversion probability**: Profile + behaviour + engagement.
+
+---
+
+## 7. Monitor Your Segment Sizes
+
+### Assessment Guide
+
+| Size | Assessment | Recommended Action |
+|------|------------|-------------------|
+| < 50 | Very small | Consider broadening criteria |
+| 50-200 | Small | OK for ultra-exclusive offers |
+| 200-1,000 | Medium | ✅ Ideal for segmentation |
+| 1,000-10,000 | Large | ✅ Optimal for campaigns |
+| \> 10,000 | Very large | Consider sub-segmenting for relevance |
+
+**Exception**: If your total base is small (< 500 fans), a segment of 30-50 may be reasonable.
+
+### What to Do If Your Segment Is Too Small
+
+1. **Remove** the most restrictive criterion
+2. **Change** operators (e.g. "greater than €500" → "greater than €200")
+3. **Broaden the geography** (e.g. "City Madrid" → "Province of Madrid")
+4. **Use OR** instead of AND (where it makes sense)
+
+### What to Do If Your Segment Is Too Large
+
+1. **Add** a behaviour criterion (engagement, spend)
+2. **Refine** demographics (age, more specific location)
+3. **Split** into sub-segments by Nevent Temperature
+4. **Use groups** for progressive sends
+
+---
+
+## 8. Update Segments Regularly
+
+Behaviour-based segments are **dynamic**.
+
+**Example:**
+- Today: Fan is at "Cold Temperature"
+- They buy a ticket tomorrow
+- Next week: They move up to "Hot"
+
+### Update Frequency
+
+| Segment Type | Frequency |
+|--------------|-----------|
+| **Behaviour** (temperature, purchases, engagement) | Before each campaign |
+| **Demographic** (age, location) | Quarterly |
+| **Historical** ("Attended Festival 2024") | Does not change (static) |
+
+<Aside type="note">
+Nevent automatically updates Nevent Temperature **weekly**. You do not need to do anything.
+</Aside>
+
+---
+
+## 9. Use Exclusions When Necessary
+
+Sometimes it is easier to define who you **do not** want to contact.
+
+### Example: Promotion for New Fans
+
+**Approach 1 (Include):**
+```
+Number of events attended: Equals 1
+AND
+Purchase date: In the last 90 days
+```
+
+**Approach 2 (Exclude):**
+```
+All fans in Madrid who accept emails
+EXCEPT
+  Number of events attended: Greater than 5
+  (they are already loyal fans, this offer is not for them)
+```
+
+**When to use exclusions:**
+- Offers for new fans (exclude VIPs)
+- Reactivation (exclude fans who were recently active)
+- Testing (exclude fans who already received another variant)
+
+---
+
+## Pre-Send Checklist
+
+Before running your campaign, verify:
+
+- [ ] Did I review the fan preview?
+- [ ] Is the audience size reasonable?
+- [ ] Is the segment name descriptive?
+- [ ] Do the criteria make sense for my objective?
+- [ ] Did I document what I am going to measure?
+- [ ] Did I configure groups if this is an A/B test?
+- [ ] Did I verify I am not over-contacting this audience?
+
+---
+
+## KPIs to Measure Success
+
+### Email Performance
+
+### What email marketing metrics should I aim for with festival segmentation?
+
+| Metric | Baseline | Target with Segmentation | Excellent |
+|--------|----------|--------------------------|-----------|
+| **Open Rate** | 18-22% | 30-40% | 45%+ |
+| **Click Rate** | 2-4% | 8-12% | 15%+ |
+| **Conversion** | 1-3% | 5-10% | 12%+ |
+| **Unsubscribe** | 0.5-1% | 0.1-0.3% | &lt;0.1% |
+
+### Engagement
+
+| Metric | What It Measures | Target |
+|--------|------------------|--------|
+| **Time to Open** | How quickly they open | < 24h (engaged fans) |
+| **Click-to-Open Rate** | % who click after opening | 25-40% |
+| **Bounce Rate** | Invalid emails | &lt; 2% |
+
+### Business Impact
+
+| Metric | Target |
+|--------|--------|
+| **ROI** | 8-15x |
+| **Revenue per Email** | €5-15 |
+| **Customer Lifetime Value** | +30% vs non-segmented |
+
+---
+
+## Next Steps
+
+Apply these practices and consult:
+
+1. **[FAQ](./faq)** — Answers to common questions
+2. **[Use Cases](./use-cases)** — Practical application
+3. **[Back to Introduction](./index)** — Full review
+
+---
+
+**Ready to segment like a pro?** 🚀
+
+[Resolve doubts about Nevent Temperature, groups, deliverability and more →](./faq)
