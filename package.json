@@ -12,7 +12,8 @@
     "gen:category": "node scripts/generate-category.js",
     "validate": "node scripts/validate-content.js",
     "detect:categories": "node scripts/detect-categories.js",
-    "seo:indexnow": "node scripts/indexnow-submit.js"
+    "seo:indexnow": "node scripts/indexnow-submit.js",
+    "deploy": "bash scripts/deploy.sh"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",

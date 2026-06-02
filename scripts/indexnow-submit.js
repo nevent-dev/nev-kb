@@ -18,9 +18,7 @@
  */
 
 // ─── Configuration ─────────────────────────────────────────────────────────
-// TODO: Replace with the actual 32-char key generated with: openssl rand -hex 16
-// After replacing, rename public/REPLACE_WITH_GENERATED_KEY.txt to public/{KEY}.txt
-const KEY = 'REPLACE_WITH_GENERATED_KEY';
+const KEY = '6a530c2d600fa0fc84d33993a21287e6';
 const HOST = 'help.nevent.ai';
 const KEY_LOCATION = `https://${HOST}/${KEY}.txt`;
 
