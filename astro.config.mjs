@@ -4,6 +4,7 @@ import starlight from '@astrojs/starlight';
 import sitemap from '@astrojs/sitemap';
 import starlightThemeNova from 'starlight-theme-nova';
 import starlightLlmsTxt from 'starlight-llms-txt';
+import starlightPageActions from 'starlight-page-actions';
 import remarkGfm from 'remark-gfm';
 
 // https://astro.build/config
@@ -34,7 +35,7 @@ export default defineConfig({
 				// duplicate-content penalties. The list below contains path segments that
 				// appear ONLY in ES (root locale) slugs — they have different EN equivalents.
 				const SPANISH_ONLY_SLUG_PATTERN =
-					/\/(casos-practicos|que-puedes-hacer|conectar-claude|conectar-chatgpt|frases-listas-para-usar|permisos-y-seguridad|preguntas-frecuentes|herramientas|instalacion-local|analitica|campanas|audiencia|plantillas|short-urls|multi-cuenta|lanzar-un-evento|recuperar-audiencia-dormida|diagnosticar-campana-floja|optimizar-inversion-publicitaria|cierre-de-mes-y-reporting)\//;
+					/\/(casos-practicos|que-puedes-hacer|conectar-claude|conectar-chatgpt|frases-listas-para-usar|permisos-y-seguridad|preguntas-frecuentes|herramientas|instalacion-local|analitica|campanas|audiencia|plantillas|short-urls|multi-cuenta|lanzar-un-evento|recuperar-audiencia-dormida|diagnosticar-campana-floja|optimizar-inversion-publicitaria|cierre-de-mes-y-reporting|motor-segmentacion|crear-segmento|categorias|operadores-logica|modificadores-rfm|grupos|casos-uso|mejores-practicas)\//;
 				// Exclude pages under /en/ whose path matches a Spanish-only slug
 				if (page.startsWith('https://help.nevent.ai/en/') && SPANISH_ONLY_SLUG_PATTERN.test(page)) {
 					return false;
@@ -87,9 +88,20 @@ export default defineConfig({
 				replacesTitle: true,
 			},
 
-			// Plugins: Theme Nova + llms.txt para asistentes de IA
+			// Plugins: Theme Nova + page-actions + llms.txt para asistentes de IA
 			plugins: [
 				starlightThemeNova(),
+				// Page action buttons: "Open in Claude/ChatGPT" dropdown + "Copy Markdown"
+				// baseUrl is intentionally omitted to avoid conflict with starlight-llms-txt
+				// which already handles llms.txt generation with richer content.
+				starlightPageActions({
+					actions: {
+						chatgpt: true,
+						claude: true,
+						markdown: true,
+					},
+					share: false,
+				}),
 				starlightLlmsTxt({
 					projectName: 'Nevent Help Center',
 					description:
@@ -163,6 +175,26 @@ export default defineConfig({
 			// Sidebar — ES (raíz) y EN (/en/)
 			// Starlight selecciona automáticamente los items del locale activo
 			sidebar: [
+				// ─── Audiencia / Motor de Segmentación — ES ────────────────────
+				{
+					label: 'Audiencia',
+					items: [
+						{
+							label: 'Motor de Segmentación',
+							items: [
+								{ label: 'Introducción', slug: 'audience/motor-segmentacion', badge: { text: 'Empieza aquí', variant: 'tip' } },
+								{ label: 'Cómo Crear un Segmento', slug: 'audience/motor-segmentacion/crear-segmento' },
+								{ label: 'Las 6 Categorías', slug: 'audience/motor-segmentacion/categorias' },
+								{ label: 'Operadores & Lógica Y/O', slug: 'audience/motor-segmentacion/operadores-logica' },
+								{ label: 'Modificadores & RFM', slug: 'audience/motor-segmentacion/modificadores-rfm', badge: { text: 'Avanzado', variant: 'note' } },
+								{ label: 'Grupos & A/B Testing', slug: 'audience/motor-segmentacion/grupos' },
+								{ label: 'Casos de Uso Prácticos', slug: 'audience/motor-segmentacion/casos-uso' },
+								{ label: 'Mejores Prácticas', slug: 'audience/motor-segmentacion/mejores-practicas' },
+								{ label: 'Preguntas Frecuentes', slug: 'audience/motor-segmentacion/faq' },
+							],
+						},
+					],
+				},
 				// ─── Español (root) ────────────────────────────────────────────
 				{
 					label: 'Nevent AI',

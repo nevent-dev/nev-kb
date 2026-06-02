@@ -1,0 +1,849 @@
+---
+title: "6 Categorías de Segmentación Nevent - Referencia Completa"
+description: "Referencia completa: 60+ criterios de segmentación para festivales organizados en 6 categorías (Asistencia, Atributos, Consumo, Engagement, Canales, Nevent Score). Con ejemplos."
+sidebar:
+  order: 3
+---
+
+import Schema from '../../../../components/Schema.astro';
+import { Aside, Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Schema>{`{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://docs.nevent.com"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Motor de Segmentación",
+      "item": "https://docs.nevent.com/audience/motor-segmentacion"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Las 6 Categorías",
+      "item": "https://docs.nevent.com/audience/motor-segmentacion/categorias"
+    }
+  ]
+}`}</Schema>
+
+:::tip[Definición Rápida]
+**¿Qué categorías de criterios existen en Nevent?**
+
+6 categorías principales: (1) Asistencia (eventos pasados, fechas), (2) Atributos (edad, género, ubicación), (3) Consumo (gasto, tipo entrada), (4) Engagement (opens, clicks, temperatura), (5) Canales (email, SMS, web), (6) Nevent Score (RFM automático).
+
+**Ejemplo:** Combinar Asistencia ("Primavera Sound 2023") + Consumo ("Gasto ≥300€") identifica 4,200 fans leales de 80k base.
+:::
+
+## Preguntas Frecuentes sobre Criterios de Segmentación
+
+### ¿Qué criterios puedo usar para vender entradas a festivales?
+
+Nevent ofrece **6 categorías principales de criterios** para segmentar asistentes y compradores de entradas:
+
+1. **Asistencia (Eventos pasados)** - Filtra por historial de compra
+   - Eventos específicos asistidos (ej: "Primavera Sound 2023")
+   - Fechas de asistencia
+   - Tipo de entrada comprada histórico (General, VIP, Early Bird)
+
+2. **Atributos (Datos demográficos)** - Información personal
+   - Edad, género
+   - Ubicación: país, región, ciudad, radio km
+   - Idioma preferido
+
+3. **Consumo (Comportamiento de compra)** - Métricas transaccionales
+   - Gasto total histórico (€)
+   - Número de compras
+   - Ticket promedio
+   - Método de pago preferido
+
+4. **Engagement (Interacción)** - Actividad con comunicaciones
+   - Emails abiertos/clicks
+   - Páginas web visitadas
+   - Temperatura Nevent (0-100)
+   - Última interacción
+
+5. **Canales** - Origen y preferencias de comunicación
+   - Canal de adquisición (email, social, organic)
+   - Opt-in SMS, WhatsApp, push notifications
+   - Device preferido (mobile, desktop)
+
+6. **Nevent Score (RFM automático)** - Segmentos inteligentes
+   - Champions, Loyal, Promising, At Risk, Lost
+   - Calculado automáticamente por Recency, Frequency, Monetary
+
+**Combinación más usada:** Asistencia + Consumo + Engagement (70% de segmentos exitosos)
+
+**Ejemplo práctico:**
+```
+Criterios para early bird VIP:
+- Eventos pasados: ≥2 (Asistencia)
+- Gasto histórico: ≥500€ (Consumo)
+- Temperatura: ≥Hot (Engagement)
+```
+
+---
+
+### ¿Cómo segmento VIPs por gasto?
+
+Define VIPs según gasto total histórico con umbrales que varían por tipo de evento:
+
+**Umbrales VIP recomendados:**
+
+| Nivel VIP | Gasto Total | Criterio Nevent | Ticket Promedio | Eventos Típicos |
+|-----------|-------------|-----------------|-----------------|-----------------|
+| **VIP Bronce** | 300-800€ | `Gasto total histórico: ≥300, <800` | 100-150€ | 2-5 eventos |
+| **VIP Plata** | 800-2,000€ | `Gasto total histórico: ≥800, <2000` | 150-250€ | 4-8 eventos |
+| **VIP Oro** | 2,000-5,000€ | `Gasto total histórico: ≥2000, <5000` | 250-400€ | 8-15 eventos |
+| **VIP Platino** | 5,000€+ | `Gasto total histórico: ≥5000` | 400€+ | 15+ eventos |
+
+**Ajustar según tu ticket promedio:**
+- Festival budget (ticket ~50€): VIP = ≥200€ histórico
+- Festival mid-range (ticket ~150€): VIP = ≥500€ histórico
+- Festival premium (ticket ~300€): VIP = ≥1,000€ histórico
+
+**Tip crítico - Combina con recencia:**
+
+Evita incluir "VIPs dormidos" que gastaron mucho hace años pero están inactivos:
+
+```
+Segmento VIP Activo:
+Gasto total: ≥800€
+AND Días desde última compra: ≤365
+```
+
+Esto excluye VIPs que gastaron 1,500€ en 2020-2021 pero no han comprado desde entonces (probablemente churned).
+
+**Performance por tier VIP:**
+
+| Tier | % Audiencia | Open Rate | Conversion | Revenue/Fan |
+|------|-------------|-----------|------------|-------------|
+| VIP Platino | 0.5-2% | 65-75% | 18-28% | 300-600€ |
+| VIP Oro | 2-5% | 55-65% | 12-20% | 200-400€ |
+| VIP Plata | 5-10% | 45-55% | 8-15% | 100-250€ |
+| VIP Bronce | 10-15% | 35-45% | 5-10% | 50-150€ |
+
+**Acción diferenciada por tier:**
+- **Platino:** No descuentos. Early access 48h antes, meet & greet, backstage
+- **Oro:** Descuento 10% máximo, early access 24h antes, VIP lounge
+- **Plata:** Descuento 15%, contenido exclusivo, priority support
+- **Bronce:** Descuento 20%, emails personalizados, upsell a Plata
+
+---
+
+### ¿Puedo filtrar por ubicación geográfica?
+
+**Sí, 3 niveles de granularidad:**
+
+**Nivel 1 - País:**
+```
+País: España
+```
+- Use case: Festivales nacionales vs internacionales
+- Ejemplo: Sónar (60% España, 40% internacional)
+
+**Nivel 2 - Región/Provincia:**
+```
+Región: Catalunya
+```
+- Use case: Festivales regionales, cross-sell eventos cercanos
+- Ejemplo: Cruïlla Barcelona → Fans de Catalunya reciben transporte público info
+
+**Nivel 3 - Ciudad + Radio:**
+```
+Ciudad: Barcelona
+Radio: ≤50km
+```
+- Use case: Geo-targeting ultra específico, eliminar info alojamiento para locales
+- Ejemplo: Primavera Sound → Fans Barcelona no ven sección hoteles en email
+
+**Casos de uso geo-segmentation:**
+
+**A. Festival local - Eliminar info irrelevante**
+```
+Segmento Locales:
+Ciudad: Barcelona, ≤50km
+```
+
+**Email personalizado:**
+- ❌ Sección hoteles (viven ahí)
+- ❌ Info vuelos
+- ✅ Transporte público (Metro L4, Bus H16)
+- ✅ Parking venue (20€/día)
+- ✅ Subject: "🏠 Early Bird vecinos - Desde casa al festival"
+
+**Performance:** Open rate +18% vs email genérico (sin ruido de info hoteles)
+
+---
+
+**B. Festival con turismo - Packs hotel+entrada**
+```
+Segmento Turistas:
+País: NOT España
+OR Región: NOT Catalunya (españoles fuera Catalunya)
+```
+
+**Email personalizado:**
+- ✅ 5 hoteles recomendados cerca venue
+- ✅ Widget comparador vuelos Barcelona
+- ✅ Guía turística 48h (Sagrada Familia, Park Güell)
+- ✅ Shuttle bus gratuito hotel→venue
+- ✅ Subject: "✈️ Packs hotel+entrada Barcelona desde 280€"
+
+**Performance:** Conversion pack completo 9.2% vs 2.1% entrada sola (valor alto)
+
+---
+
+**C. Gira multi-ciudad - Personalizar venue**
+```
+Segmento Madrid:
+Ciudad: Madrid, ≤150km
+
+Segmento Barcelona:
+Ciudad: Barcelona, ≤150km
+
+Segmento Valencia:
+Ciudad: Valencia, ≤150km
+```
+
+**Email con dynamic content:**
+- Hero image: Venue específico de SU ciudad
+- Google Maps: Cómo llegar desde centro ciudad
+- Horarios: Fecha específica de SU ciudad
+- Cross-sell: "¿Quieres ver las 3 fechas? Pack -20%"
+
+**Performance:** Open rate 68% (ultra relevante: su ciudad + su banda)
+
+---
+
+**Métricas geo-targeting (caso Sónar Barcelona):**
+
+| Segmento | Audiencia | Email Focus | Open Rate | Conversion | Revenue |
+|----------|-----------|-------------|-----------|------------|---------|
+| **Locales Catalunya** | 57,000 | Transporte público | 35% | 6.8% | 562k€ |
+| **Nacionales fuera Cat** | 18,000 | Tren AVE Barcelona | 31% | 8.5% | 275k€ |
+| **Internacionales** | 20,000 | Packs hotel+vuelo | 29% | 12.1% | 691k€ |
+
+**Total revenue geo-segmented:** 1,528k€ vs 980k€ email masivo (+56%)
+
+---
+
+### ¿Cómo encuentro early birds habituales?
+
+**Segmento "Early Bird Lovers"** identifica fans que SIEMPRE compran en fase 1 (primeros 14-30 días post-anuncio).
+
+**Criterios (3 filtros AND):**
+```
+Número de eventos pasados: ≥3
+AND Tipo de entrada histórico: Early Bird, Pre-sale (≥2 compras)
+AND Días promedio entre anuncio y compra: ≤14
+```
+
+**Traducción:** Fans que compraron 3+ eventos, mínimo 2 fueron early bird/presale, y típicamente compran en primeros 14 días.
+
+**Perfil típico Early Bird Lover:**
+- Edad: 25-38 años
+- Eventos asistidos: 3-8
+- % compras early bird: 75-100%
+- Tiempo medio compra post-anuncio: 3-12 días
+- Característica: NO esperan lineup completo (confían en promotor)
+
+**Tamaño esperado:** 8-15% de audiencia total (segmento nicho pero valioso)
+
+**Ventaja competitiva:**
+
+| Métrica | Early Bird Lovers | Audiencia General |
+|---------|-------------------|-------------------|
+| **Conversion early bird** | 15-25% | 2-4% |
+| **Lift conversion** | **5-7x** | Baseline |
+| **Tiempo medio compra** | 5 días | 38 días |
+| **Sensibilidad precio** | Baja (compran igual) | Alta (esperan descuento) |
+| **Loyalty** | Muy alta (NPS 9-10) | Media (NPS 6-7) |
+
+**Email estratégico para Early Bird Lovers:**
+
+**Subject:** "🔐 Acceso anticipado exclusivo - Solo para ti [Nombre]"
+
+**Timing:** Enviar **24-48h ANTES** de anuncio público
+
+**Contenido:**
+- "Eres parte de nuestro grupo VIP early bird"
+- "Te damos acceso 48h antes que a nadie"
+- Lineup parcial (3-5 headliners confirmados)
+- Código pre-venta: EARLYBIRD48 (expira en 48h)
+- Descuento adicional: 5-10% (encima del precio early bird ya rebajado)
+- Countdown timer: 48h hasta anuncio público
+
+**Resultado esperado:**
+
+| Métrica | Valor |
+|---------|-------|
+| Audiencia Early Bird Lovers | 4,000 fans (10% de 40k base) |
+| Open rate | 62% (2,480 opens) |
+| Conversion 48h pre-venta | 18% (720 entradas) |
+| Revenue 48h pre-venta | 324,000€ (precio 450€) |
+| **% objetivo early bird vendido en 48h** | **45-60%** |
+
+**Key insight:** Vendes casi la mitad de early birds en 48h con solo 10% de audiencia (Early Bird Lovers).
+
+**Beneficio secundario - FOMO para resto:**
+
+Cuando anuncias públicamente early bird 48h después:
+- Subject general: "Early Bird ahora disponible - ¡Ya se vendieron 720 de 1,500!"
+- Urgencia artificial (pero real): Scarcity genuina
+- Efecto: +22% conversion audiencia general vs no usar pre-venta
+
+**Variación - Gamificación:**
+
+Ofrece beneficio extra a Early Bird Lovers para incentivar compra inmediata:
+- "Primeros 100 compradores: Meet & greet exclusivo con [Artista]"
+- "Primeros 50: Upgrade gratis a VIP"
+- Timer: "Quedan X spots de 100"
+
+**Resultado:** Acceleration de compra (8% conversion en primeras 6 horas vs 18% en 48h)
+
+---
+
+### ¿Qué pasa si combino demasiados criterios?
+
+**Problema:** Over-segmentation = Audiencia demasiado pequeña o demasiados segmentos.
+
+**Síntomas de over-segmentation:**
+
+1. **Segmento muy pequeño (&lt;500 fans):**
+   - No alcanzas objetivo de ventas
+   - Estadísticamente no significativo para A/B testing
+   - Esfuerzo/beneficio desfavorable
+
+2. **Demasiados segmentos (&gt;15):**
+   - Fatiga operacional (difícil gestionar)
+   - Overlap entre segmentos (confusión)
+   - Dilución de mensaje (pierdes foco)
+
+**Regla de oro: 3-6 criterios máximo por segmento**
+
+**Ejemplo over-segmentation (MAL):**
+```
+Temperatura: Super Hot
+AND Gasto: ≥800€
+AND Eventos pasados: ≥5
+AND Ciudad: Barcelona
+AND Género: Electrónica
+AND Edad: 28-35
+AND Email opens: ≥10 (últimos 30 días)
+AND Device: Mobile
+```
+
+**Resultado:** 12 fans (audiencia ridículamente pequeña)
+
+**Solución - Simplificar (BIEN):**
+```
+Temperatura: ≥Hot (no solo Super Hot)
+AND Gasto: ≥500€ (umbral más bajo)
+AND Ciudad: Barcelona, ≤100km (radio más amplio)
+AND Género: Electrónica
+```
+
+**Resultado:** 2,400 fans (audiencia viable)
+
+**Balance óptimo:**
+
+| Objetivo Campaña | Criterios Recomendados | Audiencia Target | Ejemplo |
+|------------------|------------------------|------------------|---------|
+| **Email masivo mejorado** | 1-2 criterios | 30-50% base | Género: Electrónica |
+| **Segmentación básica** | 3-4 criterios | 10-20% base | Género + Temperatura + Ciudad |
+| **Segmentación avanzada** | 5-6 criterios | 5-10% base | Género + Temp + Ciudad + Gasto + RFM |
+| **Ultra nicho (VIP)** | 7+ criterios | 1-5% base | All of above + Eventos pasados específicos |
+
+**Número óptimo de segmentos por campaña:**
+
+| Tipo Campaña | Segmentos Recomendados | Reasoning |
+|--------------|------------------------|-----------|
+| **Early bird** | 3-5 segmentos | Champions, Loyal, Género principal, Locales, Nuevos |
+| **Anuncio lineup** | 2-3 segmentos | Por género musical |
+| **Last minute** | 2 segmentos | Engaged vs Inactivos |
+| **Win-back** | 1 segmento | Solo At Risk |
+| **Newsletter mensual** | 1 segmento | Subscribers activos |
+
+**Test para validar si over-segmented:**
+
+✅ **Segmentación correcta si:**
+- Cada segmento tiene ≥500 fans
+- Conversion de cada segmento &gt;5%
+- Puedes explicar diferencia entre segmentos en 1 frase
+- Tiempo setup &lt;2 horas
+
+❌ **Over-segmentation si:**
+- Algún segmento &lt;200 fans
+- Tienes &gt;10 segmentos para 1 campaña
+- No sabes exactamente qué email enviar a cada segmento
+- Setup toma &gt;4 horas
+
+**Solución a over-segmentation:**
+
+1. **Consolidar segmentos similares:**
+   - VIP Oro + VIP Platino → VIP Premium (si comportamiento similar)
+   - Rock + Indie → Guitar-driven music
+
+2. **Usar dynamic content en vez de segmentos separados:**
+   - 1 segmento "Fans engaged" con 3 variantes de contenido por género
+   - Más eficiente que 3 segmentos separados
+
+3. **Priorizar criterios con mayor impacto:**
+   - Temperatura + RFM: 70% del impacto en conversion
+   - Género musical: +20%
+   - Geo: +10%
+   - Otros: Marginal
+
+**Principio de Pareto en segmentación:**
+- 20% de criterios generan 80% del lift en conversion
+- Focus en los 2-3 criterios más importantes, el resto es ruido
+
+---
+
+# Las 6 Categorías de Segmentación
+
+Criterios de segmentación para festivales: Nevent organiza todos los filtros en 6 categorías diseñadas para promotores. Cada categoría te permite filtrar asistentes y compradores de entradas desde una perspectiva diferente: asistencia, demografía, consumo, engagement, canales y Nevent Score predictivo.
+
+---
+
+## 1️⃣ Asistencia
+
+Todo lo relacionado con los eventos a los que han asistido tus fans.
+
+### Criterios Más Útiles
+
+| Criterio | Qué es | Ejemplo de Uso |
+|----------|--------|----------------|
+| **Ciudad del evento** | Ubicación geográfica de eventos asistidos | Fans que fueron a eventos en Barcelona |
+| **Evento específico** | Filtrar por un evento concreto | Fans que asistieron a "Primavera Sound 2024" |
+| **Tipo de entrada** | VIP, General, Early Bird, etc. | Fans que compraron entradas VIP |
+| **Número de eventos asistidos** | Cantidad de eventos únicos | Fans que han ido a 5+ eventos (super fans) |
+| **Días de antelación de compra** | Cuánto anticiparon la compra | Fans que compran con 30+ días de anticipación |
+| **Artista favorito** | Artistas que han visto en vivo | Fans que vieron a "Bad Bunny" |
+| **Género musical** | Rock, Electrónica, Pop, etc. | Fans de música electrónica |
+| **Fecha de compra** | Cuándo compraron | Fans que compraron en diciembre 2024 |
+| **Fecha del evento** | Cuándo fue el evento | Fans que asistieron a eventos en verano 2024 |
+| **Nombre del evento** | Buscar por texto en nombre | Eventos que contienen "Festival" |
+
+### Casos de Uso
+
+#### Ejemplo 1: Repeat Buyers Festival Específico
+
+**Criterio:** Eventos pasados: "Sónar Barcelona" ≥2
+
+**Use case:** Anuncio Sónar 2026 a fans leales
+
+**Segmento típico:**
+- Base total: 80,000 contactos
+- Han asistido 2+ veces: 8,500 fans (10.6%)
+
+**Performance esperado:**
+- Open rate: 48-55% (vs 18% audiencia fría)
+- Conversion: 15-22% (vs 2% audiencia fría)
+- Revenue: 114,750€ - 168,300€ (precio 90€)
+
+**Best practice:** Enviar 48h antes de anuncio público con subject "🌟 Acceso VIP anticipado - Solo para fans leales"
+
+#### Ejemplo 2: Cross-Sell por Género Musical
+
+**Criterio:** Eventos pasados: Categoría "Electrónica" ≥1
+
+**Use case:** Promoción nuevo festival EDM a fans con historial electrónica
+
+**Segmento típico:**
+- Base total: 120,000 contactos
+- Asistieron evento electrónica: 28,000 fans (23%)
+
+**Performance esperado:**
+- Relevancia: 85% del lineup coincide con preferencias
+- Conversion: 4-7% (vs 0.8% audiencia general)
+- Cross-sell rate: 1,120 - 1,960 entradas
+
+**Subject line ganador:** "🎧 [Nuevo Festival EDM] - 80% del lineup que amas"
+
+**Timing:** 90 días antes del evento (fans electrónica compran antes que promedio)
+
+---
+
+## 2️⃣ Atributos del Fan
+
+Información demográfica y personal de tus fans.
+
+### Criterios Más Útiles
+
+| Criterio | Qué es | Ejemplo de Uso |
+|----------|--------|----------------|
+| **Edad** | Edad actual del fan | Fans entre 25-35 años |
+| **Género** | Masculino, Femenino, Otro | Segmentar por género |
+| **Ciudad de residencia** | Dónde vive el fan | Fans que viven en Madrid |
+| **Provincia** | Provincia de residencia | Fans de la Comunidad de Madrid |
+| **País** | País de residencia | Fans internacionales (Francia, Portugal) |
+| **Idioma** | Idioma preferido | Fans que hablan inglés |
+| **Código postal** | CP de residencia | Fans del código postal 28001 |
+| **Etiquetas personalizadas** | Tags creados por ti | Fans con etiqueta "VIP" o "Prensa" |
+| **Campos personalizados** | Datos custom que recolectas | Fan con "Tipo Cliente" = "Empresa" |
+
+### Casos de Uso
+
+**Ejemplo 1: Campaña Joven Local**
+```
+Criterio: Edad
+Operador: Entre
+Valor: 18 y 28
+
+Y
+
+Criterio: Provincia
+Operador: Es
+Valor: Barcelona
+```
+**Resultado**: Jóvenes de Barcelona → Oferta de festival universitario
+
+#### Ejemplo 3: Geo-Targeting Festival con Turismo
+
+**Criterio:** País: NOT España (festival Sónar Barcelona)
+
+**Use case:** Promoción packs hotel+entrada a fans internacionales
+
+**Segmento típico:**
+- Base total: 80,000 contactos
+- Fans internacionales: 32,000 (40%)
+
+**Breakdown por región:**
+| Región | Fans | % | Conversion típica |
+|--------|------|---|-------------------|
+| Francia | 8,000 | 10% | 6-9% |
+| UK | 6,400 | 8% | 5-8% |
+| Alemania | 4,800 | 6% | 5-7% |
+| USA | 3,200 | 4% | 3-5% |
+| Resto Europa | 9,600 | 12% | 4-6% |
+
+**Personalización email:**
+- Subject: "✈️ Packs hotel+entrada Barcelona - Sónar 2026"
+- Hero image: Barcelona cityscape
+- CTA: "Ver packs desde [Ciudad Origen]"
+- Incluir: Vuelos recomendados, hoteles cercanos al venue, guía turística 48h
+
+**Performance esperado:**
+- Open rate: 28-35% (info relevante para turistas)
+- Conversion pack completo: 8-12% (vs 3-5% entrada sola)
+- Ticket promedio: 290€ (entrada 180€ + hotel 2 noches 110€)
+- Revenue: 32,000 × 10% × 290€ = 928,000€
+
+**Lift vs mensaje genérico:** +45% conversion (fans valoran conveniencia todo-incluido)
+
+---
+
+## 3️⃣ Consumo
+
+Comportamiento de compra y gasto de tus fans.
+
+### Criterios Más Útiles
+
+| Criterio | Qué es | Ejemplo de Uso |
+|----------|--------|----------------|
+| **Gasto total** | Dinero total gastado | Fans que gastaron más de 500€ (VIPs) |
+| **Gasto en entradas** | Solo en tickets | Fans con alto gasto en entradas vs merchandising |
+| **Recarga cashless** | Si recargaron pulsera | Fans que usan cashless (más engaged) |
+| **Importe recargado** | Cuánto recargaron | Fans que recargaron 100€+ |
+| **Complementos comprados** | Merchandising, parking, etc. | Fans que compraron parking |
+| **Suplementos** | Upgrades, VIP packages | Fans que compraron upgrade a VIP |
+| **Fecha de compra** | Última transacción | Fans que no compran hace 180+ días |
+
+### Casos de Uso
+
+**Ejemplo 1: VIP Re-engagement**
+```
+Criterio: Gasto total
+Operador: Mayor que
+Valor: 500€ (50000 céntimos)
+
+Y
+
+Criterio: Fecha de compra
+Operador: Hace más de X días
+Valor: 180 días
+```
+**Resultado**: VIPs inactivos → Campaña win-back con descuento especial
+
+Para festivales medianos, recomendamos clasificar VIPs con gasto ≥500€. Este umbral varía según ticket promedio; consulta nuestra [guía de mejores prácticas para calcular umbrales VIP según tipo de evento](./mejores-practicas#umbrales-vip).
+
+#### Ejemplo 4: Segmentación VIP por Gasto Histórico
+
+**Criterio:** Gasto total histórico: ≥800€
+
+**Use case:** Campaña upsell VIP packages para festival grande
+
+**Segmento típico:**
+- Base total: 150,000 contactos
+- VIPs (≥800€): 12,000 fans (8%)
+
+**Breakdown por nivel:**
+| Nivel | Gasto | Fans | % |
+|-------|-------|------|---|
+| VIP Oro | 800-2,000€ | 9,500 | 6.3% |
+| VIP Platino | 2,000-5,000€ | 2,000 | 1.3% |
+| VIP Diamante | 5,000€+ | 500 | 0.3% |
+
+**Performance esperado:**
+- Open rate VIP Oro: 52-60%
+- Open rate VIP Platino: 65-75%
+- Conversion upgrade VIP: 8-14%
+
+**Acción recomendada:** No ofrecer descuentos. Focus en exclusividad (meet & greet, acceso backstage, merchandising limitado).
+
+**Revenue incremental:** 12,000 fans × 10% conversion × 150€ upgrade promedio = 180,000€
+
+**Ejemplo 2: Upsell Cashless**
+```
+Criterio: Recargó cashless
+Operador: Es verdadero
+
+Y
+
+Criterio: Importe recargado
+Operador: Menor que
+Valor: 50€
+```
+**Resultado**: Fans que usan cashless pero poco → Incentivo para recargar más
+
+---
+
+## 4️⃣ Interacción
+
+Cómo tus fans interactúan con tus comunicaciones.
+
+### Criterios Más Útiles
+
+| Criterio | Qué es | Ejemplo de Uso |
+|----------|--------|----------------|
+| **Campaña recibida** | Recibieron un email específico | Fans que recibieron "Black Friday 2024" |
+| **Campaña abierta** | Abrieron el email | Fans engaged que leen tus emails |
+| **Campaña con clic** | Hicieron clic en un link | Fans interesados (considerando compra) |
+| **Días para abrir** | Qué tan rápido abren | Fans que abren en primeras 24h (very engaged) |
+| **Días para hacer clic** | Velocidad de engagement | Fans que clickean inmediatamente |
+| **Enlaces cortos clickeados** | URLs trackables | Fans que clickearon link específico |
+
+### Casos de Uso
+
+**Ejemplo 1: Recuperación de Carrito Abandonado**
+```
+Criterio: Campaña recibida
+Operador: Es
+Valor: "Confirmación Reserva Festival X"
+
+Y
+
+Criterio: Campaña abierta
+Operador: Es
+Valor: "Confirmación Reserva Festival X"
+
+PERO NO (excluir):
+
+Criterio: Evento asistido
+Operador: Es
+Valor: "Festival X"
+```
+**Resultado**: Fans que reservaron pero no compraron → Recordatorio con urgencia
+
+**Ejemplo 2: Super Engaged Fans**
+```
+Criterio: Días para abrir
+Operador: Menor que
+Valor: 2 días
+
+Y
+
+Criterio: Días para hacer clic
+Operador: Menor que
+Valor: 3 días
+```
+**Resultado**: Fans que responden rápido → Target para ofertas flash exclusivas
+
+---
+
+## 5️⃣ Canales
+
+Presencia de tus fans en diferentes plataformas.
+
+### Criterios Disponibles
+
+| Criterio | Qué es | Ejemplo de Uso |
+|----------|--------|----------------|
+| **App móvil descargada** | Tiene tu app instalada | Fans con app → Push notifications |
+| **Instagram conectado** | Vinculó su cuenta de Instagram | Fans en IG → Contest de Instagram |
+| **TikTok conectado** | Vinculó su cuenta de TikTok | Fans en TikTok → Campaña viral |
+| **Teléfono verificado** | Número verificado | Fans alcanzables por SMS |
+
+### Casos de Uso
+
+**Ejemplo 1: Push Notification Campaign**
+```
+Criterio: App móvil descargada
+Operador: Es verdadero
+
+Y
+
+Criterio: Ciudad
+Operador: Es
+Valor: Madrid
+```
+**Resultado**: Fans con app en Madrid → Push notification de evento local
+
+**Ejemplo 2: Social Media Contest**
+```
+Criterio: Instagram conectado
+Operador: Es verdadero
+
+Y
+
+Criterio: TikTok conectado
+Operador: Es verdadero
+```
+**Resultado**: Fans activos en redes → Contest multi-plataforma
+
+
+---
+
+## 6️⃣ Nevent Score®
+
+Analítica predictiva que mide el nivel de engagement de cada fan.
+
+### Criterios Disponibles
+
+| Criterio | Qué es | Valores |
+|----------|--------|---------|
+| **Temperatura Nevent** | Nivel de engagement en 6 categorías | Congelado, Muy Frío, Frío, Templado, Caliente, Muy Caliente |
+| **Valor de Score** | Número exacto de 0-100 | Score preciso para segmentación granular |
+
+### Escala de Temperatura
+
+| Temperatura | Score | Significado | Uso Recomendado |
+|-------------|-------|-------------|-----------------|
+| 🔥 **Muy Caliente** | 84-100 | Super fans ultra engaged | VIP experiences, meet & greets, pre-sales |
+| 🔥 **Caliente** | 67-83 | Fans muy activos | Early birds, ofertas exclusivas |
+| 🌡️ **Templado** | 51-66 | Engagement moderado | Campañas generales, newsletters |
+| ❄️ **Frío** | 34-50 | Engagement bajo | Contenido educational, engagement campaigns |
+| ❄️ **Muy Frío** | 17-33 | Poco engagement | Win-back con incentivos fuertes |
+| 🧊 **Congelado** | 0-16 | Inactivos o nuevos | Bienvenida (nuevos) o reactivación agresiva |
+
+### ¿Cómo se calcula?
+
+El Nevent Score® analiza automáticamente:
+- Frecuencia de asistencia a eventos
+- Recencia de compras
+- Gasto total histórico
+- Engagement con emails (aperturas, clics)
+- Interacción con la plataforma
+- Velocidad de compra (early bird vs last minute)
+
+**No necesitas hacer nada**: Nevent lo calcula y actualiza automáticamente cada semana.
+
+### Casos de Uso
+
+**Ejemplo 1: Oferta VIP Exclusiva**
+```
+Criterio: Temperatura Nevent
+Operador: Es
+Valor: Muy Caliente O Caliente
+
+Y
+
+Criterio: Ciudad
+Operador: Es
+Valor: Madrid
+```
+**Resultado**: Super fans de Madrid → Invitación a evento VIP privado
+
+**Ejemplo 2: Campaña de Reactivación**
+```
+Criterio: Temperatura Nevent
+Operador: Es
+Valor: Muy Frío O Congelado
+
+Y
+
+Criterio: Gasto total
+Operador: Mayor que
+Valor: 200€
+```
+**Resultado**: Ex-VIPs que se enfriaron → Win-back con descuento 30%
+
+**Ejemplo 3: Segmentación por Score Exacto**
+```
+Criterio: Valor Nevent Score
+Operador: Entre
+Valor: 70 y 90
+```
+**Resultado**: Fans en rango específico → Testing de nuevas ofertas
+
+---
+
+## 🎯 Combinando Categorías
+
+El verdadero poder viene de combinar categorías:
+
+**Ejemplo: Super Fan Local VIP**
+```
+CATEGORÍA: Atributos del Fan
+├─ Ciudad: Madrid
+
+Y
+
+CATEGORÍA: Asistencia
+├─ Número de eventos: >= 5
+
+Y
+
+CATEGORÍA: Consumo
+├─ Gasto total: > 500€
+
+Y
+
+CATEGORÍA: Nevent Score®
+├─ Temperatura: Muy Caliente
+```
+
+**Resultado**: Super fans VIP de Madrid ultra engaged → Tu audiencia más valiosa para ofertas premium.
+
+---
+
+## 📊 Criterios Más Populares
+
+Según nuestros clientes, estos son los criterios más usados:
+
+### Top 10 Criterios
+
+1. **Ciudad de residencia** (geo-targeting)
+2. **Temperatura Nevent** (engagement level)
+3. **Número de eventos asistidos** (loyalty)
+4. **Gasto total** (VIP identification)
+5. **Edad** (demographic targeting)
+6. **Fecha de compra** (recency)
+7. **Campaña abierta** (engagement tracking)
+8. **Ciudad del evento** (event location preferences)
+9. **App móvil descargada** (channel availability)
+10. **Tipo de entrada** (ticket tier preferences)
+
+---
+
+## 🔗 Próximos Pasos
+
+Ahora que conoces todas las categorías:
+
+1. **[Aprende a usar Operadores](./operadores-logica)** - Cómo comparar y combinar criterios
+2. **[Ve Casos de Uso Reales](./casos-uso)** - Inspiración con ejemplos completos
+3. **[Mejores Prácticas](./mejores-practicas)** - Tips para optimizar resultados
+
+---
+
+**¿Listo para crear segmentos avanzados?** 🎯
+
+[Análisis RFM: identifica Champions y VIPs en riesgo automáticamente →](./modificadores-rfm)
