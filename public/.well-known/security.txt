@@ -1,0 +1,6 @@
+Contact: mailto:info@nevent.ai
+Expires: 2027-06-02T00:00:00.000Z
+Preferred-Languages: es, en
+Canonical: https://help.nevent.ai/.well-known/security.txt
+
+# TODO: confirm or create security@nevent.ai and replace info@nevent.ai above

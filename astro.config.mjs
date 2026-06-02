@@ -21,6 +21,10 @@ export default defineConfig({
 
 	integrations: [
 		// Sitemap for SEO (reduces indexing time by 50%)
+		// i18n config generates <xhtml:link rel="alternate" hreflang="..."> entries for
+		// each page, signalling to Google which language version to serve per region.
+		// This is the recommended way to implement hreflang in @astrojs/sitemap ≥ 3.x.
+		// defaultLocale: 'es' → root locale (no prefix); 'en' maps to /en/ paths.
 		// Filter out Starlight i18n fallback pages: these are Spanish-slug pages that
 		// Starlight automatically serves under /en/ when no English translation exists.
 		// Including them in the sitemap causes duplicate-content issues for SEO.
@@ -28,6 +32,15 @@ export default defineConfig({
 		// que-puedes-hacer, conectar-, frases-listas-para-usar, permisos-y-seguridad,
 		// preguntas-frecuentes, herramientas, instalacion-local).
 		sitemap({
+			// Multilingual hreflang: generates xhtml:link alternate entries per page.
+			// Tells Google "this page is in Spanish; equivalent English page is at /en/..."
+			i18n: {
+				defaultLocale: 'es',
+				locales: {
+					es: 'es-ES',
+					en: 'en-GB',
+				},
+			},
 			filter: (page) => {
 				// Starlight i18n fallback: when an EN translation does not exist for a page,
 				// Starlight serves the ES (root locale) content at /en/<spanish-slug>/.
@@ -448,10 +461,6 @@ export default defineConfig({
 				// Custom Head injects JSON-LD structured data (Organization, TechArticle,
 				// FAQPage, BreadcrumbList) and og:image meta tags on every page.
 				Head: './src/components/Head.astro',
-				// Custom Footer renders the FeelBack Yes/No feedback widget above the
-				// standard Starlight footer (pagination arrows, edit on GitHub link).
-				// Requires contentSetId from https://app.feelback.dev (see Footer.astro).
-				Footer: './src/components/Footer.astro',
 			},
 
 			// Customización de UI
