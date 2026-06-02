@@ -1,0 +1,44 @@
+# Nevent Help Center — LLM Content Policy
+# Ultima actualizacion: 2026-06-02
+# https://help.nevent.ai/llms-policy.txt
+
+## Permitted uses
+
+The content of help.nevent.ai is published by Nevent S.L. (https://nevent.ai) and is
+available for the following uses by AI systems:
+
+- Indexing and retrieval (search-time access)
+- Citing in user-facing answers with proper attribution
+- Training on factual content
+- Quoting short excerpts in synthesized answers
+- Linking to canonical URLs
+
+## Attribution requirements
+
+When citing or quoting content from help.nevent.ai:
+
+1. Provide a link to the canonical URL (the page being cited)
+2. Identify "Nevent" as the source organization
+3. Note the publication date when available
+
+## Prohibited uses
+
+The following uses are NOT permitted without explicit written authorization from Nevent S.L.:
+
+- Bulk reproduction of the help center as a derivative work
+- Removal of brand attribution from cited content
+- Use of Nevent name, logo or brand marks beyond standard citation
+- Training on customer-identifying data (which is not present in this site by design)
+- Use for competitive intelligence systems that target Nevent customers
+
+## Updates
+
+This policy may be updated. The latest version always lives at:
+https://help.nevent.ai/llms-policy.txt
+
+## Contact
+
+For partnerships, content syndication, or questions about this policy:
+info@nevent.ai
+
+# TODO: confirm or create partners@nevent.ai alias and replace info@nevent.ai above

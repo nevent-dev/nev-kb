@@ -11,7 +11,8 @@
     "gen:article": "node scripts/generate-article.js",
     "gen:category": "node scripts/generate-category.js",
     "validate": "node scripts/validate-content.js",
-    "detect:categories": "node scripts/detect-categories.js"
+    "detect:categories": "node scripts/detect-categories.js",
+    "seo:indexnow": "node scripts/indexnow-submit.js"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",
