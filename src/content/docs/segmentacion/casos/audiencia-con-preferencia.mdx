@@ -1,0 +1,100 @@
+---
+title: "Segmentar por preferencia musical declarada: audiencia de nicho | Nevent"
+description: "Cómo usar campos personalizados de género preferido para crear el segmento más preciso posible para eventos de nicho. La audiencia perfecta cuando tienes datos declarados."
+sidebar:
+  order: 7
+---
+
+import { Aside, CardGrid, LinkCard } from '@astrojs/starlight/components';
+import Schema from '../../../../components/Schema.astro';
+
+<Schema>{`
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Segmentar por preferencia musical declarada: audiencia de nicho con Nevent",
+  "description": "Cómo usar campos personalizados de género preferido para crear el segmento más preciso posible para eventos de nicho.",
+  "author": { "@type": "Organization", "name": "Nevent", "url": "https://nevent.ai" },
+  "publisher": { "@type": "Organization", "name": "Nevent" },
+  "datePublished": "2026-06-02",
+  "dateModified": "2026-06-02",
+  "about": [
+    { "@type": "Thing", "name": "Audience segmentation" },
+    { "@type": "Thing", "name": "Custom field segmentation" },
+    { "@type": "Thing", "name": "Live music events" }
+  ],
+  "audience": { "@type": "Audience", "audienceType": "Live event promoters" }
+}
+`}</Schema>
+
+:::tip[Definición rápida]
+**Audiencia con preferencia declarada**: segmento construido a partir de un campo personalizado en el perfil del fan, normalmente recogido en un formulario de registro o encuesta, que indica el género musical o categoría de evento de su interés. Es el segmento con mayor precisión posible porque combina interés declarado con actividad reciente.
+:::
+
+# Audiencia con preferencia declarada de género musical
+
+Cuando un fan te dice directamente qué le gusta —rock, electrónica, indie, jazz, flamenco, hip-hop, reggaeton, reggae, pop latino—, tienes en tus manos la señal de segmentación más valiosa que existe. No es un comportamiento inferido a partir de compras pasadas: es una declaración explícita de preferencia. Usarla bien significa enviar a cada fan exactamente el tipo de evento que está esperando.
+
+## Situación
+
+Has sido cuidadoso en la recogida de datos. En el flujo de registro de tu plataforma, o en una encuesta enviada hace unos meses, preguntaste a tus fans qué géneros musicales o tipos de evento prefieren. Ahora tienes ese campo personalizado rellenado en una parte de tu base —quizás el 30%, quizás el 60%, dependiendo de cuánto has trabajado la recogida de datos—.
+
+Vas a lanzar un evento de nicho: una noche de jazz en Barcelona, un evento de electrónica en Madrid, un show de flamenco en Sevilla, un festival de hip-hop en Valencia. No quieres comunicarlo a toda la base —el 40% de tus fans puede que no sea aficionado a ese género—. Quieres comunicarlo a los que ya te dijeron que les gusta.
+
+## ¿Cuándo usar este caso?
+
+Úsalo cuando tengas el campo personalizado de preferencia disponible y el evento sea de un género o categoría lo suficientemente específico como para que la relevancia marque una diferencia real en la conversión. También es útil para validar si merece la pena apostar por un nicho concreto antes de invertir en producción o en contratación.
+
+## Cómo se construye el segmento
+
+- Fans cuyo campo personalizado de preferencia de género coincide con el género o categoría del evento
+- Combinado con actividad reciente: que hayan estado activos en los últimos doce meses (al menos un email abierto, una compra o una visita registrada)
+- La combinación de preferencia declarada + actividad reciente elimina fans con datos desactualizados
+- Opcional: añade filtro de ciudad si el evento es local
+
+## ¿Qué resultado esperar?
+
+Esta es la audiencia con mayor conversión posible en términos relativos. Combina dos señales muy fuertes: interés declarado explícitamente y actividad reciente. Las campañas a segmentos de preferencia declarada suelen superar en conversión a cualquier otro tipo de segmento, a veces por un margen del doble o más.
+
+El límite del segmento no está en la calidad de la señal, sino en la cobertura del campo: si solo el 30% de tu base tiene el campo rellenado, el segmento estará acotado a ese subconjunto, aunque todos sus miembros sean altamente relevantes. Por eso, la estrategia de recogida de datos de preferencia es tan importante como el segmento en sí.
+
+Para un evento de jazz en Barcelona con una base de 40.000 fans donde el 35% tiene preferencia declarada y el 20% de esos declaran preferencia por jazz, el segmento podría ser de unos 2.800 fans. Comunicarles el evento con una tasa de conversión del 8-15% generaría entre 224 y 420 ventas directas atribuidas a este segmento.
+
+## Variaciones
+
+- Busca el género en una lista de valores afines (por ejemplo, rock + indie + post-rock como géneros relacionados) para ampliar el segmento sin perder relevancia
+- Excluye a los que ya tienen entrada para el evento actual
+- Combina con franja de edad si el evento tiene un perfil demográfico muy definido (por ejemplo, hip-hop o reggaeton con un público más joven)
+- Combina con ciudad para eventos locales y mantén solo los fans en el área geográfica del recinto
+
+## Cuándo NO usar este caso
+
+- Si el campo personalizado de preferencia no está disponible o tiene muy baja cobertura (menos del 15% de la base): el segmento será tan pequeño que no justifica una campaña independiente
+- Si el evento es de género masivo o ecléctico (pop generalista, eventos multiformato): la preferencia declarada no añade valor porque casi todos los fans serían relevantes
+- Si los datos de preferencia tienen más de dos años y no has actualizado el campo: la señal puede estar obsoleta y el segmento no reflejará los gustos actuales del fan
+
+## Resumen
+
+- El segmento combina campo personalizado de preferencia declarada + actividad reciente en los últimos doce meses
+- La conversión relativa es la más alta de todos los tipos de segmento cuando la cobertura del campo es suficiente
+- El tamaño está limitado por la cobertura del campo: invertir en recoger más datos de preferencia multiplica el valor de este caso
+- Las variaciones más útiles son expandir a géneros afines y combinar con filtro de ciudad
+
+## Siguiente paso
+
+<CardGrid>
+  <LinkCard
+    title="Atributos del fan: campos personalizados"
+    href="/segmentacion/capacidades/atributos-del-fan/"
+    description="Cómo configurar y usar campos personalizados en el motor de segmentación de Nevent."
+  />
+  <LinkCard
+    title="Volver al hub de casos prácticos"
+    href="/segmentacion/casos/"
+    description="Todos los casos del catálogo: desde reactivación hasta audiencia geo-localizada."
+  />
+</CardGrid>
+
+---
+
+*Los datos de preferencia declarada son la señal de mayor calidad para segmentación personalizada. Para más contexto sobre el impacto de la personalización en marketing de eventos, consulta la <a href="https://www.mckinsey.com/capabilities/growth-marketing-and-sales/our-insights/the-value-of-getting-personalization-right-or-wrong-is-multiplying" target="_blank" rel="noopener noreferrer">investigación de McKinsey sobre el valor de la personalización en marketing</a>.*

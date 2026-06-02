@@ -1,0 +1,100 @@
+---
+title: "Segmenting by declared music preference: niche audiences | Nevent"
+description: "How to use custom fields for preferred genre to build the most precise segment possible for niche events. The perfect audience when you have declared interest data."
+sidebar:
+  order: 7
+---
+
+import { Aside, CardGrid, LinkCard } from '@astrojs/starlight/components';
+import Schema from '../../../../../components/Schema.astro';
+
+<Schema>{`
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Segmenting by declared music preference: niche audiences with Nevent",
+  "description": "How to use custom fields for preferred genre to build the most precise segment possible for niche events.",
+  "author": { "@type": "Organization", "name": "Nevent", "url": "https://nevent.ai" },
+  "publisher": { "@type": "Organization", "name": "Nevent" },
+  "datePublished": "2026-06-02",
+  "dateModified": "2026-06-02",
+  "about": [
+    { "@type": "Thing", "name": "Audience segmentation" },
+    { "@type": "Thing", "name": "Custom field segmentation" },
+    { "@type": "Thing", "name": "Live music events" }
+  ],
+  "audience": { "@type": "Audience", "audienceType": "Live event promoters" }
+}
+`}</Schema>
+
+:::tip[Quick definition]
+**Audience with declared preference**: a segment built from a custom field in the fan profile — typically collected via a registration form or survey — indicating the music genre or event category they are interested in. This is the most precise segment possible because it combines explicitly declared interest with recent activity.
+:::
+
+# Audience with declared music genre preference
+
+When a fan tells you directly what they enjoy — rock, electronic music, indie, jazz, flamenco, hip-hop, reggaeton, reggae, Latin music, pop — you hold the most valuable segmentation signal that exists. It is not a behaviour inferred from past purchases: it is an explicit declaration of preference. Using it well means sending every fan exactly the type of event they are waiting for.
+
+## Situation
+
+You have been careful about data collection. In your platform's registration flow, or in a survey sent some months ago, you asked your fans which music genres or event types they prefer. You now have that custom field filled in for a portion of your base — perhaps 30%, perhaps 60%, depending on how much you have worked on data collection.
+
+You are about to launch a niche event: a jazz night in Barcelona, an electronic music event in Madrid, a flamenco show in Seville, a hip-hop festival in Valencia. You do not want to communicate this to your entire base — 40% of your fans may not be fans of that genre. You want to communicate it to those who have already told you they like it.
+
+## When should you use this use case?
+
+Use it when the preference custom field is available and the event is in a genre or category specific enough that relevance makes a genuine difference to conversion. It is also useful for validating whether it is worth committing to a specific niche before investing in production or artist fees.
+
+## How the segment is built
+
+- Fans whose custom preference field matches the genre or category of the event
+- Combined with recent activity: who have been active in the last twelve months (at least one email opened, one purchase, or one registered visit)
+- The combination of declared preference and recent activity eliminates fans with outdated data
+- Optional: add a city filter if the event is local
+
+## What result should you expect?
+
+This is the audience with the highest relative conversion of all segment types. It combines two very strong signals: explicitly declared interest and recent activity. Campaigns to declared preference segments typically outperform any other segment type in conversion, sometimes by a factor of two or more.
+
+The limit of the segment is not the quality of the signal but the coverage of the field: if only 30% of your base has it filled in, the segment will be limited to that subset, even though all its members are highly relevant. This is why the strategy for collecting preference data is as important as the segment itself.
+
+For a jazz event in Barcelona with a base of 40,000 fans where 35% have a declared preference and 20% of those declare a preference for jazz, the segment might be around 2,800 fans. Reaching them with a conversion rate of 8%–15% would generate between 224 and 420 direct sales attributed to this segment.
+
+## Variations
+
+- Search the genre across a list of related values (for example, rock + indie + post-rock as related genres) to expand the segment without losing relevance
+- Exclude those who already have a ticket for the current event
+- Combine with age bracket if the event has a very specific demographic profile (for example, hip-hop or reggaeton with a younger audience)
+- Combine with city for local events and retain only fans in the venue's geographic area
+
+## When NOT to use this use case
+
+- If the preference custom field is not available or has very low coverage (less than 15% of the base): the segment will be so small it does not justify an independent campaign
+- If the event is in a mass or eclectic genre (mainstream pop, multi-format events): declared preference does not add value because almost all fans would be relevant
+- If the preference data is more than two years old and you have not refreshed the field: the signal may be stale and the segment may not reflect the fan's current tastes
+
+## Summary
+
+- The segment combines a declared preference custom field with recent activity in the last twelve months
+- Relative conversion is the highest of all segment types when field coverage is sufficient
+- Size is limited by field coverage: investing in collecting more preference data multiplies the value of this use case
+- The most useful variations are expanding to related genres and combining with a city filter
+
+## Next step
+
+<CardGrid>
+  <LinkCard
+    title="Fan attributes: custom fields"
+    href="/en/segmentation/capabilities/fan-attributes/"
+    description="How to configure and use custom fields in Nevent's segmentation engine."
+  />
+  <LinkCard
+    title="Back to use cases hub"
+    href="/en/segmentation/use-cases/"
+    description="All use cases in the catalogue: from reactivation to geolocated audiences."
+  />
+</CardGrid>
+
+---
+
+*Declared preference data is the highest-quality signal for personalised segmentation. For context on the impact of personalisation in event marketing, see <a href="https://www.mckinsey.com/capabilities/growth-marketing-and-sales/our-insights/the-value-of-getting-personalization-right-or-wrong-is-multiplying" target="_blank" rel="noopener noreferrer">McKinsey's research on the value of personalisation in marketing</a>.*

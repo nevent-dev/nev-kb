@@ -1,0 +1,98 @@
+---
+title: "Fans Early Bird: segmentar compradores tempranos para eventos | Nevent"
+description: "Cómo identificar fans con historial de compra en fases Early Bird y activarlos antes de abrir la venta al público general. Caso práctico con métricas orientativas."
+sidebar:
+  order: 3
+---
+
+import { Aside, CardGrid, LinkCard } from '@astrojs/starlight/components';
+import Schema from '../../../../components/Schema.astro';
+
+<Schema>{`
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Fans Early Bird: segmentar compradores tempranos para eventos",
+  "description": "Cómo identificar fans con historial de compra en fases Early Bird y activarlos antes de abrir la venta al público general.",
+  "author": { "@type": "Organization", "name": "Nevent", "url": "https://nevent.ai" },
+  "publisher": { "@type": "Organization", "name": "Nevent" },
+  "datePublished": "2026-06-02",
+  "dateModified": "2026-06-02",
+  "about": [
+    { "@type": "Thing", "name": "Audience segmentation" },
+    { "@type": "Thing", "name": "Early bird ticket sales" },
+    { "@type": "Thing", "name": "Live music events" }
+  ],
+  "audience": { "@type": "Audience", "audienceType": "Live event promoters" }
+}
+`}</Schema>
+
+:::tip[Definición rápida]
+**Fans tempranos o early adopters**: fans que en eventos anteriores compraron sus entradas durante las primeras horas o días de venta —en fases Early Bird o de prelanzamiento—. Tienen un comportamiento demostrado de compra anticipada y son la primera ola natural de cualquier nueva salida al mercado.
+:::
+
+# Fans tempranos para una nueva fase Early Bird
+
+Tu evento sale a la venta y lo primero que quieres es llenar la primera fase lo antes posible. Un sold-out temprano crea presión social, genera cobertura orgánica y valida públicamente el evento antes de que empieces a gastar en publicidad. ¿A quién le avisas primero?
+
+## Situación
+
+Tienes un historial de ventas en eventos anteriores. En cada uno de ellos hubo fans que compraron en las primeras horas: los que activan notificaciones, los que llevan meses esperando la confirmación del cartel, los que saben que si no compran pronto quedan fuera. Estos fans ya están educados para comprar rápido. No necesitan ser convencidos: necesitan ser avisados.
+
+Imagina que lanzas una primera fase de Early Bird de un evento de pop o indie en Valencia con 200 entradas a precio reducido. Si tienes 5.000 fans en tu base, quizás 300-500 de ellos compraron en fases Early Bird en eventos anteriores. Comunicarles 24 horas antes del lanzamiento oficial puede agotar esa primera fase sin invertir un euro en publicidad.
+
+## ¿Cuándo usar este caso?
+
+Usa este segmento siempre que lances una primera fase de venta con precio o condiciones diferenciadas. También es útil cuando organizas un evento con aforo muy limitado y necesitas vender rápido para validar la demanda antes de comprometer más recursos.
+
+## Cómo se construye el segmento
+
+- Fans que han comprado entradas de tipo Early Bird, preventa o primera fase en alguno de tus eventos anteriores
+- Limitado a una ventana temporal razonable —últimos dos o tres años— para no incluir fans que compraron hace tiempo pero ya no están activos
+- Opcional: filtra por ciudad o provincia si el evento es local y no justifica desplazamiento largo
+- Opcional: excluye a los que ya tienen entrada para el evento actual si ya comenzó la venta en algún canal
+
+## ¿Qué resultado esperar?
+
+Una audiencia con historial probado de respuesta a ventas tempranas. El open rate en estas campañas suele superar ampliamente la media de tu base general —es habitual ver entre el 35% y el 55% en audiencias bien mantenidas—, porque el fan reconoce el tipo de comunicación y tiene un incentivo claro para actuar rápido.
+
+La conversión de apertura a compra depende del evento y del precio, pero en fases Early Bird bien planificadas es habitual que una sola comunicación a este segmento agote la primera fase o al menos la deje por debajo del 20% de disponibilidad en las primeras horas.
+
+## Variaciones
+
+- Incluye fans que han comprado abono multi-día: también tienen perfil "early" aunque no sea Early Bird en sentido estricto
+- Añade los Champions del modelo RFM para dar a tus fans más valiosos un descuento o acceso aún más anticipado
+- Excluye a los que ya tienen entrada para el evento actual para no enviarles un mensaje redundante
+- Si tienes datos de canal de compra, filtra por los que compraron online directamente —más propensos a volver a comprar vía email—
+
+## Cuándo NO usar este caso
+
+- Si tu historial de ventas es muy reciente (menos de un año): no tendrás suficientes datos de compra temprana
+- Si el nuevo evento es de un género o formato muy diferente al de tus eventos anteriores: el historial Early Bird puede no predecir bien el comportamiento
+- Si vas a enviar la misma comunicación a toda la base a la vez: en ese caso no tiene sentido segmentar por comportamiento temprano porque todos recibirán el mismo mensaje al mismo tiempo
+
+## Resumen
+
+- El segmento se basa en historial probado de compra temprana en eventos anteriores
+- Open rate típico entre el 35% y el 55%, muy por encima de la media general
+- Una sola comunicación bien ejecutada puede agotar la primera fase sin inversión publicitaria
+- Las variaciones más útiles son combinar con RFM Champions y ajustar la ventana temporal
+
+## Siguiente paso
+
+<CardGrid>
+  <LinkCard
+    title="Audiencia geo-localizada para evento regional"
+    href="/segmentacion/casos/audiencia-geolocalizada/"
+    description="El siguiente caso del catálogo: cómo centrar la inversión publicitaria en fans que pueden asistir físicamente."
+  />
+  <LinkCard
+    title="Gasto y consumo: criterios de compra histórica"
+    href="/segmentacion/capacidades/gasto-y-consumo/"
+    description="Los criterios de tipo de entrada y fase de compra disponibles en el motor de segmentación."
+  />
+</CardGrid>
+
+---
+
+*El comportamiento de compra anticipada en eventos en vivo es una señal de alta intención. Para más contexto sobre la psicología de los early adopters, consulta la <a href="https://www.eventbrite.com/l/event-marketing/" target="_blank" rel="noopener noreferrer">investigación de Eventbrite sobre comportamiento del comprador de entradas</a>.*
