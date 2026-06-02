@@ -1,0 +1,100 @@
+---
+title: "Recuperar carritos abandonados de entradas: cómo segmentar | Nevent"
+description: "Cómo identificar fans que iniciaron una compra en las últimas 48 horas y no la completaron. Conversión potencial entre el 15% y el 30% con un email bien ejecutado."
+sidebar:
+  order: 6
+---
+
+import { Aside, CardGrid, LinkCard } from '@astrojs/starlight/components';
+import Schema from '../../../../components/Schema.astro';
+
+<Schema>{`
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Recuperar carritos abandonados de entradas: cómo segmentar con Nevent",
+  "description": "Cómo identificar fans que iniciaron una compra en las últimas 48 horas y no la completaron para reactivarlos con un recordatorio oportuno.",
+  "author": { "@type": "Organization", "name": "Nevent", "url": "https://nevent.ai" },
+  "publisher": { "@type": "Organization", "name": "Nevent" },
+  "datePublished": "2026-06-02",
+  "dateModified": "2026-06-02",
+  "about": [
+    { "@type": "Thing", "name": "Abandoned cart recovery" },
+    { "@type": "Thing", "name": "Audience segmentation" },
+    { "@type": "Thing", "name": "Live music events" }
+  ],
+  "audience": { "@type": "Audience", "audienceType": "Live event promoters" }
+}
+`}</Schema>
+
+:::tip[Definición rápida]
+**Carrito abandonado en eventos**: fan que inició el proceso de compra de una entrada (seleccionó entradas, llegó al checkout) pero no completó el pago en las últimas horas. Es uno de los segmentos con mayor conversión potencial porque la intención de compra ya existe: solo falta un empujón en el momento adecuado.
+:::
+
+# Recuperar carritos abandonados de entradas
+
+Alguien estuvo a punto de comprarte. Seleccionó entradas, avanzó por el proceso de compra y en algún punto se fue sin pagar. Quizás le distrajeron, le entró la duda sobre el precio, no tenía la tarjeta a mano o simplemente decidió "lo miro luego". Un recordatorio amable, enviado en las horas correctas, recupera una parte significativa de estas compras perdidas.
+
+## Situación
+
+Estás en plena venta de un evento: puede ser un concierto de reggae en Valencia, una sesión de jazz en Barcelona o un evento de indie en Madrid. Tu tráfico de compras es razonablemente bueno, pero analizando el embudo ves que hay personas que llegan al checkout y no terminan. Cada una de esas personas es una venta potencial que ya demostró interés real.
+
+A diferencia de una campaña de captación normal —donde el fan aún no sabe si quiere comprar—, aquí el fan ya tomó la decisión de avanzar. El trabajo de persuasión está en gran parte hecho. Lo que falta es eliminar la fricción del momento.
+
+## ¿Cuándo usar este caso?
+
+Úsalo siempre que tengas datos de intención de compra disponibles y quieras maximizar la conversión de tu tráfico de venta activo. Es especialmente eficaz durante los primeros días de venta, cuando hay urgencia temporal, y también cerca del cierre de una fase o agotamiento de stock.
+
+## Cómo se construye el segmento
+
+- Fans con intención de compra registrada en las últimas 24-48 horas (selección de entradas o inicio de checkout)
+- Que no hayan completado la compra (sin transacción confirmada)
+- Que no estén en la lista de supresión (no hayan hecho unsubscribe o tengan rebote duro activo)
+- Opcional: filtra solo los abandonos de una categoría específica de entrada (Early Bird, VIP) si quieres un enfoque de alto ticket
+
+## ¿Qué resultado esperar?
+
+El tamaño absoluto de este segmento es pequeño —típicamente decenas o centenares de fans según tu tráfico de venta—, pero la conversión potencial es de las más altas que vas a encontrar en cualquier campaña. Un email con asunto reconocible ("Te quedaste a un paso") enviado en las primeras seis a doce horas suele recuperar entre el 15% y el 30% de los abandonos.
+
+Un incentivo adicional —descuento por tiempo limitado de cuatro u ocho horas, upgrade gratuito, acceso a un meet & greet— puede subir esa recuperación, pero no siempre es necesario. Muchos abandonos son de distracción pura, no de objeción de precio.
+
+Para una base de, por ejemplo, 150 abandonos registrados en 48 horas, recuperar entre 22 y 45 compras adicionales con una sola campaña es un impacto directo y medible en revenue sin coste incremental de adquisición.
+
+## Variaciones
+
+- Solo abandonos de entrada VIP o de alto ticket: maximiza el impacto en revenue por conversión recuperada
+- Solo abandonos de Early Bird cuando la fase está a punto de cerrar: añade urgencia real basada en stock limitado
+- Excluye los que abandonaron y luego compraron por otro canal (taquilla, revendedor autorizado) para no enviarles un recordatorio innecesario
+- Segmenta por hora de abandono para personalizar el momento del envío del recordatorio
+
+## Cuándo NO usar este caso
+
+- Si no tienes datos de intención de compra integrados con tu sistema de ticketing: sin esa señal, el segmento no se puede construir
+- Si el evento ya vendió todas las entradas: un recordatorio a un fan cuyo carrito ya no está disponible genera frustración, no conversión
+- Si el abandono fue hace más de 72 horas: la intención de compra decae rápidamente; después de tres días, el contexto cambia y el email puede parecer intrusivo en lugar de oportuno
+
+## Resumen
+
+- El segmento incluye fans con inicio de compra no completada en las últimas 24-48 horas
+- Conversión potencial entre el 15% y el 30% de los abandonos con un email bien ejecutado
+- Tamaño pequeño pero con el mayor ratio revenue/coste de cualquier campaña
+- No siempre se necesita incentivo: muchos abandonos son de distracción, no de objeción de precio
+
+## Siguiente paso
+
+<CardGrid>
+  <LinkCard
+    title="Audiencia con preferencia declarada"
+    href="/segmentacion/casos/audiencia-con-preferencia/"
+    description="El siguiente caso del catálogo: cómo usar campos personalizados para segmentar por género musical."
+  />
+  <LinkCard
+    title="Engagement y comportamiento de compra"
+    href="/segmentacion/capacidades/engagement/"
+    description="Los criterios de comportamiento de compra e intención disponibles en el motor de segmentación."
+  />
+</CardGrid>
+
+---
+
+*La recuperación de carritos abandonados es una de las tácticas de mayor ROI en e-commerce. Para contexto sobre benchmarks de recuperación, consulta la <a href="https://baymard.com/lists/cart-abandonment-rate" target="_blank" rel="noopener noreferrer">investigación de Baymard Institute sobre tasas de abandono de carrito</a>, referente mundial en el análisis de este comportamiento.*

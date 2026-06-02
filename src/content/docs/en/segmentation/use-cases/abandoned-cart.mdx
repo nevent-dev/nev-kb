@@ -1,0 +1,100 @@
+---
+title: "Recovering abandoned ticket carts: how to segment | Nevent"
+description: "How to identify fans who started a purchase in the last 48 hours and did not complete it. Conversion potential of 15%–30% with a well-executed email."
+sidebar:
+  order: 6
+---
+
+import { Aside, CardGrid, LinkCard } from '@astrojs/starlight/components';
+import Schema from '../../../../../components/Schema.astro';
+
+<Schema>{`
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Recovering abandoned ticket carts: how to segment with Nevent",
+  "description": "How to identify fans who started a purchase in the last 48 hours and did not complete it in order to reactivate them with a timely reminder.",
+  "author": { "@type": "Organization", "name": "Nevent", "url": "https://nevent.ai" },
+  "publisher": { "@type": "Organization", "name": "Nevent" },
+  "datePublished": "2026-06-02",
+  "dateModified": "2026-06-02",
+  "about": [
+    { "@type": "Thing", "name": "Abandoned cart recovery" },
+    { "@type": "Thing", "name": "Audience segmentation" },
+    { "@type": "Thing", "name": "Live music events" }
+  ],
+  "audience": { "@type": "Audience", "audienceType": "Live event promoters" }
+}
+`}</Schema>
+
+:::tip[Quick definition]
+**Abandoned cart in events**: a fan who started the ticket purchase process (selected tickets, reached checkout) but did not complete payment within the last few hours. This is one of the highest conversion-potential segments because purchase intent already exists — all that is needed is a timely nudge.
+:::
+
+# Recovering abandoned ticket carts
+
+Someone was close to buying from you. They selected tickets, progressed through the purchase flow and at some point left without paying. Perhaps they were distracted, had second thoughts about the price, did not have their card to hand, or simply decided to "look at it later". A gentle reminder, sent at the right time, recovers a significant portion of these lost purchases.
+
+## Situation
+
+You are in the middle of a live sale for an event — perhaps a reggae concert in Valencia, a jazz session in Barcelona, or an indie event in Madrid. Your purchase traffic is reasonably good, but when you analyse the funnel you see that people are reaching checkout and not completing it. Each of those people is a potential sale that has already demonstrated genuine interest.
+
+Unlike a standard acquisition campaign — where the fan has not yet decided whether they want to buy — here the fan has already moved towards a decision. The persuasion work is largely done. What is missing is removing the friction of the moment.
+
+## When should you use this use case?
+
+Use it whenever you have purchase intent data available and want to maximise conversion from your active sales traffic. It is particularly effective during the first days of a sale, when there is temporal urgency, and also close to the close of a phase or when stock is running low.
+
+## How the segment is built
+
+- Fans with registered purchase intent in the last 24–48 hours (ticket selection or checkout initiation)
+- Who have not completed the purchase (no confirmed transaction)
+- Who are not on the suppression list (no unsubscribe or active hard bounce)
+- Optional: filter to a specific ticket category (Early Bird, VIP) if you want a high-ticket focus
+
+## What result should you expect?
+
+The absolute size of this segment is small — typically tens or hundreds of fans depending on your sales traffic — but the conversion potential is among the highest you will find in any campaign. An email with a recognisable subject line ("You left something behind") sent within the first six to twelve hours typically recovers between 15% and 30% of the abandonments.
+
+An additional incentive — a time-limited discount for four or eight hours, a free upgrade, access to a meet & greet — can push that recovery rate higher, but it is not always necessary. Many abandonments are pure distraction, not a price objection.
+
+For a base of, for example, 150 abandonments registered in 48 hours, recovering between 22 and 45 additional purchases from a single campaign is a direct and measurable revenue impact with no incremental acquisition cost.
+
+## Variations
+
+- Only VIP or high-ticket abandonments: maximises the revenue impact per recovered conversion
+- Only Early Bird abandonments when the phase is about to close: adds genuine urgency based on limited stock
+- Exclude those who abandoned but later bought through another channel (box office, authorised reseller) to avoid sending an unnecessary reminder
+- Segment by abandonment time to personalise the timing of the reminder send
+
+## When NOT to use this use case
+
+- If you do not have purchase intent data integrated with your ticketing system: without that signal, the segment cannot be built
+- If the event has already sold all tickets: a reminder to a fan whose cart is no longer available generates frustration, not conversion
+- If the abandonment happened more than 72 hours ago: purchase intent decays quickly; after three days, the context changes and the email may feel intrusive rather than helpful
+
+## Summary
+
+- The segment includes fans with an incomplete purchase started in the last 24–48 hours
+- Conversion potential of 15%–30% of abandonments with a well-executed email
+- Small in size but with the highest revenue-to-cost ratio of any campaign type
+- An incentive is not always needed: many abandonments are distraction, not a price objection
+
+## Next step
+
+<CardGrid>
+  <LinkCard
+    title="Audience with declared preference"
+    href="/en/segmentation/use-cases/audience-with-preference/"
+    description="The next use case in the catalogue: how to use custom fields to segment by music genre."
+  />
+  <LinkCard
+    title="Engagement and purchase behaviour"
+    href="/en/segmentation/capabilities/engagement/"
+    description="Purchase behaviour and intent criteria available in the segmentation engine."
+  />
+</CardGrid>
+
+---
+
+*Abandoned cart recovery is one of the highest-ROI tactics in e-commerce. For context on recovery benchmarks, see the <a href="https://baymard.com/lists/cart-abandonment-rate" target="_blank" rel="noopener noreferrer">Baymard Institute research on cart abandonment rates</a>, the global reference for analysis of this behaviour.*

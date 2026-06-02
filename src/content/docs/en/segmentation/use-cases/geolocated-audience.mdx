@@ -1,0 +1,98 @@
+---
+title: "Geolocated audience for regional events: how to segment | Nevent"
+description: "How to build a fan segment by geographic proximity to your event. Better advertising ROAS, fewer wasted impressions. Practical use case with examples in Madrid, Barcelona and Bilbao."
+sidebar:
+  order: 4
+---
+
+import { Aside, CardGrid, LinkCard } from '@astrojs/starlight/components';
+import Schema from '../../../../../components/Schema.astro';
+
+<Schema>{`
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Geolocated audience for regional events: how to segment with Nevent",
+  "description": "How to build a fan segment by geographic proximity to your event to improve advertising ROAS and reduce wasted impressions.",
+  "author": { "@type": "Organization", "name": "Nevent", "url": "https://nevent.ai" },
+  "publisher": { "@type": "Organization", "name": "Nevent" },
+  "datePublished": "2026-06-02",
+  "dateModified": "2026-06-02",
+  "about": [
+    { "@type": "Thing", "name": "Audience segmentation" },
+    { "@type": "Thing", "name": "Geo-targeting" },
+    { "@type": "Thing", "name": "Live music events" }
+  ],
+  "audience": { "@type": "Audience", "audienceType": "Live event promoters" }
+}
+`}</Schema>
+
+:::tip[Quick definition]
+**Geolocated audience**: a fan segment filtered by geographic location — either by distance radius from the venue or by historical attendance in that same city. It allows you to focus your advertising spend and communications on people who can physically attend the event.
+:::
+
+# Geolocated audience for regional events
+
+Organising a reggae concert in Bilbao, a flamenco event in Seville, or an electronic music night in Valencia has a natural catchment area. Communicating with fans who live 500 km away is inefficient: they are rarely going to travel, the cost of reaching them is real, and it dilutes your conversion metrics. A geolocated segment solves this problem with a simple but highly effective filter.
+
+## Situation
+
+You have a national fan base: fans in Madrid, Barcelona, Bilbao, Seville, Valencia and many other cities. But your next event is in a specific city, with a venue that has its own area of influence. You want the bulk of your communication and advertising budget to reach fans who can genuinely attend — not fans who open your email but cannot buy because they live too far away.
+
+The benefit is twofold: you save on the cost of sends and advertising, and you improve your conversion metrics because the audience you reach has a much higher actual propensity to buy.
+
+## When should you use this use case?
+
+Use it whenever the event is in a specific city or area and travel from other regions is not justified by the type of event or the programme. It is also useful for optimising paid media campaigns (Meta Ads, Google Ads) by creating custom audiences based on this segment.
+
+## How the segment is built
+
+- Fans whose registered location is within a reasonable radius of the event venue (for example, 75 km)
+- Or fans who have previously attended one of your events in that same city or area (indicating familiarity with that market)
+- The two conditions are applied with OR logic: meeting either one is sufficient
+- Optional: combine with declared music genre preference if you have that data, to further sharpen relevance
+
+## What result should you expect?
+
+If your base is national, this filter typically reduces the segment to between 15% and 25% of the total, depending on the city and how your base is geographically distributed. For cities like Madrid or Barcelona, where promoter bases tend to be concentrated, the percentage may be higher.
+
+The main impact is not the open rate — which may be similar to your general campaigns — but conversion to purchase: you are sending to people who can attend, which eliminates the fundamental friction of geographic irrelevance. In paid media campaigns, ROAS improves noticeably because you stop spending budget on users who, however interested, have no realistic possibility of converting to attendance.
+
+## Variations
+
+- Narrow the radius to 30 km for events with very limited capacity or in small-venue formats
+- Expand it to 150 km for multi-day festivals that justify travel due to their programme or headline acts
+- Combine the geographic filter with genre preference (for example: fans within 75 km of Seville with a preference for flamenco or Latin pop)
+- Use this segment to create a custom audience in Meta Ads and cross it with lookalikes to reach new fans in the same area
+
+## When NOT to use this use case
+
+- Events that justify travel (multi-day festivals, artists with a national fanbase): the geographic filter would make you miss relevant audience
+- If your geographic base is heavily concentrated in one city and the event is in that same city: almost your entire base is already local, so the filter adds little value
+- If the location data in your base is incomplete or out of date: a geo segment without reliable data may exclude local fans without you realising it
+
+## Summary
+
+- The segment filters by geographic location using a distance radius or historical attendance in that city
+- Typically represents 15%–25% of a national fan base, depending on the city
+- Improves advertising ROAS by eliminating impressions with no realistic conversion possibility
+- The most useful variations are adjusting the radius to match the event type and combining with genre preference
+
+## Next step
+
+<CardGrid>
+  <LinkCard
+    title="Top VIP: RFM Champions"
+    href="/en/segmentation/use-cases/top-rfm-vip/"
+    description="The next use case in the catalogue: how to reach the top 1–3% of your audience for premium experiences."
+  />
+  <LinkCard
+    title="Attendance and location criteria"
+    href="/en/segmentation/capabilities/attendance/"
+    description="All historical attendance and geolocation filters available in the segmentation engine."
+  />
+</CardGrid>
+
+---
+
+*Geo-targeting is one of the highest-impact tactics for advertising efficiency at local events. For a reference framework on advertising ROI measurement, see <a href="https://www.thinkwithgoogle.com/marketing-strategies/data-and-measurement/advertising-roi/" target="_blank" rel="noopener noreferrer">Google's Think with Google guide on advertising ROI measurement</a>.*

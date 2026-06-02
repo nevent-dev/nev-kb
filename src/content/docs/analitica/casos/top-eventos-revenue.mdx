@@ -1,0 +1,127 @@
+---
+title: "Top 10 eventos por revenue: análisis de cartera anual | Nevent"
+description: "Identifica cuáles son tus 10 eventos con más ingresos del año. Cómo medir, comparar y usar el ranking de eventos por revenue para tomar decisiones de cartera."
+sidebar:
+  order: 52
+---
+
+import Schema from '../../../../components/Schema.astro';
+import { Aside, CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+<Schema>{`{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Top 10 eventos por revenue: análisis de cartera para promotores de eventos en vivo",
+  "description": "Aprende a identificar tus eventos más rentables del año, qué métricas acompañan al ranking y cómo usar estos datos para decidir tu portfolio del año siguiente.",
+  "author": { "@type": "Organization", "name": "Nevent", "url": "https://nevent.ai" },
+  "publisher": { "@type": "Organization", "name": "Nevent" },
+  "datePublished": "2026-06-02",
+  "dateModified": "2026-06-02",
+  "about": [
+    { "@type": "Thing", "name": "Event revenue analytics" },
+    { "@type": "Thing", "name": "Live event portfolio management" },
+    { "@type": "Thing", "name": "Marketing analytics" }
+  ],
+  "audience": { "@type": "Audience", "audienceType": "Live event promoters" }
+}`}</Schema>
+
+:::tip[Definición rápida]
+**Top eventos por revenue**: ranking de tus eventos ordenados de mayor a menor ingreso total en un periodo. Te dice qué fórmulas funcionan y cuáles repetir, con datos reales de tu propio portfolio.
+:::
+
+# Top 10 eventos por revenue: análisis de cartera anual
+
+## Pregunta de negocio
+
+"¿Cuáles han sido mis 10 eventos más rentables desde inicio de año?"
+
+Esta pregunta se responde en las reuniones de planificación de cartera, cuando el equipo debate qué tipos de evento tienen más sentido repetir y cuáles cerrar. Sin el ranking, la decisión se basa en intuición; con él, en datos reales.
+
+## ¿Cómo se mide el top de eventos por revenue?
+
+Se suma el revenue generado por todos los eventos del año hasta la fecha, se agrupa por evento y se ordena de mayor a menor. El resultado son los 10 primeros.
+
+El cálculo incluye todos los ingresos de taquilla atribuidos al evento: entradas de distintos tipos, abonos si aplica y upgrades. La fecha de referencia es siempre el inicio del año natural.
+
+## ¿Qué resultado esperar?
+
+Una tabla con una fila por evento y estas columnas:
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Qué muestra</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Nombre del evento</strong></td>
+      <td>Identificador del evento en tu plataforma</td>
+    </tr>
+    <tr>
+      <td><strong>Fecha</strong></td>
+      <td>Cuándo tuvo lugar el evento</td>
+    </tr>
+    <tr>
+      <td><strong>Revenue total</strong></td>
+      <td>Ingresos totales de taquilla en €</td>
+    </tr>
+    <tr>
+      <td><strong>Entradas vendidas</strong></td>
+      <td>Volumen total de tickets emitidos</td>
+    </tr>
+    <tr>
+      <td><strong>Ticket medio</strong></td>
+      <td>Revenue ÷ entradas vendidas</td>
+    </tr>
+  </tbody>
+</table>
+
+Con estos datos ya puedes identificar patrones: si los eventos de mayor revenue coinciden con un género musical concreto, una ciudad o un formato de recinto, ese es tu insight más valioso.
+
+## ¿Cuándo tiene sentido consultar este caso?
+
+- **Planificación de cartera para el año siguiente** — saber cuáles son tus eventos top es el punto de partida para decidir qué repetir y con qué presupuesto.
+- **Identificar fórmulas ganadoras** — los eventos del top 10 tienen algo en común: género, ciudad, tipo de recinto, rango de precio. Identificarlo te permite replicarlo.
+- **Reporting a inversores o equipo** — una tabla de los 10 eventos más rentables del año es el resumen ejecutivo más efectivo de tu temporada.
+- **Negociación con artistas o recintos** — tener datos de revenue real de eventos similares es tu mejor argumento en una negociación.
+
+## ¿Cuándo NO usar este caso?
+
+- Si quieres evaluar rentabilidad real en lugar de revenue bruto: el top por revenue no tiene en cuenta costes. Un evento con mucho revenue puede tener poco margen. Para eso, el filtro correcto es margen, no revenue.
+- Si tienes pocos eventos en el año: con menos de 5 o 6 eventos, el ranking no aporta demasiado contexto comparativo.
+
+## Variaciones útiles
+
+- **Filtrar por género musical** — ver el top 10 solo de eventos de electrónica, rock o jazz te da el ranking dentro de tu nicho.
+- **Filtrar por ciudad** — útil si operas en varias ciudades y quieres comparar el rendimiento por mercado local, por ejemplo Madrid vs Barcelona.
+- **Top 10 por margen en lugar de revenue** — económicamente más relevante, pero requiere tener los costes registrados en la plataforma.
+- **Comparativa con el mismo periodo del año anterior** — ver si los eventos del top 10 mejoran o empeoran respecto al año anterior da contexto de tendencia.
+- **Desglosar por ticket medio** — eventos con ticket medio alto y aforo pequeño pueden superar en rentabilidad a eventos masivos con ticket bajo.
+
+## Resumen
+
+- El top de eventos por revenue es la forma más rápida de identificar qué está funcionando en tu cartera.
+- El resultado es una tabla con nombre, fecha, revenue total, entradas vendidas y ticket medio.
+- Úsalo en planificación anual, reporting a inversores y para detectar los patrones de éxito que puedes replicar.
+
+## Siguiente paso
+
+<CardGrid>
+  <LinkCard
+    title="Pregúntaselo a Claude en lenguaje natural"
+    href="/nevent-ai/que-puedes-hacer/analitica/"
+    description="Obtén el ranking de tus eventos con una pregunta en lenguaje natural."
+  />
+  <LinkCard
+    title="A6 — Cohortes de primera compra"
+    href="/analitica/casos/cohortes-primera-compra/"
+    description="Analiza el comportamiento a largo plazo de los fans que compraron en cada evento."
+  />
+  <LinkCard
+    title="Volver al hub de casos prácticos"
+    href="/analitica/casos/"
+    description="Todos los casos de analítica disponibles."
+  />
+</CardGrid>

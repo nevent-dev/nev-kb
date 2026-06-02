@@ -1,0 +1,144 @@
+---
+title: "Revenue attribution by marketing channel for live events | Nevent"
+description: "Compare attributed revenue, cost and ROAS across all your marketing channels in a single table. Decide where to invest more and where to cut based on real data."
+sidebar:
+  order: 55
+---
+
+import Schema from '../../../../../components/Schema.astro';
+import { Aside, CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+<Schema>{`{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Revenue attribution by marketing channel: guide for live event promoters",
+  "description": "How to measure which marketing channels generate the most revenue for your live events: email, SMS, Meta Ads, Google Ads, organic and direct. Comparative table with ROAS by channel.",
+  "author": { "@type": "Organization", "name": "Nevent", "url": "https://nevent.ai" },
+  "publisher": { "@type": "Organization", "name": "Nevent" },
+  "datePublished": "2026-06-02",
+  "dateModified": "2026-06-02",
+  "about": [
+    { "@type": "Thing", "name": "Marketing attribution" },
+    { "@type": "Thing", "name": "Multi-channel analytics" },
+    { "@type": "Thing", "name": "Live music events" }
+  ],
+  "audience": { "@type": "Audience", "audienceType": "Live event promoters" }
+}`}</Schema>
+
+:::tip[Quick definition]
+**Attribution by channel**: how much revenue you can attribute to each marketing channel (email, SMS, WhatsApp, Meta Ads, Google Ads, organic, direct...) in a given period. It tells you where to keep investing and where not to, in a single comparative table.
+:::
+
+# Revenue attribution by marketing channel
+
+## Business question
+
+"Which channels generate the most revenue for me? Where should I keep investing and where should I cut?"
+
+This is the question for the first days of the month, when the team sits down to decide where the next period's budget goes. Without a unified view of all channels, resource allocation is based on preference, not on real performance.
+
+## How is attribution by channel measured?
+
+The revenue attributed to each marketing channel during the selected period is summed. For paid channels (Meta Ads, Google Ads), cost is added and ROAS is calculated. For owned channels (email, SMS, WhatsApp), the cost is mainly the communication plan fee. For organic and direct, cost is zero or negligible.
+
+The result is sorted from highest to lowest revenue so you can see at a glance which channel leads.
+
+## What result should you expect?
+
+A table with one channel per row and these columns:
+
+<table>
+  <thead>
+    <tr>
+      <th>Channel</th>
+      <th>Attributed revenue</th>
+      <th>Cost</th>
+      <th>ROAS</th>
+      <th>Active campaigns</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Email</td>
+      <td>€ X</td>
+      <td>€ Y (plan cost)</td>
+      <td>X</td>
+      <td>N</td>
+    </tr>
+    <tr>
+      <td>Meta Ads</td>
+      <td>€ X</td>
+      <td>€ Y (ad spend)</td>
+      <td>X</td>
+      <td>N</td>
+    </tr>
+    <tr>
+      <td>Google Ads</td>
+      <td>€ X</td>
+      <td>€ Y (ad spend)</td>
+      <td>X</td>
+      <td>N</td>
+    </tr>
+    <tr>
+      <td>Organic</td>
+      <td>€ X</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>Direct</td>
+      <td>€ X</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+  </tbody>
+</table>
+
+Channels with the highest ROAS are the ones that best convert investment into revenue. Owned channels (email, SMS) typically show much higher ROAS than paid media because their fixed cost is far lower; however, their reach is limited to your existing base.
+
+## When does this use case make sense?
+
+- **Monthly or quarterly budget reallocation** — the attribution by channel table is the starting point for any decision about where to put the money next month.
+- **Decisions to close or expand a channel** — if a channel has had ROAS below the minimum profitable level for three months, the table makes it obvious.
+- **360-degree management reporting** — in a management meeting, the channel table is the most complete summary of your marketing ecosystem.
+- **Comparison between two periods** — viewing the current quarter's table against the previous quarter reveals whether strategy changes are working.
+
+## When NOT to use this case
+
+- If you want to analyse the performance of a specific campaign: attribution by channel is an aggregated view. For campaign-level detail, use case A1 (ROAS by campaign) is more precise.
+- If you have just launched a new channel: with fewer than 4–6 weeks of data, the attribution is not statistically significant.
+
+## Useful variations
+
+- **Paid channels only** — showing only Meta Ads, Google Ads and TikTok removes the noise from organic channels and makes pure ROI comparison easier.
+- **Owned channels only** — email, SMS and WhatsApp together show the performance of your base without acquisition cost.
+- **Filter by event** — if you have several events active in parallel, attribution by channel for a specific event is far more actionable than the aggregate.
+- **Comparison between two periods** — this quarter vs the previous one shows whether you are improving efficiency across each channel.
+
+## Summary
+
+- Attribution by channel is the most complete table for comparing the performance of your entire marketing ecosystem at a single glance.
+- It includes attributed revenue, cost, ROAS and number of active campaigns per channel.
+- Use it for budget decisions, channel closures and monthly or quarterly executive reporting.
+
+## Next step
+
+<CardGrid>
+  <LinkCard
+    title="Ask Claude in plain language"
+    href="/en/nevent-ai/what-you-can-do/analytics/"
+    description="Get the attribution by channel table with a plain-language question."
+  />
+  <LinkCard
+    title="A1 — ROAS last 30 days"
+    href="/en/analytics/use-cases/roas-last-30-days/"
+    description="Drill deeper into the ROAS of your paid media campaigns."
+  />
+  <LinkCard
+    title="Back to use cases hub"
+    href="/en/analytics/use-cases/"
+    description="All available analytics use cases."
+  />
+</CardGrid>

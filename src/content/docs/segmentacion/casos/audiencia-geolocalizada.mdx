@@ -1,0 +1,98 @@
+---
+title: "Audiencia geo-localizada para eventos regionales: cómo segmentar | Nevent"
+description: "Cómo construir un segmento de fans por proximidad geográfica a tu evento. Mejor ROAS publicitario, menos impactos inútiles. Caso práctico con ejemplos en Madrid, Barcelona y Bilbao."
+sidebar:
+  order: 4
+---
+
+import { Aside, CardGrid, LinkCard } from '@astrojs/starlight/components';
+import Schema from '../../../../components/Schema.astro';
+
+<Schema>{`
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Audiencia geo-localizada para eventos regionales: cómo segmentar con Nevent",
+  "description": "Cómo construir un segmento de fans por proximidad geográfica a tu evento para mejorar el ROAS publicitario y reducir impactos inútiles.",
+  "author": { "@type": "Organization", "name": "Nevent", "url": "https://nevent.ai" },
+  "publisher": { "@type": "Organization", "name": "Nevent" },
+  "datePublished": "2026-06-02",
+  "dateModified": "2026-06-02",
+  "about": [
+    { "@type": "Thing", "name": "Audience segmentation" },
+    { "@type": "Thing", "name": "Geo-targeting" },
+    { "@type": "Thing", "name": "Live music events" }
+  ],
+  "audience": { "@type": "Audience", "audienceType": "Live event promoters" }
+}
+`}</Schema>
+
+:::tip[Definición rápida]
+**Audiencia geo-localizada**: segmento de fans filtrado por su ubicación geográfica, ya sea por radio de distancia al recinto o por historial de asistencia en esa misma ciudad. Permite centrar la inversión publicitaria y la comunicación en personas que físicamente pueden asistir al evento.
+:::
+
+# Audiencia geo-localizada para eventos regionales
+
+Organizar un concierto de reggae en Bilbao, un evento de flamenco en Sevilla o una noche de electrónica en Valencia tiene un radio natural de captación. Comunicar a fans que viven a 500 km es ineficiente: pocas veces van a desplazarse, el coste de impactarlos es real y diluye tus métricas de conversión. Un segmento geo-localizado resuelve este problema con un filtro simple pero muy efectivo.
+
+## Situación
+
+Tienes una base nacional: fans de Madrid, Barcelona, Bilbao, Sevilla, Valencia y muchas otras ciudades. Pero tu próximo evento es en una ciudad concreta, con un recinto que tiene su propio radio de influencia. Quieres que la mayor parte de tu presupuesto comunicacional y publicitario impacte a fans que realmente pueden asistir, no a fans que abren tu email pero no pueden comprarte porque viven demasiado lejos.
+
+El beneficio es doble: ahorras en coste de envío y publicidad, y mejoras tus métricas de conversión porque el público que impactas tiene mayor propensión real a comprar.
+
+## ¿Cuándo usar este caso?
+
+Úsalo cuando el evento sea en una ciudad o área concreta y el desplazamiento desde otras zonas no esté justificado por el tipo de evento o el artista. También es útil para optimizar campañas de paid media (Meta Ads, Google Ads) creando audiencias personalizadas basadas en este segmento.
+
+## Cómo se construye el segmento
+
+- Fans cuya ubicación registrada está dentro de un radio razonable del recinto del evento (por ejemplo, 75 km)
+- O fans que han asistido alguna vez a un evento tuyo en esa misma ciudad o área geográfica (indica familiaridad con la plaza)
+- Las dos condiciones se aplican con lógica O: basta con que cumplan una de las dos
+- Opcional: combina con género musical preferido si lo tienes disponible para afinar aún más la relevancia
+
+## ¿Qué resultado esperar?
+
+Si tu base es nacional, este filtro suele reducir el segmento a entre el 15% y el 25% del total, dependiendo de la ciudad y de cómo esté distribuida tu base geográficamente. Para ciudades como Madrid o Barcelona, donde suelen estar concentradas las bases de promotores nacionales, el porcentaje puede ser mayor.
+
+El impacto principal no es la tasa de apertura —que puede ser similar a tus campañas generales— sino la conversión a compra: estás enviando a personas que pueden asistir, lo que elimina la fricción fundamental de la irrelevancia geográfica. En campañas de paid media, el ROAS mejora de forma notable porque dejas de gastar presupuesto en usuarios que, aunque interesantes, no tienen ninguna posibilidad de convertir en asistencia.
+
+## Variaciones
+
+- Estrecha el radio a 30 km para eventos de aforo muy limitado o en recintos de sala pequeña
+- Amplíalo a 150 km para festivales que justifican desplazamiento por su propuesta de varios días o artistas de primer nivel
+- Combina el filtro geográfico con género preferido (por ejemplo: fans en radio de 75 km de Sevilla + preferencia por flamenco o por pop latino)
+- Usa este segmento para crear una audiencia personalizada en Meta Ads y cruzarla con lookalikes para captar fans nuevos en la misma zona
+
+## Cuándo NO usar este caso
+
+- Eventos que justifican desplazamiento (festivales de varios días, artistas con base de seguidores nacional): el filtro geográfico te haría perder audiencia relevante
+- Si tu base geográfica está muy concentrada en una sola ciudad y el evento es en esa misma ciudad: en ese caso casi toda la base ya es local y el filtro añade poco valor
+- Si los datos de ubicación de tu base están incompletos o desactualizados: un segmento geo sin datos fiables puede excluir fans locales sin saberlo
+
+## Resumen
+
+- El segmento filtra por ubicación geográfica usando radio de distancia o historial de asistencia en esa ciudad
+- Representa entre el 15% y el 25% de una base nacional típica, dependiendo de la ciudad
+- Mejora el ROAS publicitario al eliminar impactos sin posibilidad real de conversión
+- Las variaciones más útiles son ajustar el radio según el tipo de evento y combinar con género preferido
+
+## Siguiente paso
+
+<CardGrid>
+  <LinkCard
+    title="Top VIP: Champions RFM"
+    href="/segmentacion/casos/top-rfm-vip/"
+    description="El siguiente caso del catálogo: cómo llegar al top 1-3% de tu audiencia para experiencias premium."
+  />
+  <LinkCard
+    title="Criterios de asistencia y ubicación"
+    href="/segmentacion/capacidades/asistencia/"
+    description="Todos los filtros de asistencia histórica y geolocalización disponibles en el motor de segmentación."
+  />
+</CardGrid>
+
+---
+
+*El geo-targeting es una de las tácticas con mayor impacto en eficiencia publicitaria para eventos locales. Para un marco de referencia sobre ROAS en campañas de eventos, consulta la <a href="https://www.thinkwithgoogle.com/marketing-strategies/data-and-measurement/advertising-roi/" target="_blank" rel="noopener noreferrer">guía de medición de ROI publicitario de Google Think with Google</a>.*
