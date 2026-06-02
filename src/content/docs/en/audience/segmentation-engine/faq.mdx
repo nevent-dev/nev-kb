@@ -1,0 +1,1185 @@
+---
+title: "FAQ: audience segmentation for festivals - Nevent"
+description: "Frequently asked questions about segmenting ticket buyers: Nevent Temperature, groups, CSV export and email deliverability explained."
+sidebar:
+  order: 8
+---
+
+import Schema from '../../../../../components/Schema.astro';
+import { Aside } from '@astrojs/starlight/components';
+
+<Schema>{`{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How many filters can I combine?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "There is no technical limit, but the practical recommendation is: simple campaigns 2-4 filters, segmented campaigns 5-8 filters, ultra-specific campaigns 10+ filters. More filters means a smaller, more specific audience."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are segments updated automatically?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, segments are dynamic by default. Every time you run a campaign, Nevent recalculates who meets the criteria at that moment. You can save static (frozen) segments that lock the list at a specific point in time."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I save a static (frozen) segment?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, when saving a segment you can choose dynamic (recommended), which updates automatically, or static, which freezes the fan list at that exact moment. Useful for cohort studies, multi-step campaigns and historical analysis."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I export my segment?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, you can export the fan list to CSV for external analysis, import to other platforms, stakeholder reports or backup. The export includes name, email, phone and basic fields."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I know if my segment is too small?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Quick guide: fewer than 50 fans is very small (consider broadening), 50-200 small (OK for exclusive offers), 200-1,000 medium (ideal for segmentation), 1,000-10,000 large (optimal for campaigns), more than 10,000 very large (consider sub-segmenting)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens if a fan belongs to multiple segments?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "They will receive multiple emails if they are in multiple active campaigns. To avoid this: use exclusions (did not receive email in the last 7 days), plan your calendar by spacing campaigns out, prioritise segments or use fatigue filters."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I see which fans are in my segment before sending?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, the Preview function shows you the total estimated number, a list of 10-50 example fans with full profiles, geographic distribution and distribution by Nevent Temperature. Use it to validate before running."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do segments affect deliverability?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Indirectly, yes. Well-built segments improve deliverability: engaged fans open more (better sender reputation), fewer spam complaints, relevant messages (fewer unsubscribes) and a high open rate. Poorly built segments worsen it with low open rates, over-contacting and irrelevant messages."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I combine existing segments?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not directly, but you can replicate the logic. View the filters of Segment A and Segment B, then create Segment C that combines both with AND/OR logic."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What exactly is Nevent Temperature?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It is a predictive score (0-100) that Nevent calculates automatically based on attendance frequency, purchase recency, total spend, email engagement, platform interaction and purchase speed. The scale runs from Frozen (0-16) to Very Hot (84-100)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I create my own custom criteria?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, through custom fields. You create a field, assign values to your fans, use the 'Custom field' criterion in segmentation and filter by that field and value."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do groups change over time?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. A fan will always be in the same group. Assignment is based on a hash of the user_id, which is deterministic and permanent. This is crucial for consistency in long-term A/B tests."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I select multiple groups for a campaign?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. You can send to a single group, a range of groups or specific groups. For example: Week 1 sends to Group 1 (pilot test), Week 2 sends to Groups 2-10 (full rollout)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does it take to calculate a large segment?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It depends on size and complexity. Fewer than 10K fans with simple filters: less than 1 second preview. 100K-500K fans with complex filters: 3-8 seconds preview, 45-90 seconds full execution. More than 500K: 10-15 seconds preview, 2-5 minutes execution."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do segments consume credits or cost anything?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Creating and running segments is unlimited and free. You only pay for emails sent, SMS sent and push notifications according to your plan."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the best segment size for early bird?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The optimal early bird segment size varies by event type: 30-20% for small venues (500-2,000), 15-10% for medium venues (2,000-10,000), 10-7% for medium festivals (10,000-50,000), 5-4% for large festivals (50,000-200,000), and 2.5-7.5% for macro festivals (200,000+). The general rule is 5-15% of total capacity."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I segment attendees who opened an email but did not buy?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Segment fans with criteria: specific campaign email opened, tickets purchased 0, days since email open between 2-7. Implement a 3-email recovery sequence over 7 days: reminder with FAQ (day +2), urgency and scarcity (day +4), and final incentive with 10% discount (day +6). Expected recovery rate: 25-40%."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I segment by preferred music genre?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Nevent automatically assigns music genre preferences based on purchase history (60%), email clicks (25%) and web behaviour (15%). Available genres: Electronic, Rock, Indie, Hip Hop/Urban, Pop, Metal, Latino, Experimental and others. Genre segmentation increases open rate 2.3x vs generic messages."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does segmentation affect deliverability?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Segmentation SIGNIFICANTLY IMPROVES deliverability. Advanced segmentation achieves 35-45% open rate vs 12-18% for mass email, reduces spam reports from 0.3-0.8% to below 0.1%, and increases inbox placement from 70-80% to 92-97%. It improves deliverability by increasing engagement (a positive signal for ISPs such as Gmail and Outlook)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I identify VIPs at risk of churning?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The VIP At Risk segment uses criteria: total historical spend ≥€500, number of events attended ≥3, days since last purchase 180-365, email opens in the last 30 days ≤2. These are high historical-value fans (LTV €800-2,500) with low recent activity. A 3-email win-back campaign achieves a recovery rate of 15-25% with ROI of 48.9x."
+      }
+    }
+  ]
+}`}</Schema>
+
+<Schema>{`{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://docs.nevent.com"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Segmentation Engine",
+      "item": "https://docs.nevent.com/en/audience/segmentation-engine"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "FAQ",
+      "item": "https://docs.nevent.com/en/audience/segmentation-engine/faq"
+    }
+  ]
+}`}</Schema>
+
+:::tip[Quick definition]
+**How many filters can I combine in a segment?**
+
+No technical limit. Recommendation: simple campaigns 2-4 filters, segmented 5-8, ultra-specific 10+. Each additional filter reduces the audience by roughly 30-50% and increases precision. Optimal balance: 4-6 filters for most cases.
+
+**Example:** A segment with 6 filters (Temperature: Very Hot, Events: ≥2, City: Madrid, Genre: Electronic, Spend: ≥€300, Email opens: ≥3) = 850 ultra-qualified fans from a 50k base (1.7%).
+:::
+
+# Frequently Asked Questions
+
+Quick answers to the most common questions about segmenting attendees at festivals, venues and events.
+
+---
+
+## General
+
+### How many filters can I combine?
+
+**Answer**: There is no technical limit, but the practical recommendation is:
+
+- **Simple campaigns**: 2-4 filters
+- **Segmented campaigns**: 5-8 filters
+- **Ultra-specific campaigns**: 10+ filters
+
+More filters = smaller, more specific audience.
+
+<Aside type="tip">
+Start with 2-3 filters. If your audience is too large, keep adding more criteria.
+</Aside>
+
+---
+
+### Are segments updated automatically?
+
+**Answer**: Yes, segments are **dynamic** by default.
+
+Every time you run a campaign, Nevent recalculates who meets the criteria at that moment.
+
+**Example:**
+- **Today**: You create a "Hot Temperature" segment → 1,000 fans
+- **Tomorrow**: 50 new fans become "Hot"
+- **You run the campaign**: It sends to 1,050 fans (the current ones)
+
+**Exception**: You can save "static" (frozen) segments that lock the list at a specific point in time.
+
+---
+
+### Can I save a "static" (frozen) segment?
+
+**Answer**: Yes, when saving a segment you can choose:
+
+- **Dynamic** (recommended): Updates automatically
+- **Static**: Freezes the fan list at that exact moment
+
+**When to use static segments:**
+- Cohort studies (longitudinal tracking of the same group)
+- Multi-step campaigns where you need consistency
+- Historical analysis ("Fans who attended Festival 2024")
+- Compliance (preserving who gave consent on date X)
+
+---
+
+### Can I export my segment?
+
+**Answer**: Yes, you can export the fan list to **CSV** for:
+
+- External analysis (Excel, Google Sheets)
+- Importing to other platforms
+- Stakeholder reports
+- Backup
+
+**The export includes**: Name, email, phone and basic fields.
+
+<Aside type="caution" title="GDPR">
+Only export fans who gave consent and use the data responsibly in accordance with data protection law.
+</Aside>
+
+---
+
+### How do I know if my segment is too small?
+
+**Answer**: Quick guide by campaign type:
+
+| Size | Assessment | Action |
+|------|------------|--------|
+| < 50 | Very small | ⚠️ Consider broadening |
+| 50-200 | Small | ✅ OK for exclusive offers |
+| 200-1,000 | Medium | ✅ Ideal for segmentation |
+| 1,000-10,000 | Large | ✅ Optimal for campaigns |
+| \> 10,000 | Very large | ⚠️ Consider sub-segmenting |
+
+**Exception**: If your total base is small (< 500 fans), a segment of 30-50 may be reasonable.
+
+---
+
+## Behaviour and Logic
+
+### What happens if a fan belongs to multiple segments?
+
+**Answer**: They will receive **multiple emails** if they are in multiple active campaigns.
+
+**How to avoid this:**
+
+1. **Use exclusions**: "Did not receive email in the last 7 days"
+2. **Plan your calendar**: Space out your campaigns
+3. **Prioritise segments**: Define a hierarchy (VIPs first, then general)
+4. **Use fatigue filters**: Nevent can automatically limit emails per fan per week
+
+---
+
+### Can I see which fans are in my segment before sending?
+
+**Answer**: Yes, the **Preview** function shows you:
+
+- Total estimated number
+- A list of 10-50 example fans with full profiles
+- Geographic distribution (if applicable)
+- Distribution by Nevent Temperature
+
+Use this to **validate** before running and make sure the segment makes sense.
+
+---
+
+### Do segments affect deliverability?
+
+**Answer**: Indirectly, **yes**.
+
+**Well-built segments improve deliverability:**
+- ✅ Engaged fans open more → better sender reputation
+- ✅ Fewer spam complaints → ISPs trust you
+- ✅ Relevant messages → fewer unsubscribes
+- ✅ High open rate → Gmail/Outlook prioritise you
+
+**Poorly built segments worsen deliverability:**
+- ❌ Sending to inactive fans → low open rate → spam folder
+- ❌ Over-contacting → spam complaints
+- ❌ Irrelevant messages → unsubscribes
+- ❌ Cold audience → low engagement
+
+**Conclusion**: Effective segmentation is **key** to good deliverability.
+
+---
+
+### Can I combine existing segments?
+
+**Answer**: Not directly, but you can replicate the logic:
+
+**Process:**
+1. View the filters of **Segment A**
+2. View the filters of **Segment B**
+3. Create **Segment C** that combines both with AND/OR logic
+
+**Example:**
+- **Segment A**: "Fans from Barcelona"
+- **Segment B**: "VIPs with spend > €500"
+- **New Segment C**: "Fans from Barcelona **AND** VIPs with spend > €500"
+
+---
+
+## Criteria and Categories
+
+### What exactly is "Nevent Temperature"?
+
+**Answer**: It is a **predictive score** (0-100) that Nevent automatically calculates for each fan based on:
+
+- Frequency of event attendance
+- Purchase recency
+- Total historical spend
+- Email engagement (opens, clicks)
+- Platform interaction
+- Purchase speed (early bird vs last minute)
+
+**Scale:**
+- 🔥 **Very Hot** (84-100): Ultra-engaged super fans
+- 🔥 **Hot** (67-83): Very active fans
+- 🌡️ **Warm** (51-66): Moderate engagement
+- ❄️ **Cold** (34-50): Low engagement
+- ❄️ **Very Cold** (17-33): Little engagement
+- 🧊 **Frozen** (0-16): Inactive or very new
+
+**Practical use:**
+- 🔥 **Very Hot**: Target for VIP and exclusives
+- 🌡️ **Warm**: Most general campaigns
+- ❄️ **Cold**: Reactivation and win-back campaigns
+
+<Aside type="note">
+You do not need to understand the algorithm. Simply interpret the temperature as "how likely is this fan to buy or engage".
+</Aside>
+
+---
+
+### Can I create my own custom criteria?
+
+**Answer**: Yes, through **custom fields**.
+
+**How it works:**
+1. Create a custom field (e.g. "Client Type")
+2. Assign values to your fans (e.g. "Business", "Individual", "Press")
+3. Use the "Custom field" criterion in segmentation
+4. Filter by `Field = "Client Type"` and `Value = "Business"`
+
+**Useful custom field examples:**
+- Loyalty tier (Bronze, Silver, Gold, Platinum)
+- Industry (Tech, Finance, Healthcare)
+- Acquisition source (Facebook, Google, Referral)
+- Assigned Customer Success Manager
+
+---
+
+### I cannot find the criterion I am looking for — what should I do?
+
+**Possible reasons:**
+
+1. **It is in another category**: E.g. looking for "City" in Spend instead of Fan Attributes
+2. **Not yet synchronised**: The field has not been imported from your ticketing platform
+3. **You need a custom field**: You need to create it manually
+4. **It does not exist**: The functionality is not yet available
+
+**Solution:**
+- Check the [full categories reference](/en/audience/segmentation-engine/categories)
+- Contact support: support@nevent.ai
+- Request new criteria (product roadmap)
+
+---
+
+## Groups and Testing
+
+### Do groups change over time?
+
+**Answer**: **No**. A fan will always be in the same group.
+
+Group assignment is based on a hash of the `user_id`, which is **deterministic** and **permanent**.
+
+**Example**: If Fan X is in Group 5 of 10 today, they will still be in Group 5 in 6 months.
+
+This is crucial for **consistency** in long-term A/B tests.
+
+---
+
+### Can I select multiple groups for a campaign?
+
+**Answer**: Yes. You can send to:
+
+- **A single group**: Group 1
+- **A range of groups**: Groups 1-5
+- **Specific groups**: Groups 1, 3, 7, 9
+
+**Usage example:**
+```
+Week 1: Send to Group 1 (pilot test)
+Week 2: If it works, send to Groups 2-10 (full rollout)
+```
+
+---
+
+### How do I split 13,456 fans into 10 groups?
+
+**Answer**: Nevent does this **automatically** with balanced distribution:
+
+- Groups 1-6: ~1,346 fans each
+- Groups 7-10: ~1,345 fans each
+
+The difference is minimal (±1 fan). The algorithm guarantees balance.
+
+---
+
+### Can I see which fans are in each group?
+
+**Answer**: Yes, in the **segment preview** you can:
+
+1. Select a specific group (e.g. Group 3)
+2. View the full list of fans in that group
+3. Export that group to CSV if needed
+
+---
+
+
+## Performance and Technical
+
+### How long does it take to calculate a large segment?
+
+**Answer**: It depends on size and complexity:
+
+| Base Size | Complexity | Preview Time | Full Execution Time |
+|-----------|------------|--------------|---------------------|
+| < 10K fans | Simple (2-3 filters) | < 1 sec | 5-10 sec |
+| 10K-100K | Medium (5-7 filters) | 1-3 sec | 15-30 sec |
+| 100K-500K | Complex (10+ filters) | 3-8 sec | 45-90 sec |
+| \> 500K | Very complex | 10-15 sec | 2-5 min |
+
+**Preview** uses sampling to be ultra fast (P95 < 2 sec).
+**Full execution** processes all fans for the send.
+
+---
+
+### Do segments consume credits or cost anything?
+
+**Answer**: **No**. Creating and running segments is **unlimited and free**.
+
+You only pay for:
+- Emails sent
+- SMS sent
+- Push notifications (according to your plan)
+
+You can create, edit, preview and run segments without limit.
+
+---
+
+## What is the best segment size for early bird?
+
+The optimal early bird segment size varies by event type and total capacity. The general rule: **5-15% of total capacity** sold in the early bird phase.
+
+### Recommended sizes by event type
+
+| Event Type | Total Audience | Early Bird Segment | Recommended % | Timing |
+|------------|---------------|-------------------|---------------|--------|
+| **Small venue** | 500-2,000 | 150-400 | 30-20% | 7 days before |
+| **Medium venue** | 2,000-10,000 | 300-1,000 | 15-10% | 14 days before |
+| **Medium festival** | 10,000-50,000 | 1,000-3,500 | 10-7% | 30 days before |
+| **Large festival** | 50,000-200,000 | 2,500-8,000 | 5-4% | 60 days before |
+| **Macro festival** | 200,000+ | 5,000-15,000 | 2.5-7.5% | 90 days before |
+
+### Recommended criteria for early bird segment
+
+**Optimal combination (AND):**
+- **Temperature:** Very Hot + Hot (highly engaged fans)
+- **RFM:** Champions + Loyal (strong purchase history)
+- **Past events:** ≥2 purchases in the last 12 months
+
+**Example — Festival with 50,000 capacity:**
+```
+Temperature: ≥Hot
+AND RFM Score: Champions, Loyal
+AND Past events (specific festival): ≥1
+AND Days since last purchase: ≤365
+```
+
+**Expected result:**
+- Segment: 3,500-4,500 fans (7-9% of 50k)
+- Conversion: 12-18%
+- Early bird tickets sold: 420-810
+- Revenue: €189,000 - €364,500 (price €450)
+
+### Common mistakes to avoid
+
+❌ **Segment too small (&lt;500 fans):**
+- You do not reach the early bird target
+- You miss critical revenue in phase 1
+
+❌ **Segment too large (&gt;20% capacity):**
+- Reduces scarcity (no urgency)
+- Leaves fewer tickets for phases 2 and 3
+- Risk: not filling the event in later phases
+
+❌ **Including cold fans (Cold/Frozen temperature):**
+- Low conversion (2-4% vs 12-18% for Hot fans)
+- You waste early bird access on an audience that will not convert
+- Better to save them for phase 2 once more of the lineup is confirmed
+
+### Best practice
+
+**Two-phase strategy:**
+1. **Phase 1A — Super exclusive (48h):** Champions + Very Hot only (1-2% capacity)
+2. **Phase 1B — General early bird (7-14 days):** Loyal + Hot (5-8% capacity)
+
+**Benefit:** Generates FOMO in phase 1B ("Champions already bought, fewer tickets left")
+
+---
+
+## How do I segment attendees who opened an email but did not buy?
+
+This is an **email cart abandonment** segment (opener non-buyer) with a typical recovery rate of **25-40%** if you act within a 48-72 hour window.
+
+### Full segment: "Email Opener — Non-Buyer"
+
+**Criteria (AND combination):**
+```
+Email opened: Specific campaign (e.g. "Early Bird Primavera 2026")
+AND Tickets purchased: 0
+AND Days since email open: ≥2, ≤7
+```
+
+**Interpretation:** Fans who showed interest (opened) but did not complete a purchase. The 2-7 day window lets you act before they lose interest.
+
+### Recommended recovery sequence (3 emails)
+
+#### Email #1 — Reminder + Answer Questions (Day +2)
+
+**Subject:** "Questions about [Festival]? We have the answers"
+
+**Content:**
+- We noticed you opened our email about the early bird
+- Something holding you back? Here are the 5 most common questions:
+  1. **Lineup:** Will more artists be announced? Yes, we confirm 80% of the remaining acts in February
+  2. **Refund policy:** 100% refund up to 30 days before
+  3. **Accommodation:** Hotel + ticket packages from €280
+  4. **Groups:** Can I buy multiple tickets? Yes, up to 10 in one order
+  5. **Payment:** We accept card, PayPal and instalment payments (3 months interest-free)
+
+**CTA:** "Buy my early bird ticket"
+
+**Expected recovery rate:** 8-12%
+
+---
+
+#### Email #2 — Urgency + Scarcity (Day +4)
+
+**Subject:** "⏰ Last chance for early bird — X tickets left out of 4,500"
+
+**Content:**
+- Real-time counter of remaining tickets
+- "3,200 of 4,500 early birds already sold (71%)"
+- "Last year they sold out 48h before the deadline"
+- Testimonial: "I bought last year and it was the best decision — María, 2023-2024"
+
+**Visual:** Progress bar showing % sold
+
+**Urgency CTA:** "I do not want to miss out"
+
+**Expected recovery rate:** 10-15%
+
+---
+
+#### Email #3 — Final Incentive (Day +6)
+
+**Subject:** "💔 Special 10% discount just for you — Last chance"
+
+**Content:**
+- "We noticed you have not bought yet — we want you to come"
+- Unique discount code: **COMEBACK10** (valid 48h)
+- Discounted price: €405 (vs €450 standard)
+- "This code is personal — only you have it"
+- Countdown timer: 48h until expiry
+
+**Guarantee:** "If you change your mind, 100% refund up to 30 days before (no questions asked)"
+
+**CTA:** "Use my discount COMEBACK10"
+
+**Expected recovery rate:** 7-13%
+
+---
+
+### Expected performance — Full sequence
+
+| Email | Timing | Sent | Opens | Clicks | Purchases | Revenue |
+|-------|--------|------|-------|--------|-----------|---------|
+| #1 FAQ | Day +2 | 1,200 | 45% (540) | 25% (135) | 10% (120) | €54,000 |
+| #2 Urgency | Day +4 | 1,080 | 38% (410) | 30% (123) | 12% (130) | €58,500 |
+| #3 Discount | Day +6 | 950 | 42% (399) | 35% (140) | 10% (95) | €38,475 (net of discount) |
+| **TOTAL** | 7 days | - | - | - | **345** | **€150,975** |
+
+**Total recovery rate:** 345 out of 1,200 opener non-buyers = **28.75%**
+
+**Campaign ROI:**
+- Cost: 3 emails (€0 on Nevent) + discount email #3 (95 fans × €45) = €4,275
+- Revenue: €150,975
+- **ROI: 35.3x** (3,530% return)
+
+### Automation in Nevent
+
+**Configure triggers:**
+1. Email #1: Automatic +48h after open with no purchase
+2. Email #2: Automatic +96h after open with no purchase
+3. Email #3: Automatic +144h after open with no purchase
+4. **Stop trigger:** If they purchase at any point, exit the sequence
+
+**Exclusions:**
+- Already purchased a ticket (at any time)
+- Unsubscribed
+- In another active campaign
+
+### Common mistakes
+
+❌ **Sending all 3 emails to everyone:** Bombardment. Better to stagger based on engagement
+❌ **Discount from email #1:** Trains fans to wait for a discount
+❌ **Window &gt;7 days:** They lose interest. Optimal window: 2-7 days after open
+❌ **No personalisation:** Generic email does not resonate. Mention "we saw you opened..."
+
+### Variation for VIPs
+
+If the opener non-buyer is a VIP (RFM Champions/Loyal), **do NOT send email #3 with a discount**.
+
+**Replace with:**
+- Email #3 VIP: "Exclusive backstage access included — Just for you"
+- Incentive: Free upgrade to VIP (not a discount)
+- Preserves premium perception
+
+---
+
+## Can I segment by preferred music genre?
+
+**Yes.** Nevent automatically assigns music genre preferences based on the fan's historical behaviour (events attended, email clicks, pages visited).
+
+### How automatic assignment works
+
+Nevent analyses 3 data sources:
+
+1. **Purchase history (weight: 60%):**
+   - Fan's past events
+   - Main genre of each event
+   - Example: Attended 3 electronic festivals → Preference: Electronic
+
+2. **Email clicks (weight: 25%):**
+   - Artists clicked in newsletters
+   - Most visited lineup sections
+   - Example: Always clicks the EDM lineup → Preference: EDM
+
+3. **Web behaviour (weight: 15%):**
+   - Time spent on event pages by genre
+   - On-site searches
+   - Example: Searches "techno festival 2026" → Preference: Techno
+
+**Minimum confidence:** 2-3 interactions to assign a genre with high confidence
+
+### Genres available in Nevent
+
+| Main Category | Sub-genres |
+|---------------|------------|
+| **Electronic** | EDM, Techno, House, Trance, Dubstep, Drum & Bass |
+| **Rock** | Classic rock, Alternative rock, Garage rock |
+| **Indie** | Indie rock, Indie pop, Indie folk |
+| **Hip Hop / Urban** | Rap, Trap, Reggaeton, R&B |
+| **Pop** | Mainstream pop, Electropop, K-pop |
+| **Metal** | Heavy metal, Death metal, Hardcore |
+| **Latino** | Reggaeton, Salsa, Bachata, Regional Mexican |
+| **Experimental** | Avant-garde, Noise, Industrial |
+| **Other** | Jazz, Soul, Funk, Blues, Country |
+
+### Example segment: EDM festival
+
+**Criteria:**
+```
+Preferred genre: Electronic, EDM, Techno, House
+AND Past events (any electronic genre): ≥1
+AND Temperature: ≥Warm
+```
+
+**Typical result:**
+- Total base: 80,000 contacts
+- Electronic fans: 18,000-22,000 (22-27%)
+- Final segment with filters: 15,000 fans
+
+**Personalised email:**
+- **Subject:** "🎧 [EDM Festival] — Techno/house lineup confirmed + Early Bird"
+- **Hero:** Only prominent EDM artists (do not show rock/indie)
+- **Content:** Electronic stage schedules, after-parties
+
+**Performance vs generic message:**
+- Open rate: **32%** vs 18% generic (+14pp)
+- Click rate: **28%** vs 12% generic (+16pp)
+- Conversion: **6.5%** vs 2.8% generic (+3.7pp)
+- **Lift: 2.32x revenue per fan**
+
+### Multi-genre segmentation (OR operator)
+
+**Use case:** Festival with a diverse lineup (Primavera Sound: rock + indie + electronic)
+
+**Criteria:**
+```
+Preferred genre: Rock OR Indie OR Electronic
+```
+
+**Result:** 45,000 fans (56% of 80k base)
+
+**Personalisation by dominant genre:**
+
+| Fan's Dominant Genre | Email Hero Image | Featured Lineup | Personalised Subject |
+|---------------------|------------------|-----------------|----------------------|
+| Rock | The Strokes (rock headliner) | 60% rock, 40% other | "🎸 Primavera 2026: The Strokes + rock lineup" |
+| Indie | Arctic Monkeys (indie headliner) | 60% indie, 40% other | "🎵 Primavera 2026: Arctic Monkeys + indie" |
+| Electronic | Daft Punk (EDM headliner) | 60% electronic, 40% other | "🎧 Primavera 2026: Daft Punk + EDM" |
+
+**Technology:** Dynamic content blocks in email (1 template, 3 versions)
+
+### Continuous improvement of assignment
+
+**Nevent learns with every interaction:**
+
+1. **Fan with no genre assigned (new):**
+   - Send generic email with full lineup
+   - Track clicks: Which artists did they open?
+   - Assign genre based on first 3 clicks
+
+2. **Fan with 1 genre assigned (medium confidence):**
+   - Highlight main genre (70% of content)
+   - Show related genres (30%)
+   - If they click a secondary genre → Add preference
+
+3. **Fan with 2-3 genres assigned (high confidence):**
+   - Advanced personalisation by dominant genre
+   - Cross-sell events in secondary genres
+
+### Limitations and considerations
+
+**Automatic assignment works best when:**
+- ✅ Fan has a history of 2+ events
+- ✅ Festival/promoter sends regular newsletters (to track clicks)
+- ✅ Genres are clearly differentiated (easy: rock vs EDM, difficult: indie rock vs indie pop)
+
+**Assignment may fail when:**
+- ❌ Fan buys tickets as gifts (not their own preferences)
+- ❌ Fan is a "musical omnivore" (equally likes everything)
+- ❌ Multi-genre event with no data on which stages they visited
+
+**Solution:** Allow fans to update preferences manually (link in email footer: "Update my music preferences")
+
+### Real case: Sónar Barcelona
+
+**Segment:** Electronic fans for Sónar 2026
+
+**Criteria:**
+```
+Preferred genre: Electronic, EDM, Techno, House, Trance
+AND City: Barcelona, ≤100km (locals + nearby)
+AND Past events (any electronic): ≥1
+```
+
+**Result:**
+- Segment: 12,500 fans from a base of 95,000 (13%)
+- Open rate: 38% (vs 22% general base)
+- Conversion: 8.2% (vs 3.1% general base)
+- Tickets sold: 1,025
+- Revenue: €184,500
+
+**Key insight:** Genre + Geo combined increase relevance exponentially (2.6x conversion)
+
+---
+
+## How does segmentation affect deliverability?
+
+**Segmentation SIGNIFICANTLY IMPROVES deliverability** because it increases engagement (opens, clicks) — the most important signal for ISPs (Gmail, Outlook) when evaluating sender reputation.
+
+### Impact on Sender Reputation
+
+| Metric | Mass Email | Basic Segmentation | Advanced Segmentation |
+|--------|------------|-------------------|----------------------|
+| **Open rate** | 12-18% | 20-28% | 35-45% |
+| **Click rate** | 2-4% | 5-9% | 12-20% |
+| **Spam reports** | 0.3-0.8% | 0.1-0.3% | &lt;0.1% |
+| **Unsubscribes** | 0.5-1.2% | 0.2-0.5% | 0.1-0.3% |
+| **Bounce rate** | 2-5% | 2-5% | 1-3% |
+| **Domain reputation** | 6-7/10 | 7-8/10 | 8-9/10 |
+| **Inbox placement** | 70-80% | 82-90% | 92-97% |
+
+### Why segmentation improves deliverability
+
+**1. Increases engagement rate (positive signal for ISPs)**
+
+When you send relevant emails to a specific audience:
+- More fans open (high open rate)
+- More fans click (high click rate)
+- ISPs interpret: "This sender delivers valuable content"
+- Result: Inbox placement increases
+
+**Mathematical example:**
+- Mass email: 80k sends × 15% open = 12,000 opens
+- Segmentation in 5 groups: 80k sends × 28% open = 22,400 opens
+- **+10,400 positive signals for ISPs (+87%)**
+
+**2. Reduces spam reports (negative signal)**
+
+Irrelevant email → Fan marks as spam
+- Mass email: "I am not interested in electronic" → SPAM (0.5%)
+- Segmentation: Only send electronic content to electronic fans → SPAM (0.05%)
+
+**Impact:** Reducing spam rate from 0.5% to 0.05% = **90% fewer negative signals**
+
+**3. Reduces unsubscribes (negative signal)**
+
+A fan who only receives relevant emails does not unsubscribe:
+- Mass email: 1% unsubscribe rate
+- Advanced segmentation: 0.2% unsubscribe rate
+
+**Secondary benefit:** You keep your database longer (less churn)
+
+### Case study: Cruïlla Festival 2024
+
+**Initial situation (January 2024):**
+- Strategy: Mass email to 150k fans
+- Domain score: **6.8/10** (Gmail Postmaster Tools)
+- Inbox placement: **76%** (24% to spam/promotions)
+- Spam report rate: **0.6%**
+
+**Change implemented (February 2024):**
+- New strategy: Segmentation into 8 groups (RFM + Geo + Genre)
+- Frequency: Reduced from 2 emails/week to 1 email/week (but more relevant)
+
+**Results after 3 months (May 2024):**
+- Domain score: **8.4/10** (+1.6 points)
+- Inbox placement: **94%** (+18pp)
+- Spam report rate: **0.18%** (70% reduction)
+- Average open rate: 18% → 32% (+14pp)
+
+**Revenue impact:**
+- May 2024 early bird campaign: +52% revenue vs May 2023 (same audience)
+- Attributable to: Higher inbox placement (more fans see the email) + higher open rate
+
+### ISP factors improved by segmentation
+
+**Gmail (Google Workspace):**
+- Engagement rate (opens/clicks) is factor #1
+- Spam reports are factor #2
+- Segmentation improves both → Better inbox placement
+
+**Outlook/Hotmail (Microsoft):**
+- Domain reputation (calculated from opens, clicks, spam)
+- Segmentation increases reputation → Less to Junk folder
+
+**Apple Mail (iCloud, me.com):**
+- User engagement + machine learning
+- If fans open consistently → Inbox
+- If they never open → Promotions tab
+
+### Best practices to maximise deliverability with segmentation
+
+**1. Segment by historical engagement as well**
+
+Do not only segment by demographic/RFM criteria — also segment by engagement:
+
+```
+Segment A — Super engaged:
+Temperature: Very Hot
+Email opens last 90 days: ≥5
+→ Always send (inbox placement: 98%)
+
+Segment B — Moderately engaged:
+Temperature: Hot, Warm
+Email opens last 90 days: 2-4
+→ Send main campaigns
+
+Segment C — Low engagement:
+Temperature: Cold, Very Cold
+Email opens last 90 days: 0-1
+→ Only send critical campaigns (early bird, sold-out warning)
+→ Consider sunset (clean up) if 6 months without opening
+```
+
+**2. Clean up inactive contacts (sunset policy)**
+
+Fans who do NOT open emails for 6-12 months damage deliverability:
+- ISPs see: "You send to people who do not want your emails"
+- Solution: Win-back campaign (one last attempt) → If they do not open, remove from active base
+
+**Example:**
+- Base of 150k fans, 40k (27%) have not opened in 12 months
+- Action: Sunset 40k inactive fans
+- Result: Domain reputation rises from 6.5 → 7.8 in 2 months
+
+**3. Differentiated frequency by segment**
+
+Not all segments tolerate the same frequency:
+
+| Segment | Maximum Frequency | Reasoning |
+|---------|-------------------|-----------|
+| Champions (Very Hot) | 2-3 emails/week | High engagement, they want information |
+| Loyal (Hot/Warm) | 1 email/week | Moderate engagement |
+| Promising (Warm) | 2 emails/month | Building trust |
+| At Risk (Cold) | 1 email/month + win-back | Avoid fatigue |
+| Cold/Inactive | Critical campaigns only | Minimise spam reports |
+
+### Tools for monitoring deliverability
+
+**Google Postmaster Tools (free):**
+- Domain reputation (0-10)
+- Spam rate
+- Feedback loop (spam complaints)
+- URL: https://postmaster.google.com
+
+**Microsoft SNDS (free):**
+- IP reputation for Outlook/Hotmail
+- Colour code: Green (good), Yellow (warning), Red (bad)
+- URL: https://sendersupport.olc.protection.outlook.com/snds/
+
+**Return Path / Validity (paid):**
+- Full inbox placement (Gmail, Outlook, Yahoo, Apple)
+- Competitor benchmarking
+- Price: ~€200/month
+
+### Myths about segmentation and deliverability
+
+❌ **Myth:** "Segmenting reduces volume, which damages reputation"
+✅ **Reality:** ISPs do not penalise low volume. They penalise low engagement. Better to send 10k emails at 40% open than 100k at 10% open.
+
+❌ **Myth:** "If I segment too much, each email varies a lot — ISPs will find that suspicious"
+✅ **Reality:** ISPs do not compare content between emails. They only measure engagement per individual send.
+
+❌ **Myth:** "Deliverability only depends on SPF/DKIM/DMARC"
+✅ **Reality:** SPF/DKIM/DMARC are minimum requirements (table stakes). Engagement is what actually determines inbox vs spam.
+
+### Conclusion
+
+Segmentation = More relevance = More engagement = Better deliverability = More revenue
+
+**Virtuous cycle:**
+1. You segment → Relevant emails
+2. Fans open more → High engagement
+3. ISPs see engagement → Inbox placement rises
+4. More emails reach the inbox → More fans see your email
+5. More conversion → More revenue
+6. Reinvest in better segmentation → Repeat cycle
+
+---
+
+## How do I identify VIPs at risk of churning?
+
+VIPs at risk of churning are fans with **high historical value** (heavy spend, frequent purchases) but **low recent activity** (no purchase in the last 6-12 months). Winning them back is critical because their average LTV is **€800-2,500**.
+
+### "VIP At Risk" segment
+
+**Criteria (4 AND filters):**
+```
+Total historical spend: ≥€500
+AND Number of events attended: ≥3
+AND Days since last purchase: ≥180, ≤365
+AND Email opens in the last 30 days: ≤2
+```
+
+**In plain English:** A fan who has spent heavily (≥€500) and attended repeatedly (≥3 events) but is now inactive (last purchase 6-12 months ago, barely opens emails).
+
+### Typical VIP At Risk profile
+
+**Demographics:**
+- Age: 28-42 years
+- Historical spend: €800-2,500
+- Events attended: 3-6 (spanning 2-4 years)
+- Last purchase: 6-12 months ago
+- Open rate last 90 days: 0-15% (vs 45-65% when active)
+
+**Additional red flags:**
+- Has not visited the website in the last 90 days
+- Has not interacted on social media (if they follow the promoter)
+- Changed email (bounces) or city (moved)
+
+### Expected segment size
+
+**Depends on total VIP base size:**
+
+| Total VIP Base | VIP At Risk (5-10%) | LTV at Risk | Recoverable Revenue Potential (20% win-back) |
+|----------------|---------------------|-------------|----------------------------------------------|
+| 5,000 | 250-500 | €200k-1.25M | €40k-250k |
+| 10,000 | 500-1,000 | €400k-2.5M | €80k-500k |
+| 20,000 | 1,000-2,000 | €800k-5M | €160k-1M |
+
+**Insight:** Recovering 20% of VIPs At Risk can generate **six figures of revenue** at large festivals.
+
+### Why they become "At Risk"
+
+**Main reasons (based on post-churn surveys):**
+
+1. **Event fatigue (28%):**
+   - "I have been 4 years in a row, I need a break"
+   - Solution: Offer other events from the portfolio (cross-sell)
+
+2. **Change in circumstances (24%):**
+   - New partner, children, relocation, job change
+   - Solution: Emails with a "come back with friends/partner" angle
+
+3. **Competition (18%):**
+   - Discovered a similar/better festival
+   - Solution: Emphasise unique differentiators
+
+4. **Price (15%):**
+   - "It has got too expensive"
+   - Solution: VIP discount (15-20%)
+
+5. **Lineup not convincing (10%):**
+   - "They no longer book artists I like"
+   - Solution: Survey for desired artists, personalise lineup highlights
+
+6. **Other (5%):**
+   - Previous negative experience, etc.
+
+### Recommended recovery campaign
+
+**3-email sequence over 14 days (see full example in Use Cases #2: VIP Reactivation)**
+
+**Email #1 — Nostalgia (Day 0):**
+- Subject: "We miss you, [Name] 💔"
+- Content: Recap of past events, photos, artists they saw
+- Soft CTA: "See upcoming events"
+- **No hard sell** (emotional reconnection only)
+
+**Email #2 — Incentive (Day +5):**
+- Subject: "20% special discount — Only for former VIPs"
+- Content: Unique code VIPBACK20, expires in 7 days
+- Testimonial: "I came back after 2 years and it was better than ever"
+- CTA: "Use my VIP discount"
+
+**Email #3 — Last chance (Day +10):**
+- Subject: "⏰ Your VIP discount expires tomorrow"
+- Content: Urgency + featured lineup + countdown
+- CTA: "Claim my discount now"
+
+**Expected win-back rate:** 15-25% of the At Risk segment
+
+**Example with numbers:**
+- VIP At Risk: 680 fans
+- Win-back rate: 20% (136 fans)
+- Average ticket value: €180
+- Revenue recovered: €24,480
+- **Campaign cost:** €500 (time + discounts)
+- **ROI: 48.9x**
+
+### Impact of NOT acting
+
+**What happens if you ignore VIPs At Risk:**
+
+| Metric | No Action (12 months) | With Win-back Campaign |
+|--------|----------------------|----------------------|
+| **VIP At Risk churn rate** | 60-70% (become Lost) | 30-40% (half recovered) |
+| **LTV lost** | 680 × 70% × €850 = €404k | 680 × 40% × €850 = €231k |
+| **Revenue recovered** | €0 | 136 × €180 = €24.5k |
+| **Difference** | — | **-€173k LTV saved + €24.5k revenue** |
+
+**Conclusion:** Not acting costs hundreds of thousands in LTV + immediate revenue.
+
+### Prevention: stopping Champions becoming At Risk
+
+**The best strategy is to prevent churn BEFORE fans reach At Risk:**
+
+**Early warning signals (intervene when you spot):**
+1. A Champion who did not buy early bird (first time in 3 years)
+2. Open rate dropped from 60% to 30% in the last 3 months
+3. Has not visited the website in 60 days (vs monthly visits before)
+
+**Preventive action:**
+- Personalised email: "We noticed you did not buy early bird this year — everything OK?"
+- Offer a call with an account manager (large festivals)
+- Survey: "What can we improve?"
+- Gentle incentive: 10% discount (not 20% — save that for At Risk)
+
+**Prevention is 3x more effective than recovery:**
+- Prevention: Retain 70-80% of Champions with early risk signals
+- At Risk recovery: Only 15-25% win-back rate
+
+### Tools in Nevent
+
+**Automatic alert:**
+Nevent can send you a notification when a fan enters "VIP At Risk":
+- Configuration: "Alert when a VIP (≥€500 historical) does not purchase in 180 days"
+- Method: Email to account manager or dashboard alert
+- Frequency: Weekly
+
+**VIP Health dashboard:**
+- Visual segmentation: Champions (green), Loyal (blue), At Risk (yellow), Lost (red)
+- Trending: How many Champions → At Risk this week?
+- Forecast: "Projection: 120 VIPs at risk of churning in the next 90 days"
+
+### Real case: Mad Cool Festival
+
+**Situation (January 2024):**
+- VIPs At Risk identified: 680 fans
+- LTV at risk: 680 × €850 = €578k
+- Historical without action: 65% churn (442 fans lost)
+
+**Action (win-back campaign, February 2024):**
+- 3-email sequence (Nostalgia → Incentive → Urgency)
+- Discount: 20% (VIPBACK20)
+- Timing: 14 days
+
+**Result (March 2024):**
+- Win-back: 22% (150 fans out of 680)
+- Immediate revenue: 150 × €180 = €27,000
+- **LTV saved:** 150 × €850 = €127,500
+- Churn reduced: 65% → 45% (-20pp)
+
+**Key insight:** For every €1 invested in VIP win-back, you recover €54 in LTV.
+
+---
+
+## More Help
+
+Did not find your answer?
+
+- 📖 [Back to Introduction](./index)
+- 📚 [See Use Cases](./use-cases)
+- 💬 Contact support: support@nevent.ai
+
+---
+
+**Ready to master segmentation?** 🎯
+
+[Back to the Segmentation Engine: complete guide with 6 categories and RFM →](./index)
