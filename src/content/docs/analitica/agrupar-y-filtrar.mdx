@@ -1,0 +1,192 @@
+---
+title: "Cómo agrupar y filtrar datos de analítica en Nevent"
+description: "Aprende a agrupar métricas por fecha, evento, canal o género musical y a aplicar filtros temporales en Nevent. Corta tus datos como necesitas sin código."
+sidebar:
+  order: 17
+---
+
+import Schema from '../../../components/Schema.astro';
+import { Aside, CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+<Schema>{`{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Cómo agrupar y filtrar datos de analítica en Nevent",
+  "description": "Guía de dimensiones de análisis y filtros temporales en Nevent: agrupa métricas por fecha, evento, canal, segmento, ciudad o género musical sin necesidad de código.",
+  "author": { "@type": "Organization", "name": "Nevent", "url": "https://nevent.ai" },
+  "publisher": { "@type": "Organization", "name": "Nevent" },
+  "datePublished": "2026-06-02",
+  "dateModified": "2026-06-02",
+  "about": [
+    { "@type": "Thing", "name": "Data analytics dimensions" },
+    { "@type": "Thing", "name": "Event marketing analytics" }
+  ],
+  "mentions": [{ "@type": "SoftwareApplication", "name": "Nevent" }],
+  "audience": { "@type": "Audience", "audienceType": "Live event promoters" }
+}`}</Schema>
+
+:::tip[Definición rápida]
+**Dimensiones de análisis** son las formas en que puedes agrupar tus métricas: por fecha, por evento, por canal de comunicación, por tipo de entrada o por segmento de fan. Los **filtros temporales** te permiten ver solo el periodo que te interesa. Juntos, te permiten "cortar" los datos desde cualquier ángulo sin necesidad de código ni SQL.
+:::
+
+# Cómo agrupar y filtrar datos en Nevent
+
+Las métricas en bruto son solo el punto de partida. El valor real está en poder comparar: este mes vs el anterior, este evento vs el de la temporada pasada, email vs SMS. Las dimensiones y filtros de Nevent te permiten hacer esas comparaciones en segundos.
+
+## ¿Por qué dimensiones puedes agrupar tus métricas?
+
+<table>
+  <thead>
+    <tr>
+      <th>Dimensión</th>
+      <th>Valores posibles</th>
+      <th>Para qué sirve</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Fecha</strong></td>
+      <td>Día, semana, mes, trimestre, año</td>
+      <td>Ver tendencias y estacionalidad</td>
+    </tr>
+    <tr>
+      <td><strong>Evento</strong></td>
+      <td>Por nombre, categoría o ciudad del evento</td>
+      <td>Comparar el rendimiento de cada evento</td>
+    </tr>
+    <tr>
+      <td><strong>Campaña</strong></td>
+      <td>Por nombre, canal o fecha de envío</td>
+      <td>Ver qué campaña funcionó mejor</td>
+    </tr>
+    <tr>
+      <td><strong>Canal</strong></td>
+      <td>Email, SMS, WhatsApp, Meta Ads, Google Ads</td>
+      <td>Comparar rendimiento entre canales</td>
+    </tr>
+    <tr>
+      <td><strong>Tipo de entrada</strong></td>
+      <td>Early bird, general, VIP, abono, etc.</td>
+      <td>Analizar el mix de demanda por categoría</td>
+    </tr>
+    <tr>
+      <td><strong>Segmento de fan</strong></td>
+      <td>Champions, At Risk, Nuevos, Temperatura Nevent, etc.</td>
+      <td>Ver métricas diferenciadas por perfil de fan</td>
+    </tr>
+    <tr>
+      <td><strong>Ciudad</strong></td>
+      <td>Ciudad del fan o ciudad del evento</td>
+      <td>Analizar rendimiento por mercado geográfico</td>
+    </tr>
+    <tr>
+      <td><strong>Género musical</strong></td>
+      <td>Electronic, jazz, rock, reggaeton, flamenco, etc.</td>
+      <td>Comparar rendimiento entre géneros si tienes cartera diversa</td>
+    </tr>
+    <tr>
+      <td><strong>Dispositivo</strong></td>
+      <td>Móvil, desktop, tablet</td>
+      <td>Optimizar la experiencia de compra por dispositivo</td>
+    </tr>
+  </tbody>
+</table>
+
+## ¿Qué filtros temporales están disponibles?
+
+<table>
+  <thead>
+    <tr>
+      <th>Filtro</th>
+      <th>Qué selecciona</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Hoy</strong></td>
+      <td>Solo datos del día actual</td>
+    </tr>
+    <tr>
+      <td><strong>Ayer</strong></td>
+      <td>Solo datos del día anterior</td>
+    </tr>
+    <tr>
+      <td><strong>Esta semana</strong></td>
+      <td>Desde el lunes de la semana actual</td>
+    </tr>
+    <tr>
+      <td><strong>Este mes</strong></td>
+      <td>Desde el día 1 del mes actual</td>
+    </tr>
+    <tr>
+      <td><strong>Este trimestre</strong></td>
+      <td>Desde el inicio del trimestre actual</td>
+    </tr>
+    <tr>
+      <td><strong>Este año</strong></td>
+      <td>Desde el 1 de enero del año actual</td>
+    </tr>
+    <tr>
+      <td><strong>Últimos N días</strong></td>
+      <td>Ventana deslizante configurable (ej: últimos 30 días)</td>
+    </tr>
+    <tr>
+      <td><strong>Rango personalizado</strong></td>
+      <td>Cualquier fecha de inicio y fin que definas</td>
+    </tr>
+    <tr>
+      <td><strong>Comparativa con periodo anterior</strong></td>
+      <td>Muestra el mismo periodo del mes pasado, trimestre anterior o año pasado</td>
+    </tr>
+  </tbody>
+</table>
+
+## ¿Qué tipos de outputs genera Nevent?
+
+Según el tipo de análisis que hagas, Nevent puede devolver los datos en tres formatos:
+
+- **Tablas de resultados**: la vista más común, exportable a CSV o Excel. Cada fila es una unidad (evento, campaña, fan) y cada columna es una métrica.
+- **Series temporales**: visualización de cómo evoluciona una métrica a lo largo del tiempo. Útil para detectar tendencias, picos de venta o caídas de rendimiento.
+- **Agregados multi-dimensión**: combinan varias dimensiones en una misma vista. Por ejemplo, ver ingresos por canal y por mes en la misma tabla.
+
+## ¿Cómo combinar dimensiones y filtros de forma efectiva?
+
+Imagina que quieres saber si el email funciona mejor que SMS para vender entradas early bird a fans de tu segmento "Champions" durante el mes de enero. Con Nevent puedes aplicar simultáneamente:
+
+- **Filtro temporal**: enero
+- **Dimensión de canal**: email vs SMS
+- **Dimensión de tipo de entrada**: early bird
+- **Dimensión de segmento**: Champions
+
+El resultado es una tabla que compara exactamente esas dos combinaciones para ese periodo, sin necesidad de exportar datos ni cruzar hojas de cálculo.
+
+## Ejemplo práctico
+
+Imagina que gestionas una promotora con eventos en Madrid, Barcelona y Sevilla. Quieres saber si los fans de música jazz generan más revenue por evento que los de música electrónica en el último trimestre. Agrupas por ciudad y género musical, aplicas el filtro de trimestre y Nevent te muestra la comparativa en segundos. Esa información te ayuda a priorizar qué tipo de eventos organizar en el siguiente periodo.
+
+## Resumen
+
+- Las dimensiones son las formas de agrupar: fecha, evento, canal, segmento, ciudad, género
+- Los filtros temporales acotan el periodo de análisis: hoy, últimos N días, rango personalizado
+- Combinar dimensiones y filtros genera insights muy específicos sin necesidad de código
+- Los resultados pueden verse como tabla, serie temporal o agregado multi-dimensión
+
+## Siguiente paso
+
+<CardGrid>
+  <LinkCard
+    title="Preguntas frecuentes sobre analítica"
+    href="/analitica/faq/"
+    description="Retención de datos, exportación, integraciones y más."
+  />
+  <LinkCard
+    title="Preguntárselo a Claude en lenguaje natural"
+    href="/nevent-ai/que-puedes-hacer/analitica/"
+    description="Aplica cualquier filtro y dimensión con una pregunta directa."
+  />
+  <LinkCard
+    title="Volver al hub de analítica"
+    href="/analitica/"
+    description="Ver todas las áreas de métricas disponibles."
+  />
+</CardGrid>

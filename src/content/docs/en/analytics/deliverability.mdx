@@ -1,0 +1,129 @@
+---
+title: "Email deliverability metrics — sender reputation and inbox placement"
+description: "Monitor sender reputation, inbox placement, bounce rate and spam complaints for your event emails in Nevent. Stop your campaigns from landing in the spam folder."
+sidebar:
+  order: 16
+---
+
+import Schema from '../../../../components/Schema.astro';
+import { Aside, CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+<Schema>{`{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Email deliverability metrics for live event promoters: sender reputation and inbox placement",
+  "description": "Learn how to monitor your email deliverability in Nevent: sender reputation, inbox placement rate, bounce rate and spam complaint rate for event marketing.",
+  "author": { "@type": "Organization", "name": "Nevent", "url": "https://nevent.ai" },
+  "publisher": { "@type": "Organization", "name": "Nevent" },
+  "datePublished": "2026-06-02",
+  "dateModified": "2026-06-02",
+  "about": [
+    { "@type": "Thing", "name": "Email deliverability" },
+    { "@type": "Thing", "name": "Sender reputation" },
+    { "@type": "Thing", "name": "Live events email marketing" }
+  ],
+  "mentions": [{ "@type": "SoftwareApplication", "name": "Nevent" }],
+  "audience": { "@type": "Audience", "audienceType": "Live event promoters" }
+}`}</Schema>
+
+:::tip[Quick definition]
+**Deliverability** is the ability of your emails to reach your fans' primary inbox — not spam, not promotions. **Sender reputation** is the score that email providers (Gmail, Outlook) assign to your sending domain based on your sending history. If it drops, your campaigns stop working even if they technically send successfully.
+:::
+
+# Deliverability metrics in Nevent
+
+You could have the perfect campaign — an irresistible subject line, relevant content, a well-segmented audience — and still not sell a single ticket if your emails never reach the inbox. Deliverability is the foundation on which everything else in email marketing is built.
+
+## What deliverability metrics can you measure?
+
+<table>
+  <thead>
+    <tr>
+      <th>Metric</th>
+      <th>What it answers</th>
+      <th>Alert threshold</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Sender reputation</strong></td>
+      <td>How do Gmail and Outlook rate your sending domain?</td>
+      <td>Low scores indicate a risk of blocking</td>
+    </tr>
+    <tr>
+      <td><strong>Inbox placement rate</strong></td>
+      <td>What % of your emails reach the inbox (not spam)?</td>
+      <td>Below 85% is a concern</td>
+    </tr>
+    <tr>
+      <td><strong>Bounce rate</strong></td>
+      <td>What % of emails could not be delivered?</td>
+      <td>Above 2% signals a dirty list</td>
+    </tr>
+    <tr>
+      <td><strong>Spam complaint rate</strong></td>
+      <td>What % of recipients marked your email as spam?</td>
+      <td>Above 0.1% damages reputation</td>
+    </tr>
+    <tr>
+      <td><strong>Suppression list</strong></td>
+      <td>How many fans can you no longer contact (unsubscribe, bounce, complaint)?</td>
+      <td>Above 10% indicates an acquisition problem</td>
+    </tr>
+  </tbody>
+</table>
+
+## What is sender reputation and how does it affect your campaigns?
+
+Sender reputation is a score that major email providers (Gmail, Outlook, Yahoo) assign to your sending domain and IP address based on your sending history. If your history includes many bounces, spam complaints or fans who never open your emails, your reputation drops and providers start filtering your messages into spam.
+
+A good reputation is the result of sending relevant content to people who actually want to receive it, at an appropriate frequency, from a clean list. You can monitor your domain reputation in [Google Postmaster Tools](https://postmaster.google.com) and [Microsoft SNDS](https://sendersupport.olc.protection.outlook.com/snds/).
+
+## What is inbox placement rate?
+
+Inbox placement rate measures the percentage of your emails that land in the primary inbox, as opposed to spam, Gmail's Promotions tab or other secondary folders.
+
+A healthy inbox placement rate should be above 90%. If it falls below 80%, a significant proportion of your fans will never see your campaign — which explains apparently low open rates that are actually a delivery problem, not a content problem.
+
+## What is the difference between a hard bounce and a soft bounce?
+
+- **Hard bounce**: the email could not be delivered permanently — usually because the address does not exist. These contacts should be removed from your list immediately.
+- **Soft bounce**: a temporary failure (full mailbox, server down). Nevent retries the send automatically and only suppresses the address if the failure recurs multiple times.
+
+A bounce rate above 2% indicates that your list contains many invalid addresses. This directly damages your sender reputation.
+
+## What is the suppression list?
+
+The suppression list is the set of fans that Nevent will not send emails to — because they voluntarily unsubscribed, because their address generates bounces or because they filed a spam complaint. This list protects both your sender reputation and your legal compliance (GDPR and CAN-SPAM regulations).
+
+## Practical example
+
+Imagine you haven't cleaned your list in months and send a bulk campaign to 50,000 urban music fans in Madrid. If 5% of the emails generate hard bounces (2,500 bounces), your sender reputation drops and Gmail starts routing your future sends to spam. With Nevent you can monitor these metrics before and after each send and detect the problem before it becomes a full deliverability crisis.
+
+## Summary
+
+- Sender reputation is the most fragile asset in email marketing: once damaged, it takes weeks to recover
+- Inbox placement rate tells you whether your emails are actually reaching the primary inbox
+- A bounce rate above 2% signals a dirty list and must be fixed urgently
+- A spam complaint rate above 0.1% erodes reputation rapidly
+- The suppression list protects your reputation and ensures legal compliance
+
+## Next step
+
+<CardGrid>
+  <LinkCard
+    title="Grouping and filtering data"
+    href="/en/analytics/grouping-and-filtering/"
+    description="Analysis dimensions and time filters available."
+  />
+  <LinkCard
+    title="Ask Claude in plain language"
+    href="/en/nevent-ai/what-you-can-do/deliverability/"
+    description="Query your deliverability status with a direct question."
+  />
+  <LinkCard
+    title="Back to analytics hub"
+    href="/en/analytics/"
+    description="See all available metric areas."
+  />
+</CardGrid>

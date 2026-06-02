@@ -35,7 +35,7 @@ export default defineConfig({
 				// duplicate-content penalties. The list below contains path segments that
 				// appear ONLY in ES (root locale) slugs — they have different EN equivalents.
 				const SPANISH_ONLY_SLUG_PATTERN =
-					/\/(casos-practicos|que-puedes-hacer|conectar-claude|conectar-chatgpt|frases-listas-para-usar|permisos-y-seguridad|preguntas-frecuentes|herramientas|instalacion-local|analitica|campanas|audiencia|plantillas|short-urls|multi-cuenta|lanzar-un-evento|recuperar-audiencia-dormida|diagnosticar-campana-floja|optimizar-inversion-publicitaria|cierre-de-mes-y-reporting|motor-segmentacion|crear-segmento|categorias|operadores-logica|modificadores-rfm|grupos|casos-uso|mejores-practicas)\//;
+					/\/(casos-practicos|que-puedes-hacer|conectar-claude|conectar-chatgpt|frases-listas-para-usar|permisos-y-seguridad|preguntas-frecuentes|herramientas|instalacion-local|analitica|campanas|audiencia|plantillas|short-urls|multi-cuenta|lanzar-un-evento|recuperar-audiencia-dormida|diagnosticar-campana-floja|optimizar-inversion-publicitaria|cierre-de-mes-y-reporting|motor-segmentacion|crear-segmento|categorias|operadores-logica|modificadores-rfm|grupos|casos-uso|mejores-practicas|segmentacion|capacidades|asistencia|atributos-del-fan|gasto-y-consumo|score-y-temperatura|combinaciones|agrupar-y-filtrar|tracking-y-atribucion)\//;
 				// Exclude pages under /en/ whose path matches a Spanish-only slug
 				if (page.startsWith('https://help.nevent.ai/en/') && SPANISH_ONLY_SLUG_PATTERN.test(page)) {
 					return false;
@@ -62,7 +62,13 @@ export default defineConfig({
 					changefreq = 'weekly';
 				} else if (
 					url === 'https://help.nevent.ai/nevent-ai/' ||
-					url === 'https://help.nevent.ai/en/nevent-ai/'
+					url === 'https://help.nevent.ai/en/nevent-ai/' ||
+					url === 'https://help.nevent.ai/segmentacion/motor-segmentacion/' ||
+					url === 'https://help.nevent.ai/en/segmentation/segmentation-engine/' ||
+					url === 'https://help.nevent.ai/segmentacion/capacidades/' ||
+					url === 'https://help.nevent.ai/en/segmentation/capabilities/' ||
+					url === 'https://help.nevent.ai/analitica/' ||
+					url === 'https://help.nevent.ai/en/analytics/'
 				) {
 					priority = 0.8;
 					changefreq = 'weekly';
@@ -175,27 +181,55 @@ export default defineConfig({
 			// Sidebar — ES (raíz) y EN (/en/)
 			// Starlight selecciona automáticamente los items del locale activo
 			sidebar: [
-				// ─── Audiencia / Motor de Segmentación — ES ────────────────────
+				// ─── Segmentación — ES ──────────────────────────────────────────
 				{
-					label: 'Audiencia',
+					label: 'Segmentación',
 					items: [
 						{
 							label: 'Motor de Segmentación',
 							items: [
-								{ label: 'Introducción', slug: 'audience/motor-segmentacion', badge: { text: 'Empieza aquí', variant: 'tip' } },
-								{ label: 'Cómo Crear un Segmento', slug: 'audience/motor-segmentacion/crear-segmento' },
-								{ label: 'Las 6 Categorías', slug: 'audience/motor-segmentacion/categorias' },
-								{ label: 'Operadores & Lógica Y/O', slug: 'audience/motor-segmentacion/operadores-logica' },
-								{ label: 'Modificadores & RFM', slug: 'audience/motor-segmentacion/modificadores-rfm', badge: { text: 'Avanzado', variant: 'note' } },
-								{ label: 'Grupos & A/B Testing', slug: 'audience/motor-segmentacion/grupos' },
-								{ label: 'Casos de Uso Prácticos', slug: 'audience/motor-segmentacion/casos-uso' },
-								{ label: 'Mejores Prácticas', slug: 'audience/motor-segmentacion/mejores-practicas' },
-								{ label: 'Preguntas Frecuentes', slug: 'audience/motor-segmentacion/faq' },
+								{ label: 'Introducción', slug: 'segmentacion/motor-segmentacion', badge: { text: 'Empieza aquí', variant: 'tip' } },
+								{ label: 'Cómo Crear un Segmento', slug: 'segmentacion/motor-segmentacion/crear-segmento' },
+								{ label: 'Las 6 Categorías', slug: 'segmentacion/motor-segmentacion/categorias' },
+								{ label: 'Operadores & Lógica Y/O', slug: 'segmentacion/motor-segmentacion/operadores-logica' },
+								{ label: 'Modificadores & RFM', slug: 'segmentacion/motor-segmentacion/modificadores-rfm', badge: { text: 'Avanzado', variant: 'note' } },
+								{ label: 'Grupos & A/B Testing', slug: 'segmentacion/motor-segmentacion/grupos' },
+								{ label: 'Casos de Uso Prácticos', slug: 'segmentacion/motor-segmentacion/casos-uso' },
+								{ label: 'Mejores Prácticas', slug: 'segmentacion/motor-segmentacion/mejores-practicas' },
+								{ label: 'Preguntas Frecuentes', slug: 'segmentacion/motor-segmentacion/faq' },
+							],
+						},
+						{
+							label: 'Capacidades',
+							items: [
+								{ label: 'Catálogo', slug: 'segmentacion/capacidades' },
+								{ label: 'Atributos del fan', slug: 'segmentacion/capacidades/atributos-del-fan' },
+								{ label: 'Asistencia a eventos', slug: 'segmentacion/capacidades/asistencia' },
+								{ label: 'Gasto y consumo', slug: 'segmentacion/capacidades/gasto-y-consumo' },
+								{ label: 'Engagement digital', slug: 'segmentacion/capacidades/engagement' },
+								{ label: 'Nevent Score y temperatura', slug: 'segmentacion/capacidades/score-y-temperatura' },
+								{ label: 'RFM automático', slug: 'segmentacion/capacidades/rfm' },
+								{ label: 'Combinaciones avanzadas', slug: 'segmentacion/capacidades/combinaciones' },
 							],
 						},
 					],
 				},
-				// ─── Español (root) ────────────────────────────────────────────
+				// ─── Analítica — ES ─────────────────────────────────────────────
+				{
+					label: 'Analítica',
+					items: [
+						{ label: 'Catálogo', slug: 'analitica' },
+						{ label: 'Eventos y entradas', slug: 'analitica/eventos-y-entradas' },
+						{ label: 'Audiencia y fans', slug: 'analitica/audiencia' },
+						{ label: 'Campañas', slug: 'analitica/campanas' },
+						{ label: 'Publicidad de pago', slug: 'analitica/paid-media' },
+						{ label: 'Tracking y atribución', slug: 'analitica/tracking-y-atribucion' },
+						{ label: 'Deliverability', slug: 'analitica/deliverability' },
+						{ label: 'Cómo agrupar y filtrar', slug: 'analitica/agrupar-y-filtrar' },
+						{ label: 'FAQ', slug: 'analitica/faq' },
+					],
+				},
+				// ─── Nevent AI — ES ─────────────────────────────────────────────
 				{
 					label: 'Nevent AI',
 					items: [
@@ -252,25 +286,55 @@ export default defineConfig({
 				//   - strips the double /en/en/ prefix that Starlight adds when rendering
 				//     link: items on EN locale pages
 				//   - filters this group out entirely when rendering ES locale pages
+				// ─── Segmentation — EN ──────────────────────────────────────────
 				{
-					label: 'Audience',
+					label: 'Segmentation',
 					items: [
 						{
 							label: 'Segmentation Engine',
 							items: [
-								{ label: 'Introduction', link: '/en/audience/segmentation-engine/', badge: { text: 'Start here', variant: 'tip' } },
-								{ label: 'Creating a segment', link: '/en/audience/segmentation-engine/creating-a-segment/' },
-								{ label: 'The 6 categories', link: '/en/audience/segmentation-engine/categories/' },
-								{ label: 'Operators & AND/OR logic', link: '/en/audience/segmentation-engine/operators-and-logic/' },
-								{ label: 'Modifiers & RFM analysis', link: '/en/audience/segmentation-engine/modifiers-and-rfm/', badge: { text: 'Advanced', variant: 'note' } },
-								{ label: 'Groups & A/B testing', link: '/en/audience/segmentation-engine/groups/' },
-								{ label: 'Use cases', link: '/en/audience/segmentation-engine/use-cases/' },
-								{ label: 'Best practices', link: '/en/audience/segmentation-engine/best-practices/' },
-								{ label: 'FAQ', link: '/en/audience/segmentation-engine/faq/' },
+								{ label: 'Introduction', link: '/en/segmentation/segmentation-engine/', badge: { text: 'Start here', variant: 'tip' } },
+								{ label: 'Creating a segment', link: '/en/segmentation/segmentation-engine/creating-a-segment/' },
+								{ label: 'The 6 categories', link: '/en/segmentation/segmentation-engine/categories/' },
+								{ label: 'Operators & AND/OR logic', link: '/en/segmentation/segmentation-engine/operators-and-logic/' },
+								{ label: 'Modifiers & RFM analysis', link: '/en/segmentation/segmentation-engine/modifiers-and-rfm/', badge: { text: 'Advanced', variant: 'note' } },
+								{ label: 'Groups & A/B testing', link: '/en/segmentation/segmentation-engine/groups/' },
+								{ label: 'Use cases', link: '/en/segmentation/segmentation-engine/use-cases/' },
+								{ label: 'Best practices', link: '/en/segmentation/segmentation-engine/best-practices/' },
+								{ label: 'FAQ', link: '/en/segmentation/segmentation-engine/faq/' },
+							],
+						},
+						{
+							label: 'Capabilities',
+							items: [
+								{ label: 'Catalog', link: '/en/segmentation/capabilities/' },
+								{ label: 'Fan attributes', link: '/en/segmentation/capabilities/fan-attributes/' },
+								{ label: 'Event attendance', link: '/en/segmentation/capabilities/event-attendance/' },
+								{ label: 'Spend and consumption', link: '/en/segmentation/capabilities/spend-and-consumption/' },
+								{ label: 'Digital engagement', link: '/en/segmentation/capabilities/digital-engagement/' },
+								{ label: 'Nevent Score and Temperature', link: '/en/segmentation/capabilities/score-and-temperature/' },
+								{ label: 'Automatic RFM', link: '/en/segmentation/capabilities/rfm/' },
+								{ label: 'Advanced combinations', link: '/en/segmentation/capabilities/advanced-combinations/' },
 							],
 						},
 					],
 				},
+				// ─── Analytics — EN ─────────────────────────────────────────────
+				{
+					label: 'Analytics',
+					items: [
+						{ label: 'Catalog', link: '/en/analytics/' },
+						{ label: 'Events and tickets', link: '/en/analytics/events-and-tickets/' },
+						{ label: 'Audience', link: '/en/analytics/audience/' },
+						{ label: 'Campaigns', link: '/en/analytics/campaigns/' },
+						{ label: 'Paid media', link: '/en/analytics/paid-media/' },
+						{ label: 'Tracking and attribution', link: '/en/analytics/tracking-and-attribution/' },
+						{ label: 'Deliverability', link: '/en/analytics/deliverability/' },
+						{ label: 'Grouping and filtering', link: '/en/analytics/grouping-and-filtering/' },
+						{ label: 'FAQ', link: '/en/analytics/faq/' },
+					],
+				},
+				// ─── Nevent AI — EN ─────────────────────────────────────────────
 				{
 					label: 'Nevent AI',
 					items: [

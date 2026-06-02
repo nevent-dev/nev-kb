@@ -1,0 +1,94 @@
+---
+title: "Event attendance: segment fans by ticket purchase history"
+description: "Segment live event fans by attended events, event city, frequency and days since last attendance. Examples for concert and festival promoters looking to reward loyalty or reactivate inactive fans."
+sidebar:
+  order: 3
+---
+
+import Schema from '../../../../../components/Schema.astro';
+import { Aside, CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+<Schema>{`{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Event attendance: segment live event fans by ticket purchase history",
+  "description": "Segment live event fans by attended events, event city, frequency and days since last attendance.",
+  "author": { "@type": "Organization", "name": "Nevent", "url": "https://nevent.ai" },
+  "publisher": { "@type": "Organization", "name": "Nevent" },
+  "datePublished": "2026-06-02",
+  "dateModified": "2026-06-02",
+  "about": [
+    { "@type": "Thing", "name": "Event attendance segmentation" },
+    { "@type": "Thing", "name": "Ticket purchase history" },
+    { "@type": "Thing", "name": "Live music events" }
+  ],
+  "mentions": [{ "@type": "SoftwareApplication", "name": "Nevent" }],
+  "audience": { "@type": "Audience", "audienceType": "Live event promoters" }
+}`}</Schema>
+
+:::tip[Quick definition]
+**Event attendance** is the ticket purchase history for each fan: which events they attended, in which cities, how frequently and how long it has been since they last attended. It is the most powerful category for identifying loyal fans, inactive ones or fans who already have a ticket to your next event.
+:::
+
+# Event attendance: segment fans by ticket purchase history
+
+Attendance behaviour is one of the most valuable pieces of data you hold on your fans. It tells you who has shown interest with real money, not just a registration. These criteria let you identify your most loyal fans, reactivate those who have been away for months and avoid bothering fans who already have a ticket to your next event.
+
+## What attendance criteria can you use for segmentation?
+
+| Criterion | What it represents | Example use case |
+|---|---|---|
+| **Events attended** | List of specific past events the fan went to | Fans who attended your festival last year |
+| **Event city** | City where the event was held (may differ from fan's city) | Fans who came to your event in Madrid even if they live elsewhere |
+| **Event category** | Type of event or genre consumed (rock, jazz, electronic, indie…) | Fans who have attended electronic music events |
+| **Number of events attended** | Total events or within a specific time window | Fans who have attended 3 or more events in the last 12 months |
+| **Days since last attendance** | How long since the fan last attended an event | Fans who have not attended in more than 180 days |
+| **Future attendance** | Whether the fan already has a ticket to an upcoming event | Avoid sending a sales campaign to someone who has already bought |
+
+## What is the difference between fan city and event city?
+
+This is an important distinction. A fan living in Barcelona may have attended events in Bilbao, Seville or Madrid. The "event city" criterion lets you identify fans who made the effort to travel, which is a much stronger commitment indicator than simply living nearby. For example, if you are organising a new event in Bilbao, you might want to contact both fans who live in Bilbao and fans from other cities who already came to one of your events there and proved they are willing to travel.
+
+## How to use the number of events attended
+
+The number of events is one of the best indicators of loyalty. Imagine you want to create a special campaign for your most loyal fans before releasing general sale: you select fans who have attended three or more of your events in the last two years. That audience will have markedly higher open rates and conversion rates than your database average.
+
+You can also use it the other way round: fans who have only attended one event are "new buyers" and deserve different welcome communications compared to veterans.
+
+## What is "days since last attendance" useful for?
+
+This criterion measures how long it has been since the fan attended any of your events. It is the equivalent of the Recency component in the RFM model. Imagine you want to launch a reactivation campaign: you select fans who have not attended in more than 180 days but who did attend in the past. That audience knows your brand and only needs the right nudge to come back.
+
+:::note[Future attendance as an exclusion filter]
+Use "has a ticket to the next event" as an exclusion criterion in your sales campaigns. This prevents you from sending a "buy your ticket now" email to someone who already has one. As well as avoiding confusion, it improves your sender reputation by reducing unsubscribes caused by irrelevant messages.
+:::
+
+## Practical example: reactivating inactive fans from Madrid
+
+Imagine you have been putting on jazz and rock concerts in Madrid for three years. You want to launch a reactivation campaign ahead of the spring season. You build a segment with these criteria: fans who attended at least one of your events in Madrid, but whose last attendance was more than 12 months ago. The result might be around 2,800 fans who know your programme and could be recovered with an early-access offer or a special welcome-back price.
+
+## Summary
+
+- Attendance is the most powerful criterion for identifying loyal, inactive or upcoming buyers.
+- Event city and fan city are distinct criteria: a fan may travel to attend.
+- Number of events attended measures real loyalty demonstrated with money spent.
+- Future attendance lets you exclude fans who have already bought, avoiding redundant messages.
+
+## Next step
+
+<CardGrid>
+  <LinkCard
+    title="Spend and consumption"
+    href="/en/segmentation/capabilities/spend-and-consumption/"
+    description="Segment by total spend, average ticket and cashless consumption."
+  />
+  <LinkCard
+    title="Advanced combinations"
+    href="/en/segmentation/capabilities/advanced-combinations/"
+    description="Combine attendance with other criteria using AND/OR logic and time frames."
+  />
+</CardGrid>
+
+---
+
+*To understand how attendance frequency integrates into the RFM model, see the [automatic RFM](/en/segmentation/capabilities/rfm/) page. For reference on customer cohort analysis and its relationship to retention, you can consult the <a href="https://docs.mixpanel.com/docs/reports/retention" target="_blank" rel="noopener noreferrer">Mixpanel retention analysis guide</a>.*

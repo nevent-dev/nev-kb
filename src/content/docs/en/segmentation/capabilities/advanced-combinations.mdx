@@ -1,0 +1,116 @@
+---
+title: "Advanced combinations: AND/OR logic and modifiers in segmentation"
+description: "How to combine segmentation criteria using AND/OR logic, time frames and geographic modifiers in Nevent. Practical examples for live event promoters."
+sidebar:
+  order: 8
+---
+
+import Schema from '../../../../../components/Schema.astro';
+import { Aside, CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+<Schema>{`{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Advanced combinations: AND/OR logic and modifiers in live event segmentation",
+  "description": "How to combine segmentation criteria using AND/OR logic, time frames and geographic modifiers in Nevent.",
+  "author": { "@type": "Organization", "name": "Nevent", "url": "https://nevent.ai" },
+  "publisher": { "@type": "Organization", "name": "Nevent" },
+  "datePublished": "2026-06-02",
+  "dateModified": "2026-06-02",
+  "about": [
+    { "@type": "Thing", "name": "Advanced audience segmentation" },
+    { "@type": "Thing", "name": "Boolean segmentation logic" },
+    { "@type": "Thing", "name": "Live music events" }
+  ],
+  "mentions": [{ "@type": "SoftwareApplication", "name": "Nevent" }],
+  "audience": { "@type": "Audience", "audienceType": "Live event promoters" }
+}`}</Schema>
+
+:::tip[Quick definition]
+**Advanced combinations** are the way to join multiple criteria into a single segment using AND (Y) logic between groups and OR (O) logic within each group. Added to this are time frames (relative to the current moment or to a specific event) and modifiers such as geographic distance or minimum frequency of a behaviour.
+:::
+
+# Advanced combinations: AND/OR logic and modifiers in segmentation
+
+A single criterion rarely defines the perfect audience. The real power of the Nevent Segmentation Engine lies in combining criteria. This page explains how the combination logic works and how to use the available time frames and modifiers.
+
+## How does AND/OR logic work across criterion groups?
+
+Criteria in Nevent are organised into groups. The logic works as follows:
+
+- **Within a group**: **OR** logic. It is enough for one of the criteria in the group to be met.
+- **Between groups**: **AND** logic. All groups must be satisfied for a fan to be included.
+
+Imagine you want to reach fans who live near your event AND who have demonstrated prior interest. You would build two groups: the first with city (Madrid OR Barcelona OR Bilbao) and the second with an attendance condition (attended at least one event in the last 18 months). The result is fans who meet both conditions simultaneously.
+
+## What time frames are available?
+
+Time frames control the period over which a criterion is evaluated. You have three types:
+
+| Time frame type | How it works | Example |
+|---|---|---|
+| **Relative to the current moment** | Calculated from today backwards or forwards | "Attended in the last 90 days" |
+| **Relative to a specific event** | Calculated from the date of a particular event | "Bought 30 days before event X" |
+| **Absolute dates** | Fixed range between two dates | "Bought between 1 January and 30 June 2025" |
+
+Using relative time frames is useful when the segment will be reused across different campaigns: "last 60 days" always recalculates to the present moment. Absolute dates are useful for retrospective analysis of a specific campaign.
+
+## What modifiers are available?
+
+Modifiers refine how a criterion is evaluated by adding quantity, distance or frequency conditions:
+
+### Geographic distance
+
+You can filter fans who live within a radius of kilometres from a specific point. Imagine you are organising an event in Seville: you can select fans within 100 km of the venue, which includes not only Seville but also fans from Cádiz, Huelva or Córdoba who could travel without difficulty.
+
+### Minimum frequency
+
+Instead of "attended any event", you can require "attended at least 3 times". This lets you filter by loyalty level rather than simply presence or absence of a behaviour.
+
+### Criterion time window
+
+You can apply a criterion only within a specific period. For example: "opened an email in the last 30 days" instead of "ever". This makes the criterion far more precise for high-urgency campaigns where recent engagement is key.
+
+## Practical example: a high-precision combined segment
+
+Imagine you want to identify fans with a high probability of buying a season pass for a jazz and electronic music programme in Madrid. Your segment might be:
+
+**Group 1 (city)**: Lives in Madrid OR within 60 km of Madrid.
+
+**Group 2 (attendance)**: Has attended at least 2 live music events in the last 12 months.
+
+**Group 3 (spend)**: Has a total historical spend above £200 OR has bought a VIP ticket at least once.
+
+**Group 4 (engagement)**: Has opened at least one of your emails in the last 60 days.
+
+The result is an audience that lives nearby, has a recent attendance history, has the capacity and willingness to spend, and is actively connected to your communications. It is a small segment but with a very high conversion probability.
+
+## How many criteria can I combine?
+
+You can combine multiple groups with several criteria within each one. There is no fixed limit that affects most use cases, though very complex segments may take slightly longer to calculate. If your segment has more than four or five groups, consider whether all of them are necessary or whether some can be simplified.
+
+## Summary
+
+- Within a group, criteria are combined with OR; between groups, with AND.
+- Relative time frames recalculate in real time; absolute ones fix a historical window.
+- Geographic distance, minimum frequency and time window are the three main modifiers.
+- Group combination is where the real power lies: a very precise segment can be built by joining city, attendance, spend and engagement criteria.
+
+## Next step
+
+<CardGrid>
+  <LinkCard
+    title="How to create a segment — step by step"
+    href="/audience/motor-segmentacion/crear-segmento/"
+    description="Apply these combinations in the Nevent admin with the guided tutorial."
+  />
+  <LinkCard
+    title="Operators and logic: technical guide"
+    href="/audience/motor-segmentacion/operadores-logica/"
+    description="All operators available by data type (number, text, date, boolean)."
+  />
+</CardGrid>
+
+---
+
+*The use of Boolean logic in audience building is a standard practice in marketing automation platforms. For comparative reference, you can consult the <a href="https://help.klaviyo.com/hc/en-us/articles/115005082547" target="_blank" rel="noopener noreferrer">Klaviyo documentation on segmentation with multiple conditions</a>.*

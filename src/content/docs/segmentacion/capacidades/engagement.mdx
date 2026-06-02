@@ -1,0 +1,92 @@
+---
+title: "Engagement digital: segmentar fans por comportamiento en email"
+description: "Segmenta fans de eventos por aperturas, clics, conversiones y carrito abandonado. Recupera interesados y mejora el rendimiento de tus campañas de email marketing."
+sidebar:
+  order: 5
+---
+
+import Schema from '../../../../components/Schema.astro';
+import { Aside, CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+<Schema>{`{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Engagement digital: segmentar fans de eventos por comportamiento en email",
+  "description": "Segmenta fans de eventos por aperturas, clics, conversiones y carrito abandonado.",
+  "author": { "@type": "Organization", "name": "Nevent", "url": "https://nevent.ai" },
+  "publisher": { "@type": "Organization", "name": "Nevent" },
+  "datePublished": "2026-06-02",
+  "dateModified": "2026-06-02",
+  "about": [
+    { "@type": "Thing", "name": "Email engagement segmentation" },
+    { "@type": "Thing", "name": "Abandoned cart recovery" },
+    { "@type": "Thing", "name": "Live music events" }
+  ],
+  "mentions": [{ "@type": "SoftwareApplication", "name": "Nevent" }],
+  "audience": { "@type": "Audience", "audienceType": "Live event promoters" }
+}`}</Schema>
+
+:::tip[Definición rápida]
+**El engagement digital** mide cómo interactúa el fan con tus comunicaciones: si abre tus emails, si hace clic en los enlaces, si completa una compra tras recibirlos o si dejó una compra a medias. Es la categoría que te permite recuperar oportunidades perdidas y premiar a los fans más receptivos.
+:::
+
+# Engagement digital: segmentar fans por comportamiento en email
+
+Que un fan abra tu email ya es una señal. Que haga clic es una señal más potente. Que empiece a comprar y lo deje a medias es una oportunidad clara de recuperación. Esta categoría te da los criterios para actuar sobre cada una de esas señales de interés.
+
+## ¿Qué criterios de engagement digital puedes usar?
+
+| Criterio | Qué representa | Cuándo usarlo |
+|---|---|---|
+| **Apertura de emails** | Fan que abrió una campaña específica o cualquier email en un periodo | Para volver a impactar a los que mostraron interés |
+| **Clic en enlaces** | Fan que hizo clic en un enlace dentro de un email | Para identificar a los más interesados en un evento concreto |
+| **Conversión** | Fan que completó la acción objetivo tras una campaña (compra, registro...) | Para excluirles de la campaña de venta o hacer upsell |
+| **Carrito abandonado** | Fan que inició el proceso de compra y no lo completó | Para lanzar una campaña de recuperación en 24-48h |
+| **Unsubscribe** | Fan que se dio de baja de las comunicaciones | Para excluirlo siempre de todos los envíos |
+| **Bounce / spam complaint** | Email que rebotó o fan que marcó el mensaje como spam | Para gestionar la deliverability y proteger tu reputación |
+
+## ¿Cómo usar el criterio de apertura de emails?
+
+La apertura es la señal de interés más básica. Imagina que enviaste una campaña de preventa para un festival de indie en Madrid y quieres hacer un segundo impacto a quienes abrieron pero no compraron: construyes un segmento con fans que abrieron ese email específico Y no tienen entrada comprada. Ese grupo ya mostró interés (abrieron) pero no llegaron a comprar, así que un recordatorio con más urgencia o información adicional puede convertirlos.
+
+## ¿Qué hace el criterio de clic en enlaces?
+
+El clic es una señal de intención mucho más fuerte que la simple apertura. Un fan que hizo clic en el botón de compra pero no completó la transacción está en un estado de alta motivación. Puedes segmentar específicamente a fans que clicaron en un enlace concreto de un email para hacerles un seguimiento personalizado, por ejemplo con un código de descuento que expira en 24 horas.
+
+## ¿Para qué sirve el carrito abandonado?
+
+El carrito abandonado es una de las señales más valiosas en todo el catálogo de criterios. Un fan que inició el proceso de compra de una entrada y no lo terminó tiene una intención de compra clarísima: casi llegó a pagar. Imagina que en tu próxima venta de entradas en Barcelona el 8% de los visitantes del proceso de pago no lo completan. Con el criterio de carrito abandonado puedes identificar esos fans y enviarles un email de recuperación en las primeras 24 horas, cuando su intención de compra todavía es alta. Las campañas de carrito abandonado bien ejecutadas tienen tasas de conversión entre 5 y 15 veces superiores a un email de venta estándar.
+
+:::note[Carrito abandonado: disponibilidad como criterio]
+La disponibilidad del carrito abandonado como criterio de segmentación puede variar según la configuración de tu cuenta. Consulta con tu equipo de Nevent si está activado para tu promotora.
+:::
+
+## ¿Cómo usar unsubscribe y bounce para proteger tu reputación?
+
+Los fans que se han dado de baja o cuyos emails rebotan no deben recibir ningún envío. Usar estos criterios como filtros de exclusión en cualquier campaña es una buena práctica básica de deliverability. Además de cumplir con la normativa de protección de datos (GDPR), evita dañar tu puntuación de remitente, lo que garantiza que el resto de tus emails lleguen a la bandeja de entrada.
+
+## Resumen
+
+- El engagement digital mide señales de interés en tus comunicaciones: apertura, clic, conversión y carrito abandonado.
+- El carrito abandonado es la señal de mayor intención de compra y tiene las mayores tasas de conversión en campañas de recuperación.
+- Unsubscribe y bounce son filtros de exclusión obligatorios para proteger tu deliverability.
+- Combina engagement con criterios de asistencia o gasto para afinar todavía más tus audiencias.
+
+## Siguiente paso
+
+<CardGrid>
+  <LinkCard
+    title="Nevent Score y Temperatura"
+    href="/segmentacion/capacidades/score-y-temperatura/"
+    description="El score agrega señales de engagement, gasto y asistencia en una puntuación única."
+  />
+  <LinkCard
+    title="Combinaciones avanzadas"
+    href="/segmentacion/capacidades/combinaciones/"
+    description="Combina engagement con otros criterios usando lógica Y/O."
+  />
+</CardGrid>
+
+---
+
+*Las campañas de recuperación de carrito abandonado son una práctica estándar en e-commerce y marketing de entradas. Para datos de referencia sobre tasas de recuperación, puedes consultar la <a href="https://help.klaviyo.com/hc/en-us/articles/115005082547" target="_blank" rel="noopener noreferrer">documentación de Klaviyo sobre flows de carrito abandonado</a>.*

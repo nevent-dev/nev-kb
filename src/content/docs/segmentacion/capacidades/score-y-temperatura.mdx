@@ -1,0 +1,96 @@
+---
+title: "Nevent Score y Temperatura: segmentación predictiva de fans"
+description: "Qué es el Nevent Score (0-100) y la Temperatura Nevent (6 niveles) para segmentar fans de eventos. Identifica fans calientes y fríos para campañas más efectivas."
+sidebar:
+  order: 6
+---
+
+import Schema from '../../../../components/Schema.astro';
+import { Aside, CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+<Schema>{`{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Nevent Score y Temperatura: segmentación predictiva de fans de eventos",
+  "description": "Qué es el Nevent Score (0-100) y la Temperatura Nevent (6 niveles) para segmentar fans de eventos.",
+  "author": { "@type": "Organization", "name": "Nevent", "url": "https://nevent.ai" },
+  "publisher": { "@type": "Organization", "name": "Nevent" },
+  "datePublished": "2026-06-02",
+  "dateModified": "2026-06-02",
+  "about": [
+    { "@type": "Thing", "name": "Predictive fan scoring" },
+    { "@type": "Thing", "name": "Customer temperature segmentation" },
+    { "@type": "Thing", "name": "Live music events" }
+  ],
+  "mentions": [{ "@type": "SoftwareApplication", "name": "Nevent" }],
+  "audience": { "@type": "Audience", "audienceType": "Live event promoters" }
+}`}</Schema>
+
+:::tip[Definición rápida]
+**El Nevent Score** es una puntuación automática de 0 a 100 que refleja el valor global de cada fan, calculada a partir de su historial de asistencia, gasto y engagement. La **Temperatura Nevent** traduce esa puntuación en seis niveles comprensibles (Muy Caliente, Caliente, Templado, Frío, Muy Frío, Congelado) para que puedas actuar sin necesidad de interpretar números.
+:::
+
+# Nevent Score y Temperatura: segmentación predictiva de fans
+
+En lugar de construir criterios complejos para cada campaña, el Nevent Score y la Temperatura hacen ese trabajo por ti. Son puntuaciones pre-calculadas que agregan en un único valor toda la información de comportamiento de cada fan. Puedes usarlas directamente como criterio de segmentación o combinarlas con otros filtros.
+
+## ¿Qué es el Nevent Score y cómo se calcula?
+
+El Nevent Score es una puntuación entre 0 y 100 que Nevent calcula automáticamente para cada fan en tu base de datos. Tiene en cuenta tres grandes señales:
+
+- **Valor histórico**: cuánto ha gastado el fan en entradas y consumo a lo largo del tiempo.
+- **Frecuencia**: cuántas veces ha asistido a eventos y con qué regularidad.
+- **Engagement**: cómo responde a tus comunicaciones (aperturas, clics, conversiones).
+
+Un fan con Score 90 ha gastado mucho, viene con frecuencia y responde bien a tus emails. Un fan con Score 20 ha comprado alguna vez pero lleva tiempo inactivo y apenas interactúa con tus mensajes.
+
+## ¿Qué es la Temperatura Nevent y cuáles son los 6 niveles?
+
+La Temperatura es una forma de leer el Nevent Score en lenguaje natural. Cada fan se clasifica en uno de estos seis niveles:
+
+| Temperatura | Lo que indica | Qué puedes hacer con ellos |
+|---|---|---|
+| **Muy Caliente** | Fan de alto valor, activo y muy comprometido | Acceso anticipado, ofertas VIP, programa de fidelización |
+| **Caliente** | Fan activo con buen historial de compra | Comunicaciones de venta directa con urgencia |
+| **Templado** | Fan con actividad moderada, interés intermitente | Nurturing con contenido de valor antes de la venta |
+| **Frío** | Fan con poca actividad reciente | Reactivación con incentivo claro |
+| **Muy Frío** | Fan con historial antiguo, sin interacción reciente | Campaña de win-back o limpieza de lista |
+| **Congelado** | Fan sin actividad, prácticamente inactivo | Considerar excluir de envíos regulares para proteger deliverability |
+
+## ¿Por qué usar Temperatura en lugar de construir criterios manualmente?
+
+Construir manualmente un segmento de "fans de alto valor" implica combinar criterios de gasto, frecuencia de asistencia y engagement: es posible, pero lleva tiempo y requiere decidir qué umbrales usar. La Temperatura te da esa segmentación precalculada. Imagina que quieres hacer una campaña de preventa para un concierto de rock en Bilbao: simplemente seleccionas fans con Temperatura Muy Caliente y Caliente y tienes una audiencia de alta probabilidad de compra lista en segundos.
+
+## ¿Cuándo conviene usar el Nevent Score en lugar de la Temperatura?
+
+El Score es útil cuando quieres afinar más que los seis niveles de Temperatura. Por ejemplo, puedes querer llegar a fans con Score entre 70 y 85 (que están por encima del umbral "Templado" pero no llegan a "Caliente") para testar un precio intermedio. O puedes crear una campaña progresiva que empiece por los fans con Score más alto y baje el umbral si no se alcanza el objetivo de ventas.
+
+## ¿Con qué frecuencia se actualiza el Nevent Score?
+
+El Nevent Score y la Temperatura se recalculan de forma regular conforme llegan nuevos datos de comportamiento. Esto significa que un fan que compró ayer puede subir de nivel, y uno que lleva seis meses sin actividad puede bajar. Las campañas que uses con estos criterios siempre trabajarán con la puntuación más reciente disponible en el momento de calcular el segmento.
+
+## Resumen
+
+- El Nevent Score (0-100) agrega asistencia, gasto y engagement en una puntuación única por fan.
+- La Temperatura Nevent traduce esa puntuación en seis niveles accionables: de Muy Caliente a Congelado.
+- Usar Temperatura es más rápido que construir criterios manuales de fidelidad.
+- El Score numérico permite afinar más que los seis niveles cuando lo necesitas.
+
+## Siguiente paso
+
+<CardGrid>
+  <LinkCard
+    title="RFM automático"
+    href="/segmentacion/capacidades/rfm/"
+    description="El modelo RFM ofrece 11 perfiles de comportamiento pre-calculados complementarios al Score."
+  />
+  <LinkCard
+    title="Modificadores y RFM: guía técnica"
+    href="/audience/motor-segmentacion/modificadores-rfm/"
+    description="Profundiza en cómo Nevent calcula el RFM y la Temperatura a nivel técnico."
+  />
+</CardGrid>
+
+---
+
+*El enfoque de puntuación de clientes basado en comportamiento histórico tiene respaldo académico sólido. Para entender la metodología subyacente, puedes consultar la <a href="https://www.optimove.com/resources/learning-center/customer-lifetime-value" target="_blank" rel="noopener noreferrer">guía de puntuación de clientes de Optimove</a>.*

@@ -1,0 +1,182 @@
+---
+title: "Audience and fan metrics — LTV, churn, RFM | Nevent"
+description: "Measure the value of your fan base with Nevent: LTV, churn, cohorts, Nevent Score distribution, temperature and RFM segments. Practical examples for event promoters."
+sidebar:
+  order: 12
+---
+
+import Schema from '../../../../components/Schema.astro';
+import { Aside, CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+<Schema>{`{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Audience and fan metrics: LTV, churn, RFM and cohorts in Nevent",
+  "description": "Learn how to measure the value of your fan base with Nevent: LTV, churn, cohort analysis, Nevent Score distribution, temperature and automatic RFM segments.",
+  "author": { "@type": "Organization", "name": "Nevent", "url": "https://nevent.ai" },
+  "publisher": { "@type": "Organization", "name": "Nevent" },
+  "datePublished": "2026-06-02",
+  "dateModified": "2026-06-02",
+  "about": [
+    { "@type": "Thing", "name": "Customer lifetime value" },
+    { "@type": "Thing", "name": "Audience analytics" },
+    { "@type": "Thing", "name": "Live music events" }
+  ],
+  "mentions": [{ "@type": "SoftwareApplication", "name": "Nevent" }],
+  "audience": { "@type": "Audience", "audienceType": "Live event promoters" }
+}`}</Schema>
+
+:::tip[Quick definition]
+**Audience metrics** are the indicators that describe the value and behaviour of your fan base over time. The most important is **LTV (Lifetime Value)**: how much revenue a fan generates throughout their entire relationship with you. These metrics tell you who to invest in and who to reactivate before you lose them.
+:::
+
+# Audience and fan metrics in Nevent
+
+Knowing how many tickets you sold is step one. Step two — and far more valuable — is understanding who your buying fans are, how much they are worth long-term and how many are at risk of leaving. Nevent's audience metrics answer exactly those questions.
+
+## What audience metrics can you measure?
+
+<table>
+  <thead>
+    <tr>
+      <th>Metric</th>
+      <th>What it answers</th>
+      <th>When to use it</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Active fans</strong></td>
+      <td>How many fans have had recent activity?</td>
+      <td>Measure the true size of your active audience</td>
+    </tr>
+    <tr>
+      <td><strong>New fans per period</strong></td>
+      <td>How many new fans have I acquired this month / quarter?</td>
+      <td>Track base growth</td>
+    </tr>
+    <tr>
+      <td><strong>Average LTV (Lifetime Value)</strong></td>
+      <td>How much does the average fan generate throughout their relationship?</td>
+      <td>Decide how much to invest in acquisition</td>
+    </tr>
+    <tr>
+      <td><strong>Nevent Score distribution</strong></td>
+      <td>How are my fans spread across value scores (0–100)?</td>
+      <td>Identify the percentage of high-value fans</td>
+    </tr>
+    <tr>
+      <td><strong>Nevent Temperature distribution</strong></td>
+      <td>How many fans are Very Hot, Warm, Cold…?</td>
+      <td>Prioritise who to communicate with urgently</td>
+    </tr>
+    <tr>
+      <td><strong>RFM segment distribution</strong></td>
+      <td>How many fans are Champions, At Risk, Lost…?</td>
+      <td>Activate differentiated strategies by segment</td>
+    </tr>
+    <tr>
+      <td><strong>Churn rate</strong></td>
+      <td>What % of fans have stopped buying?</td>
+      <td>Measure retention and spot early warning signs</td>
+    </tr>
+    <tr>
+      <td><strong>Cohorts by first purchase month</strong></td>
+      <td>Do fans acquired in June return more than those from January?</td>
+      <td>Understand which events generate more loyal fans</td>
+    </tr>
+  </tbody>
+</table>
+
+## What is LTV and why is it the most important metric?
+
+Lifetime Value (LTV) represents the total revenue a fan generates from their first purchase until they stop being a customer. In the live events world, a high-LTV fan is one who returns to multiple events, buys tickets for friends and sometimes purchases season passes or premium ticket types.
+
+Knowing your average LTV helps you make a critical decision: how much you can afford to spend to acquire a new fan. If your average LTV is £180 over two years, you can justify higher acquisition costs than a competitor who hasn't done this calculation.
+
+Research on retention in the entertainment industry consistently shows that fans who attend more than two events from the same promoter generate three to five times more revenue over their lifecycle than one-time attendees. ([Source: Harvard Business Review, Customer Profitability](https://hbr.org/2014/10/the-value-of-keeping-the-right-customers))
+
+## What is churn and how do you detect it?
+
+Churn is the percentage of fans who stop buying or engaging with you in a given period. High churn is a warning sign: your events are not generating enough loyalty for fans to return.
+
+Imagine you run electronic music events in Madrid. By analysing churn by cohort (fans who first bought in the same month), you might find that fans acquired at a March event have 20% annual churn, while those from September have 40% churn. That difference tells you something about the September event — its lineup, experience or pricing — failed to generate enough loyalty.
+
+## How does the Nevent Temperature distribution work?
+
+Nevent Temperature classifies each fan into one of six levels based on recent activity and historical value:
+
+<table>
+  <thead>
+    <tr>
+      <th>Temperature</th>
+      <th>What it means</th>
+      <th>Recommended action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Very Hot</strong></td>
+      <td>Active fan, frequent buyer, high value</td>
+      <td>Offer early access and VIP treatment</td>
+    </tr>
+    <tr>
+      <td><strong>Hot</strong></td>
+      <td>Active fan with recent purchases</td>
+      <td>Keep consistent communication</td>
+    </tr>
+    <tr>
+      <td><strong>Warm</strong></td>
+      <td>Has bought before but hasn't engaged recently</td>
+      <td>Launch a reactivation campaign</td>
+    </tr>
+    <tr>
+      <td><strong>Cold</strong></td>
+      <td>Low activity, at risk of leaving</td>
+      <td>Communication with a special incentive</td>
+    </tr>
+    <tr>
+      <td><strong>Very Cold</strong></td>
+      <td>Very little activity, nearly inactive</td>
+      <td>Aggressive win-back campaign or suppression</td>
+    </tr>
+    <tr>
+      <td><strong>Frozen</strong></td>
+      <td>No activity for a long time</td>
+      <td>Consider exclusion to protect deliverability</td>
+    </tr>
+  </tbody>
+</table>
+
+## What is cohort analysis and why does it matter?
+
+A cohort analysis groups fans by the month or event when they first purchased, then tracks their behaviour over time. This lets you answer questions like: "Do fans we acquired at our Barcelona jazz festival return more than those from our Valencia reggaeton event?"
+
+If you spot a cohort with significantly better retention, you can dig into what made that event different — lineup, price point, audience experience — and replicate it in future events.
+
+## Summary
+
+- Audience metrics go beyond sales: they measure each fan's long-term value
+- LTV tells you how much you can sustainably invest in acquisition
+- Temperature and RFM distribution let you run differentiated strategies by fan profile
+- Cohort analysis reveals which events generate more loyal fans
+
+## Next step
+
+<CardGrid>
+  <LinkCard
+    title="Campaign metrics"
+    href="/en/analytics/campaigns/"
+    description="Open rate, click rate, conversion and ROAS by campaign."
+  />
+  <LinkCard
+    title="Ask Claude in plain language"
+    href="/en/nevent-ai/what-you-can-do/analytics/"
+    description="Query LTV, churn and cohorts with a direct question."
+  />
+  <LinkCard
+    title="Back to analytics hub"
+    href="/en/analytics/"
+    description="See all available metric areas."
+  />
+</CardGrid>

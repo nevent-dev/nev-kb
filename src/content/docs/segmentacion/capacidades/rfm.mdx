@@ -1,0 +1,103 @@
+---
+title: "RFM automático: 11 perfiles de fans para eventos en vivo"
+description: "Qué es el modelo RFM en eventos y cuáles son los 11 segmentos automáticos de Nevent: Champions, Loyal Customers, At Risk y más. Cómo usarlos en tus campañas."
+sidebar:
+  order: 7
+---
+
+import Schema from '../../../../components/Schema.astro';
+import { Aside, CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+<Schema>{`{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "RFM automático: 11 perfiles de fans de eventos en vivo",
+  "description": "Qué es el modelo RFM en eventos y cuáles son los 11 segmentos automáticos de Nevent: Champions, Loyal Customers, At Risk y más.",
+  "author": { "@type": "Organization", "name": "Nevent", "url": "https://nevent.ai" },
+  "publisher": { "@type": "Organization", "name": "Nevent" },
+  "datePublished": "2026-06-02",
+  "dateModified": "2026-06-02",
+  "about": [
+    { "@type": "Thing", "name": "RFM segmentation" },
+    { "@type": "Thing", "name": "Customer lifecycle marketing" },
+    { "@type": "Thing", "name": "Live music events" }
+  ],
+  "mentions": [{ "@type": "SoftwareApplication", "name": "Nevent" }],
+  "audience": { "@type": "Audience", "audienceType": "Live event promoters" }
+}`}</Schema>
+
+:::tip[Definición rápida]
+**RFM** (Recency, Frequency, Monetary) es un modelo que clasifica a cada fan según tres dimensiones: cuándo fue su última compra (Recency), con qué frecuencia compra (Frequency) y cuánto ha gastado (Monetary). Nevent lo calcula automáticamente y clasifica a cada fan en uno de los 11 perfiles, listos para usar como criterio de segmentación sin configuración adicional.
+:::
+
+# RFM automático: 11 perfiles de fans para eventos en vivo
+
+El modelo RFM lleva décadas siendo uno de los marcos de segmentación más efectivos en marketing de retención. Nevent lo aplica automáticamente a tu base de fans y te entrega 11 perfiles pre-construidos que puedes usar directamente en tus campañas. Sin fórmulas, sin configuración manual: solo seleccionas el perfil y tienes tu audiencia lista.
+
+## ¿Qué es el modelo RFM y por qué funciona en eventos?
+
+RFM mide tres cosas de cada fan:
+
+- **Recency (Recencia)**: ¿cuándo fue la última vez que compró una entrada? Un fan que compró hace 3 semanas es muy diferente a uno que lo hizo hace 18 meses.
+- **Frequency (Frecuencia)**: ¿cuántas veces ha comprado? El fan que viene a 4 eventos al año es más valioso que el que viene a uno.
+- **Monetary (Monetario)**: ¿cuánto ha gastado en total? El que siempre compra VIP pesa más que el que solo compra entrada básica.
+
+Combinando las tres dimensiones, Nevent calcula un perfil único para cada fan. El modelo es especialmente potente en eventos en vivo porque la recencia tiene mucho peso: un fan que viene cada año pero lleva 14 meses sin comprar puede estar en riesgo de perderse, aunque en el pasado haya sido un cliente excelente.
+
+## Los 11 perfiles automáticos y cómo usarlos
+
+| Perfil | Quiénes son | Qué mensaje les funciona |
+|---|---|---|
+| **Champions** | Alta recencia, alta frecuencia, alto gasto | Acceso anticipado, trato VIP exclusivo |
+| **Loyal Customers** | Alta frecuencia y gasto, compra reciente | Recompensa por lealtad, programa de fidelización |
+| **Potential Loyalists** | Compra reciente, frecuencia en crecimiento | Invitación a crecer: "ya eres casi un habitual" |
+| **New Customers** | Compra reciente pero solo una vez | Bienvenida y contenido de onboarding |
+| **Promising** | Compra relativamente reciente, potencial sin explotar | Oferta para segunda compra o upgrade |
+| **Need Attention** | Frecuencia y gasto medios, recencia bajando | Recordatorio de valor: "llevas tiempo sin venir" |
+| **About to Sleep** | Recencia baja, antes activo | Alerta suave antes de que se enfríe |
+| **At Risk** | Antes Champions o Loyal, ahora inactivos | Campaña urgente de reactivación personalizada |
+| **Can't Lose Them** | Muy alto valor histórico, llevan mucho sin comprar | Oferta especial de recuperación, contacto personalizado |
+| **Hibernating** | Bajo valor y muy baja recencia | Campaña de bajo coste o exclusión temporal |
+| **Lost** | Sin actividad en mucho tiempo | Considerar limpieza o campaña de último intento |
+
+## ¿Cómo usar los Champions en tus campañas?
+
+Los Champions son tus mejores fans: compraron recientemente, vienen con frecuencia y gastan más que la media. Imagina que tienes una base de 60.000 fans en Madrid y Barcelona y quieres lanzar una preventa exclusiva de un concierto de electrónica: los Champions son la primera audiencia a la que deberías comunicarles, con acceso 48 horas antes del público general. No necesitan descuentos: responden a la exclusividad y al reconocimiento.
+
+## ¿Por qué prestar atención especial a "At Risk" y "Can't Lose Them"?
+
+Estos dos perfiles representan a fans que tuvieron un comportamiento excelente en el pasado pero que están dejando de comprar. Perderlos es costoso porque sustituirlos requiere adquirir nuevos fans. Imagina que en tu base tienes 800 fans clasificados como "At Risk": son fans que hace dos años eran Champions pero llevan más de 8 meses sin comprar. Una campaña de reactivación personalizada, quizás con una referencia a los eventos a los que asistieron y un incentivo concreto, puede recuperar entre el 15% y el 30% de esa audiencia.
+
+## ¿Puedo combinar el perfil RFM con otros criterios?
+
+Sí. Los perfiles RFM son un punto de partida, no un límite. Por ejemplo, puedes tomar el perfil "At Risk" y añadir el filtro de ciudad (Madrid) y género preferido (indie) para crear una campaña hiperespecífica. O puedes combinar "Champions" con "tiene entrada para el próximo evento" para excluirles de la campaña de venta y enviarles en cambio un mensaje de bienvenida exclusivo.
+
+:::note[RFM individual disponible]
+Además de los 11 perfiles automáticos, también puedes acceder a los valores individuales de Recency, Frequency y Monetary de cada fan como criterios numéricos independientes. Esto te permite crear combinaciones más granulares, como "fans con Frequency ≥ 4 y Monetary < 200€" para identificar fans fieles pero de ticket bajo.
+:::
+
+## Resumen
+
+- RFM clasifica a los fans según cuándo compraron por última vez (R), con qué frecuencia (F) y cuánto han gastado (M).
+- Nevent calcula los 11 perfiles automáticamente: desde Champions hasta Lost.
+- Los perfiles más urgentes para retención son "At Risk" y "Can't Lose Them".
+- Puedes usar los perfiles directamente o combinarlos con otros criterios para mayor precisión.
+
+## Siguiente paso
+
+<CardGrid>
+  <LinkCard
+    title="Combinaciones avanzadas"
+    href="/segmentacion/capacidades/combinaciones/"
+    description="Combina RFM con otros criterios usando lógica Y/O y marcos temporales."
+  />
+  <LinkCard
+    title="Guía técnica del RFM en Nevent"
+    href="/audience/motor-segmentacion/modificadores-rfm/"
+    description="Profundiza en la metodología de cálculo y los modificadores disponibles."
+  />
+</CardGrid>
+
+---
+
+*El modelo RFM fue introducido en la literatura de marketing directo a principios de los años 90. Para su referencia original, consulta el trabajo de <a href="https://www.optimove.com/resources/learning-center/rfm-segmentation" target="_blank" rel="noopener noreferrer">Bult y Wansbeek sobre RFM en marketing de bases de datos</a>. Optimove es uno de los referentes actuales en su aplicación al marketing de retención.*

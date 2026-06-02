@@ -1,0 +1,116 @@
+---
+title: "Combinaciones avanzadas: lógica Y/O y modificadores en segmentación"
+description: "Cómo combinar criterios de segmentación con lógica Y/O, marcos temporales y modificadores geográficos en Nevent. Ejemplos prácticos para eventos en vivo."
+sidebar:
+  order: 8
+---
+
+import Schema from '../../../../components/Schema.astro';
+import { Aside, CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+<Schema>{`{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Combinaciones avanzadas: lógica Y/O y modificadores en segmentación de eventos",
+  "description": "Cómo combinar criterios de segmentación con lógica Y/O, marcos temporales y modificadores geográficos en Nevent.",
+  "author": { "@type": "Organization", "name": "Nevent", "url": "https://nevent.ai" },
+  "publisher": { "@type": "Organization", "name": "Nevent" },
+  "datePublished": "2026-06-02",
+  "dateModified": "2026-06-02",
+  "about": [
+    { "@type": "Thing", "name": "Advanced audience segmentation" },
+    { "@type": "Thing", "name": "Boolean segmentation logic" },
+    { "@type": "Thing", "name": "Live music events" }
+  ],
+  "mentions": [{ "@type": "SoftwareApplication", "name": "Nevent" }],
+  "audience": { "@type": "Audience", "audienceType": "Live event promoters" }
+}`}</Schema>
+
+:::tip[Definición rápida]
+**Las combinaciones avanzadas** son la forma de unir múltiples criterios en un solo segmento usando lógica Y (AND) entre grupos y lógica O (OR) dentro de cada grupo. A esto se le añaden marcos temporales (relativo al momento actual o al evento) y modificadores como la distancia geográfica o la frecuencia mínima de un comportamiento.
+:::
+
+# Combinaciones avanzadas: lógica Y/O y modificadores en segmentación
+
+Un solo criterio raramente define la audiencia perfecta. La potencia real del motor de segmentación de Nevent está en combinar criterios. Esta página explica cómo funciona la lógica de combinación y cómo usar los marcos temporales y modificadores disponibles.
+
+## ¿Cómo funciona la lógica Y/O en los grupos de criterios?
+
+Los criterios en Nevent se organizan en grupos. La lógica funciona así:
+
+- **Dentro de un grupo**: lógica **O**. Basta con que se cumpla uno de los criterios del grupo.
+- **Entre grupos**: lógica **Y**. Deben cumplirse todos los grupos para que el fan quede incluido.
+
+Imagina que quieres llegar a fans que vivan cerca de tu evento Y que hayan demostrado interés previo. Construirías dos grupos: el primero con la ciudad (Madrid O Barcelona O Bilbao) y el segundo con la condición de asistencia (ha asistido a algún evento en los últimos 18 meses). El resultado son fans que cumplen ambas condiciones a la vez.
+
+## ¿Qué marcos temporales están disponibles?
+
+Los marcos temporales controlan el periodo en el que se evalúa un criterio. Tienes tres tipos:
+
+| Tipo de marco temporal | Cómo funciona | Ejemplo |
+|---|---|---|
+| **Relativo al momento actual** | Se calcula desde hoy hacia atrás o hacia adelante | "Ha asistido en los últimos 90 días" |
+| **Relativo a un evento** | Se calcula desde la fecha de un evento concreto | "Compró 30 días antes del evento X" |
+| **Fechas absolutas** | Rango fijo entre dos fechas | "Compró entre el 1 de enero y el 30 de junio de 2025" |
+
+Usar marcos relativos es útil cuando el segmento se va a reutilizar en distintas campañas: "últimos 60 días" siempre se recalcula al momento presente. Las fechas absolutas son útiles para análisis retrospectivos de una campaña concreta.
+
+## ¿Qué modificadores están disponibles?
+
+Los modificadores afinan cómo se evalúa un criterio, añadiendo condiciones de cantidad, distancia o frecuencia:
+
+### Distancia geográfica
+
+Puedes filtrar fans que viven dentro de un radio de kilómetros desde un punto concreto. Imagina que organizas un evento en Sevilla: puedes seleccionar fans a menos de 100 km del recinto, lo que incluye no solo Sevilla sino también fans de Cádiz, Huelva o Córdoba que podrían desplazarse sin problema.
+
+### Frecuencia mínima
+
+En lugar de "ha asistido a algún evento", puedes pedir "ha asistido al menos 3 veces". Esto te permite filtrar por nivel de fidelidad y no solo por presencia o ausencia de comportamiento.
+
+### Ventana temporal del criterio
+
+Puedes aplicar un criterio solo dentro de un periodo específico. Por ejemplo: "abrió un email en los últimos 30 días" en lugar de "alguna vez". Esto hace que el criterio sea mucho más preciso para campañas de alta urgencia donde el engagement reciente es la clave.
+
+## Ejemplo práctico: segmento combinado de alta precisión
+
+Imagina que quieres identificar a fans con alta probabilidad de comprar un abono de temporada para una programación de jazz y electrónica en Madrid. Tu segmento podría ser:
+
+**Grupo 1 (ciudad)**: Vive en Madrid O en un radio de 60 km de Madrid.
+
+**Grupo 2 (asistencia)**: Ha asistido a al menos 2 eventos de música en vivo en los últimos 12 meses.
+
+**Grupo 3 (gasto)**: Tiene un gasto total histórico superior a 200€ O ha comprado entrada VIP al menos una vez.
+
+**Grupo 4 (engagement)**: Ha abierto al menos un email tuyo en los últimos 60 días.
+
+El resultado es una audiencia que vive cerca, tiene historial de asistencia reciente, tiene capacidad y disposición de gasto, y está activamente conectada con tus comunicaciones. Es un segmento pequeño pero de altísima probabilidad de conversión.
+
+## ¿Cuántos criterios puedo combinar?
+
+Puedes combinar múltiples grupos con varios criterios dentro de cada uno. No existe un límite fijo que afecte a la mayoría de los casos de uso, aunque segmentos muy complejos pueden tardar más en calcularse. Si tu segmento tiene más de cuatro o cinco grupos, considera si todos son necesarios o si algunos se pueden simplificar.
+
+## Resumen
+
+- Dentro de un grupo los criterios se combinan con O; entre grupos con Y.
+- Los marcos temporales relativos se recalculan en tiempo real; los absolutos fijan una ventana histórica.
+- La distancia geográfica, la frecuencia mínima y la ventana temporal son los tres modificadores principales.
+- La combinación de grupos es donde está la potencia real: puede construirse un segmento muy preciso uniendo criterios de ciudad, asistencia, gasto y engagement.
+
+## Siguiente paso
+
+<CardGrid>
+  <LinkCard
+    title="Cómo crear un segmento paso a paso"
+    href="/audience/motor-segmentacion/crear-segmento/"
+    description="Aplica estas combinaciones en la admin de Nevent con el tutorial guiado."
+  />
+  <LinkCard
+    title="Operadores y lógica: guía técnica"
+    href="/audience/motor-segmentacion/operadores-logica/"
+    description="Todos los operadores disponibles por tipo de dato (número, texto, fecha, booleano)."
+  />
+</CardGrid>
+
+---
+
+*El uso de lógica booleana en la construcción de audiencias es una práctica estándar en plataformas de marketing automation. Para referencia comparativa, puedes consultar la <a href="https://help.klaviyo.com/hc/en-us/articles/115005082547" target="_blank" rel="noopener noreferrer">documentación de Klaviyo sobre segmentación con múltiples condiciones</a>.*

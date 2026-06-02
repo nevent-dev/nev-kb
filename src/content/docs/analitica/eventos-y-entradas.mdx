@@ -1,0 +1,177 @@
+---
+title: "Métricas de eventos y entradas — qué puedes medir | Nevent"
+description: "Descubre todas las métricas de eventos y ventas de entradas en Nevent: ocupación, ingresos, velocidad de venta, ticket medio, mix de tipos. Con ejemplos prácticos."
+sidebar:
+  order: 11
+---
+
+import Schema from '../../../components/Schema.astro';
+import { Aside, CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+<Schema>{`{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Métricas de eventos y entradas: qué puedes medir en Nevent",
+  "description": "Guía completa de métricas de eventos y ventas de entradas en Nevent: ocupación, ingresos, velocidad de venta, ticket medio y mix de tipos de entrada.",
+  "author": { "@type": "Organization", "name": "Nevent", "url": "https://nevent.ai" },
+  "publisher": { "@type": "Organization", "name": "Nevent" },
+  "datePublished": "2026-06-02",
+  "dateModified": "2026-06-02",
+  "about": [
+    { "@type": "Thing", "name": "Event ticketing metrics" },
+    { "@type": "Thing", "name": "Live music events analytics" }
+  ],
+  "mentions": [{ "@type": "SoftwareApplication", "name": "Nevent" }],
+  "audience": { "@type": "Audience", "audienceType": "Live event promoters" }
+}`}</Schema>
+
+:::tip[Definición rápida]
+**Métricas de eventos y entradas** son los indicadores que responden a preguntas como: ¿cuántas entradas he vendido?, ¿a qué ritmo?, ¿cuánto ingreso genera cada evento?, ¿qué tipo de entrada se vende más?. Con Nevent puedes consultar estas métricas por evento individual o agregadas en cualquier periodo.
+:::
+
+# Métricas de eventos y entradas en Nevent
+
+Las métricas de eventos y entradas son el punto de partida para entender la salud comercial de tu negocio. Te indican no solo cuánto has vendido, sino cuándo, a qué velocidad y con qué margen, para que puedas tomar decisiones de precio y comunicación antes de que sea tarde.
+
+## ¿Qué métricas de eventos puedes medir?
+
+Nevent te proporciona indicadores sobre el desempeño de cada evento y de tu cartera global de eventos en cualquier periodo.
+
+<table>
+  <thead>
+    <tr>
+      <th>Métrica</th>
+      <th>Qué responde</th>
+      <th>Cuándo usarla</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Número de eventos</strong></td>
+      <td>¿Cuántos eventos he organizado en un periodo?</td>
+      <td>Visión general del volumen de actividad</td>
+    </tr>
+    <tr>
+      <td><strong>Capacidad total ofertada</strong></td>
+      <td>¿Cuántas entradas he puesto a la venta en total?</td>
+      <td>Planificación de aforo y logística</td>
+    </tr>
+    <tr>
+      <td><strong>Ocupación media</strong></td>
+      <td>¿Qué porcentaje del aforo se llenó?</td>
+      <td>Comparar eventos o periodos entre sí</td>
+    </tr>
+    <tr>
+      <td><strong>Ocupación por evento</strong></td>
+      <td>¿Qué % de aforo llenó este evento concreto?</td>
+      <td>Detectar eventos con bajo rendimiento</td>
+    </tr>
+    <tr>
+      <td><strong>Ingresos por evento</strong></td>
+      <td>¿Cuánto facturé con este evento?</td>
+      <td>Comparar rentabilidad entre eventos</td>
+    </tr>
+    <tr>
+      <td><strong>Ticket medio</strong></td>
+      <td>¿Cuánto paga de media un comprador?</td>
+      <td>Evaluar estrategia de precios</td>
+    </tr>
+    <tr>
+      <td><strong>Coste medio por entrada vendida</strong></td>
+      <td>¿Cuánto me cuesta vender cada entrada?</td>
+      <td>Calcular margen por evento</td>
+    </tr>
+    <tr>
+      <td><strong>Margen por evento</strong></td>
+      <td>¿Qué margen neto genera cada evento?</td>
+      <td>Priorizar la cartera de eventos</td>
+    </tr>
+  </tbody>
+</table>
+
+## ¿Qué métricas de venta de entradas puedes medir?
+
+<table>
+  <thead>
+    <tr>
+      <th>Métrica</th>
+      <th>Qué responde</th>
+      <th>Cuándo usarla</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Volumen de entradas vendidas</strong></td>
+      <td>¿Cuántas entradas he vendido en total o en un periodo?</td>
+      <td>Seguimiento del ritmo de ventas</td>
+    </tr>
+    <tr>
+      <td><strong>Velocidad de venta</strong></td>
+      <td>¿Cuántas entradas vendo por día o semana?</td>
+      <td>Detectar si la venta se está acelerando o frenando</td>
+    </tr>
+    <tr>
+      <td><strong>Conversión visitante → comprador</strong></td>
+      <td>¿Qué % de los que visitan acaban comprando?</td>
+      <td>Evaluar la eficacia de la página de venta</td>
+    </tr>
+    <tr>
+      <td><strong>Mix de tipos de entrada</strong></td>
+      <td>¿Qué % son early bird, general, VIP, abono…?</td>
+      <td>Gestionar precios por fases y tipos</td>
+    </tr>
+    <tr>
+      <td><strong>Recompra</strong></td>
+      <td>¿Qué % de fans compran a más de un evento tuyo?</td>
+      <td>Medir fidelidad y retención</td>
+    </tr>
+    <tr>
+      <td><strong>Métodos de pago</strong></td>
+      <td>¿Cómo pagan tus compradores?</td>
+      <td>Optimizar opciones de pago ofrecidas</td>
+    </tr>
+  </tbody>
+</table>
+
+## ¿Qué es la velocidad de venta y por qué importa?
+
+La velocidad de venta mide cuántas entradas se venden por día o semana desde que se pone a la venta el evento. Es uno de los indicadores más útiles para anticipar si vas a agotar el aforo a tiempo o si necesitas activar una campaña de comunicación para acelerar las ventas.
+
+Imagina que organizas un evento de electrónica en Madrid con 2.000 aforo y a falta de tres semanas llevas vendidas 600 entradas. La velocidad de venta te dice si ese ritmo es suficiente o si hay que lanzar una campaña urgente a los fans que todavía no han comprado.
+
+## ¿Qué es el ticket medio y cómo interpretarlo?
+
+El ticket medio es el valor promedio de cada transacción de compra. Si un comprador adquiere dos entradas generales a 30€ más una recarga cashless de 20€, su ticket es 80€. El ticket medio te permite comparar eventos entre sí y detectar si tus precios se alinean con el valor que percibe tu audiencia.
+
+Un ticket medio bajo en eventos con alta ocupación indica que la demanda existe pero el precio podría subir. Un ticket medio alto con baja ocupación sugiere el efecto contrario.
+
+## Ejemplo práctico
+
+Imagina que gestionas tres eventos de música indie en Barcelona durante el mismo trimestre. Con las métricas de eventos de Nevent puedes comparar en segundos cuál de los tres tuvo mayor ocupación, cuál generó más ingresos y cuál vendió más entradas VIP. Esa comparativa te permite decidir en qué formato concentrar tus esfuerzos el trimestre siguiente.
+
+## Resumen
+
+- Nevent mide la salud de cada evento: ocupación, ingresos, ticket medio y margen
+- La velocidad de venta te alerta a tiempo si necesitas activar comunicación
+- El mix de tipos de entrada muestra cómo se distribuye la demanda por categoría
+- La recompra mide cuántos fans vuelven a más de un evento
+
+## Siguiente paso
+
+<CardGrid>
+  <LinkCard
+    title="Métricas de audiencia y fans"
+    href="/analitica/audiencia/"
+    description="LTV, churn, cohortes y distribución por segmento RFM."
+  />
+  <LinkCard
+    title="Preguntárselo a Claude en lenguaje natural"
+    href="/nevent-ai/que-puedes-hacer/analitica/"
+    description="Consulta estas métricas con una pregunta directa a la IA."
+  />
+  <LinkCard
+    title="Volver al hub de analítica"
+    href="/analitica/"
+    description="Ver todas las áreas de métricas disponibles."
+  />
+</CardGrid>

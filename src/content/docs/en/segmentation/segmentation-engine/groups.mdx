@@ -1,0 +1,397 @@
+---
+title: "A/B testing for festivals - groups and progressive sends"
+description: "Split attendees into groups for scientific A/B testing: test subject lines, discounts and prices. 4 use cases with real results to optimise open rate and conversion."
+sidebar:
+  order: 5
+---
+
+import Schema from '../../../../../components/Schema.astro';
+import { Aside } from '@astrojs/starlight/components';
+
+<Schema>{`{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Run A/B Testing with Groups in Nevent",
+  "description": "Guide to splitting attendee segments into groups for A/B testing of ticket sale campaigns and progressive sends",
+  "totalTime": "PT48H",
+  "tool": {
+    "@type": "SoftwareApplication",
+    "name": "Nevent",
+    "applicationCategory": "Marketing Automation"
+  },
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Define the Test Objective",
+      "text": "Decide what you want to test: subject lines, discounts, offers, progressive sends for deliverability, or price testing. For example: discovering which subject line generates the best open rate."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Create Your Base Segment",
+      "text": "Create the attendee segment you want to split. For example: Fans from Barcelona (8,000 fans). Verify that the size is sufficient for statistically significant results (minimum 100+ fans per group)."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "Split into Groups",
+      "text": "Select how many groups you need: 2 groups for classic A/B testing (50% each), 3-5 groups for multi-variant testing, 10+ groups for progressive sends. Nevent distributes fans automatically in a balanced way."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 4,
+      "name": "Assign Variants to Each Group",
+      "text": "Assign different versions to each group. Group 1: Subject with emoji and 20% discount. Group 2: Subject without emoji with 20% discount. Important: change only ONE variable at a time for clear results."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 5,
+      "name": "Run the Campaigns",
+      "text": "Send the campaigns simultaneously to all groups (for A/B testing) or progressively (Day 1: Group 1, Day 2: Group 2, etc.). For progressive sends, start with 10% of your base to catch problems early."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 6,
+      "name": "Wait and Measure Results",
+      "text": "Wait 24-48 hours for email A/B tests, 7-14 days for conversion tests. Measure open rate, click rate, conversion and ROI per group."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 7,
+      "name": "Make a Decision and Scale",
+      "text": "Identify the winning group (best performance on your target metric) and apply that variant to future campaigns. If it was a pilot test with 10%, now send the winning version to the remaining 90%."
+    }
+  ]
+}`}</Schema>
+
+<Schema>{`{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://docs.nevent.com"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Segmentation Engine",
+      "item": "https://docs.nevent.com/en/segmentation/segmentation-engine"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Groups & A/B Testing",
+      "item": "https://docs.nevent.com/en/segmentation/segmentation-engine/groups"
+    }
+  ]
+}`}</Schema>
+
+:::tip[Quick definition]
+**What are groups used for in segmentation?**
+
+An A/B testing function that splits a segment into equal random parts to test variants (subject lines, prices, offers). Requires a minimum of 1,000 contacts per group for statistical significance.
+
+**Example:** Sónar split 20k fans into 2 groups to test subjects. "⏰ Last 48 hours" achieved 34% open vs "Early Bird available" 22% open. The winner generated +12pp × 10k fans = 1,200 extra opens.
+:::
+
+# Groups & A/B Testing
+
+A/B testing for festival campaigns: the Groups function lets you split attendees into equal parts for testing subject lines, early bird offers and progressive sends. Optimise ticket sale conversion with scientific campaign testing.
+
+---
+
+## What Are Groups Used For?
+
+### 1. A/B Testing
+
+Split your audience to test different versions and learn what works best.
+
+**Example:**
+```
+Segment: Fans from Madrid aged 25-40 (10,000 fans)
+Split into: 2 groups
+
+Group 1 (5,000 fans): Email with 10% discount
+Group 2 (5,000 fans): Email with 15% discount
+
+→ Measure which generates better ROI
+```
+
+### 2. Progressive Sends (Deliverability)
+
+Improve your sender reputation by sending in small batches.
+
+**Example:**
+```
+Segment: 20,000 fans
+Split into: 10 groups (2,000 fans each)
+
+Day 1: Send to Group 1
+Day 2: Send to Group 2
+Day 3: Send to Group 3
+...
+
+→ Avoid being marked as spam
+```
+
+<Aside type="tip">
+Email providers (Gmail, Outlook) look favourably on progressive sends vs instant mass sends of 50K emails.
+</Aside>
+
+### 3. Offer Testing
+
+Test different incentives with small groups before launching at scale.
+
+**Example:**
+```
+Segment: 5,000 VIP fans
+Split into: 5 groups (1,000 fans each)
+
+Group 1: 2-for-1 on tickets
+Group 2: 25% discount
+Group 3: Free upgrade to VIP
+Group 4: Free parking
+Group 5: No offer (control group)
+
+→ Identify the offer with the best conversion
+```
+
+---
+
+## How Groups Work
+
+### Key Characteristics
+
+✅ **Consistent**: A fan will always be in the same group
+✅ **Random**: Fans are distributed randomly
+✅ **Balanced**: Each group has approximately the same size
+✅ **Deterministic**: Based on a hash of the user_id (does not change over time)
+
+**Example:**
+```
+Fan ID: user_12345
+→ Will always be in Group 3 (of 10)
+→ Today, tomorrow, next month... always Group 3
+```
+
+This is crucial for **consistency** in long-term A/B tests.
+
+### Group Range
+
+You can split your segment into **1 to 100 groups**.
+
+### How many groups should I create for A/B testing festival campaigns?
+
+| Groups | Size per Group | Typical Use |
+|--------|---------------|-------------|
+| 2 groups | 50% each | Classic A/B testing |
+| 3-5 groups | 20-33% each | Multi-variant testing |
+| 10 groups | 10% each | Weekly progressive sends |
+| 20 groups | 5% each | Daily progressive sends |
+| 100 groups | 1% each | Granular testing / very gradual rollouts |
+
+---
+
+## Practical Use Cases
+
+### Case 1: A/B Test of Subject Lines
+
+**Objective**: Discover which subject line generates the best open rate.
+
+**Setup:**
+```
+Segment: Fans from Barcelona (8,000 fans)
+Split into: 2 groups
+
+Group 1 (4,000 fans): Subject "🔥 Last 24h: 20% discount"
+Group 2 (4,000 fans): Subject "Do not miss it: Exclusive offer"
+```
+
+**Measurement:**
+- Group 1: Open rate 42%, Click rate 12%
+- Group 2: Open rate 31%, Click rate 9%
+
+**Decision**: Group 1 subject is the winner → Use in future campaigns.
+
+---
+
+### Case 2: Progressive Send Over 10 Days
+
+**Objective**: Send a campaign to 30,000 fans over 10 days for better deliverability.
+
+**Setup:**
+```
+Segment: All active fans (30,000 fans)
+Split into: 10 groups (3,000 fans each)
+
+Day 1 (Monday): Send to Group 1
+Day 2 (Tuesday): Send to Group 2
+Day 3 (Wednesday): Send to Group 3
+...
+Day 10: Send to Group 10
+```
+
+**Benefits:**
+- ✅ Better sender reputation
+- ✅ Lower probability of spam folder
+- ✅ You can adjust the message based on early results
+- ✅ Reduces server load
+
+---
+
+### Case 3: Price Test Across 4 Variants
+
+**Objective**: Find the optimal price for early bird.
+
+**Setup:**
+```
+Segment: Fans with early bird purchase history (2,000 fans)
+Split into: 4 groups (500 fans each)
+
+Group 1: Price €50 (no discount)
+Group 2: Price €45 (10% discount)
+Group 3: Price €40 (20% discount)
+Group 4: Price €35 (30% discount)
+```
+
+**Measurement (example):**
+| Group | Price | Conversion | Total Revenue | Revenue/Fan |
+|-------|-------|------------|---------------|-------------|
+| 1 | €50 | 15% (75 sales) | €3,750 | €7.50 |
+| 2 | €45 | 22% (110 sales) | €4,950 | **€9.90** ✅ |
+| 3 | €40 | 28% (140 sales) | €5,600 | €11.20 |
+| 4 | €35 | 35% (175 sales) | €6,125 | €12.25 |
+
+**Decision**:
+- If maximising revenue/fan: Group 4 (€35) is the winner
+- If you need volume: Also Group 4
+- If you want a profit/volume balance: Group 3 (€40)
+
+---
+
+### Case 4: Gradual Rollout of a New Feature
+
+**Objective**: Launch a new mobile app feature gradually.
+
+**Setup:**
+```
+Segment: Fans with the app downloaded (15,000 fans)
+Split into: 20 groups (750 fans each)
+
+Week 1: Enable feature for Groups 1-2 (10%)
+Week 2: If no bugs → Groups 3-6 (30% cumulative)
+Week 3: If all OK → Groups 7-15 (75% cumulative)
+Week 4: Full rollout → Groups 16-20 (100%)
+```
+
+**Benefits:**
+- ✅ You catch bugs with a small audience first
+- ✅ You reduce the impact of critical issues
+- ✅ You can iterate based on early adopter feedback
+
+---
+
+## Best Practices with Groups
+
+### 1. Minimum Size per Group
+
+For statistically significant results:
+
+### What is the minimum audience size for A/B testing festival emails?
+
+| Test Type | Minimum Recommended Size |
+|-----------|--------------------------|
+| Email A/B test | 100+ fans per variant |
+| Price test | 50+ fans per variant |
+| Landing page test | 200+ fans per variant |
+| Progressive send | No minimum (depends on your base) |
+
+<Aside type="caution">
+With fewer than 50 fans per group, results may be statistically inconclusive (too much noise).
+</Aside>
+
+### 2. Test Duration
+
+- **Email A/B test**: 24-48 hours (wait for opens to stabilise)
+- **Conversion test**: 7-14 days (full purchase decision cycle)
+- **Engagement test**: 30+ days (behavioural pattern)
+
+### 3. Variables to Test (One at a Time)
+
+❌ **Bad — You change multiple things:**
+```
+Group A: Subject "Offer", 10% discount, CTA "Buy", red image
+Group B: Subject "Exclusive", 20% discount, CTA "Reserve", blue image
+```
+**Problem**: You will not know which variable caused the difference.
+
+✅ **Good — You change ONE variable:**
+```
+Group A: Subject "Exclusive Offer"
+Group B: Subject "Do Not Miss This"
+
+(Everything else the same: discount, CTA, design)
+```
+**Result**: You know exactly which subject line works better.
+
+### 4. Control Group
+
+Always include a **control group** (no change) to measure the real impact.
+
+**Example:**
+```
+Group 1: Email with 15% discount
+Group 2: Email with 25% discount
+Group 3 (CONTROL): Email without discount
+
+→ You measure whether the discount actually increases conversion
+```
+
+---
+
+## Frequently Asked Questions
+
+### Do groups change over time?
+
+No. A fan will always be in the same group (based on a hash of their user_id).
+
+**Example**: If Fan X is in Group 5 today, they will still be in Group 5 in 6 months.
+
+### Can I select multiple groups for a campaign?
+
+Yes. You can send to:
+- A single group: Group 1
+- A range of groups: Groups 1-5
+- Specific groups: Groups 1, 3, 7
+
+### How do I split 13,456 fans into 10 groups?
+
+Nevent does it automatically:
+- Groups 1-6: ~1,346 fans each
+- Groups 7-10: ~1,345 fans each
+
+The difference is minimal (±1 fan).
+
+### Can I see which fans are in each group?
+
+Yes, in the segment preview you can filter by a specific group and view the list of fans.
+
+---
+
+## Next Steps
+
+Now that you understand groups:
+
+1. **[See Full Use Cases](./use-cases)** — Real examples with groups
+2. **[Best Practices](./best-practices)** — Optimise your A/B tests
+3. **[FAQ](./faq)** — Answers to common questions
+
+---
+
+**Ready for scientific testing?** 🧪
+
+[Examples of A/B testing: subject lines, prices, offers with groups →](./use-cases)

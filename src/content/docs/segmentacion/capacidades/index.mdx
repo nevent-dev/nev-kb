@@ -1,0 +1,114 @@
+---
+title: "Criterios de segmentación de audiencias en eventos en vivo"
+description: "Catálogo completo de criterios para segmentar fans en eventos: atributos, asistencia, gasto, engagement, RFM y combinaciones. Más de 60 criterios disponibles en Nevent."
+sidebar:
+  order: 1
+  badge:
+    text: Start here
+    variant: tip
+---
+
+import Schema from '../../../../components/Schema.astro';
+import { Aside, CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+<Schema>{`{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Criterios de segmentación de audiencias en eventos en vivo",
+  "description": "Catálogo completo de criterios para segmentar fans en eventos: atributos, asistencia, gasto, engagement, RFM y combinaciones.",
+  "author": { "@type": "Organization", "name": "Nevent", "url": "https://nevent.ai" },
+  "publisher": { "@type": "Organization", "name": "Nevent" },
+  "datePublished": "2026-06-02",
+  "dateModified": "2026-06-02",
+  "about": [
+    { "@type": "Thing", "name": "Audience segmentation" },
+    { "@type": "Thing", "name": "Live music events" }
+  ],
+  "mentions": [{ "@type": "SoftwareApplication", "name": "Nevent" }],
+  "audience": { "@type": "Audience", "audienceType": "Live event promoters" }
+}`}</Schema>
+
+:::tip[Definición rápida]
+**Segmentar** es dividir tu base de fans en grupos con características comunes para enviarles comunicaciones relevantes. Nevent te ofrece más de 60 criterios distintos organizados en 6 categorías para construir audiencias de precisión.
+:::
+
+# Criterios de segmentación de audiencias en eventos en vivo
+
+Todo lo que puedes usar para construir audiencias en Nevent, en un solo lugar.
+Esta sección explica qué criterios tienes disponibles, qué significan y cuándo te conviene usar cada uno.
+
+## ¿Qué puedes usar para segmentar fans de eventos?
+
+Puedes combinar información de seis grandes áreas: quién es el fan, a qué ha asistido, cuánto ha gastado, cómo interactúa con tus comunicaciones, qué puntuación tiene y cómo se clasifica en el modelo RFM.
+Cada criterio tiene operadores propios (mayor que, entre dos valores, en los últimos N días...) y se puede combinar con los demás mediante lógica Y/O.
+
+## Las 6 categorías de criterios
+
+| Categoría | Qué incluye | Cuándo la usas |
+|---|---|---|
+| **Atributos del fan** | Edad, ciudad, idioma, campos personalizados | Segmentar por perfil demográfico o datos propios |
+| **Asistencia a eventos** | Eventos pasados, ciudad del evento, frecuencia | Premiar a los más fieles o reactivar inactivos |
+| **Gasto y consumo** | Gasto total, ticket medio, cashless, tipo de entrada | Identificar VIPs o high-spenders |
+| **Engagement digital** | Aperturas, clics, conversiones, carrito abandonado | Recuperar interesados que no compraron |
+| **Nevent Score y Temperatura** | Puntuación 0-100, 6 niveles de temperatura | Priorizar fans con más probabilidad de comprar |
+| **RFM automático** | 11 perfiles (Champions, At Risk...) | Usar segmentos pre-calculados listos para usar |
+
+<CardGrid>
+  <LinkCard
+    title="Atributos del fan"
+    href="/segmentacion/capacidades/atributos-del-fan/"
+    description="Edad, ciudad, idioma y campos personalizados del promotor."
+  />
+  <LinkCard
+    title="Asistencia a eventos"
+    href="/segmentacion/capacidades/asistencia/"
+    description="Historial de asistencia, ciudades y frecuencia."
+  />
+  <LinkCard
+    title="Gasto y consumo"
+    href="/segmentacion/capacidades/gasto-y-consumo/"
+    description="Gasto total, ticket medio, cashless y tipo de entrada."
+  />
+  <LinkCard
+    title="Engagement digital"
+    href="/segmentacion/capacidades/engagement/"
+    description="Aperturas, clics, conversiones y carrito abandonado."
+  />
+  <LinkCard
+    title="Nevent Score y Temperatura"
+    href="/segmentacion/capacidades/score-y-temperatura/"
+    description="Puntuación predictiva y 6 niveles de temperatura del fan."
+  />
+  <LinkCard
+    title="RFM automático"
+    href="/segmentacion/capacidades/rfm/"
+    description="Los 11 perfiles automáticos de comportamiento de compra."
+  />
+  <LinkCard
+    title="Combinaciones avanzadas"
+    href="/segmentacion/capacidades/combinaciones/"
+    description="Lógica Y/O, marcos temporales y modificadores geográficos."
+  />
+</CardGrid>
+
+## Resumen
+
+- Nevent cuenta con más de 60 criterios de segmentación organizados en 6 categorías.
+- Puedes combinar criterios con lógica Y entre grupos y lógica O dentro de cada grupo.
+- Los criterios cubren desde datos demográficos hasta puntuaciones predictivas pre-calculadas.
+- Todo lo que ves aquí está disponible hoy: desde la admin, vía API o conversando con un LLM.
+
+## Siguiente paso
+
+<CardGrid>
+  <LinkCard
+    title="Cómo crear un segmento paso a paso"
+    href="/audience/motor-segmentacion/crear-segmento/"
+    description="Tutorial práctico en la admin de Nevent."
+  />
+  <LinkCard
+    title="Motor de segmentación: visión general"
+    href="/audience/motor-segmentacion/"
+    description="Entiende cómo funciona el motor antes de explorar los criterios."
+  />
+</CardGrid>

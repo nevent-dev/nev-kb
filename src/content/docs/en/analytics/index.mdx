@@ -1,0 +1,164 @@
+---
+title: "What you can measure with Nevent — Analytics for live events"
+description: "Discover the 80+ metrics available in Nevent: events, audience, campaigns, paid media, link tracking and deliverability. All without writing a single line of code."
+sidebar:
+  order: 10
+---
+
+import Schema from '../../../../components/Schema.astro';
+import { Aside, Card, CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+<Schema>{`{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "What you can measure with Nevent — Complete analytics for live event promoters",
+  "description": "Functional catalogue of 80+ metrics available in Nevent: events and tickets, audience, campaigns, paid media, link tracking and deliverability.",
+  "author": { "@type": "Organization", "name": "Nevent", "url": "https://nevent.ai" },
+  "publisher": { "@type": "Organization", "name": "Nevent" },
+  "datePublished": "2026-06-02",
+  "dateModified": "2026-06-02",
+  "about": [
+    { "@type": "Thing", "name": "Marketing analytics" },
+    { "@type": "Thing", "name": "Live music events" },
+    { "@type": "Thing", "name": "Event ticketing metrics" }
+  ],
+  "mentions": [{ "@type": "SoftwareApplication", "name": "Nevent" }],
+  "audience": { "@type": "Audience", "audienceType": "Live event promoters" }
+}`}</Schema>
+
+:::tip[Quick definition]
+**Nevent Analytics** is the set of metrics you can query about your events, audience, campaigns and paid advertising. Over 80 indicators are available, accessible from the admin panel, via API or by asking an AI assistant in plain language. No code, no SQL required.
+:::
+
+# What you can measure with Nevent
+
+With Nevent you can measure everything that happens in your live events business: how many tickets you sold, at what pace, which campaigns performed best, how much your fans are worth over time and whether your emails are actually reaching the inbox.
+
+This section is the complete catalogue of available metrics, organised into 7 areas.
+
+## How many metrics can you query?
+
+Over 80 distinct metrics, grouped into 7 thematic areas. You can combine any metric with analysis dimensions (by date, by event, by channel, by fan segment) and apply time filters to look at specific periods or compare with a previous period.
+
+## The 7 metric areas
+
+<table>
+  <thead>
+    <tr>
+      <th>Area</th>
+      <th>What it measures</th>
+      <th>Why it matters</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Events and tickets</strong></td>
+      <td>Occupancy, revenue, sales velocity, average ticket value</td>
+      <td>Know when and how you sell</td>
+    </tr>
+    <tr>
+      <td><strong>Audience</strong></td>
+      <td>LTV, churn, cohorts, RFM distribution</td>
+      <td>Understand the long-term value of your fan base</td>
+    </tr>
+    <tr>
+      <td><strong>Campaigns</strong></td>
+      <td>Open rate, click rate, conversion, attributed revenue</td>
+      <td>Measure the impact of each communication</td>
+    </tr>
+    <tr>
+      <td><strong>Paid media</strong></td>
+      <td>ROAS, CPA, CPM, multi-touch attribution</td>
+      <td>Evaluate the ROI of your advertising spend</td>
+    </tr>
+    <tr>
+      <td><strong>Link tracking and attribution</strong></td>
+      <td>Clicks per link, post-click conversion, attributed revenue</td>
+      <td>Know which link converts best</td>
+    </tr>
+    <tr>
+      <td><strong>Deliverability</strong></td>
+      <td>Sender reputation, inbox placement, bounce, spam</td>
+      <td>Make sure your emails reach the inbox</td>
+    </tr>
+    <tr>
+      <td><strong>Grouping and filtering</strong></td>
+      <td>Analysis dimensions and time filters</td>
+      <td>Slice the data the way you need</td>
+    </tr>
+  </tbody>
+</table>
+
+## How do you access these metrics?
+
+The same data is available through three different channels:
+
+- **Nevent admin panel** — visual interface, no code required, with exportable charts and tables
+- **AI conversation** — ask in plain English to Claude or ChatGPT via MCP
+- **Direct API** — for developers who want to integrate the data into their own tools
+
+## Data freshness
+
+- Transaction data (purchases, accesses): latency under 5 minutes
+- Aggregated metrics (by event, by period): updated daily
+- Campaign and attribution metrics: updated several times per day
+
+## Explore each area
+
+<CardGrid>
+  <LinkCard
+    title="Events and tickets"
+    description="Occupancy, revenue, sales velocity, average ticket value and type mix."
+    href="/en/analytics/events-and-tickets/"
+  />
+  <LinkCard
+    title="Audience and fans"
+    description="LTV, churn, cohorts and RFM segment distribution."
+    href="/en/analytics/audience/"
+  />
+  <LinkCard
+    title="Campaigns"
+    description="Open rate, click rate, conversion and ROAS by campaign and channel."
+    href="/en/analytics/campaigns/"
+  />
+  <LinkCard
+    title="Paid media"
+    description="Spend, ROAS, CPA and multi-touch attribution for Meta and Google."
+    href="/en/analytics/paid-media/"
+  />
+  <LinkCard
+    title="Tracking and attribution"
+    description="Clicks per link, post-click conversion and attributed revenue."
+    href="/en/analytics/tracking-and-attribution/"
+  />
+  <LinkCard
+    title="Deliverability"
+    description="Sender reputation, inbox placement, bounce and suppressions."
+    href="/en/analytics/deliverability/"
+  />
+  <LinkCard
+    title="Grouping and filtering"
+    description="Analysis dimensions and time filters available."
+    href="/en/analytics/grouping-and-filtering/"
+  />
+  <LinkCard
+    title="Frequently asked questions"
+    description="Data retention, exports, integrations and more."
+    href="/en/analytics/faq/"
+  />
+</CardGrid>
+
+## Next step
+
+<CardGrid>
+  <LinkCard
+    title="Ask Claude in plain language"
+    href="/en/nevent-ai/what-you-can-do/analytics/"
+    description="Query any metric with a plain-language question."
+  />
+  <LinkCard
+    title="View segmentation catalogue"
+    href="/en/audience/segmentation-engine/"
+    description="What you can use to build audiences and segments."
+  />
+</CardGrid>

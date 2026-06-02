@@ -1,0 +1,98 @@
+---
+title: "Gasto y consumo: segmentar fans por valor económico"
+description: "Segmenta fans de eventos por gasto total, ticket medio, tipo de entrada y consumo cashless. Identifica VIPs y high-spenders para campañas de mayor conversión."
+sidebar:
+  order: 4
+---
+
+import Schema from '../../../../components/Schema.astro';
+import { Aside, CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+<Schema>{`{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Gasto y consumo: segmentar fans de eventos por valor económico",
+  "description": "Segmenta fans de eventos por gasto total, ticket medio, tipo de entrada y consumo cashless.",
+  "author": { "@type": "Organization", "name": "Nevent", "url": "https://nevent.ai" },
+  "publisher": { "@type": "Organization", "name": "Nevent" },
+  "datePublished": "2026-06-02",
+  "dateModified": "2026-06-02",
+  "about": [
+    { "@type": "Thing", "name": "Customer lifetime value" },
+    { "@type": "Thing", "name": "Ticket spending segmentation" },
+    { "@type": "Thing", "name": "Live music events" }
+  ],
+  "mentions": [{ "@type": "SoftwareApplication", "name": "Nevent" }],
+  "audience": { "@type": "Audience", "audienceType": "Live event promoters" }
+}`}</Schema>
+
+:::tip[Definición rápida]
+**Gasto y consumo** agrupa todos los criterios monetarios vinculados al fan: cuánto ha gastado en total, cuánto gasta por evento de media, qué tipo de entrada elige y cuánto recarga o consume en los sistemas cashless del recinto. Es la categoría que te permite identificar a tus VIPs y high-spenders.
+:::
+
+# Gasto y consumo: segmentar fans por valor económico
+
+Saber cuánto gasta cada fan es una de las señales más potentes para personalizar tu comunicación. El fan que compra siempre early bird merece un mensaje diferente al que espera al VIP de última hora. El que recarga 80€ en cashless en cada evento tiene un perfil distinto al que solo compra la entrada. Esta categoría te ayuda a encontrar a todos ellos.
+
+## ¿Qué criterios de gasto puedes usar para segmentar?
+
+| Criterio | Qué representa | Ejemplo de uso |
+|---|---|---|
+| **Gasto total histórico** | Suma de todas las compras del fan desde que está en la plataforma | Fans que han gastado más de 500€ en total |
+| **Gasto en un evento concreto** | Compras vinculadas a un evento específico | Fans que gastaron más de 150€ en tu festival del año pasado |
+| **Ticket promedio** | Gasto medio por compra realizada | Fans con ticket medio superior a 80€ por compra |
+| **Tipo de entrada** | Categoría de entrada elegida (early bird, general, VIP, abono...) | Fans que compraron entrada VIP al menos una vez |
+| **Recarga cashless** | Importes cargados en pulsera o wallet del evento | Fans que recargaron más de 50€ en el evento de junio |
+| **Consumo cashless en recinto** | Lo que el fan gastó dentro del evento en bares, tiendas... | Fans con consumo en recinto superior a 30€ |
+| **Método de pago** | Forma de pago utilizada | Para análisis financiero interno |
+
+## ¿Cómo identificar a tus VIPs con el criterio de gasto total?
+
+El gasto total histórico es el equivalente al Monetary en el modelo RFM. Imagina que quieres crear un grupo de "clientes premium" para comunicarles antes que nadie el lanzamiento de abonos de temporada: seleccionas fans con gasto total superior a 400€. Esa audiencia, aunque puede ser pequeña en volumen, tiene tasas de conversión muy altas porque ya ha demostrado su compromiso económico con tu marca. Verás que en una base de 50.000 fans, los que superan ese umbral suelen ser entre 2.000 y 5.000 personas con una disposición a comprar radicalmente diferente al resto.
+
+## ¿Para qué sirve el criterio de ticket promedio?
+
+El ticket promedio te ayuda a identificar a fans que, aunque no hayan gastado mucho en total, tienen una propensión de gasto por compra elevada. Por ejemplo, si tu cartera incluye eventos con precios muy distintos (un concierto a 25€ y un festival a 180€), un fan que siempre compra la opción más cara relativa a cada evento tiene un ticket promedio alto aunque su gasto total sea moderado. Esto te permite orientarle ofertas de upgrade o VIP con mayor probabilidad de éxito.
+
+## ¿Qué son la recarga y el consumo cashless?
+
+El cashless es el sistema de pago sin efectivo que funciona en muchos festivales y eventos mediante pulsera o app. Tiene dos indicadores distintos:
+
+- **Recarga cashless**: cuánto dinero cargó el fan antes de entrar al recinto. Un fan que recarga 100€ indica que planea gastar y que tiene capacidad económica.
+- **Consumo cashless**: lo que realmente gastó dentro (en bares, merchandising, restauración...). Puede ser menor que la recarga si devolvió el saldo sobrante.
+
+Imagina que organizas un festival en Barcelona con sistema cashless: puedes identificar a los fans con recarga superior a 60€ y consumo superior a 50€ para enviarles una comunicación de fidelización con acceso anticipado a la zona VIP en la siguiente edición.
+
+:::note[Tipo de entrada como indicador de preferencia]
+El tipo de entrada que elige un fan (early bird, general, VIP, abono...) no solo refleja su capacidad de gasto sino también su comportamiento de compra. Los compradores de early bird son fans de alta motivación que actúan rápido; los de VIP priorizan la experiencia sobre el precio. Combina este criterio con otros para afinar el mensaje.
+:::
+
+## Ejemplo práctico: campaña de upgrade para fans de gasto medio-alto
+
+Imagina que tienes una gira de rock por varias ciudades españolas, incluidas Madrid, Bilbao y Sevilla, y quieres identificar a fans con potencial para comprar upgrade a VIP. Construyes un segmento: fans con ticket promedio superior a 60€ que han comprado entrada general (no VIP) al menos dos veces. Son fans que tienen capacidad de gasto pero aún no han probado la experiencia VIP. Una comunicación que explique en detalle qué incluye el acceso VIP puede tener una tasa de conversión muy superior a la media.
+
+## Resumen
+
+- El gasto total histórico es tu indicador principal de valor del fan a largo plazo.
+- El ticket promedio revela la propensión de gasto por compra, útil para ofertas de upgrade.
+- Recarga y consumo cashless son señales potentes de compromiso económico dentro del evento.
+- El tipo de entrada elegido informa sobre el perfil de comportamiento de compra del fan.
+
+## Siguiente paso
+
+<CardGrid>
+  <LinkCard
+    title="Engagement digital"
+    href="/segmentacion/capacidades/engagement/"
+    description="Segmenta por aperturas, clics y comportamiento con tus campañas."
+  />
+  <LinkCard
+    title="RFM automático"
+    href="/segmentacion/capacidades/rfm/"
+    description="El modelo RFM combina recencia, frecuencia y gasto en un perfil único."
+  />
+</CardGrid>
+
+---
+
+*El gasto total histórico es la base del componente Monetary del modelo RFM, ampliamente adoptado en marketing de retención. Para una introducción al modelo, puedes consultar el artículo de referencia de <a href="https://www.optimove.com/resources/learning-center/rfm-segmentation" target="_blank" rel="noopener noreferrer">Optimove sobre RFM en marketing de eventos</a>.*

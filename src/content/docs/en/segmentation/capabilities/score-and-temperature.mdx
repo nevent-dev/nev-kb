@@ -1,0 +1,96 @@
+---
+title: "Nevent Score and Temperature: predictive fan segmentation"
+description: "What the Nevent Score (0-100) and Nevent Temperature (6 levels) are for segmenting live event fans. Identify hot and cold fans for more effective campaigns."
+sidebar:
+  order: 6
+---
+
+import Schema from '../../../../../components/Schema.astro';
+import { Aside, CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+<Schema>{`{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Nevent Score and Temperature: predictive fan segmentation for live events",
+  "description": "What the Nevent Score (0-100) and Nevent Temperature (6 levels) are for segmenting live event fans.",
+  "author": { "@type": "Organization", "name": "Nevent", "url": "https://nevent.ai" },
+  "publisher": { "@type": "Organization", "name": "Nevent" },
+  "datePublished": "2026-06-02",
+  "dateModified": "2026-06-02",
+  "about": [
+    { "@type": "Thing", "name": "Predictive fan scoring" },
+    { "@type": "Thing", "name": "Customer temperature segmentation" },
+    { "@type": "Thing", "name": "Live music events" }
+  ],
+  "mentions": [{ "@type": "SoftwareApplication", "name": "Nevent" }],
+  "audience": { "@type": "Audience", "audienceType": "Live event promoters" }
+}`}</Schema>
+
+:::tip[Quick definition]
+**The Nevent Score** is an automatic score from 0 to 100 that reflects each fan's overall value, calculated from their attendance history, spend and engagement. The **Nevent Temperature** translates that score into six understandable levels (Very Hot, Hot, Warm, Cold, Very Cold, Frozen) so you can act without needing to interpret numbers.
+:::
+
+# Nevent Score and Temperature: predictive fan segmentation
+
+Rather than building complex criteria for every campaign, the Nevent Score and Temperature do that work for you. They are pre-calculated scores that aggregate all behavioural information for each fan into a single value. You can use them directly as segmentation criteria or combine them with other filters.
+
+## What is the Nevent Score and how is it calculated?
+
+The Nevent Score is a value between 0 and 100 that Nevent calculates automatically for each fan in your database. It takes into account three main signals:
+
+- **Historical value**: how much the fan has spent on tickets and consumption over time.
+- **Frequency**: how many times they have attended events and how regularly.
+- **Engagement**: how they respond to your communications (opens, clicks, conversions).
+
+A fan with a Score of 90 has spent a lot, attends regularly and responds well to your emails. A fan with a Score of 20 may have bought something in the past but has been inactive for a while and barely engages with your messages.
+
+## What is the Nevent Temperature and what are the 6 levels?
+
+The Temperature is a way of reading the Nevent Score in plain language. Each fan is classified into one of these six levels:
+
+| Temperature | What it indicates | What you can do with them |
+|---|---|---|
+| **Very Hot** | High-value, active, highly committed fan | Early access, exclusive VIP offers, loyalty programme |
+| **Hot** | Active fan with a good purchase history | Direct sales communications with urgency |
+| **Warm** | Fan with moderate activity, intermittent interest | Nurturing with valuable content before the sale |
+| **Cold** | Fan with little recent activity | Reactivation with a clear incentive |
+| **Very Cold** | Fan with an old history, no recent interaction | Win-back campaign or list cleanse |
+| **Frozen** | Fan with virtually no activity | Consider excluding from regular sends to protect deliverability |
+
+## Why use Temperature instead of building manual criteria?
+
+Building a "high-value fans" segment manually means combining spend, attendance frequency and engagement criteria — which is possible but time-consuming, and requires you to decide which thresholds to use. The Temperature gives you that segmentation pre-calculated. Imagine you want to run a presale campaign for a rock concert in Bilbao: simply select fans with a Temperature of Very Hot and Hot and you have a high-purchase-probability audience ready in seconds.
+
+## When is the Nevent Score more useful than the Temperature?
+
+The Score is useful when you want finer granularity than the six Temperature levels. For example, you may want to reach fans with a Score between 70 and 85 (above the Warm threshold but not yet Hot) to test an intermediate price point. Or you can run a progressive campaign that starts with the highest-score fans and lowers the threshold if the sales target is not reached.
+
+## How often is the Nevent Score updated?
+
+The Nevent Score and Temperature are recalculated regularly as new behavioural data arrives. This means a fan who bought yesterday may move up a level, and one who has been inactive for six months may move down. Campaigns using these criteria always work with the most up-to-date score available at the time the segment is calculated.
+
+## Summary
+
+- The Nevent Score (0-100) aggregates attendance, spend and engagement into a single figure per fan.
+- The Nevent Temperature translates that score into six actionable levels: from Very Hot to Frozen.
+- Using Temperature is faster than building manual loyalty criteria.
+- The numeric Score allows finer targeting when the six levels are not granular enough.
+
+## Next step
+
+<CardGrid>
+  <LinkCard
+    title="Automatic RFM"
+    href="/en/segmentation/capabilities/rfm/"
+    description="The RFM model offers 11 pre-calculated behaviour profiles complementary to the Score."
+  />
+  <LinkCard
+    title="Modifiers and RFM: technical guide"
+    href="/audience/motor-segmentacion/modificadores-rfm/"
+    description="How Nevent calculates RFM and Temperature at a technical level."
+  />
+</CardGrid>
+
+---
+
+*The behaviour-based customer scoring approach has solid academic backing. For a deeper understanding of the underlying methodology, you can consult the <a href="https://www.optimove.com/resources/learning-center/customer-lifetime-value" target="_blank" rel="noopener noreferrer">Optimove guide on customer lifetime value and scoring</a>.*

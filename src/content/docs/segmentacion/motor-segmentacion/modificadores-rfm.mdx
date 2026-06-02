@@ -1,0 +1,1052 @@
+---
+title: "Análisis RFM para Festivales - Segmentación Avanzada Nevent"
+description: "Implementa análisis RFM (Recency, Frequency, Monetary) para festivales: identifica Champions, VIPs at risk y nuevos compradores. 5 segmentos listos con ejemplos reales 2025."
+sidebar:
+  order: 4.5
+  badge:
+    text: Avanzado
+    variant: note
+---
+
+import Schema from '../../../../components/Schema.astro';
+import { Aside } from '@astrojs/starlight/components';
+
+<Schema>{`{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Cómo Implementar Análisis RFM con Modificadores en Nevent",
+  "description": "Guía para usar modificadores de recencia y frecuencia para implementar análisis RFM y segmentar asistentes por comportamiento de compra",
+  "totalTime": "PT15M",
+  "tool": {
+    "@type": "SoftwareApplication",
+    "name": "Nevent",
+    "applicationCategory": "Marketing Automation"
+  },
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Identifica el Segmento RFM Objetivo",
+      "text": "Decide qué segmento RFM quieres crear: Champions (alto RFM en todo), At Risk (fueron buenos clientes pero inactivos), Promising (alta recencia y frecuencia, bajo gasto), New Customers (primera compra reciente) o Hibernating (bajo en todo)."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Define Criterios de Recencia",
+      "text": "Aplica modificador de recencia para medir qué tan reciente fue la última interacción. Ejemplos: Compra en últimos 60 días (alta recencia), Última compra hace más de 180 días (baja recencia). Usa opciones: en los últimos X días, semanas, meses o años."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "Define Criterios de Frecuencia",
+      "text": "Aplica modificador de frecuencia para medir cuántas veces realizó una acción. Ejemplos: Asistió a evento al menos 5 veces (alta frecuencia), Evento asistido exactamente 1 vez (baja frecuencia). Usa opciones: exactamente X veces, al menos X veces, como máximo X veces."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 4,
+      "name": "Define Criterios Monetarios",
+      "text": "Agrega criterios de gasto total sin modificadores. Ejemplos: Gasto total mayor que 500€ (alto valor), Gasto total menor que 150€ (bajo valor). Este es el componente M (Monetary) del análisis RFM."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 5,
+      "name": "Combina los Tres Componentes",
+      "text": "Crea grupos que combinen Recencia (R), Frecuencia (F) y Monetary (M) con lógica Y. Ejemplo Champions: (Compra en últimos 60 días) Y (Asistió 5+ veces) Y (Gasto > 500€). Usa grupos separados para cada dimensión RFM."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 6,
+      "name": "Previsualiza y Ajusta Umbrales",
+      "text": "Usa preview para ver el tamaño del segmento. Si es muy pequeño o muy grande, ajusta los umbrales: cambia días de recencia (30, 60, 90, 180), número de eventos en frecuencia (2, 3, 5, 8, 10) o monto de gasto (100€, 200€, 500€). Itera hasta obtener segmento de tamaño óptimo."
+    }
+  ]
+}`}</Schema>
+
+<Schema>{`{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://docs.nevent.com"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Motor de Segmentación",
+      "item": "https://docs.nevent.com/segmentacion/motor-segmentacion"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Modificadores & Análisis RFM",
+      "item": "https://docs.nevent.com/segmentacion/motor-segmentacion/modificadores-rfm"
+    }
+  ]
+}`}</Schema>
+
+:::tip[Definición Rápida]
+**¿Qué es RFM para festivales?**
+
+Modelo que clasifica fans automáticamente en 11 segmentos según: Recency (última compra), Frequency (eventos asistidos), Monetary (gasto total). Segmentos incluyen Champions (8-12% audiencia, generan 25-35% revenue) y At Risk (5-10% audiencia, alto valor en peligro).
+
+**Ejemplo:** Mad Cool identificó 680 VIPs At Risk (última compra &gt;180 días, gasto &gt;500€) y recuperó 15-25% con campaña win-back, salvando 81,600€ LTV.
+:::
+
+## Preguntas Frecuentes sobre RFM
+
+### ¿Qué es RFM para festivales?
+
+**RFM** es un modelo de scoring que clasifica fans por 3 dimensiones:
+
+- **R**ecency - ¿Cuándo compró por última vez?
+- **F**requency - ¿Cuántas veces compró?
+- **M**onetary - ¿Cuánto gastó en total?
+
+**Aplicado a festivales y eventos:**
+
+| Dimensión | Malo | Regular | Bueno | Excelente |
+|-----------|------|---------|-------|-----------|
+| **Recency** | +365 días | 180-365 días | 90-180 días | &lt;90 días |
+| **Frequency** | 1 evento | 2-3 eventos | 4-6 eventos | 7+ eventos |
+| **Monetary** | &lt;100€ | 100-300€ | 300-800€ | 800€+ |
+
+**Combinación de R+F+M genera 11 segmentos automáticos:**
+
+1. **Champions** (R alto + F alto + M alto): Mejores fans, compran frecuente y reciente
+2. **Loyal** (R alto + F alto + M medio): Fans leales, compran seguido
+3. **Potential Loyalists** (R alto + F medio + M medio): Prometen, nutrir hacia Loyal
+4. **New Customers** (R alto + F bajo + M bajo): Primera compra reciente
+5. **Promising** (R medio + F bajo + M medio): Potencial, necesitan engagement
+6. **Need Attention** (R medio + F medio + M medio): Riesgo de perder, reactivar
+7. **About to Sleep** (R bajo + F medio + M bajo): Inactivos, última chance
+8. **At Risk** (R bajo + F alto + M alto): **CRÍTICO** - Alto valor pero inactivos
+9. **Can't Lose Them** (R bajo + F alto + M alto): VIPs en riesgo extremo
+10. **Hibernating** (R muy bajo + F medio + M medio): Dormidos, win-back difícil
+11. **Lost** (R muy bajo + F bajo + M bajo): Churned, considerar sunset
+
+**Ventaja vs segmentación manual:**
+- Nevent calcula RFM **automáticamente** (no requieres configuración)
+- Se actualiza en **tiempo real** (cada compra recalcula scoring)
+- **11 segmentos listos** para usar (no necesitas pensar en criterios)
+
+**Ejemplo - Identificar Champions:**
+```
+Filtro manual (tradicional):
+Gasto: ≥800€
+AND Eventos: ≥4
+AND Última compra: ≤90 días
+
+VS
+
+Filtro RFM (Nevent):
+RFM Score: Champions
+```
+
+**Resultado idéntico, pero RFM es 1-click.**
+
+---
+
+### ¿Cómo funcionan modificadores de recencia?
+
+**Modificadores de recencia** filtran fans por "hace cuánto tiempo compraron última entrada".
+
+**Sintaxis en Nevent:**
+```
+Días desde última compra: ≥X, ≤Y
+```
+
+**X** = Mínimo (hace cuánto como mínimo)
+**Y** = Máximo (hace cuánto como máximo)
+
+**Rangos estratégicos y acciones recomendadas:**
+
+**A. Fans ultra recientes (&lt;30 días) - Upsell caliente**
+```
+Días desde última compra: ≥0, ≤30
+```
+- **Probabilidad recompra:** 40-55% (muy alta)
+- **Acción:** Upsell inmediato (upgrade VIP, merchandising, evento relacionado)
+- **Email:** "Gracias por tu compra - Completa tu experiencia con..."
+- **Timing:** 3-7 días post-compra
+- **No ofrecer descuento** (acaban de pagar precio completo)
+
+---
+
+**B. Fans activos recientes (&lt;90 días) - Engagement alto**
+```
+Días desde última compra: ≥0, ≤90
+```
+- **Probabilidad recompra:** 25-40%
+- **Acción:** Cross-sell eventos similares, early bird próximo festival
+- **Email:** Anuncio directo sin descuento (no necesitan incentivo)
+- **Subject:** "Nuevos eventos que te encantarán"
+- **Conversion esperada:** 8-15%
+
+---
+
+**C. Fans tibios (6-12 meses) - Necesitan incentivo**
+```
+Días desde última compra: ≥180, ≤365
+```
+- **Probabilidad recompra:** 15-25%
+- **Acción:** Descuento 10-15% + beneficio adicional (priority access, contenido exclusivo)
+- **Email:** "Te echamos de menos - Vuelve con 10% OFF"
+- **Urgencia:** Código expira en 7 días
+- **Conversion esperada:** 5-10%
+
+---
+
+**D. Fans dormidos (1-2 años) - Win-back agresivo**
+```
+Días desde última compra: ≥365, ≤730
+```
+- **Probabilidad recompra:** 8-15%
+- **Acción:** Win-back campaign con descuento 20%+ y nostalgia
+- **Email secuencia:**
+  1. Nostalgia: "Recuerdas cuando viste [Artista] en [Año]?"
+  2. Incentivo: "20% descuento especial solo para antiguos fans"
+  3. Urgencia: "Última oportunidad - Código expira mañana"
+- **Conversion esperada:** 3-8%
+- **Si no compran:** Mover a "Lost"
+
+---
+
+**E. Fans perdidos (&gt;2 años) - Último intento**
+```
+Días desde última compra: ≥730
+```
+- **Probabilidad recompra:** 2-5%
+- **Acción:** Último email win-back o sunset (eliminar de base activa)
+- **Email:** "Te extrañamos - 25% descuento última oportunidad"
+- **Si no abren/compran en 30 días:** Limpiar de lista (mejora deliverability)
+
+---
+
+**Visualización recencia y probabilidad recompra:**
+
+| Días desde Compra | Recencia | Prob. Recompra | Acción | Incentivo |
+|-------------------|----------|----------------|--------|-----------|
+| 0-30 | Ultra fresca | 40-55% | Upsell | 0% descuento |
+| 31-90 | Fresca | 25-40% | Cross-sell | 0-5% descuento |
+| 91-180 | Media | 15-25% | Engagement | 5-10% descuento |
+| 181-365 | Baja | 8-15% | Reactivación | 10-20% descuento |
+| 366-730 | Muy baja | 3-8% | Win-back | 20-25% descuento |
+| 730+ | Perdida | 2-5% | Sunset | 25-30% descuento |
+
+**Patrón:** Cuanto más tiempo sin comprar, mayor descuento necesitas para reactivar.
+
+---
+
+### ¿Qué son modificadores de frecuencia?
+
+**Modificadores de frecuencia** filtran fans por "cuántas veces compraron / asistieron a eventos".
+
+**Sintaxis en Nevent:**
+```
+Número de eventos asistidos: ≥X, ≤Y
+```
+
+**Segmentación por lealtad (frecuencia):**
+
+| Frecuencia | Clasificación | % Típico Audiencia | LTV Promedio | Estrategia |
+|------------|---------------|-------------------|--------------|------------|
+| **1 evento** | New customer | 45-60% | 120-180€ | Convertir a repeat buyer |
+| **2-3 eventos** | Repeat buyer | 25-35% | 350-600€ | Nutrir hacia loyal |
+| **4-6 eventos** | Loyal fan | 8-15% | 800-1,500€ | Retention y upsell VIP |
+| **7+ eventos** | Super fan | 2-5% | 2,000-8,000€ | Advocacy y maximizar LTV |
+
+**Estrategias diferenciadas por frecuencia:**
+
+---
+
+**1. New Customers (Frequency = 1)**
+```
+Número de eventos: 1
+AND Días desde compra: ≤90 (compraron recientemente)
+```
+
+**Objetivo:** Convertir a repeat buyer (critical window: 6-12 meses)
+
+**Email #1 - Welcome (Post-evento +7 días):**
+- Subject: "Gracias por venir a [Festival] - ¿Qué tal tu experiencia?"
+- Survey: NPS score + feedback
+- Incentivo: "10% descuento próximo evento si respondes survey"
+
+**Email #2 - Cross-sell (30-45 días post-evento):**
+- Subject: "Eventos similares que te pueden gustar"
+- Contenido: 3 eventos del portfolio que match género del primer evento
+- Oferta: "15% descuento 2º evento - Código VUELVE15"
+
+**Repeat rate objetivo:** 30-50% de New Customers en 12 meses
+
+---
+
+**2. Repeat Buyers (Frequency = 2-3)**
+```
+Número de eventos: ≥2, ≤3
+```
+
+**Objetivo:** Nurture hacia Loyal (aumentar engagement)
+
+**Tácticas:**
+- Email mensual con contenido exclusivo (behind-the-scenes, artist interviews)
+- Early access a anuncios (12-24h antes que público general)
+- Descuento moderado 10% (menos que New, más que Loyal)
+- Invitación a eventos especiales (listening parties, meet & greet sorteo)
+
+**Conversion evento siguiente:** 40-60%
+
+---
+
+**3. Loyal Fans (Frequency = 4-6)**
+```
+Número de eventos: ≥4, ≤6
+```
+
+**Objetivo:** Retention (mantenerlos engaged) + Upsell VIP
+
+**Tácticas:**
+- **NO descuentos** (ya están convencidos)
+- Early bird access 48h antes (vs 24h repeat buyers)
+- Upgrade VIP con 15% descuento
+- Merchandising exclusivo
+- Invitación programa fidelidad (puntos, tier status)
+
+**Emails:**
+- Subject: "Acceso VIP exclusivo para ti - [Nombre]"
+- Contenido: Beneficios VIP detallados, testimonials
+- Oferta: "Upgrade a VIP solo 80€ más" (no descuento en entrada, solo upgrade)
+
+**VIP upgrade rate:** 8-14%
+**Retention rate:** 75-85%
+
+---
+
+**4. Super Fans (Frequency = 7+)**
+```
+Número de eventos: ≥7
+```
+
+**Objetivo:** Advocacy (referrals) + Maximizar LTV
+
+**Perfil:**
+- Edad típica: 28-45
+- Gasto histórico: 2,000-8,000€
+- Comportamiento: Compran sin descuentos, toleran subidas precio, refieren amigos
+
+**Tácticas VIP extremo:**
+- Invitación programa embajadores (entradas gratis evento pequeño a cambio de promoción)
+- Meet & greet con artistas garantizado
+- Acceso backstage
+- Call personal de account manager (festivales grandes)
+- Regalos personalizados (merchandising firmado, vinyl limitado)
+
+**Email:**
+- Subject: "Invitación exclusiva: Programa VIP Platino"
+- Contenido: "Eres top 2% de nuestros fans - queremos reconocerlo"
+- Beneficios: Lista de 10 beneficios exclusivos
+- CTA: "Aceptar invitación VIP Platino" (gratis, no es venta)
+
+**Retention rate:** 90-95% (altísimo)
+**Referral rate:** 40-60% traen mínimo 1 amigo
+**LTV incremental:** +30-50% vs Loyal
+
+---
+
+**Correlación Frecuencia → Revenue:**
+
+| Segmento | Fans (de 50k) | % Audiencia | Revenue/Fan | Revenue Total | % Revenue Total |
+|----------|---------------|-------------|-------------|---------------|-----------------|
+| Super fans (7+) | 1,500 | 3% | 400€ | 600,000€ | 31% |
+| Loyal (4-6) | 5,000 | 10% | 250€ | 1,250,000€ | 64% |
+| Repeat (2-3) | 12,500 | 25% | 150€ | 1,875,000€ | ... |
+| New (1) | 25,000 | 50% | 120€ | 3,000,000€ | ... |
+
+**Pareto extremo:** 13% de audiencia (Loyal + Super fans) genera 95% del revenue en long-term.
+
+---
+
+### ¿Puedo combinar recencia y frecuencia?
+
+**Sí. Combinar Recency × Frequency es la base del modelo RFM y genera los segmentos más poderosos.**
+
+**Matriz RFM simplificada (2×2):**
+
+|  | **Alta Frecuencia (≥4 eventos)** | **Baja Frecuencia (≤3 eventos)** |
+|---|---|---|
+| **Alta Recencia (&lt;180 días)** | 🏆 **Champions** (8-12% audiencia)<br />Acción: Upsell VIP, no descuentos | 🌱 **Promising** (15-20% audiencia)<br />Acción: Nurture a leales |
+| **Baja Recencia (≥180 días)** | ⚠️ **At Risk** (5-8% audiencia)<br />Acción: Win-back URGENTE | 😴 **Lost** (50-60% audiencia)<br />Acción: Reactivación masiva o sunset |
+
+---
+
+**Segmento Champions (Alta R + Alta F):**
+```
+Días desde última compra: ≤180
+AND Número eventos: ≥4
+AND Gasto total: ≥500€
+```
+
+**Perfil Champions:**
+- Compraron 4-10 eventos
+- Última compra hace &lt;6 meses
+- Gastaron 500-3,000€ total
+- Open rate emails: 55-70%
+- Conversion rate: 18-28%
+
+**Email strategy Champions:**
+- **Timing:** Primera línea en early bird (48h antes que público)
+- **Descuento:** 0% (no necesitan, compran igual)
+- **Incentivos:** Early access, VIP upgrades, meet & greet, backstage
+- **Frecuencia:** 2-3 emails/semana toleran (high engagement)
+- **Pedir favors:** Reviews, referrals, user-generated content
+
+**Conversion Champions:** 18-28% (vs 2-4% audiencia general) = **7-14x baseline**
+
+---
+
+**Segmento At Risk (Baja R + Alta F):**
+```
+Días desde última compra: ≥180, ≤730
+AND Número eventos: ≥3
+AND Gasto total: ≥300€
+```
+
+**Perfil At Risk:**
+- Compraron 3-8 eventos históricamente (fueron leales)
+- Última compra hace 6-24 meses (ALERTA)
+- Gastaron 300-2,000€ (alto valor en riesgo)
+- Open rate bajó: 10-25% (vs 50-65% cuando activos)
+
+**Por qué están At Risk:**
+- Fatiga (fueron muchos años seguidos)
+- Cambio circunstancias (pareja, hijos, trabajo)
+- Competencia (descubrieron otro festival)
+- Lineup no convence (artistas que les gustan ya no van)
+
+**Win-back urgente (secuencia 3 emails):**
+
+1. **Email #1 - Nostalgia (Día 0):**
+   - Subject: "Te echamos de menos [Nombre] 💔"
+   - Contenido: Fotos eventos pasados, "Fuiste parte de [X] ediciones increíbles"
+   - CTA suave: "Ver próximos eventos" (no venta directa)
+
+2. **Email #2 - Incentivo (Día +5):**
+   - Subject: "20% descuento VIP - Solo para antiguos fans"
+   - Contenido: Código VIPBACK20, expira 7 días
+   - Testimonial: "Volví después de 2 años y fue mejor que nunca"
+
+3. **Email #3 - Urgencia (Día +10):**
+   - Subject: "⏰ Tu descuento expira mañana"
+   - Contenido: Countdown, último chance
+   - Garantía: "Reembolso 100% si no te convence"
+
+**Win-back rate:** 15-25% de At Risk
+**ROI:** 15-30x (bajo costo, alto valor si recuperan)
+
+---
+
+**Segmento Promising (Alta R + Baja F):**
+```
+Días desde última compra: ≤90
+AND Número eventos: 1-2
+```
+
+**Perfil Promising:**
+- Compraron recientemente (engaged)
+- Pero solo 1-2 veces (no son leales todavía)
+- Potencial de convertirse en Loyal si nutres bien
+
+**Nurture strategy:**
+- Email educativo: "10 razones para volver"
+- Contenido exclusivo: Artist interviews, behind-scenes
+- Descuento moderado: 10% (incentivo suave)
+- Social proof: "15,000 fans repiten cada año"
+
+**Conversion próximo evento:** 35-50%
+**Objetivo:** Moverlos de Promising → Loyal en 6-12 meses
+
+---
+
+**Matriz completa RFM (11 segmentos):**
+
+Ver tabla completa en sección "¿Qué segmentos RFM existen?" de este documento.
+
+**Key takeaway:** Recency + Frequency juntos predicen comportamiento futuro 10x mejor que cada dimensión sola.
+
+---
+
+### ¿Cómo identifico VIPs en riesgo?
+
+**VIPs en riesgo** = Alta Frequency + Alto Monetary + Baja Recency = Segmento "At Risk" o "Can't Lose Them" en RFM.
+
+**Segmento "VIP At Risk" exacto:**
+```
+Gasto total histórico: ≥500€
+AND Número de eventos: ≥3
+AND Días desde última compra: ≥180, ≤730
+AND RFM Score: At Risk, Can't Lose Them
+```
+
+**Traducción:** Fan que gastó mucho (≥500€), asistió repetidamente (≥3 eventos), pero no compró en 6-24 meses.
+
+**Red flags adicionales que confirman riesgo:**
+- Email open rate &lt;20% últimos 90 días (vs 55-70% cuando activos)
+- No visitó web en 90 días
+- No interactuó en social media
+- Bounce email (cambió de email sin actualizar)
+
+---
+
+**Tamaño típico segmento:**
+- Base VIP total (≥500€): 8-12% de audiencia
+- VIPs At Risk: 5-10% de VIPs totales
+- Ejemplo: De 10,000 VIPs, 500-1,000 están At Risk
+
+**Valor en riesgo:**
+- VIP At Risk promedio LTV: 800-2,500€
+- 500 VIPs × 850€ LTV = **425,000€ en riesgo**
+- Sin acción: 60-70% churn en próximos 12 meses = **~300k€ perdidos**
+
+---
+
+**Impacto de NO actuar:**
+
+| Métrica | Sin Win-back | Con Win-back Campaign |
+|---------|--------------|----------------------|
+| Churn rate (12 meses) | 60-70% | 30-40% |
+| VIPs perdidos (de 500) | 300-350 | 150-200 |
+| LTV perdido | 255k-298k€ | 128k-170k€ |
+| Revenue recuperado | 0€ | 75-125k€ (15-25% win-back) |
+| **Delta** | - | **130k-220k€ saved/recovered** |
+
+---
+
+**Win-back campaign para VIP At Risk:**
+
+**Secuencia 3 emails (ver detalle completo en FAQ "¿Cómo segmentar asistentes que abrieron email pero no compraron?"):**
+
+1. **Email #1 - Nostalgia + Reconocimiento:**
+   - "Fuiste parte de [X] ediciones desde [Año]"
+   - Fotos personalizadas de eventos que asistió
+   - CTA suave: No venta directa
+
+2. **Email #2 - Incentivo VIP:**
+   - 20% descuento código exclusivo
+   - "Solo 680 VIPs antiguos tienen este código"
+   - Expira 7 días
+
+3. **Email #3 - Urgencia final:**
+   - Countdown timer
+   - "Última oportunidad antes de perder beneficio VIP"
+   - Garantía reembolso
+
+**Performance esperado:**
+- Open rate: 35-45% (nostalgia funciona)
+- Win-back rate: **15-25%**
+- Revenue recuperado: 75-125k€ (de 500 VIPs At Risk)
+- ROI: **25-50x** (bajo costo campaña vs alto LTV recuperado)
+
+---
+
+**Prevención > Recuperación:**
+
+**Mejor estrategia:** Detectar ANTES de que lleguen a At Risk.
+
+**Early warning signals (intervenir cuando detectes):**
+- Champion que NO compró early bird (primera vez en 3 años)
+- Open rate bajó 50%+ en 3 meses (ej: 60% → 30%)
+- No visitó web en 60 días (vs visitas mensuales antes)
+
+**Acción preventiva:**
+- Email: "Notamos que no compraste early bird - ¿Todo OK?"
+- Survey: "¿Qué podemos mejorar?"
+- Call (festivales grandes): Account manager contacta VIP personalmente
+- Incentivo suave: 10% descuento (no 20%, reservar para At Risk real)
+
+**Prevención success rate:** 70-80% retención vs 15-25% recuperación At Risk
+
+**Conclusión:** Prevenir que Champions → At Risk es 3-4x más efectivo que recuperar At Risk → Active.
+
+---
+
+# Modificadores & Análisis RFM
+
+Análisis RFM para festivales con Nevent: los modificadores son potenciadores que transforman criterios básicos en filtros dinámicos ultra específicos. Implementa análisis RFM (Recency, Frequency, Monetary) en tu base de asistentes a festivales y eventos, identificando super fans VIP, compradores early bird habituales y asistentes en riesgo de churn.
+
+---
+
+## ¿Qué son los Modificadores?
+
+Los modificadores son "capas adicionales" que aplicas a un criterio para hacerlo más específico.
+
+**Sin modificador:**
+```
+Criterio: "Asistió a evento"
+Resultado: Fans que asistieron (sin importar cuántas veces o cuándo)
+```
+
+**Con modificadores:**
+```
+Criterio: "Asistió a evento"
++ Modificador Frecuencia: "Al menos 5 veces"
++ Modificador Recencia: "En los últimos 90 días"
+Resultado: Fans que asistieron 5+ veces en los últimos 90 días
+```
+
+---
+
+## Los 2 Modificadores Principales
+
+### 1️⃣ Modificador de Recencia (Time Range)
+
+**¿Qué hace?** Filtra acciones que ocurrieron **dentro de un período de tiempo específico**.
+
+**Opciones disponibles:**
+- En los últimos X **días** (ej: últimos 30 días)
+- En los últimos X **semanas** (ej: últimas 2 semanas)
+- En los últimos X **meses** (ej: últimos 6 meses)
+- En los últimos X **años** (ej: último año)
+
+**Ejemplo 1: Fans Recientes**
+```
+Criterio: Fecha de compra de entrada
+Modificador: En los últimos 30 días
+```
+**Resultado**: Fans que compraron en el último mes → Audiencia activa
+
+**Ejemplo 2: Fans Inactivos**
+```
+Criterio: Fecha de compra
+Modificador: Hace más de 180 días (NO en últimos 180 días)
+```
+**Resultado**: Fans que NO han comprado en 6 meses → Target para reactivación
+
+### 2️⃣ Modificador de Frecuencia
+
+**¿Qué hace?** Filtra basado en **cuántas veces** el fan realizó una acción.
+
+**Opciones disponibles:**
+- **Exactamente** X veces (ej: exactamente 3 compras)
+- **Al menos** X veces (ej: mínimo 5 eventos asistidos)
+- **Como máximo** X veces (ej: máximo 2 clicks)
+
+**Ejemplo 1: Super Fans**
+```
+Criterio: Evento asistido
+Modificador: Al menos 10 veces
+```
+**Resultado**: Fans que fueron a 10+ eventos → Loyalistas
+
+**Ejemplo 2: Nuevos Compradores**
+```
+Criterio: Compra de entrada
+Modificador: Exactamente 1 vez
+```
+**Resultado**: Fans que solo han comprado 1 vez → Target para segunda compra
+
+**Ejemplo 3: Buyers Ocasionales**
+```
+Criterio: Tipo de entrada VIP
+Modificador: Como máximo 2 veces
+```
+**Resultado**: Fans que compraron VIP 1-2 veces → Upsell a membresía VIP anual
+
+---
+
+## Combinando Ambos Modificadores
+
+El verdadero poder viene de **combinar recencia + frecuencia** en el mismo criterio.
+
+### Ejemplo: Fans Engaged Recientes
+
+```
+Criterio: Campaña abierta
+Modificadores:
+  - Frecuencia: Al menos 5 veces
+  - Recencia: En los últimos 60 días
+```
+
+**Resultado**: Fans que abrieron 5+ campañas en los últimos 2 meses → Ultra engaged
+
+### Ejemplo: Early Birds Habituales
+
+```
+Criterio: Días de antelación de compra
+Valor: Mayor que 30 días
+Modificadores:
+  - Frecuencia: Al menos 3 veces
+  - Recencia: En los últimos 365 días
+```
+
+**Resultado**: Fans que compraron con 30+ días de anticipación 3+ veces en el último año → Target para early bird exclusivo
+
+---
+
+## ¿Qué es el Análisis RFM?
+
+**RFM** es un framework de marketing que segmenta clientes en 3 dimensiones:
+
+| Dimensión | Qué Mide | Pregunta Clave |
+|-----------|----------|----------------|
+| **R**ecency | Qué tan reciente fue la última interacción | ¿Cuándo fue su última compra? |
+| **F**requency | Qué tan seguido interactúa | ¿Cuántas veces ha comprado? |
+| **M**onetary | Cuánto gasta | ¿Cuánto dinero ha gastado en total? |
+
+### Por qué RFM es Poderoso
+
+Los mejores clientes son aquellos con:
+- ✅ **Alta Recencia** (compraron recientemente)
+- ✅ **Alta Frecuencia** (compran seguido)
+- ✅ **Alto Gasto** (gastan mucho)
+
+RFM te permite identificar:
+- 🏆 **Champions** (RFM alto en todo) → Tu audiencia más valiosa
+- ⚠️ **At Risk** (RFM alto históricamente, recencia baja) → Campaña de reactivación
+- 🌱 **Promising** (Alta recencia y frecuencia, gasto bajo) → Upsell opportunity
+- 💤 **Hibernating** (Bajo en todo) → Win-back agresivo o descartar
+
+---
+
+## RFM con Modificadores de Nevent
+
+### Cómo Mapean los Modificadores a RFM
+
+| Dimensión RFM | Modificador Nevent | Criterio Ejemplo |
+|---------------|-------------------|------------------|
+| **Recency** | ✅ Modificador de Recencia | Compra en últimos 30/60/90 días |
+| **Frequency** | ✅ Modificador de Frecuencia | Asistió a 5+ eventos |
+| **Monetary** | ✅ Criterio directo (sin modificador) | Gasto total > 500€ |
+
+<Aside type="tip">
+**Nevent hace RFM fácil**: Combina modificadores de recencia + frecuencia con criterios de gasto para crear segmentos RFM en minutos.
+</Aside>
+
+---
+
+## Segmentos RFM Listos para Usar
+
+### Segmento 1: Champions (RFM Alto)
+
+**Perfil**: Tus mejores clientes. Compran recientemente, frecuentemente y gastan mucho.
+
+**Segmento:**
+```
+GRUPO A: Recencia Alta
+├─ Compra en últimos 60 días
+
+Y
+
+GRUPO B: Frecuencia Alta
+├─ Asistió a evento: Al menos 5 veces
+
+Y
+
+GRUPO C: Monetary Alto
+├─ Gasto total: Mayor que 500€
+```
+
+**Campaña**: VIP access, pre-sale exclusivo, invitación a eventos privados
+**Esperado**: 5-10% de tu base, 40-60% de tu revenue
+
+---
+
+### Segmento 2: At Risk Customers (Fueron Champions, Ahora Inactivos)
+
+**Perfil**: Solían ser buenos clientes pero se están alejando.
+
+**Segmento:**
+```
+GRUPO A: Baja Recencia (hace tiempo que no compran)
+├─ Última compra: Hace más de 180 días
+
+Y
+
+GRUPO B: Alta Frecuencia Histórica
+├─ Asistió a evento: Al menos 8 veces (sin modificador de recencia)
+
+Y
+
+GRUPO C: Alto Gasto Histórico
+├─ Gasto total: Mayor que 400€
+```
+
+**Campaña**: Win-back con descuento 25%, mensaje emocional ("te extrañamos"), incentivo urgente
+**Esperado**: 15-25% reactivación con oferta fuerte
+
+---
+
+### Segmento 3: Promising (Alta Recencia + Frecuencia, Bajo Gasto)
+
+**Perfil**: Clientes engaged que compran seguido pero gastan poco. Oportunidad de upsell.
+
+**Segmento:**
+```
+GRUPO A: Alta Recencia
+├─ Compra en últimos 45 días
+
+Y
+
+GRUPO B: Alta Frecuencia
+├─ Campaña abierta: Al menos 3 veces en últimos 90 días
+
+Y
+
+GRUPO C: Bajo Gasto
+├─ Gasto total: Menor que 150€
+```
+
+**Campaña**: Oferta de bundle (3 eventos por precio de 2), upgrade a VIP con descuento, payment plan
+**Esperado**: 20-35% conversión a ticket premium
+
+---
+
+### Segmento 4: New Customers (Primera Compra Reciente)
+
+**Perfil**: Compraron por primera vez recientemente. Hay que fidelizarlos.
+
+**Segmento:**
+```
+GRUPO A: Alta Recencia
+├─ Compra en últimos 30 días
+
+Y
+
+GRUPO B: Baja Frecuencia
+├─ Evento asistido: Exactamente 1 vez
+```
+
+**Campaña**: Onboarding con beneficios, descuento para segunda compra, programa de referidos
+**Esperado**: 30-40% compran segunda vez en 90 días
+
+---
+
+### Segmento 5: Hibernating (Bajo RFM en Todo)
+
+**Perfil**: Clientes inactivos con poco historial. Reactivación difícil.
+
+**Segmento:**
+```
+GRUPO A: Muy Baja Recencia
+├─ Última compra: Hace más de 365 días
+
+Y
+
+GRUPO B: Baja Frecuencia
+├─ Evento asistido: Como máximo 2 veces
+
+Y
+
+GRUPO C: Bajo Gasto
+├─ Gasto total: Menor que 100€
+```
+
+**Campaña**: Win-back ultra agresivo (descuento 40%+), última oportunidad
+**Decisión**: Si no responden → limpieza de lista (mejor deliverability)
+
+---
+
+## Criterios que Soportan Modificadores
+
+### Con Modificador de Recencia (13 criterios)
+
+| Criterio | Ejemplo de Uso |
+|----------|----------------|
+| **Evento asistido** | Asistió en últimos 90 días |
+| **Fecha de compra** | Compró en últimos 30 días |
+| **Gasto total** | Gastó en últimos 6 meses |
+| **Campaña abierta** | Abrió en últimas 2 semanas |
+| **Campaña con clic** | Clickeó en últimos 14 días |
+| **Recarga cashless** | Recargó en último año |
+| **Complemento comprado** | Compró merchandising recientemente |
+
+Y 6 más...
+
+### Con Modificador de Frecuencia (9 criterios)
+
+| Criterio | Ejemplo de Uso |
+|----------|----------------|
+| **Evento asistido** | Al menos 5 veces |
+| **Tipo de entrada** | VIP exactamente 2 veces |
+| **Campaña recibida** | Al menos 10 campañas |
+| **Campaña abierta** | Al menos 7 opens |
+| **Campaña con clic** | Como máximo 3 clicks |
+| **Enlace corto clickeado** | Al menos 2 veces |
+
+Y 3 más...
+
+---
+
+## Casos de Uso Avanzados
+
+### Caso 1: Festival Repeat Buyers Recientes
+
+**Objetivo**: Vender abono anual a fans que repiten en festivales.
+
+**Segmento:**
+```
+Criterio: Evento asistido (tipo Festival)
+Modificadores:
+  - Frecuencia: Al menos 3 festivales
+  - Recencia: En últimos 365 días
+Y
+Gasto promedio por evento: Mayor que 80€
+```
+
+**Resultado**: Fans que fueron a 3+ festivales el último año con ticket > 80€
+
+**Campaña**: Oferta de abono anual con 30% descuento vs comprar individual
+
+---
+
+### Caso 2: Email Engagement Score
+
+**Objetivo**: Identificar fans ultra engaged con tus comunicaciones.
+
+**Segmento:**
+```
+GRUPO A:
+├─ Campaña abierta
+│  └─ Frecuencia: Al menos 10 veces
+│  └─ Recencia: En últimos 90 días
+
+Y
+
+GRUPO B:
+├─ Campaña con clic
+│  └─ Frecuencia: Al menos 5 veces
+│  └─ Recencia: En últimos 90 días
+```
+
+**Resultado**: Fans que abrieron 10+ emails y clickearon 5+ en el último trimestre
+
+**Campaña**: Invitación a programa beta, focus group, embajadores de marca
+
+---
+
+### Caso 3: Churn Prediction
+
+**Objetivo**: Detectar fans que históricamente compraban seguido pero se están alejando.
+
+**Segmento:**
+```
+GRUPO A (Histórico Bueno):
+├─ Evento asistido: Al menos 6 veces (sin recencia)
+└─ Gasto total: Mayor que 300€
+
+Y
+
+GRUPO B (Recencia Mala):
+├─ Última compra: Hace más de 120 días
+└─ Campaña abierta en últimos 60 días: 0 veces (no engagement)
+```
+
+**Resultado**: Buenos clientes históricos que llevan 4+ meses sin comprar ni abrir emails
+
+**Campaña**: Reactivación urgente, survey ("¿por qué te fuiste?"), oferta irresistible
+
+---
+
+## Mejores Prácticas con Modificadores
+
+### 1. Empieza con Rangos Amplios, Refina Después
+
+❌ **Mal - Demasiado específico de entrada:**
+```
+Campaña abierta: Exactamente 7 veces en últimos 23 días
+```
+
+✅ **Bien - Empieza amplio:**
+```
+Paso 1: Campaña abierta: Al menos 5 veces en últimos 30 días
+Paso 2: Mide resultados
+Paso 3: Ajusta a "al menos 7 veces" si necesitas más calificación
+```
+
+### 2. Combina Modificadores con Temperatura Nevent
+
+```
+Evento asistido: Al menos 3 veces en últimos 90 días
+Y
+Temperatura Nevent: Es "Caliente" O "Muy Caliente"
+```
+
+**Por qué**: Doble validación de engagement (comportamiento + score predictivo)
+
+### 3. Usa Recencia para Detectar Cambios de Comportamiento
+
+**Ejemplo - Fans que se enfriaron:**
+```
+Gasto en 2023: Mayor que 500€ (sin modificador de recencia)
+Y
+Gasto en últimos 180 días: Menor que 50€ (con modificador)
+```
+
+**Resultado**: Fans VIP históricos que dejaron de gastar → Win-back urgente
+
+### 4. Crea Cohortes Temporales
+
+**Cohort Q1 2024:**
+```
+Compra entre: 01-Ene-2024 y 31-Mar-2024
+Y
+Frecuencia: Al menos 2 compras en ese período
+```
+
+**Uso**: Comparar comportamiento Q1 vs Q2 vs Q3 (análisis de cohortes)
+
+---
+
+## Limitaciones y Consideraciones
+
+### Performance
+
+- Modificadores con frecuencia requieren **GROUP BY** → más costosos computacionalmente
+- Segmentos con 3+ modificadores pueden tardar 5-10 segundos en calcularse
+- **Recomendación**: Usa preview primero antes de ejecutar en 100K+ fans
+
+### Disponibilidad
+
+<Aside type="note">
+Los modificadores están disponibles solo en criterios específicos. Si no ves la opción de agregar modificador, ese criterio no lo soporta.
+</Aside>
+
+**Cómo saber si un criterio soporta modificadores:**
+- En la UI, aparecerá botón "+ Agregar modificador"
+- Si no aparece, el criterio no soporta modificadores
+
+---
+
+## 📊 Tabla de Scoring RFM
+
+Usa esta tabla para clasificar a tus fans en segmentos RFM:
+
+### ¿Qué segmentos RFM existen y cómo actuar en cada uno?
+
+| Segment | Recency | Frequency | Monetary | Acción Recomendada |
+|---------|---------|-----------|----------|-------------------|
+| **Champions** | < 30 días | 5+ eventos | > 500€ | VIP treatment, early access |
+| **Loyal Customers** | < 90 días | 3-5 eventos | 200-500€ | Rewards program, upsell |
+| **Promising** | < 45 días | 2-3 eventos | < 200€ | Bundle offers, payment plans |
+| **At Risk** | > 180 días | 5+ eventos | > 400€ | Win-back agresivo, incentivos |
+| **Can't Lose** | > 120 días | 8+ eventos | > 600€ | Máxima prioridad reactivación |
+| **New Customers** | < 30 días | 1 evento | Cualquier | Onboarding, segunda compra |
+| **Hibernating** | > 365 días | 1-2 eventos | < 100€ | Última oportunidad, limpieza |
+
+---
+
+## 🔗 Próximos Pasos
+
+Ahora que entiendes modificadores y RFM:
+
+1. **[Aplica en Casos de Uso](./casos-uso)** - Ve ejemplos prácticos con modificadores
+2. **[Operadores & Lógica](./operadores-logica)** - Combina modificadores con lógica AND/OR
+3. **[Mejores Prácticas](./mejores-practicas)** - Optimiza tus segmentos RFM
+
+---
+
+**¿Listo para segmentación predictiva con RFM?** 🎯
+
+[6 casos de uso con números reales: desde early bird hasta win-back VIPs →](./casos-uso)

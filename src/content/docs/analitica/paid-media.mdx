@@ -1,0 +1,151 @@
+---
+title: "Métricas de paid media — ROAS campañas eventos | Nevent"
+description: "Mide el ROAS, CPA, CPM y atribución multi-touch de tus campañas de publicidad en Meta y Google para eventos y conciertos. Todo desde Nevent, sin salir de la plataforma."
+sidebar:
+  order: 14
+---
+
+import Schema from '../../../components/Schema.astro';
+import { Aside, CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+<Schema>{`{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Métricas de publicidad de pago para promotores de eventos: ROAS, CPA y atribución",
+  "description": "Aprende a medir la rentabilidad de tus campañas de paid media en Nevent: ROAS, CPA, CPM, CPC y atribución multi-touch para Meta Ads y Google Ads.",
+  "author": { "@type": "Organization", "name": "Nevent", "url": "https://nevent.ai" },
+  "publisher": { "@type": "Organization", "name": "Nevent" },
+  "datePublished": "2026-06-02",
+  "dateModified": "2026-06-02",
+  "about": [
+    { "@type": "Thing", "name": "Paid media analytics" },
+    { "@type": "Thing", "name": "ROAS events" },
+    { "@type": "Thing", "name": "Live music marketing" }
+  ],
+  "mentions": [{ "@type": "SoftwareApplication", "name": "Nevent" }],
+  "audience": { "@type": "Audience", "audienceType": "Live event promoters" }
+}`}</Schema>
+
+:::tip[Definición rápida]
+**Métricas de paid media** son los indicadores que miden el rendimiento de tu publicidad de pago en Meta (Facebook e Instagram) y Google. El más crítico es el **ROAS**: por cada euro invertido en anuncios, ¿cuántos euros en entradas vendes? Con Nevent puedes ver este dato sin necesidad de salir de la plataforma ni cruzar hojas de cálculo.
+:::
+
+# Métricas de publicidad de pago en Nevent
+
+La publicidad de pago es una de las palancas más potentes para vender entradas, pero también una de las más fáciles de malgastar. Sin métricas claras, es difícil saber si estás ganando o perdiendo dinero con tus anuncios. Nevent centraliza las métricas de paid media junto con los datos de venta de entradas para que puedas calcular el ROAS real de cada campaña.
+
+## ¿Qué métricas de paid media puedes medir?
+
+<table>
+  <thead>
+    <tr>
+      <th>Métrica</th>
+      <th>Qué responde</th>
+      <th>Cuándo usarla</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Inversión publicitaria</strong></td>
+      <td>¿Cuánto he gastado en anuncios en total o por campaña?</td>
+      <td>Control de presupuesto</td>
+    </tr>
+    <tr>
+      <td><strong>Impresiones</strong></td>
+      <td>¿Cuántas veces se ha mostrado el anuncio?</td>
+      <td>Medir el alcance de la campaña</td>
+    </tr>
+    <tr>
+      <td><strong>Clics</strong></td>
+      <td>¿Cuántas personas han hecho clic en el anuncio?</td>
+      <td>Medir el interés generado</td>
+    </tr>
+    <tr>
+      <td><strong>CTR</strong></td>
+      <td>¿Qué % de los que ven el anuncio hacen clic?</td>
+      <td>Evaluar la creatividad y el copy del anuncio</td>
+    </tr>
+    <tr>
+      <td><strong>CPM</strong></td>
+      <td>¿Cuánto cuesta conseguir 1.000 impresiones?</td>
+      <td>Comparar el coste del inventario publicitario</td>
+    </tr>
+    <tr>
+      <td><strong>CPC</strong></td>
+      <td>¿Cuánto cuesta cada clic?</td>
+      <td>Evaluar la eficiencia del anuncio</td>
+    </tr>
+    <tr>
+      <td><strong>CPA</strong></td>
+      <td>¿Cuánto cuesta conseguir una conversión (venta)?</td>
+      <td>Medir el coste real por entrada vendida vía anuncios</td>
+    </tr>
+    <tr>
+      <td><strong>ROAS</strong></td>
+      <td>¿Cuántos euros de revenue genera cada euro invertido?</td>
+      <td>Evaluar la rentabilidad global de paid media</td>
+    </tr>
+    <tr>
+      <td><strong>Atribución multi-touch</strong></td>
+      <td>¿Qué combinación de anuncios/canales llevó a la compra?</td>
+      <td>Entender el camino completo hasta la venta</td>
+    </tr>
+    <tr>
+      <td><strong>Comparativa entre creatividades</strong></td>
+      <td>¿Qué anuncio funciona mejor para el mismo público?</td>
+      <td>Optimizar creatividades y mensajes</td>
+    </tr>
+  </tbody>
+</table>
+
+## ¿Qué es el ROAS y por qué es la métrica clave?
+
+El ROAS (Return On Ad Spend) es el ratio entre el revenue generado por una campaña de publicidad y el coste de esa campaña. Un ROAS de 4 significa que por cada euro invertido en anuncios, has vendido entradas por valor de 4 euros.
+
+Para eventos en vivo con venta de entradas, un ROAS mínimo aceptable suele ser 2-3x para cubrir costes. Un ROAS de 5-10x es saludable. Valores superiores a 10x son posibles con audiencias de remarketing muy cualificadas (fans que ya te conocen).
+
+Según la documentación oficial de [Google Ads](https://support.google.com/google-ads/answer/6268637) y [Meta Business Center](https://www.facebook.com/business/help/1438417719786914), el ROAS objetivo varía por sector. En entretenimiento y venta de entradas, los benchmark de referencia suelen ser más altos que en e-commerce genérico porque el público objetivo es más específico.
+
+## ¿Qué es el CPA y cómo se diferencia del ROAS?
+
+- **CPA (Cost Per Acquisition)**: cuánto cuesta en publicidad conseguir una venta. Si gastas 1.000€ en Meta Ads y vendes 50 entradas, tu CPA es 20€ por entrada.
+- **ROAS**: el inverso relativo. Si cada entrada vale 60€ y tu CPA es 20€, tu ROAS es 3 (60/20).
+
+Ambas métricas son complementarias. El CPA te ayuda a decidir si la venta es rentable en absoluto. El ROAS te dice cuánto multiplicas la inversión.
+
+## ¿Qué es la atribución multi-touch?
+
+La atribución multi-touch es la metodología que asigna el crédito de una venta a los diferentes anuncios o canales que el fan vio antes de comprar. En un camino típico de conversión, un fan podría haber visto un anuncio de Meta, luego buscado en Google y finalmente clicado en un email antes de comprar.
+
+Con la atribución de Nevent puedes ver qué combinación de puntos de contacto lleva a más ventas y ajustar el presupuesto hacia los canales que contribuyen más en cada fase del proceso de compra.
+
+## Ejemplo práctico
+
+Imagina que promocionas un festival de reggae en Valencia con un presupuesto de 3.000€ en anuncios. 2.000€ en Meta Ads y 1.000€ en Google Ads. Con las métricas de paid media de Nevent puedes ver que Meta generó un ROAS de 7 (14.000€ en ventas) mientras que Google generó un ROAS de 4 (4.000€ en ventas). Para el próximo evento, puedes reasignar presupuesto hacia Meta con este dato objetivo en la mano.
+
+## Resumen
+
+- El ROAS es la métrica principal de paid media: cuántos euros generas por cada euro invertido
+- El CPA te dice cuánto cuesta convertir un clic en una venta real
+- La atribución multi-touch revela qué combinación de anuncios lleva a más conversiones
+- Comparar creatividades te permite optimizar los anuncios de forma continua
+
+## Siguiente paso
+
+<CardGrid>
+  <LinkCard
+    title="Métricas de tracking y atribución"
+    href="/analitica/tracking-y-atribucion/"
+    description="Clics por enlace, conversión post-clic y revenue atribuido."
+  />
+  <LinkCard
+    title="Preguntárselo a Claude en lenguaje natural"
+    href="/nevent-ai/que-puedes-hacer/paid-media/"
+    description="Consulta el ROAS de tus campañas con una pregunta directa."
+  />
+  <LinkCard
+    title="Volver al hub de analítica"
+    href="/analitica/"
+    description="Ver todas las áreas de métricas disponibles."
+  />
+</CardGrid>

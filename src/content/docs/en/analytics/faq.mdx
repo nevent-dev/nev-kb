@@ -1,0 +1,215 @@
+---
+title: "Frequently asked questions about analytics in Nevent — FAQ"
+description: "Answers to the most common questions about analytics in Nevent: data retention, CSV export, Looker integration, sales forecasting, privacy and more."
+sidebar:
+  order: 18
+---
+
+import Schema from '../../../../components/Schema.astro';
+import { CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+<Schema>{`{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How long does it take for data to appear in Nevent after a sale?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Purchase and access data has a latency of under 5 minutes. Aggregated metrics by event or period are updated daily. Campaign and attribution metrics are updated several times per day."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I export my analytics data to CSV or Excel?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. All results tables in Nevent are exportable to CSV and Excel with a single click. The export respects the filters and dimensions you have applied, so you download exactly the view you need."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I connect Looker, Metabase or Power BI to Nevent?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, via the Nevent data API or through scheduled exports. Direct integration with BI tools such as Looker, Metabase or Power BI requires technical configuration by the promoter's development team."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Nevent have sales forecasting or dynamic pricing recommendations?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not currently. Demand forecasting for future events and automated dynamic pricing recommendations are on the roadmap but are not available in the current version of Nevent."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does Nevent retain my historical data?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Data retention depends on each promoter's contract. The typical period is 24 to 36 months. If you need longer retention, speak to your account manager."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can other promoters see my data in Nevent?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Nevent has a multi-tenant architecture with complete isolation per promoter. Each account can only access its own data. There is no way for another promoter to see your fans, events or campaigns."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between campaign metrics and paid media metrics?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Campaign metrics cover owned channels (email, SMS, WhatsApp). Paid media metrics cover paid channels (Meta Ads, Google Ads). Both can be viewed together in a unified attribution view."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I see metrics in real time while tickets are selling?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Purchase data has a latency of under 5 minutes, enabling near-real-time monitoring of ticket sales during a launch or active campaign."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I know if my emails are reaching the inbox or going to spam?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use Nevent's deliverability metrics: inbox placement rate, sender reputation and spam complaint rate. If inbox placement falls below 85%, your emails are being filtered. You can also use Google Postmaster Tools for additional monitoring."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I compare this month's performance with last month?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Nevent's time filters include a comparison with the previous period option: same month last year, previous quarter, etc. The result is shown in the same table with a percentage change column."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I see metrics broken down by channel (email vs SMS vs WhatsApp)?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Channel is one of the available analysis dimensions. You can break down any metric by channel or compare them in the same view."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is there a limit on the number of metrics I can query?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "There is no limit on the number of queries. For very heavy analyses with large data volumes, the system may indicate the estimated query time before running it — particularly useful when accessing via API."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I see the LTV of each individual fan?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, at the individual fan level within the platform. In aggregated analytics you can see the average LTV for segments or your entire base. The per-fan detail is available in each contact's profile."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens to data when a fan unsubscribes from the newsletter?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The fan is added to the suppression list and Nevent stops sending them commercial communications. Their historical data (purchases, event attendance) is retained for the promoter's internal analysis, in compliance with GDPR."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use Nevent to create monthly performance reports?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The time filters let you select any full calendar month and export data to CSV or Excel. You can also request these reports directly through Nevent's AI assistant with a plain-language question."
+      }
+    }
+  ]
+}`}</Schema>
+
+# Frequently asked questions about analytics in Nevent
+
+Direct answers to the most common questions about how data and metrics work in Nevent.
+
+## How long does it take for data to appear after a sale?
+
+Purchase and access data has a latency of under 5 minutes. Aggregated metrics by event or period are updated daily. Campaign and attribution metrics are updated several times per day.
+
+## Can I export my data to CSV or Excel?
+
+Yes. All results tables in Nevent are exportable to CSV and Excel with a single click. The export respects the filters and dimensions you have applied.
+
+## Can I connect Looker, Metabase or Power BI to Nevent?
+
+Yes, via the Nevent data API or through scheduled exports. Direct integration with BI tools requires technical configuration by the promoter's development team.
+
+## Does Nevent have sales forecasting?
+
+Not currently. Demand forecasting for future events and dynamic pricing recommendations are on the roadmap but are not available in the current version.
+
+## How long does Nevent retain my historical data?
+
+Data retention depends on each promoter's contract. The typical period is 24 to 36 months. Contact your account manager if you need longer retention.
+
+## Can other promoters see my data?
+
+No. Nevent has a multi-tenant architecture with complete isolation. Each account can only access its own data.
+
+## What is the difference between campaign metrics and paid media metrics?
+
+Campaign metrics cover owned channels (email, SMS, WhatsApp). Paid media metrics cover paid channels (Meta Ads, Google Ads). Both can be viewed together in a unified attribution view.
+
+## Can I see metrics in real time during a ticket launch?
+
+Yes. Purchase data has a latency of under 5 minutes, enabling near-real-time monitoring during a launch or active campaign.
+
+## How do I know if my emails are landing in the inbox or in spam?
+
+Use Nevent's deliverability metrics: inbox placement rate, sender reputation and spam complaint rate. If inbox placement falls below 85%, your emails are being filtered. Also see [Google Postmaster Tools](https://postmaster.google.com) for additional monitoring.
+
+## Can I compare this month with last month?
+
+Yes. Nevent's time filters include a comparison with the previous period: same month last year, previous quarter, etc. The result is shown in the same table with a percentage change column.
+
+## Can I see metrics broken down by channel?
+
+Yes. Channel is one of the available analysis dimensions. You can break down any metric by channel or compare them in the same view.
+
+## Is there a limit on how many metrics I can query?
+
+No query limit. For very heavy analyses with large data volumes, the system may indicate the estimated query time before running — particularly useful when accessing via API.
+
+## Can I see the LTV of each individual fan?
+
+Yes, in each contact's profile within the platform. In aggregated analytics you can see the average LTV for segments or your entire base.
+
+## What happens to a fan's data when they unsubscribe?
+
+The fan is added to the suppression list and Nevent stops sending them commercial communications. Their historical data is retained for the promoter's internal analysis, in compliance with GDPR.
+
+## Can I use Nevent to create monthly performance reports?
+
+Yes. Select any full calendar month with the time filters and export to CSV or Excel. You can also request the report directly through the AI assistant with a plain-language question.
+
+## Next step
+
+<CardGrid>
+  <LinkCard
+    title="Analytics hub"
+    href="/en/analytics/"
+    description="View the full catalogue of available metrics."
+  />
+  <LinkCard
+    title="Ask Claude in plain language"
+    href="/en/nevent-ai/what-you-can-do/analytics/"
+    description="Query any metric with a plain-language question."
+  />
+</CardGrid>

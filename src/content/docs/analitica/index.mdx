@@ -1,0 +1,164 @@
+---
+title: "Qué puedes medir con Nevent — Analítica para eventos"
+description: "Descubre las más de 80 métricas que Nevent te permite consultar: eventos, audiencia, campañas, paid media, tracking y deliverability. Todo sin código."
+sidebar:
+  order: 10
+---
+
+import Schema from '../../../components/Schema.astro';
+import { Aside, Card, CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+<Schema>{`{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Qué puedes medir con Nevent — Analítica completa para promotores de eventos",
+  "description": "Catálogo funcional de más de 80 métricas disponibles en Nevent: eventos y entradas, audiencia, campañas, paid media, tracking de enlaces y deliverability.",
+  "author": { "@type": "Organization", "name": "Nevent", "url": "https://nevent.ai" },
+  "publisher": { "@type": "Organization", "name": "Nevent" },
+  "datePublished": "2026-06-02",
+  "dateModified": "2026-06-02",
+  "about": [
+    { "@type": "Thing", "name": "Marketing analytics" },
+    { "@type": "Thing", "name": "Live music events" },
+    { "@type": "Thing", "name": "Event ticketing metrics" }
+  ],
+  "mentions": [{ "@type": "SoftwareApplication", "name": "Nevent" }],
+  "audience": { "@type": "Audience", "audienceType": "Live event promoters" }
+}`}</Schema>
+
+:::tip[Definición rápida]
+**Analítica Nevent** es el conjunto de métricas que puedes consultar sobre tus eventos, tu audiencia, tus campañas y tu publicidad de pago. Más de 80 indicadores disponibles, accesibles desde la admin, vía API o conversando con un asistente de IA en lenguaje natural. Sin código, sin SQL.
+:::
+
+# Qué puedes medir con Nevent
+
+Con Nevent puedes medir todo lo que ocurre en tu negocio de eventos en vivo: cuántas entradas vendiste, a qué velocidad, qué campañas funcionaron mejor, cuánto valen tus fans a largo plazo y si tus emails llegan realmente a la bandeja de entrada.
+
+Esta sección recoge el catálogo completo de métricas disponibles organizadas en 7 áreas.
+
+## ¿Cuántas métricas puedes consultar?
+
+Más de 80 métricas distintas, agrupadas en 7 áreas temáticas. Puedes combinar cualquier métrica con dimensiones de análisis (por fecha, por evento, por canal, por segmento de fan) y aplicar filtros temporales para ver periodos concretos o comparar con el periodo anterior.
+
+## Las 7 áreas de métricas
+
+<table>
+  <thead>
+    <tr>
+      <th>Área</th>
+      <th>Qué mide</th>
+      <th>Para qué sirve</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Eventos y entradas</strong></td>
+      <td>Ocupación, ingresos, velocidad de venta, ticket medio</td>
+      <td>Saber cuándo y cómo vendes</td>
+    </tr>
+    <tr>
+      <td><strong>Audiencia</strong></td>
+      <td>LTV, churn, cohortes, distribución RFM</td>
+      <td>Entender el valor de tu base de fans</td>
+    </tr>
+    <tr>
+      <td><strong>Campañas</strong></td>
+      <td>Open rate, click rate, conversión, revenue atribuido</td>
+      <td>Medir el impacto de cada comunicación</td>
+    </tr>
+    <tr>
+      <td><strong>Paid media</strong></td>
+      <td>ROAS, CPA, CPM, atribución multi-touch</td>
+      <td>Evaluar la rentabilidad de la publicidad</td>
+    </tr>
+    <tr>
+      <td><strong>Tracking y atribución</strong></td>
+      <td>Clics por enlace, conversión post-clic, revenue atribuido</td>
+      <td>Saber qué enlace convierte más</td>
+    </tr>
+    <tr>
+      <td><strong>Deliverability</strong></td>
+      <td>Sender reputation, inbox placement, bounce, spam</td>
+      <td>Asegurar que tus emails llegan</td>
+    </tr>
+    <tr>
+      <td><strong>Agrupación y filtrado</strong></td>
+      <td>Dimensiones de análisis y filtros temporales</td>
+      <td>Cortar los datos como necesites</td>
+    </tr>
+  </tbody>
+</table>
+
+## ¿Cómo accedes a estas métricas?
+
+Los mismos datos están disponibles desde tres canales distintos:
+
+- **Admin web de Nevent** — interfaz visual, sin código, con gráficas y tablas exportables
+- **Conversación con IA** — pregunta en lenguaje natural a Claude o ChatGPT vía MCP
+- **API directa** — para developers que quieren integrar los datos en sus propias herramientas
+
+## Frescura de los datos
+
+- Datos de compras y accesos: latencia inferior a 5 minutos
+- Métricas agregadas (por evento, por periodo): actualizadas a diario
+- Métricas de campañas y atribución: varias actualizaciones al día
+
+## Explora cada área
+
+<CardGrid>
+  <LinkCard
+    title="Eventos y entradas"
+    description="Ocupación, ingresos, velocidad de venta, ticket medio y mix de tipos."
+    href="/analitica/eventos-y-entradas/"
+  />
+  <LinkCard
+    title="Audiencia y fans"
+    description="LTV, churn, cohortes y distribución por segmento RFM."
+    href="/analitica/audiencia/"
+  />
+  <LinkCard
+    title="Campañas"
+    description="Open rate, click rate, conversión y ROAS por campaña y canal."
+    href="/analitica/campanas/"
+  />
+  <LinkCard
+    title="Paid media"
+    description="Inversión, ROAS, CPA, atribución multi-touch para Meta y Google."
+    href="/analitica/paid-media/"
+  />
+  <LinkCard
+    title="Tracking y atribución"
+    description="Clics por enlace, conversión post-clic y revenue atribuido."
+    href="/analitica/tracking-y-atribucion/"
+  />
+  <LinkCard
+    title="Deliverability"
+    description="Sender reputation, inbox placement, bounce y supresiones."
+    href="/analitica/deliverability/"
+  />
+  <LinkCard
+    title="Agrupar y filtrar"
+    description="Dimensiones de análisis y filtros temporales disponibles."
+    href="/analitica/agrupar-y-filtrar/"
+  />
+  <LinkCard
+    title="Preguntas frecuentes"
+    description="Retención de datos, exportación, integraciones y más."
+    href="/analitica/faq/"
+  />
+</CardGrid>
+
+## Siguiente paso
+
+<CardGrid>
+  <LinkCard
+    title="Preguntárselo a Claude en lenguaje natural"
+    href="/nevent-ai/que-puedes-hacer/analitica/"
+    description="Consulta cualquier métrica con una pregunta en lenguaje natural."
+  />
+  <LinkCard
+    title="Ver catálogo de segmentación"
+    href="/audience/motor-segmentacion/"
+    description="Qué puedes usar para construir audiencias y segmentos."
+  />
+</CardGrid>
