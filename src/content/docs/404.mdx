@@ -1,0 +1,44 @@
+---
+title: Página no encontrada
+description: Esta página no existe o se ha movido. Busca lo que necesitas en el Centro de ayuda de Nevent.
+template: splash
+hero:
+  title: Esta página no existe o se ha movido
+  tagline: Puede que la URL haya cambiado o que el contenido haya sido reorganizado. Usa el buscador o los enlaces de abajo para encontrar lo que necesitas.
+  actions:
+    - text: Ir al inicio
+      link: /
+      icon: right-arrow
+      variant: primary
+editUrl: false
+pagefind: false
+sidebar:
+  hidden: true
+---
+
+import { Card, CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+## Contenido más consultado
+
+<CardGrid>
+  <LinkCard
+    title="Motor de Segmentación"
+    description="Crea audiencias ultra específicas basadas en comportamiento, compra y asistencia."
+    href="/segmentacion/motor-segmentacion/"
+  />
+  <LinkCard
+    title="Capacidades de segmentación"
+    description="Catálogo completo de atributos, RFM automático y combinaciones avanzadas."
+    href="/segmentacion/capacidades/"
+  />
+  <LinkCard
+    title="Casos prácticos"
+    description="Ejemplos reales: reactivar fans, early birds, top VIP, carrito abandonado."
+    href="/segmentacion/casos/"
+  />
+  <LinkCard
+    title="Nevent AI"
+    description="Conecta tu CRM de live events con Claude o ChatGPT en 2 minutos."
+    href="/nevent-ai/"
+  />
+</CardGrid>

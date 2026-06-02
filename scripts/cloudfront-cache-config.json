@@ -1,0 +1,83 @@
+{
+  "_comment": "CloudFront cache TTL configuration for help.nevent.ai. Apply during next deployment. See DEPLOYMENT.md for instructions.",
+  "_last_updated": "2026-06-02",
+  "_apply_with": "aws s3 sync with --cache-control per file type, or via CloudFront origin response policies",
+  "rules": [
+    {
+      "pattern": "*.html",
+      "description": "HTML pages — short TTL so content updates propagate quickly",
+      "cache_control": "public, max-age=60, must-revalidate",
+      "s3_sync_flag": "--cache-control 'public, max-age=60, must-revalidate'"
+    },
+    {
+      "pattern": "_astro/*",
+      "description": "Astro hashed assets (JS, CSS) — immutable, served with content hash in filename",
+      "cache_control": "public, max-age=31536000, immutable",
+      "s3_sync_flag": "--cache-control 'public, max-age=31536000, immutable'"
+    },
+    {
+      "pattern": "images/*",
+      "description": "Static images — long TTL, rarely change",
+      "cache_control": "public, max-age=31536000, immutable",
+      "s3_sync_flag": "--cache-control 'public, max-age=31536000, immutable'"
+    },
+    {
+      "pattern": "llms.txt",
+      "description": "LLMs index file — short TTL so AI crawlers pick up updates quickly",
+      "cache_control": "public, max-age=300, must-revalidate",
+      "s3_sync_flag": "--cache-control 'public, max-age=300, must-revalidate'"
+    },
+    {
+      "pattern": "llms-full.txt",
+      "description": "LLMs full content file — same short TTL as llms.txt",
+      "cache_control": "public, max-age=300, must-revalidate",
+      "s3_sync_flag": "--cache-control 'public, max-age=300, must-revalidate'"
+    },
+    {
+      "pattern": "llms-small.txt",
+      "description": "LLMs small content file — same short TTL as llms.txt",
+      "cache_control": "public, max-age=300, must-revalidate",
+      "s3_sync_flag": "--cache-control 'public, max-age=300, must-revalidate'"
+    },
+    {
+      "pattern": "llms-policy.txt",
+      "description": "LLM content policy — daily refresh sufficient",
+      "cache_control": "public, max-age=86400, must-revalidate",
+      "s3_sync_flag": "--cache-control 'public, max-age=86400, must-revalidate'"
+    },
+    {
+      "pattern": "robots.txt",
+      "description": "robots.txt — hourly refresh to pick up crawl rule changes",
+      "cache_control": "public, max-age=3600",
+      "s3_sync_flag": "--cache-control 'public, max-age=3600'"
+    },
+    {
+      "pattern": "sitemap*.xml",
+      "description": "Sitemap files — hourly refresh so crawlers pick up new pages",
+      "cache_control": "public, max-age=3600",
+      "s3_sync_flag": "--cache-control 'public, max-age=3600'"
+    },
+    {
+      "pattern": ".well-known/*",
+      "description": "Well-known files (security.txt, etc.) — daily refresh",
+      "cache_control": "public, max-age=86400",
+      "s3_sync_flag": "--cache-control 'public, max-age=86400'"
+    }
+  ],
+  "implementation_notes": [
+    "These rules are applied during S3 sync using --cache-control flags per file extension/pattern.",
+    "The deployment script (DEPLOYMENT.md, aws-setup.sh) should be updated to pass correct --cache-control per content type.",
+    "CloudFront invalidation (aws cloudfront create-invalidation) should be run after each deploy for HTML files.",
+    "Hashed assets (_astro/*) do NOT need invalidation — new deploy produces new hashes.",
+    "Sample S3 sync command breakdown:",
+    "  aws s3 sync dist/ s3://BUCKET/ --delete \\",
+    "    --exclude '*.html' --exclude 'robots.txt' --exclude 'sitemap*.xml' \\",
+    "    --cache-control 'public, max-age=31536000, immutable'",
+    "  aws s3 sync dist/ s3://BUCKET/ \\",
+    "    --exclude '*' --include '*.html' \\",
+    "    --cache-control 'public, max-age=60, must-revalidate'",
+    "  aws s3 sync dist/ s3://BUCKET/ \\",
+    "    --exclude '*' --include 'robots.txt' --include 'sitemap*.xml' \\",
+    "    --cache-control 'public, max-age=3600'"
+  ]
+}
