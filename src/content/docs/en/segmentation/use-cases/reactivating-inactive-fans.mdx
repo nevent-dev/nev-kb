@@ -1,0 +1,101 @@
+---
+title: "Reactivating high-value inactive fans: how to segment | Nevent"
+description: "How to identify fans who spent heavily in the past but have been inactive for over a year, and reactivate them with a personalised campaign. Practical use case with real ranges."
+sidebar:
+  order: 2
+---
+
+import { Aside, CardGrid, LinkCard } from '@astrojs/starlight/components';
+import Schema from '../../../../../components/Schema.astro';
+
+<Schema>{`
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Reactivating high-value inactive fans: how to segment with Nevent",
+  "description": "How to identify fans who spent heavily in the past but have been inactive for over a year, and reactivate them with a personalised campaign.",
+  "author": { "@type": "Organization", "name": "Nevent", "url": "https://nevent.ai" },
+  "publisher": { "@type": "Organization", "name": "Nevent" },
+  "datePublished": "2026-06-02",
+  "dateModified": "2026-06-02",
+  "about": [
+    { "@type": "Thing", "name": "Audience segmentation" },
+    { "@type": "Thing", "name": "Fan reactivation" },
+    { "@type": "Thing", "name": "Live music events" }
+  ],
+  "audience": { "@type": "Audience", "audienceType": "Live event promoters" }
+}
+`}</Schema>
+
+:::tip[Quick definition]
+**High-value inactive fans**: fans who have historically spent above your average at your events but have not attended for more than twelve months. The segment combines past economic value with recent inactivity to prioritise those who deserve a personalised reactivation effort.
+:::
+
+# Reactivating high-value inactive fans
+
+Your next event is relevant to fans who already know your programme: they have attended previous editions, they have bought tickets, they know what you offer. But some of them have not shown up in a long time. A generic campaign sent to your entire base would lose them in the noise. A targeted campaign — with a familiar tone and perhaps an incentive — can bring them back.
+
+## Situation
+
+You have a consolidated fan base across cities like Madrid, Barcelona or Bilbao. Some fans have not attended any of your events for two or three years. You do not know whether they lost interest, moved city, or simply forgot about you. But you do know one key fact: when they were active, they spent well. They are rock, electronic or indie fans who, when they attended, bought tickets frequently and sometimes upgraded to VIP.
+
+Reactivating one of these fans costs far less than acquiring a new one. And when they return, they tend to return to their previous purchasing patterns.
+
+## When should you use this use case?
+
+Use this segment when you launch an event that connects with your historical programme and you want an initial reactivation wave before opening up to cold audiences. It is especially useful if you have not run a reactivation campaign for some time, or if your base has grown significantly and you have high-value fans buried in the inactive tier.
+
+## How the segment is built
+
+- Fans whose total historical spend exceeds the economic threshold you define based on your portfolio (for example, the 60th or 70th percentile of your spend distribution)
+- Fans who have not attended any of your events for more than twelve months
+- Both conditions must be met simultaneously (AND logic)
+- Optional: only fans with a confirmed and active email address, to avoid wasting sends on invalid addresses
+
+## What result should you expect?
+
+A compact audience — typically between 3% and 8% of your total base — of high-value fans who are at risk of being lost permanently. It is small enough to send them a carefully crafted, personalised email, and significant enough to move the needle on revenue.
+
+Open rates for these campaigns tend to exceed your general base average, because the fan recognises your brand even after a long period of inactivity. Conversion to purchase depends on the incentive and the relevance of the event, but in well-maintained bases it is common to see between 8% and 20% conversion among those who open.
+
+With an audience of, for example, 400 fans in this segment, recovering 40–80 attendees from a single campaign is a reasonable result with high revenue impact if your event's average ticket price is above €30–50.
+
+## Variations
+
+- Raise the economic threshold to focus only on your top 1% of historical spenders and send them a highly personalised proposition
+- Shorten the time window to six months to capture fans at more recent risk, before they go fully cold
+- Extend the window to eighteen or twenty-four months to sweep very dormant fans with a "are you still there?" campaign
+- Add a genre preference filter if you have that data and the event is niche (rock, electronic, jazz...)
+- Exclude those who already have a ticket for the current event so you do not send them an unnecessary sales message
+
+## When NOT to use this use case
+
+- If your base is less than six months old: you will not have enough historical data for the spend threshold to be meaningful
+- If the event you are launching is very different from your historical programme: inactive fans who know your previous catalogue may not be the right audience
+- If you have already run a reactivation campaign in the last two or three months: you will saturate the same audience and reduce the effectiveness of subsequent attempts
+
+## Summary
+
+- The segment combines high historical spend and prolonged inactivity (more than twelve months)
+- Typically represents 3%–8% of a fan base: a small but high-value audience
+- Open rate and conversion above the general average when the event connects with the historical programme
+- The most useful variations are adjusting the economic threshold and the time window to match your objective
+
+## Next step
+
+<CardGrid>
+  <LinkCard
+    title="Automatic RFM: fan profiles"
+    href="/en/segmentation/capabilities/rfm/"
+    description="Understand the At Risk and Can't Lose Them profiles in the RFM model, the foundation of this use case."
+  />
+  <LinkCard
+    title="Early buyers for Early Bird"
+    href="/en/segmentation/use-cases/early-buyers/"
+    description="The next use case in the catalogue: how to activate your fastest buyers."
+  />
+</CardGrid>
+
+---
+
+*The effectiveness of reactivation campaigns in retention marketing is documented in multiple studies. For a reference framework, see the <a href="https://hbr.org/2014/10/the-value-of-keeping-the-right-customers" target="_blank" rel="noopener noreferrer">Harvard Business Review research on the value of retaining existing customers versus acquiring new ones</a>.*

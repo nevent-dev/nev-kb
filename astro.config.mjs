@@ -212,6 +212,19 @@ export default defineConfig({
 								{ label: 'Combinaciones avanzadas', slug: 'segmentacion/capacidades/combinaciones' },
 							],
 						},
+						{
+							label: 'Casos prácticos',
+							collapsed: false,
+							items: [
+								{ label: 'Índice', slug: 'segmentacion/casos' },
+								{ label: 'Reactivar fans inactivos', slug: 'segmentacion/casos/reactivar-fans-inactivos' },
+								{ label: 'Fans tempranos (early bird)', slug: 'segmentacion/casos/fans-tempranos' },
+								{ label: 'Audiencia geolocalizada', slug: 'segmentacion/casos/audiencia-geolocalizada' },
+								{ label: 'Top RFM y VIPs', slug: 'segmentacion/casos/top-rfm-vip' },
+								{ label: 'Carrito abandonado', slug: 'segmentacion/casos/carrito-abandonado' },
+								{ label: 'Audiencia con preferencia', slug: 'segmentacion/casos/audiencia-con-preferencia' },
+							],
+						},
 					],
 				},
 				// ─── Analítica — ES ─────────────────────────────────────────────
@@ -227,6 +240,19 @@ export default defineConfig({
 						{ label: 'Deliverability', slug: 'analitica/deliverability' },
 						{ label: 'Cómo agrupar y filtrar', slug: 'analitica/agrupar-y-filtrar' },
 						{ label: 'FAQ', slug: 'analitica/faq' },
+						{
+							label: 'Casos prácticos',
+							collapsed: false,
+							items: [
+								{ label: 'Índice', slug: 'analitica/casos' },
+								{ label: 'ROAS últimos 30 días', slug: 'analitica/casos/roas-ultimos-30-dias' },
+								{ label: 'Top eventos por revenue', slug: 'analitica/casos/top-eventos-revenue' },
+								{ label: 'Open rate diario', slug: 'analitica/casos/open-rate-diario' },
+								{ label: 'Email por tier', slug: 'analitica/casos/email-por-tier' },
+								{ label: 'Atribución por canal', slug: 'analitica/casos/atribucion-por-canal' },
+								{ label: 'Cohortes primera compra', slug: 'analitica/casos/cohortes-primera-compra' },
+							],
+						},
 					],
 				},
 				// ─── Nevent AI — ES ─────────────────────────────────────────────
@@ -317,6 +343,19 @@ export default defineConfig({
 								{ label: 'Advanced combinations', link: '/en/segmentation/capabilities/advanced-combinations/' },
 							],
 						},
+						{
+							label: 'Use cases',
+							collapsed: false,
+							items: [
+								{ label: 'Index', link: '/en/segmentation/use-cases/' },
+								{ label: 'Reactivating inactive fans', link: '/en/segmentation/use-cases/reactivating-inactive-fans/' },
+								{ label: 'Early buyers', link: '/en/segmentation/use-cases/early-buyers/' },
+								{ label: 'Geolocated audience', link: '/en/segmentation/use-cases/geolocated-audience/' },
+								{ label: 'Top RFM and VIPs', link: '/en/segmentation/use-cases/top-rfm-vip/' },
+								{ label: 'Abandoned cart', link: '/en/segmentation/use-cases/abandoned-cart/' },
+								{ label: 'Audience with preference', link: '/en/segmentation/use-cases/audience-with-preference/' },
+							],
+						},
 					],
 				},
 				// ─── Analytics — EN ─────────────────────────────────────────────
@@ -332,6 +371,19 @@ export default defineConfig({
 						{ label: 'Deliverability', link: '/en/analytics/deliverability/' },
 						{ label: 'Grouping and filtering', link: '/en/analytics/grouping-and-filtering/' },
 						{ label: 'FAQ', link: '/en/analytics/faq/' },
+						{
+							label: 'Use cases',
+							collapsed: false,
+							items: [
+								{ label: 'Index', link: '/en/analytics/use-cases/' },
+								{ label: 'ROAS last 30 days', link: '/en/analytics/use-cases/roas-last-30-days/' },
+								{ label: 'Top events by revenue', link: '/en/analytics/use-cases/top-events-revenue/' },
+								{ label: 'Daily open rate', link: '/en/analytics/use-cases/daily-open-rate/' },
+								{ label: 'Email usage by tier', link: '/en/analytics/use-cases/email-usage-by-tier/' },
+								{ label: 'Attribution by channel', link: '/en/analytics/use-cases/attribution-by-channel/' },
+								{ label: 'Cohorts first purchase', link: '/en/analytics/use-cases/cohorts-first-purchase/' },
+							],
+						},
 					],
 				},
 				// ─── Nevent AI — EN ─────────────────────────────────────────────

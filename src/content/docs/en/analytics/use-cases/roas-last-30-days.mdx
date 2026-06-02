@@ -1,0 +1,97 @@
+---
+title: "ROAS last 30 days: how to measure it for live events | Nevent"
+description: "Calculate how much revenue each euro invested in paid advertising generates over the last 30 days. Practical ROAS guide for live music event promoters."
+sidebar:
+  order: 51
+---
+
+import Schema from '../../../../../components/Schema.astro';
+import { Aside, CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+<Schema>{`{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "ROAS last 30 days: how to measure it for live events",
+  "description": "Learn how to calculate the ROAS of your paid media campaigns over the last 30 days as a live event promoter: what is measured, what result to expect and when to use it.",
+  "author": { "@type": "Organization", "name": "Nevent", "url": "https://nevent.ai" },
+  "publisher": { "@type": "Organization", "name": "Nevent" },
+  "datePublished": "2026-06-02",
+  "dateModified": "2026-06-02",
+  "about": [
+    { "@type": "Thing", "name": "ROAS paid media" },
+    { "@type": "Thing", "name": "Marketing analytics" },
+    { "@type": "Thing", "name": "Live music events" }
+  ],
+  "audience": { "@type": "Audience", "audienceType": "Live event promoters" }
+}`}</Schema>
+
+:::tip[Quick definition]
+**ROAS** (Return on Ad Spend): how many euros of ticket revenue you generate for every euro you invest in paid advertising. A ROAS of 4 means that for every €1 spent on ads, you recover €4 in sales. It is the most direct indicator of the profitability of your advertising spend.
+:::
+
+# ROAS last 30 days: how to measure it for your events
+
+## Business question
+
+"How much revenue am I generating for every euro invested in paid advertising over the last month?"
+
+This question comes up in the monthly report, before deciding next month's budget or when you need to justify advertising spend to your team or investors. Without it, you are flying blind.
+
+## How is ROAS measured over 30 days?
+
+All your paid media campaigns active in the last 30 days are taken, their attributed revenue is summed together with the total cost invested, and the first is divided by the second. The result is your average ROAS for the period.
+
+The formula is straightforward: **attributed revenue ÷ advertising cost = ROAS**. If you have invested €5,000 and generated €24,000 in attributed sales, your ROAS is 4.8.
+
+## What result should you expect?
+
+The result is a single number that summarises the profitability of your month. Accompanied by three supporting figures: total attributed revenue, total cost invested and the number of active campaigns contributing to the calculation.
+
+The exact value depends on your event type, channel and market. As an indicative reference, well-optimised live music promoters tend to operate in ranges between 3 and 6. Above that range the campaign is highly efficient; below 2 it is worth reviewing targeting and creatives before continuing to invest.
+
+For broader context on ROAS benchmarks in digital advertising, the <a href="https://support.google.com/google-ads/answer/6268637" target="_blank" rel="noopener noreferrer">Google Ads official documentation on target ROAS</a> provides a useful methodology reference.
+
+## When does this use case make sense?
+
+- **Monthly reports to management** — the month's ROAS is the KPI that summarises whether the advertising investment was worthwhile.
+- **Budget decisions** — before allocating next month's budget, you need to know whether the previous month was profitable.
+- **Justifying investment** — if someone asks "why are we spending X on ads?", ROAS is your best argument.
+- **Identifying campaigns to pause** — a low ROAS on a specific campaign is the clearest signal that something is not working.
+
+## When NOT to use this case
+
+- If you have just launched a campaign with fewer than 7 days active: early ROAS is not representative, because attribution is not yet complete.
+- If your campaign objective is branding or awareness rather than direct conversion: in that case, ROAS is not the right metric.
+
+## Useful variations
+
+- **Breakdown by channel** — seeing ROAS separately for Meta Ads, Google Ads, TikTok and other channels lets you identify which is most efficient for your events.
+- **Breakdown by event** — if you have several campaigns active for different events, compare ROAS by event to see which is performing best.
+- **Comparison with the previous month** — a ROAS falling month on month is a warning signal; one rising confirms you are optimising well.
+- **Filter by campaign type** — separating prospecting campaigns from retargeting campaigns typically reveals very significant ROAS differences.
+
+## Summary
+
+- ROAS over the last 30 days is the quickest summary of your advertising profitability.
+- It is calculated by dividing attributed revenue by advertising cost for the period.
+- Use it in monthly reports, before making budget decisions and to identify campaigns that need optimisation.
+
+## Next step
+
+<CardGrid>
+  <LinkCard
+    title="Ask Claude in plain language"
+    href="/en/nevent-ai/what-you-can-do/analytics/"
+    description="Get your last 30 days ROAS with a plain-language question."
+  />
+  <LinkCard
+    title="A5 — Attribution by marketing channel"
+    href="/en/analytics/use-cases/attribution-by-channel/"
+    description="Which channels generate the most revenue and how to compare their performance."
+  />
+  <LinkCard
+    title="Back to use cases hub"
+    href="/en/analytics/use-cases/"
+    description="All available analytics use cases."
+  />
+</CardGrid>
