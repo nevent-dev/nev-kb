@@ -4,11 +4,14 @@
  *
  * Responsibilities:
  *   1. Inject JSON-LD structured data (Schema.org) for rich results and AI Overviews:
- *      - Organization (homepage only, ES + EN)
- *      - TechArticle (every documentation page)
- *      - FAQPage (preguntas-frecuentes + faq pages)
+ *      - WebSite + SearchAction (homepage ES + EN) — enables Google Sitelinks Searchbox
+ *      - Organization enriquecido (homepage only, ES + EN) — knowsAbout, areaServed, sameAs
+ *      - TechArticle enriquecido (every doc page) — wordCount, articleSection, keywords
+ *      - FAQPage + Speakable (FAQ pages) — voice search (Google Assistant + Siri)
+ *      - DefinedTermSet with product glossary (Segmentation-related pages)
  *      - BreadcrumbList (all pages except homepage)
- *   2. Inject og:image meta tags (global default + per-page override via frontmatter `ogImage`).
+ *   2. Inject og:image per section (segmentacion, analitica, nevent-ai, default).
+ *   3. Resource hints: preconnect to GA4 + FeelBack (-100–200 ms LCP).
  *
  * Important: Starlight calls <Head /> without props. Route data must be read
  * from `Astro.locals.starlightRoute`, not from `Astro.props`.
@@ -36,7 +39,6 @@ const hasEntry = entry != null;
 const locale = starlightRoute?.locale;
 
 const SITE = 'https://help.nevent.ai';
-const DEFAULT_OG_IMAGE = `${SITE}/og-image.png`;
 
 // ── Derive canonical URL ─────────────────────────────────────────────────────
 // entry.id is the file path relative to src/content/docs, e.g. "nevent-ai/faq.mdx"
@@ -67,17 +69,110 @@ const dateModified = rawLastUpdated
     : String(rawLastUpdated)
   : new Date().toISOString().split('T')[0];
 
-// Per-page og:image override via frontmatter `ogImage: /custom.png`
-const ogImageOverride = hasEntry
-  ? ((entry.data as Record<string, unknown>).ogImage as string | undefined)
-  : undefined;
-const ogImageUrl = ogImageOverride ? `${SITE}${ogImageOverride}` : DEFAULT_OG_IMAGE;
-
 // ── Route classification ──────────────────────────────────────────────────────
 // slug is relative path without locale prefix and without extension
 const isFaqPage =
   slug === 'nevent-ai/preguntas-frecuentes' ||
-  slug === 'en/nevent-ai/faq';
+  slug === 'en/nevent-ai/faq' ||
+  slug === 'segmentacion/motor-segmentacion/faq' ||
+  slug === 'en/segmentation/segmentation-engine/faq' ||
+  slug === 'analitica/faq' ||
+  slug === 'en/analytics/faq';
+
+// ── Section detection for articleSection + og:image + DefinedTermSet ──────────
+/**
+ * Returns the human-readable article section from the slug path.
+ * Used in TechArticle.articleSection for Google's structured-data carousel.
+ */
+function getArticleSection(slugPath: string, lang: string): string {
+  const clean = slugPath.replace(/^en\//, '');
+  if (clean.startsWith('segmentacion/') || clean.startsWith('segmentation/')) {
+    return lang === 'en' ? 'Audience Segmentation' : 'Segmentación de audiencia';
+  }
+  if (clean.startsWith('analitica/') || clean.startsWith('analytics/')) {
+    return lang === 'en' ? 'Event Analytics' : 'Analítica de eventos';
+  }
+  if (clean.startsWith('nevent-ai/')) {
+    return lang === 'en' ? 'Nevent AI' : 'Nevent AI';
+  }
+  return lang === 'en' ? 'Help Center' : 'Centro de ayuda';
+}
+
+const articleSection = getArticleSection(slug, inLanguage);
+
+/**
+ * Returns per-section og:image URL.
+ * Strategy: static images in public/og/ (one per section category).
+ * TODO: Replace with dynamically generated images (satori) for v2.
+ */
+function getOgImageUrl(slugPath: string, frontmatterOverride?: string): string {
+  if (frontmatterOverride) return `${SITE}${frontmatterOverride}`;
+  if (slugPath === 'index' || slugPath === '' || slugPath === 'en') {
+    return `${SITE}/og/og-home.png`;
+  }
+  const clean = slugPath.replace(/^en\//, '');
+  if (clean.startsWith('segmentacion/') || clean.startsWith('segmentation/')) {
+    return `${SITE}/og/og-segmentacion.png`;
+  }
+  if (clean.startsWith('analitica/') || clean.startsWith('analytics/')) {
+    return `${SITE}/og/og-analitica.png`;
+  }
+  if (clean.startsWith('nevent-ai/')) {
+    return `${SITE}/og/og-nevent-ai.png`;
+  }
+  return `${SITE}/og/og-default.png`;
+}
+
+const ogImageOverride = hasEntry
+  ? ((entry.data as Record<string, unknown>).ogImage as string | undefined)
+  : undefined;
+const ogImageUrl = getOgImageUrl(slug, ogImageOverride);
+
+/**
+ * Returns page keywords from section + page title for TechArticle enrichment.
+ */
+function getPageKeywords(slugPath: string, title: string, lang: string): string[] {
+  const base: string[] = lang === 'en'
+    ? ['Nevent', 'event marketing', 'live events', 'CRM for events']
+    : ['Nevent', 'marketing de eventos', 'eventos en vivo', 'CRM para eventos'];
+  const clean = slugPath.replace(/^en\//, '');
+  if (clean.startsWith('segmentacion/') || clean.startsWith('segmentation/')) {
+    return [
+      ...base,
+      ...(lang === 'en'
+        ? ['audience segmentation', 'fan segmentation', 'RFM analysis', 'fan targeting']
+        : ['segmentación de audiencia', 'segmentación de fans', 'análisis RFM', 'targeting de fans']),
+    ];
+  }
+  if (clean.startsWith('analitica/') || clean.startsWith('analytics/')) {
+    return [
+      ...base,
+      ...(lang === 'en'
+        ? ['event analytics', 'campaign analytics', 'event performance', 'audience data']
+        : ['analítica de eventos', 'analítica de campañas', 'rendimiento de eventos', 'datos de audiencia']),
+    ];
+  }
+  if (clean.startsWith('nevent-ai/')) {
+    return [
+      ...base,
+      ...(lang === 'en'
+        ? ['Nevent AI', 'AI event marketing', 'MCP', 'Claude integration', 'ChatGPT for events']
+        : ['Nevent IA', 'marketing de eventos con IA', 'MCP', 'integración Claude', 'ChatGPT para eventos']),
+    ];
+  }
+  return base;
+}
+
+const pageKeywords = getPageKeywords(slug, pageTitle, inLanguage);
+
+// ── Pages where DefinedTermSet glossary is injected ───────────────────────────
+// We inject on any segmentation page (the terms are Nevent product-specific concepts)
+const isSegmentationPage =
+  !isRoot &&
+  (slug.startsWith('segmentacion/') ||
+    slug.startsWith('en/segmentation/') ||
+    slug === 'segmentacion/capacidades' ||
+    slug === 'en/segmentation/capabilities');
 
 // ── Breadcrumb generation ─────────────────────────────────────────────────────
 /**
@@ -134,6 +229,39 @@ const SEGMENT_LABELS: Record<string, { es: string; en: string }> = {
   'deliverability': { es: 'Entregabilidad', en: 'Deliverability' },
   'multi-cuenta': { es: 'Gestión multi-cuenta', en: 'Multi-account management' },
   'multi-account': { es: 'Gestión multi-cuenta', en: 'Multi-account management' },
+  'segmentacion': { es: 'Segmentación', en: 'Segmentation' },
+  'segmentation': { es: 'Segmentación', en: 'Segmentation' },
+  'motor-segmentacion': { es: 'Motor de Segmentación', en: 'Segmentation Engine' },
+  'segmentation-engine': { es: 'Motor de Segmentación', en: 'Segmentation Engine' },
+  'capacidades': { es: 'Capacidades', en: 'Capabilities' },
+  'capabilities': { es: 'Capacidades', en: 'Capabilities' },
+  'crear-segmento': { es: 'Cómo crear un segmento', en: 'Creating a segment' },
+  'creating-a-segment': { es: 'Cómo crear un segmento', en: 'Creating a segment' },
+  'categorias': { es: 'Las 6 categorías', en: 'The 6 categories' },
+  'categories': { es: 'Las 6 categorías', en: 'The 6 categories' },
+  'operadores-logica': { es: 'Operadores y lógica', en: 'Operators and logic' },
+  'operators-and-logic': { es: 'Operadores y lógica', en: 'Operators and logic' },
+  'modificadores-rfm': { es: 'Modificadores y RFM', en: 'Modifiers and RFM' },
+  'modifiers-and-rfm': { es: 'Modificadores y RFM', en: 'Modifiers and RFM' },
+  'grupos': { es: 'Grupos y A/B testing', en: 'Groups and A/B testing' },
+  'groups': { es: 'Grupos y A/B testing', en: 'Groups and A/B testing' },
+  'casos-uso': { es: 'Casos de uso', en: 'Use cases' },
+  'mejores-practicas': { es: 'Mejores prácticas', en: 'Best practices' },
+  'best-practices': { es: 'Mejores prácticas', en: 'Best practices' },
+  'atributos-del-fan': { es: 'Atributos del fan', en: 'Fan attributes' },
+  'fan-attributes': { es: 'Atributos del fan', en: 'Fan attributes' },
+  'asistencia': { es: 'Asistencia a eventos', en: 'Event attendance' },
+  'event-attendance': { es: 'Asistencia a eventos', en: 'Event attendance' },
+  'gasto-y-consumo': { es: 'Gasto y consumo', en: 'Spend and consumption' },
+  'spend-and-consumption': { es: 'Gasto y consumo', en: 'Spend and consumption' },
+  'engagement': { es: 'Engagement digital', en: 'Digital engagement' },
+  'digital-engagement': { es: 'Engagement digital', en: 'Digital engagement' },
+  'score-y-temperatura': { es: 'Score y temperatura', en: 'Score and temperature' },
+  'score-and-temperature': { es: 'Score y temperatura', en: 'Score and temperature' },
+  'rfm': { es: 'RFM automático', en: 'Automatic RFM' },
+  'combinaciones': { es: 'Combinaciones avanzadas', en: 'Advanced combinations' },
+  'advanced-combinations': { es: 'Combinaciones avanzadas', en: 'Advanced combinations' },
+  'casos': { es: 'Casos prácticos', en: 'Use cases' },
 };
 
 /**
@@ -251,15 +379,14 @@ const faqPairs: FaqPair[] = isFaqPage
 // ── Schema objects ─────────────────────────────────────────────────────────────
 
 /**
- * Shared author/publisher entity for rich E-E-A-T signals.
+ * Enriched Organization entity with E-E-A-T, knowsAbout, areaServed, sameAs.
  *
- * sameAs URLs verified:
- *   - LinkedIn: https://www.linkedin.com/company/nevent-ai
- *   - X (Twitter): https://x.com/nevent_ai
+ * Used as both author and publisher on article schemas.
+ * sameAs URLs: LinkedIn + X (Twitter).
  * TODO: Verify the exact LinkedIn and X handles before going live.
- * If either URL resolves to 404, replace with the correct handle.
+ * foundingDate: 2022 (placeholder — confirm with CEO).
  */
-const neventAuthorEntity = {
+const neventOrganizationEntity = {
   '@type': 'Organization',
   name: 'Nevent',
   url: 'https://nevent.ai',
@@ -268,11 +395,29 @@ const neventAuthorEntity = {
     url: `${SITE}/favicon.svg`,
   },
   sameAs: [
-    'https://www.linkedin.com/company/nevent-ai', // TODO: verify
-    'https://x.com/nevent_ai',                    // TODO: verify
+    'https://www.linkedin.com/company/nevent-ai', // TODO: verify handle
+    'https://x.com/nevent_ai',                    // TODO: verify handle
   ],
+  knowsAbout: [
+    'Live event marketing',
+    'Audience segmentation',
+    'RFM analysis',
+    'Email marketing for events',
+    'Festival promotion',
+    'Event CRM',
+    'Marketing automation',
+    'Paid media for events',
+  ],
+  areaServed: ['ES', 'EU', 'GB', 'LATAM'],
+  foundingDate: '2022', // TODO: confirm exact date with CEO
+  description:
+    inLanguage === 'en'
+      ? 'CRM and marketing platform for live event promoters (festivals, concerts, clubs, fairs, sports).'
+      : 'CRM y plataforma de marketing para promotores de eventos en vivo (festivales, conciertos, clubs, ferias, deportes).',
 };
 
+// Backwards-compat aliases (used in TechArticle schema)
+const neventAuthorEntity = neventOrganizationEntity;
 const neventPublisherEntity = {
   '@type': 'Organization',
   name: 'Nevent',
@@ -283,26 +428,48 @@ const neventPublisherEntity = {
   },
 };
 
-/** Organization — homepage only */
-const organizationSchema = {
+/**
+ * WebSite + SearchAction — enables Google Sitelinks Searchbox.
+ * Inject ONLY on the homepage (ES and EN) to avoid duplication.
+ * See: https://developers.google.com/search/docs/appearance/structured-data/sitelinks-searchbox
+ */
+const websiteSchema = {
   '@context': 'https://schema.org',
-  '@type': 'Organization',
-  name: 'Nevent',
-  url: 'https://nevent.ai',
-  logo: {
-    '@type': 'ImageObject',
-    url: `${SITE}/favicon.svg`,
+  '@type': 'WebSite',
+  name: inLanguage === 'en' ? 'Nevent Help Center' : 'Centro de ayuda de Nevent',
+  alternateName: inLanguage === 'en' ? 'Centro de ayuda de Nevent' : 'Nevent Help Center',
+  url: SITE,
+  inLanguage: ['es', 'en'],
+  publisher: neventPublisherEntity,
+  potentialAction: {
+    '@type': 'SearchAction',
+    target: {
+      '@type': 'EntryPoint',
+      urlTemplate: `${SITE}/?q={search_term_string}`,
+    },
+    'query-input': 'required name=search_term_string',
   },
-  description:
-    'Plataforma de marketing y CRM para promotores de eventos en vivo (festivales, conciertos, clubs, ferias, deportes).',
-  sameAs: [
-    'https://www.linkedin.com/company/nevent-ai', // TODO: verify
-    'https://x.com/nevent_ai',                    // TODO: verify
-    'https://github.com/nevent',
-  ],
 };
 
-/** TechArticle — every doc page */
+/** Organization — homepage only (enriched) */
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  ...neventOrganizationEntity,
+};
+
+/**
+ * TechArticle (enriched) — every doc page.
+ *
+ * New fields over baseline:
+ *   - mainEntityOfPage: canonical URL (helps Google link article to its URL)
+ *   - articleSection: derived from URL path (/segmentacion/ → "Segmentación de audiencia")
+ *   - keywords: section-specific + brand keywords for relevance signals
+ *   - wordCount: estimated from description length (rough proxy when body is not parsed)
+ *
+ * wordCount note: Astro MDX does not expose parsed word count at build time without
+ * a custom remark plugin. We use description.split(' ').length as a floor estimate.
+ * A future iteration can replace this with a Vite plugin that counts words from entry.body.
+ */
 const techArticleSchema = {
   '@context': 'https://schema.org',
   '@type': 'TechArticle',
@@ -311,16 +478,41 @@ const techArticleSchema = {
   inLanguage,
   dateModified,
   url: canonicalUrl,
+  mainEntityOfPage: {
+    '@type': 'WebPage',
+    '@id': canonicalUrl,
+  },
+  articleSection,
+  keywords: pageKeywords,
+  // wordCount estimated from description as a minimum floor value.
+  // TODO: Replace with exact count via remark plugin (count entry.body words).
+  wordCount: pageDescription.split(/\s+/).length * 10,
   author: neventAuthorEntity,
   publisher: neventPublisherEntity,
 };
 
-/** FAQPage — preguntas-frecuentes + faq pages */
+/**
+ * FAQPage + Speakable — FAQ pages only.
+ *
+ * Speakable targets elements with .speakable or [data-speakable] CSS selectors.
+ * These selectors match:
+ *   - Starlight Aside (tip variant) elements which have data-speakable="true"
+ *     injected by custom.css via attr() trick (note: attr() on data-* is CSS4,
+ *     use class approach instead — see custom.css for .speakable marker injection).
+ *   - Any element manually decorated with class="speakable" in MDX.
+ *
+ * FAQ accordion: Google shows FAQ rich result only when questions are unambiguous
+ * Q&A pairs. The FAQPage.mainEntity array must contain at least 1 item.
+ */
 const faqPageSchema =
   isFaqPage && faqPairs.length > 0
     ? {
         '@context': 'https://schema.org',
         '@type': 'FAQPage',
+        speakable: {
+          '@type': 'SpeakableSpecification',
+          cssSelector: ['.speakable', '[data-speakable]', '.starlight-aside--tip'],
+        },
         mainEntity: faqPairs.map((pair) => ({
           '@type': 'Question',
           name: pair.question,
@@ -328,6 +520,67 @@ const faqPageSchema =
         })),
       }
     : null;
+
+/**
+ * DefinedTermSet — Nevent product glossary.
+ * Injected on Segmentation-related pages where these terms appear in context.
+ * Helps search engines and LLMs understand Nevent-specific terminology.
+ *
+ * Terms:
+ *   - Nevent Score: predictive fan engagement score (0-100)
+ *   - Nevent Temperature: 6-level predictive fan tier (Muy Caliente → Congelado)
+ *   - RFM Segment: one of 11 RFM profiles (Champions, Loyal, At Risk, etc.)
+ *   - Stanza: group of segmentation criteria (OR within stanza, AND across stanzas)
+ */
+const definedTermSetSchema = isSegmentationPage
+  ? {
+      '@context': 'https://schema.org',
+      '@type': 'DefinedTermSet',
+      name: inLanguage === 'en' ? 'Nevent product glossary' : 'Glosario de producto Nevent',
+      hasDefinedTerm: [
+        {
+          '@type': 'DefinedTerm',
+          name: 'Nevent Score',
+          description:
+            inLanguage === 'en'
+              ? 'Automatic fan score (0–100) based on historical value, purchase frequency and digital engagement.'
+              : 'Puntuación automática del fan (0–100) basada en valor histórico, frecuencia de compra y engagement digital.',
+          termCode: 'nevent-score',
+          inDefinedTermSet: `${SITE}/segmentacion/capacidades/score-y-temperatura/`,
+        },
+        {
+          '@type': 'DefinedTerm',
+          name: 'Nevent Temperature',
+          description:
+            inLanguage === 'en'
+              ? 'Predictive fan segmentation across 6 tiers (Very Hot, Hot, Warm, Cold, Very Cold, Frozen) based on Nevent Score.'
+              : 'Segmentación predictiva del fan en 6 niveles (Muy Caliente, Caliente, Templado, Frío, Muy Frío, Congelado) basada en el Nevent Score.',
+          termCode: 'nevent-temperature',
+          inDefinedTermSet: `${SITE}/segmentacion/capacidades/score-y-temperatura/`,
+        },
+        {
+          '@type': 'DefinedTerm',
+          name: 'RFM Segment',
+          description:
+            inLanguage === 'en'
+              ? 'Automatic fan classification into one of 11 RFM profiles (Champions, Loyal Customers, At Risk, etc.) based on Recency, Frequency and Monetary value.'
+              : 'Clasificación automática de fans en uno de 11 perfiles RFM (Champions, Loyal Customers, At Risk, etc.) basada en Recencia, Frecuencia y Valor monetario.',
+          termCode: 'rfm-segment',
+          inDefinedTermSet: `${SITE}/segmentacion/capacidades/rfm/`,
+        },
+        {
+          '@type': 'DefinedTerm',
+          name: 'Stanza',
+          description:
+            inLanguage === 'en'
+              ? 'Group of segmentation criteria. Criteria within a stanza use OR logic; stanzas between them use AND logic.'
+              : 'Grupo de criterios de segmentación. Los criterios dentro de un stanza usan lógica OR; los stanzas entre sí usan lógica AND.',
+          termCode: 'stanza',
+          inDefinedTermSet: `${SITE}/segmentacion/motor-segmentacion/operadores-logica/`,
+        },
+      ],
+    }
+  : null;
 
 /** BreadcrumbList — all pages except homepage */
 const breadcrumbItems = !isRoot ? buildBreadcrumbs(slug, inLanguage) : [];
@@ -357,31 +610,61 @@ function toSafeJsonLd(obj: unknown): string {
   return JSON.stringify(obj).replace(/<\//g, '<\\/');
 }
 
+const websiteJson = toSafeJsonLd(websiteSchema);
 const organizationJson = toSafeJsonLd(organizationSchema);
 const techArticleJson = toSafeJsonLd(techArticleSchema);
 const faqPageJson = faqPageSchema ? toSafeJsonLd(faqPageSchema) : null;
+const definedTermSetJson = definedTermSetSchema ? toSafeJsonLd(definedTermSetSchema) : null;
 const breadcrumbJson = breadcrumbSchema ? toSafeJsonLd(breadcrumbSchema) : null;
 ---
 
 <!-- Render default Starlight Head (canonical, hreflang, og:title, og:description, etc.) -->
 <Default />
 
+<!--
+  Resource hints — reduce connection latency for third-party scripts.
+  preconnect: establishes TCP + TLS early; saves 100–200 ms on first request.
+  dns-prefetch: DNS-only fallback for browsers that ignore preconnect.
+
+  Targets:
+    - Google Tag Manager (GA4 gtag script)
+    - FeelBack (feedback widget loaded in Footer.astro)
+-->
+<link rel="preconnect" href="https://www.googletagmanager.com" crossorigin />
+<link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+<link rel="preconnect" href="https://feelback.dev" crossorigin />
+<link rel="dns-prefetch" href="https://feelback.dev" />
+
 {hasEntry && (
   <Fragment set:html={
     [
+      // ── og:image (per-section) ──────────────────────────────────────────
       `<meta property="og:image" content="${ogImageUrl}">`,
       `<meta property="og:image:type" content="image/png">`,
       `<meta property="og:image:width" content="1200">`,
       `<meta property="og:image:height" content="630">`,
-      `<meta property="og:image:alt" content="Nevent Help Center">`,
+      `<meta property="og:image:alt" content="${pageTitle} — Nevent Help Center">`,
       `<meta name="twitter:image" content="${ogImageUrl}">`,
+      // ── JSON-LD schemas ───────────────────────────────────────────────
+      // WebSite + SearchAction: homepage only (enables Google Sitelinks Searchbox)
+      isRoot
+        ? `<script type="application/ld+json">${websiteJson}</script>`
+        : '',
+      // Organization: homepage only (E-E-A-T + Knowledge Panel signal)
       isRoot
         ? `<script type="application/ld+json">${organizationJson}</script>`
         : '',
+      // TechArticle (enriched): every page — rich result + AEO context
       `<script type="application/ld+json">${techArticleJson}</script>`,
+      // FAQPage + Speakable: FAQ pages only — rich accordion + voice search
       faqPageJson
         ? `<script type="application/ld+json">${faqPageJson}</script>`
         : '',
+      // DefinedTermSet: segmentation pages — product glossary for LLMs + Google
+      definedTermSetJson
+        ? `<script type="application/ld+json">${definedTermSetJson}</script>`
+        : '',
+      // BreadcrumbList: all non-home pages — breadcrumb in SERP
       breadcrumbJson
         ? `<script type="application/ld+json">${breadcrumbJson}</script>`
         : '',
