@@ -1,0 +1,215 @@
+---
+title: "Preguntas frecuentes sobre analítica en Nevent — FAQ"
+description: "Respuestas a las preguntas más comunes sobre analítica en Nevent: retención de datos, exportación CSV, integración con Looker, predicción de ventas, privacidad y más."
+sidebar:
+  order: 18
+---
+
+import Schema from '../../../../components/Schema.astro';
+import { CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+<Schema>{`{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Cuánto tardan los datos en aparecer en Nevent tras una venta?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Los datos de compras y accesos tienen una latencia inferior a 5 minutos. Las métricas agregadas por evento o periodo se actualizan a diario. Las métricas de campañas y atribución se actualizan varias veces al día."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Puedo exportar mis datos de analítica a CSV o Excel?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí. Todas las tablas de resultados en Nevent son exportables a CSV y Excel con un clic. La exportación respeta los filtros y dimensiones que hayas aplicado, de modo que descargas exactamente la vista que necesitas."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Puedo conectar Looker, Metabase o Power BI a Nevent?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí, a través de la API de datos de Nevent o mediante exportaciones programáticas. La integración directa con herramientas de BI como Looker, Metabase o Power BI requiere configuración por parte del equipo técnico del promotor."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Nevent tiene predicción de ventas o recomendación de precios?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Actualmente no. La predicción de demanda de eventos futuros y la recomendación automatizada de precios dinámicos están en el roadmap pero no están disponibles en la versión actual de Nevent."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuánto tiempo conserva Nevent mis datos históricos?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "La retención de datos históricos depende del contrato de cada promotora. El periodo típico es de 24 a 36 meses. Si necesitas retención más larga, contacta con tu account manager."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Pueden otros promotores ver mis datos en Nevent?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Nevent tiene arquitectura multi-tenant con aislamiento completo por promotora. Cada cuenta solo puede acceder a sus propios datos. No existe ninguna forma de que otro promotor vea tus fans, eventos o campañas."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué diferencia hay entre los datos de campañas y los datos de paid media?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Las métricas de campañas cubren los canales propios (email, SMS, WhatsApp). Las métricas de paid media cubren los canales de pago (Meta Ads, Google Ads). Ambas se pueden ver juntas en una vista de atribución unificada."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Puedo ver métricas en tiempo real mientras se están vendiendo entradas?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí. Los datos de compras tienen latencia inferior a 5 minutos, lo que permite un seguimiento casi en tiempo real de la venta de entradas durante un lanzamiento o campaña activa."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cómo sé si mis emails están llegando a la bandeja de entrada o al spam?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Con las métricas de deliverability de Nevent: inbox placement rate, sender reputation y spam complaint rate. Si el inbox placement cae por debajo del 85%, es señal de que tus emails están siendo filtrados."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Puedo comparar el rendimiento de este mes con el del mes pasado?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí. Los filtros temporales de Nevent incluyen la opción de comparativa con el periodo anterior: mismo mes del año pasado, trimestre anterior, etc. El resultado se muestra en la misma tabla con variación porcentual."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Puedo ver métricas separadas por canal (email vs SMS vs WhatsApp)?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí. La dimensión de canal es una de las dimensiones de análisis disponibles. Puedes ver cualquier métrica (open rate, revenue atribuido, conversión) desglosada por canal o compararlos en la misma vista."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Nevent tiene límite en el número de métricas que puedo consultar?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No hay límite en el número de consultas. Para análisis muy pesados con grandes volúmenes de datos, el sistema puede indicar el tiempo estimado de la consulta antes de ejecutarla, especialmente si se accede vía API."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Puedo ver el LTV de cada fan individualmente?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí, a nivel de fan individual dentro de la plataforma. A nivel de analítica agregada, puedes ver el LTV medio de segmentos o de tu base completa. El detalle por fan está disponible en el perfil de cada contacto."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué pasa con los datos de un fan que se da de baja del newsletter?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "El fan pasa a la suppression list y Nevent deja de enviarle comunicaciones comerciales. Sus datos históricos (compras, asistencias) se conservan para el análisis interno del promotor, en cumplimiento de la normativa GDPR."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Puedo usar Nevent para hacer informes de cierre mensual?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí. Los filtros temporales te permiten seleccionar cualquier mes completo y exportar los datos en CSV o Excel. También puedes pedir estos informes directamente a través del asistente de IA de Nevent con una pregunta en lenguaje natural."
+      }
+    }
+  ]
+}`}</Schema>
+
+# Preguntas frecuentes sobre analítica en Nevent
+
+Respuestas directas a las dudas más habituales sobre cómo funcionan los datos y las métricas en Nevent.
+
+## ¿Cuánto tardan los datos en aparecer tras una venta?
+
+Los datos de compras y accesos tienen una latencia inferior a 5 minutos. Las métricas agregadas por evento o periodo se actualizan a diario. Las métricas de campañas y atribución se actualizan varias veces al día.
+
+## ¿Puedo exportar mis datos a CSV o Excel?
+
+Sí. Todas las tablas de resultados en Nevent son exportables a CSV y Excel con un clic. La exportación respeta los filtros y dimensiones que hayas aplicado.
+
+## ¿Puedo conectar Looker, Metabase o Power BI a Nevent?
+
+Sí, a través de la API de datos de Nevent o mediante exportaciones programáticas. La integración directa con herramientas de BI requiere configuración técnica por parte del equipo del promotor.
+
+## ¿Nevent tiene predicción de ventas?
+
+Actualmente no. La predicción de demanda de eventos futuros y la recomendación de precios dinámicos están en el roadmap pero no están disponibles en la versión actual.
+
+## ¿Cuánto tiempo conserva Nevent mis datos históricos?
+
+La retención depende del contrato de cada promotora. El periodo típico es de 24 a 36 meses. Contacta con tu account manager si necesitas retención más larga.
+
+## ¿Pueden otros promotores ver mis datos?
+
+No. Nevent tiene arquitectura multi-tenant con aislamiento completo. Cada cuenta solo puede acceder a sus propios datos.
+
+## ¿Qué diferencia hay entre métricas de campañas y de paid media?
+
+Las métricas de campañas cubren los canales propios (email, SMS, WhatsApp). Las métricas de paid media cubren los canales de pago (Meta Ads, Google Ads). Ambas pueden verse juntas en una vista de atribución unificada.
+
+## ¿Puedo ver métricas en tiempo real durante un lanzamiento?
+
+Sí. Los datos de compras tienen latencia inferior a 5 minutos, lo que permite un seguimiento casi en tiempo real durante un lanzamiento o campaña activa.
+
+## ¿Cómo sé si mis emails llegan a bandeja de entrada o a spam?
+
+Consulta las métricas de deliverability: inbox placement rate, sender reputation y spam complaint rate. Si el inbox placement cae por debajo del 85%, tus emails están siendo filtrados. Ver también [Google Postmaster Tools](https://postmaster.google.com){target="_blank" rel="noopener noreferrer"} para monitorización adicional.
+
+## ¿Puedo comparar este mes con el mes pasado?
+
+Sí. Los filtros temporales incluyen comparativa con periodo anterior: mismo mes del año pasado, trimestre anterior, etc. El resultado se muestra con variación porcentual.
+
+## ¿Puedo ver métricas por canal (email vs SMS vs WhatsApp)?
+
+Sí. La dimensión de canal es una de las dimensiones de análisis disponibles. Puedes desglosar cualquier métrica por canal o compararlos en la misma vista.
+
+## ¿Hay límite en el número de métricas que puedo consultar?
+
+No hay límite en consultas. Para análisis muy pesados con grandes volúmenes de datos, el sistema puede indicar el tiempo estimado antes de ejecutar, especialmente vía API.
+
+## ¿Puedo ver el LTV de cada fan individualmente?
+
+Sí, en el perfil de cada contacto dentro de la plataforma. En analítica agregada puedes ver el LTV medio de segmentos o de tu base completa.
+
+## ¿Qué pasa con los datos de un fan que se da de baja?
+
+Pasa a la suppression list y Nevent deja de enviarle comunicaciones. Sus datos históricos se conservan para el análisis interno del promotor, en cumplimiento de la normativa GDPR.
+
+## ¿Puedo usar Nevent para informes de cierre mensual?
+
+Sí. Selecciona el mes completo con los filtros temporales y exporta en CSV o Excel. También puedes pedir el informe directamente al asistente de IA con una pregunta en lenguaje natural.
+
+## Siguiente paso
+
+<CardGrid>
+  <LinkCard
+    title="Hub de analítica"
+    href="/analitica/"
+    description="Ver el catálogo completo de métricas disponibles."
+  />
+  <LinkCard
+    title="Preguntárselo a Claude"
+    href="/nevent-ai/que-puedes-hacer/analitica/"
+    description="Consulta cualquier métrica con una pregunta en lenguaje natural."
+  />
+</CardGrid>

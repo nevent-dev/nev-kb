@@ -1,0 +1,122 @@
+---
+title: "Tracking y atribución de enlaces — métricas Nevent"
+description: "Mide clics, clics únicos, conversión post-clic y revenue atribuido a cada enlace en Nevent. Sabe exactamente qué enlace vendió más entradas para tu evento."
+sidebar:
+  order: 15
+---
+
+import Schema from '../../../../components/Schema.astro';
+import { Aside, CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+<Schema>{`{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Tracking de enlaces y atribución de revenue en Nevent para promotores de eventos",
+  "description": "Aprende a medir clics únicos, conversión post-clic y revenue atribuido a cada enlace en Nevent. Saber qué enlace vende más te permite optimizar cada campaña.",
+  "author": { "@type": "Organization", "name": "Nevent", "url": "https://nevent.ai" },
+  "publisher": { "@type": "Organization", "name": "Nevent" },
+  "datePublished": "2026-06-02",
+  "dateModified": "2026-06-02",
+  "about": [
+    { "@type": "Thing", "name": "Link tracking" },
+    { "@type": "Thing", "name": "Attribution analytics" },
+    { "@type": "Thing", "name": "Live events marketing" }
+  ],
+  "mentions": [{ "@type": "SoftwareApplication", "name": "Nevent" }],
+  "audience": { "@type": "Audience", "audienceType": "Live event promoters" }
+}`}</Schema>
+
+:::tip[Definición rápida]
+**Tracking de enlaces** es la capacidad de Nevent para rastrear cada clic en los enlaces que compartes en emails, SMS, WhatsApp o redes sociales. Cada enlace tiene un identificador único que permite saber cuántas personas lo clicaron, cuántas compraron después y cuánto revenue generó ese clic específico.
+:::
+
+# Tracking y atribución de enlaces en Nevent
+
+Cuando envías una campaña con un enlace para comprar entradas, ¿sabes cuántos fans clicaron ese enlace y cuántos acabaron comprando? El tracking de enlaces de Nevent responde a esas preguntas con precisión, asignando el revenue de cada venta al enlace que la originó.
+
+## ¿Qué métricas de tracking puedes medir?
+
+<table>
+  <thead>
+    <tr>
+      <th>Métrica</th>
+      <th>Qué responde</th>
+      <th>Cuándo usarla</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Clics por enlace</strong></td>
+      <td>¿Cuántas veces se clicó este enlace en total?</td>
+      <td>Medir el interés bruto generado por un enlace</td>
+    </tr>
+    <tr>
+      <td><strong>Clics únicos por fan</strong></td>
+      <td>¿Cuántos fans diferentes clicaron este enlace?</td>
+      <td>Distinguir entre fans que clican varias veces y fans únicos</td>
+    </tr>
+    <tr>
+      <td><strong>Conversión post-clic</strong></td>
+      <td>¿Qué % de los que clicaron acabaron comprando?</td>
+      <td>Medir la eficacia del destino del enlace</td>
+    </tr>
+    <tr>
+      <td><strong>Revenue atribuido al enlace</strong></td>
+      <td>¿Cuánto dinero generaron las compras originadas por este enlace?</td>
+      <td>Calcular el valor económico de cada enlace</td>
+    </tr>
+  </tbody>
+</table>
+
+## ¿Qué es un clic único y por qué importa?
+
+El total de clics cuenta todas las veces que se pulsó el enlace, incluyendo múltiples clics del mismo fan. Los clics únicos cuentan solo una vez a cada fan, sin importar cuántas veces clicó.
+
+La diferencia importa para interpretar bien los datos. Si un enlace tiene 500 clics totales pero solo 200 únicos, significa que un subgrupo de fans muy interesados está clicando varias veces, probablemente comparando opciones o volviendo a la página de compra. Si todos fueran únicos, el nivel de interés sería más distribuido.
+
+Para calcular la conversión real, los clics únicos son el denominador correcto: tiene más sentido saber que el 15% de los fans que clicaron acabaron comprando que decir que el 6% de todos los clics acabaron en venta.
+
+## ¿Qué es la conversión post-clic?
+
+La conversión post-clic mide qué porcentaje de fans que hicieron clic en un enlace completaron la acción objetivo (normalmente, comprar una entrada) en una ventana de tiempo determinada.
+
+Imagina que envías un email para la preventa de un evento de flamenco en Sevilla. De los 3.000 fans que reciben el email, 600 hacen clic en el enlace de compra (20% click rate). De esos 600, 90 compran una entrada. Tu conversión post-clic es del 15%.
+
+Un valor saludable de conversión post-clic para campañas de venta de entradas suele estar entre el 10% y el 25%, dependiendo de la urgencia de la campaña, el precio de la entrada y la temperatura de la audiencia.
+
+## ¿Cómo funciona el revenue atribuido a un enlace?
+
+Cuando Nevent detecta que un fan clicó en un enlace específico y luego completó una compra, asigna ese ingreso al enlace. Esto te permite comparar dos enlaces de la misma campaña (por ejemplo, un enlace en la parte superior del email y otro al final) y ver cuál generó más revenue.
+
+También puedes usar esta información para comparar canales: un mismo enlace de compra compartido por email, SMS y WhatsApp. Nevent distingue cuál canal generó más revenue atribuido.
+
+## Ejemplo práctico
+
+Supón que lanzas una campaña para un evento de música clásica en Barcelona con dos variantes: una con el enlace de compra al principio del email y otra con el enlace al final. Con el tracking de Nevent puedes ver que la versión con el enlace al principio tuvo un 22% de conversión post-clic mientras que la versión con el enlace al final tuvo un 14%. Para futuras campañas, colocas siempre el enlace al principio.
+
+## Resumen
+
+- Los clics únicos son el indicador más fiable del interés real por un enlace
+- La conversión post-clic mide cuántos de los que clicaron acabaron comprando
+- El revenue atribuido te dice exactamente cuánto dinero generó cada enlace
+- Comparar variantes de enlace te permite optimizar campañas de forma continua
+
+## Siguiente paso
+
+<CardGrid>
+  <LinkCard
+    title="Métricas de deliverability"
+    href="/analitica/deliverability/"
+    description="Sender reputation, inbox placement, bounce y supresiones."
+  />
+  <LinkCard
+    title="Agrupar y filtrar datos"
+    href="/analitica/agrupar-y-filtrar/"
+    description="Dimensiones de análisis y filtros temporales disponibles."
+  />
+  <LinkCard
+    title="Volver al hub de analítica"
+    href="/analitica/"
+    description="Ver todas las áreas de métricas disponibles."
+  />
+</CardGrid>

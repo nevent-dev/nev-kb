@@ -1,0 +1,129 @@
+---
+title: "Deliverability email — reputación sender e inbox placement"
+description: "Controla sender reputation, inbox placement, bounce rate y spam complaints de tus emails de eventos en Nevent. Evita que tus campañas caigan en spam."
+sidebar:
+  order: 16
+---
+
+import Schema from '../../../../components/Schema.astro';
+import { Aside, CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+<Schema>{`{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Métricas de deliverability para promotores de eventos: sender reputation e inbox placement",
+  "description": "Aprende a monitorizar la deliverability de tus emails en Nevent: sender reputation, inbox placement rate, bounce rate y spam complaint rate.",
+  "author": { "@type": "Organization", "name": "Nevent", "url": "https://nevent.ai" },
+  "publisher": { "@type": "Organization", "name": "Nevent" },
+  "datePublished": "2026-06-02",
+  "dateModified": "2026-06-02",
+  "about": [
+    { "@type": "Thing", "name": "Email deliverability" },
+    { "@type": "Thing", "name": "Sender reputation" },
+    { "@type": "Thing", "name": "Live events email marketing" }
+  ],
+  "mentions": [{ "@type": "SoftwareApplication", "name": "Nevent" }],
+  "audience": { "@type": "Audience", "audienceType": "Live event promoters" }
+}`}</Schema>
+
+:::tip[Definición rápida]
+**Deliverability** es la capacidad de que tus emails lleguen a la bandeja de entrada principal de tus fans, y no a spam ni a promociones. La **sender reputation** es la puntuación que los proveedores de email (Gmail, Outlook) asignan a tu dominio remitente. Si cae, tus campañas dejan de funcionar aunque técnicamente se envíen correctamente.
+:::
+
+# Métricas de deliverability en Nevent
+
+Puedes tener la campaña perfecta —asunto irresistible, contenido relevante, audiencia segmentada— y aun así no vender entradas si tus emails no llegan a la bandeja de entrada. La deliverability es el cimiento sobre el que se construye todo lo demás en email marketing.
+
+## ¿Qué métricas de deliverability puedes medir?
+
+<table>
+  <thead>
+    <tr>
+      <th>Métrica</th>
+      <th>Qué responde</th>
+      <th>Umbral de alerta</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Sender reputation</strong></td>
+      <td>¿Cómo valoran Gmail y Outlook tu dominio remitente?</td>
+      <td>Valores bajos indican riesgo de bloqueo</td>
+    </tr>
+    <tr>
+      <td><strong>Inbox placement rate</strong></td>
+      <td>¿Qué % de tus emails llegan a bandeja de entrada (no spam)?</td>
+      <td>Por debajo del 85% es preocupante</td>
+    </tr>
+    <tr>
+      <td><strong>Bounce rate</strong></td>
+      <td>¿Qué % de emails no pudieron entregarse?</td>
+      <td>Por encima del 2% es señal de lista sucia</td>
+    </tr>
+    <tr>
+      <td><strong>Spam complaint rate</strong></td>
+      <td>¿Qué % de destinatarios marcaron tu email como spam?</td>
+      <td>Por encima del 0.1% daña la reputación</td>
+    </tr>
+    <tr>
+      <td><strong>Suppression list</strong></td>
+      <td>¿A cuántos fans no puedes contactar (baja, bounce, queja)?</td>
+      <td>Más del 10% indica problema de captación</td>
+    </tr>
+  </tbody>
+</table>
+
+## ¿Qué es la sender reputation y cómo afecta a tus campañas?
+
+La sender reputation es una puntuación que los grandes proveedores de correo (Gmail, Outlook, Yahoo) asignan a tu dominio e IP remitente en función de tu historial de envíos. Si tu historial incluye muchos bounces, quejas de spam o fans que nunca abren tus emails, tu reputación baja y los proveedores empiezan a filtrar tus mensajes a spam.
+
+Una buena reputación es el resultado de enviar contenido relevante a personas que realmente quieren recibirlo, con una frecuencia apropiada y desde una lista limpia. Puedes monitorizar tu reputación en [Google Postmaster Tools](https://postmaster.google.com){target="_blank" rel="noopener noreferrer"} y en [Microsoft SNDS](https://sendersupport.olc.protection.outlook.com/snds/){target="_blank" rel="noopener noreferrer"}.
+
+## ¿Qué es el inbox placement rate?
+
+El inbox placement rate mide el porcentaje de tus emails que llegan a la bandeja de entrada principal, frente a los que van a spam, a la carpeta de promociones de Gmail o a otras carpetas secundarias.
+
+Un inbox placement rate saludable debe estar por encima del 90%. Si cae por debajo del 80%, una parte significativa de tus fans nunca verá la campaña, lo que explica open rates aparentemente bajos que en realidad son un problema de entrega, no de contenido.
+
+## ¿Qué diferencia hay entre bounce duro y bounce blando?
+
+- **Bounce duro (hard bounce)**: el email no pudo entregarse de forma permanente. Normalmente porque la dirección no existe. Estos contactos deben eliminarse inmediatamente de tu lista.
+- **Bounce blando (soft bounce)**: fallo temporal (buzón lleno, servidor caído). Nevent reintenta el envío automáticamente y solo supprime la dirección si el fallo se repite varias veces.
+
+Un bounce rate por encima del 2% indica que tu lista contiene muchas direcciones inválidas. Esto daña tu sender reputation directamente.
+
+## ¿Qué es la suppression list?
+
+La suppression list es el conjunto de fans a los que Nevent no enviará emails, ya sea porque se dieron de baja voluntariamente, porque su dirección genera bounces o porque han presentado quejas de spam. Esta lista protege tanto tu reputación como el cumplimiento legal (GDPR y normativa CAN-SPAM).
+
+## Ejemplo práctico
+
+Imagina que llevas meses sin limpiar tu lista y envías una campaña masiva a 50.000 fans de música urbana en Madrid. Si un 5% de los emails generan hard bounce (2.500 bounces), tu sender reputation cae y Gmail empieza a enrutar tus próximos envíos a spam. En Nevent puedes monitorizar estas métricas antes y después de cada envío y detectar el problema antes de que se convierta en una crisis de deliverability.
+
+## Resumen
+
+- La sender reputation es el activo más frágil del email marketing: una vez dañada, cuesta semanas recuperarla
+- El inbox placement rate te dice si tus emails llegan realmente a la bandeja de entrada
+- Un bounce rate superior al 2% indica lista sucia y debe corregirse con urgencia
+- Un spam complaint rate superior al 0.1% deteriora la reputación rápidamente
+- La suppression list protege tu reputación y tu cumplimiento legal
+
+## Siguiente paso
+
+<CardGrid>
+  <LinkCard
+    title="Cómo agrupar y filtrar datos"
+    href="/analitica/agrupar-y-filtrar/"
+    description="Dimensiones de análisis y filtros temporales disponibles."
+  />
+  <LinkCard
+    title="Preguntárselo a Claude en lenguaje natural"
+    href="/nevent-ai/que-puedes-hacer/deliverability/"
+    description="Consulta el estado de tu deliverability con una pregunta directa."
+  />
+  <LinkCard
+    title="Volver al hub de analítica"
+    href="/analitica/"
+    description="Ver todas las áreas de métricas disponibles."
+  />
+</CardGrid>

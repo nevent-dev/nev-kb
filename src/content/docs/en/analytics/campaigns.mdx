@@ -1,0 +1,175 @@
+---
+title: "Campaign metrics — email, SMS and WhatsApp | Nevent"
+description: "Measure open rate, click rate, conversion and ROAS for your email, SMS and WhatsApp campaigns in Nevent. Industry benchmarks and practical examples for event promoters."
+sidebar:
+  order: 13
+---
+
+import Schema from '../../../../../components/Schema.astro';
+import { Aside, CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+<Schema>{`{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Campaign metrics for live events: email, SMS and WhatsApp performance in Nevent",
+  "description": "Complete guide to campaign metrics in Nevent: open rate, click rate, conversion rate, attributed revenue and ROAS for email, SMS and WhatsApp campaigns.",
+  "author": { "@type": "Organization", "name": "Nevent", "url": "https://nevent.ai" },
+  "publisher": { "@type": "Organization", "name": "Nevent" },
+  "datePublished": "2026-06-02",
+  "dateModified": "2026-06-02",
+  "about": [
+    { "@type": "Thing", "name": "Email marketing metrics" },
+    { "@type": "Thing", "name": "Campaign analytics" },
+    { "@type": "Thing", "name": "Live music events" }
+  ],
+  "mentions": [{ "@type": "SoftwareApplication", "name": "Nevent" }],
+  "audience": { "@type": "Audience", "audienceType": "Live event promoters" }
+}`}</Schema>
+
+:::tip[Quick definition]
+**Campaign metrics** measure the performance of every message you send: how many fans open it, how many click, how many end up buying and how much revenue it generates. In Nevent you can see these metrics per individual campaign, per channel (email, SMS, WhatsApp) and compare them side by side.
+:::
+
+# Campaign metrics in Nevent
+
+Sending a campaign without measuring its impact is like putting on an event without tracking ticket sales: technically possible but commercially pointless. Nevent's campaign metrics tell you exactly what worked, what didn't and how much money each message generated.
+
+## What campaign metrics can you measure?
+
+<table>
+  <thead>
+    <tr>
+      <th>Metric</th>
+      <th>What it answers</th>
+      <th>When to use it</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Sends</strong></td>
+      <td>How many fans did the campaign reach?</td>
+      <td>Verify the actual reach of the send</td>
+    </tr>
+    <tr>
+      <td><strong>Open rate</strong></td>
+      <td>What % of recipients opened the message?</td>
+      <td>Evaluate the subject line and sender name</td>
+    </tr>
+    <tr>
+      <td><strong>Click rate</strong></td>
+      <td>What % clicked on any link?</td>
+      <td>Measure interest in the content</td>
+    </tr>
+    <tr>
+      <td><strong>Conversion rate</strong></td>
+      <td>What % ended up buying after the send?</td>
+      <td>Measure the actual impact on sales</td>
+    </tr>
+    <tr>
+      <td><strong>Unsubscribe rate</strong></td>
+      <td>What % opted out?</td>
+      <td>Detect unwanted content or frequency</td>
+    </tr>
+    <tr>
+      <td><strong>Bounce rate</strong></td>
+      <td>What % of emails failed to deliver?</td>
+      <td>Monitor list quality</td>
+    </tr>
+    <tr>
+      <td><strong>Attributed revenue</strong></td>
+      <td>How much money did this campaign generate?</td>
+      <td>Calculate the return of each send</td>
+    </tr>
+    <tr>
+      <td><strong>ROAS per campaign</strong></td>
+      <td>How many pounds of revenue per pound invested in the campaign?</td>
+      <td>Compare profitability across campaigns</td>
+    </tr>
+    <tr>
+      <td><strong>Attribution by channel</strong></td>
+      <td>Which channel (email, SMS, WhatsApp) drives the most sales?</td>
+      <td>Decide where to concentrate your budget</td>
+    </tr>
+  </tbody>
+</table>
+
+## What is open rate and what is a good benchmark?
+
+Open rate is the percentage of recipients who opened your email relative to the total number sent. In live events marketing, a healthy open rate for segmented audiences typically sits between 25% and 40%. Unsegmented mass sends rarely exceed 15–20%.
+
+According to [Mailchimp's industry benchmarks](https://mailchimp.com/resources/email-marketing-benchmarks/){target="_blank" rel="noopener noreferrer"} for the arts and entertainment sector, the average open rate is 21.2%. Promoters applying behavioural segmentation in Nevent routinely achieve values between 30% and 50%.
+
+## What is the difference between click rate and conversion rate?
+
+- **Click rate**: the percentage of fans who clicked any link in the email (regardless of whether they then purchased).
+- **Conversion rate**: the percentage who completed the target action (normally, buying a ticket) after clicking.
+
+Imagine you send a campaign to 10,000 jazz fans in Barcelona. 35% open the email (3,500 fans), 12% click the purchase link (1,200 fans) and 4% complete a purchase (400 fans). You have an open rate of 35%, a click rate of 12% and a conversion rate of 4%.
+
+## What is campaign ROAS?
+
+ROAS (Return On Ad Spend) for a campaign measures how many pounds of revenue are generated per pound invested in that campaign. For email and SMS campaigns, the "spend" includes the cost of the tool plus content production time.
+
+A ROAS of 10 means that for every pound invested in the campaign, you generate £10 in ticket sales. For well-segmented email campaigns targeting event ticket buyers, ROAS values between 15 and 40 are achievable, depending on the sector and audience maturity.
+
+## How are metrics measured by channel?
+
+You can view metrics for each channel separately or compared side by side:
+
+<table>
+  <thead>
+    <tr>
+      <th>Channel</th>
+      <th>Typical open rate in sector</th>
+      <th>Best for</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Email</strong></td>
+      <td>20–35%</td>
+      <td>Detailed communications, early-bird sales</td>
+    </tr>
+    <tr>
+      <td><strong>SMS</strong></td>
+      <td>85–95%</td>
+      <td>Urgency messages, last tickets, reminders</td>
+    </tr>
+    <tr>
+      <td><strong>WhatsApp</strong></td>
+      <td>70–90%</td>
+      <td>VIP fans, close and personalised communication</td>
+    </tr>
+  </tbody>
+</table>
+
+## Practical example
+
+Imagine you promote electronic music events in Madrid and launch three campaigns for the same event: one via email to 8,000 fans, one via SMS to 2,000 fans and one via WhatsApp to 500 VIP fans. With Nevent you can see in a single report which of the three generated the most attributed revenue and which had the best ROAS — so you can prioritise the right channel for the next event.
+
+## Summary
+
+- Open rate, click rate and conversion rate form the basic funnel for each campaign
+- Attributed revenue tells you how much money each send actually generated, not just who opened it
+- ROAS compares profitability across campaigns and channels
+- Unsubscribe rate and bounce rate are early signals of list quality issues
+
+## Next step
+
+<CardGrid>
+  <LinkCard
+    title="Paid media metrics"
+    href="/en/analytics/paid-media/"
+    description="ROAS, CPA and multi-touch attribution for Meta and Google."
+  />
+  <LinkCard
+    title="Ask Claude in plain language"
+    href="/en/nevent-ai/what-you-can-do/campaigns/"
+    description="Query campaign performance with a direct question."
+  />
+  <LinkCard
+    title="Back to analytics hub"
+    href="/en/analytics/"
+    description="See all available metric areas."
+  />
+</CardGrid>

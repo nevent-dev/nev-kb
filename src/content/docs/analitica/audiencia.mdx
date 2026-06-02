@@ -1,0 +1,182 @@
+---
+title: "Métricas de audiencia y fans — LTV, churn, RFM | Nevent"
+description: "Mide el valor de tu base de fans con Nevent: LTV, churn, cohortes, distribución Nevent Score, temperatura y segmentos RFM. Ejemplos prácticos para promotores."
+sidebar:
+  order: 12
+---
+
+import Schema from '../../../../components/Schema.astro';
+import { Aside, CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+<Schema>{`{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Métricas de audiencia y fans: LTV, churn, RFM y cohortes en Nevent",
+  "description": "Aprende a medir el valor de tu base de fans con Nevent: LTV, churn, cohortes, distribución por Nevent Score, temperatura y segmentos RFM automáticos.",
+  "author": { "@type": "Organization", "name": "Nevent", "url": "https://nevent.ai" },
+  "publisher": { "@type": "Organization", "name": "Nevent" },
+  "datePublished": "2026-06-02",
+  "dateModified": "2026-06-02",
+  "about": [
+    { "@type": "Thing", "name": "Customer lifetime value" },
+    { "@type": "Thing", "name": "Audience analytics" },
+    { "@type": "Thing", "name": "Live music events" }
+  ],
+  "mentions": [{ "@type": "SoftwareApplication", "name": "Nevent" }],
+  "audience": { "@type": "Audience", "audienceType": "Live event promoters" }
+}`}</Schema>
+
+:::tip[Definición rápida]
+**Métricas de audiencia** son los indicadores que describen el valor y el comportamiento de tu base de fans a lo largo del tiempo. El más importante es el **LTV (Lifetime Value)**: cuánto ingresa un fan durante toda su relación contigo. Con estas métricas sabes en quién invertir y a quién reactivar antes de que se pierda.
+:::
+
+# Métricas de audiencia y fans en Nevent
+
+Conocer cuántas entradas vendiste es el primer paso. El segundo —y más valioso— es entender quiénes son los fans que te compran, cuánto valen a largo plazo y cuántos están en riesgo de abandonarte. Las métricas de audiencia de Nevent responden exactamente a esas preguntas.
+
+## ¿Qué métricas de audiencia puedes medir?
+
+<table>
+  <thead>
+    <tr>
+      <th>Métrica</th>
+      <th>Qué responde</th>
+      <th>Cuándo usarla</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Fans activos</strong></td>
+      <td>¿Cuántos fans han tenido actividad reciente?</td>
+      <td>Medir el tamaño real de tu audiencia activa</td>
+    </tr>
+    <tr>
+      <td><strong>Fans nuevos por periodo</strong></td>
+      <td>¿Cuántos fans nuevos he captado este mes / trimestre?</td>
+      <td>Medir el crecimiento de la base</td>
+    </tr>
+    <tr>
+      <td><strong>LTV (Lifetime Value) medio</strong></td>
+      <td>¿Cuánto ingresa un fan de media durante toda su relación?</td>
+      <td>Decidir cuánto invertir en captación</td>
+    </tr>
+    <tr>
+      <td><strong>Distribución Nevent Score</strong></td>
+      <td>¿Cómo se distribuyen mis fans por valor (0-100)?</td>
+      <td>Identificar el porcentaje de fans de alto valor</td>
+    </tr>
+    <tr>
+      <td><strong>Distribución Temperatura Nevent</strong></td>
+      <td>¿Cuántos fans son Muy Calientes, Templados, Fríos…?</td>
+      <td>Priorizar a quién comunicar con urgencia</td>
+    </tr>
+    <tr>
+      <td><strong>Distribución por segmento RFM</strong></td>
+      <td>¿Cuántos fans son Champions, At Risk, Lost…?</td>
+      <td>Activar estrategias diferenciadas por segmento</td>
+    </tr>
+    <tr>
+      <td><strong>Churn</strong></td>
+      <td>¿Qué % de fans ha dejado de comprar?</td>
+      <td>Medir la retención y detectar problemas tempranos</td>
+    </tr>
+    <tr>
+      <td><strong>Cohortes por mes de primera compra</strong></td>
+      <td>¿Los fans captados en junio regresan más que los de enero?</td>
+      <td>Entender qué eventos generan fans más fieles</td>
+    </tr>
+  </tbody>
+</table>
+
+## ¿Qué es el LTV y por qué es la métrica más importante?
+
+El Lifetime Value (LTV) representa el ingreso total que un fan genera desde su primera compra hasta que deja de ser cliente. En el mundo de los eventos en vivo, un fan con LTV alto es aquel que vuelve a varios eventos, compra entradas para amigos y a veces adquiere abonos o tipos de entrada premium.
+
+Conocer el LTV medio de tu base te ayuda a tomar una decisión crítica: cuánto puedes invertir en captar un fan nuevo. Si tu LTV medio es 180€ en dos años, puedes permitirte gastar más en publicidad que un competidor que no hace este cálculo.
+
+Según estudios de retención en industrias de entretenimiento, los fans que asisten a más de dos eventos del mismo promotor generan entre tres y cinco veces más ingresos a lo largo de su ciclo de vida que los fans que solo asisten una vez. ([Fuente: Harvard Business Review, Customer Profitability](https://hbr.org/2014/10/the-value-of-keeping-the-right-customers){target="_blank" rel="noopener noreferrer"})
+
+## ¿Qué es el churn y cómo detectarlo?
+
+El churn es el porcentaje de fans que deja de comprar o de interactuar contigo en un periodo determinado. Un churn alto es una señal de alerta: tus eventos no están generando la suficiente fidelidad como para que los fans vuelvan.
+
+Imagina que organizas eventos de música electrónica en Madrid. Si analizas el churn por cohorte (grupo de fans que compraron por primera vez en el mismo mes) puedes ver que los fans captados en el evento de marzo tienen un churn del 20% al año, mientras que los captados en septiembre tienen un churn del 40%. Esa diferencia te indica que algo en el evento de septiembre (programación, experiencia, precio) no generó suficiente fidelidad.
+
+## ¿Cómo funciona la distribución por Temperatura Nevent?
+
+La Temperatura Nevent clasifica a cada fan en uno de seis niveles según su actividad reciente y su valor histórico:
+
+<table>
+  <thead>
+    <tr>
+      <th>Temperatura</th>
+      <th>Qué significa</th>
+      <th>Acción recomendada</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Muy Caliente</strong></td>
+      <td>Fan activo, compra frecuente, alto valor</td>
+      <td>Ofrece acceso anticipado, trato VIP</td>
+    </tr>
+    <tr>
+      <td><strong>Caliente</strong></td>
+      <td>Fan activo con compras recientes</td>
+      <td>Mantén la comunicación constante</td>
+    </tr>
+    <tr>
+      <td><strong>Templado</strong></td>
+      <td>Ha comprado pero hace tiempo que no interactúa</td>
+      <td>Lanza una campaña de reactivación</td>
+    </tr>
+    <tr>
+      <td><strong>Frío</strong></td>
+      <td>Poca actividad, riesgo de abandono</td>
+      <td>Comunicación con incentivo especial</td>
+    </tr>
+    <tr>
+      <td><strong>Muy Frío</strong></td>
+      <td>Muy poca actividad, casi inactivo</td>
+      <td>Campaña de win-back agresiva o limpieza</td>
+    </tr>
+    <tr>
+      <td><strong>Congelado</strong></td>
+      <td>Sin actividad desde hace mucho tiempo</td>
+      <td>Considerar exclusión para proteger deliverability</td>
+    </tr>
+  </tbody>
+</table>
+
+## ¿Qué son las cohortes y para qué sirven?
+
+Un análisis de cohortes agrupa a los fans según el mes o el evento en que compraron por primera vez, y luego rastrea su comportamiento a lo largo del tiempo. Esto te permite responder preguntas como: "¿Los fans que captamos con el festival de jazz de Barcelona vuelven más que los del festival de reggaeton de Valencia?".
+
+Si detectas que una cohorte específica tiene una retención muy superior al resto, puedes analizar qué hizo diferente ese evento (precio, género musical, experiencia) y replicarlo en futuros eventos.
+
+## Resumen
+
+- Las métricas de audiencia van más allá de las ventas: miden el valor a largo plazo de cada fan
+- El LTV te dice cuánto puedes invertir en captación de forma sostenible
+- La distribución por Temperatura y RFM te permite activar estrategias diferenciadas
+- El análisis de cohortes identifica qué eventos generan fans más fieles
+
+## Siguiente paso
+
+<CardGrid>
+  <LinkCard
+    title="Métricas de campañas"
+    href="/analitica/campanas/"
+    description="Open rate, click rate, conversión y ROAS por campaña."
+  />
+  <LinkCard
+    title="Preguntárselo a Claude en lenguaje natural"
+    href="/nevent-ai/que-puedes-hacer/analitica/"
+    description="Consulta LTV, churn y cohortes con una pregunta directa."
+  />
+  <LinkCard
+    title="Volver al hub de analítica"
+    href="/analitica/"
+    description="Ver todas las áreas de métricas disponibles."
+  />
+</CardGrid>

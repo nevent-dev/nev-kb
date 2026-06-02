@@ -1,0 +1,192 @@
+---
+title: "How to group and filter analytics data in Nevent"
+description: "Learn how to group metrics by date, event, channel or genre and apply time filters in Nevent. Slice your data the way you need without writing any code."
+sidebar:
+  order: 17
+---
+
+import Schema from '../../../../../components/Schema.astro';
+import { Aside, CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+<Schema>{`{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "How to group and filter analytics data in Nevent",
+  "description": "Guide to analysis dimensions and time filters in Nevent: group metrics by date, event, channel, segment, city or music genre without needing to write code.",
+  "author": { "@type": "Organization", "name": "Nevent", "url": "https://nevent.ai" },
+  "publisher": { "@type": "Organization", "name": "Nevent" },
+  "datePublished": "2026-06-02",
+  "dateModified": "2026-06-02",
+  "about": [
+    { "@type": "Thing", "name": "Data analytics dimensions" },
+    { "@type": "Thing", "name": "Event marketing analytics" }
+  ],
+  "mentions": [{ "@type": "SoftwareApplication", "name": "Nevent" }],
+  "audience": { "@type": "Audience", "audienceType": "Live event promoters" }
+}`}</Schema>
+
+:::tip[Quick definition]
+**Analysis dimensions** are the ways you can group your metrics: by date, by event, by communication channel, by ticket type or by fan segment. **Time filters** let you focus on only the period you care about. Together, they let you "slice" the data from any angle without writing code or SQL.
+:::
+
+# How to group and filter data in Nevent
+
+Raw metrics are just the starting point. The real value is in comparing: this month versus last month, this event versus the one from last season, email versus SMS. Nevent's dimensions and filters let you make those comparisons in seconds.
+
+## What dimensions can you use to group your metrics?
+
+<table>
+  <thead>
+    <tr>
+      <th>Dimension</th>
+      <th>Possible values</th>
+      <th>What it is useful for</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Date</strong></td>
+      <td>Day, week, month, quarter, year</td>
+      <td>Spot trends and seasonality</td>
+    </tr>
+    <tr>
+      <td><strong>Event</strong></td>
+      <td>By name, category or city of the event</td>
+      <td>Compare the performance of each event</td>
+    </tr>
+    <tr>
+      <td><strong>Campaign</strong></td>
+      <td>By name, channel or send date</td>
+      <td>See which campaign performed best</td>
+    </tr>
+    <tr>
+      <td><strong>Channel</strong></td>
+      <td>Email, SMS, WhatsApp, Meta Ads, Google Ads</td>
+      <td>Compare performance across channels</td>
+    </tr>
+    <tr>
+      <td><strong>Ticket type</strong></td>
+      <td>Early bird, standard, VIP, season pass, etc.</td>
+      <td>Analyse demand mix by category</td>
+    </tr>
+    <tr>
+      <td><strong>Fan segment</strong></td>
+      <td>Champions, At Risk, New fans, Nevent Temperature, etc.</td>
+      <td>View metrics differentiated by fan profile</td>
+    </tr>
+    <tr>
+      <td><strong>City</strong></td>
+      <td>Fan's city or event city</td>
+      <td>Analyse performance by geographic market</td>
+    </tr>
+    <tr>
+      <td><strong>Music genre</strong></td>
+      <td>Electronic, jazz, rock, reggaeton, flamenco, etc.</td>
+      <td>Compare performance across genres if you have a diverse portfolio</td>
+    </tr>
+    <tr>
+      <td><strong>Device</strong></td>
+      <td>Mobile, desktop, tablet</td>
+      <td>Optimise the purchase experience per device</td>
+    </tr>
+  </tbody>
+</table>
+
+## What time filters are available?
+
+<table>
+  <thead>
+    <tr>
+      <th>Filter</th>
+      <th>What it selects</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Today</strong></td>
+      <td>Data from the current day only</td>
+    </tr>
+    <tr>
+      <td><strong>Yesterday</strong></td>
+      <td>Data from the previous day only</td>
+    </tr>
+    <tr>
+      <td><strong>This week</strong></td>
+      <td>From Monday of the current week</td>
+    </tr>
+    <tr>
+      <td><strong>This month</strong></td>
+      <td>From the 1st of the current month</td>
+    </tr>
+    <tr>
+      <td><strong>This quarter</strong></td>
+      <td>From the start of the current quarter</td>
+    </tr>
+    <tr>
+      <td><strong>This year</strong></td>
+      <td>From 1 January of the current year</td>
+    </tr>
+    <tr>
+      <td><strong>Last N days</strong></td>
+      <td>Configurable rolling window (e.g. last 30 days)</td>
+    </tr>
+    <tr>
+      <td><strong>Custom range</strong></td>
+      <td>Any start and end date you define</td>
+    </tr>
+    <tr>
+      <td><strong>Comparison with previous period</strong></td>
+      <td>Shows the same period from last month, previous quarter or last year</td>
+    </tr>
+  </tbody>
+</table>
+
+## What output formats does Nevent generate?
+
+Depending on the type of analysis you run, Nevent can return data in three formats:
+
+- **Results tables**: the most common view, exportable to CSV or Excel. Each row is a unit (event, campaign, fan) and each column is a metric.
+- **Time series**: a visualisation of how a metric evolves over time. Useful for detecting trends, sales spikes or performance drops.
+- **Multi-dimension aggregates**: combine several dimensions in the same view. For example, viewing revenue by channel and by month in the same table.
+
+## How to combine dimensions and filters effectively
+
+Imagine you want to know whether email works better than SMS for selling early-bird tickets to fans in your Champions segment during January. With Nevent you can apply simultaneously:
+
+- **Time filter**: January
+- **Channel dimension**: email vs SMS
+- **Ticket type dimension**: early bird
+- **Segment dimension**: Champions
+
+The result is a table that compares exactly those two combinations for that period — no data exports or spreadsheet cross-referencing required.
+
+## Practical example
+
+Imagine you manage a promoter with events in Madrid, Barcelona and Seville and you want to know whether jazz fans generate more revenue per event than electronic music fans in the last quarter. You group by city and music genre, apply the quarter filter, and Nevent shows you the comparison in seconds. That information helps you prioritise which type of events to programme in the next period.
+
+## Summary
+
+- Dimensions are the ways to group data: date, event, channel, segment, city, genre
+- Time filters narrow the analysis period: today, last N days, custom range
+- Combining dimensions and filters generates highly specific insights without writing code
+- Results can be viewed as a table, time series or multi-dimension aggregate
+
+## Next step
+
+<CardGrid>
+  <LinkCard
+    title="Frequently asked questions about analytics"
+    href="/en/analytics/faq/"
+    description="Data retention, exports, integrations and more."
+  />
+  <LinkCard
+    title="Ask Claude in plain language"
+    href="/en/nevent-ai/what-you-can-do/analytics/"
+    description="Apply any filter and dimension with a direct question."
+  />
+  <LinkCard
+    title="Back to analytics hub"
+    href="/en/analytics/"
+    description="See all available metric areas."
+  />
+</CardGrid>
