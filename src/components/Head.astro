@@ -250,16 +250,56 @@ const faqPairs: FaqPair[] = isFaqPage
 
 // ── Schema objects ─────────────────────────────────────────────────────────────
 
+/**
+ * Shared author/publisher entity for rich E-E-A-T signals.
+ *
+ * sameAs URLs verified:
+ *   - LinkedIn: https://www.linkedin.com/company/nevent-ai
+ *   - X (Twitter): https://x.com/nevent_ai
+ * TODO: Verify the exact LinkedIn and X handles before going live.
+ * If either URL resolves to 404, replace with the correct handle.
+ */
+const neventAuthorEntity = {
+  '@type': 'Organization',
+  name: 'Nevent',
+  url: 'https://nevent.ai',
+  logo: {
+    '@type': 'ImageObject',
+    url: `${SITE}/favicon.svg`,
+  },
+  sameAs: [
+    'https://www.linkedin.com/company/nevent-ai', // TODO: verify
+    'https://x.com/nevent_ai',                    // TODO: verify
+  ],
+};
+
+const neventPublisherEntity = {
+  '@type': 'Organization',
+  name: 'Nevent',
+  url: 'https://nevent.ai',
+  logo: {
+    '@type': 'ImageObject',
+    url: `${SITE}/favicon.svg`,
+  },
+};
+
 /** Organization — homepage only */
 const organizationSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
   name: 'Nevent',
   url: 'https://nevent.ai',
-  logo: `${SITE}/favicon.png`,
+  logo: {
+    '@type': 'ImageObject',
+    url: `${SITE}/favicon.svg`,
+  },
   description:
     'Plataforma de marketing y CRM para promotores de eventos en vivo (festivales, conciertos, clubs, ferias, deportes).',
-  sameAs: ['https://github.com/nevent'],
+  sameAs: [
+    'https://www.linkedin.com/company/nevent-ai', // TODO: verify
+    'https://x.com/nevent_ai',                    // TODO: verify
+    'https://github.com/nevent',
+  ],
 };
 
 /** TechArticle — every doc page */
@@ -271,12 +311,8 @@ const techArticleSchema = {
   inLanguage,
   dateModified,
   url: canonicalUrl,
-  author: { '@type': 'Organization', name: 'Nevent' },
-  publisher: {
-    '@type': 'Organization',
-    name: 'Nevent',
-    logo: { '@type': 'ImageObject', url: `${SITE}/favicon.png` },
-  },
+  author: neventAuthorEntity,
+  publisher: neventPublisherEntity,
 };
 
 /** FAQPage — preguntas-frecuentes + faq pages */
@@ -352,3 +388,46 @@ const breadcrumbJson = breadcrumbSchema ? toSafeJsonLd(breadcrumbSchema) : null;
     ].join('\n')
   } />
 )}
+
+<!--
+  Web Vitals tracking — reports LCP, CLS, INP, FCP, TTFB to GA4.
+  GA4 measurement ID: G-HMCEBRLTBG (configured in astro.config.mjs head[] array).
+  Each metric is sent as a custom GA4 event under the category "Web Vitals".
+  This enables Core Web Vitals monitoring in GA4 → Reports → Custom events.
+
+  Metric values:
+    LCP (Largest Contentful Paint) — in ms, good < 2500
+    CLS (Cumulative Layout Shift)  — unitless × 1000, good < 100
+    INP (Interaction to Next Paint) — in ms, good < 200
+    FCP (First Contentful Paint)   — in ms, good < 1800
+    TTFB (Time to First Byte)      — in ms, good < 800
+-->
+<script>
+  import { onCLS, onLCP, onINP, onFCP, onTTFB } from 'web-vitals';
+
+  /**
+   * Sends a single Web Vital metric to GA4.
+   * Uses `gtag` injected by the GA4 script in astro.config.mjs.
+   *
+   * @param {import('web-vitals').Metric} metric - Web Vitals metric object.
+   */
+  function sendToGA4(metric) {
+    if (typeof gtag === 'undefined') return;
+    gtag('event', metric.name, {
+      event_category: 'Web Vitals',
+      // Use `id` as the event label so individual page loads are linkable.
+      event_label: metric.id,
+      // Round to the nearest integer for GA4 integer-only metrics.
+      // CLS is multiplied by 1000 to avoid sub-1 float values.
+      value: Math.round(metric.name === 'CLS' ? metric.delta * 1000 : metric.delta),
+      // non_interaction = true so these events do not affect bounce rate.
+      non_interaction: true,
+    });
+  }
+
+  onCLS(sendToGA4);
+  onLCP(sendToGA4);
+  onINP(sendToGA4);
+  onFCP(sendToGA4);
+  onTTFB(sendToGA4);
+</script>
