@@ -1,0 +1,144 @@
+---
+title: "Atribución de revenue por canal de marketing en eventos | Nevent"
+description: "Compara el revenue atribuido, el coste y el ROAS de todos tus canales de marketing en una sola tabla. Decide dónde invertir más y dónde recortar con datos reales."
+sidebar:
+  order: 55
+---
+
+import Schema from '../../../../components/Schema.astro';
+import { Aside, CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+<Schema>{`{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Atribución de revenue por canal de marketing: guía para promotores de eventos",
+  "description": "Cómo medir qué canales de marketing generan más revenue en tus eventos en vivo: email, SMS, Meta Ads, Google Ads, orgánico y directo. Tabla comparativa con ROAS por canal.",
+  "author": { "@type": "Organization", "name": "Nevent", "url": "https://nevent.ai" },
+  "publisher": { "@type": "Organization", "name": "Nevent" },
+  "datePublished": "2026-06-02",
+  "dateModified": "2026-06-02",
+  "about": [
+    { "@type": "Thing", "name": "Marketing attribution" },
+    { "@type": "Thing", "name": "Multi-channel analytics" },
+    { "@type": "Thing", "name": "Live music events" }
+  ],
+  "audience": { "@type": "Audience", "audienceType": "Live event promoters" }
+}`}</Schema>
+
+:::tip[Definición rápida]
+**Atribución por canal**: cuánto revenue puedes atribuir a cada canal de marketing (email, SMS, WhatsApp, Meta Ads, Google Ads, orgánico, directo...) en un periodo determinado. Te dice dónde seguir invirtiendo y dónde no, con una sola tabla comparativa.
+:::
+
+# Atribución de revenue por canal de marketing
+
+## Pregunta de negocio
+
+"¿Qué canales me generan más revenue? ¿Dónde sigo invirtiendo y dónde no?"
+
+Esta es la pregunta de los primeros días del mes, cuando el equipo se sienta a decidir dónde va el presupuesto del próximo periodo. Sin una visión unificada de todos los canales, la asignación de recursos se basa en preferencias, no en rendimiento real.
+
+## ¿Cómo se mide la atribución por canal?
+
+Se suma el revenue atribuido a cada canal de marketing durante el periodo seleccionado. Para los canales de pago (Meta Ads, Google Ads), se añade el coste y se calcula el ROAS. Para los canales propios (email, SMS, WhatsApp), el coste es principalmente el del plan de comunicación. Para orgánico y directo, el coste es cero o nulo.
+
+El resultado se ordena de mayor a menor revenue para ver de un vistazo qué canal lidera.
+
+## ¿Qué resultado esperar?
+
+Una tabla con un canal por fila y estas columnas:
+
+<table>
+  <thead>
+    <tr>
+      <th>Canal</th>
+      <th>Revenue atribuido</th>
+      <th>Coste</th>
+      <th>ROAS</th>
+      <th>Campañas activas</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Email</td>
+      <td>€ X</td>
+      <td>€ Y (coste del plan)</td>
+      <td>X</td>
+      <td>N</td>
+    </tr>
+    <tr>
+      <td>Meta Ads</td>
+      <td>€ X</td>
+      <td>€ Y (inversión en ads)</td>
+      <td>X</td>
+      <td>N</td>
+    </tr>
+    <tr>
+      <td>Google Ads</td>
+      <td>€ X</td>
+      <td>€ Y (inversión en ads)</td>
+      <td>X</td>
+      <td>N</td>
+    </tr>
+    <tr>
+      <td>Orgánico</td>
+      <td>€ X</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>Directo</td>
+      <td>€ X</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+  </tbody>
+</table>
+
+Los canales con ROAS más alto son los que mejor convierten la inversión en revenue. Los canales propios (email, SMS) suelen mostrar ROAS muy superiores a los de paid media porque su coste fijo es mucho menor; sin embargo, su alcance está limitado a tu base actual.
+
+## ¿Cuándo tiene sentido consultar este caso?
+
+- **Reasignación de presupuesto mensual o trimestral** — la tabla de atribución por canal es el punto de partida para cualquier decisión de dónde poner el dinero el mes siguiente.
+- **Decisiones de cierre o expansión de canal** — si un canal lleva tres meses con ROAS inferior al mínimo rentable, la tabla lo hace evidente.
+- **Reporting a dirección con visión 360** — en una reunión de dirección, la tabla de canales es el resumen más completo de tu ecosistema de marketing.
+- **Comparativa entre dos periodos** — ver la tabla del trimestre actual frente al trimestre anterior revela si los cambios de estrategia están funcionando.
+
+## ¿Cuándo NO usar este caso?
+
+- Si quieres analizar el rendimiento de una campaña específica: la atribución por canal es una vista agregada. Para el detalle de una campaña, el caso A1 (ROAS por campaña) es más preciso.
+- Si acabas de lanzar un canal nuevo: con menos de 4-6 semanas de datos, la atribución no es estadísticamente significativa.
+
+## Variaciones útiles
+
+- **Solo canales de pago** — ver solo Meta Ads, Google Ads y TikTok elimina el ruido de los canales orgánicos y facilita la comparativa pura de ROI.
+- **Solo canales propios** — email, SMS y WhatsApp juntos muestran el rendimiento de tu base sin coste de adquisición.
+- **Filtrar por evento** — si tienes varios eventos activos en paralelo, la atribución por canal para un evento concreto es mucho más accionable que el agregado.
+- **Comparativa entre dos periodos** — este trimestre vs el anterior muestra si estás mejorando la eficiencia de cada canal.
+
+## Resumen
+
+- La atribución por canal es la tabla más completa para comparar el rendimiento de todo tu ecosistema de marketing en un solo vistazo.
+- Incluye revenue atribuido, coste, ROAS y número de campañas activas por canal.
+- Úsalo para decisiones de presupuesto, cierres de canal y reporting ejecutivo mensual o trimestral.
+
+## Siguiente paso
+
+<CardGrid>
+  <LinkCard
+    title="Pregúntaselo a Claude en lenguaje natural"
+    href="/nevent-ai/que-puedes-hacer/analitica/"
+    description="Obtén la tabla de atribución por canal con una pregunta en lenguaje natural."
+  />
+  <LinkCard
+    title="A1 — ROAS últimos 30 días"
+    href="/analitica/casos/roas-ultimos-30-dias/"
+    description="Profundiza en el ROAS de tus campañas de paid media."
+  />
+  <LinkCard
+    title="Volver al hub de casos prácticos"
+    href="/analitica/casos/"
+    description="Todos los casos de analítica disponibles."
+  />
+</CardGrid>

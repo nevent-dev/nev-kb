@@ -1,0 +1,130 @@
+---
+title: "Email usage by plan tier: control your sending quota | Nevent"
+description: "Measure how many emails you send per plan tier and how much quota remains. Anticipate overages, identify underused tiers and plan upgrades based on real usage data."
+sidebar:
+  order: 54
+---
+
+import Schema from '../../../../../components/Schema.astro';
+import { Aside, CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+<Schema>{`{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Email usage by plan tier: how to control your sending quota in Nevent",
+  "description": "How to measure email volume sent per plan tier, compare it against contracted quota and anticipate upgrade needs before an overage occurs.",
+  "author": { "@type": "Organization", "name": "Nevent", "url": "https://nevent.ai" },
+  "publisher": { "@type": "Organization", "name": "Nevent" },
+  "datePublished": "2026-06-02",
+  "dateModified": "2026-06-02",
+  "about": [
+    { "@type": "Thing", "name": "Email marketing plan management" },
+    { "@type": "Thing", "name": "SaaS plan usage analytics" },
+    { "@type": "Thing", "name": "Live music events" }
+  ],
+  "audience": { "@type": "Audience", "audienceType": "Live event promoters" }
+}`}</Schema>
+
+:::tip[Quick definition]
+**Email usage by plan tier**: the volume of emails sent in a period, broken down by plan level (Basic, Pro, Enterprise...) and compared against the contracted quota at each level. It tells you whether you are about to exceed your quota or whether you are paying for more than you actually use.
+:::
+
+# Email usage by plan tier
+
+## Business question
+
+"How many emails do I send per month at each plan tier and how much quota do I have left?"
+
+This question comes up during the quarterly plan review, when preparing internal financial reports or when the team needs to decide whether to upgrade before launching the next big campaign.
+
+## How is email usage by tier measured?
+
+The total volume of emails sent is counted and grouped by plan tier (Basic, Pro, Enterprise or whichever levels apply to your configuration) and by month. That volume is then compared against the contracted quota at each tier.
+
+The key data point per cell is twofold: the absolute number of emails sent and the percentage of quota consumed. A tier at 90% of quota in the middle of the month is a warning signal; one at 10% at the end of the month indicates underutilisation.
+
+## What result should you expect?
+
+A table with this structure:
+
+<table>
+  <thead>
+    <tr>
+      <th>Tier</th>
+      <th>Monthly quota</th>
+      <th>Sent this month</th>
+      <th>% quota consumed</th>
+      <th>Remaining allowance</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Basic</td>
+      <td>Per plan</td>
+      <td>Actual month figure</td>
+      <td>X%</td>
+      <td>Emails available</td>
+    </tr>
+    <tr>
+      <td>Pro</td>
+      <td>Per plan</td>
+      <td>Actual month figure</td>
+      <td>X%</td>
+      <td>Emails available</td>
+    </tr>
+    <tr>
+      <td>Enterprise</td>
+      <td>Per plan</td>
+      <td>Actual month figure</td>
+      <td>X%</td>
+      <td>Emails available</td>
+    </tr>
+  </tbody>
+</table>
+
+This view lets you do three things: anticipate whether you will exceed your quota before it happens, decide whether a plan upgrade makes sense and identify tiers you are paying for but underusing.
+
+## When does this use case make sense?
+
+- **Quarterly plan review** — the natural moment to evaluate whether the current plan still suits your activity volume.
+- **Preparing for a large campaign** — before launching a mass send to your entire base, verify you have sufficient quota for that month.
+- **Internal financial reports** — the cost of the email plan relative to actual usage is relevant data for the finance team.
+- **Negotiating an upgrade with the team** — usage data is the strongest argument for justifying the need to move to a higher tier.
+
+## When NOT to use this case
+
+- If your plan has no email quota limit: in that case the quota comparison does not apply and the relevant metric is variable cost monitoring.
+- If what you want to measure is campaign performance (open rate, click rate, conversion): for that, use cases A3 and A5 are more appropriate.
+
+## Useful variations
+
+- **Delivered emails only** — excluding bounces from the count gives a more accurate view of real quota usage, since hard bounces should not consume operational quota.
+- **Breakdown by channel** — if your plan includes SMS and WhatsApp as well, extending the same table to those channels gives a unified view of total usage.
+- **By campaign type** — separating transactional emails (purchase confirmations, reminders) from marketing emails helps you understand which part of consumption is unavoidable and which is discretionary.
+- **Month-on-month trend** — seeing the percentage of quota consumed over the last 6 months reveals trends: if you grow 10% each month, you know when you will need the next tier.
+
+## Summary
+
+- Email usage by tier compares the volume sent against the contracted quota at each plan level.
+- The result is a table with tier, monthly quota, emails sent and percentage of quota consumed.
+- Use it to anticipate overages, plan upgrades and justify the current plan with real usage data.
+
+## Next step
+
+<CardGrid>
+  <LinkCard
+    title="Ask Claude in plain language"
+    href="/en/nevent-ai/what-you-can-do/analytics/"
+    description="Query your plan quota usage with a plain-language question."
+  />
+  <LinkCard
+    title="A3 — Daily open rate"
+    href="/en/analytics/use-cases/daily-open-rate/"
+    description="Monitor the health of your emails with the open rate time series."
+  />
+  <LinkCard
+    title="Back to use cases hub"
+    href="/en/analytics/use-cases/"
+    description="All available analytics use cases."
+  />
+</CardGrid>

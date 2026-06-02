@@ -1,0 +1,140 @@
+---
+title: "Fan cohorts by first purchase: loyalty analysis for events | Nevent"
+description: "Analyse how fans behave over time based on the month they made their first purchase. Measure retention, LTV and loyalty for live music events with Nevent."
+sidebar:
+  order: 56
+---
+
+import Schema from '../../../../../components/Schema.astro';
+import { Aside, CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+<Schema>{`{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Fan cohorts by first purchase: loyalty analysis for live event promoters",
+  "description": "How to identify fan cohorts by their first purchase, measure their retention at 3, 6 and 12 months and use that analysis to make acquisition and investment decisions.",
+  "author": { "@type": "Organization", "name": "Nevent", "url": "https://nevent.ai" },
+  "publisher": { "@type": "Organization", "name": "Nevent" },
+  "datePublished": "2026-06-02",
+  "dateModified": "2026-06-02",
+  "about": [
+    { "@type": "Thing", "name": "Cohort analysis" },
+    { "@type": "Thing", "name": "Fan retention" },
+    { "@type": "Thing", "name": "Live music events" }
+  ],
+  "audience": { "@type": "Audience", "audienceType": "Live event promoters" }
+}`}</Schema>
+
+:::tip[Quick definition]
+**Cohort analysis by first purchase**: grouping fans by the month they made their first purchase and tracking their subsequent behaviour. It reveals whether your product builds loyalty, how much those fans are worth over time (LTV) and whether recent cohorts are performing better or worse than older ones.
+:::
+
+# Fan cohorts by month of first purchase
+
+## Business question
+
+"Are fans who bought for the first time 6 months ago coming back? What does their subsequent behaviour look like?"
+
+This is a strategic question: it is not about a specific campaign or a specific month, but about the long-term health of your business. If fans you acquired 6 months ago have not returned, something is wrong with the value proposition or the post-event follow-up.
+
+## How is cohort analysis measured?
+
+For each fan, the month of their first purchase is identified: that is their cohort month. All fans who bought for the first time in, say, March form the "March cohort". Then, for each cohort, the total amount spent subsequently, the number of times they have returned and the percentage still active at 3, 6 and 12 months are calculated.
+
+The result is a table where rows are cohort months and columns are successive retention periods.
+
+For a deeper look at the cohort analysis methodology applied to entertainment businesses, the <a href="https://mixpanel.com/blog/cohort-analysis/" target="_blank" rel="noopener noreferrer">Mixpanel guide to cohort analysis</a> offers a solid methodological reference.
+
+## What result should you expect?
+
+A table with one cohort month per row and these columns:
+
+<table>
+  <thead>
+    <tr>
+      <th>Cohort</th>
+      <th>Initial size</th>
+      <th>Total cumulative spend</th>
+      <th>Subsequent purchases (average)</th>
+      <th>3-month retention</th>
+      <th>6-month retention</th>
+      <th>12-month retention</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>January</td>
+      <td>N fans</td>
+      <td>€ X</td>
+      <td>X purchases</td>
+      <td>X%</td>
+      <td>X%</td>
+      <td>X%</td>
+    </tr>
+    <tr>
+      <td>February</td>
+      <td>N fans</td>
+      <td>€ X</td>
+      <td>X purchases</td>
+      <td>X%</td>
+      <td>X%</td>
+      <td>X%</td>
+    </tr>
+    <tr>
+      <td>March</td>
+      <td>N fans</td>
+      <td>€ X</td>
+      <td>X purchases</td>
+      <td>X%</td>
+      <td>X%</td>
+      <td>X%</td>
+    </tr>
+  </tbody>
+</table>
+
+The table reveals three key things: whether your product builds loyalty (what percentage come back at 6 months?), whether recent cohorts are performing better or worse than older ones (are you improving the experience?) and what your typical LTV is by acquisition month.
+
+## When does this use case make sense?
+
+- **Strategic loyalty analysis** — the cohort table is the most honest analysis of whether your business retains fans or simply keeps acquiring new ones.
+- **Justifying acquisition investment** — if 12-month retention is high, you can justify greater investment in acquisition because LTV supports it.
+- **Product decisions** — if cohorts acquired via Early Bird have better retention than those acquired via paid ads, that says something important about which first touchpoint converts better over time.
+- **Cohort comparison by acquisition source** — comparing fans who arrived via Meta Ads with those who arrived via organic email reveals which channel brings fans of higher value, not just higher volume.
+
+## When NOT to use this case
+
+- If you have been operating for fewer than 6 months: with such recent cohorts, there is not enough time window to measure meaningful retention.
+- If your business is single-event (one festival per year): cohorts make more sense when there is a regular programme of events that allows you to measure whether the fan returns.
+
+## Useful variations
+
+- **Cohorts by acquisition channel** — separating fans who arrived via Meta from those who arrived via organic email tells you which channel brings fans with higher LTV, not just higher volume.
+- **Cohorts by first ticket type** — fans who debuted with an Early Bird ticket have a different retention profile from those who came in via VIP or last-minute box office.
+- **Last 12 months only** — limiting the analysis to the last year avoids the bias of very old cohorts that can distort averages.
+- **LTV by music genre of first event** — if your electronic music fan cohorts have better retention than pop cohorts, that information is useful for prioritising your event portfolio.
+
+## Summary
+
+- Cohort analysis groups fans by month of first purchase and measures their subsequent behaviour: spend, purchases and retention.
+- The result is the most strategic table in your business: it reveals whether you retain fans, what your real LTV is and whether you are improving over time.
+- Use it for loyalty analysis, product decisions and justifying acquisition investment.
+
+## Next step
+
+<CardGrid>
+  <LinkCard
+    title="Ask Claude in plain language"
+    href="/en/nevent-ai/what-you-can-do/analytics/"
+    description="Query your cohort analysis with a plain-language question."
+  />
+  <LinkCard
+    title="A2 — Top events by revenue"
+    href="/en/analytics/use-cases/top-events-revenue/"
+    description="Find out which events in your portfolio generate the most revenue."
+  />
+  <LinkCard
+    title="Back to use cases hub"
+    href="/en/analytics/use-cases/"
+    description="All available analytics use cases."
+  />
+</CardGrid>
