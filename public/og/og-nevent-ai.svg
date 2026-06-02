@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0c0a09;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1c1917;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#f59e0b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#d97706;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)" />
+  <rect x="0" y="0" width="8" height="630" fill="url(#accent)" />
+  <rect x="0" y="580" width="1200" height="50" fill="url(#accent)" opacity="0.3" />
+  <text x="80" y="160" font-family="system-ui, -apple-system, sans-serif" font-size="30" font-weight="500" fill="#fbbf24" letter-spacing="2">NEVENT HELP CENTER</text>
+  <text x="80" y="260" font-family="system-ui, -apple-system, sans-serif" font-size="68" font-weight="700" fill="#ffffff" letter-spacing="-1">Nevent AI</text>
+  <text x="80" y="335" font-family="system-ui, -apple-system, sans-serif" font-size="68" font-weight="700" fill="#fde68a" letter-spacing="-1">Asistente Inteligente</text>
+  <text x="80" y="430" font-family="system-ui, -apple-system, sans-serif" font-size="28" font-weight="400" fill="#fbbf24">Claude · ChatGPT · MCP · Integraciones</text>
+  <text x="80" y="475" font-family="system-ui, -apple-system, sans-serif" font-size="28" font-weight="400" fill="#fbbf24">Casos prácticos · Frases · Desarrolladores</text>
+  <text x="80" y="560" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="400" fill="#d97706">help.nevent.ai/nevent-ai/</text>
+</svg>

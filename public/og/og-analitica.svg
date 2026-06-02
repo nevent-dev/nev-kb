@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1e293b;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#0ea5e9;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0284c7;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)" />
+  <rect x="0" y="0" width="8" height="630" fill="url(#accent)" />
+  <rect x="0" y="580" width="1200" height="50" fill="url(#accent)" opacity="0.3" />
+  <text x="80" y="160" font-family="system-ui, -apple-system, sans-serif" font-size="30" font-weight="500" fill="#7dd3fc" letter-spacing="2">NEVENT HELP CENTER</text>
+  <text x="80" y="260" font-family="system-ui, -apple-system, sans-serif" font-size="68" font-weight="700" fill="#ffffff" letter-spacing="-1">Analítica</text>
+  <text x="80" y="335" font-family="system-ui, -apple-system, sans-serif" font-size="68" font-weight="700" fill="#bae6fd" letter-spacing="-1">de Eventos</text>
+  <text x="80" y="430" font-family="system-ui, -apple-system, sans-serif" font-size="28" font-weight="400" fill="#7dd3fc">Campañas · Audiencia · Paid Media · Entregabilidad</text>
+  <text x="80" y="475" font-family="system-ui, -apple-system, sans-serif" font-size="28" font-weight="400" fill="#7dd3fc">Tracking · Atribución · ROAS · Cohortes</text>
+  <text x="80" y="560" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="400" fill="#0284c7">help.nevent.ai/analitica/</text>
+</svg>
