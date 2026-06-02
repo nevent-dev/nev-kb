@@ -1,0 +1,130 @@
+---
+title: "Consumo de email por tier del plan: controla tu cuota | Nevent"
+description: "Mide cuántos emails envías en cada tier de tu plan y cuánta cuota te queda. Anticipa sobrecostes, identifica tiers infrautilizados y decide upgrades con datos."
+sidebar:
+  order: 54
+---
+
+import Schema from '../../../../components/Schema.astro';
+import { Aside, CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+<Schema>{`{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Consumo de email por tier del plan: cómo controlar la cuota en Nevent",
+  "description": "Cómo medir el volumen de emails enviados por tier de plan, comparar con la cuota contratada y anticipar necesidades de upgrade antes de que se produzca un sobrecoste.",
+  "author": { "@type": "Organization", "name": "Nevent", "url": "https://nevent.ai" },
+  "publisher": { "@type": "Organization", "name": "Nevent" },
+  "datePublished": "2026-06-02",
+  "dateModified": "2026-06-02",
+  "about": [
+    { "@type": "Thing", "name": "Email marketing plan management" },
+    { "@type": "Thing", "name": "SaaS plan usage analytics" },
+    { "@type": "Thing", "name": "Live music events" }
+  ],
+  "audience": { "@type": "Audience", "audienceType": "Live event promoters" }
+}`}</Schema>
+
+:::tip[Definición rápida]
+**Consumo de email por tier**: el volumen de emails enviados en un periodo, desglosado por nivel de plan (Basic, Pro, Enterprise...) y comparado con la cuota contratada en cada uno. Te dice si estás a punto de pasarte de cuota o si estás pagando por más de lo que usas.
+:::
+
+# Consumo de email por tier del plan
+
+## Pregunta de negocio
+
+"¿Cuántos emails envío al mes en cada tier de mi plan y cuánto margen de cuota me queda?"
+
+Esta pregunta aparece en la revisión trimestral del plan, cuando preparas los reportes financieros internos o cuando el equipo necesita decidir si hacer un upgrade antes de lanzar la próxima campaña grande.
+
+## ¿Cómo se mide el consumo de email por tier?
+
+Se cuenta el volumen total de emails enviados y se agrupa por tier de plan (Basic, Pro, Enterprise o los niveles que apliquen a tu configuración) y por mes. Después, ese volumen se compara con la cuota contratada en cada tier.
+
+El dato clave de cada celda es doble: el número absoluto de emails enviados y el porcentaje de cuota consumida. Un tier al 90% de cuota a mediados de mes es una señal de alerta; uno al 10% al final del mes indica infrautilización.
+
+## ¿Qué resultado esperar?
+
+Una tabla con esta estructura:
+
+<table>
+  <thead>
+    <tr>
+      <th>Tier</th>
+      <th>Cuota mensual</th>
+      <th>Enviados este mes</th>
+      <th>% cuota consumida</th>
+      <th>Margen restante</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Basic</td>
+      <td>Según plan</td>
+      <td>Dato real del mes</td>
+      <td>X%</td>
+      <td>Emails disponibles</td>
+    </tr>
+    <tr>
+      <td>Pro</td>
+      <td>Según plan</td>
+      <td>Dato real del mes</td>
+      <td>X%</td>
+      <td>Emails disponibles</td>
+    </tr>
+    <tr>
+      <td>Enterprise</td>
+      <td>Según plan</td>
+      <td>Dato real del mes</td>
+      <td>X%</td>
+      <td>Emails disponibles</td>
+    </tr>
+  </tbody>
+</table>
+
+Esta visión te permite tres cosas: anticipar si vas a superar la cuota antes de que ocurra, decidir si tiene sentido hacer un upgrade de plan y detectar tiers que estás pagando pero infrautilizando.
+
+## ¿Cuándo tiene sentido consultar este caso?
+
+- **Revisión de plan trimestral** — el momento natural para evaluar si el plan actual sigue siendo el adecuado para tu volumen de actividad.
+- **Preparación de una campaña grande** — antes de lanzar un envío masivo a toda la base, comprueba que tienes cuota suficiente para ese mes.
+- **Reportes financieros internos** — el coste del plan de email en relación con el uso real es un dato relevante para el departamento financiero.
+- **Negociación de upgrade con el equipo** — los datos de consumo son el argumento más sólido para justificar la necesidad de subir de tier.
+
+## ¿Cuándo NO usar este caso?
+
+- Si tu plan no tiene límite de cuota de emails: en ese caso, la comparativa con cuota no aplica y lo relevante es monitorizar el coste variable.
+- Si lo que quieres medir es el rendimiento de las campañas (open rate, click rate, conversión): para eso, los casos A3 y A5 son más apropiados.
+
+## Variaciones útiles
+
+- **Solo emails entregados** — excluir los rebotes del conteo da una visión más precisa del uso real de la cuota, ya que los bounces duros no deberían consumir cuota operativa.
+- **Desglose por canal** — si tu plan incluye también SMS y WhatsApp, extender la misma tabla a esos canales te da una visión unificada del consumo.
+- **Por tipo de campaña** — separar emails transaccionales (confirmaciones de compra, recordatorios) de emails de marketing te ayuda a entender qué parte del consumo es inescapable y cuál es discrecional.
+- **Evolución mes a mes** — ver el porcentaje de cuota consumida en los últimos 6 meses revela tendencias: si cada mes creces un 10%, sabes cuándo vas a necesitar el siguiente tier.
+
+## Resumen
+
+- El consumo de email por tier compara el volumen enviado con la cuota contratada en cada nivel de plan.
+- El resultado es una tabla con tier, cuota mensual, emails enviados y porcentaje de cuota consumida.
+- Úsalo para anticipar sobrecostes, planificar upgrades y justificar el plan actual con datos reales de uso.
+
+## Siguiente paso
+
+<CardGrid>
+  <LinkCard
+    title="Pregúntaselo a Claude en lenguaje natural"
+    href="/nevent-ai/que-puedes-hacer/analitica/"
+    description="Consulta el consumo de cuota de tu plan con una pregunta en lenguaje natural."
+  />
+  <LinkCard
+    title="A3 — Open rate diario"
+    href="/analitica/casos/open-rate-diario/"
+    description="Monitoriza la salud de tus emails con la serie temporal de open rate."
+  />
+  <LinkCard
+    title="Volver al hub de casos prácticos"
+    href="/analitica/casos/"
+    description="Todos los casos de analítica disponibles."
+  />
+</CardGrid>

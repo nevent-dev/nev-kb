@@ -1,0 +1,140 @@
+---
+title: "Cohortes de fans por primera compra: fidelización en eventos | Nevent"
+description: "Analiza cómo se comportan los fans a largo plazo según el mes en que compraron por primera vez. Mide retención, LTV y fidelización en eventos de música en vivo."
+sidebar:
+  order: 56
+---
+
+import Schema from '../../../../components/Schema.astro';
+import { Aside, CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+<Schema>{`{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Cohortes de fans por mes de primera compra: análisis de fidelización para eventos",
+  "description": "Cómo identificar cohortes de fans según su primera compra, medir su retención a 3, 6 y 12 meses y usar ese análisis para tomar decisiones de captación e inversión.",
+  "author": { "@type": "Organization", "name": "Nevent", "url": "https://nevent.ai" },
+  "publisher": { "@type": "Organization", "name": "Nevent" },
+  "datePublished": "2026-06-02",
+  "dateModified": "2026-06-02",
+  "about": [
+    { "@type": "Thing", "name": "Cohort analysis" },
+    { "@type": "Thing", "name": "Fan retention" },
+    { "@type": "Thing", "name": "Live music events" }
+  ],
+  "audience": { "@type": "Audience", "audienceType": "Live event promoters" }
+}`}</Schema>
+
+:::tip[Definición rápida]
+**Análisis de cohortes por primera compra**: agrupar fans según el mes en que hicieron su primera compra y seguir su comportamiento posterior. Revela si tu producto fideliza, cuánto valen esos fans a largo plazo (LTV) y si las cohortes recientes son mejores o peores que las antiguas.
+:::
+
+# Cohortes de fans por mes de primera compra
+
+## Pregunta de negocio
+
+"¿Los fans que compraron por primera vez hace 6 meses están volviendo? ¿Cuál es su comportamiento posterior?"
+
+Esta pregunta es estratégica: no habla de una campaña concreta ni de un mes concreto, sino de la salud a largo plazo de tu negocio. Si los fans que captaste hace 6 meses no han vuelto, algo falla en la propuesta de valor o en el seguimiento post-evento.
+
+## ¿Cómo se mide el análisis de cohortes?
+
+Para cada fan, se identifica el mes de su primera compra: ese es su mes-cohorte. Todos los fans que compraron por primera vez en, por ejemplo, marzo forman la "cohorte de marzo". Después, para cada cohorte, se calcula cuánto han gastado en total a posteriori, cuántas veces han vuelto y qué porcentaje sigue activo a 3, 6 y 12 meses.
+
+El resultado es una tabla donde las filas son meses-cohorte y las columnas son periodos de retención sucesivos.
+
+Para profundizar en la metodología de cohort analysis aplicada a negocios de entretenimiento, la <a href="https://mixpanel.com/blog/cohort-analysis/" target="_blank" rel="noopener noreferrer">guía de cohort analysis de Mixpanel</a> ofrece un buen punto de referencia metodológico.
+
+## ¿Qué resultado esperar?
+
+Una tabla con un mes-cohorte por fila y estas columnas:
+
+<table>
+  <thead>
+    <tr>
+      <th>Cohorte</th>
+      <th>Tamaño inicial</th>
+      <th>Gasto total acumulado</th>
+      <th>Compras posteriores (media)</th>
+      <th>Retención 3 meses</th>
+      <th>Retención 6 meses</th>
+      <th>Retención 12 meses</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Enero</td>
+      <td>N fans</td>
+      <td>€ X</td>
+      <td>X compras</td>
+      <td>X%</td>
+      <td>X%</td>
+      <td>X%</td>
+    </tr>
+    <tr>
+      <td>Febrero</td>
+      <td>N fans</td>
+      <td>€ X</td>
+      <td>X compras</td>
+      <td>X%</td>
+      <td>X%</td>
+      <td>X%</td>
+    </tr>
+    <tr>
+      <td>Marzo</td>
+      <td>N fans</td>
+      <td>€ X</td>
+      <td>X compras</td>
+      <td>X%</td>
+      <td>X%</td>
+      <td>X%</td>
+    </tr>
+  </tbody>
+</table>
+
+La tabla revela tres cosas clave: si tu producto fideliza (¿qué porcentaje vuelve a los 6 meses?), si las cohortes recientes son mejores o peores que las antiguas (¿estás mejorando la experiencia?) y cuál es tu LTV típico por mes de adquisición.
+
+## ¿Cuándo tiene sentido consultar este caso?
+
+- **Análisis estratégico de fidelización** — la tabla de cohortes es el análisis más honesto sobre si tu negocio retiene a los fans o solo capta nuevos.
+- **Justificación de inversión en captación** — si la retención a 12 meses es alta, puedes justificar mayor inversión en adquisición porque el LTV lo soporta.
+- **Decisiones de producto** — si las cohortes captadas vía Early Bird tienen mejor retención que las captadas vía paid ads, eso dice algo importante sobre qué primer touchpoint convierte mejor a largo plazo.
+- **Comparación de cohortes por origen** — comparar los fans que llegaron vía Meta Ads con los que llegaron vía email orgánico revela cuál de esos canales trae fans de mayor valor, no solo de mayor volumen.
+
+## ¿Cuándo NO usar este caso?
+
+- Si llevas menos de 6 meses operando: con cohortes tan recientes, no hay suficiente ventana temporal para medir retención significativa.
+- Si tu negocio es de evento único (un solo festival al año): las cohortes tienen más sentido cuando hay regularidad de oferta que permite medir si el fan vuelve o no.
+
+## Variaciones útiles
+
+- **Cohortes por canal de adquisición** — separar los fans que llegaron vía Meta de los que llegaron vía email orgánico te dice cuál de esos canales trae fans de mayor LTV, no solo de mayor volumen.
+- **Cohortes por primer tipo de entrada** — los fans que debutaron con una entrada Early Bird tienen un perfil de retención diferente al de los que entraron vía VIP o taquilla de última hora.
+- **Solo cohortes de los últimos 12 meses** — limitar el análisis al último año evita el sesgo de cohortes muy antiguas que pueden distorsionar los promedios.
+- **LTV por género musical del primer evento** — si tus cohortes de fans de electrónica tienen mejor retención que las de pop, esa información vale para priorizar tu cartera de eventos.
+
+## Resumen
+
+- El análisis de cohortes agrupa fans por mes de primera compra y mide su comportamiento posterior: gasto, compras y retención.
+- El resultado es la tabla más estratégica de tu negocio: revela si fidelizas fans, cuál es tu LTV real y si estás mejorando con el tiempo.
+- Úsalo para análisis de fidelización, decisiones de producto y justificación de inversión en captación.
+
+## Siguiente paso
+
+<CardGrid>
+  <LinkCard
+    title="Pregúntaselo a Claude en lenguaje natural"
+    href="/nevent-ai/que-puedes-hacer/analitica/"
+    description="Consulta el análisis de cohortes con una pregunta en lenguaje natural."
+  />
+  <LinkCard
+    title="A2 — Top eventos por revenue"
+    href="/analitica/casos/top-eventos-revenue/"
+    description="Descubre qué eventos de tu cartera generan más ingresos."
+  />
+  <LinkCard
+    title="Volver al hub de casos prácticos"
+    href="/analitica/casos/"
+    description="Todos los casos de analítica disponibles."
+  />
+</CardGrid>
