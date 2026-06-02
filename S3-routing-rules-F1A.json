@@ -1,0 +1,164 @@
+[
+  {
+    "Condition": { "KeyPrefixEquals": "audience/motor-segmentacion/" },
+    "Redirect": {
+      "HttpRedirectCode": "301",
+      "Protocol": "https",
+      "HostName": "help.nevent.ai",
+      "ReplaceKeyPrefixWith": "segmentacion/motor-segmentacion/"
+    }
+  },
+  {
+    "Condition": { "KeyPrefixEquals": "audience/motor-segmentacion/crear-segmento/" },
+    "Redirect": {
+      "HttpRedirectCode": "301",
+      "Protocol": "https",
+      "HostName": "help.nevent.ai",
+      "ReplaceKeyPrefixWith": "segmentacion/motor-segmentacion/crear-segmento/"
+    }
+  },
+  {
+    "Condition": { "KeyPrefixEquals": "audience/motor-segmentacion/categorias/" },
+    "Redirect": {
+      "HttpRedirectCode": "301",
+      "Protocol": "https",
+      "HostName": "help.nevent.ai",
+      "ReplaceKeyPrefixWith": "segmentacion/motor-segmentacion/categorias/"
+    }
+  },
+  {
+    "Condition": { "KeyPrefixEquals": "audience/motor-segmentacion/operadores-logica/" },
+    "Redirect": {
+      "HttpRedirectCode": "301",
+      "Protocol": "https",
+      "HostName": "help.nevent.ai",
+      "ReplaceKeyPrefixWith": "segmentacion/motor-segmentacion/operadores-logica/"
+    }
+  },
+  {
+    "Condition": { "KeyPrefixEquals": "audience/motor-segmentacion/modificadores-rfm/" },
+    "Redirect": {
+      "HttpRedirectCode": "301",
+      "Protocol": "https",
+      "HostName": "help.nevent.ai",
+      "ReplaceKeyPrefixWith": "segmentacion/motor-segmentacion/modificadores-rfm/"
+    }
+  },
+  {
+    "Condition": { "KeyPrefixEquals": "audience/motor-segmentacion/grupos/" },
+    "Redirect": {
+      "HttpRedirectCode": "301",
+      "Protocol": "https",
+      "HostName": "help.nevent.ai",
+      "ReplaceKeyPrefixWith": "segmentacion/motor-segmentacion/grupos/"
+    }
+  },
+  {
+    "Condition": { "KeyPrefixEquals": "audience/motor-segmentacion/casos-uso/" },
+    "Redirect": {
+      "HttpRedirectCode": "301",
+      "Protocol": "https",
+      "HostName": "help.nevent.ai",
+      "ReplaceKeyPrefixWith": "segmentacion/motor-segmentacion/casos-uso/"
+    }
+  },
+  {
+    "Condition": { "KeyPrefixEquals": "audience/motor-segmentacion/mejores-practicas/" },
+    "Redirect": {
+      "HttpRedirectCode": "301",
+      "Protocol": "https",
+      "HostName": "help.nevent.ai",
+      "ReplaceKeyPrefixWith": "segmentacion/motor-segmentacion/mejores-practicas/"
+    }
+  },
+  {
+    "Condition": { "KeyPrefixEquals": "audience/motor-segmentacion/faq/" },
+    "Redirect": {
+      "HttpRedirectCode": "301",
+      "Protocol": "https",
+      "HostName": "help.nevent.ai",
+      "ReplaceKeyPrefixWith": "segmentacion/motor-segmentacion/faq/"
+    }
+  },
+  {
+    "Condition": { "KeyPrefixEquals": "en/audience/segmentation-engine/" },
+    "Redirect": {
+      "HttpRedirectCode": "301",
+      "Protocol": "https",
+      "HostName": "help.nevent.ai",
+      "ReplaceKeyPrefixWith": "en/segmentation/segmentation-engine/"
+    }
+  },
+  {
+    "Condition": { "KeyPrefixEquals": "en/audience/segmentation-engine/creating-a-segment/" },
+    "Redirect": {
+      "HttpRedirectCode": "301",
+      "Protocol": "https",
+      "HostName": "help.nevent.ai",
+      "ReplaceKeyPrefixWith": "en/segmentation/segmentation-engine/creating-a-segment/"
+    }
+  },
+  {
+    "Condition": { "KeyPrefixEquals": "en/audience/segmentation-engine/categories/" },
+    "Redirect": {
+      "HttpRedirectCode": "301",
+      "Protocol": "https",
+      "HostName": "help.nevent.ai",
+      "ReplaceKeyPrefixWith": "en/segmentation/segmentation-engine/categories/"
+    }
+  },
+  {
+    "Condition": { "KeyPrefixEquals": "en/audience/segmentation-engine/operators-and-logic/" },
+    "Redirect": {
+      "HttpRedirectCode": "301",
+      "Protocol": "https",
+      "HostName": "help.nevent.ai",
+      "ReplaceKeyPrefixWith": "en/segmentation/segmentation-engine/operators-and-logic/"
+    }
+  },
+  {
+    "Condition": { "KeyPrefixEquals": "en/audience/segmentation-engine/modifiers-and-rfm/" },
+    "Redirect": {
+      "HttpRedirectCode": "301",
+      "Protocol": "https",
+      "HostName": "help.nevent.ai",
+      "ReplaceKeyPrefixWith": "en/segmentation/segmentation-engine/modifiers-and-rfm/"
+    }
+  },
+  {
+    "Condition": { "KeyPrefixEquals": "en/audience/segmentation-engine/groups/" },
+    "Redirect": {
+      "HttpRedirectCode": "301",
+      "Protocol": "https",
+      "HostName": "help.nevent.ai",
+      "ReplaceKeyPrefixWith": "en/segmentation/segmentation-engine/groups/"
+    }
+  },
+  {
+    "Condition": { "KeyPrefixEquals": "en/audience/segmentation-engine/use-cases/" },
+    "Redirect": {
+      "HttpRedirectCode": "301",
+      "Protocol": "https",
+      "HostName": "help.nevent.ai",
+      "ReplaceKeyPrefixWith": "en/segmentation/segmentation-engine/use-cases/"
+    }
+  },
+  {
+    "Condition": { "KeyPrefixEquals": "en/audience/segmentation-engine/best-practices/" },
+    "Redirect": {
+      "HttpRedirectCode": "301",
+      "Protocol": "https",
+      "HostName": "help.nevent.ai",
+      "ReplaceKeyPrefixWith": "en/segmentation/segmentation-engine/best-practices/"
+    }
+  },
+  {
+    "Condition": { "KeyPrefixEquals": "en/audience/segmentation-engine/faq/" },
+    "Redirect": {
+      "HttpRedirectCode": "301",
+      "Protocol": "https",
+      "HostName": "help.nevent.ai",
+      "ReplaceKeyPrefixWith": "en/segmentation/segmentation-engine/faq/"
+    }
+  }
+]

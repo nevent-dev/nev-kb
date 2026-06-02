@@ -62,7 +62,9 @@ export default defineConfig({
 					changefreq = 'weekly';
 				} else if (
 					url === 'https://help.nevent.ai/nevent-ai/' ||
-					url === 'https://help.nevent.ai/en/nevent-ai/'
+					url === 'https://help.nevent.ai/en/nevent-ai/' ||
+					url === 'https://help.nevent.ai/segmentacion/motor-segmentacion/' ||
+					url === 'https://help.nevent.ai/en/segmentation/segmentation-engine/'
 				) {
 					priority = 0.8;
 					changefreq = 'weekly';
@@ -175,27 +177,43 @@ export default defineConfig({
 			// Sidebar — ES (raíz) y EN (/en/)
 			// Starlight selecciona automáticamente los items del locale activo
 			sidebar: [
-				// ─── Audiencia / Motor de Segmentación — ES ────────────────────
+				// ─── Segmentación — ES ──────────────────────────────────────────
 				{
-					label: 'Audiencia',
+					label: 'Segmentación',
 					items: [
 						{
 							label: 'Motor de Segmentación',
 							items: [
-								{ label: 'Introducción', slug: 'audience/motor-segmentacion', badge: { text: 'Empieza aquí', variant: 'tip' } },
-								{ label: 'Cómo Crear un Segmento', slug: 'audience/motor-segmentacion/crear-segmento' },
-								{ label: 'Las 6 Categorías', slug: 'audience/motor-segmentacion/categorias' },
-								{ label: 'Operadores & Lógica Y/O', slug: 'audience/motor-segmentacion/operadores-logica' },
-								{ label: 'Modificadores & RFM', slug: 'audience/motor-segmentacion/modificadores-rfm', badge: { text: 'Avanzado', variant: 'note' } },
-								{ label: 'Grupos & A/B Testing', slug: 'audience/motor-segmentacion/grupos' },
-								{ label: 'Casos de Uso Prácticos', slug: 'audience/motor-segmentacion/casos-uso' },
-								{ label: 'Mejores Prácticas', slug: 'audience/motor-segmentacion/mejores-practicas' },
-								{ label: 'Preguntas Frecuentes', slug: 'audience/motor-segmentacion/faq' },
+								{ label: 'Introducción', slug: 'segmentacion/motor-segmentacion', badge: { text: 'Empieza aquí', variant: 'tip' } },
+								{ label: 'Cómo Crear un Segmento', slug: 'segmentacion/motor-segmentacion/crear-segmento' },
+								{ label: 'Las 6 Categorías', slug: 'segmentacion/motor-segmentacion/categorias' },
+								{ label: 'Operadores & Lógica Y/O', slug: 'segmentacion/motor-segmentacion/operadores-logica' },
+								{ label: 'Modificadores & RFM', slug: 'segmentacion/motor-segmentacion/modificadores-rfm', badge: { text: 'Avanzado', variant: 'note' } },
+								{ label: 'Grupos & A/B Testing', slug: 'segmentacion/motor-segmentacion/grupos' },
+								{ label: 'Casos de Uso Prácticos', slug: 'segmentacion/motor-segmentacion/casos-uso' },
+								{ label: 'Mejores Prácticas', slug: 'segmentacion/motor-segmentacion/mejores-practicas' },
+								{ label: 'Preguntas Frecuentes', slug: 'segmentacion/motor-segmentacion/faq' },
+							],
+						},
+						// Placeholder para Capacidades (F1.B lo poblará)
+						{
+							label: 'Capacidades',
+							collapsed: true,
+							items: [
+								{ label: 'Catálogo', slug: 'segmentacion/capacidades' },
 							],
 						},
 					],
 				},
-				// ─── Español (root) ────────────────────────────────────────────
+				// ─── Analítica — ES (placeholder, F1.C lo poblará) ─────────────
+				{
+					label: 'Analítica',
+					collapsed: true,
+					items: [
+						{ label: 'Introducción', slug: 'analitica' },
+					],
+				},
+				// ─── Nevent AI — ES ─────────────────────────────────────────────
 				{
 					label: 'Nevent AI',
 					items: [
@@ -252,25 +270,43 @@ export default defineConfig({
 				//   - strips the double /en/en/ prefix that Starlight adds when rendering
 				//     link: items on EN locale pages
 				//   - filters this group out entirely when rendering ES locale pages
+				// ─── Segmentation — EN ──────────────────────────────────────────
 				{
-					label: 'Audience',
+					label: 'Segmentation',
 					items: [
 						{
 							label: 'Segmentation Engine',
 							items: [
-								{ label: 'Introduction', link: '/en/audience/segmentation-engine/', badge: { text: 'Start here', variant: 'tip' } },
-								{ label: 'Creating a segment', link: '/en/audience/segmentation-engine/creating-a-segment/' },
-								{ label: 'The 6 categories', link: '/en/audience/segmentation-engine/categories/' },
-								{ label: 'Operators & AND/OR logic', link: '/en/audience/segmentation-engine/operators-and-logic/' },
-								{ label: 'Modifiers & RFM analysis', link: '/en/audience/segmentation-engine/modifiers-and-rfm/', badge: { text: 'Advanced', variant: 'note' } },
-								{ label: 'Groups & A/B testing', link: '/en/audience/segmentation-engine/groups/' },
-								{ label: 'Use cases', link: '/en/audience/segmentation-engine/use-cases/' },
-								{ label: 'Best practices', link: '/en/audience/segmentation-engine/best-practices/' },
-								{ label: 'FAQ', link: '/en/audience/segmentation-engine/faq/' },
+								{ label: 'Introduction', link: '/en/segmentation/segmentation-engine/', badge: { text: 'Start here', variant: 'tip' } },
+								{ label: 'Creating a segment', link: '/en/segmentation/segmentation-engine/creating-a-segment/' },
+								{ label: 'The 6 categories', link: '/en/segmentation/segmentation-engine/categories/' },
+								{ label: 'Operators & AND/OR logic', link: '/en/segmentation/segmentation-engine/operators-and-logic/' },
+								{ label: 'Modifiers & RFM analysis', link: '/en/segmentation/segmentation-engine/modifiers-and-rfm/', badge: { text: 'Advanced', variant: 'note' } },
+								{ label: 'Groups & A/B testing', link: '/en/segmentation/segmentation-engine/groups/' },
+								{ label: 'Use cases', link: '/en/segmentation/segmentation-engine/use-cases/' },
+								{ label: 'Best practices', link: '/en/segmentation/segmentation-engine/best-practices/' },
+								{ label: 'FAQ', link: '/en/segmentation/segmentation-engine/faq/' },
+							],
+						},
+						// Placeholder for Capabilities (F1.B will populate)
+						{
+							label: 'Capabilities',
+							collapsed: true,
+							items: [
+								{ label: 'Catalog', link: '/en/segmentation/capabilities/' },
 							],
 						},
 					],
 				},
+				// ─── Analytics — EN (placeholder, F1.C will populate) ───────────
+				{
+					label: 'Analytics',
+					collapsed: true,
+					items: [
+						{ label: 'Introduction', link: '/en/analytics/' },
+					],
+				},
+				// ─── Nevent AI — EN ─────────────────────────────────────────────
 				{
 					label: 'Nevent AI',
 					items: [
