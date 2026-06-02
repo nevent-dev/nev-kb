@@ -461,10 +461,6 @@ export default defineConfig({
 				// Custom Head injects JSON-LD structured data (Organization, TechArticle,
 				// FAQPage, BreadcrumbList) and og:image meta tags on every page.
 				Head: './src/components/Head.astro',
-				// Custom Footer renders the FeelBack Yes/No feedback widget above the
-				// standard Starlight footer (pagination arrows, edit on GitHub link).
-				// Requires contentSetId from https://app.feelback.dev (see Footer.astro).
-				Footer: './src/components/Footer.astro',
 			},
 
 			// Customización de UI
