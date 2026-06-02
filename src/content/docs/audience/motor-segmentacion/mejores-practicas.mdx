@@ -1,0 +1,379 @@
+---
+title: "Mejores Prácticas Segmentación Email - Festivales 2025"
+description: "9 reglas de oro para segmentación de festivales: maximiza open rates 45%+, conversión 12%+ y ROI 15x. Evita fatiga de audiencia y aumenta venta de entradas con estas prácticas."
+sidebar:
+  order: 7
+---
+
+import Schema from '../../../../components/Schema.astro';
+import { Aside } from '@astrojs/starlight/components';
+
+<Schema>{`{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://docs.nevent.com"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Motor de Segmentación",
+      "item": "https://docs.nevent.com/audience/motor-segmentacion"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Mejores Prácticas",
+      "item": "https://docs.nevent.com/audience/motor-segmentacion/mejores-practicas"
+    }
+  ]
+}`}</Schema>
+
+:::tip[Definición Rápida]
+**¿Cuáles son las mejores prácticas de segmentación?**
+
+9 reglas: (1) Empezar con RFM, (2) Tamaño mínimo 500 fans, (3) Testear 1 variable a la vez, (4) Evitar over-segmentation (no >15 segmentos), (5) Actualizar criterios cada campaña, (6) Medir siempre, (7) Combinar max 3-5 criterios, (8) Respetar frecuencia, (9) Limpiar inactivos.
+
+**Ejemplo:** Promotor con 50k fans que creó 25 segmentos generó fatiga de audiencia (12% open rate). Consolidó a 8 segmentos y recuperó 28% open (+16pp).
+:::
+
+# Mejores Prácticas de Segmentación
+
+Aplica estas 9 reglas para maximizar el impacto de tus segmentos de asistentes a festivales y eventos, aumentar conversión de venta de entradas y mejorar el ROI de tus campañas de email marketing.
+
+---
+
+## 1. Previsualiza Antes de Enviar
+
+Siempre usa la funcionalidad de **Preview** para:
+
+✅ Ver el tamaño estimado de tu audiencia
+✅ Revisar 10-20 perfiles de ejemplo
+✅ Detectar si el segmento es demasiado pequeño o grande
+✅ Verificar que los filtros son correctos
+
+### Tamaños Target
+
+### ¿Cuál es el tamaño ideal de segmento para cada tipo de campaña de festival?
+
+| Tipo de Campaña | Tamaño Ideal |
+|-----------------|--------------|
+| Email masivo | 1,000+ fans |
+| Promoción segmentada | 300-1,000 fans |
+| Oferta VIP exclusiva | 50-300 fans |
+| Test A/B (por variante) | 100+ fans |
+
+**Si tu segmento tiene:**
+- < 50 fans: Demasiado específico → considera ampliar
+- \> 10,000 fans: Muy amplio → considera sub-segmentar
+
+---
+
+## 2. Empieza Simple, Itera a Complejo
+
+### Primera Campaña
+
+❌ **No hagas esto:**
+```
+(Ciudad es "Madrid" O "Barcelona")
+Y (Edad 25-40)
+Y (Eventos >= 3)
+Y (Gasto > 200€)
+Y (Temperatura "Caliente")
+Y (No abrió email en 30 días)
+```
+
+✅ **Haz esto:**
+```
+Ciudad es "Madrid"
+```
+
+### Progresión Recomendada
+
+1. **Semana 1-2**: Segmentos simples (1-2 criterios)
+2. **Semana 3-4**: Agregar comportamiento (gasto, asistencia)
+3. **Mes 2**: Combinar demografía + comportamiento
+4. **Mes 3+**: Segmentos avanzados multi-grupo
+
+**Mide resultados** en cada iteración y aprende qué criterios impactan más.
+
+---
+
+## 3. Documenta tus Segmentos Exitosos
+
+### Naming Convention
+
+✅ **Buenos nombres:**
+- `VIP_Reactivacion_Madrid_Q1_2025`
+- `EarlyBird_Festival_Barcelona_Verano`
+- `Nuevos_Fans_Ultimos_30dias`
+- `Test_SubjectLine_Grupo_A`
+
+❌ **Malos nombres:**
+- `Segmento 1`
+- `Test xyz`
+- `Campaign_final_final_v2`
+- `asdf`
+
+### Qué Documentar
+
+Cuando un segmento genera buenos resultados:
+
+1. **Guárdalo** con nombre descriptivo
+2. **Anota**:
+   - Qué campaña ejecutaste
+   - Resultados (open rate, click, conversion)
+   - Fecha de ejecución
+   - Aprendizajes clave
+3. **Reutilízalo** en campañas similares
+4. **Compártelo** con tu equipo
+
+**Ejemplo de documentación:**
+```
+Nombre: VIP_Reactivacion_Madrid_Q1_2025
+Fecha: 15-Ene-2025
+Audiencia: 456 fans
+Campaña: Email secuencia 3 pasos con 20% descuento
+Resultados:
+  - Open: 48%
+  - Click: 18%
+  - Conversion: 22%
+  - ROI: 12x
+Aprendizajes: Descuento 20% es sweet spot, 30% canibaliza margins
+```
+
+---
+
+## 4. Respeta la Fatiga de Audiencia
+
+No sobre-contactes a los mismos segmentos.
+
+### ❌ Mal Ejemplo
+
+```
+Lunes: Email a "Fans de Madrid"
+Martes: Email a "Fans 25-35 años en Madrid"
+Miércoles: Email a "Fans que compraron en Madrid"
+
+→ Mismo fan recibe 3 emails en 3 días
+```
+
+### ✅ Bien Hecho
+
+```
+Lunes: Email a "Fans de Madrid que NO recibieron email en últimos 7 días"
+Jueves: Email a otra audiencia completamente diferente (Barcelona)
+Próximo lunes: Puedes volver a contactar Madrid
+```
+
+### Reglas Generales
+
+| Frecuencia | Audiencia |
+|------------|-----------|
+| **Máximo 2-3 emails/semana** | Al mismo segmento |
+| **Mínimo 3-5 días** | Entre emails al mismo fan |
+| **1 email/día** | Para VIPs muy engaged (temperatura Muy Caliente) |
+
+**Excepción**: Secuencias automatizadas de bienvenida, carritos abandonados, etc. (flujos transaccionales).
+
+La frecuencia óptima depende de la temperatura del segmento. Para dudas específicas, consulta nuestra [sección de FAQ sobre frecuencia y deliverability](./faq#frecuencia).
+
+---
+
+## 5. Usa Grupos para Test Pequeños
+
+Antes de enviar a 50,000 fans, **prueba con un grupo pequeño**.
+
+### Workflow Recomendado
+
+1. **Divide** tu segmento en 10 grupos
+2. **Envía** solo al Grupo 1 (10% de tu base)
+3. **Espera** 24-48h y mide resultados
+4. **Si funciona bien** → envía a Grupos 2-10
+5. **Si no funciona** → ajusta y prueba otra vez
+
+**Beneficios:**
+- ✅ Reduces riesgo de quemar audiencia completa
+- ✅ Puedes ajustar mensaje basado en early data
+- ✅ Detectas errores (links rotos, typos) con impacto mínimo
+
+<Aside type="tip">
+Un test con 10% de tu base (Grupo 1) te da **suficiente data** para decisiones informadas sin arriesgar el 100%.
+</Aside>
+
+---
+
+## 6. Combina Comportamiento + Demografía
+
+Los mejores segmentos combinan **QUIÉN** es el fan con **QUÉ** ha hecho.
+
+### Débil (Solo Demográfico)
+
+```
+Edad 25-35 en Barcelona
+```
+**Problema**: Demasiado amplio, poco predictivo de engagement.
+
+### Mejor (Solo Comportamiento)
+
+```
+Asistió a 3+ festivales
+```
+**Mejor**, pero ignora contexto geográfico y demográfico.
+
+### Óptimo (Combinado)
+
+```
+Edad 25-35 en Barcelona
+Y
+Asistió a 3+ festivales
+Y
+Temperatura "Caliente"
+```
+**Alta probabilidad de conversión**: Perfil + comportamiento + engagement.
+
+---
+
+## 7. Monitorea el Tamaño de tus Segmentos
+
+### Guía de Evaluación
+
+| Tamaño | Evaluación | Acción Recomendada |
+|--------|------------|-------------------|
+| < 50 | Muy pequeño | Considera ampliar criterios |
+| 50-200 | Pequeño | OK para ofertas ultra exclusivas |
+| 200-1,000 | Medio | ✅ Ideal para segmentación |
+| 1,000-10,000 | Grande | ✅ Óptimo para campañas |
+| \> 10,000 | Muy grande | Considera sub-segmentar para relevancia |
+
+**Excepción**: Si tu base total es pequeña (< 500 fans), un segmento de 30-50 puede ser razonable.
+
+### Qué Hacer si tu Segmento es Muy Pequeño
+
+1. **Elimina** el criterio más restrictivo
+2. **Cambia** operadores (ej: "mayor que 500€" → "mayor que 200€")
+3. **Amplía geografía** (ej: "Ciudad Madrid" → "Provincia Madrid")
+4. **Usa OR** en vez de AND (cuando tenga sentido)
+
+### Qué Hacer si tu Segmento es Muy Grande
+
+1. **Agrega** criterio de comportamiento (engagement, gasto)
+2. **Refina** demografía (edad, ubicación más específica)
+3. **Divide** en sub-segmentos por temperatura Nevent
+4. **Usa grupos** para envíos progresivos
+
+---
+
+## 8. Actualiza Segmentos Regularmente
+
+Los segmentos basados en comportamiento son **dinámicos**.
+
+**Ejemplo:**
+- Hoy: Fan está en "Temperatura Fría"
+- Compra entrada mañana
+- Próxima semana: Sube a "Caliente"
+
+### Frecuencia de Actualización
+
+| Tipo de Segmento | Frecuencia |
+|------------------|------------|
+| **Comportamiento** (temperatura, compras, engagement) | Antes de cada campaña |
+| **Demográfico** (edad, ubicación) | Trimestral |
+| **Histórico** ("Asistió a Festival 2024") | No cambian (estáticos) |
+
+<Aside type="note">
+Nevent actualiza automáticamente la temperatura Nevent **semanalmente**. No necesitas hacer nada.
+</Aside>
+
+---
+
+## 9. Excluye Segmentos Cuando Sea Necesario
+
+A veces es más fácil definir a quién **NO** quieres contactar.
+
+### Ejemplo: Promoción para Nuevos Fans
+
+**Enfoque 1 (Incluir):**
+```
+Número de eventos asistidos: Es igual a 1
+Y
+Fecha de compra: En últimos 90 días
+```
+
+**Enfoque 2 (Excluir):**
+```
+Todos los fans de Madrid que aceptan emails
+EXCEPTO
+  Número de eventos asistidos: Mayor que 5
+  (ya son fans leales, esta oferta no es para ellos)
+```
+
+**Cuándo usar exclusiones:**
+- Ofertas para nuevos fans (excluir VIPs)
+- Reactivación (excluir fans activos recientes)
+- Testing (excluir fans que ya recibieron otra variante)
+
+---
+
+## 🎯 Checklist Pre-Envío
+
+Antes de ejecutar tu campaña, verifica:
+
+- [ ] ¿Revisé la preview de fans?
+- [ ] ¿El tamaño de audiencia es razonable?
+- [ ] ¿El nombre del segmento es descriptivo?
+- [ ] ¿Los criterios tienen sentido para mi objetivo?
+- [ ] ¿Documenté qué voy a medir?
+- [ ] ¿Configuré grupos si es un test A/B?
+- [ ] ¿Verifiqué que no sobre-contacto a esta audiencia?
+
+---
+
+## 📊 KPIs para Medir Éxito
+
+### Email Performance
+
+### ¿Qué métricas de email marketing debo alcanzar con segmentación de festivales?
+
+| Métrica | Baseline | Target con Segmentación | Excelente |
+|---------|----------|------------------------|-----------|
+| **Open Rate** | 18-22% | 30-40% | 45%+ |
+| **Click Rate** | 2-4% | 8-12% | 15%+ |
+| **Conversion** | 1-3% | 5-10% | 12%+ |
+| **Unsubscribe** | 0.5-1% | 0.1-0.3% | &lt;0.1% |
+
+### Engagement
+
+| Métrica | Qué Mide | Target |
+|---------|----------|--------|
+| **Time to Open** | Qué tan rápido abren | < 24h (fans engaged) |
+| **Click-to-Open Rate** | % que clickean después de abrir | 25-40% |
+| **Bounce Rate** | Emails inválidos | &lt; 2% |
+
+### Business Impact
+
+| Métrica | Target |
+|---------|--------|
+| **ROI** | 8-15x |
+| **Revenue per Email** | 5-15€ |
+| **Customer Lifetime Value** | +30% vs no segmentados |
+
+---
+
+## 🔗 Próximos Pasos
+
+Implementa estas prácticas y consulta:
+
+1. **[FAQ](./faq)** - Respuestas a dudas comunes
+2. **[Casos de Uso](./casos-uso)** - Aplicación práctica
+3. **[Volver al Inicio](./index)** - Repaso completo
+
+---
+
+**¿Listo para segmentar como un pro?** 🚀
+
+[Resuelve dudas sobre temperatura Nevent, grupos, deliverability y más →](./faq)
