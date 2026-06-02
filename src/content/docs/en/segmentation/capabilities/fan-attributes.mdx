@@ -1,0 +1,96 @@
+---
+title: "Fan attributes: segment live event audiences by profile"
+description: "How to segment live event fans by age, city, language and custom promoter fields. Practical examples for concert and festival promoters using demographic criteria."
+sidebar:
+  order: 2
+---
+
+import Schema from '../../../../../components/Schema.astro';
+import { Aside, CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+<Schema>{`{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Fan attributes: segment live event audiences by demographic profile",
+  "description": "How to segment live event fans by age, city, language and custom promoter fields.",
+  "author": { "@type": "Organization", "name": "Nevent", "url": "https://nevent.ai" },
+  "publisher": { "@type": "Organization", "name": "Nevent" },
+  "datePublished": "2026-06-02",
+  "dateModified": "2026-06-02",
+  "about": [
+    { "@type": "Thing", "name": "Demographic segmentation" },
+    { "@type": "Thing", "name": "Fan profile data" },
+    { "@type": "Thing", "name": "Live music events" }
+  ],
+  "mentions": [{ "@type": "SoftwareApplication", "name": "Nevent" }],
+  "audience": { "@type": "Audience", "audienceType": "Live event promoters" }
+}`}</Schema>
+
+:::tip[Quick definition]
+**Fan attributes** are profile data that describe who the person is: their age, the city where they live, their preferred language and any custom field you have loaded into Nevent as a promoter. They are the starting point for segmenting by static characteristics before looking at behaviour.
+:::
+
+# Fan attributes: segment live event audiences by profile
+
+Fan attributes let you build audiences based on who the person is, not only on what they have done. They are useful when you want to reach a specific age group, communicate in your audience's language or apply your own imported data to the segmentation.
+
+## What are fan attributes and what do they offer for live events?
+
+Fan attributes are profile data linked to the user's registration: their date of birth, the city they declared, the language configured in their account and any custom field you have imported. They let you filter your fan base without needing to analyse historical behaviour, making them the simplest criterion to start segmenting with.
+
+## Available criteria in the attributes category
+
+| Criterion | What it represents | Example use case |
+|---|---|---|
+| **Age** | Age range derived from the declared date of birth | Fans aged 18 to 25 for an electronic music campaign |
+| **City** | City declared by the fan in their profile | Fans living in Madrid or Barcelona |
+| **Confirmed email** | Whether the fan has verified their email address | Exclude unverified emails to improve deliverability |
+| **Preferred language** | Language configured in the fan's account | Send the campaign in Spanish to Spanish-speaking fans |
+| **Registration date** | When the fan registered on the platform | Fans who have been with you for more than 2 years |
+| **Custom fields** | Your own data that you have loaded as a promoter | Declared music genre, t-shirt size, preferences |
+
+## How does the age criterion work?
+
+You can filter fans by age range (for example, between 25 and 40 years old) or by specific ages. Imagine you are organising a series of indie rock concerts in Bilbao and want to reach the audience that has historically shown the greatest interest in that genre: you select fans aged between 22 and 38 who live in the Basque Country. The result is an audience much more aligned with the ticket you are selling.
+
+## How does the city criterion work?
+
+The fan's city is the one they declared on registration, not necessarily where they attended events. This is different from the "event city" criterion in the attendance category. Imagine your next tour includes Seville: you can create a campaign specifically for fans who live in Seville or within 80 kilometres of it. This reduces communication costs and increases conversion because the message is locally relevant.
+
+:::note[Fan city vs event city]
+The "city" criterion in attributes reflects where the fan lives. In the [Event attendance](/en/segmentation/capabilities/event-attendance/) section you will find the "event city" criterion, which indicates where the fan physically went to consume an event, even if they live elsewhere.
+:::
+
+## What are custom fields used for?
+
+Custom fields are data that you as a promoter have loaded into Nevent that are not part of the standard profile. For example, if during your registration process you asked fans about their favourite music genre (rock, jazz, electronic, Latin music, pop…), that data is available as a segmentation criterion. Imagine you have a multi-genre festival in Valencia: you can create a different campaign for rock fans and another for Latin music fans, with completely different messages and headline acts highlighted.
+
+## When should you use confirmed email as a filter?
+
+Before a mass send campaign, it is advisable to exclude fans whose email has not been verified. Unconfirmed emails increase the risk of bounces and can damage your sender reputation. Use it as an exclusion filter in the base group of any campaign you want to land in the inbox.
+
+## Summary
+
+- Fan attributes are profile data: age, city, language, registration date and custom fields.
+- They are the simplest criterion to start segmenting without needing behavioural history.
+- Custom fields let you use any data you have imported into the system.
+- Confirmed email is a quality filter recommended before any send campaign.
+
+## Next step
+
+<CardGrid>
+  <LinkCard
+    title="Event attendance"
+    href="/en/segmentation/capabilities/event-attendance/"
+    description="Segment by attendance history, event city and frequency."
+  />
+  <LinkCard
+    title="How to create a segment — step by step"
+    href="/audience/motor-segmentacion/crear-segmento/"
+    description="Practical guide in the Nevent admin interface."
+  />
+</CardGrid>
+
+---
+
+*For a deeper look at combining criteria, see the [operators and logic guide](/audience/motor-segmentacion/operadores-logica/) in the Segmentation Engine section. For further reading on demographic segmentation in event marketing, you can consult the <a href="https://docs.mixpanel.com/docs/data-structure/user-profiles" target="_blank" rel="noopener noreferrer">Mixpanel documentation on user profiles and segmentation</a>.*

@@ -1,0 +1,94 @@
+---
+title: "Asistencia a eventos: segmentar por historial de compra"
+description: "Segmenta fans por eventos asistidos, ciudad del evento, frecuencia y días desde la última asistencia. Ejemplos prácticos para promotores de conciertos y festivales."
+sidebar:
+  order: 3
+---
+
+import Schema from '../../../../components/Schema.astro';
+import { Aside, CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+<Schema>{`{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Asistencia a eventos: segmentar por historial de compra de entradas",
+  "description": "Segmenta fans por eventos asistidos, ciudad del evento, frecuencia y días desde la última asistencia.",
+  "author": { "@type": "Organization", "name": "Nevent", "url": "https://nevent.ai" },
+  "publisher": { "@type": "Organization", "name": "Nevent" },
+  "datePublished": "2026-06-02",
+  "dateModified": "2026-06-02",
+  "about": [
+    { "@type": "Thing", "name": "Event attendance segmentation" },
+    { "@type": "Thing", "name": "Ticket purchase history" },
+    { "@type": "Thing", "name": "Live music events" }
+  ],
+  "mentions": [{ "@type": "SoftwareApplication", "name": "Nevent" }],
+  "audience": { "@type": "Audience", "audienceType": "Live event promoters" }
+}`}</Schema>
+
+:::tip[Definición rápida]
+**La asistencia a eventos** es el historial de compra de entradas de cada fan: a qué eventos ha ido, en qué ciudades, con qué frecuencia y cuánto tiempo lleva sin asistir. Es la categoría más potente para identificar fans fieles, inactivos o con entrada ya comprada para un próximo evento.
+:::
+
+# Asistencia a eventos: segmentar por historial de compra
+
+El comportamiento de asistencia es uno de los datos más valiosos que tienes sobre tus fans. Te dice quién ha demostrado interés con dinero real, no solo con un registro. Con estos criterios puedes identificar a tus fans más fieles, reactivar a quien lleva meses sin venir y evitar molestar a quien ya tiene entrada para tu próximo evento.
+
+## ¿Qué criterios de asistencia puedes usar para segmentar?
+
+| Criterio | Qué representa | Ejemplo de uso |
+|---|---|---|
+| **Eventos asistidos** | Lista de eventos pasados específicos a los que ha ido | Fans que asistieron a tu festival del año pasado |
+| **Ciudad del evento** | Ciudad donde se celebró el evento (puede diferir de la ciudad del fan) | Fans que vinieron a tu evento en Madrid aunque vivan fuera |
+| **Categoría del evento** | Tipo de evento o género consumido (rock, jazz, electrónica, indie...) | Fans que han asistido a eventos de electrónica |
+| **Número de eventos asistidos** | Total de eventos o en una ventana temporal concreta | Fans que han asistido a 3 o más eventos en los últimos 12 meses |
+| **Días desde última asistencia** | Antigüedad del último evento al que acudió | Fans que no asisten desde hace más de 180 días |
+| **Asistencia futura** | Si el fan tiene ya entrada comprada para un próximo evento | Evitar enviarles campaña de venta de algo que ya compraron |
+
+## ¿Qué diferencia hay entre ciudad del fan y ciudad del evento?
+
+Esta es una distinción importante. Un fan que vive en Barcelona puede haber asistido a un evento en Bilbao, Sevilla o Madrid. El criterio "ciudad del evento" te permite identificar a fans que ya hicieron el esfuerzo de desplazarse, lo que es un indicador de compromiso mucho mayor que simplemente vivir cerca. Por ejemplo, si organizas un nuevo evento en Bilbao, puede interesarte contactar tanto a fans que viven en Bilbao como a fans de otras ciudades que ya vinieron a un evento tuyo allí y demostraron que están dispuestos a viajar.
+
+## ¿Cómo usar el número de eventos asistidos?
+
+El número de eventos es uno de los mejores indicadores de fidelidad. Imagina que quieres crear una campaña especial para tus fans más leales antes de lanzar la venta general: seleccionas fans que han asistido a tres o más de tus eventos en los últimos dos años. Verás que esa audiencia tiene tasas de apertura y conversión notablemente más altas que la media de tu base de datos.
+
+También puedes usarlo al revés: fans que solo han asistido a un evento son "nuevos compradores" y merecen una comunicación de bienvenida distinta a la de los veteranos.
+
+## ¿Para qué sirve "días desde última asistencia"?
+
+Este criterio mide cuánto tiempo lleva el fan sin acudir a ninguno de tus eventos. Es el equivalente al criterio de Recency en el modelo RFM. Imagina que quieres lanzar una campaña de reactivación: seleccionas fans que no han asistido en más de 180 días pero que sí asistieron en el pasado. Esa audiencia conoce tu marca y solo necesita el empujón adecuado para volver.
+
+:::note[Asistencia futura como filtro de exclusión]
+Usa "tiene entrada para el próximo evento" como criterio de exclusión en tus campañas de venta. Así evitas enviarle un email de "compra ya tu entrada" a alguien que ya la tiene. Además de evitar confusión, mejora tu reputación de remitente porque reduces los unsubscribes por mensajes irrelevantes.
+:::
+
+## Ejemplo práctico: reactivar fans inactivos de Madrid
+
+Imagina que llevas tres años haciendo conciertos de jazz y rock en Madrid. Quieres lanzar una campaña de reactivación antes de la temporada de primavera. Construyes un segmento con estos criterios: fans que asistieron al menos una vez a un evento tuyo en Madrid, pero cuya última asistencia fue hace más de 12 meses. El resultado podría ser unos 2.800 fans que conocen tu programación y que podrías recuperar con una oferta de acceso anticipado o un precio especial de bienvenida.
+
+## Resumen
+
+- La asistencia es el criterio más potente para identificar fans fieles, inactivos o próximos compradores.
+- La ciudad del evento y la ciudad del fan son criterios distintos: un fan puede desplazarse.
+- El número de eventos asistidos mide fidelidad real con dinero gastado.
+- La asistencia futura te permite excluir a quien ya ha comprado para evitar mensajes redundantes.
+
+## Siguiente paso
+
+<CardGrid>
+  <LinkCard
+    title="Gasto y consumo"
+    href="/segmentacion/capacidades/gasto-y-consumo/"
+    description="Segmenta por gasto total, ticket medio y consumo cashless."
+  />
+  <LinkCard
+    title="Combinaciones avanzadas"
+    href="/segmentacion/capacidades/combinaciones/"
+    description="Combina asistencia con otros criterios usando lógica Y/O y marcos temporales."
+  />
+</CardGrid>
+
+---
+
+*Para entender en profundidad cómo la frecuencia de asistencia se integra en el modelo RFM, consulta la página de [RFM automático](/segmentacion/capacidades/rfm/). Para referencia sobre análisis de cohortes de clientes y su relación con la retención, puedes consultar la <a href="https://docs.mixpanel.com/docs/reports/retention" target="_blank" rel="noopener noreferrer">guía de Mixpanel sobre análisis de retención</a>.*

@@ -1,0 +1,92 @@
+---
+title: "Digital engagement: segment fans by email behaviour"
+description: "Segment live event fans by email opens, clicks, conversions and abandoned cart. Recover interested buyers and improve campaign performance for concerts and festivals."
+sidebar:
+  order: 5
+---
+
+import Schema from '../../../../../components/Schema.astro';
+import { Aside, CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+<Schema>{`{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Digital engagement: segment live event fans by email behaviour",
+  "description": "Segment live event fans by email opens, clicks, conversions and abandoned cart.",
+  "author": { "@type": "Organization", "name": "Nevent", "url": "https://nevent.ai" },
+  "publisher": { "@type": "Organization", "name": "Nevent" },
+  "datePublished": "2026-06-02",
+  "dateModified": "2026-06-02",
+  "about": [
+    { "@type": "Thing", "name": "Email engagement segmentation" },
+    { "@type": "Thing", "name": "Abandoned cart recovery" },
+    { "@type": "Thing", "name": "Live music events" }
+  ],
+  "mentions": [{ "@type": "SoftwareApplication", "name": "Nevent" }],
+  "audience": { "@type": "Audience", "audienceType": "Live event promoters" }
+}`}</Schema>
+
+:::tip[Quick definition]
+**Digital engagement** measures how the fan interacts with your communications: whether they open your emails, click on links, complete a purchase after receiving them or abandoned a purchase halfway through. It is the category that lets you recover missed opportunities and reward your most receptive fans.
+:::
+
+# Digital engagement: segment fans by email behaviour
+
+A fan opening your email is already a signal. A click is a stronger one. Starting to buy a ticket and leaving halfway through is a clear recovery opportunity. This category gives you the criteria to act on each of those interest signals.
+
+## What digital engagement criteria can you use?
+
+| Criterion | What it represents | When to use it |
+|---|---|---|
+| **Email opens** | Fan who opened a specific campaign or any email in a period | To re-engage those who showed interest |
+| **Link clicks** | Fan who clicked a link inside an email | To identify those most interested in a specific event |
+| **Conversions** | Fan who completed the target action after a campaign (purchase, registration…) | To exclude them from the sales campaign or run an upsell |
+| **Abandoned cart** | Fan who started the purchase process and did not complete it | To launch a recovery campaign within 24–48 hours |
+| **Unsubscribe** | Fan who opted out of communications | To always exclude them from all sends |
+| **Bounce / spam complaint** | Email that bounced or fan who marked the message as spam | To manage deliverability and protect your sender reputation |
+
+## How to use the email opens criterion
+
+An open is the most basic interest signal. Imagine you sent a presale campaign for an indie festival in Madrid and you want to follow up with those who opened but did not buy: you build a segment with fans who opened that specific email AND do not have a ticket. That group already showed interest (they opened) but did not go through to purchase, so a follow-up with more urgency or additional information may convert them.
+
+## What does the link clicks criterion do?
+
+A click is a much stronger intent signal than an open alone. A fan who clicked the buy button but did not complete the transaction is in a state of high motivation. You can segment specifically for fans who clicked a particular link in an email to follow up with a personalised message — for example, a discount code expiring in 24 hours.
+
+## What is abandoned cart used for?
+
+Abandoned cart is one of the most valuable signals in the entire criteria catalogue. A fan who started the ticket purchase process and did not finish has a clear purchase intent: they almost paid. Imagine that in your next Barcelona ticket sale, 8% of visitors to the checkout process do not complete it. With the abandoned cart criterion you can identify those fans and send them a recovery email within the first 24 hours, when their purchase intent is still high. Well-executed abandoned cart campaigns have conversion rates 5 to 15 times higher than a standard sales email.
+
+:::note[Abandoned cart availability]
+The availability of abandoned cart as a segmentation criterion may vary depending on your account configuration. Check with your Nevent team whether it is enabled for your promoter account.
+:::
+
+## How to use unsubscribe and bounce to protect your reputation
+
+Fans who have opted out or whose emails bounce must not receive any send. Using these criteria as exclusion filters in every campaign is a fundamental deliverability best practice. As well as complying with data protection regulations (GDPR), it prevents damage to your sender score, which ensures the rest of your emails reach the inbox.
+
+## Summary
+
+- Digital engagement measures interest signals in your communications: opens, clicks, conversions and abandoned cart.
+- Abandoned cart is the highest-intent signal and delivers the highest conversion rates in recovery campaigns.
+- Unsubscribe and bounce are mandatory exclusion filters to protect your deliverability.
+- Combine engagement with attendance or spend criteria to build even more precise audiences.
+
+## Next step
+
+<CardGrid>
+  <LinkCard
+    title="Nevent Score and Temperature"
+    href="/en/segmentation/capabilities/score-and-temperature/"
+    description="The score aggregates engagement, spend and attendance signals into a single figure."
+  />
+  <LinkCard
+    title="Advanced combinations"
+    href="/en/segmentation/capabilities/advanced-combinations/"
+    description="Combine engagement with other criteria using AND/OR logic."
+  />
+</CardGrid>
+
+---
+
+*Abandoned cart recovery campaigns are a standard practice in e-commerce and ticket marketing. For reference data on recovery rates, you can consult the <a href="https://help.klaviyo.com/hc/en-us/articles/115005082547" target="_blank" rel="noopener noreferrer">Klaviyo documentation on abandoned cart flows</a>.*

@@ -1,0 +1,98 @@
+---
+title: "Spend and consumption: segment fans by economic value"
+description: "Segment live event fans by total spend, average ticket, ticket type and cashless consumption. Identify VIPs and high-spenders for higher-converting campaigns."
+sidebar:
+  order: 4
+---
+
+import Schema from '../../../../../components/Schema.astro';
+import { Aside, CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+<Schema>{`{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Spend and consumption: segment live event fans by economic value",
+  "description": "Segment live event fans by total spend, average ticket, ticket type and cashless consumption.",
+  "author": { "@type": "Organization", "name": "Nevent", "url": "https://nevent.ai" },
+  "publisher": { "@type": "Organization", "name": "Nevent" },
+  "datePublished": "2026-06-02",
+  "dateModified": "2026-06-02",
+  "about": [
+    { "@type": "Thing", "name": "Customer lifetime value" },
+    { "@type": "Thing", "name": "Ticket spending segmentation" },
+    { "@type": "Thing", "name": "Live music events" }
+  ],
+  "mentions": [{ "@type": "SoftwareApplication", "name": "Nevent" }],
+  "audience": { "@type": "Audience", "audienceType": "Live event promoters" }
+}`}</Schema>
+
+:::tip[Quick definition]
+**Spend and consumption** groups all monetary criteria linked to the fan: how much they have spent in total, how much they spend per event on average, what ticket type they choose and how much they top up or consume through cashless systems at the venue. It is the category that lets you identify your VIPs and high-spenders.
+:::
+
+# Spend and consumption: segment fans by economic value
+
+Knowing how much each fan spends is one of the most powerful signals for personalising your communication. The fan who always buys an early-bird ticket deserves a different message from the one who waits for a last-minute VIP upgrade. The one who tops up £80 in cashless at every event has a different profile from the one who only buys the entry. This category helps you find all of them.
+
+## What spending criteria can you use for segmentation?
+
+| Criterion | What it represents | Example use case |
+|---|---|---|
+| **Total historical spend** | Sum of all the fan's purchases since joining the platform | Fans who have spent more than £500 in total |
+| **Spend at a specific event** | Purchases linked to a particular event | Fans who spent more than £150 at last year's festival |
+| **Average ticket** | Average spend per purchase made | Fans with an average ticket above £80 per purchase |
+| **Ticket type** | Ticket category chosen (early bird, general, VIP, season pass…) | Fans who bought a VIP ticket at least once |
+| **Cashless top-up** | Amounts loaded onto the event wristband or wallet | Fans who topped up more than £50 at the June event |
+| **Cashless in-venue spend** | What the fan actually spent inside the event at bars, shops… | Fans with in-venue spend above £30 |
+| **Payment method** | Payment method used | For internal financial analysis |
+
+## How to identify your VIPs with the total spend criterion
+
+Total historical spend is the equivalent of Monetary in the RFM model. Imagine you want to create a "premium clients" group to tell them first about a new season pass launch: you select fans with total spend above £400. That audience, though small in volume, has very high conversion rates because they have already demonstrated their financial commitment to your brand. In a fan base of 50,000, those who exceed that threshold are typically between 2,000 and 5,000 people with a radically different propensity to buy compared to the rest.
+
+## What is the average ticket criterion useful for?
+
+The average ticket helps you identify fans who, even if they have not spent a huge amount overall, have a high spend-per-purchase propensity. For example, if your portfolio includes events at very different price points (a concert at £25 and a festival at £180), a fan who always buys the relatively most expensive option for each event has a high average ticket even if their total spend is moderate. This lets you target upgrade or VIP offers at them with a higher probability of success.
+
+## What are cashless top-up and in-venue spend?
+
+Cashless is the contactless payment system that operates at many festivals and events using wristbands or apps. It has two distinct indicators:
+
+- **Cashless top-up**: how much money the fan loaded before entering the venue. A fan who tops up £100 signals that they plan to spend and have the financial means to do so.
+- **Cashless in-venue spend**: what they actually spent inside (at bars, merchandise stalls, food outlets…). This may be lower than the top-up if they reclaimed the unused balance.
+
+Imagine you organise a festival in Barcelona with a cashless system: you can identify fans with a top-up above £60 and in-venue spend above £50 to send them a loyalty communication with early access to the VIP area at the next edition.
+
+:::note[Ticket type as a behavioural preference indicator]
+The ticket type a fan chooses (early bird, general, VIP, season pass…) reflects not just spending capacity but also buying behaviour. Early-bird buyers are highly motivated fans who act quickly; VIP buyers prioritise experience over price. Combine this criterion with others to refine your message further.
+:::
+
+## Practical example: upgrade campaign for medium-to-high spenders
+
+Imagine you have a rock tour covering several Spanish cities, including Madrid, Bilbao and Seville, and you want to identify fans with potential to buy a VIP upgrade. You build a segment: fans with an average ticket above £60 who have bought a general (non-VIP) ticket at least twice. These are fans who have the spending capacity but have not yet tried the VIP experience. A communication that explains in detail what VIP access includes may have a conversion rate well above your average.
+
+## Summary
+
+- Total historical spend is your primary indicator of long-term fan value.
+- Average ticket reveals per-purchase spending propensity, useful for upgrade offers.
+- Cashless top-up and in-venue spend are strong signals of economic commitment at the event.
+- Ticket type chosen informs you about the fan's buying behaviour profile.
+
+## Next step
+
+<CardGrid>
+  <LinkCard
+    title="Digital engagement"
+    href="/en/segmentation/capabilities/digital-engagement/"
+    description="Segment by email opens, clicks and campaign behaviour."
+  />
+  <LinkCard
+    title="Automatic RFM"
+    href="/en/segmentation/capabilities/rfm/"
+    description="The RFM model combines recency, frequency and spend into a single profile."
+  />
+</CardGrid>
+
+---
+
+*Total historical spend is the foundation of the Monetary component in the RFM model, widely adopted in retention marketing. For reference, you can consult the <a href="https://www.optimove.com/resources/learning-center/rfm-segmentation" target="_blank" rel="noopener noreferrer">Optimove guide to RFM segmentation in event marketing</a>.*

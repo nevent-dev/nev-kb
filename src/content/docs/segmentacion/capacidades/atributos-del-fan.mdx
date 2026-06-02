@@ -1,0 +1,96 @@
+---
+title: "Atributos del fan: segmentar por perfil demográfico"
+description: "Cómo segmentar fans de eventos por edad, ciudad, idioma y campos personalizados del promotor. Ejemplos prácticos con Madrid, Barcelona y géneros musicales."
+sidebar:
+  order: 2
+---
+
+import Schema from '../../../../components/Schema.astro';
+import { Aside, CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+<Schema>{`{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Atributos del fan: segmentar por perfil demográfico en eventos en vivo",
+  "description": "Cómo segmentar fans de eventos por edad, ciudad, idioma y campos personalizados del promotor.",
+  "author": { "@type": "Organization", "name": "Nevent", "url": "https://nevent.ai" },
+  "publisher": { "@type": "Organization", "name": "Nevent" },
+  "datePublished": "2026-06-02",
+  "dateModified": "2026-06-02",
+  "about": [
+    { "@type": "Thing", "name": "Demographic segmentation" },
+    { "@type": "Thing", "name": "Fan profile" },
+    { "@type": "Thing", "name": "Live music events" }
+  ],
+  "mentions": [{ "@type": "SoftwareApplication", "name": "Nevent" }],
+  "audience": { "@type": "Audience", "audienceType": "Live event promoters" }
+}`}</Schema>
+
+:::tip[Definición rápida]
+**Los atributos del fan** son los datos de perfil que describen quién es: su edad, la ciudad donde vive, el idioma que prefiere y cualquier campo que hayas cargado en Nevent como promotor. Son el punto de partida para segmentar por características estáticas antes de mirar el comportamiento.
+:::
+
+# Atributos del fan: segmentar por perfil demográfico
+
+Los atributos del fan te permiten construir audiencias basadas en quién es la persona, no solo en lo que ha hecho. Son útiles cuando quieres llegar a una franja de edad concreta, comunicarte en el idioma de tu audiencia o aplicar datos propios que hayas cargado en la plataforma.
+
+## ¿Qué son los atributos del fan y para qué sirven en eventos?
+
+Los atributos del fan son datos de perfil vinculados al registro del usuario: su fecha de nacimiento, la ciudad que declaró, el idioma configurado en su cuenta y cualquier campo personalizado que hayas importado. Te permiten filtrar tu base de fans sin necesidad de analizar comportamiento histórico, lo que los convierte en el criterio más sencillo para empezar a segmentar.
+
+## Criterios disponibles en la categoría de atributos
+
+| Criterio | Qué representa | Ejemplo de uso |
+|---|---|---|
+| **Edad** | Rango de edad derivado de la fecha de nacimiento declarada | Fans de 18 a 25 años para una campaña de electrónica |
+| **Ciudad** | Ciudad declarada por el fan en su perfil | Fans que viven en Madrid o Barcelona |
+| **Email confirmado** | Si el fan ha verificado su dirección de email | Excluir emails sin verificar para mejorar deliverability |
+| **Idioma preferido** | Idioma configurado en la cuenta del fan | Enviar la campaña en español a fans hispanohablantes |
+| **Fecha de registro** | Cuándo se registró el fan en la plataforma | Fans que llevan más de 2 años contigo |
+| **Campos personalizados** | Datos propios que el promotor ha cargado | Género musical declarado, talla de camiseta, preferencias |
+
+## ¿Cómo se usa el criterio de edad?
+
+Puedes filtrar fans por rango de edad (por ejemplo, entre 25 y 40 años) o por edades concretas. Imagina que organizas una serie de conciertos de indie rock en Bilbao y quieres llegar al público que ha demostrado mayor interés histórico en ese género: seleccionas fans de entre 22 y 38 años que vivan en el País Vasco. El resultado es una audiencia mucho más afín al ticket que estás vendiendo.
+
+## ¿Cómo funciona el criterio de ciudad?
+
+La ciudad del fan es la que declaró al registrarse, no necesariamente donde asistió a eventos. Es diferente al criterio "ciudad del evento asistido" que encontrarás en la categoría de asistencia. Imagina que tu próxima gira pasa por Sevilla: puedes crear una campaña específica para fans que viven en Sevilla o en ciudades a menos de 80 kilómetros. Esto reduce el coste de comunicación y aumenta la conversión porque el mensaje es localmente relevante.
+
+:::note[Ciudad del fan vs ciudad del evento]
+El criterio "ciudad" en atributos refleja dónde vive el fan. En la sección de [Asistencia a eventos](/segmentacion/capacidades/asistencia/) encontrarás el criterio "ciudad del evento", que indica dónde estuvo físicamente para consumir un evento, aunque viva en otro lugar.
+:::
+
+## ¿Para qué sirven los campos personalizados?
+
+Los campos personalizados son datos que tú como promotor has cargado en Nevent y que no forman parte del perfil estándar. Por ejemplo, si en tu proceso de registro preguntaste al fan cuál es su género musical favorito (rock, jazz, electrónica, latino, pop...), ese dato queda disponible como criterio de segmentación. Imagina que tienes un festival multigenero en Valencia: puedes crear una campaña distinta para los fans de rock y otra para los de música latina, con mensajes y destacados de cartel completamente diferentes.
+
+## ¿Cuándo usar el email confirmado como filtro?
+
+Antes de una campaña de envío masivo, es recomendable excluir los fans cuyo email no está verificado. Los emails no confirmados aumentan el riesgo de rebote (bounce) y pueden dañar tu reputación como remitente. Úsalo como filtro de exclusión en el grupo base de cualquier campaña que quieras que llegue a la bandeja de entrada.
+
+## Resumen
+
+- Los atributos del fan son datos de perfil: edad, ciudad, idioma, fecha de registro y campos propios.
+- Son el criterio más sencillo para empezar a segmentar sin necesidad de historial de comportamiento.
+- Los campos personalizados te permiten usar cualquier dato propio que hayas importado al sistema.
+- El email confirmado es un filtro de calidad recomendado antes de cualquier campaña de envío.
+
+## Siguiente paso
+
+<CardGrid>
+  <LinkCard
+    title="Asistencia a eventos"
+    href="/segmentacion/capacidades/asistencia/"
+    description="Segmenta por historial de asistencia, ciudad del evento y frecuencia."
+  />
+  <LinkCard
+    title="Cómo crear un segmento paso a paso"
+    href="/audience/motor-segmentacion/crear-segmento/"
+    description="Guía práctica en la admin de Nevent para construir tu primer segmento."
+  />
+</CardGrid>
+
+---
+
+*Para profundizar en la lógica de combinación de criterios, consulta la guía de [operadores y lógica](/audience/motor-segmentacion/operadores-logica/) del motor de segmentación. Para más información sobre segmentación demográfica en marketing de eventos, puedes consultar la <a href="https://docs.mixpanel.com/docs/data-structure/user-profiles" target="_blank" rel="noopener noreferrer">documentación de Mixpanel sobre segmentación de usuarios</a>.*
