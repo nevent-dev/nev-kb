@@ -35,7 +35,7 @@ export default defineConfig({
 				// duplicate-content penalties. The list below contains path segments that
 				// appear ONLY in ES (root locale) slugs — they have different EN equivalents.
 				const SPANISH_ONLY_SLUG_PATTERN =
-					/\/(casos-practicos|que-puedes-hacer|conectar-claude|conectar-chatgpt|frases-listas-para-usar|permisos-y-seguridad|preguntas-frecuentes|herramientas|instalacion-local|analitica|campanas|audiencia|plantillas|short-urls|multi-cuenta|lanzar-un-evento|recuperar-audiencia-dormida|diagnosticar-campana-floja|optimizar-inversion-publicitaria|cierre-de-mes-y-reporting|motor-segmentacion|crear-segmento|categorias|operadores-logica|modificadores-rfm|grupos|casos-uso|mejores-practicas)\//;
+					/\/(casos-practicos|que-puedes-hacer|conectar-claude|conectar-chatgpt|frases-listas-para-usar|permisos-y-seguridad|preguntas-frecuentes|herramientas|instalacion-local|analitica|campanas|audiencia|plantillas|short-urls|multi-cuenta|lanzar-un-evento|recuperar-audiencia-dormida|diagnosticar-campana-floja|optimizar-inversion-publicitaria|cierre-de-mes-y-reporting|motor-segmentacion|crear-segmento|categorias|operadores-logica|modificadores-rfm|grupos|casos-uso|mejores-practicas|segmentacion|capacidades|asistencia|atributos-del-fan|gasto-y-consumo|score-y-temperatura|combinaciones|agrupar-y-filtrar|tracking-y-atribucion)\//;
 				// Exclude pages under /en/ whose path matches a Spanish-only slug
 				if (page.startsWith('https://help.nevent.ai/en/') && SPANISH_ONLY_SLUG_PATTERN.test(page)) {
 					return false;
@@ -64,7 +64,11 @@ export default defineConfig({
 					url === 'https://help.nevent.ai/nevent-ai/' ||
 					url === 'https://help.nevent.ai/en/nevent-ai/' ||
 					url === 'https://help.nevent.ai/segmentacion/motor-segmentacion/' ||
-					url === 'https://help.nevent.ai/en/segmentation/segmentation-engine/'
+					url === 'https://help.nevent.ai/en/segmentation/segmentation-engine/' ||
+					url === 'https://help.nevent.ai/segmentacion/capacidades/' ||
+					url === 'https://help.nevent.ai/en/segmentation/capabilities/' ||
+					url === 'https://help.nevent.ai/analitica/' ||
+					url === 'https://help.nevent.ai/en/analytics/'
 				) {
 					priority = 0.8;
 					changefreq = 'weekly';
@@ -195,22 +199,34 @@ export default defineConfig({
 								{ label: 'Preguntas Frecuentes', slug: 'segmentacion/motor-segmentacion/faq' },
 							],
 						},
-						// Placeholder para Capacidades (F1.B lo poblará)
 						{
 							label: 'Capacidades',
-							collapsed: true,
 							items: [
 								{ label: 'Catálogo', slug: 'segmentacion/capacidades' },
+								{ label: 'Atributos del fan', slug: 'segmentacion/capacidades/atributos-del-fan' },
+								{ label: 'Asistencia a eventos', slug: 'segmentacion/capacidades/asistencia' },
+								{ label: 'Gasto y consumo', slug: 'segmentacion/capacidades/gasto-y-consumo' },
+								{ label: 'Engagement digital', slug: 'segmentacion/capacidades/engagement' },
+								{ label: 'Nevent Score y temperatura', slug: 'segmentacion/capacidades/score-y-temperatura' },
+								{ label: 'RFM automático', slug: 'segmentacion/capacidades/rfm' },
+								{ label: 'Combinaciones avanzadas', slug: 'segmentacion/capacidades/combinaciones' },
 							],
 						},
 					],
 				},
-				// ─── Analítica — ES (placeholder, F1.C lo poblará) ─────────────
+				// ─── Analítica — ES ─────────────────────────────────────────────
 				{
 					label: 'Analítica',
-					collapsed: true,
 					items: [
-						{ label: 'Introducción', slug: 'analitica' },
+						{ label: 'Catálogo', slug: 'analitica' },
+						{ label: 'Eventos y entradas', slug: 'analitica/eventos-y-entradas' },
+						{ label: 'Audiencia y fans', slug: 'analitica/audiencia' },
+						{ label: 'Campañas', slug: 'analitica/campanas' },
+						{ label: 'Publicidad de pago', slug: 'analitica/paid-media' },
+						{ label: 'Tracking y atribución', slug: 'analitica/tracking-y-atribucion' },
+						{ label: 'Deliverability', slug: 'analitica/deliverability' },
+						{ label: 'Cómo agrupar y filtrar', slug: 'analitica/agrupar-y-filtrar' },
+						{ label: 'FAQ', slug: 'analitica/faq' },
 					],
 				},
 				// ─── Nevent AI — ES ─────────────────────────────────────────────
@@ -288,22 +304,34 @@ export default defineConfig({
 								{ label: 'FAQ', link: '/en/segmentation/segmentation-engine/faq/' },
 							],
 						},
-						// Placeholder for Capabilities (F1.B will populate)
 						{
 							label: 'Capabilities',
-							collapsed: true,
 							items: [
 								{ label: 'Catalog', link: '/en/segmentation/capabilities/' },
+								{ label: 'Fan attributes', link: '/en/segmentation/capabilities/fan-attributes/' },
+								{ label: 'Event attendance', link: '/en/segmentation/capabilities/event-attendance/' },
+								{ label: 'Spend and consumption', link: '/en/segmentation/capabilities/spend-and-consumption/' },
+								{ label: 'Digital engagement', link: '/en/segmentation/capabilities/digital-engagement/' },
+								{ label: 'Nevent Score and Temperature', link: '/en/segmentation/capabilities/score-and-temperature/' },
+								{ label: 'Automatic RFM', link: '/en/segmentation/capabilities/rfm/' },
+								{ label: 'Advanced combinations', link: '/en/segmentation/capabilities/advanced-combinations/' },
 							],
 						},
 					],
 				},
-				// ─── Analytics — EN (placeholder, F1.C will populate) ───────────
+				// ─── Analytics — EN ─────────────────────────────────────────────
 				{
 					label: 'Analytics',
-					collapsed: true,
 					items: [
-						{ label: 'Introduction', link: '/en/analytics/' },
+						{ label: 'Catalog', link: '/en/analytics/' },
+						{ label: 'Events and tickets', link: '/en/analytics/events-and-tickets/' },
+						{ label: 'Audience', link: '/en/analytics/audience/' },
+						{ label: 'Campaigns', link: '/en/analytics/campaigns/' },
+						{ label: 'Paid media', link: '/en/analytics/paid-media/' },
+						{ label: 'Tracking and attribution', link: '/en/analytics/tracking-and-attribution/' },
+						{ label: 'Deliverability', link: '/en/analytics/deliverability/' },
+						{ label: 'Grouping and filtering', link: '/en/analytics/grouping-and-filtering/' },
+						{ label: 'FAQ', link: '/en/analytics/faq/' },
 					],
 				},
 				// ─── Nevent AI — EN ─────────────────────────────────────────────
