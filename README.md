@@ -114,10 +114,27 @@ npm run validate         # Validar contenido
 
 ## 🚀 Deploy
 
+Para desplegar a produccion (`help.nevent.ai`):
+
 ```bash
-git push
-# Luego en Vercel/Netlify: Import repo → Deploy
+nvm use 22
+npm run deploy
 ```
+
+Esto ejecuta automaticamente:
+1. Build de Astro
+2. Sync a S3 con Cache-Control granular (5 passes)
+3. CloudFront invalidation
+4. Submission a IndexNow (Bing/Yandex/Naver)
+5. Verificacion post-deploy de URLs criticas
+
+Para submitir manualmente a IndexNow sin redeploy:
+
+```bash
+npm run seo:indexnow
+```
+
+**Infraestructura**: AWS S3 (`help.nevent.ai`, eu-west-1) + CloudFront (`E272KMWLLZW6G1`)
 
 **Costo**: $0/mes
 
