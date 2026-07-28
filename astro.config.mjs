@@ -6,6 +6,7 @@ import starlightThemeNova from 'starlight-theme-nova';
 import starlightLlmsTxt from 'starlight-llms-txt';
 import starlightPageActions from 'starlight-page-actions';
 import remarkGfm from 'remark-gfm';
+import fixI18nLinks from './scripts/fix-i18n-links.mjs';
 
 // https://astro.build/config
 export default defineConfig({
@@ -102,8 +103,12 @@ export default defineConfig({
 
 			// Logo wordmark — replaces the text title in the header.
 			// replacesTitle: true hides the site title text so only the image shows.
+			// alt is required: without it every page ships an <img> with an empty
+			// alt attribute in the header, flagged as "missing alt text" by SEO
+			// audits (Ahrefs Site Audit: ~200 pages affected).
 			logo: {
 				src: './src/assets/logo.png',
+				alt: 'Nevent Help Center',
 				replacesTitle: true,
 			},
 
@@ -481,5 +486,11 @@ export default defineConfig({
 				},
 			},
 		}),
+
+		// Post-build: rewrites hreflang alternates, language-switcher options,
+		// fallback-page "Copy Markdown" links and /en/en/ double prefixes so that
+		// no internal URL relies on Starlight's naive /en/ prefix swap (ES and EN
+		// trees use different slugs). See scripts/fix-i18n-links.mjs.
+		fixI18nLinks(),
 	],
 });
