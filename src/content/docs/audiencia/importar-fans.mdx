@@ -1,0 +1,155 @@
+---
+title: Importa tus contactos
+description: Aprende a subir tu lista de fans a Nevent con un archivo CSV o Excel. En unos minutos tendrás todos tus contactos listos para campañas.
+sidebar:
+  order: 1
+---
+
+En esta guía vas a aprender a importar una lista de contactos en Nevent: desde dónde encontrar el botón de importación hasta cómo revisar el resultado antes de confirmar. Unos 5 minutos.
+
+## Antes de empezar
+
+Necesitas tener un archivo con los datos de tus contactos. Nevent acepta dos formatos:
+
+- **CSV (.csv):** un fichero de texto donde cada fila es un contacto y los datos van separados por comas. Lo puedes exportar desde Excel, Google Sheets o cualquier otro programa de hoja de cálculo.
+- **Excel (.xlsx):** el formato nativo de Microsoft Excel.
+
+El archivo debe incluir al menos una columna con la dirección de correo electrónico de cada contacto. El tamaño máximo es de 50 MB.
+
+:::tip[Consejo]
+Si tu lista viene de otra herramienta, expórtala como CSV antes de empezar. Es el formato más compatible y el que menos problemas da.
+:::
+
+## Paso 1: Accede a la sección de fans
+
+En el menú lateral, haz clic en **Fans**, dentro del bloque Audiencia.
+
+Se abre la lista de todos los contactos de tu organización. En la esquina superior derecha verás dos botones: "Crear usuario" e "Importar usuarios".
+
+![Lista de fans en Nevent con el botón "Importar usuarios" visible en la esquina superior derecha](/images/guias/audiencia/importar-fans/paso-1-lista-fans.png)
+
+## Paso 2: Abre el asistente de importación
+
+Haz clic en **Importar usuarios**.
+
+Se abre la pantalla de importación. Verás dos secciones:
+
+- Un banner en la parte superior que te permite **generar una plantilla CSV** con los campos que quieres incluir (recomendado si todavía no tienes el archivo preparado).
+- Un área de subida donde arrastras tu archivo o lo seleccionas desde el explorador.
+
+![Pantalla de importación de usuarios con el área de arrastrar y soltar el archivo y la opción de generar una plantilla CSV](/images/guias/audiencia/importar-fans/paso-2-pantalla-importar.png)
+
+## Paso 3: (Opcional) Descarga la plantilla con los campos que necesitas
+
+Si todavía no tienes el archivo listo, Nevent puede generarte una plantilla vacía con exactamente las columnas que quieres.
+
+Haz clic en el banner **Generar plantilla de importación**. Se abre un diálogo donde puedes marcar los campos que quieres incluir:
+
+| Campo | Tipo |
+|-------|------|
+| Correo electrónico | Obligatorio (no se puede desmarcar) |
+| Nombre | Opcional |
+| Teléfono | Opcional |
+| Fecha de nacimiento | Opcional |
+| Género | Opcional |
+| Identificación fiscal | Opcional |
+| Dirección | Opcional |
+| Carpetas | Opcional |
+| Consentimiento de marketing | Opcional |
+| Campos personalizados | Opcional |
+
+Marca los que necesites y haz clic en **Descargar**. El archivo CSV descargado tendrá las cabeceras de columna ya puestas, listo para que rellenes los datos.
+
+![Diálogo "Crear plantilla de importación" con la lista de campos disponibles: Correo electrónico (obligatorio), Nombre, Teléfono, Fecha de nacimiento, Género, Identificación fiscal, Dirección, Carpetas, Consentimiento de marketing y Campos personalizados](/images/guias/audiencia/importar-fans/paso-3-plantilla-campos.png)
+
+## Paso 4: Sube tu archivo
+
+En el área de subida, arrastra tu archivo CSV o Excel directamente, o haz clic en **Seleccionar archivo** para buscarlo en tu ordenador.
+
+Cuando el archivo se procese correctamente, Nevent avanza automáticamente al siguiente paso: el mapeo de campos.
+
+## Paso 5: Mapea las columnas de tu archivo
+
+En este paso asignas cada columna de tu archivo al campo correspondiente en Nevent.
+
+La pantalla muestra una tabla con tres columnas principales:
+
+- **Columna CSV:** el nombre de la cabecera tal como aparece en tu archivo, con un ejemplo del primer dato.
+- **Campo Nevent:** el desplegable donde eliges a qué campo de Nevent corresponde esa columna.
+- **Mapeado y Muestra válida:** indicadores que confirman si el mapeo es correcto.
+
+Nevent intenta mapear automáticamente las columnas más habituales. Por ejemplo, si tu columna se llama "email" o "correo", la detecta sola y la asigna a "Correo electrónico".
+
+![Pantalla de mapeo de campos con tres columnas del CSV: email mapeada a Correo electrónico, nombre mapeada a Nombre, y telefono pendiente de asignar](/images/guias/audiencia/importar-fans/paso-4-mapeo-campos.png)
+
+Para las columnas que Nevent no reconoce automáticamente, haz clic en el desplegable **Seleccionar campo** y elige la opción correcta. Los campos disponibles incluyen: Primer apellido, Segundo apellido, Teléfono, Fecha de nacimiento, Género, País, Dirección, Código postal y varios más, incluidos los campos personalizados que hayas creado en tu organización.
+
+Cuando todos los campos que quieres importar tienen el indicador **Sí** en la columna "Mapeado", haz clic en **Siguiente: Consentimiento**.
+
+![Mapeo de campos completado: las tres columnas (email, nombre, telefono) están asignadas a sus campos de Nevent correspondientes, todas con indicador "Sí" y "Válido"](/images/guias/audiencia/importar-fans/paso-4c-mapeo-completo.png)
+
+:::note[Nota]
+Solo el campo "Correo electrónico" es obligatorio. El resto de columnas puedes dejarlas sin mapear si no quieres importar esos datos. Las filas que dejes sin marcar con el checkbox de "Importar" se ignorarán.
+:::
+
+## Paso 6: Indica si los contactos han dado su consentimiento
+
+Nevent te pregunta si estas personas han aceptado recibir comunicaciones de marketing de tu parte.
+
+Tienes dos opciones:
+
+- **Sí, han consentido:** los contactos podrán recibir tus campañas de email y ser incluidos en segmentos para campañas promocionales.
+- **No han consentido:** los contactos se importan pero no recibirán campañas de marketing. Solo recibirán comunicaciones transaccionales, como confirmaciones de compra o entradas.
+
+![Pantalla "Consentimiento y segmento" con las dos opciones: "Sí, han consentido" (los usuarios podrán recibir emails de campañas de marketing) y "No han consentido" (solo recibirán comunicaciones transaccionales)](/images/guias/audiencia/importar-fans/paso-5-consentimiento.png)
+
+:::caution[Importante]
+Marca "Sí" solo si tienes certeza de que todos los contactos del archivo han dado su consentimiento explícito para recibir comunicaciones comerciales. Importar contactos sin consentimiento y luego enviarles campañas incumple el GDPR y la LOPD.
+:::
+
+En la parte inferior de esta misma pantalla también puedes decidir si quieres **volcar los contactos a un segmento** al importarlos:
+
+- **No volcar:** los contactos se importan y ya está. Puedes organizarlos después.
+- **Segmento existente:** añade los contactos a un segmento de etiqueta que ya tengas creado.
+- **Segmento nuevo:** crea un segmento nuevo automáticamente con todos los contactos de esta importación.
+
+![Sección "Volcar a segmento" con tres opciones: "No volcar" (seleccionada), "Segmento existente" y "Segmento nuevo"](/images/guias/audiencia/importar-fans/paso-5b-segmento.png)
+
+Elige la opción que mejor encaje y haz clic en **Siguiente: Revisar**.
+
+## Paso 7: Revisa el resumen y confirma
+
+Antes de lanzar la importación, Nevent te muestra un resumen de todo lo que vas a importar:
+
+- El archivo subido y su tamaño.
+- El número de contactos y columnas del archivo.
+- La opción de consentimiento que has elegido.
+- El segmento de destino, si has elegido alguno.
+- Los campos que se van a importar con su mapeo.
+
+Revisa que todo sea correcto. Si algo no está bien, usa el botón **Anterior** para volver y corregirlo.
+
+![Pantalla de revisión final con el resumen de la importación: archivo "test-fans.csv", mapeo de 3 campos (email, nombre, telefono), consentimiento "Sí, aceptan" y "Sin volcado a segmento", con el botón verde "Confirmar e importar"](/images/guias/audiencia/importar-fans/paso-6-revisar.png)
+
+Cuando todo sea correcto, haz clic en **Confirmar e importar**. Nevent procesará el archivo en segundo plano. Un aviso en la pantalla te indica que puedes seguir el progreso en el historial.
+
+## El historial de importaciones
+
+Puedes consultar el estado de todas tus importaciones en cualquier momento. Haz clic en el botón **Historial** que aparece en la esquina superior derecha de la pantalla de importación.
+
+El historial muestra cada importación con su estado (en proceso, completada, con errores), la fecha y el número de contactos importados.
+
+![Pantalla "Historial de importaciones" en estado vacío, con el mensaje "No hay importaciones" y el botón "Importar usuarios"](/images/guias/audiencia/importar-fans/paso-7-historial.png)
+
+## Resultado
+
+Ya tienes tus contactos importados en Nevent. A partir de ahora aparecen en la sección Fans y puedes enviarles campañas, incluirlos en segmentos o consultarlos uno a uno.
+
+:::tip[Consejo]
+Si has importado los contactos sin asignarlos a un segmento y ahora quieres organizarlos, puedes crear un segmento basado en criterios como la fecha de importación o cualquier campo que hayas traído en el archivo.
+:::
+
+## Siguiente paso
+
+- [Crea tu primer segmento](/segmentacion/motor-segmentacion/crear-segmento) para agrupar a tus fans por criterios y tenerlos listos para campañas.
+- [Crea tu primera campaña](/campanas/crear-primera-campana) para enviar un email a los contactos que acabas de importar.

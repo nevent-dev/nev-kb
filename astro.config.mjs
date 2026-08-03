@@ -199,7 +199,13 @@ export default defineConfig({
 			// Sidebar — ES (raíz) y EN (/en/)
 			// Starlight selecciona automáticamente los items del locale activo
 			sidebar: [
-				// ─── Segmentación — ES ──────────────────────────────────────────
+				// ─── Audiencia — ES ──────────────────────────────────────────
+				{
+					label: 'Audiencia',
+					items: [
+						{ label: 'Importa tus contactos', slug: 'audiencia/importar-fans', badge: { text: 'Nuevo', variant: 'tip' } },
+					],
+				},
 				{
 					label: 'Segmentación',
 					items: [
