@@ -204,6 +204,7 @@ export default defineConfig({
 					label: 'Audiencia',
 					items: [
 						{ label: 'Importa tus contactos', slug: 'audiencia/importar-fans', badge: { text: 'Nuevo', variant: 'tip' } },
+						{ label: 'El perfil de un fan', slug: 'audiencia/gestion-de-fans', badge: { text: 'Nuevo', variant: 'tip' } },
 					],
 				},
 				{
