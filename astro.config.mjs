@@ -258,6 +258,7 @@ export default defineConfig({
 					items: [
 						{ label: 'Crear tu primera campaña', slug: 'campanas/crear-primera-campana', badge: { text: 'Nuevo', variant: 'tip' } },
 						{ label: 'Diseña plantillas de email', slug: 'campanas/plantillas-email', badge: { text: 'Nuevo', variant: 'tip' } },
+						{ label: 'Crea plantillas de WhatsApp', slug: 'campanas/plantillas-whatsapp', badge: { text: 'Nuevo', variant: 'tip' } },
 						{ label: 'Gestiona tus campañas', slug: 'campanas/gestionar-campanas', badge: { text: 'Nuevo', variant: 'tip' } },
 					],
 				},
