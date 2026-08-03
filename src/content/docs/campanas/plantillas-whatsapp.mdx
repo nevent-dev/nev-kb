@@ -1,0 +1,149 @@
+---
+title: Cómo crear plantillas de WhatsApp
+description: Aprende a crear plantillas de WhatsApp en Nevent paso a paso. En menos de 10 minutos tendrás tu mensaje listo para enviar a tus fans.
+sidebar:
+  order: 2
+---
+
+En esta guía aprenderás a crear una plantilla de WhatsApp desde cero en Nevent. No necesitas experiencia previa. En unos 10 minutos tendrás la plantilla preparada para usarla en tus campañas.
+
+## Antes de empezar
+
+Las plantillas de WhatsApp son mensajes predefinidos que debes enviar a Meta (la empresa detrás de WhatsApp) para que los revise y apruebe antes de poder usarlos. Es un requisito de WhatsApp Business: sin aprobación, el mensaje no se puede enviar.
+
+A diferencia del email, aquí no diseñas con bloques visuales. Escribes el texto del mensaje, añades variables de personalización y defines si quieres incluir botones. Después Nevent envía todo eso a Meta para su revisión.
+
+Si todavía no has creado ninguna campaña, puedes ver primero cómo funciona en [crea tu primera campaña](/campanas/crear-primera-campana).
+
+## Paso 1: Ve a Plantillas
+
+En el menú lateral izquierdo, dentro de la sección Campañas, haz clic en **Plantillas**.
+
+Se abre la biblioteca de plantillas con dos pestañas: "Plantillas Email" y "Plantillas WhatsApp".
+
+![Biblioteca de plantillas de Nevent con las pestañas Plantillas Email y Plantillas WhatsApp y el botón Diseñar en la esquina superior derecha](/images/guias/campanas/plantillas-whatsapp/paso-1-listado-plantillas.png)
+
+## Paso 2: Abre la pestaña de WhatsApp
+
+Haz clic en la pestaña **Plantillas WhatsApp**.
+
+Se muestra el listado de tus plantillas de WhatsApp. Si acabas de empezar, estará vacío.
+
+![Pestaña Plantillas WhatsApp activa con el listado vacío y el mensaje No hay plantillas de WhatsApp](/images/guias/campanas/plantillas-whatsapp/paso-2-listado-whatsapp-vacio.png)
+
+:::note[Nota]
+El listado tiene filtros por Estado, Calidad, Tipo de mensaje e Idioma. Cuando tengas varias plantillas, úsalos para encontrar la que necesitas.
+:::
+
+## Paso 3: Crea una nueva plantilla
+
+Haz clic en el botón **Diseñar** (esquina superior derecha) y elige **WhatsApp** en el menú que aparece.
+
+![Menú desplegable del botón Diseñar con las opciones Email y WhatsApp](/images/guias/campanas/plantillas-whatsapp/paso-3-menu-disenar-whatsapp.png)
+
+Se abre el asistente de nueva plantilla en dos pasos.
+
+## Paso 4: Configura los datos básicos (paso 1 de 2)
+
+El primer paso pide tres datos que Meta exige para identificar la plantilla. Una vez guardados, no podrás cambiarlos.
+
+![Formulario del paso 1 de nueva plantilla de WhatsApp con los campos Nombre, Categoría (Marketing / Utilidad) e Idioma ya rellenados](/images/guias/campanas/plantillas-whatsapp/paso-4-nueva-plantilla-paso1.png)
+
+**Nombre de la plantilla:** escribe un nombre en minúsculas, solo con letras, números y guiones bajos. Por ejemplo: `early_bird_demo_fest_2026`. El nombre debe ser único para ese idioma.
+
+**Categoría:** elige entre dos opciones:
+
+| Categoría | Cuándo usarla |
+|-----------|---------------|
+| Marketing | Promociones, ofertas, anuncios de lineup, early birds |
+| Utilidad | Confirmaciones de compra, actualizaciones de cuenta, avisos de acceso |
+
+**Idioma:** selecciona el idioma en que escribirás el mensaje. Puedes crear la misma plantilla en varios idiomas, cada una como entrada independiente.
+
+Cuando los tres campos estén completos, el botón **Continuar** se activa. Haz clic en él.
+
+## Paso 5: Escribe el contenido del mensaje (paso 2 de 2)
+
+Se abre el editor de contenido. A la izquierda tienes las secciones del mensaje; a la derecha, una vista previa en tiempo real de cómo quedará en el móvil.
+
+![Editor de plantilla de WhatsApp en el paso 2 con las secciones tipo de mensaje, encabezado, cuerpo y la vista previa del mensaje en un simulador de móvil a la derecha](/images/guias/campanas/plantillas-whatsapp/paso-5-editor-paso2-vacio.png)
+
+### Tipo de mensaje
+
+Elige entre **Mensaje estándar** (el más habitual: texto con encabezado y botones opcionales) o **Carrusel de tarjetas** (varias tarjetas que el usuario puede deslizar).
+
+### Encabezado
+
+El encabezado es opcional. Puedes elegir entre:
+
+- **Ninguno:** el mensaje empieza directamente con el cuerpo de texto.
+- **Texto:** una línea de texto destacado encima del cuerpo.
+- **Imagen:** el cartel o foto de tu evento.
+- **Video:** un clip corto.
+- **PDF:** un documento adjunto.
+
+### Cuerpo
+
+Es el texto principal del mensaje. Puedes aplicar negrita (**B**), cursiva (*I*) y tachado (S) con los controles de la barra superior del área de texto. El límite es de 1.024 caracteres.
+
+Para personalizar el mensaje con el nombre del fan u otros datos, usa variables. Una variable es un marcador de posición que Nevent sustituye por los datos reales de cada contacto en el momento del envío. Se escriben así: `{{1}}` para la primera variable, `{{2}}` para la segunda, y así sucesivamente.
+
+Ejemplo de cuerpo con variable:
+
+```
+Hola {{1}}, las entradas Early Bird para Demo Fest 2026 ya están disponibles.
+```
+
+Al escribir el mensaje en el editor, la vista previa del móvil actualiza el texto al instante.
+
+![Editor de plantilla de WhatsApp con el cuerpo del mensaje escrito y la variable resaltada en la vista previa del móvil a la derecha](/images/guias/campanas/plantillas-whatsapp/paso-6-cuerpo-con-variable.png)
+
+### Ejemplos de variables (requerido por Meta)
+
+Si has usado variables, aparece esta sección obligatoria. Meta te pide que indiques un valor de ejemplo realista para cada variable. Esto le ayuda a revisar el mensaje en contexto. Escribe un nombre o valor representativo, como `María` para `{{1}}`.
+
+### Pie de página
+
+Texto breve opcional que aparece al final del mensaje. Máximo 60 caracteres. Útil para añadir información de contacto o un aviso legal corto.
+
+### Botones
+
+Puedes añadir hasta 10 botones en total, de dos tipos:
+
+**Respuestas rápidas:** botones con texto predefinido que el usuario puede pulsar para responder. Por ejemplo: "Quiero más info" o "Sí, me apunto".
+
+**Llamadas a la acción:** botones que llevan a una URL externa o marcan un teléfono directamente.
+
+![Secciones de Ejemplos de variables, Pie de página y Botones del editor de plantilla, con las opciones de Respuestas rápidas y Llamadas a la acción URL y Teléfono](/images/guias/campanas/plantillas-whatsapp/paso-7-botones-variables-pie.png)
+
+### Previsualizar con datos de usuario
+
+En la parte inferior del panel izquierdo puedes buscar un contacto real de tu base de datos. Al seleccionarlo, la vista previa del móvil sustituye las variables por sus datos reales, para que veas exactamente cómo recibirá el mensaje.
+
+![Sección Previsualizar del editor con el campo de búsqueda de usuario y la sección Etiquetas de personalización detectadas mostrando la variable doble llave uno](/images/guias/campanas/plantillas-whatsapp/paso-8-previsualizar-variables.png)
+
+## Paso 6: Guarda y envía a revisión
+
+Cuando estés conforme con el contenido, tienes dos opciones en la barra superior:
+
+- **Guardar:** guarda la plantilla como borrador sin enviarla a Meta todavía. Puedes seguir editándola.
+- **Enviar a revisión:** envía la plantilla a Meta para su aprobación. A partir de ese momento ya no puedes editar los campos principales hasta que Meta devuelva una respuesta.
+
+:::caution[Importante]
+Una vez enviada a revisión, Meta puede tardar desde unos minutos hasta 24 horas en aprobarla o rechazarla. Si la rechaza, te indica el motivo y puedes crear una nueva versión corregida. Las plantillas aprobadas aparecen en el listado con el estado "Activa".
+:::
+
+## Resultado
+
+La plantilla queda guardada en el listado de "Plantillas WhatsApp" con su estado visible (Borrador, En revisión, Activa o Rechazada).
+
+Cuando la plantilla esté aprobada, ya puedes seleccionarla al crear una campaña de WhatsApp o usarla en un flujo de automatización.
+
+:::tip[Consejo]
+Empieza con un mensaje corto y sin botones para la primera aprobación. Los mensajes sencillos pasan la revisión de Meta más rápido. Una vez que domines el proceso, añade encabezados de imagen y botones de llamada a la acción.
+:::
+
+## Siguiente paso
+
+- [Crea tu primera campaña](/campanas/crear-primera-campana) y selecciona esta plantilla como contenido.
+- [Cómo diseñar plantillas de email](/campanas/plantillas-email) si también envías campañas por email.
