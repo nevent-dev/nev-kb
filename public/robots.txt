@@ -1,7 +1,7 @@
 # Nevent Help Center — robots.txt
 # Documentación oficial de Nevent IA y del MCP de Nevent.
 # Contexto curado para asistentes de IA en /llms.txt y /llms-full.txt
-# Última actualización: 2026-06-01
+# Última actualización: 2026-08-03
 
 User-agent: *
 Allow: /

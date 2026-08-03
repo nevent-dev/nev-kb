@@ -1,303 +1,119 @@
-# 📝 Próximos Artículos a Generar
+# Plan de contenido — Knowledge Base de Nevent (Marketing y engagement)
 
-Este documento lista artículos prioritarios para completar la Knowledge Base de Nevent.
+> Reemplaza al plan anterior, que estaba desalineado con el producto real (describía una KB
+> genérica tipo Klaviyo: Featured Resources, Flows, WooCommerce, Reviews…). Nevent es una
+> plataforma de eventos en vivo. Este plan refleja lo que ya existe en esta KB y lo que
+> falta, verificado contra la UI real de `admin.nevent.es` (`nev-admin-web`).
 
----
-
-## 🔥 Prioridad ALTA (Próximas 24 horas)
-
-### Featured Resources
-- [ ] **quick-wins.mdx** - "5 Quick Wins para Mejorar tu Email Marketing Hoy"
-- [ ] **faq.mdx** - "Preguntas Frecuentes (FAQ)"
-- [ ] **best-practices.mdx** - "Mejores Prácticas Generales"
-
-### Account & Billing
-- [ ] **crear-cuenta.mdx** - "Cómo Crear tu Cuenta de Nevent"
-- [ ] **planes-precios.mdx** - "Planes y Precios"
-- [ ] **metodos-pago.mdx** - "Métodos de Pago Aceptados"
-- [ ] **facturacion.mdx** - "Gestión de Facturación"
-- [ ] **upgrade-downgrade.mdx** - "Cambiar de Plan"
-
-### Campaigns
-- [ ] **tipos-campanas.mdx** - "Tipos de Campañas Disponibles"
-- [ ] **ab-testing.mdx** - "A/B Testing en Campañas"
-- [ ] **segmentacion-avanzada.mdx** - "Segmentación Avanzada"
-- [ ] **personalizacion.mdx** - "Personalización de Contenido"
-- [ ] **mejores-practicas-campanas.mdx** - "Mejores Prácticas para Campañas"
-
-### Analytics
-- [ ] **dashboard-overview.mdx** - "Overview del Dashboard"
-- [ ] **reportes-personalizados.mdx** - "Crear Reportes Personalizados"
-- [ ] **attribution.mdx** - "Modelos de Atribución"
-- [ ] **exportar-datos.mdx** - "Exportar Datos y Métricas"
-
-### SMS
-- [ ] **primera-campana-sms.mdx** - "Tu Primera Campaña de SMS"
-- [ ] **mejores-practicas-sms.mdx** - "Mejores Prácticas SMS"
-- [ ] **compliance-sms.mdx** - "Compliance Legal en SMS"
-- [ ] **templates-sms.mdx** - "Templates de SMS Efectivos"
+**Fecha**: 2026-08-03
+**Repo canónico**: `github.com/nevent-dev/nev-kb` (este repo). Publica en el centro de ayuda.
+**Scope**: Marketing y engagement. Fuera de alcance por ahora → Contenido
+(Eventos/Experiencias, Ventas, Merch) y Página web.
 
 ---
 
-## 📊 Prioridad MEDIA (Esta Semana)
+## Método de generación
 
-### Flows
-- [ ] **welcome-flow.mdx** - "Crear un Welcome Flow Efectivo"
-- [ ] **abandoned-cart.mdx** - "Setup de Abandoned Cart Flow"
-- [ ] **post-purchase.mdx** - "Post-Purchase Flow"
-- [ ] **win-back.mdx** - "Win-Back Flow para Reactivación"
-- [ ] **birthday-flow.mdx** - "Birthday/Anniversary Flows"
-- [ ] **segmentation-flows.mdx** - "Segmentación Avanzada en Flows"
-- [ ] **templates-flows.mdx** - "Templates Library de Flows"
+Las guías se generan con el agente `user-guide-writer`:
+- Navega el panel real (`admin.nevent.es`) con capturas de producción, tenant DEMO FEST.
+- Escribe para promotores de eventos sin perfil técnico.
 
-### Integrations
-- [ ] **woocommerce-integration.mdx** - "Integración con WooCommerce"
-- [ ] **magento-integration.mdx** - "Integración con Magento"
-- [ ] **stripe-integration.mdx** - "Integración con Stripe"
-- [ ] **google-analytics.mdx** - "Google Analytics Integration"
-- [ ] **facebook-pixel.mdx** - "Facebook Pixel Setup"
-- [ ] **zapier-integration.mdx** - "Automatizaciones con Zapier"
-- [ ] **product-feeds.mdx** - "Configurar Product Feeds"
+Apoyo para anticipar fricción: `UX_AUDIT_INVENTORY.md` (issues UX del flujo real).
 
-### Audience
-- [ ] **importar-contactos.mdx** - "Importar Contactos"
-- [ ] **crear-segmentos.mdx** - "Crear Segmentos"
-- [ ] **custom-properties.mdx** - "Custom Properties y Fields"
-- [ ] **tags-y-labels.mdx** - "Sistema de Tags y Labels"
-- [ ] **limpieza-lista.mdx** - "Limpieza y Mantenimiento de Listas"
-- [ ] **gdpr-compliance.mdx** - "GDPR Compliance para Audiencias"
+### Estilo de redacción (obligatorio)
 
-### Deliverability & Compliance
-- [ ] **spf-dkim-dmarc.mdx** - "Configurar SPF, DKIM y DMARC"
-- [ ] **sender-reputation.mdx** - "Mantener Sender Reputation"
-- [ ] **avoid-spam.mdx** - "Evitar Filtros de Spam"
-- [ ] **double-opt-in.mdx** - "Double Opt-In Setup"
-- [ ] **gdpr.mdx** - "GDPR Compliance Guide"
-- [ ] **can-spam.mdx** - "CAN-SPAM Act Compliance"
-- [ ] **unsubscribe-management.mdx** - "Gestión de Unsubscribes"
+- Sin emojis en el cuerpo de los artículos.
+- Lenguaje sencillo. Los términos técnicos imprescindibles se explican en una frase la
+  primera vez que aparecen.
+- Sin tics de escritura de IA. No usar la raya larga; usar frases cortas, comas o dos puntos.
+- Tono directo y cercano, tratando de "tú" al lector.
+- Frases y párrafos cortos.
+- Imágenes paso a paso recortadas a la zona relevante (botón, campo, aviso), con pie o texto
+  alternativo que describa qué se ve.
 
 ---
 
-## 📌 Prioridad BAJA (Próximas 2 Semanas)
+## Lo que YA existe (no rehacer)
 
-### Content
-- [ ] **email-templates.mdx** - "Biblioteca de Email Templates"
-- [ ] **html-vs-plain.mdx** - "HTML vs Plain Text Emails"
-- [ ] **mobile-optimization.mdx** - "Optimización Mobile"
-- [ ] **accessibility.mdx** - "Accessibility en Emails"
-- [ ] **dynamic-content.mdx** - "Contenido Dinámico"
+| Área | Estado |
+|------|--------|
+| Segmentación (motor + capacidades + casos) | Completo (ES + EN) |
+| Analítica: eventos, audiencia, campañas, publicidad de pago, tracking y atribución, deliverability, casos | Completo (ES + EN) |
+| Nevent AI / MCP (conectar, qué puedes hacer, casos, developers) | Completo (ES + EN) |
+| Campañas → Crear tu primera campaña | Recién creado (rama `docs/kb-crear-primera-campana`) |
 
-### Sign-up Forms
-- [ ] **crear-formulario.mdx** - "Crear tu Primer Formulario"
-- [ ] **tipos-formularios.mdx** - "Tipos de Formularios (Popup, Inline, etc)"
-- [ ] **personalizacion-formularios.mdx** - "Personalización de Formularios"
-- [ ] **targeting-rules.mdx** - "Targeting Rules para Formularios"
-- [ ] **ab-testing-forms.mdx** - "A/B Testing en Formularios"
-
-### Reviews
-- [ ] **solicitar-reviews.mdx** - "Cómo Solicitar Reviews"
-- [ ] **automatizar-reviews.mdx** - "Automatizar Solicitudes de Reviews"
-- [ ] **incentivos-reviews.mdx** - "Incentivos para Reviews"
-
-### WhatsApp
-- [ ] **configuracion-whatsapp.mdx** - "Configuración Inicial de WhatsApp"
-- [ ] **whatsapp-business-api.mdx** - "WhatsApp Business API Setup"
-- [ ] **templates-whatsapp.mdx** - "Templates de WhatsApp"
-- [ ] **compliance-whatsapp.mdx** - "Compliance en WhatsApp"
-
-### Conversations
-- [ ] **inbox-setup.mdx** - "Setup de Inbox"
-- [ ] **chatbot-automation.mdx** - "Chatbot Automation"
-- [ ] **team-management.mdx** - "Gestión de Team en Conversations"
-- [ ] **canned-responses.mdx** - "Respuestas Predefinidas (Canned)"
-
-### Customer Hub
-- [ ] **customer-profiles.mdx** - "Customer Profiles Overview"
-- [ ] **lifecycle-stages.mdx** - "Lifecycle Stages"
-- [ ] **customer-journey.mdx** - "Customer Journey Mapping"
-- [ ] **clv-calculation.mdx** - "Customer Lifetime Value (CLV)"
-
-### Advanced KDP & Marketing Analytics
-- [ ] **predictive-analytics.mdx** - "Predictive Analytics"
-- [ ] **cohort-analysis.mdx** - "Cohort Analysis"
-- [ ] **funnel-analytics.mdx** - "Funnel Analytics"
-- [ ] **revenue-attribution.mdx** - "Revenue Attribution Models"
+Nota importante: la **analítica** de campañas, publicidad de pago y deliverability YA está
+documentada. Lo que falta es la parte de **operativa en la interfaz** (cómo se hace cada cosa
+en el panel), no la lectura de métricas.
 
 ---
 
-## 🎯 Artículos Especiales / Tutoriales Largos
+## Prioridad ALTA
 
-- [ ] **migration-from-klaviyo.mdx** - "Migrar desde Klaviyo a Nevent"
-- [ ] **migration-from-mailchimp.mdx** - "Migrar desde Mailchimp"
-- [ ] **ecommerce-playbook.mdx** - "E-commerce Marketing Playbook Completo"
-- [ ] **b2b-playbook.mdx** - "B2B Email Marketing Playbook"
-- [ ] **saas-playbook.mdx** - "SaaS Onboarding Playbook"
-- [ ] **seasonal-campaigns.mdx** - "Guía de Campañas Estacionales (Black Friday, Navidad, etc)"
-- [ ] **case-study-template.mdx** - "Template para Case Studies"
+### Campañas (operativa de la interfaz)
+- [x] `campanas/crear-primera-campana.mdx` — "Cómo crear tu primera campaña"
+- [ ] `campanas/plantillas-email.mdx` — "Diseña plantillas de email (editor drag & drop)"
+- [ ] `campanas/plantillas-whatsapp.mdx` — "Crea plantillas de WhatsApp"
+- [ ] `campanas/canales-email-sms-whatsapp.mdx` — "Diferencias al enviar por Email, SMS y WhatsApp"
+- [ ] `campanas/gestionar-campanas.mdx` — "Estados de una campaña y acciones (duplicar, borrador, cancelar)"
 
----
+### Audiencia (gestión, complementa Segmentación ya existente)
+- [ ] `audiencia/gestion-de-fans.mdx` — "Gestiona tus fans"
+- [ ] `audiencia/importar-fans.mdx` — "Importa contactos de forma masiva"
+- [ ] `audiencia/perfil-del-fan.mdx` — "El perfil de un fan (intereses, tier, historial, compras)"
+- [ ] `suscripciones/crear-formulario.mdx` — "Crea un formulario de suscripción"
+- [ ] `suscripciones/campos-y-apariencia.mdx` — "Campos y apariencia del formulario"
+- [ ] `suscripciones/instalacion.mdx` — "Instala el formulario en tu web"
 
-## 📊 Templates de Artículos por Tipo
-
-### Template: Tutorial Step-by-Step
-
-```markdown
----
-title: Cómo [Acción Específica]
-description: Guía paso a paso para [resultado]
-sidebar:
-  order: 1
-  badge:
-    text: Tutorial
-    variant: tip
----
-
-# Cómo [Acción Específica]
-
-Breve introducción del problema y resultado.
-
-## 📋 Prerrequisitos
-
-- ✅ Requisito 1
-- ✅ Requisito 2
-
-## 🚀 Paso a Paso
-
-### Paso 1: [Nombre]
-
-Explicación clara...
-
-```code example```
-
-### Paso 2: [Nombre]
-
-...
-
-## 📊 Verificación
-
-Cómo saber que funcionó...
-
-## 🐛 Troubleshooting
-
-**Problema**: X
-**Solución**: Y
-
-## 🔗 Próximos Pasos
-
-- [Artículo relacionado 1](/categoria/slug)
-- [Artículo relacionado 2](/categoria/slug)
-```
-
-### Template: Conceptual/Overview
-
-```markdown
----
-title: Entendiendo [Concepto]
-description: Guía completa sobre [concepto]
----
-
-# Entendiendo [Concepto]
-
-## 🎯 ¿Qué es [Concepto]?
-
-Definición clara...
-
-## 🔄 Cómo Funciona
-
-Explicación técnica...
-
-## 💡 Casos de Uso
-
-### Caso 1
-### Caso 2
-
-## 📊 Métricas y Benchmarks
-
-| Métrica | Benchmark |
-|---------|-----------|
-| X       | Y         |
-
-## 🔗 Próximos Pasos
-```
-
-### Template: Reference/API
-
-```markdown
----
-title: [Feature] Reference
-description: Documentación técnica completa de [feature]
----
-
-# [Feature] Reference
-
-## Overview
-
-Breve descripción...
-
-## Configuración
-
-```javascript
-// Example config
-{
-  option1: "value",
-  option2: true
-}
-```
-
-## Parámetros
-
-| Parámetro | Tipo | Requerido | Descripción |
-|-----------|------|-----------|-------------|
-| param1    | string | ✅ | ... |
-
-## Ejemplos
-
-### Ejemplo 1: [Caso]
-
-```javascript
-// Code example
-```
-
-### Ejemplo 2: [Caso]
-
-...
-
-## Best Practices
-
-- ✅ Do this
-- ❌ Don't do this
-
-## Troubleshooting
-```
+### Paid Media (conexión; la analítica ya está en `analitica/paid-media`)
+- [ ] `paid-media/conectar-cuentas.mdx` — "Conecta tus cuentas de anuncios (Meta, Google, TikTok)"
+- [ ] `paid-media/entender-el-panel.mdx` — "Recorre el panel: campañas, conjuntos y anuncios"
+      · Módulo `src/app/paid-ads/`. Puede estar oculto si la organización no tiene el módulo activo.
 
 ---
 
-## 📈 Métricas de Progreso
+## Prioridad MEDIA
 
-**Objetivo Total**: 200 artículos (Q1 2025)
-**Actual**: 7 artículos
-**Progreso**: 3.5%
+### Herramientas
+- [ ] `herramientas/magic-links.mdx` — "Magic Links: acorta enlaces y mide clics"
 
-**Por Categoría**:
-- Featured Resources: 1/5 (20%)
-- Account & Billing: 0/8 (0%)
-- Campaigns: 1/10 (10%)
-- Analytics: 1/8 (12.5%)
-- SMS: 1/8 (12.5%)
-- Flows: 1/10 (10%)
-- Integrations: 1/12 (8%)
-- Resto: 0% cada una
+### Chatbot
+- [ ] `chatbot/introduccion.mdx` — "Qué es el chatbot y para qué sirve"
+- [ ] `chatbot/configuracion.mdx` — "Configura tu chatbot"
+- [ ] `chatbot/conversaciones.mdx` — "Gestiona las conversaciones con tus fans"
 
----
+### Superapp
+- [ ] `superapp/introduccion.mdx` — "Qué es la Superapp"
+- [ ] `superapp/home-y-onboarding.mdx` — "Configura la home y el onboarding de tu app"
+- [ ] `superapp/monedas-virtuales.mdx` — "Monedas virtuales: tipos de cambio, paquetes y métricas"
+- [ ] `superapp/coleccionables.mdx` — "Coleccionables"
+- [ ] `superapp/retos.mdx` — "Retos: recompensas, participantes y estadísticas"
 
-## 🔄 Workflow Recomendado
-
-1. **Batch por categoría**: Generar 5-10 artículos de misma categoría a la vez
-2. **Consistency**: Usar mismo template type por categoría
-3. **Internal linking**: Siempre agregar "Próximos Pasos" con 3-5 links
-4. **SEO**: Description clara y única por artículo
-5. **Length**: 200-500 líneas por artículo (como los ejemplos)
+### Consumo
+- [ ] `consumo/plan-de-uso.mdx` — "Tu plan de uso: créditos de email y SMS"
 
 ---
 
-**Última actualización**: 30 Diciembre 2025
+## Prioridad BAJA (configuración técnica, dejar para el final)
+
+Onboarding técnico. La analítica de entregabilidad ya existe; falta la CONFIGURACIÓN.
+
+- [ ] `entregabilidad/activar-canales.mdx` — "Activa tus canales (Email, SMS, Push, WhatsApp)"
+- [ ] `entregabilidad/dominio-dedicado.mdx` — "Configura tu dominio dedicado (registros DNS)"
+- [ ] `entregabilidad/verificar-dns.mdx` — "Verifica tus registros DNS y resuelve errores"
+- [ ] `entregabilidad/envio-de-emails.mdx` — "Ajustes de envío de emails"
+
+---
+
+## Orden de ejecución recomendado
+
+1. Campañas: plantillas de email, luego gestión de campañas y canales.
+2. Audiencia: gestión e importación de fans, luego formularios de suscripción.
+3. Paid Media: conectar cuentas y recorrido del panel.
+4. Chatbot y Superapp (engagement).
+5. Magic Links y Plan de uso.
+6. Configuración técnica de entregabilidad (al final).
+
+---
+
+**Última actualización**: 2026-08-03
