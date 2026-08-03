@@ -19,3 +19,6 @@ pnpm-debug.log*
 
 # macOS-specific files
 .DS_Store
+
+# QA / capturas temporales del proceso de documentación
+qa-screenshots/
