@@ -245,7 +245,13 @@ export default defineConfig({
 						},
 					],
 				},
-				// ─── Analítica — ES ─────────────────────────────────────────────
+				// ─── Campañas — ES ─────────────────────────────────────────────
+				{
+					label: 'Campañas',
+					items: [
+						{ label: 'Crear tu primera campaña', slug: 'campanas/crear-primera-campana', badge: { text: 'Nuevo', variant: 'tip' } },
+					],
+				},
 				{
 					label: 'Analítica',
 					items: [
