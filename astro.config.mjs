@@ -295,7 +295,13 @@ export default defineConfig({
 						},
 					],
 				},
-				// ─── Nevent AI — ES ─────────────────────────────────────────────
+				// ─── Herramientas — ES ─────────────────────────────────────────────
+				{
+					label: 'Herramientas',
+					items: [
+						{ label: 'Magic Links', slug: 'herramientas/magic-links', badge: { text: 'Nuevo', variant: 'tip' } },
+					],
+				},
 				{
 					label: 'Nevent AI',
 					items: [
