@@ -1,0 +1,129 @@
+---
+title: "La Superapp: home, onboarding y notificaciones push"
+description: Aprende a configurar la app móvil de Nevent para tus fans: pantalla de inicio, slides de bienvenida y notificaciones push instantáneas.
+sidebar:
+  order: 1
+---
+
+La Superapp es la app móvil de Nevent que tus fans descargan para vivir el festival desde su teléfono. Desde el panel de administración puedes configurar qué ven nada más abrir la app, personalizar el proceso de bienvenida y enviarles notificaciones directamente a la pantalla del móvil.
+
+Tienes cuatro secciones dentro de **SUPERAPP** en el menú lateral: **Home**, **Actividad de la app**, **Enviar push** y **Onboarding**. Esta guía te explica cada una.
+
+## Sección Home: el evento principal de la app
+
+La sección **Home** determina qué evento aparece en la pantalla de inicio de la app y activa la cuenta atrás hasta el festival.
+
+En el menú lateral, dentro de **SUPERAPP**, haz clic en **Home**.
+
+Verás un formulario con tres campos:
+
+- **Seleccionar evento**: el evento que quieres destacar en la home de la app. Solo aparece uno a la vez.
+- **Inicio del festival (fecha y hora)**: el momento en que arranca el festival, en hora local del recinto. La app usa este dato para mostrar la cuenta atrás y activar el "modo directo" durante el evento.
+- **Fin del festival (fecha y hora)**: cuando termina. Una vez pasada esta fecha, la app sale del modo directo.
+
+Si dejas ambas fechas vacías, la cuenta atrás no se muestra.
+
+![Pantalla de configuración de home de la Superapp con el evento "Demo Fest 2026" seleccionado, fecha de inicio 18/09/2026 18:00 y fecha de fin 21/09/2026 01:00, y el botón "Guardar configuración" en la esquina inferior derecha](/images/guias/superapp/introduccion/paso-1-home.png)
+
+Cuando hayas seleccionado el evento y las fechas, haz clic en **Guardar configuración**.
+
+:::tip[Consejo]
+Pon la hora de inicio unos 30 minutos antes de que abran las puertas. Así la cuenta atrás llega a cero en el momento en que los fans ya están entrando.
+:::
+
+## Sección Actividad de la app: lo que hace tu público en tiempo real
+
+La pantalla **Actividad de la app** es un panel de métricas en directo. No requiere configuración: muestra automáticamente lo que está pasando en la app durante el festival.
+
+En el menú lateral, dentro de **SUPERAPP**, haz clic en **Actividad de la app**.
+
+Verás dos vistas según el momento:
+
+- **En directo**: cuando el festival está en marcha, aparece un bloque de color oscuro con datos actualizados cada pocos minutos: personas activas, sesiones, artistas guardados, clics al chatbot e interacciones totales.
+- **Por jornada o todo el festival**: el resto de métricas se pueden filtrar por jornada (18 sept, 19 sept...) o ver en conjunto (Todo el festival).
+
+Las métricas principales que verás:
+
+| Métrica | Qué mide |
+|---|---|
+| Personas activas | Fans con la app abierta en ese período |
+| Sesiones | Número de veces que se abrió la app |
+| Interacciones | Acciones dentro de la app (guardados, clics, etc.) |
+| Artistas guardados | Cuántos artistas han añadido los fans a su agenda |
+| Clics a chatbot | Veces que alguien abrió el chat de la app |
+| Adopción | Total de personas que han usado la app durante el festival |
+
+La gráfica **Ritmo del festival** muestra las interacciones por hora de la última jornada. Te ayuda a ver en qué momento del día la app tiene más actividad.
+
+En la parte inferior aparecen las secciones **Marcas** y **Artistas**: cuánta atención generan los patrocinadores y qué artistas interesan más a tu público.
+
+![Panel de Actividad de la app de Demo Fest con el bloque "En directo" mostrando 982 personas activas, 2.187 sesiones y 69.834 interacciones, y la gráfica "Ritmo del festival" con un pico a las 21h](/images/guias/superapp/introduccion/paso-2-actividad.png)
+
+:::note[Nota]
+Los datos de actividad solo se generan cuando hay fans usando la app. Si acabas de lanzar la Superapp y aún no hay descargas, este panel aparecerá vacío hasta el día del festival.
+:::
+
+## Sección Enviar push: notificaciones instantáneas a la app
+
+Una notificación push es un mensaje que aparece directamente en la pantalla del móvil del fan, aunque no tenga la app abierta. Sirve para avisar de cambios de última hora, abrir la venta de entradas o comunicar cualquier novedad urgente.
+
+En el menú lateral, dentro de **SUPERAPP**, haz clic en **Enviar push**.
+
+El formulario tiene estos campos:
+
+- **Título**: el texto en negrita que aparece en la notificación. Máximo 65 caracteres.
+- **Mensaje**: el cuerpo de la notificación. Máximo 500 caracteres. Sé concreto: los fans lo leen en segundos.
+- **Imagen** (opcional): una imagen que acompaña la notificación. Ratio 2:1, máximo 1 MB.
+- **Al tocar la notificación**: la pantalla de la app que se abre cuando el fan toca el aviso. Puedes elegir entre Inicio, Mis entradas, Mi cartera, Cashless, Agenda, Mapa del recinto, Chat, Descubrir, Mi perfil o un evento específico.
+
+![Desplegable "Al tocar la notificación" abierto con las opciones Inicio, Mis entradas, Mi cartera y Cashless visibles](/images/guias/superapp/introduccion/paso-3b-push-destino.png)
+
+A la derecha ves dos elementos de ayuda:
+
+- El contador de **usuarios con la app y push activo**: cuántas personas recibirán la notificación ahora mismo.
+- La **vista previa de Android**: cómo se verá la notificación en un móvil Android.
+
+![Formulario de "Enviar push" con los campos Título, Mensaje, Imagen y "Al tocar la notificación" vacíos. A la derecha, el recuadro indica "≈ 9 usuarios con la app y push activo" y se ve una previsualización de la notificación en un móvil Android con el nombre "DEMO FEST"](/images/guias/superapp/introduccion/paso-3-enviar-push.png)
+
+:::caution[Importante]
+El botón **Enviar a ≈ N usuarios** envía la notificación inmediatamente a todos los fans que tienen la app instalada con push activado. No hay opción de programar ni de deshacer. Asegúrate de revisar el título y el mensaje antes de pulsar.
+:::
+
+## Sección Onboarding: las pantallas de bienvenida
+
+El onboarding son las pantallas que ve un fan la primera vez que abre la app. Puedes crear varios slides en orden, cada uno con imagen, título y subtítulo propios. Son tu primera oportunidad de presentar el festival y pedir los permisos necesarios (como las notificaciones).
+
+En el menú lateral, dentro de **SUPERAPP**, haz clic en **Onboarding**.
+
+Si aún no has creado ningún slide, verás la pantalla vacía con el botón **Crear slide**.
+
+![Pantalla de "Onboarding de la App" de Demo Fest sin slides configurados, con el mensaje "No hay slides configurados. Crea el primer slide para comenzar" y el botón "Crear slide"](/images/guias/superapp/introduccion/paso-4-onboarding-vacio.png)
+
+Haz clic en **+ Nuevo slide** (esquina superior derecha) o en **Crear slide** para abrir el formulario de creación.
+
+Cada slide tiene estos campos:
+
+- **Orden** (obligatorio): el número que determina en qué posición aparece esta pantalla. El slide con orden 1 es el primero que ve el fan.
+- **Título** (obligatorio): el texto principal de la pantalla de bienvenida.
+- **Subtítulo**: un texto de apoyo bajo el título.
+- **URL de imagen**: la URL de la imagen de fondo del slide. El formato recomendado es 1080x1920 px (vertical), WebP o PNG, máximo 500 KB.
+- **Permisos a solicitar**: si quieres pedir permiso de notificaciones o de ubicación en este slide, selecciónalo aquí. Solo puedes pedir "Notificaciones" y "Ubicación".
+- **Solicitar transparencia de rastreo**: un toggle que activa el aviso de seguimiento en dispositivos Apple (iOS). Es el pop-up que iOS muestra para preguntar al usuario si permite que la app lo rastree.
+- **Estado**: activa o desactiva este slide sin necesidad de borrarlo.
+
+![Formulario de "Crear Slide" con los campos Orden (valor 1), Título, Subtítulo, URL de imagen con el placeholder https://cdn.nevent.es/onboarding/slide1.png, el selector de Permisos a solicitar y el toggle de Solicitar transparencia de rastreo](/images/guias/superapp/introduccion/paso-4b-onboarding-crear-slide.png)
+
+Cuando hayas rellenado los campos, haz clic en **Crear** para guardar el slide.
+
+:::tip[Consejo]
+Crea entre 3 y 5 slides: uno de bienvenida con la imagen del festival, uno pidiendo permiso de notificaciones y uno explicando qué encontrarán en la app. Ese orden funciona bien porque el fan ya está entusiasmado antes de que le pidas el permiso.
+:::
+
+## Resultado
+
+Ya sabes qué configura cada sección de la SUPERAPP. Con el Home apuntas el evento correcto, con la Actividad monitorizas en directo cómo responde tu público, con Enviar push llegas al móvil de tus fans al instante y con el Onboarding les das una bienvenida a medida.
+
+## Siguiente paso
+
+- [Crea tu primera campaña de email](/campanas/crear-primera-campana) para combinar email marketing con notificaciones push y llegar a tus fans por dos canales a la vez.
+- [Consulta el análisis de tus campañas](/analitica/campanas) para cruzar el rendimiento de las push con el resto de métricas de marketing.

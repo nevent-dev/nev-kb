@@ -309,6 +309,12 @@ export default defineConfig({
 					],
 				},
 				{
+					label: 'Superapp',
+					items: [
+						{ label: 'La Superapp', slug: 'superapp/introduccion', badge: { text: 'Nuevo', variant: 'tip' } },
+					],
+				},
+				{
 					label: 'Nevent AI',
 					items: [
 						{ label: 'Qué es Nevent IA', slug: 'nevent-ai', badge: { text: 'Nuevo', variant: 'tip' } },
