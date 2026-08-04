@@ -275,6 +275,12 @@ export default defineConfig({
 					],
 				},
 				{
+					label: 'Experiencias',
+					items: [
+						{ label: 'Analytics de tu evento', slug: 'experiencias/analytics', badge: { text: 'Nuevo', variant: 'tip' } },
+					],
+				},
+				{
 					label: 'Analítica',
 					items: [
 						{ label: 'Catálogo', slug: 'analitica' },
