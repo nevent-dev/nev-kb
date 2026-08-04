@@ -278,6 +278,7 @@ export default defineConfig({
 					label: 'Experiencias',
 					items: [
 						{ label: 'Analytics de tu evento', slug: 'experiencias/analytics', badge: { text: 'Nuevo', variant: 'tip' } },
+						{ label: 'El perfil musical de tu evento', slug: 'experiencias/perfil-musical', badge: { text: 'Nuevo', variant: 'tip' } },
 					],
 				},
 				{
