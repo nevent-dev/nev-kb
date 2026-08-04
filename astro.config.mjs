@@ -269,6 +269,12 @@ export default defineConfig({
 					],
 				},
 				{
+					label: 'Paid Media',
+					items: [
+						{ label: 'Conecta tus cuentas y entiende el panel', slug: 'paid-media/introduccion', badge: { text: 'Nuevo', variant: 'tip' } },
+					],
+				},
+				{
 					label: 'Analítica',
 					items: [
 						{ label: 'Catálogo', slug: 'analitica' },
