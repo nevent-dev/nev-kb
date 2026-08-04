@@ -266,6 +266,17 @@ export default defineConfig({
 						{ label: 'Diseña plantillas de email', slug: 'campanas/plantillas-email', badge: { text: 'Nuevo', variant: 'tip' } },
 						{ label: 'Crea plantillas de WhatsApp', slug: 'campanas/plantillas-whatsapp', badge: { text: 'Nuevo', variant: 'tip' } },
 						{ label: 'Gestiona tus campañas', slug: 'campanas/gestionar-campanas', badge: { text: 'Nuevo', variant: 'tip' } },
+						{
+							label: 'Informe de campaña',
+							badge: { text: 'Nuevo', variant: 'tip' },
+							items: [
+								{ label: 'Interpretar los resultados', slug: 'campanas/informe/resultados' },
+								{ label: 'Consultar los rebotes', slug: 'campanas/informe/rebotes' },
+								{ label: 'Quién se dio de baja', slug: 'campanas/informe/desuscripciones' },
+								{ label: 'A qué audiencia llegó', slug: 'campanas/informe/audiencia' },
+								{ label: 'Quién abrió y clicó', slug: 'campanas/informe/aperturas-y-clics' },
+							],
+						},
 					],
 				},
 				{
