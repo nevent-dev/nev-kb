@@ -321,6 +321,12 @@ export default defineConfig({
 					],
 				},
 				{
+					label: 'Consumo',
+					items: [
+						{ label: 'Tu plan de uso', slug: 'consumo/plan-de-uso', badge: { text: 'Nuevo', variant: 'tip' } },
+					],
+				},
+				{
 					label: 'Nevent AI',
 					items: [
 						{ label: 'Qué es Nevent IA', slug: 'nevent-ai', badge: { text: 'Nuevo', variant: 'tip' } },
