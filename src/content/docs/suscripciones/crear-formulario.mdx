@@ -1,0 +1,205 @@
+---
+title: Crea un formulario de suscripción
+description: Aprende a crear un formulario de suscripción en Nevent, configurar sus campos, ajustar el diseño e instalarlo en tu web. Unos 10 minutos.
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+
+Con un formulario de suscripción puedes captar el email de cualquier persona que visite tu web: fans que todavía no han comprado entrada, gente que quiere saber cuándo abres ventas, asistentes de ediciones anteriores. Cuando alguien lo rellena, Nevent lo añade a tu base de datos y puedes enviarle campañas desde ese mismo momento.
+
+En esta guía vas a crear tu primer formulario, configurar qué datos pide, ajustar el diseño e instalarlo en tu web. Unos 10 minutos.
+
+## Antes de empezar
+
+:::caution[Importante: datos legales obligatorios]
+Para activar un formulario de suscripción, tu organización necesita tener rellenos dos datos legales: la razón social y la URL de tu política de privacidad. Sin ellos, Nevent no permite activar el formulario ni instalar el widget.
+
+Si ves el aviso rojo "Faltan datos legales del tenant" al entrar en Suscripciones, haz clic en **Completar datos legales** antes de continuar con esta guía.
+:::
+
+![La sección "Todas las suscripciones" de DEMO FEST, con el aviso rojo "Faltan datos legales del tenant" en la parte superior y el listado de formularios existentes debajo](/images/guias/suscripciones/crear-formulario/paso-1-aviso-legal-y-listado.png)
+
+## Paso 1: Abre la sección de Suscripciones
+
+En el menú lateral izquierdo, dentro del bloque **Audiencia**, haz clic en **Suscripciones**.
+
+Verás el listado de todos los formularios de tu organización. Cada fila muestra el nombre, el estado (activo o pausado), el número de suscriptores y la fecha de creación.
+
+Haz clic en el botón **+ Crear suscripción** en la esquina superior derecha.
+
+## Paso 2: Rellena la información básica
+
+El asistente de creación tiene tres pasos. El primero es **Información básica**.
+
+Rellena los campos que necesites:
+
+- **Nombre de la suscripción:** un nombre interno para identificar el formulario, por ejemplo "Newsletter web 2025". El fan no lo ve.
+- **Descripción:** opcional. Sirve para que tu equipo entienda para qué es este formulario.
+- **Carpetas:** si organizas tus formularios en carpetas, puedes asignarlo aquí.
+
+En el panel derecho verás una vista previa en tiempo real del formulario mientras lo configuras.
+
+![Pantalla "Información básica" del asistente con los campos Nombre, Descripción y Carpetas. A la derecha, la vista previa muestra el formulario con un campo de correo electrónico y el botón "Suscribirse"](/images/guias/suscripciones/crear-formulario/paso-2-informacion-basica.png)
+
+Cuando hayas escrito el nombre, el botón **Siguiente** se activa. Haz clic en él.
+
+## Paso 3: Configura los campos del formulario
+
+En el paso 2 del asistente defines qué datos va a pedir el formulario a la persona que se suscribe.
+
+Por defecto, el campo **Correo electrónico** siempre está incluido y no se puede eliminar: es el dato mínimo necesario para enviar campañas.
+
+![Pantalla "Campos del formulario" con el campo Correo electrónico marcado como "Siempre requerido" y el selector desplegable "Añadir campo..." para agregar más campos](/images/guias/suscripciones/crear-formulario/paso-3-campos-formulario.png)
+
+Para añadir más campos, haz clic en el desplegable **Añadir campo...**. Se abre un selector con los campos disponibles.
+
+![El desplegable "Añadir campo..." abierto, mostrando la sección "Campos estándar" con las opciones Nombre, Primer apellido y Segundo apellido](/images/guias/suscripciones/crear-formulario/paso-3b-anadir-campos.png)
+
+Los campos disponibles son:
+
+- **Nombre**, **Primer apellido**, **Segundo apellido**
+- Campos personalizados que hayas creado en tu organización
+
+Haz clic en el campo que quieres añadir y aparecerá en la lista. Puedes arrastrarlo para cambiar el orden.
+
+### Configura cada campo
+
+Al hacer clic en la flecha de cualquier campo, se expande y puedes ajustar tres cosas:
+
+- **Etiqueta personalizada:** el texto que verá la persona encima del campo. Por defecto es "Nombre", pero puedes escribir lo que quieras.
+- **Texto de placeholder:** el texto en gris que aparece dentro del campo cuando está vacío, a modo de ejemplo.
+- **Texto de ayuda:** una frase opcional que aparece debajo del campo para orientar al usuario.
+
+![El campo "Nombre" expandido, mostrando los tres campos de configuración: Etiqueta personalizada, Texto de placeholder y Texto de ayuda. La vista previa de la derecha se actualiza en tiempo real](/images/guias/suscripciones/crear-formulario/paso-3c-campo-expandido.png)
+
+También puedes marcar un campo como **obligatorio** con el icono de asterisco, o eliminarlo con el icono de papelera.
+
+Cuando tengas los campos que necesitas, haz clic en **Siguiente**.
+
+:::note[Nota]
+Solo el campo "Correo electrónico" es obligatorio. El resto de campos son opcionales y puedes eliminarlos sin problema.
+:::
+
+## Paso 4: Ajusta el diseño visual
+
+El tercer y último paso del asistente es **Suplementos visual**. Aquí decides si quieres personalizar el aspecto del formulario ahora o después.
+
+Tienes dos opciones:
+
+- **Personalizar ahora:** accedes a los controles de diseño directamente en este paso.
+- **Lo haré más tarde:** el formulario se crea con el diseño predeterminado y puedes ajustarlo después desde la sección Apariencia.
+
+![Pantalla "Suplementos visual" con las dos opciones: "Personalizar ahora" (con icono de paleta) y "Lo haré más tarde" (con icono de reloj), y el botón "Crear suscripción" en la parte inferior](/images/guias/suscripciones/crear-formulario/paso-4-suplementos-visual.png)
+
+Si eliges **Personalizar ahora**, se despliegan tres grupos de controles:
+
+**Colores**
+
+Cuatro selectores de color para el fondo, el botón, el texto y el borde del formulario.
+
+![Los controles de color con "Personalizar ahora" seleccionado: cuatro campos de color para Color de Fondo (#ffffff), Color del Botón (#2c1dd0), Color del Texto (#1a1d23) y Color del Borde (#dee2e6)](/images/guias/suscripciones/crear-formulario/paso-4b-apariencia-colores.png)
+
+**Tipografía y espaciado**
+
+Selector de fuente, deslizadores para el tamaño del título y el subtítulo, y controles de radio de borde, padding interno y espaciado entre elementos.
+
+![Los controles de Tipografía (fuente principal y tamaños) y Espaciado y Bordes (radio de borde, padding interno y espaciado entre elementos) con sus deslizadores](/images/guias/suscripciones/crear-formulario/paso-4c-apariencia-tipografia.png)
+
+La vista previa de la derecha se actualiza en tiempo real mientras ajustas los valores.
+
+Cuando estés conforme, haz clic en **Crear suscripción**.
+
+## El panel del formulario creado
+
+Al crear el formulario, Nevent te lleva a su panel de gestión. Desde aquí controlas todo lo relacionado con ese formulario. El menú lateral izquierdo muestra todas las secciones disponibles.
+
+![Panel de gestión del formulario "BUSCANDO MOSCAS" en DEMO FEST, con el nombre y estado "Activo" en la cabecera, las métricas de Vistas (3.615), Suscriptores (5.716) y Conversión (6,67%), y el menú de secciones en la barra lateral izquierda](/images/guias/suscripciones/crear-formulario/paso-5-panel-formulario.png)
+
+<CardGrid>
+  <Card title="Resumen" icon="bars">
+    Vista general con las métricas del formulario: vistas totales, suscriptores captados y tasa de conversión.
+  </Card>
+  <Card title="General" icon="setting">
+    Edita el nombre, la descripción y las carpetas del formulario en cualquier momento.
+  </Card>
+  <Card title="Campos" icon="list-format">
+    Añade, elimina o reordena los campos del formulario después de crearlo.
+  </Card>
+  <Card title="Apariencia" icon="pencil">
+    Edita los colores, tipografía y espaciado. También el título, subtítulo y texto del botón.
+  </Card>
+  <Card title="Automatizaciones" icon="puzzle">
+    Configura qué carpetas o campos personalizados se asignan automáticamente a cada persona que se suscribe.
+  </Card>
+  <Card title="Suscriptores" icon="open-book">
+    Lista de todas las personas que se han suscrito: email, nombre, estado y fecha de suscripción.
+  </Card>
+  <Card title="Instalación" icon="document">
+    El código que pegas en tu web para mostrar el formulario.
+  </Card>
+</CardGrid>
+
+## Paso 5: Personaliza la apariencia
+
+Ve a la sección **Apariencia** en el menú lateral del formulario.
+
+Aquí puedes editar tanto el contenido del formulario como su aspecto visual. El panel izquierdo agrupa las opciones en secciones desplegables: Contenido, Texto legal, Contenedor, Título, Subtítulo, Campos de entrada, Botón CTA y Avanzado. La vista previa de la derecha se actualiza a medida que haces cambios.
+
+![Sección "Apariencia" del formulario "BUSCANDO MOSCAS", con las secciones desplegables en el panel izquierdo (Contenido, Texto legal, Contenedor...) y la vista previa del formulario a la derecha con sus campos de Correo electrónico, Nombre, Apellidos, Teléfono y Fecha de nacimiento](/images/guias/suscripciones/crear-formulario/paso-6-apariencia.png)
+
+En la sección **Contenido** puedes cambiar el título, la descripción y el texto del botón que verá cada visitante. Cuando hagas cambios, haz clic en **Guardar**.
+
+## Paso 6: Instala el formulario en tu web
+
+Ve a la sección **Instalación** en el menú lateral del formulario.
+
+Verás el **código de instalación** listo para copiar. Es un fragmento HTML: un contenedor `div` donde aparecerá el formulario, el script de la librería y un bloque de configuración con el identificador de tu formulario.
+
+![Sección "Instalación del widget" con el código HTML listo para copiar, el botón "Copiar código" y el resumen de tres pasos: 1. Copia el código, 2. Pégalo en tu web, 3. ¡Listo!](/images/guias/suscripciones/crear-formulario/paso-7-instalacion.png)
+
+Los pasos para instalarlo:
+
+1. Haz clic en **Copiar código**.
+2. Pégalo en tu web: en el `<body>` de tu HTML, en un bloque de código personalizado de WordPress, o en la sección de scripts de tu editor web (Webflow, Squarespace, Wix, etc.).
+3. El formulario aparece al instante en esa página.
+
+:::tip[Consejo]
+No necesitas saber programar para instalarlo. En WordPress, busca el bloque "HTML personalizado" o "Código". En Webflow, usa el componente "Embed". En Wix, usa "Código HTML" en el editor de la página.
+:::
+
+La misma pantalla incluye una sección de **Personalización CSS** con variables para ajustar colores, tipografía y bordes si quieres ir más allá de los controles visuales de Apariencia.
+
+## Paso 7: Configura las automatizaciones
+
+Ve a la sección **Automatizaciones** del formulario.
+
+Aquí puedes configurar dos cosas que ocurren de forma automática cada vez que alguien se suscribe:
+
+- **Asignación automática de carpetas:** elige una o varias carpetas de tu organización. Cada nuevo suscriptor quedará asignado a esas carpetas al momento, sin que tengas que hacer nada.
+- **Asignación automática de campos personalizados:** si tienes campos personalizados en tu organización, como "Origen" o "Festival de captación", puedes darles un valor fijo a todos los que entren por este formulario.
+
+![Sección "Automatizaciones" de DEMO FEST con las dos subsecciones: "Asignación Automática de Carpetas" con el selector de carpetas, y "Asignación Automática de Campos Personalizados" con el botón "Crear"](/images/guias/suscripciones/crear-formulario/paso-8-automatizaciones.png)
+
+Cuando hagas cambios, haz clic en **Guardar**.
+
+:::tip[Consejo]
+Usa la asignación automática de carpetas para saber de dónde vienen tus suscriptores. Por ejemplo, crea una carpeta llamada "Web 2025" y asígnala a este formulario. Así puedes crear segmentos o filtrar campañas solo para los fans captados en tu web este año.
+:::
+
+## Resultado
+
+Ya tienes tu formulario configurado y listo para recibir suscriptores en Nevent.
+
+Para ver quién se ha suscrito, entra en la sección **Suscriptores** del formulario: aparecen el email, el nombre (si lo pediste), el estado de confirmación y la fecha de suscripción. Puedes exportar la lista completa con el botón **Exportar suscriptores**.
+
+![Sección "Suscriptores" del formulario "BUSCANDO MOSCAS" con la lista de 5.716 suscriptores, mostrando columnas de Email, Nombre, Estado ("Confirmado") y Fecha de suscripción](/images/guias/suscripciones/crear-formulario/paso-9-suscriptores.png)
+
+:::note[Nota]
+El estado de cada suscriptor puede ser "Confirmado" o "Baja". Una persona pasa a "Baja" si hace clic en el enlace de cancelación de suscripción de cualquier campaña. Nevent respeta esa baja automáticamente y deja de incluirla en campañas de marketing.
+:::
+
+## Siguiente paso
+
+- [Importa contactos ya existentes](/audiencia/importar-fans) si tienes una lista de fans de ediciones anteriores que quieres añadir a Nevent sin pasar por el formulario.
+- [El perfil de un fan](/audiencia/gestion-de-fans) para entender qué datos guarda Nevent de cada persona en tu base de datos.
+- [Crea un segmento](/segmentacion/motor-segmentacion/crear-segmento) para agrupar a los suscriptores captados por este formulario y enviarles una campaña específica.

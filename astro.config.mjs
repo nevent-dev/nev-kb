@@ -208,6 +208,12 @@ export default defineConfig({
 					],
 				},
 				{
+					label: 'Suscripciones',
+					items: [
+						{ label: 'Crea un formulario de suscripción', slug: 'suscripciones/crear-formulario', badge: { text: 'Nuevo', variant: 'tip' } },
+					],
+				},
+				{
 					label: 'Segmentación',
 					items: [
 						{
