@@ -345,6 +345,12 @@ export default defineConfig({
 					],
 				},
 				{
+					label: 'Entregabilidad y canales',
+					items: [
+						{ label: 'Activa tus canales', slug: 'entregabilidad/activar-canales', badge: { text: 'Nuevo', variant: 'tip' } },
+					],
+				},
+				{
 					label: 'Nevent AI',
 					items: [
 						{ label: 'Qué es Nevent IA', slug: 'nevent-ai', badge: { text: 'Nuevo', variant: 'tip' } },

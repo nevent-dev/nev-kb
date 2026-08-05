@@ -1,0 +1,103 @@
+---
+title: Activa tus canales de comunicación
+description: Aprende a revisar y configurar los canales de email, SMS, WhatsApp y analytics en Nevent desde el panel de Configuración.
+sidebar:
+  order: 1
+---
+
+En esta guía vas a recorrer la sección **Canales** de la Configuración de Nevent. Verás qué canales tienes disponibles, qué estado tiene cada uno y qué necesitas hacer para activar los que todavía no están en marcha. Unos 5 minutos.
+
+## Antes de empezar
+
+Necesitas acceso al panel de administración con permisos de administrador o gestor en tu organización. Si no ves la opción Configuración en el menú lateral, contacta con la persona que te dio acceso a la cuenta.
+
+## Paso 1: Accede a Configuración y abre la sección Canales
+
+En el menú lateral, desplázate hasta la parte inferior y haz clic en **Configuración** (el último elemento del menú, con el icono de engranaje).
+
+Dentro de Configuración, localiza el grupo **Marca y Contenido** en el menú secundario de la izquierda. Haz clic en **Canales**.
+
+Se abre la pantalla "Canales de Comunicación" con cuatro pestañas: **Correo electrónico**, **SMS**, **WhatsApp** y **Analytics**.
+
+![Pantalla de Canales de Comunicación con las cuatro pestañas visibles y la pestaña Correo electrónico activa, mostrando los campos de remitente y firma de email de DEMO FEST](/images/guias/entregabilidad/activar-canales/paso-1-canales-overview.jpg)
+
+## Paso 2: El canal de correo electrónico
+
+El email es el canal principal y viene activado por defecto en todas las cuentas de Nevent. No necesitas hacer nada para empezar a enviar campañas de email.
+
+En esta pestaña puedes ajustar tres cosas:
+
+- **Destinatarios en copia:** añade direcciones que recibirán una copia de cada campaña de email que envíes.
+- **Remitente:** el nombre que verá el destinatario en el campo "De" de su bandeja de entrada. Si lo dejas vacío, usa el nombre de tu organización.
+- **Dirección de respuesta por defecto:** hacia dónde van las respuestas de tus contactos. Puedes sobreescribirla campaña a campaña.
+- **Firma de email:** el bloque de texto y colores que aparece al pie de todos tus emails. Incluye datos legales, redes sociales y el enlace de cancelación de suscripción.
+
+![Pestaña de Correo electrónico mostrando los campos de destinatarios en copia, nombre del remitente con valor "DEMO FEST", dirección de respuesta y la sección de firma de email con colores y vista previa](/images/guias/entregabilidad/activar-canales/paso-1-canales-email.jpg)
+
+:::tip[Consejo]
+Rellena siempre la dirección de respuesta con un buzón que revisas a diario. Cuando alguien responde a un email de campaña es una señal de interés real: no pierdas esos mensajes.
+:::
+
+## Paso 3: El canal SMS
+
+El SMS permite enviar mensajes de texto directamente al móvil de tus contactos. Es el canal con mayor tasa de apertura, aunque requiere créditos de SMS y una configuración adicional antes de poder enviar.
+
+Haz clic en la pestaña **SMS**.
+
+Verás un aviso importante sobre el Registro de Alias CNMC (la Comisión Nacional de Mercados y la Competencia, el organismo regulador de telecomunicaciones en España). Desde el 15 de septiembre de 2026, los operadores bloquearán los SMS cuyo remitente no esté registrado en ese registro. Nevent gestiona este trámite por ti: contacta con el equipo de soporte para iniciarlo.
+
+Para habilitar el canal:
+
+1. Activa el interruptor **Habilitar SMS**.
+2. Añade al menos un **Sender ID**: es el nombre de hasta 11 caracteres que aparecerá como remitente en el móvil del destinatario (por ejemplo, MIRECINTO o FEST2026).
+3. Guarda los cambios con el botón **Guardar** de la esquina superior derecha.
+
+![Pestaña SMS con el interruptor "Habilitar SMS" desactivado, el aviso de registro CNMC en amarillo y el área de Sender IDs vacía con el mensaje "No hay Sender IDs configurados"](/images/guias/entregabilidad/activar-canales/paso-2-canales-sms.jpg)
+
+:::caution[Importante]
+Si no registras tus Sender IDs en la CNMC antes del 15 de septiembre de 2026, los operadores bloquearán tus mensajes. El registro lo tramita Nevent: escribe a soporte para empezar el proceso cuanto antes.
+:::
+
+## Paso 4: El canal WhatsApp
+
+WhatsApp permite enviar campañas de marketing directamente a la aplicación de mensajería de tus contactos. Para activarlo, necesitas conectar una cuenta de WhatsApp Business, que es el perfil oficial de empresa de Meta.
+
+Haz clic en la pestaña **WhatsApp**.
+
+Verás la pantalla de conexión con el botón **Conectar WhatsApp Business**. Al pulsarlo, se abre el flujo de verificación de Meta donde autorizas a Nevent a enviar mensajes en nombre de tu cuenta de empresa.
+
+Este proceso lo gestiona directamente Meta: necesitarás tener acceso al número de teléfono que uses como WhatsApp Business y a tu cuenta de empresa de Meta (Facebook).
+
+![Pestaña WhatsApp con el icono de WhatsApp, el texto "Conecta WhatsApp Business", la lista de beneficios (campañas de marketing, métricas en tiempo real, confirmación de lectura) y el botón verde "Conectar WhatsApp Business"](/images/guias/entregabilidad/activar-canales/paso-3-canales-whatsapp.jpg)
+
+:::note[Nota]
+Una vez conectado WhatsApp Business, podrás crear y enviar plantillas de mensaje desde el apartado Plantillas de WhatsApp. Las plantillas necesitan aprobación de Meta antes de poder usarse en campañas.
+:::
+
+## Paso 5: El canal Analytics
+
+La pestaña **Analytics** no es un canal de comunicación como tal, sino la conexión con herramientas de medición externas. Aquí conectas el seguimiento de tus campañas con Meta y Google.
+
+Haz clic en la pestaña **Analytics**.
+
+Verás dos integraciones:
+
+- **Meta Pixel:** introduce el ID numérico de tu píxel (lo encuentras en el administrador de anuncios de Meta, en la sección "Orígenes de datos"). Al activarlo, Nevent envía eventos de conversión a Meta automáticamente, lo que mejora el rendimiento de tus campañas de pago en Facebook e Instagram.
+- **Google Analytics:** introduce el ID de medición de tu propiedad GA4 (tiene formato G-XXXXXXXXXX). Al activarlo, Nevent envía datos de tus campañas a Google Analytics para que puedas ver el tráfico y las conversiones en tus informes de GA4.
+
+Activa el interruptor de cada integración solo cuando hayas introducido el ID correcto. Después haz clic en **Guardar**.
+
+![Pestaña Analytics con dos bloques: Meta Pixel (con campo de ID numérico y toggle en estado "Inactiva") y Google Analytics (con campo de ID de medición formato G-XXXXXXXXXX y toggle en estado "Inactiva")](/images/guias/entregabilidad/activar-canales/paso-4-canales-analytics.jpg)
+
+## Resultado
+
+Ya conoces los cuatro canales de comunicación de Nevent y sabes cómo está configurado cada uno. El email está listo para usarse desde el primer día. SMS y WhatsApp requieren pasos adicionales de configuración y registro antes de poder enviar. Analytics te permite conectar Meta y Google para enriquecer tus datos de campaña.
+
+:::tip[Consejo]
+No tienes que activar todos los canales a la vez. Empieza con email, que no requiere configuración, y ve añadiendo SMS o WhatsApp cuando quieras ampliar tu alcance.
+:::
+
+## Siguiente paso
+
+- [Crea tu primera campaña](/campanas/crear-primera-campana) para empezar a enviar por el canal que acabas de revisar.
+- [Diseña plantillas de email](/campanas/plantillas-email) para tener contenido listo antes de lanzar tu primera campaña.
