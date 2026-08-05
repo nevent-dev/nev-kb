@@ -348,6 +348,7 @@ export default defineConfig({
 					label: 'Entregabilidad y canales',
 					items: [
 						{ label: 'Activa tus canales', slug: 'entregabilidad/activar-canales', badge: { text: 'Nuevo', variant: 'tip' } },
+						{ label: 'Configura tu dominio dedicado', slug: 'entregabilidad/dominio-dedicado', badge: { text: 'Nuevo', variant: 'tip' } },
 					],
 				},
 				{
