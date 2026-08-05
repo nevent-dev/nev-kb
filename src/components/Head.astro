@@ -61,6 +61,15 @@ const pageDescription = hasEntry
   : 'Documentación oficial de Nevent AI';
 const inLanguage = locale === 'en' ? 'en' : 'es';
 
+// ── EN fallback detection ─────────────────────────────────────────────────────
+// Starlight serves Spanish (root-locale) content under /en/ when no real English
+// translation exists. Those pages declare lang="en" but show Spanish text, which
+// Google treats as duplicate content. Real EN translations live under src/content/
+// docs/en/, so their entry.id starts with "en/". A fallback page is rendered with
+// locale "en" but its source entry.id does NOT start with "en/". We mark those with
+// robots noindex so Google does not index them as duplicates (the ES version ranks).
+const isEnFallback = locale === 'en' && !rawId.startsWith('en/');
+
 // lastUpdated from Starlight (ISO string or Date)
 const rawLastUpdated = hasEntry ? entry.data.lastUpdated : undefined;
 const dateModified = rawLastUpdated
@@ -715,6 +724,8 @@ const howToJson = howToSchema ? toSafeJsonLd(howToSchema) : null;
 {hasEntry && (
   <Fragment set:html={
     [
+      // ── robots noindex for EN fallback pages (Spanish content under /en/) ──
+      isEnFallback ? `<meta name="robots" content="noindex, follow">` : '',
       // ── og:image (per-section) ──────────────────────────────────────────
       `<meta property="og:image" content="${ogImageUrl}">`,
       `<meta property="og:image:type" content="image/png">`,
