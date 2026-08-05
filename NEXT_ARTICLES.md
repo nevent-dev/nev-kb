@@ -55,15 +55,18 @@ Publicado el 2026-08-05 (Experiencias e informe de campaña, con enfoque de valo
 
 ---
 
-## Pendiente
+## Publicado — Entregabilidad y canales (2026-08-05)
 
-### Prioridad BAJA — Configuración técnica (onboarding, dejada para el final)
-La analítica de entregabilidad ya existe; falta la CONFIGURACIÓN de canales.
-- [ ] `entregabilidad/activar-canales.mdx` — "Activa tus canales (Email, SMS, Push, WhatsApp)"
-- [ ] `entregabilidad/dominio-dedicado.mdx` — "Configura tu dominio dedicado (registros DNS)"
-- [ ] `entregabilidad/verificar-dns.mdx` — "Verifica tus registros DNS y resuelve errores"
-- [ ] `entregabilidad/envio-de-emails.mdx` — "Ajustes de envío de emails"
-      · Apoyo: `UX_AUDIT_INVENTORY.md` (issues UX del flujo real de dominio y SMS).
+La configuración técnica de canales, antes pendiente, ya está documentada. Las capturas se
+generaron por render del DOM (dom-to-image) porque el entorno de captura nativo estaba caído
+por inestabilidad de red; son legibles y del tenant DEMO FEST, pero sin el marco de la app.
+- [x] `entregabilidad/activar-canales.mdx` — email, SMS (aviso CNMC), WhatsApp, Analytics
+- [x] `entregabilidad/dominio-dedicado.mdx` — asistente + registros DNS (SPF, DKIM, DMARC, MAIL FROM) + verificación
+- [x] `entregabilidad/envio-de-emails.mdx` — dirección efectiva, tipo de dominio, estado de componentes
+
+---
+
+## Pendiente
 
 ### Ampliaciones opcionales
 - [ ] `paid-media/atribucion.mdx` — reincorporar la atribución CUANDO deje de ser una maqueta
