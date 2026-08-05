@@ -1,0 +1,84 @@
+---
+title: Ajustes de envío de emails
+description: Entiende la pantalla de Envío de emails de Nevent y qué significa cada componente para la salud de tus envíos.
+sidebar:
+  order: 3
+---
+
+En esta guía vas a recorrer la sección **Envío de emails** dentro de Configuración. Verás desde qué dirección salen tus campañas, qué tipo de dominio estás usando y cuál es el estado de los componentes técnicos que protegen tu reputación como remitente. Unos 5 minutos.
+
+## Antes de empezar
+
+No necesitas configurar nada para acceder a esta pantalla. Cualquier cuenta de Nevent con rol de administrador puede consultarla.
+
+Si todavía no has configurado un dominio propio, consulta la guía [Configura tu dominio dedicado](/entregabilidad/dominio-dedicado) después de leer esta.
+
+## Paso 1: accede a Configuración y abre Envío de emails
+
+En el menú lateral, desplázate hasta la parte inferior hasta la sección **Avanzado**. Haz clic en **Envío de emails**.
+
+![Menú de Configuración de Nevent con el ítem "Envío de emails" resaltado en morado dentro del grupo "Avanzado", en el tenant DEMO FEST](/images/guias/entregabilidad/envio-de-emails/paso-1-menu-nav.png)
+
+Se abre la pantalla "Envío de emails" con tres bloques de información: la dirección de envío efectiva, el tipo de dominio y el estado de los componentes técnicos.
+
+## Paso 2: revisa tu dirección de envío efectiva
+
+El primer bloque muestra la **Dirección de envío efectiva**: la dirección desde la que tus contactos reciben las campañas de email.
+
+Debajo de la dirección aparece el nombre de tu organización y la indicación "via Nevent", que es la firma técnica que llevan los emails enviados desde la infraestructura compartida de Nevent.
+
+El **Tipo de dominio** justo debajo indica si estás usando el dominio compartido de Nevent o tu propio dominio dedicado. En el ejemplo, aparece "Dominio compartido", que es el valor por defecto cuando todavía no has configurado un dominio propio.
+
+![Pantalla de Envío de emails de DEMO FEST con la dirección de envío efectiva "hello@c.neventexperiences.com" y el tipo de dominio "Dominio compartido"](/images/guias/entregabilidad/envio-de-emails/paso-2-direccion-dominio.png)
+
+:::note[Qué significa "dominio compartido"]
+Con el dominio compartido, tus emails salen desde un subdominio de Nevent que comparten todas las cuentas de la plataforma. Esto funciona bien para empezar, pero si quieres que tus contactos vean tu propio dominio como remitente y aislar tu reputación, necesitas configurar un dominio dedicado.
+:::
+
+## Paso 3: entiende el estado de los componentes
+
+El bloque **Estado de componentes** muestra tres elementos técnicos que trabajan juntos para garantizar que tus emails llegan bien y no acaban en spam.
+
+![Bloque "Estado de componentes" de DEMO FEST con tres ítems: Subdominio automático (No configurado), Configuration Sets (No configurados) y SES Tenant (No creado)](/images/guias/entregabilidad/envio-de-emails/paso-3-estado-componentes.png)
+
+Estos son los tres componentes y para qué sirve cada uno:
+
+**Subdominio automático**
+Un subdominio único y verificado en AWS (el proveedor de envío de Nevent) para que tu cuenta tenga reputación propia, separada del resto de usuarios de la plataforma. Cuando está activo, los proveedores de email como Gmail o Outlook asocian la reputación de tus envíos solo a ti.
+
+**Configuration Sets**
+Son los ajustes de seguimiento dentro de AWS SES (el servicio de envío de emails que usa Nevent). Controlan qué eventos de tus campañas se registran: aperturas, clics, rebotes, quejas. Nevent los crea automáticamente junto con el subdominio.
+
+**SES Tenant**
+Es una cuenta de envío propia dentro de AWS SES. Cuando este componente está creado, tus emails salen desde una infraestructura aislada. Así, si otro usuario de Nevent tiene un problema de reputación, no te afecta a ti.
+
+:::note[Estado inicial]
+Si los tres componentes muestran "No configurado", "No configurados" o "No creado", significa que tu cuenta todavía usa el dominio compartido estándar. Tus emails siguen enviándose con normalidad: solo que comparten reputación con otros remitentes de Nevent.
+:::
+
+## Paso 4: provisiona tu dominio y componentes
+
+Si quieres pasar a una infraestructura de envío propia, el botón **Provisionar dominio y crear SES Tenant** arranca el proceso automáticamente.
+
+Al hacer clic, Nevent crea los tres componentes de arriba en tu cuenta: el subdominio, los configuration sets y el SES Tenant. El proceso puede tardar varios minutos.
+
+![Botón "Provisionar dominio y crear SES Tenant" con la nota informativa "Se provisionará un subdominio automático, configuration sets y el SES Tenant. El proceso puede tardar varios minutos"](/images/guias/entregabilidad/envio-de-emails/paso-4-provisionar.png)
+
+:::caution[Importante]
+No pulses el botón varias veces. Con una sola pulsación es suficiente. Si tras varios minutos los componentes siguen sin aparecer como configurados, contacta con el equipo de soporte de Nevent.
+:::
+
+## Resultado
+
+Ya conoces los ajustes de envío de emails de Nevent: dónde ver tu dirección de remitente actual, qué tipo de dominio estás usando y qué significan los tres componentes técnicos que gestionan la reputación de tus envíos.
+
+![Vista completa de la pantalla de Envío de emails de DEMO FEST con la dirección de envío, el tipo de dominio compartido, los tres componentes en estado "No configurado" y el botón de aprovisionamiento](/images/guias/entregabilidad/envio-de-emails/resultado.png)
+
+:::tip[Consejo]
+Si tu objetivo es mejorar la entregabilidad, el orden recomendado es: primero configura tu dominio dedicado y luego aprovisiona los componentes desde esta pantalla. Los dos procesos se complementan.
+:::
+
+## Siguiente paso
+
+- [Activa tus canales de comunicación](/entregabilidad/activar-canales) para revisar el remitente, la firma de email, SMS, WhatsApp y Analytics.
+- [Configura tu dominio dedicado](/entregabilidad/dominio-dedicado) para enviar desde tu propio dominio y mejorar la llegada a bandeja de entrada.
