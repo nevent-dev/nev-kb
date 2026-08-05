@@ -379,11 +379,14 @@ const frontmatterFaqs = hasEntry
   ? ((entry.data as Record<string, unknown>).faqs as FrontmatterFaq[] | undefined)
   : undefined;
 
-const faqPairs: FaqPair[] = isFaqPage
-  ? frontmatterFaqs
+// FAQ pairs come from frontmatter `faqs` on ANY page, or from the body H2s on
+// dedicated FAQ pages. Frontmatter takes precedence when present.
+const faqPairs: FaqPair[] =
+  frontmatterFaqs && frontmatterFaqs.length > 0
     ? frontmatterFaqs.map((f) => ({ question: f.q, answer: f.a }))
-    : extractFaqsFromBody(entry?.body ?? '')
-  : [];
+    : isFaqPage
+      ? extractFaqsFromBody(entry?.body ?? '')
+      : [];
 
 // ── Schema objects ─────────────────────────────────────────────────────────────
 
@@ -520,7 +523,7 @@ const techArticleSchema = {
  * Q&A pairs. The FAQPage.mainEntity array must contain at least 1 item.
  */
 const faqPageSchema =
-  isFaqPage && faqPairs.length > 0
+  faqPairs.length > 0
     ? {
         '@context': 'https://schema.org',
         '@type': 'FAQPage',
