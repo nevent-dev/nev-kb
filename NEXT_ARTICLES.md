@@ -73,8 +73,8 @@ por inestabilidad de red; son legibles y del tenant DEMO FEST, pero sin el marco
       (el módulo actual `paid-ads-attribution` es un mock visual no funcional; se omitió a propósito).
 - [ ] `superapp/` — monedas virtuales, coleccionables y retos, SI se activan en el tenant
       (el menú actual de DEMO FEST solo expone home, actividad, push y onboarding).
-- [ ] `campanas/mejores-practicas.mdx` — buenas prácticas de campañas (transversal).
-- [ ] `entregabilidad/reputacion-y-spam.mdx` — reputación de envío y evitar el spam (transversal).
+- [x] `campanas/mejores-practicas.mdx` — buenas prácticas de campañas (transversal).
+- [x] `entregabilidad/reputacion-y-spam.mdx` — reputación de envío y evitar el spam (transversal).
 
 ---
 
