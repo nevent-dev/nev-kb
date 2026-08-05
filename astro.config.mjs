@@ -349,6 +349,7 @@ export default defineConfig({
 					items: [
 						{ label: 'Activa tus canales', slug: 'entregabilidad/activar-canales', badge: { text: 'Nuevo', variant: 'tip' } },
 						{ label: 'Configura tu dominio dedicado', slug: 'entregabilidad/dominio-dedicado', badge: { text: 'Nuevo', variant: 'tip' } },
+						{ label: 'Ajustes de envío de emails', slug: 'entregabilidad/envio-de-emails', badge: { text: 'Nuevo', variant: 'tip' } },
 					],
 				},
 				{
