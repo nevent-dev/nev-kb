@@ -1,0 +1,134 @@
+---
+title: Configura tu dominio dedicado
+description: Aprende a enviar tus emails de marketing desde tu propio dominio en Nevent. Mejora la entregabilidad y la confianza de tus contactos en menos de 5 minutos.
+sidebar:
+  order: 2
+---
+
+En esta guía vas a configurar un dominio dedicado en Nevent para que tus emails de campaña lleguen desde tu propio dominio, por ejemplo `email.tufestival.com`, en lugar del dominio compartido de Nevent.
+
+Esto mejora la entregabilidad (más emails llegan a la bandeja de entrada y no a spam) y refuerza la imagen de tu marca ante tus contactos.
+
+El asistente tarda unos 3 minutos. La verificación DNS puede tardar entre unas horas y 72 horas, dependiendo de tu proveedor de dominio.
+
+## Antes de empezar
+
+Necesitas dos cosas:
+
+- Saber cuál es tu dominio raíz, por ejemplo `tufestival.com`. Es el mismo que usas para tu web.
+- Tener acceso al panel DNS de tu proveedor de dominio (GoDaddy, Namecheap, Cloudflare, el de tu hosting...). Ahí es donde vas a crear los registros que Nevent te dará al final del asistente. Si no tienes ese acceso, pide a quien gestione tu web que lo haga por ti.
+
+:::note[Glosario rápido]
+- **Dominio**: la dirección de tu web, como `tufestival.com`.
+- **Subdominio**: un prefijo delante de tu dominio, como `email.tufestival.com`. Lo usarás exclusivamente para los envíos de Nevent.
+- **Registro DNS**: una instrucción que le dice a internet cómo tratar tu dominio. Los vas a crear en el panel de tu proveedor de dominio.
+:::
+
+## Paso 1: accede a Configuración y abre Dominio dedicado
+
+En el menú lateral, desplázate hasta la parte inferior y haz clic en **Configuración** (el último elemento del menú, con el icono de engranaje).
+
+Dentro de Configuración, busca el grupo **Espacio de trabajo** en el menú secundario de la izquierda. Haz clic en **Dominio dedicado**.
+
+![Panel de Configuración de Nevent con el menú lateral visible. En el grupo "Espacio de trabajo" se ve el ítem "Dominio dedicado" resaltado. A la derecha se muestra la pantalla de bienvenida del módulo con el título "Configura tu dominio personalizado" y tres beneficios: aumentar la tasa de entrega, mejorar tu identidad de marca y proteger tu reputación](/images/guias/entregabilidad/dominio-dedicado/paso-2-navegacion-settings.png)
+
+Se abre la pantalla de bienvenida del módulo de dominio dedicado. Lee los tres beneficios si quieres más contexto, y luego haz clic en **Comenzar configuración**.
+
+![Pantalla de bienvenida del módulo Dominio dedicado de DEMO FEST con los tres beneficios listados y el botón "Comenzar configuración" visible en la parte inferior](/images/guias/entregabilidad/dominio-dedicado/paso-1-bienvenida.png)
+
+## Paso 2: introduce tu dominio raíz
+
+El asistente abre el primer paso. Aquí introduces el dominio principal de tu organización.
+
+Escribe tu dominio raíz en el campo, sin `www` ni `https://`. Por ejemplo: `tufestival.com`.
+
+Cuando el campo tenga un valor válido, el botón **Siguiente** se activa. Haz clic en él para continuar.
+
+![Paso 1 del asistente de dominio dedicado con el campo "Dominio raíz" rellenado con el valor "demofest.com" y el botón "Siguiente" activado](/images/guias/entregabilidad/dominio-dedicado/paso-3-wizard-paso1-relleno.png)
+
+:::tip[Consejo]
+Usa exactamente el mismo dominio que aparece en tu web. Si tu web es `www.mirecinto.com`, el dominio raíz es `mirecinto.com`.
+:::
+
+## Paso 3: elige tu subdominio de envíos
+
+En el segundo paso, defines el subdominio que Nevent usará para enviar tus emails.
+
+Por defecto, el campo ya sugiere `email`. Esto es lo que recomendamos: así el remitente de tus campañas será `email.tufestival.com`. Puedes cambiarlo por `marketing`, `noticias` u otro que prefieras, aunque `email` es el más habitual.
+
+A la derecha del campo ves cómo quedará el subdominio completo: `email.demofest.com` en el ejemplo.
+
+Haz clic en **Siguiente** cuando estés conforme.
+
+![Paso 2 del asistente de dominio dedicado con el campo "Subdominio para envíos" con el valor "email" y el texto estático ".demofest.com" a la derecha, formando "email.demofest.com"](/images/guias/entregabilidad/dominio-dedicado/paso-4-wizard-paso2-relleno.png)
+
+## Paso 4: confirma la configuración
+
+El tercer paso muestra un resumen de lo que vas a configurar:
+
+- **Dominio raíz:** el dominio que introdujiste en el paso 2.
+- **Subdominio para envíos:** el subdominio completo que usarán tus campañas.
+
+Revisa que ambos valores son correctos. Si ves algún error, haz clic en **Anterior** para volver y corregirlo.
+
+Cuando todo esté bien, haz clic en **Configurar dominio** para que Nevent genere los registros DNS.
+
+![Paso 3 del asistente de dominio dedicado con el resumen que muestra "Dominio raíz: demofest.com" y "Subdominio para envíos: email.demofest.com", y los botones "Anterior" y "Configurar dominio"](/images/guias/entregabilidad/dominio-dedicado/paso-5-wizard-paso3.png)
+
+:::caution[Importante]
+Al hacer clic en "Configurar dominio" Nevent genera los registros DNS para tu cuenta. No pulses ese botón varias veces: con una vez es suficiente.
+:::
+
+## Paso 5: crea los registros DNS en tu proveedor
+
+Después de confirmar, Nevent muestra la pantalla de registros DNS. Aquí tienes todos los valores que debes copiar y pegar en el panel de tu proveedor de dominio.
+
+Verás entre cinco y seis registros agrupados en cuatro secciones:
+
+| Tipo de registro | Para qué sirve |
+|---|---|
+| **DKIM** (uno, dos o tres registros de tipo CNAME) | Firma digital que prueba que el email lo envías tú y no un tercero |
+| **SPF** (un registro de tipo TXT) | Lista de servidores autorizados a enviar en nombre de tu dominio |
+| **MAIL FROM** (un registro de tipo MX) | Dirección técnica de rebote; mejora la reputación del dominio |
+| **DMARC** (un registro de tipo TXT) | Política que indica a los proveedores de email qué hacer si un email no supera SPF o DKIM |
+
+:::note[Glosario de registros]
+- **CNAME**: un alias que apunta a otro dominio.
+- **TXT**: texto libre que los servidores de email leen para verificar permisos.
+- **MX**: indica qué servidores gestionan el correo de un dominio.
+:::
+
+Para cada registro, copia los campos **Nombre**, **Tipo** y **Valor** usando el icono de copiar que aparece junto a cada uno. Luego ve al panel DNS de tu proveedor de dominio y crea cada registro con esos valores.
+
+:::tip[Consejo]
+Abre el panel de tu proveedor en una ventana nueva y ten esta pantalla de Nevent abierta en otra. Copia y pega cada registro uno a uno para no confundirte.
+:::
+
+:::caution[Importante]
+Los valores de DKIM son cadenas de texto largas. No los transcribas a mano: usa siempre el botón de copiar para evitar errores.
+:::
+
+## Paso 6: verifica el estado de los registros
+
+Una vez que hayas creado todos los registros en tu proveedor de dominio, vuelve a Nevent y haz clic en el botón **Verificar estado**.
+
+Nevent comprueba si los registros ya son visibles en internet. Dependiendo de tu proveedor, la propagación puede tardar desde unos minutos hasta 72 horas. Si algún registro aparece como "Pendiente" al verificar, espera unas horas e inténtalo de nuevo.
+
+Cuando todos los registros estén verificados, tu dominio dedicado quedará activo y tus próximas campañas de email se enviarán desde `email.tufestival.com`.
+
+:::note[Nota]
+No tienes que esperar a que estén todos verificados para cerrar la pantalla. Puedes salir y volver más tarde a comprobar el estado.
+:::
+
+## Resultado
+
+Ya tienes tu dominio dedicado configurado en Nevent. A partir de ahora, tus contactos verán tu propio dominio como remitente en sus bandejas de entrada, lo que mejora la tasa de entrega y refuerza la confianza en tus comunicaciones.
+
+:::tip[Consejo]
+Si pasadas 72 horas algún registro sigue en estado "Pendiente", revisa en el panel de tu proveedor que copiaste el nombre y el valor exactamente tal como los muestra Nevent. Un espacio de más o un carácter incorrecto puede impedir la verificación.
+:::
+
+## Siguiente paso
+
+- [Activa tus canales de comunicación](/entregabilidad/activar-canales) para revisar el resto de canales disponibles: SMS, WhatsApp y analytics.
+- [Crea tu primera campaña](/campanas/crear-primera-campana) para empezar a enviar desde tu dominio recién configurado.
