@@ -3,7 +3,7 @@
 > Refleja el estado real de la KB. Nevent es una plataforma de eventos en vivo; este plan
 > documenta las funcionalidades que existen en `admin.nevent.es` (`nev-admin-web`).
 
-**Última actualización**: 2026-08-04
+**Última actualización**: 2026-08-05
 **Repo canónico**: `github.com/nevent-dev/nev-kb` (este repo). Publica en help.nevent.ai.
 **Scope**: Marketing y engagement. Fuera de alcance por ahora → Contenido
 (Eventos/Experiencias, Ventas, Merch) y Página web.
@@ -43,6 +43,15 @@ Publicado en la tanda de agosto 2026:
 - [x] `superapp/introduccion.mdx` (home, actividad, push, onboarding)
 - [x] `paid-media/introduccion.mdx` (panel, campañas, conjuntos, anuncios)
 - [x] `consumo/plan-de-uso.mdx`
+
+Publicado el 2026-08-05 (Experiencias e informe de campaña, con enfoque de valor de negocio):
+- [x] `experiencias/analytics.mdx` (analítica del evento: general, comportamiento, patrones temporales)
+- [x] `experiencias/perfil-musical.mdx` (artistas, géneros y afinidad musical de la audiencia)
+- [x] `campanas/informe/resultados.mdx` — "¿Cómo interpretar los resultados de tu campaña?"
+- [x] `campanas/informe/rebotes.mdx` — "¿Cómo consultar los rebotes de tus campañas?"
+- [x] `campanas/informe/desuscripciones.mdx` — "¿Quién se dio de baja tras tu campaña?"
+- [x] `campanas/informe/audiencia.mdx` — "¿A qué audiencia llegó tu campaña?"
+- [x] `campanas/informe/aperturas-y-clics.mdx` — "¿Quién abrió y clicó tu campaña?"
 
 ---
 
