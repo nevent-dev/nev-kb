@@ -45,7 +45,7 @@ echo "-- HTML (60s, --delete) --"
 aws s3 sync dist/ "s3://${BUCKET}/" \
   --delete \
   --region "$REGION" \
-  --cache-control "public, max-age=60, must-revalidate" \
+  --cache-control "public, max-age=3600, must-revalidate" \
   --exclude "_astro/*" \
   --exclude "*.js" --exclude "*.css" \
   --exclude "*.png" --exclude "*.jpg" --exclude "*.jpeg" \
