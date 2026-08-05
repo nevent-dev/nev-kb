@@ -476,17 +476,23 @@ const techArticleSchema = {
   headline: pageTitle,
   description: pageDescription,
   inLanguage,
+  datePublished: dateModified,
   dateModified,
   url: canonicalUrl,
+  image: {
+    '@type': 'ImageObject',
+    url: ogImageUrl,
+    width: 1200,
+    height: 630,
+  },
   mainEntityOfPage: {
     '@type': 'WebPage',
     '@id': canonicalUrl,
   },
   articleSection,
   keywords: pageKeywords,
-  // wordCount estimated from description as a minimum floor value.
-  // TODO: Replace with exact count via remark plugin (count entry.body words).
-  wordCount: pageDescription.split(/\s+/).length * 10,
+  // wordCount from the actual MDX body (proxy: whitespace-separated tokens).
+  wordCount: (entry?.body ?? '').split(/\s+/).filter(Boolean).length,
   author: neventAuthorEntity,
   publisher: neventPublisherEntity,
 };
@@ -584,6 +590,11 @@ const definedTermSetSchema = isSegmentationPage
 
 /** BreadcrumbList — all pages except homepage */
 const breadcrumbItems = !isRoot ? buildBreadcrumbs(slug, inLanguage) : [];
+// The last crumb is the current page: use its real title (not the slug-derived label)
+// so the breadcrumb name matches the H1 and keeps accents.
+if (breadcrumbItems.length > 0) {
+  breadcrumbItems[breadcrumbItems.length - 1].name = pageTitle;
+}
 const breadcrumbSchema =
   !isRoot && breadcrumbItems.length > 1
     ? {
@@ -592,6 +603,74 @@ const breadcrumbSchema =
         itemListElement: breadcrumbItems,
       }
     : null;
+
+// ── HowTo extraction (step-by-step guides) ────────────────────────────────────
+/**
+ * Extracts step-by-step instructions from the MDX body.
+ * Matches H2 headings of the form "## Paso N: Título" (ES) or "## Step N: Title" (EN).
+ * Each becomes a HowToStep (name = step title, text = following paragraphs).
+ * Images, links, markdown emphasis and aside markers are stripped from the text.
+ */
+interface HowToStepPair {
+  name: string;
+  text: string;
+}
+
+function extractHowToSteps(body: string): HowToStepPair[] {
+  const steps: HowToStepPair[] = [];
+  const sections = body.split(/^##\s+/m);
+  for (const section of sections.slice(1)) {
+    const lines = section.split('\n');
+    const heading = lines[0]?.trim() ?? '';
+    const match = heading.match(/^(?:Paso|Step)\s+\d+\s*[:.-]?\s*(.+)$/i);
+    if (!match) continue;
+    const name = match[1].trim();
+    const textLines: string[] = [];
+    for (const line of lines.slice(1)) {
+      if (line.startsWith('#')) break;
+      textLines.push(line);
+    }
+    const text = textLines
+      .join('\n')
+      .replace(/!\[[^\]]*\]\([^)]*\)/g, '')      // remove images
+      .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')    // [text](url) → text
+      .replace(/\*\*([^*]+)\*\*/g, '$1')          // **bold** → plain
+      .replace(/\*([^*]+)\*/g, '$1')              // *italic* → plain
+      .replace(/`([^`]+)`/g, '$1')                // `code` → plain
+      .replace(/^:::[a-z]+(\[[^\]]*\])?/gim, '')  // strip aside opening markers
+      .replace(/:::/g, '')                        // strip aside closing markers
+      .replace(/\s+/g, ' ')
+      .trim();
+    if (name && text) steps.push({ name, text });
+  }
+  return steps;
+}
+
+// Only build HowTo on step-by-step guides (>= 2 steps) that are not FAQ pages.
+const howToSteps = hasEntry && !isFaqPage ? extractHowToSteps(entry?.body ?? '') : [];
+const isHowTo = howToSteps.length >= 2;
+
+/**
+ * HowTo schema — step-by-step guides.
+ * Improves citability by LLMs / answer engines and structured understanding of the
+ * procedure. Coexists with TechArticle (both are valid on the same page).
+ */
+const howToSchema = isHowTo
+  ? {
+      '@context': 'https://schema.org',
+      '@type': 'HowTo',
+      name: pageTitle,
+      description: pageDescription,
+      inLanguage,
+      totalTime: 'PT10M',
+      step: howToSteps.map((s, i) => ({
+        '@type': 'HowToStep',
+        position: i + 1,
+        name: s.name,
+        text: s.text,
+      })),
+    }
+  : null;
 
 // ── Serialize to JSON strings for is:inline injection ─────────────────────────
 /**
@@ -616,6 +695,7 @@ const techArticleJson = toSafeJsonLd(techArticleSchema);
 const faqPageJson = faqPageSchema ? toSafeJsonLd(faqPageSchema) : null;
 const definedTermSetJson = definedTermSetSchema ? toSafeJsonLd(definedTermSetSchema) : null;
 const breadcrumbJson = breadcrumbSchema ? toSafeJsonLd(breadcrumbSchema) : null;
+const howToJson = howToSchema ? toSafeJsonLd(howToSchema) : null;
 ---
 
 <!-- Render default Starlight Head (canonical, hreflang, og:title, og:description, etc.) -->
@@ -653,6 +733,10 @@ const breadcrumbJson = breadcrumbSchema ? toSafeJsonLd(breadcrumbSchema) : null;
         : '',
       // TechArticle (enriched): every page — rich result + AEO context
       `<script type="application/ld+json">${techArticleJson}</script>`,
+      // HowTo: step-by-step guides — steps rich result + LLM citability
+      howToJson
+        ? `<script type="application/ld+json">${howToJson}</script>`
+        : '',
       // FAQPage + Speakable: FAQ pages only — rich accordion + voice search
       faqPageJson
         ? `<script type="application/ld+json">${faqPageJson}</script>`
