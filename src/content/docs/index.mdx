@@ -1,137 +1,144 @@
 ---
 title: Centro de ayuda de Nevent
-description: Habla con tu plataforma de live events en lenguaje natural. Conecta Nevent con Claude o ChatGPT en 2 minutos.
+description: Guías paso a paso para dominar tu plataforma de eventos en vivo. Audiencia, campañas, analítica, publicidad, entregabilidad y Nevent AI.
 template: splash
 hero:
   title: |
-    Habla con tu CRM<br/>de <span class="text-gradient">live events</span>
+    Centro de ayuda de <span class="text-gradient">Nevent</span>
   tagline: |
-    Conecta Nevent con Claude o ChatGPT y pregunta por tus campañas, segmentos, métricas o paid ads en lenguaje natural. Sin SQL, sin paneles, sin esperas.
+    Todo lo que necesitas para sacar partido a tu plataforma de eventos en vivo. Guías claras, paso a paso y con ejemplos reales, desde tu audiencia hasta la analítica.
   actions:
-    - text: Conectar con Claude
-      link: /nevent-ai/conectar-claude/
+    - text: Crea tu primera campaña
+      link: /campanas/crear-primera-campana/
       icon: right-arrow
       variant: primary
-    - text: Conectar con ChatGPT
-      link: /nevent-ai/conectar-chatgpt/
-      icon: external
+    - text: Habla con tu CRM (Nevent AI)
+      link: /nevent-ai/
+      icon: rocket
       variant: secondary
-    - text: Para desarrolladores
-      link: /nevent-ai/developers/
-      icon: seti:json
-      variant: minimal
 ---
 
-import { Card, CardGrid, LinkCard, Tabs, TabItem, Aside, Badge } from '@astrojs/starlight/components';
+import { Card, CardGrid, LinkCard, Aside } from '@astrojs/starlight/components';
 
-## Pregunta cualquier cosa sobre tus eventos
+## Explora por área
 
-Una vez conectado, escribe directamente en Claude o ChatGPT como si hablaras con un compañero del equipo.
+Cada área reúne las guías de una parte de la plataforma. Empieza por donde más lo necesites.
 
 <CardGrid>
-  <Card title="Analítica" icon="rocket">
-    *"¿Cuántas entradas vendí para EventX por tipo de ticket en los últimos 7 días?"*
+  <Card title="Experiencias" icon="star">
+    Analítica de tus eventos y el perfil musical de tu audiencia.
+
+    [Ver guías →](/experiencias/analytics/)
+  </Card>
+  <Card title="Audiencia" icon="heart">
+    Importa contactos y consulta el perfil completo de cada fan.
+
+    [Ver guías →](/audiencia/importar-fans/)
+  </Card>
+  <Card title="Suscripciones" icon="add-document">
+    Crea formularios para captar fans desde tu web.
+
+    [Ver guías →](/suscripciones/crear-formulario/)
+  </Card>
+  <Card title="Segmentación" icon="puzzle">
+    Crea audiencias ultra específicas por comportamiento, compra y consumo.
+
+    [Ver guías →](/segmentacion/motor-segmentacion/)
   </Card>
   <Card title="Campañas" icon="email">
-    *"¿Qué campañas del último mes tuvieron un open rate por encima del 30%?"*
+    Crea campañas de email, SMS y WhatsApp, diseña plantillas y lee sus resultados.
+
+    [Ver guías →](/campanas/crear-primera-campana/)
   </Card>
-  <Card title="Segmentación" icon="magnifier">
-    *"Créame un segmento de asistentes que compraron VIP en 2025 pero no han abierto un email en 90 días."*
+  <Card title="Paid Media" icon="bars">
+    Mide tus anuncios de Meta, Google y TikTok en un solo panel.
+
+    [Ver guías →](/paid-media/introduccion/)
   </Card>
-  <Card title="Envíos" icon="setting">
-    *"Programa la campaña 'Summer Gala' para el lunes que viene a las 10:00 CET."*
+  <Card title="Analítica" icon="list-format">
+    Métricas de eventos, audiencia, campañas, atribución y entregabilidad.
+
+    [Ver guías →](/analitica/)
   </Card>
-  <Card title="Paid media" icon="bars">
-    *"Compara el ROAS de mis campañas de Meta Ads en marzo."*
+  <Card title="Entregabilidad" icon="approve-check">
+    Activa tus canales, configura tu dominio y cuida tu reputación de envío.
+
+    [Ver guías →](/entregabilidad/activar-canales/)
   </Card>
-  <Card title="Short URLs" icon="external">
-    *"Genera links únicos por usuario para 'Summer Gala' y dime quién hizo clic."*
+  <Card title="Herramientas" icon="external">
+    Magic Links para acortar enlaces y medir cada clic.
+
+    [Ver guías →](/herramientas/magic-links/)
+  </Card>
+  <Card title="Chatbot" icon="comment">
+    Un asistente que responde a tus fans en tu web en tiempo real.
+
+    [Ver guías →](/chatbot/configuracion/)
+  </Card>
+  <Card title="Superapp" icon="rocket">
+    La app móvil para tus fans: home, onboarding y notificaciones push.
+
+    [Ver guías →](/superapp/introduccion/)
+  </Card>
+  <Card title="Nevent AI" icon="open-book">
+    Conecta tu CRM con Claude o ChatGPT y pregúntale en lenguaje natural.
+
+    [Empezar →](/nevent-ai/)
   </Card>
 </CardGrid>
 
-## Funcionalidades principales
+## Primeros pasos
 
-<CardGrid>
-  <Card title="Motor de Segmentación" icon="puzzle">
-    Crea audiencias ultra específicas de tus asistentes basadas en comportamiento de compra, asistencia y consumo. La funcionalidad estrella de Nevent.
-
-    [Ver guía completa →](/segmentacion/motor-segmentacion/)
-  </Card>
-  <Card title="Nevent AI" icon="rocket">
-    Conecta tu CRM de live events con Claude o ChatGPT. Consulta campañas, segmentos y analítica en lenguaje natural, sin SQL ni paneles.
-
-    [Empezar en 2 minutos →](/nevent-ai/)
-  </Card>
-</CardGrid>
-
-## Por qué usar Nevent AI
-
-<CardGrid>
-  <Card title="Hosted en 2 minutos" icon="approve-check">
-    Sin instalación, sin configuración local. Añades `https://mcp.nevent.ai/mcp` como conector en Claude o ChatGPT, autorizas con tu cuenta de Nevent y listo.
-  </Card>
-  <Card title="52 herramientas" icon="puzzle">
-    9 categorías: analítica, segmentación, campañas, templates, deliverability, paid media (Meta · Google · TikTok), short URLs y multi-tenant.
-  </Card>
-  <Card title="Tus datos, tu cuenta" icon="seti:lock">
-    Autenticación OAuth 2.1 por usuario. Cada sesión está aislada. Los datos no se usan para entrenar modelos.
-  </Card>
-  <Card title="Tres niveles de permisos" icon="setting">
-    `READ_ONLY` (solo consulta), `STANDARD` (consulta + crear borradores) o `FULL` (envíos en vivo). Tú decides qué puede hacer el asistente.
-  </Card>
-  <Card title="Multi-tenant nativo" icon="document">
-    Si gestionas varias cuentas, cambia de tenant dentro de la misma conversación sin volver a autenticar.
-  </Card>
-  <Card title="Compatible con todo" icon="seti:plan">
-    Claude.ai, ChatGPT, Claude Desktop, Claude Code, Cursor, Cline, Continue y VS Code.
-  </Card>
-</CardGrid>
-
-## Para cada perfil
-
-<Tabs>
-  <TabItem label="Marketer / Promotor">
-    Crea segmentos hablando, programa envíos por voz al asistente y consulta el rendimiento de cualquier campaña sin abrir el panel.
-
-    <LinkCard title="Empieza por aquí" description="Conecta Claude en 2 minutos y prueba con los ejemplos del primer apartado." href="/nevent-ai/conectar-claude/" />
-  </TabItem>
-  <TabItem label="Analista de datos">
-    Consulta el data warehouse de Nevent en lenguaje natural. Descubre tablas, dimensiones y métricas disponibles sin escribir SQL.
-
-    <LinkCard title="Casos de uso" description="Ejemplos reales de análisis con Nevent MCP." href="/nevent-ai/casos-practicos/" />
-  </TabItem>
-  <TabItem label="Developer">
-    Integra Nevent en tu flujo: Claude Code, Cursor, VS Code o cualquier cliente MCP. Modo stdio local o HTTP hosted con OAuth.
-
-    <LinkCard title="Documentación técnica" description="Instalación, transportes, configuración y referencia de las 52 tools." href="/nevent-ai/developers/" />
-  </TabItem>
-</Tabs>
-
-## Empieza ahora
+Las guías más útiles para arrancar, en orden.
 
 <CardGrid>
   <LinkCard
-    title="Qué es Nevent AI"
-    description="Concepto, alcance y casos de uso en 2 minutos de lectura."
-    href="/nevent-ai/"
+    title="Crea tu primera campaña"
+    description="Recorre el asistente de principio a fin y lanza tu primer envío."
+    href="/campanas/crear-primera-campana/"
   />
   <LinkCard
-    title="Permisos y seguridad"
-    description="OAuth 2.1, modos de operación y aislamiento multi-tenant."
-    href="/nevent-ai/permisos-y-seguridad/"
+    title="Importa tus contactos"
+    description="Sube tu lista de fans desde un archivo CSV o Excel."
+    href="/audiencia/importar-fans/"
   />
   <LinkCard
-    title="Preguntas frecuentes"
-    description="Compatibilidad, deshacer envíos, permisos de cuenta y más."
-    href="/nevent-ai/preguntas-frecuentes/"
+    title="Crea tu primer segmento"
+    description="Agrupa a tus fans por criterios y prepáralos para campañas."
+    href="/segmentacion/motor-segmentacion/crear-segmento/"
   />
   <LinkCard
-    title="Referencia de herramientas"
-    description="Las 52 tools del MCP agrupadas por categoría."
-    href="/nevent-ai/developers/herramientas/"
+    title="Activa tus canales"
+    description="Configura email, SMS, WhatsApp y push para empezar a enviar."
+    href="/entregabilidad/activar-canales/"
   />
 </CardGrid>
+
+## Saca más partido a tus datos
+
+<CardGrid>
+  <Card title="Entiende tus resultados" icon="bars">
+    Aprende a leer el informe de cada campaña: aperturas, clics, rebotes y bajas, con el foco puesto en qué decisión tomar.
+
+    [Informe de campaña →](/campanas/informe/resultados/)
+  </Card>
+  <Card title="Mejora con buenas prácticas" icon="approve-check">
+    Consejos concretos para que tus campañas lleguen, se abran y vendan más entradas.
+
+    [Buenas prácticas →](/campanas/mejores-practicas/)
+  </Card>
+</CardGrid>
+
+## Habla con tu CRM en lenguaje natural
+
+<Card title="Nevent AI" icon="rocket">
+  Conecta Nevent con Claude o ChatGPT y pregunta por tus campañas, segmentos, métricas o paid ads sin abrir un solo panel. Sin SQL, sin esperas.
+
+  *"Créame un segmento de asistentes que compraron VIP en 2025 pero no han abierto un email en 90 días."*
+
+  [Conéctalo en 2 minutos →](/nevent-ai/conectar-claude/)
+</Card>
 
 <Aside type="tip" title="¿Aún no tienes cuenta de Nevent?">
-  Nevent AI es una capa sobre tu cuenta de Nevent. Si todavía no la tienes, escríbenos a [support@nevent.es](mailto:support@nevent.es) o visita [nevent.ai](https://nevent.ai).
+  Este centro de ayuda cubre la plataforma de Nevent. Si todavía no tienes cuenta, escríbenos a [support@nevent.es](mailto:support@nevent.es) o visita [nevent.ai](https://nevent.ai).
 </Aside>
