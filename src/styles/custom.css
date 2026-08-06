@@ -227,3 +227,28 @@
 		white-space: nowrap;
 	}
 }
+
+/* ── UNIFICACIÓN DE COLOR DE TARJETAS ──────────────────────────────────────
+   Starlight asigna colores rotativos (naranja, verde, rojo, azul) a los
+   recuadros de los iconos de las Card mediante :nth-child, lo que da un
+   aspecto multicolor e incoherente. Los unificamos al violeta de marca.
+   Fuera de @layer y con !important para ganar a las variables de Starlight. */
+.sl-markdown-content .card {
+	--sl-card-border: rgb(var(--nevent-secondary)) !important;
+	--sl-card-bg: rgb(var(--nevent-secondary) / 0.1) !important;
+	transition:
+		border-color 0.15s ease,
+		box-shadow 0.15s ease,
+		transform 0.15s ease;
+}
+
+.sl-markdown-content .card .title .icon {
+	color: rgb(var(--nevent-secondary)) !important;
+}
+
+/* Hover sutil en las tarjetas para dar sensación de interactividad */
+.sl-markdown-content .card:hover {
+	border-color: rgb(var(--nevent-secondary) / 0.5);
+	box-shadow: 0 4px 16px rgb(var(--nevent-secondary) / 0.12);
+	transform: translateY(-2px);
+}
