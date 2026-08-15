@@ -1,0 +1,256 @@
+---
+title: Referencia del chatbot
+description: "Tablas de referencia del chatbot de Nevent: pestañas de configuración, campos, límites, fuentes de datos, estados de conversación y modelo de IA."
+diataxis: reference
+faqs:
+  - q: "¿Cuántos caracteres puedo escribir en las instrucciones?"
+    a: "El campo de instrucciones admite hasta 5.000 caracteres."
+  - q: "¿Qué formatos de documento admite el chatbot?"
+    a: "PDF, TXT, MD y DOCX. El tamaño máximo por archivo es de 10 MB."
+  - q: "¿Qué modelo de inteligencia artificial usa el chatbot?"
+    a: "El chatbot usa el modelo Gemini 3.5 Flash Lite, visible en el panel de estado del asistente."
+  - q: "¿Cuántos enlaces puede generar el chatbot en un día?"
+    a: "El límite es de 200 enlaces nuevos al día por recinto. Al superarlo, las respuestas incluyen la URL original sin acortar."
+  - q: "¿Las conversaciones del entorno de prueba afectan a mis fans?"
+    a: "No. El entorno de prueba es aislado: las conversaciones no llegan a los fans ni aparecen en la bandeja de entrada real."
+---
+
+Esta página describe los campos, opciones y límites de cada sección del chatbot de Nevent. Es una referencia para consultar en cualquier momento, no una guía paso a paso.
+
+La pantalla de configuración se abre desde el menú lateral, en **Chatbot > Configuración**.
+
+---
+
+## Panel de estado del asistente
+
+El panel lateral derecho de la pantalla de configuración muestra el estado actual del chatbot de un vistazo.
+
+| Indicador | Descripción |
+|---|---|
+| **Estado del asistente** | Muestra si el asistente está **Activo** (respondiendo a usuarios) o inactivo. |
+| **Instrucciones** | Indica si las instrucciones personalizadas están definidas o si siguen «Sin definir». |
+| **Documentos listos** | Número de documentos procesados correctamente sobre el total subido (por ejemplo, «1 de 1»). |
+| **Fuentes activas** | Número de fuentes de datos activadas sobre el total disponible (por ejemplo, «7 de 8»). |
+| **Modelo** | Modelo de inteligencia artificial en uso. En el momento de redacción: **gemini-3.5-flash-lite**. |
+
+---
+
+## Pestañas de configuración
+
+La pantalla de configuración tiene seis pestañas visibles para el promotor.
+
+### Instrucciones personalizadas
+
+Define el comportamiento y la personalidad del chatbot mediante texto libre en lenguaje natural.
+
+| Campo o elemento | Detalle |
+|---|---|
+| **Instrucciones** | Campo de texto multilinea. **Obligatorio** para que el chatbot responda con comportamiento personalizado. |
+| **Límite de caracteres** | 5.000 caracteres (contador visible: «0 / 5000 caracteres»). |
+| **Estado inicial** | «Sin definir» hasta que el promotor escribe y guarda instrucciones. |
+| **Botón Guardar** | Permanece deshabilitado si no hay cambios pendientes. |
+| **Botón Cerrar** | Descarta los cambios no guardados y cierra el panel de edición. |
+
+Nota: el estilo de escritura (tono, vocabulario) se configura en la pestaña **Voz del asistente**, no aquí.
+
+---
+
+### Voz del asistente
+
+Genera o escribe un manual de voz que determina cómo suena el asistente al escribir.
+
+| Elemento | Detalle |
+|---|---|
+| **Estado inicial** | «Tu asistente aún escribe con la voz por defecto» hasta que se genera o escribe un manual. |
+| **Muestras de conversación** | Texto de ayuda recomendado: mínimo 500 palabras; de 2 a 6 conversaciones del mismo equipo, variadas (incidencias, dudas, negativas). Se desaconsejan hilos muy largos porque diluyen el estilo. |
+| **Botón Añadir muestra** | Permite pegar o escribir una conversación como muestra de estilo. |
+| **Botón Importar de mis conversaciones** | Importa conversaciones ya registradas en la plataforma. |
+| **Botón Generar manual de voz** | Analiza las muestras añadidas y produce automáticamente el manual de voz. |
+| **Botón O escribe el manual tú mismo** | Permite redactar el manual de voz de forma manual, sin usar muestras. |
+
+---
+
+### Documentos de referencia
+
+Permite subir archivos que el chatbot puede consultar para dar respuestas más precisas.
+
+| Elemento | Detalle |
+|---|---|
+| **Formatos admitidos** | PDF, TXT, MD, DOCX. |
+| **Tamaño máximo por archivo** | 10 MB. |
+| **Botón Subir** | Abre el selector de archivos del sistema operativo. |
+| **Columnas de la tabla** | Nombre, Tipo, Tamaño, Estado, Fecha de subida, Acciones. |
+| **Estados posibles de un documento** | **Listo** (procesado correctamente y disponible para el chatbot). Otros estados no confirmados en la fuente observada. |
+| **Acciones por documento** | Descargar, Eliminar. |
+
+Límite de número de documentos simultáneos: no determinado en la fuente observada.
+
+---
+
+### Fuentes de datos
+
+Controla qué información de la cuenta de Nevent puede consultar el chatbot de forma automática. Hay un total de 8 fuentes agrupadas en tres bloques.
+
+**Indicador global:** muestra el número de fuentes seleccionadas sobre el total (por ejemplo, «FUENTES SELECCIONADAS: 7 de 8»).
+
+#### Bloque: Información del evento
+
+| Fuente | Información que aporta |
+|---|---|
+| **Información básica del evento** | Nombre del evento, descripción general e imagen principal. |
+| **Información del venue** | Ubicación física, fechas del evento y horarios de apertura de puertas. |
+| **Agenda de artistas** | Lineup completo, horarios de actuación, escenarios y artistas destacados. |
+
+#### Bloque: Información del usuario
+
+| Fuente | Información que aporta |
+|---|---|
+| **Perfil del usuario** | Nombre del asistente, carpetas asignadas y ubicación actual. |
+| **Programa de loyalty** | Puntos acumulados, nivel actual y beneficios disponibles. |
+| **Detalles de entrada** | Tipo de entrada, experiencias incluidas y complementos contratados. |
+
+#### Bloque: Información adicional
+
+| Fuente | Información que aporta |
+|---|---|
+| **Mapas del recinto** | Puntos de interés, ubicaciones de servicios y áreas del evento. |
+| **Patrocinadores** | Lista de marcas patrocinadoras del evento y sus enlaces. |
+
+Cada fuente se activa o desactiva con un checkbox. Desactivar fuentes innecesarias reduce el consumo de recursos del modelo.
+
+---
+
+### Enlaces trackeados
+
+Configura si el chatbot acorta y mide los enlaces que incluye en sus respuestas.
+
+| Switch | Descripción | Dependencia |
+|---|---|---|
+| **Enlaces de venta** | Las recomendaciones de eventos usan un enlace corto estable por evento con los parámetros de campaña del chatbot. Permite contar clics por evento. | Ninguna. |
+| **Atribución por conversación** | Añade a cada enlace un identificador de la conversación que lo generó. Habilita el CTR conversacional y el bloque «Empuje a venta» en métricas. | Requiere **Enlaces de venta** activo. Sin él, este ajuste no tiene efecto. |
+| **Enlaces de documentación** | Envuelve también los enlaces que salen de la base de conocimiento (horarios, normas, FAQs), con la misma atribución. | Ninguna. |
+
+**Límite diario:** 200 enlaces nuevos al día por recinto. Al superarlo, las respuestas usan la URL original sin acortar.
+
+---
+
+### Probar chatbot
+
+Entorno aislado para comprobar cómo responde el chatbot antes de publicarlo.
+
+| Elemento | Detalle |
+|---|---|
+| **Aviso visible** | «Entorno de pruebas: esta conversación no afecta a las conversaciones reales de tus usuarios.» |
+| **Campo de texto** | Multilinea. Enter envía el mensaje; Shift+Enter inserta un salto de línea. |
+| **Botón Enviar** | Envía el mensaje al chatbot. |
+| **Botón Eliminar** | Borra la conversación de prueba actual. |
+| **Estado cuando no hay instrucciones** | El campo y los botones aparecen deshabilitados. Es necesario guardar instrucciones antes de poder probar. |
+
+Las conversaciones realizadas aquí no aparecen en la bandeja de entrada ni son visibles para los fans.
+
+---
+
+## Bandeja de entrada
+
+Accesible desde **Chatbot > Bandeja de entrada**. Muestra todas las conversaciones que el chatbot mantiene con los asistentes al evento.
+
+### Filtros de vista
+
+| Filtro | Descripción |
+|---|---|
+| **Todas** | Muestra todas las conversaciones, independientemente del estado. |
+| **Mías** | Conversaciones asignadas al agente que ha iniciado sesión. |
+| **Sin asignar** | Conversaciones sin agente asignado. |
+| **En curso** | Conversaciones activas en las que un agente humano está interviniendo. |
+| **Resueltas** | Conversaciones marcadas como resueltas. |
+
+### Filtros por canal
+
+| Canal | Descripción |
+|---|---|
+| **Todos** | Muestra conversaciones de cualquier canal. |
+| **Chat web** | Conversaciones iniciadas desde el canal web incrustado en la web del promotor. |
+| **Widget** | Conversaciones desde el widget flotante. |
+| **WhatsApp** | Conversaciones iniciadas desde WhatsApp. |
+
+### Estados de conversación
+
+| Estado | Significado |
+|---|---|
+| **Bot en curso** | El chatbot está respondiendo de forma automática. |
+| **En curso** | Un agente humano ha tomado el control de la conversación. |
+| **Escalada** | El chatbot no ha podido resolver la consulta y queda pendiente de atención humana. |
+| **Resuelta** | La conversación se ha cerrado como resuelta. |
+
+**Idiomas:** el chatbot detecta el idioma del mensaje del usuario y responde en ese mismo idioma.
+
+---
+
+## Canal web
+
+Accesible desde **Chatbot > Canal web**. Contiene el código de instalación y las opciones de apariencia del widget.
+
+### Instalación
+
+| Elemento | Detalle |
+|---|---|
+| **Snippet de código** | JavaScript listo para copiar. Debe pegarse justo antes de la etiqueta `</body>` de la web. |
+| **Carga del script** | Desde `https://neventapps.com/widget/v1/loader.js`. |
+| **Cookies** | El script no carga cookies hasta que el visitante abre el chat. |
+| **Estado del canal** | Puede ser **En producción** u otro estado según el despliegue. |
+
+Para instalaciones en Google Tag Manager, WordPress o Shopify, hay guías específicas accesibles desde la misma pantalla.
+
+### Apariencia
+
+| Campo | Opciones o detalle |
+|---|---|
+| **Logo del asistente** | Formatos admitidos: PNG, JPG, WebP. Tamaño máximo: 2 MB. Se recomienda imagen cuadrada con fondo transparente. Si no se sube ninguno, se usa el logo por defecto. |
+| **Color principal** | Campo de texto hexadecimal más selector de color visual. |
+| **Posición del launcher** | Izquierda o Derecha. |
+| **Tema** | Automático (sigue la preferencia del sistema del visitante), Claro u Oscuro. |
+| **Idioma del asistente** | Español, English, Català, Português. Si la página donde se inserta declara otro idioma compatible, el widget lo adopta automáticamente. |
+| **Mensaje de bienvenida** | Campo de texto libre. |
+| **Subtítulo del mensaje de bienvenida** | Campo de texto libre. |
+| **Respuestas rápidas** | Lista configurable de sugerencias que el visitante puede pulsar para empezar la conversación. |
+
+### Dominios permitidos
+
+| Elemento | Detalle |
+|---|---|
+| **Propósito** | Solo las webs listadas pueden cargar el chatbot. Si un dominio no está en la lista, el widget no aparece aunque el snippet esté instalado. |
+| **Comodín** | Se admite `*.dominio.com` para cubrir todos los subdominios de un dominio. |
+
+---
+
+## Métricas: Empuje a venta
+
+Accesible desde **Chatbot > Rendimiento**. Muestra el impacto comercial de los enlaces que el asistente incluye en las conversaciones.
+
+| Métrica | Descripción |
+|---|---|
+| **Recomendaciones con enlace** | Número de veces que el asistente incluyó un enlace de venta en una respuesta. |
+| **Clics desde el chat** | Total de clics realizados por personas en esos enlaces (excluye clics automatizados). |
+| **Conversaciones que hicieron clic** | Porcentaje de conversaciones que recibieron una recomendación y en las que al menos un usuario hizo clic. |
+| **Otros clics** | Clics en enlaces compartidos o antiguos que no cuentan en las métricas principales. |
+
+**Periodos disponibles:** 7 días, 30 días, 90 días.
+
+La tabla de detalle muestra por cada destino: nombre del evento, tipo, enlace corto, número de recomendaciones, número de clics y fecha del último clic.
+
+Nota visible en la plataforma: «Los clics recientes aún se están registrando y una parte de los enlaces no se puede rastrear con exactitud: tómalo como una aproximación que irá creciendo.»
+
+---
+
+## Límites y restricciones consolidados
+
+| Elemento | Límite |
+|---|---|
+| Instrucciones personalizadas | 5.000 caracteres |
+| Tamaño máximo por documento | 10 MB |
+| Formatos de documento admitidos | PDF, TXT, MD, DOCX |
+| Tamaño máximo del logo del widget | 2 MB |
+| Formatos del logo del widget | PNG, JPG, WebP |
+| Fuentes de datos disponibles | 8 fuentes en 3 bloques |
+| Límite de enlaces trackeados | 200 enlaces nuevos por día y por recinto |
+| Modelo de IA | gemini-3.5-flash-lite |

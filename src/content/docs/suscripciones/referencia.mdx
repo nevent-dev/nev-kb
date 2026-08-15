@@ -1,0 +1,103 @@
+---
+title: Referencia de suscripciones
+description: Definición, requisitos legales previos, columnas de la tabla y estados de las suscripciones en Nevent.
+diataxis: reference
+faqs:
+  - q: ¿Qué es una suscripción en Nevent?
+    a: Una suscripción es una lista de registro voluntario a la que los fans se apuntan de forma explícita. Cada suscripción tiene un nombre interno, un estado (activo o inactivo) y un contador de suscriptores.
+  - q: ¿Qué datos legales necesito antes de crear una suscripción?
+    a: Necesitas tener rellenos dos campos en los ajustes legales de tu organización, la razón social y la URL de tu política de privacidad. Sin ellos, el botón de crear suscripción permanece deshabilitado.
+  - q: ¿Dónde relleno la razón social y la política de privacidad?
+    a: En Ajustes, dentro del apartado Legal. Puedes ir directamente desde el aviso que aparece en la parte superior de la sección Suscripciones haciendo clic en "Completar datos legales".
+  - q: ¿Cuántos estados puede tener una suscripción?
+    a: Dos, activo e inactivo. Una suscripción activa acepta nuevos registros y puede usarse en campañas. Una suscripción inactiva deja de recoger suscriptores.
+  - q: ¿Qué columnas muestra la tabla de suscripciones?
+    a: La tabla muestra cinco columnas, Nombre, Estado, Suscriptores, Fecha y Acciones.
+---
+
+## Qué es una suscripción
+
+Una suscripción en Nevent es una lista de registro voluntario. Los fans se apuntan de forma explícita, por ejemplo a través de un formulario embebido en tu web, para recibir comunicaciones de tu organización.
+
+Cada suscripción es independiente: tiene su propio nombre, su propio contador de suscriptores y su propio estado. Puedes tener varias suscripciones activas al mismo tiempo, por ejemplo una para cada festival o canal de comunicación.
+
+Las suscripciones se gestionan en **Audiencia > Suscripciones**.
+
+---
+
+## Requisitos previos para crear una suscripción
+
+Antes de poder crear cualquier suscripción, tu organización debe tener rellenos dos datos en el apartado legal de los ajustes:
+
+| Dato requerido | Descripción |
+|---|---|
+| Razón social | Nombre legal de la entidad responsable del tratamiento de datos. Aparece en el formulario de suscripción y en los correos que reciben los fans. |
+| URL de política de privacidad | Dirección web de tu política de privacidad. Nevent la enlaza en el formulario para que el fan pueda consultarla antes de suscribirse. |
+
+Mientras falte alguno de estos dos datos, Nevent muestra un aviso en la parte superior de la sección Suscripciones y deshabilita el botón de crear. El aviso incluye el enlace **Completar datos legales**, que lleva directamente a la pantalla de ajustes legales (`/settings/legal`).
+
+Estos requisitos son de cumplimiento legal: identifican al responsable del tratamiento y garantizan que el fan conoce la política de privacidad antes de dar su consentimiento.
+
+---
+
+## Tabla de suscripciones
+
+La pantalla principal de Suscripciones muestra todas las suscripciones de tu organización en una tabla. El buscador de la parte superior filtra por nombre.
+
+### Columnas
+
+| Columna | Contenido |
+|---|---|
+| Nombre | Nombre interno de la suscripción. Lo ve solo el equipo de la organización, no el fan. |
+| Estado | Estado actual de la suscripción. Valores posibles: **Activo** o **Inactivo**. |
+| Suscriptores | Número total de personas apuntadas a esa suscripción. |
+| Fecha | Fecha y hora de creación de la suscripción, en formato DD/MM/AAAA HH:MM. |
+| Acciones | Botón que permite cambiar el estado de la suscripción (activar o desactivar). |
+
+### Paginación
+
+La tabla pagina los resultados. El selector de la parte inferior permite elegir cuántos registros se muestran por página. El valor predeterminado es 20.
+
+---
+
+## Estados de una suscripción
+
+Una suscripción puede estar en uno de estos dos estados:
+
+| Estado | Significado |
+|---|---|
+| Activo | La suscripción está operativa. El formulario acepta nuevos registros y la suscripción puede usarse en campañas de marketing. |
+| Inactivo | La suscripción no acepta nuevos registros. Los suscriptores existentes se conservan pero la lista queda pausada. |
+
+El estado se cambia desde la columna **Acciones** de la tabla principal, con el botón de activar o desactivar.
+
+---
+
+## Campos del panel de una suscripción
+
+Al abrir una suscripción concreta, el menú lateral izquierdo da acceso a las secciones de gestión de ese formulario. Las secciones disponibles son:
+
+| Sección | Qué contiene |
+|---|---|
+| Resumen | Métricas del formulario: vistas totales, suscriptores captados y tasa de conversión. |
+| General | Nombre, descripción y carpetas del formulario. |
+| Campos | Campos que el formulario pide al visitante (correo electrónico siempre presente, resto opcionales). |
+| Apariencia | Colores, tipografía, espaciado, título, subtítulo y texto del botón. |
+| Automatizaciones | Asignación automática de carpetas y campos personalizados a cada nuevo suscriptor. |
+| Suscriptores | Lista de personas apuntadas: email, nombre, estado de suscripción y fecha de registro. |
+| Instalación | Código HTML para embeber el formulario en una web externa. |
+
+---
+
+## Campos del listado de suscriptores
+
+Dentro de la sección **Suscriptores** de cada suscripción, cada fila de la lista muestra:
+
+| Campo | Descripción |
+|---|---|
+| Email | Dirección de correo electrónico del suscriptor. |
+| Nombre | Nombre del suscriptor, si se recogió en el formulario. |
+| Estado | Estado del suscriptor en esa lista. Puede ser **Confirmado** o **Baja**. |
+| Fecha de suscripción | Fecha y hora en que la persona se registró. |
+
+Una persona pasa al estado **Baja** cuando hace clic en el enlace de cancelación de suscripción incluido en cualquier campaña. Nevent respeta esa baja de forma automática.

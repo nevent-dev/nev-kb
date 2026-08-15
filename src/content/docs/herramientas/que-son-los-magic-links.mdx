@@ -1,0 +1,108 @@
+---
+title: "Qué son los magic links y cuándo usarlos"
+description: "Un magic link es un enlace corto y trackeable que Nevent genera bajo el dominio nevt.link. Entiende qué es, de dónde viene y cuándo te conviene usarlo."
+diataxis: explanation
+sidebar:
+  order: 2
+faqs:
+  - q: "¿Un magic link y un enlace normal son lo mismo para el usuario que hace clic?"
+    a: "Para quien hace clic, el resultado es idéntico: llega a la misma página de destino. La diferencia está en que Nevent registra ese clic antes de redirigir, de modo que tú puedes verlo en las métricas."
+  - q: "¿Nevent crea magic links por su cuenta, o tengo que crearlos yo?"
+    a: "Ambas cosas. La plataforma los genera automáticamente cuando lanzas una campaña o usas el asistente chatbot. También puedes crearlos tú de forma manual desde la sección Herramientas."
+  - q: "¿Un mismo magic link puede usarse en varios canales a la vez?"
+    a: "Sí, pero ten en cuenta que los clics de todos los canales se acumulan en un único contador. Si quieres saber cuánto aporta cada canal por separado, crea un magic link distinto para cada uno."
+  - q: "¿Qué ocurre con los clics de un magic link que generó una campaña?"
+    a: "Esos enlaces están gestionados por la plataforma. Puedes consultar sus clics en el listado de magic links, pero no tienes las mismas opciones de edición que en los manuales."
+  - q: "¿Cómo distingo en el listado si un enlace lo creé yo o lo generó la plataforma?"
+    a: "La columna 'Origen' indica si el enlace es Manual, de Campañas o del Asistente. Los enlaces automáticos muestran además el icono 'Gestionado por la plataforma'; los manuales no lo llevan."
+---
+
+## El problema que resuelven
+
+Cuando promocionas un evento, compartes muchos enlaces: la página de entradas, un vídeo explicativo, el mapa del recinto, la convocatoria de un sorteo. Esos enlaces suelen ser largos, poco claros y, lo más importante, invisibles: no sabes si alguien hizo clic o no.
+
+Un magic link resuelve las dos cosas a la vez. Convierte cualquier URL larga en un enlace corto bajo el dominio `nevt.link`, y registra cada vez que alguien lo pulsa.
+
+## Qué es exactamente un magic link
+
+Un magic link es un enlace corto y trackeable que Nevent genera para cualquier URL que tú indiques. Cuando alguien hace clic en él, Nevent registra ese clic y redirige a la persona al destino original en menos de un segundo.
+
+Por ejemplo, en lugar de compartir:
+
+```
+https://demofest.nevent.es/event/demo-fest-2026-entradas
+```
+
+compartes:
+
+```
+https://nevt.link/2h92bh
+```
+
+Ambas llevan al mismo sitio, pero la segunda te dice cuánta gente entró.
+
+La sección **Magic links**, dentro de **Herramientas**, centraliza todos los enlaces en un único listado, independientemente de cómo se hayan creado. La descripción que aparece en la propia pantalla resume bien su propósito: "Un enlace por destino, con todo su histórico, lo genere una campaña, el asistente o tú."
+
+## De dónde vienen los magic links
+
+En Nevent, un magic link puede tener tres orígenes distintos:
+
+**Manual.** Lo creas tú desde la sección Herramientas. Le asignas un título que te ayude a identificarlo (por ejemplo, "Entradas Demo Fest - Bio Instagram") y apunta a la URL que elijas. Este tipo de enlace es el que más control te da: tiene disponible el botón 'Más opciones' y puedes usarlo donde quieras.
+
+**De campañas.** Cuando lanzas una campaña de email o SMS en Nevent, la plataforma genera automáticamente un magic link para cada URL que incluyes en el mensaje. Esto ocurre sin que tengas que hacer nada. Esos enlaces quedan registrados en el listado con el origen "Campañas" y el icono "Gestionado por la plataforma".
+
+**Del asistente.** El chatbot de Nevent también genera magic links cuando comparte una URL con alguien que pregunta, por ejemplo, dónde comprar entradas. Aparecen en el listado con el origen "Asistente" y el mismo icono de gestión automática.
+
+El listado muestra los tres tipos juntos, con filtros para verlos por separado si lo necesitas.
+
+## Qué información registra cada magic link
+
+Para cada enlace, el listado muestra:
+
+- **Clics totales**: el número acumulado de veces que alguien ha pulsado ese enlace desde que se creó.
+- **Usado en**: cuántas campañas de Nevent incluyen ese magic link. Si ninguna lo usa, aparece un guion.
+- **Último clic**: la fecha y hora del clic más reciente.
+
+Dentro de cada fila también hay un botón para expandir el detalle del enlace con información adicional.
+
+## Cuándo tiene sentido crear un magic link manual
+
+El origen automático (campañas y asistente) cubre los casos habituales sin que tengas que hacer nada. El magic link manual tiene sentido en situaciones como estas:
+
+**Bio de Instagram o TikTok.** Solo puedes poner un enlace en la bio, y quieres que sea corto y que te diga cuánta gente lo usa.
+
+**Carteles y códigos QR.** Un QR apunta a una URL, y si esa URL es un magic link, sabes cuánta gente escaneó el cartel y cuándo.
+
+**Grupos de WhatsApp, Telegram o comunidades.** Los mensajes largos con URLs kilométricas quedan mal. Un `nevt.link/` limpio es más fácil de pulsar y da mejor imagen.
+
+**Medir canales por separado.** Si quieres saber si tu comunidad de Telegram convierte más que tu bio de Instagram, crea un magic link distinto para cada canal apuntando al mismo destino. Así los clics no se mezclan y puedes compararlos.
+
+**Cualquier URL que quieras reutilizar con seguimiento.** Una playlist de Spotify, un vídeo de presentación, una encuesta: cualquier enlace que vayas a compartir repetidamente y del que quieras saber el alcance.
+
+## Cuándo no necesitas crear uno
+
+Si estás enviando una campaña de email o SMS en Nevent, la plataforma ya crea los magic links por ti. No hace falta que los crees antes a mano. Si luego quieres consultar los clics, los encontrarás en el listado con el origen "Campañas".
+
+Del mismo modo, cuando el asistente chatbot comparte una URL en una conversación, genera su propio magic link. Aparecerá en el listado con el origen "Asistente".
+
+## La lógica de "un enlace por destino"
+
+Un detalle importante: Nevent agrupa todos los clics de un mismo magic link en un único registro, sin importar cuántas veces o desde dónde se haya compartido ese enlace. Si creas un magic link para la página de entradas y lo pones en tres sitios distintos, los clics de los tres aparecen sumados en el mismo contador.
+
+Esto tiene una ventaja: el histórico acumulado de ese enlace nunca se pierde. Si el año que viene vuelves a usar el mismo destino, puedes ver todo lo que ha generado desde el principio.
+
+Tiene también una consecuencia práctica: si necesitas distinguir el tráfico por canal, tienes que crear un magic link por canal, aunque todos apunten al mismo sitio. Esa es precisamente la razón por la que algunos promotores tienen varios magic links con títulos como "Entradas - Bio IG", "Entradas - Stories" o "Entradas - Cartel BACCHANALIA".
+
+## Qué no son los magic links
+
+Para evitar confusiones, vale la pena aclarar lo que un magic link no hace:
+
+No son enlaces de pago ni afiliación. Simplemente redirigen y cuentan clics.
+
+No personalizan el destino según quién hace clic. Todos los que pulsen el mismo magic link llegan al mismo sitio. (La personalización por contacto ocurre dentro de las campañas, no en los magic links manuales.)
+
+No reemplazan al análisis de campañas. Los magic links miden clics en un enlace. El análisis de campañas mide aperturas, conversiones y otras métricas del envío en su conjunto. Son complementarios.
+
+---
+
+Para aprender a crear tu primer magic link paso a paso, consulta la guía [Magic Links: acorta enlaces y mide clics](/herramientas/magic-links).

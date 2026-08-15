@@ -211,6 +211,9 @@ export default defineConfig({
 					label: 'Suscripciones',
 					items: [
 						{ label: 'Crea un formulario de suscripción', slug: 'suscripciones/crear-formulario', badge: { text: 'Nuevo', variant: 'tip' } },
+						{ label: 'Crea tu primera suscripción', slug: 'suscripciones/tu-primera-suscripcion', badge: { text: 'Nuevo', variant: 'tip' } },
+						{ label: 'Referencia de suscripciones', slug: 'suscripciones/referencia', badge: { text: 'Nuevo', variant: 'tip' } },
+						{ label: 'Para qué sirven las suscripciones', slug: 'suscripciones/para-que-sirven', badge: { text: 'Nuevo', variant: 'tip' } },
 					],
 				},
 				{
@@ -329,18 +332,27 @@ export default defineConfig({
 					label: 'Herramientas',
 					items: [
 						{ label: 'Magic Links', slug: 'herramientas/magic-links', badge: { text: 'Nuevo', variant: 'tip' } },
+						{ label: 'Crea tu primer magic link', slug: 'herramientas/tu-primer-magic-link', badge: { text: 'Nuevo', variant: 'tip' } },
+						{ label: 'Referencia de magic links', slug: 'herramientas/referencia-magic-links', badge: { text: 'Nuevo', variant: 'tip' } },
+						{ label: 'Qué son los magic links', slug: 'herramientas/que-son-los-magic-links', badge: { text: 'Nuevo', variant: 'tip' } },
 					],
 				},
 				{
 					label: 'Chatbot',
 					items: [
 						{ label: 'Configura tu chatbot', slug: 'chatbot/configuracion', badge: { text: 'Nuevo', variant: 'tip' } },
+						{ label: 'Pon en marcha tu chatbot', slug: 'chatbot/pon-en-marcha-tu-chatbot', badge: { text: 'Nuevo', variant: 'tip' } },
+						{ label: 'Referencia del chatbot', slug: 'chatbot/referencia', badge: { text: 'Nuevo', variant: 'tip' } },
+						{ label: 'Cómo funciona el chatbot', slug: 'chatbot/como-funciona', badge: { text: 'Nuevo', variant: 'tip' } },
 					],
 				},
 				{
 					label: 'Superapp',
 					items: [
 						{ label: 'La Superapp', slug: 'superapp/introduccion', badge: { text: 'Nuevo', variant: 'tip' } },
+						{ label: 'Primeros pasos con la Superapp', slug: 'superapp/primeros-pasos', badge: { text: 'Nuevo', variant: 'tip' } },
+						{ label: 'Referencia de la Superapp', slug: 'superapp/referencia', badge: { text: 'Nuevo', variant: 'tip' } },
+						{ label: 'Qué es la Superapp', slug: 'superapp/que-es', badge: { text: 'Nuevo', variant: 'tip' } },
 					],
 				},
 				{

@@ -1,0 +1,196 @@
+---
+title: Cómo funciona el chatbot de Nevent
+description: >
+  Descubre qué es el chatbot de soporte de Nevent, cómo combina instrucciones,
+  voz, documentos y fuentes de datos para responder a tus fans, y en qué idioma
+  se comunica con cada visitante.
+diataxis: explanation
+faqs:
+  - q: "¿El chatbot usa la información de mi evento de forma automática?"
+    a: >
+      Sí. Cuando activas fuentes de datos como la agenda de artistas, el venue
+      o los detalles de entrada, el chatbot consulta esa información en tiempo
+      real sin que tengas que copiarla manualmente. Puedes activar o desactivar
+      cada fuente de forma independiente.
+  - q: "¿En qué idioma responde el chatbot a mis fans?"
+    a: >
+      El chatbot detecta el idioma en que escribe el visitante y responde en ese
+      mismo idioma, siempre que sea compatible con el asistente. En la bandeja de
+      entrada de Demo Fest se han observado conversaciones en español, neerlandés,
+      japonés y rumano.
+  - q: "¿Qué pasa si no defino instrucciones personalizadas?"
+    a: >
+      El chatbot sigue activo y puede responder usando las fuentes de datos y los
+      documentos que hayas subido. Sin instrucciones, aplica un comportamiento
+      genérico. Las instrucciones permiten darle personalidad, prioridades y
+      restricciones propias de tu evento.
+  - q: "¿Puedo subir cualquier tipo de documento de referencia?"
+    a: >
+      Los formatos admitidos son PDF, TXT, MD y DOCX, con un tamaño máximo de
+      10 MB por documento. El documento debe estar procesado correctamente (estado
+      "Listo") para que el chatbot pueda consultarlo.
+  - q: "¿El chatbot puede derivar a un agente humano?"
+    a: >
+      Sí. Desde la bandeja de entrada, cualquier miembro del equipo puede tomar
+      el control de una conversación manualmente. Cuando eso ocurre, el bot deja
+      de responder y el agente escribe directamente al fan.
+---
+
+El chatbot de Nevent es un asistente virtual de soporte que responde preguntas
+de tus fans en tiempo real desde tu web o landing page. Esta página explica cómo
+funciona por dentro: de dónde obtiene la información, qué papel tiene cada capa
+de configuración y por qué el sistema está diseñado de esa manera.
+
+## Qué es el chatbot de Nevent
+
+El chatbot es un asistente de inteligencia artificial que tú instalas en la web
+de tu evento para atender dudas de los asistentes sin que intervenga tu equipo
+en cada mensaje. Cuando alguien pregunta por el horario de apertura, los artistas
+del lineup o cómo recargar el cashless, el bot responde al instante con la
+información de tu evento.
+
+No es un chatbot de preguntas y respuestas fijas. El asistente genera respuestas
+en lenguaje natural combinando varias capas de información que el promotor
+controla.
+
+## Las cuatro capas que forman cada respuesta
+
+Cuando un fan escribe un mensaje, el chatbot compone la respuesta a partir de
+cuatro capas que actúan juntas. Entender cada una ayuda a saber por qué el bot
+responde como lo hace y cómo mejorarlo.
+
+### 1. Las instrucciones personalizadas
+
+Las instrucciones son el núcleo de comportamiento del asistente. Aquí defines
+quién es el bot, qué prioriza y cómo actúa en cada situación. Por ejemplo, puedes
+indicarle que se llame "Asistente oficial de Demo Fest", que use un tono informal,
+que priorice información sobre accesos o que siempre ofrezca el correo de soporte
+cuando no sepa la respuesta.
+
+El campo admite hasta 5.000 caracteres de texto libre en lenguaje natural. No
+hace falta saber programar. El estilo de escritura, en cambio, se gestiona por
+separado en la capa de voz.
+
+### 2. La voz del asistente
+
+La voz define cómo suena el asistente al escribir: el vocabulario que usa, la
+longitud de sus frases, el grado de formalidad. Se genera a partir de
+conversaciones reales de tu equipo. La plataforma recomienda aportar entre dos
+y seis conversaciones variadas (consultas habituales, incidencias, negativas)
+con un mínimo de 500 palabras en total.
+
+La diferencia entre instrucciones y voz es conceptual. Las instrucciones dicen
+qué hacer; la voz dice cómo decirlo. Si no configuras la voz, el asistente
+escribe con un estilo genérico por defecto.
+
+### 3. Los documentos de referencia
+
+Son archivos que tú subes y que el bot puede consultar para dar respuestas más
+precisas: la guía del recinto, el FAQ del evento, las normas de acceso, el mapa
+de escenarios. Los formatos admitidos son PDF, TXT, MD y DOCX, con un tamaño
+máximo de 10 MB por documento.
+
+Cuando subes un documento, la plataforma lo procesa y lo pone en estado "Listo".
+Solo entonces el chatbot puede leerlo. Si el estado no es "Listo", el documento
+no se usa.
+
+La lógica es sencilla: cuanto más completo y actualizado sea el documento, más
+precisas serán las respuestas. Un FAQ bien redactado con las preguntas habituales
+de tu evento reduce la probabilidad de que el bot improvise o cometa errores.
+
+### 4. Las fuentes de datos de Nevent
+
+Las fuentes de datos son la información estructurada que ya existe en tu cuenta
+de Nevent. En lugar de copiar esa información manualmente a un documento, el
+chatbot puede consultarla en tiempo real cuando la fuente está activada.
+
+Hay hasta ocho fuentes agrupadas en tres bloques:
+
+**Información del evento:**
+El nombre, la descripción y la imagen principal del evento; la ubicación física,
+las fechas y los horarios de apertura de puertas del venue; y el lineup completo
+con horarios de actuación, escenarios y artistas destacados.
+
+**Información del usuario:**
+El nombre del asistente, sus carpetas asignadas y su ubicación actual; sus puntos
+de loyalty, el nivel alcanzado y los beneficios disponibles; y el tipo de entrada
+que tiene, las experiencias incluidas y los complementos contratados.
+
+**Información adicional:**
+Los puntos de interés, las ubicaciones de servicios y las áreas del recinto según
+el mapa; y la lista de marcas patrocinadoras con sus enlaces.
+
+Puedes activar o desactivar cada fuente de forma independiente. La razón para
+desactivar fuentes que no necesitas es práctica: la plataforma indica que
+desmarcar fuentes innecesarias optimiza el consumo de tokens. En Demo Fest, por
+ejemplo, la fuente de patrocinadores está desactivada, lo que explica el marcador
+"7 de 8 fuentes activas" visible en el panel de estado.
+
+## Cómo decide el chatbot qué incluir en cada respuesta
+
+Cuando llega una pregunta, el asistente combina lo que sabe de las cuatro capas
+y genera una respuesta en lenguaje natural. No busca una respuesta predefinida,
+sino que razona sobre la información disponible para construir una contestación
+apropiada al contexto.
+
+El modelo de lenguaje que usa el asistente en Demo Fest es Gemini 3.5 Flash Lite,
+visible en el panel de estado de la configuración.
+
+## En qué idioma responde el chatbot
+
+El chatbot detecta el idioma en que escribe el visitante y responde en ese mismo
+idioma. Esta capacidad es automática y no requiere configuración adicional por
+parte del promotor.
+
+En la bandeja de entrada de Demo Fest se han observado conversaciones activas en
+español, neerlandés, japonés y rumano, todas gestionadas por el mismo asistente.
+
+El widget tiene un ajuste de idioma por defecto (español, inglés, catalán o
+portugués), pero si la página donde se instala el chat declara otro idioma
+compatible, el widget lo adopta automáticamente.
+
+## Los enlaces trackeados y el empuje a venta
+
+Cuando el chatbot recomienda un evento o enlaza documentación, puede usar un
+enlace corto medible (con dominio nevt.link) en lugar de la URL original. Esto
+permite contabilizar cuántos clics genera el asistente y atribuirlos a
+conversaciones concretas.
+
+Hay un límite de 200 enlaces nuevos al día por recinto. Si se supera, las
+respuestas vuelven a usar la URL original sin tracking.
+
+Esta capa de medición es la que alimenta la sección "Empuje a venta" en el
+panel de rendimiento, donde el promotor puede ver cuántas recomendaciones con
+enlace realizó el bot, cuántos clics generaron y qué porcentaje de conversaciones
+hicieron clic.
+
+## La bandeja de entrada y la intervención humana
+
+El chatbot no es un canal cerrado. Desde la bandeja de entrada, cualquier miembro
+del equipo puede ver el estado de todas las conversaciones y tomar el control de
+cualquiera de ellas en tiempo real. Cuando un agente interviene, el bot deja de
+responder y el agente escribe directamente al fan.
+
+Las conversaciones tienen cuatro estados posibles: bot en curso (el asistente
+está respondiendo de forma autónoma), en curso (un agente humano ha tomado el
+relevo), escalada (el bot no ha podido resolver la consulta y espera atención
+humana) y resuelta.
+
+Este diseño permite que el chatbot gestione el volumen alto de consultas
+repetitivas, con los agentes humanos disponibles para los casos que requieren
+criterio o información que el bot no tiene.
+
+## Por qué esta arquitectura en capas
+
+La separación en instrucciones, voz, documentos y fuentes de datos responde a
+un objetivo concreto: que el promotor pueda actualizar cada parte sin tocar las
+demás.
+
+Si cambia el lineup del evento, la información se actualiza en la plataforma y
+el chatbot la refleja automáticamente a través de la fuente "Agenda de artistas",
+sin tener que editar ningún documento ni reescribir las instrucciones. Si cambia
+el tono de comunicación del festival, basta con ajustar la voz o las instrucciones,
+sin tocar los datos del evento.
+
+Esta modularidad reduce el trabajo de mantenimiento y disminuye el riesgo de que
+el bot trabaje con información desactualizada.

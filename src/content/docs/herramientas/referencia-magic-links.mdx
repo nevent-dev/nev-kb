@@ -1,0 +1,126 @@
+---
+title: "Referencia de Magic Links"
+description: "Ficha técnica de Magic Links en Nevent: orígenes (Manual, Campañas, Asistente), dominio nevt.link, columnas de la tabla, métricas visibles y significado de «gestionado por la plataforma»."
+diataxis: reference
+faqs:
+  - q: "¿Cuál es el dominio de los enlaces cortos de Nevent?"
+    a: "Todos los Magic Links usan el dominio nevt.link. El formato es nevt.link/XXXXX, donde XXXXX es el código único del enlace."
+  - q: "¿Qué diferencia hay entre un enlace Manual y uno de Campañas?"
+    a: "Los enlaces Manuales los crea el promotor desde la pantalla de Magic Links. Los de Campañas los genera la plataforma de forma automática cuando se incluye un enlace en una campaña de email."
+  - q: "¿Puedo editar o borrar un enlace que generó el Asistente?"
+    a: "No. Los enlaces generados por el Asistente (y los de Campañas) están gestionados por la plataforma. No tienen el botón «Más opciones» y no se pueden modificar ni eliminar manualmente."
+  - q: "¿Qué cuenta el campo «Clics totales»?"
+    a: "Muestra el total acumulado de clics registrados sobre ese enlace corto desde su creación, sin filtro de fechas."
+  - q: "¿Qué significa el campo «Usado en»?"
+    a: "Indica cuántas campañas de Nevent referencian ese enlace. Si ninguna lo usa, aparece un guion."
+---
+
+import { Aside } from '@astrojs/starlight/components';
+
+Magic Links es la sección de Herramientas que centraliza todos los enlaces cortos de tu cuenta. Esta página describe las propiedades de cada enlace, las columnas de la tabla y el comportamiento diferencial según el origen.
+
+<Aside type="tip">
+Si buscas los pasos para crear un Magic Link manual, consulta la guía [Magic Links: acorta enlaces y mide clics](/herramientas/magic-links).
+</Aside>
+
+---
+
+## Dominio corto
+
+Todos los Magic Links de Nevent se publican bajo el dominio `nevt.link`. El formato de cualquier enlace corto es:
+
+```
+https://nevt.link/XXXXX
+```
+
+donde `XXXXX` es el código alfanumérico único asignado por la plataforma. Este código no es modificable por el promotor.
+
+---
+
+## Orígenes de un Magic Link
+
+Cada Magic Link tiene un origen que indica quién o qué lo creó. La columna **Origen** de la tabla puede mostrar tres valores.
+
+| Origen | Quién lo crea | Cuándo aparece |
+|--------|---------------|----------------|
+| **Manual** | El promotor, desde la pantalla de Magic Links | Cuando se usa el formulario de creación |
+| **Campañas** | La plataforma de forma automática | Cuando se incluye una URL en una campaña de email |
+| **Asistente** | El chatbot de Nevent de forma automática | Cuando el asistente genera un enlace en una conversación |
+
+Los tres orígenes comparten el mismo dominio corto `nevt.link` y aparecen en el mismo listado. Los filtros de vista de la parte superior permiten mostrar solo los de un origen concreto.
+
+---
+
+## Columnas de la tabla de Magic Links
+
+La tabla muestra las siguientes columnas para cada enlace.
+
+| Columna | Descripción |
+|---------|-------------|
+| **Destino** | Título del enlace si tiene uno asignado; en caso contrario, la URL de destino completa. |
+| **Origen** | Valor: Manual, Campañas o Asistente. |
+| **Enlace** | El enlace corto en formato `nevt.link/XXXXX`, con hiperenlace para abrir directamente el destino. |
+| **Clics totales** | Contador numérico del total acumulado de clics registrados desde la creación del enlace. |
+| **Usado en** | Número de campañas de Nevent que referencian ese enlace. Muestra un guion si ninguna campaña lo usa. |
+| **Último clic** | Fecha y hora del último clic registrado. Queda vacío si el enlace no ha recibido ningún clic. |
+| **Acciones** | Botones disponibles para ese enlace (véase la sección siguiente). |
+
+---
+
+## Acciones disponibles por origen
+
+El conjunto de acciones que aparece en la columna **Acciones** varía según el origen del enlace.
+
+| Acción | Manual | Campañas | Asistente |
+|--------|--------|----------|-----------|
+| Expandir detalle | Sí | Sí | Sí |
+| Más opciones | Sí | No | No |
+| Icono «Gestionado por la plataforma» | No | Sí (en algunos) | Sí |
+
+El botón **Expandir detalle** está presente en todos los registros. El botón **Más opciones** solo aparece en los enlaces de origen Manual.
+
+---
+
+## Qué significa «gestionado por la plataforma»
+
+Los enlaces de origen Campañas y Asistente muestran un icono que indica que ese Magic Link está gestionado por la plataforma. Esto tiene las siguientes implicaciones:
+
+- El enlace no puede modificarse ni eliminarse desde la interfaz de promotor.
+- No aparece el botón **Más opciones** en la columna Acciones.
+- El enlace se mantiene mientras la campaña o la conversación del asistente que lo originó siga activa.
+
+Los enlaces con el texto «Auto-generado desde campaña» en el campo Destino tienen origen **Manual** y sí disponen del botón **Más opciones**: el promotor puede editarlos o eliminarlos igual que cualquier otro enlace manual. El título descriptivo indica que el enlace apunta a un destino usado previamente en una campaña, pero no implica que la plataforma lo gestione.
+
+---
+
+## Filtros y buscador
+
+La pantalla de Magic Links ofrece dos mecanismos para localizar enlaces.
+
+| Elemento | Opciones |
+|----------|---------|
+| **Filtros de vista** | Todos (por defecto), Manuales, De campañas, Del asistente |
+| **Buscador** | Busca por texto en el destino, el título o el código del enlace |
+
+Los filtros de vista y el buscador son compatibles entre sí.
+
+---
+
+## Métricas visibles en el listado
+
+La tabla principal muestra dos métricas de uso de cada enlace de forma directa:
+
+- **Clics totales**: suma de todos los clics recibidos desde la creación, sin posibilidad de filtrar por fecha desde el listado.
+- **Último clic**: marca de tiempo del clic más reciente. Si el enlace no ha recibido ningún clic, este campo aparece vacío.
+
+El campo **Usado en** no es una métrica de clics, sino de alcance: indica en cuántas campañas está presente ese enlace.
+
+<Aside type="note">
+El panel **Expandir detalle** de cada fila puede contener estadísticas adicionales por periodo u otros desgloses. El contenido exacto de ese panel no está recogido en esta referencia.
+</Aside>
+
+---
+
+## Paginación
+
+El listado muestra 20 registros por página. Si tienes más de 20 Magic Links, aparece una paginación en la parte inferior para navegar entre páginas.
