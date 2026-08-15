@@ -1,0 +1,176 @@
+---
+title: Configura tu entrega de emails
+diataxis: tutorial
+description: Primer recorrido guiado por la configuración de envío de email en Nevent. Aprende a revisar tu remitente, provisionar tu infraestructura de envío y añadir un dominio propio.
+sidebar:
+  order: 0
+faqs:
+  - q: "¿Mis emails se envían aunque no haya provisionado ningún componente?"
+    a: "Sí. Con el dominio compartido de Nevent los emails salen desde el primer día. El aprovisionamiento mejora el aislamiento de reputación, pero no es un requisito para empezar."
+  - q: "¿Cuánto tarda el proceso de aprovisionamiento del subdominio y el SES Tenant?"
+    a: "Nevent indica que puede tardar varios minutos. Con una sola pulsación del botón es suficiente; no es necesario repetirlo."
+  - q: "¿Qué diferencia hay entre el dominio compartido y el dominio dedicado?"
+    a: "Con el dominio compartido, tus emails salen desde un subdominio de Nevent que comparten todas las cuentas de la plataforma. Con el dominio dedicado, tus emails salen desde tu propio dominio, lo que mejora la entregabilidad y hace que tus contactos vean tu marca como remitente."
+  - q: "¿Es obligatorio configurar un dominio dedicado?"
+    a: "No. Es opcional. El dominio compartido funciona bien para empezar. El dominio dedicado se recomienda cuando quieres mejorar la llegada a bandeja de entrada y reforzar la imagen de tu organización."
+  - q: "¿Qué son SPF, DKIM y DMARC?"
+    a: "Son registros técnicos que se crean en el panel DNS de tu proveedor de dominio. Sirven para demostrar a los servidores de correo que tus emails son legítimos y no provienen de un impostor. Nevent los genera automáticamente durante el asistente de dominio dedicado."
+---
+
+En este tutorial vas a dar los primeros pasos para configurar correctamente el envío de emails en Nevent. Empezarás por revisar desde qué dirección salen tus campañas y qué estado tienen los componentes técnicos de tu cuenta. Después, si lo necesitas, aprenderás a provisionar esos componentes y a añadir un dominio propio.
+
+Al terminar, sabrás exactamente cómo está configurada la entrega de tus emails y tendrás claros los dos pasos que puedes dar para mejorarla.
+
+El recorrido completo lleva unos 10 minutos.
+
+## Lo que necesitas
+
+- Acceso al panel de administración de Nevent con rol de administrador.
+- Si vas a configurar un dominio dedicado: conocer tu dominio raíz (por ejemplo, `tufestival.com`) y tener acceso al panel DNS de tu proveedor de dominio.
+
+Si solo quieres revisar el estado actual sin cambiar nada, no necesitas ningún requisito adicional.
+
+## Parte 1: revisa tu configuración de envío actual
+
+### Paso 1: accede a Envío de emails
+
+En el menú lateral, desplázate hasta la parte inferior. Dentro del grupo **Avanzado**, haz clic en **Envío de emails**.
+
+Se abre la pantalla "Envío de emails" con tres bloques: la dirección de envío efectiva, el tipo de dominio y el estado de los componentes técnicos.
+
+### Paso 2: comprueba tu dirección y tipo de dominio
+
+El primer bloque muestra la **Dirección de envío efectiva**: la dirección desde la que tus contactos reciben tus campañas. Debajo aparece el nombre de tu organización con la indicación "via Nevent".
+
+El campo **Tipo de dominio** indica si estás usando el dominio compartido de Nevent o tu propio dominio dedicado.
+
+Si ves "Dominio compartido", tus emails salen desde un subdominio de Nevent que comparten todas las cuentas de la plataforma. Esto funciona bien para empezar. Si quieres que tus contactos vean tu propio dominio como remitente, necesitas configurar un dominio dedicado (lo haremos en la Parte 2).
+
+### Paso 3: revisa el estado de los componentes técnicos
+
+El bloque **Estado de componentes** muestra tres elementos que trabajan juntos para que tus emails lleguen bien y no acaben en spam.
+
+**Subdominio automático**
+Un subdominio único y verificado en AWS (el proveedor de envío de Nevent) que da a tu cuenta una reputación propia, separada del resto de usuarios de la plataforma. Cuando está activo, los servidores de correo como Gmail o Outlook asocian la reputación de tus envíos solo a tu cuenta.
+
+**Configuration Sets**
+Son los ajustes de seguimiento dentro de AWS SES (el servicio de envío de emails que usa Nevent). Controlan qué eventos de tus campañas se registran: aperturas, clics, rebotes y quejas. Nevent los crea junto con el subdominio.
+
+**SES Tenant**
+Una cuenta de envío propia dentro de AWS SES. Cuando este componente está activo, tus emails salen desde una infraestructura aislada. Así, si otra cuenta de Nevent tiene problemas de reputación, no te afectan.
+
+:::note[Estado inicial]
+Si los tres componentes aparecen como "No configurado", "No configurados" o "No creado", tu cuenta todavía usa el dominio compartido estándar. Tus emails siguen enviándose con normalidad: solo que comparten reputación con otros remitentes de Nevent.
+:::
+
+Anota mentalmente el estado de cada componente. Lo usarás en el siguiente paso.
+
+### Paso 4: provisiona tu dominio y componentes (si no están activos)
+
+Si los tres componentes aparecen como no configurados y quieres pasar a una infraestructura de envío propia, haz clic en el botón **Provisionar dominio y crear SES Tenant**.
+
+Al pulsarlo, Nevent crea automáticamente el subdominio, los configuration sets y el SES Tenant en tu cuenta. El proceso puede tardar varios minutos.
+
+:::caution[Importante]
+No pulses el botón varias veces. Con una sola pulsación es suficiente. Si tras varios minutos los componentes siguen sin aparecer como configurados, contacta con el equipo de soporte de Nevent.
+:::
+
+Cuando el proceso termine, los tres componentes pasarán a estado activo y tu cuenta dispondrá de reputación propia dentro de la infraestructura de Nevent.
+
+Has completado la Parte 1. Ya sabes desde qué dirección salen tus emails, qué dominio estás usando y qué estado tienen los componentes técnicos. Si no necesitas un dominio propio, puedes detenerte aquí.
+
+---
+
+## Parte 2: añade tu dominio dedicado (opcional)
+
+Esta parte es opcional. La necesitas si quieres que tus emails lleguen desde tu propio dominio, por ejemplo `email.tufestival.com`, en lugar del dominio compartido de Nevent. Esto mejora la tasa de entrega y refuerza la imagen de tu organización ante tus contactos.
+
+Necesitarás tu dominio raíz y acceso al panel DNS de tu proveedor de dominio.
+
+### Paso 5: accede a Dominio dedicado
+
+En el menú lateral, haz clic en **Configuración**. Dentro de Configuración, localiza el grupo **Espacio de trabajo** en el menú secundario de la izquierda. Haz clic en **Dominio dedicado**.
+
+Se abre la pantalla de bienvenida del módulo. Puedes leer los tres beneficios que se describen en pantalla (mejorar la tasa de entrega, reforzar la imagen de marca y proteger la reputación mediante SPF, DKIM y DMARC) y luego haz clic en **Comenzar configuración** para abrir el asistente.
+
+### Paso 6: introduce tu dominio raíz
+
+El asistente muestra el primer paso. Escribe tu dominio raíz en el campo, sin `www` ni `https://`. Por ejemplo: `tufestival.com`.
+
+:::tip[Consejo]
+Usa exactamente el mismo dominio que aparece en tu web. Si tu web es `www.mirecinto.com`, el dominio raíz es `mirecinto.com`.
+:::
+
+Cuando el campo tenga un valor válido, el botón **Siguiente** se activa. Haz clic en él para continuar.
+
+### Paso 7: elige tu subdominio de envíos
+
+En el segundo paso, defines el subdominio que Nevent usará para enviar tus emails.
+
+Por defecto, el campo ya sugiere `email`. Así el remitente de tus campañas será `email.tufestival.com`. Puedes cambiarlo por otro prefijo si lo prefieres, aunque `email` es el más habitual.
+
+A la derecha del campo ves cómo quedará el subdominio completo. Haz clic en **Siguiente** cuando estés conforme.
+
+### Paso 8: confirma y genera los registros DNS
+
+El tercer paso muestra un resumen con el dominio raíz y el subdominio completo que has elegido. Revisa que ambos valores son correctos. Si ves algún error, haz clic en **Anterior** para corregirlo.
+
+Cuando todo esté bien, haz clic en **Configurar dominio**. Nevent genera los registros DNS que deberás crear en tu proveedor.
+
+:::caution[Importante]
+Al hacer clic en "Configurar dominio" Nevent genera los registros DNS para tu cuenta. No pulses ese botón varias veces: con una vez es suficiente.
+:::
+
+### Paso 9: crea los registros DNS en tu proveedor
+
+Después de confirmar, Nevent muestra los registros DNS que debes copiar y pegar en el panel de tu proveedor de dominio.
+
+Los registros están agrupados en cuatro tipos:
+
+| Tipo de registro | Para qué sirve |
+|---|---|
+| **DKIM** (registros de tipo CNAME) | Firma digital que prueba que el email lo envías tú y no un tercero |
+| **SPF** (un registro de tipo TXT) | Lista de servidores autorizados a enviar en nombre de tu dominio |
+| **MAIL FROM** (un registro de tipo MX) | Dirección técnica de rebote; mejora la reputación del dominio |
+| **DMARC** (un registro de tipo TXT) | Política que indica a los servidores de correo qué hacer si un email no supera SPF o DKIM |
+
+Para cada registro, copia los campos Nombre, Tipo y Valor usando el icono de copiar que aparece junto a cada uno. Después ve al panel DNS de tu proveedor y crea cada registro con esos valores.
+
+:::tip[Consejo]
+Abre el panel de tu proveedor en una ventana nueva y ten esta pantalla de Nevent abierta en otra. Copia y pega cada registro uno a uno para no confundirte.
+:::
+
+:::caution[Importante]
+Los valores de DKIM son cadenas de texto largas. No los transcribas a mano: usa siempre el botón de copiar para evitar errores.
+:::
+
+### Paso 10: verifica el estado de los registros
+
+Una vez que hayas creado todos los registros en tu proveedor, vuelve a Nevent y haz clic en el botón **Verificar estado**.
+
+Nevent comprueba si los registros ya son visibles en internet. Dependiendo de tu proveedor, la propagación puede tardar desde unos minutos hasta 72 horas. Si algún registro aparece como "Pendiente" al verificar, espera unas horas e inténtalo de nuevo.
+
+:::note[Nota]
+No tienes que esperar a que estén todos verificados para cerrar la pantalla. Puedes salir y volver más tarde a comprobar el estado.
+:::
+
+Cuando todos los registros estén verificados, tu dominio dedicado quedará activo y tus próximas campañas de email se enviarán desde tu propio subdominio.
+
+---
+
+## Resultado
+
+Has completado la configuración de envío de emails en Nevent. Ahora sabes:
+
+- Desde qué dirección salen tus campañas y qué tipo de dominio estás usando.
+- Qué son el subdominio automático, los configuration sets y el SES Tenant, y cómo provisionarlos.
+- Cómo añadir tu propio dominio para mejorar la entregabilidad y la imagen de marca.
+
+:::tip[Consejo]
+Si pasadas 72 horas algún registro DNS sigue en estado "Pendiente", revisa en el panel de tu proveedor que copiaste el nombre y el valor exactamente tal como los muestra Nevent. Un espacio de más o un carácter incorrecto puede impedir la verificación.
+:::
+
+## Siguientes pasos
+
+- [Reputación de envío: cómo evitar el spam](/entregabilidad/reputacion-y-spam) para entender los hábitos que protegen la llegada de tus emails a bandeja de entrada.
+- [Activa tus canales de comunicación](/entregabilidad/activar-canales) para revisar el remitente, la firma de email, SMS, WhatsApp y Analytics.

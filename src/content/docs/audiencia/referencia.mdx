@@ -1,0 +1,154 @@
+---
+title: "Referencia de la ficha del fan y el listado"
+description: "Descripción completa de las columnas del listado de Fans, las pestañas de la ficha de un fan, los estados de consentimiento por canal, el estado de higiene de email y las columnas del listado de Segmentos."
+diataxis: reference
+sidebar:
+  order: 3
+faqs:
+  - q: "¿Qué significa que el email de un fan aparece como inválido?"
+    a: "Significa que ese email ha registrado al menos un rebote duro, es decir, que un mensaje no ha podido entregarse de forma definitiva. Nevent lo marca como inválido de forma automática y excluye a ese fan de todas las campañas de marketing por email hasta que se actualice la dirección."
+  - q: "¿Qué diferencia hay entre 'Sin baja' y 'Activo' en los consentimientos?"
+    a: "Son etiquetas de estado distintas para cada canal. 'Activo' aparece en el email transaccional e indica que el canal está operativo. 'Sin baja' aparece en email de marketing, SMS y push, e indica que el fan no se ha dado de baja de ese canal, pero no necesariamente que haya dado un opt-in positivo."
+  - q: "¿Qué muestra el porcentaje de contactabilidad en el listado de Segmentos?"
+    a: "Muestra el porcentaje de fans del segmento que tienen un email válido y sin baja de marketing sobre el total estimado del segmento. Un porcentaje bajo puede indicar muchos emails inválidos, muchas bajas o que el segmento contiene contactos importados sin consentimiento."
+  - q: "¿Qué es el Nevent Score?"
+    a: "Es una puntuación automática que Nevent calcula para clasificar el nivel de compromiso de un fan con tu organización. Aparece en el bloque de métricas de cabecera de la pestaña Resumen de la ficha."
+---
+
+import { Aside } from '@astrojs/starlight/components';
+
+Esta página describe todos los campos, columnas y estados que aparecen en el área Audiencia de Nevent: el listado de Fans, la ficha individual de un fan y el listado de Segmentos.
+
+Úsala como consulta rápida cuando necesites saber qué significa un valor concreto o qué información contiene cada sección.
+
+---
+
+## Listado de Fans
+
+El listado de Fans (`/users`) muestra todos los contactos registrados en tu organización en una tabla paginada.
+
+### Columnas del listado de Fans
+
+| Columna | Descripción |
+|---|---|
+| Nombre | Nombre completo del contacto. Aparece un guion (`-`) si el fan no tiene nombre registrado. |
+| Correo electrónico | Dirección de email del contacto. |
+| Teléfono | Número de teléfono. Aparece un guion (`-`) si el fan no tiene teléfono registrado. |
+| Estado | Estado del contacto dentro de la organización. El valor observado es "Invitado". |
+| Organización | Nombre de la organización a la que pertenece el contacto. |
+| Experiencias | Número de experiencias vinculadas al contacto. |
+| Valor | Valor económico acumulado del contacto, expresado en euros. |
+
+### Estado del contacto
+
+El único estado observado en el listado es el siguiente.
+
+| Estado | Descripción |
+|---|---|
+| Invitado | El contacto está registrado en la organización. |
+
+---
+
+## Ficha de un fan
+
+Al hacer clic en cualquier fila del listado de Fans se abre la ficha individual del fan. La ficha tiene un menú lateral con nueve pestañas.
+
+### Pestañas de la ficha
+
+| Pestaña | URL relativa |
+|---|---|
+| Resumen | `/summary` |
+| Datos personales | `/profile` |
+| Perfil público | `/public` |
+| Intereses | `/interests` |
+| Entradas | `/tokens` |
+| Compras | `/purchases` |
+| Suscripciones | `/newsletters` |
+| Conversaciones | `/conversations` |
+| Interacción | `/interaction` |
+
+La pestaña Resumen es la vista por defecto. Para conocer cómo usar cada pestaña consulta la guía [Gestión de fans](/audiencia/gestion-de-fans/).
+
+---
+
+## Pestaña Resumen: métricas de cabecera
+
+La parte superior de la pestaña Resumen muestra cuatro métricas del fan.
+
+| Métrica | Descripción |
+|---|---|
+| Gasto total | Suma acumulada de todas las compras del fan, en euros. |
+| Número de compras | Total de transacciones completadas por el fan. |
+| Eventos asistidos | Número de eventos a los que el fan ha asistido. |
+| Nevent Score | Puntuación automática de compromiso del fan con la organización. Incluye una etiqueta de nivel, por ejemplo "Bajo compromiso". |
+
+---
+
+## Pestaña Resumen: bloque Comunicaciones
+
+El bloque Comunicaciones muestra el estado del consentimiento del fan para cada canal de marketing. El sistema incluye un texto de ayuda que indica: "El consentimiento es por organización. Fuente: preferencias del usuario y eventos de entrega."
+
+### Estados de consentimiento por canal
+
+| Canal | Estado observado | Nota visible en la interfaz |
+|---|---|---|
+| Email de marketing | Sin baja | Sin nota adicional. |
+| Email transaccional | Activo | "Entradas y avisos de cuenta: no requiere aceptación de marketing, pero sí email válido." |
+| SMS de marketing | Sin baja | "Sin decisión registrada: permitido por defecto." |
+| Push de marketing | Sin baja | Sin nota adicional. |
+| WhatsApp | Sin opt-in | "Requiere opt-in explícito: no registrado." |
+
+<Aside type="note">
+El consentimiento de WhatsApp solo puede darlo el propio usuario desde la app de Nevent. No se puede activar desde el panel de administración.
+</Aside>
+
+---
+
+## Pestaña Resumen: bloque Estado del email
+
+El bloque Estado del email muestra información sobre la higiene de la dirección de email del fan y su efecto en la entregabilidad.
+
+El texto de ayuda del sistema indica: "Un rebote duro marca el email como inválido y da de baja de marketing automáticamente; una queja da de baja de marketing. Ambos estados se reflejan aquí y en todos los contadores de contactables."
+
+### Campos del bloque Estado del email
+
+| Campo | Descripción |
+|---|---|
+| Dirección de email | Muestra la dirección de email del fan. |
+| Rebotes duros | Indica si el email tiene rebotes duros registrados. |
+| Estado de validez | Indica si la dirección está marcada como inválida. |
+
+### Consecuencias del estado de higiene
+
+| Evento | Consecuencia automática |
+|---|---|
+| Rebote duro | El email se marca como inválido y el fan se da de baja de marketing de forma automática. |
+| Queja | El fan se da de baja de marketing de forma automática. |
+
+Estos dos estados afectan a todos los contadores de contactables de la organización, incluidos los que aparecen en el listado de Segmentos.
+
+---
+
+## Listado de Segmentos
+
+El listado de Segmentos (`/lists`) muestra todos los segmentos de audiencia de la organización con información de contactabilidad por canal.
+
+### Columnas del listado de Segmentos
+
+| Columna | Descripción |
+|---|---|
+| Nombre | Nombre del segmento. |
+| Asistentes Est. | Número estimado de fans que forman parte del segmento. |
+| Audiencia de marketing estimada (email, SMS, push) | Desglose del número de fans contactables por cada canal, con el porcentaje de contactabilidad por email. |
+| Última modificación | Fecha y hora de la última edición del segmento. |
+| Acciones | Menú de opciones disponibles para ese segmento. |
+
+### Columna de audiencia de marketing estimada
+
+Esta columna desglosa tres subcolumnas: email, SMS y push. Para el canal email también muestra el porcentaje de contactabilidad, que se calcula sobre el total estimado del segmento.
+
+El porcentaje refleja cuántos fans del segmento tienen un email válido y sin baja de marketing. Los fans excluidos son los que tienen el email marcado como inválido, los que han registrado un rebote duro o los que han presentado una queja.
+
+<Aside type="note">
+Un fan puede estar en el total estimado de un segmento y aun así no ser contactable por email si su dirección ha rebotado o si se ha dado de baja. El porcentaje de contactabilidad te indica la fracción real que recibirá tu campaña por ese canal.
+</Aside>

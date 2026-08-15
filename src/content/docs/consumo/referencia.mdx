@@ -1,0 +1,144 @@
+---
+title: "Referencia de plan y facturación"
+diataxis: reference
+description: Descripción completa de las pestañas del Centro de facturación de Nevent, los créditos incluidos en el plan y los paquetes adicionales.
+sidebar:
+  order: 10
+faqs:
+  - q: "¿Dónde se gestiona el plan y la facturación en Nevent?"
+    a: "En Configuración, dentro de la sección Cuenta y plan, en el apartado Centro de facturación. La URL directa es /settings/billing."
+  - q: "¿Qué créditos incluye el plan Enterprise?"
+    a: "El plan Enterprise incluye 2.000 créditos por mes. El contador se muestra en la pestaña Paquetes con el detalle de cuántos se han consumido en el mes en curso."
+  - q: "¿Qué ocurre con mis datos si cancelo el plan?"
+    a: "Según el aviso que aparece en la pestaña Resumen, al cancelar pierdes el acceso a todas las funciones premium al final del ciclo de facturación, pero los datos se mantienen seguros durante 30 días adicionales."
+  - q: "¿Qué es un paquete de créditos?"
+    a: "Un paquete es un bloque de créditos adicionales que puedes comprar para ampliar el consumo más allá de los créditos incluidos en el plan mensual. En la pestaña Paquetes puedes ver el historial de paquetes comprados."
+  - q: "¿Cómo veo el historial completo de paquetes?"
+    a: "En la pestaña Paquetes, dentro del bloque Mis paquetes, activa el selector Incluir historial. Por defecto el selector muestra Solo activos."
+---
+
+Esta página describe la estructura y el contenido del Centro de facturación de Nevent. Sirve como referencia para saber qué contiene cada pestaña, qué datos muestra el sistema y qué acciones están disponibles. No explica cómo realizar tareas paso a paso; para eso consulta las guías del área.
+
+## Cómo acceder al Centro de facturación
+
+Ruta: **Configuración > Cuenta y plan > Centro de facturación**
+
+URL directa: `/settings/billing`
+
+La cabecera de la pantalla muestra el título "Centro de facturación" y el subtítulo "Gestiona tus datos de facturación y consulta tus facturas".
+
+---
+
+## Pestañas disponibles
+
+El Centro de facturación tiene cinco pestañas. La pestaña activa por defecto es Resumen.
+
+| Pestaña | URL del parámetro |
+|---|---|
+| Resumen | `/settings/billing` (por defecto) |
+| Método de pago | No determinado |
+| Paquetes | `/settings/billing?tab=credit-packs` |
+| Facturas | No determinado |
+| Datos fiscales | No determinado |
+
+---
+
+## Pestaña Resumen
+
+Muestra el estado general de la suscripción, el gasto histórico y la opción de cancelación.
+
+### Bloque Suscripción actual
+
+| Campo | Valor de referencia (DEMO FEST) |
+|---|---|
+| Estado | Activa |
+| Nombre del plan | Plan Enterprise |
+| Precio | 250,00 EUR / mes |
+| Acción disponible | Botón "Cambiar de plan" |
+
+### Bloque Histórico de gasto
+
+- Título: "HISTÓRICO DE GASTO"
+- Subtítulo: "Últimos 12 meses. IVA incluido"
+- Muestra el gasto acumulado de los últimos 12 meses. Si no hay movimientos en el tenant, aparece el texto "Sin datos".
+
+### Bloque Cancelar suscripción
+
+- Título: "Cancelar suscripción"
+- Texto informativo: "Al cancelar, perderás el acceso a todas las funciones premium al final del ciclo. Tus datos se mantendrán seguros durante 30 días adicionales."
+- Acción disponible: botón "Cancelar plan".
+
+---
+
+## Pestaña Método de pago
+
+El contenido de esta pestaña no ha sido explorado en detalle en las fuentes disponibles. No se describen campos ni acciones.
+
+---
+
+## Pestaña Paquetes
+
+Muestra los créditos incluidos en el plan y el historial de paquetes adicionales comprados.
+
+### Bloque Créditos
+
+Este bloque resume el estado del consumo de créditos del mes en curso.
+
+| Campo | Valor de referencia (DEMO FEST, agosto 2026) |
+|---|---|
+| Origen | Plan Enterprise, mes en curso |
+| Paquetes activos | 0 paquetes activos |
+| Créditos disponibles | 2.000 créditos disponibles |
+| Consumo del mes | 0 / 2.000 créditos (0 %) |
+
+Cuando no hay paquetes adicionales activos, el sistema muestra el texto "Sin paquetes activos" y el botón "Comprar paquete".
+
+### Bloque Mis paquetes
+
+- Título: "Mis paquetes"
+- Subtítulo: "Histórico completo de paquetes comprados."
+- Selector de filtro con dos opciones: "Solo activos" (valor por defecto) y "Incluir historial".
+- Si no se ha comprado ningún paquete, aparece el texto "Aún no tienes paquetes comprados."
+
+---
+
+## Pestaña Facturas
+
+El contenido de esta pestaña no ha sido explorado en detalle en las fuentes disponibles. No se describen campos ni acciones.
+
+---
+
+## Pestaña Datos fiscales
+
+El contenido de esta pestaña no ha sido explorado en detalle en las fuentes disponibles. No se describen campos ni acciones.
+
+---
+
+## Datos clave del plan Enterprise (referencia)
+
+| Dato | Valor |
+|---|---|
+| Nombre del plan | Enterprise |
+| Estado | Activa |
+| Precio | 250,00 EUR / mes |
+| Créditos incluidos | 2.000 por mes |
+
+Los créditos se renuevan cada mes. El detalle de cuántos créditos consume cada acción (campañas, SMS, notificaciones push, etc.) no está visible en el Centro de facturación; se muestra en la pantalla de uso del plan, accesible desde el menú de usuario.
+
+---
+
+## Lo que esta pantalla no muestra
+
+Los siguientes datos no están disponibles en el Centro de facturación según lo observado:
+
+- El coste en créditos de cada tipo de acción o canal.
+- La comparativa entre planes al pulsar "Cambiar de plan" (acción no explorada).
+- El precio de los paquetes de créditos adicionales (acción de compra no explorada).
+- El desglose de consumo por canal (correo electrónico, SMS, push). Ese desglose está en la pantalla de uso del plan, no aquí.
+- Los límites por canal incluidos en el plan Enterprise.
+
+---
+
+## Contenido relacionado
+
+- [Tu plan de uso: créditos de email y SMS](/consumo/plan-de-uso) para ver el consumo en tiempo real por canal y la fecha de renovación.

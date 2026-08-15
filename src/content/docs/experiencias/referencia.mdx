@@ -1,0 +1,137 @@
+---
+title: Referencia de experiencias, ventas y complementos
+description: Tablas de referencia con las columnas, filtros, estados y categorías de las pantallas Experiencias (/events), Ventas (/sales) y Complementos (/products) en Nevent.
+diataxis: reference
+faqs:
+  - q: "¿Qué estados puede tener un evento en la pantalla Experiencias?"
+    a: "El único estado documentado en la plataforma es Programado, que indica que el evento está activo y tiene fecha de inicio futura."
+  - q: "¿Qué filtros hay disponibles en la pantalla Ventas?"
+    a: "Puedes filtrar por evento, por rango de fechas, por importe mínimo, por importe máximo y por nombre o código de comprador. También hay un botón para limpiar todos los filtros a la vez."
+  - q: "¿Qué categorías de complementos existen en Nevent?"
+    a: "Las categorías disponibles son Merch, Comida, Bebida, Transporte, Alojamiento y Actividades. La vista Todos muestra los complementos de cualquier categoría."
+  - q: "¿Qué significa que un complemento está Fuera de stock?"
+    a: "Significa que el producto no tiene unidades disponibles para la venta en este momento."
+  - q: "¿Cuántos registros muestra por página la pantalla de Ventas?"
+    a: "La paginación por defecto es de 25 registros por página."
+---
+
+Esta página recoge en tablas la información de referencia de las tres pantallas del área de experiencias: el listado de eventos, el historial de ventas y el catálogo de complementos. No es una guía paso a paso; para eso consulta los how-to del área.
+
+## Pantalla Experiencias (/events)
+
+### Descripción general
+
+La pantalla Experiencias muestra la lista de eventos y experiencias creados en tu cuenta. Desde aquí puedes ver el estado de cada evento, el aforo vendido y acceder a la gestión de cada uno.
+
+La cabecera muestra el título "Experiencias" con el subtítulo "Gestiona tus eventos y experiencias para conectar con tu audiencia". Las acciones disponibles son Crear, Sincronizar y un menú expandible con opciones adicionales.
+
+### Filtros de la pantalla Experiencias
+
+| Filtro | Valores disponibles | Descripción |
+|--------|---------------------|-------------|
+| Vista por fecha | Actuales / Pasadas / Todas | Muestra los eventos según si su fecha de inicio es futura, pasada o sin distinción. |
+| Búsqueda por texto | Campo libre | Filtra por nombre del evento. El campo muestra el marcador de posición "Buscar por evento...". |
+
+### Columnas del listado de experiencias
+
+| Columna | Descripción |
+|---------|-------------|
+| Canal | Icono que identifica el canal o plataforma del evento. |
+| Nombre | Nombre del evento. |
+| Localización | Lugar donde se celebra el evento. |
+| Fecha | Fecha y hora de inicio del evento. |
+| Entradas | Entradas vendidas sobre el aforo total, en formato "vendidas / total". |
+| Estado | Estado actual del evento (véase la tabla de estados). |
+| Promotor | Nombre de la organización promotora. |
+| Acciones | Acciones disponibles para ese evento (véase la tabla de acciones). |
+
+### Acciones por fila en el listado de experiencias
+
+| Acción | Descripción |
+|--------|-------------|
+| Ver asistentes | Abre la lista de asistentes del evento. Aparece como botón inline en la fila. |
+| Copiar enlace | Copia al portapapeles el enlace público del evento. |
+| Clonar experiencia | Crea una copia del evento con la misma configuración. |
+
+### Estados de un evento
+
+| Estado | Descripción |
+|--------|-------------|
+| Programado | El evento está activo y tiene fecha de inicio futura. |
+
+---
+
+## Pantalla Ventas (/sales)
+
+### Descripción general
+
+La pantalla Ventas muestra el historial completo de compras realizadas en el tenant. Es una vista de solo lectura con filtros para localizar ventas concretas. La paginación por defecto es de 25 registros por página.
+
+### Filtros de la pantalla Ventas
+
+| Filtro | Tipo | Descripción |
+|--------|------|-------------|
+| Evento | Desplegable | Filtra las ventas por evento. El valor por defecto es Todos. |
+| Rango de fechas | Selector de calendario | Muestra solo las ventas realizadas en el intervalo elegido. |
+| Importe mínimo | Campo numérico | Excluye las ventas por debajo del importe indicado en EUR. |
+| Importe máximo | Campo numérico | Excluye las ventas por encima del importe indicado en EUR. |
+| Búsqueda por nombre o código | Campo de texto | Filtra por nombre del comprador o por el código de referencia de la transacción. |
+| Limpiar | Botón | Elimina todos los filtros activos y devuelve la vista al estado inicial. |
+
+### Columnas del listado de ventas
+
+| Columna | Descripción |
+|---------|-------------|
+| Fecha | Fecha y hora en que se realizó la compra. |
+| Canal | Icono del canal por el que se procesó la venta. |
+| Referencia | Identificador de la transacción, en formato de cadena hexadecimal. |
+| Comprador (nombre) | Nombre completo del comprador. |
+| Comprador (email) | Dirección de correo electrónico del comprador. |
+| Importe | Importe de la venta en EUR. |
+| Estado | Estado de la venta (véase la tabla de estados). |
+
+### Estados de una venta
+
+| Estado | Descripción |
+|--------|-------------|
+| Completado | La compra se procesó y pagó correctamente. |
+
+---
+
+## Pantalla Complementos (/products)
+
+### Descripción general
+
+La pantalla Complementos muestra el catálogo de productos adicionales que se pueden vender junto a las entradas, como merchandising, alojamiento, transporte, comida, bebida y actividades.
+
+La cabecera muestra el título "Complementos" con el subtítulo "Lista de complementos". Las acciones disponibles son Crear, Sincronizar y un menú expandible con opciones adicionales.
+
+### Categorías de complementos (filtros por pestañas)
+
+| Categoría | Descripción |
+|-----------|-------------|
+| Todos | Muestra el catálogo completo sin filtrar por tipo. Es la pestaña activa por defecto. |
+| Merch | Productos de merchandising, como camisetas u otros artículos de marca del evento. |
+| Comida | Productos de alimentación vinculados al evento o al recinto. |
+| Bebida | Bebidas disponibles como complemento de la experiencia. |
+| Transporte | Servicios de traslado o desplazamiento al evento. |
+| Alojamiento | Opciones de hospedaje relacionadas con el evento. |
+| Actividades | Experiencias adicionales relacionadas con el evento, como talleres o alquiler de equipamiento. |
+
+### Columnas del listado de complementos
+
+| Columna | Descripción |
+|---------|-------------|
+| Canal | Icono del canal o plataforma asociada al complemento. |
+| Nombre | Nombre del complemento. |
+| Precio | Precio unitario en EUR. Puede ser 0,00 EUR para complementos gratuitos. |
+| Ventas | Número de unidades vendidas. |
+| Estado | Estado actual del complemento (véase la tabla de estados). |
+| Fecha de creación | Fecha en que se dio de alta el complemento. |
+
+### Estados de un complemento
+
+| Estado | Descripción |
+|--------|-------------|
+| Disponible | El complemento está activo y a la venta. |
+| Fuera de stock | El complemento no tiene unidades disponibles. |

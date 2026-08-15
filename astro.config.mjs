@@ -205,6 +205,9 @@ export default defineConfig({
 					items: [
 						{ label: 'Importa tus contactos', slug: 'audiencia/importar-fans', badge: { text: 'Nuevo', variant: 'tip' } },
 						{ label: 'El perfil de un fan', slug: 'audiencia/gestion-de-fans', badge: { text: 'Nuevo', variant: 'tip' } },
+						{ label: 'Explora tu audiencia', slug: 'audiencia/explora-tu-audiencia', badge: { text: 'Nuevo', variant: 'tip' } },
+						{ label: 'Referencia de fans y segmentos', slug: 'audiencia/referencia', badge: { text: 'Nuevo', variant: 'tip' } },
+						{ label: 'Cómo entiende Nevent tu audiencia', slug: 'audiencia/como-entiende-nevent-tu-audiencia', badge: { text: 'Nuevo', variant: 'tip' } },
 					],
 				},
 				{
@@ -289,6 +292,9 @@ export default defineConfig({
 					label: 'Paid Media',
 					items: [
 						{ label: 'Conecta tus cuentas y entiende el panel', slug: 'paid-media/introduccion', badge: { text: 'Nuevo', variant: 'tip' } },
+						{ label: 'Tu primer vistazo a Paid Media', slug: 'paid-media/primer-vistazo', badge: { text: 'Nuevo', variant: 'tip' } },
+						{ label: 'Referencia de Paid Media', slug: 'paid-media/referencia', badge: { text: 'Nuevo', variant: 'tip' } },
+						{ label: 'Qué es Paid Media', slug: 'paid-media/que-es', badge: { text: 'Nuevo', variant: 'tip' } },
 					],
 				},
 				{
@@ -296,6 +302,9 @@ export default defineConfig({
 					items: [
 						{ label: 'Analytics de tu evento', slug: 'experiencias/analytics', badge: { text: 'Nuevo', variant: 'tip' } },
 						{ label: 'El perfil musical de tu evento', slug: 'experiencias/perfil-musical', badge: { text: 'Nuevo', variant: 'tip' } },
+						{ label: 'Recorre tus experiencias', slug: 'experiencias/recorre-tus-experiencias', badge: { text: 'Nuevo', variant: 'tip' } },
+						{ label: 'Referencia de experiencias', slug: 'experiencias/referencia', badge: { text: 'Nuevo', variant: 'tip' } },
+						{ label: 'Qué son las experiencias', slug: 'experiencias/que-son-las-experiencias', badge: { text: 'Nuevo', variant: 'tip' } },
 					],
 				},
 				{
@@ -359,6 +368,9 @@ export default defineConfig({
 					label: 'Consumo',
 					items: [
 						{ label: 'Tu plan de uso', slug: 'consumo/plan-de-uso', badge: { text: 'Nuevo', variant: 'tip' } },
+						{ label: 'Consulta tu plan y consumo', slug: 'consumo/consulta-tu-plan', badge: { text: 'Nuevo', variant: 'tip' } },
+						{ label: 'Referencia de plan y facturación', slug: 'consumo/referencia', badge: { text: 'Nuevo', variant: 'tip' } },
+						{ label: 'Cómo funcionan los créditos', slug: 'consumo/como-funcionan-los-creditos', badge: { text: 'Nuevo', variant: 'tip' } },
 					],
 				},
 				{
@@ -368,6 +380,8 @@ export default defineConfig({
 						{ label: 'Configura tu dominio dedicado', slug: 'entregabilidad/dominio-dedicado', badge: { text: 'Nuevo', variant: 'tip' } },
 						{ label: 'Ajustes de envío de emails', slug: 'entregabilidad/envio-de-emails', badge: { text: 'Nuevo', variant: 'tip' } },
 						{ label: 'Reputación de envío y spam', slug: 'entregabilidad/reputacion-y-spam', badge: { text: 'Nuevo', variant: 'tip' } },
+						{ label: 'Configura tu entrega de emails', slug: 'entregabilidad/configura-tu-entrega', badge: { text: 'Nuevo', variant: 'tip' } },
+						{ label: 'Referencia de entrega y dominio', slug: 'entregabilidad/referencia', badge: { text: 'Nuevo', variant: 'tip' } },
 					],
 				},
 				{
