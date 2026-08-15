@@ -14,7 +14,8 @@
     "detect:categories": "node scripts/detect-categories.js",
     "seo:indexnow": "node scripts/indexnow-submit.js",
     "deploy": "bash scripts/deploy.sh",
-    "test": "vitest run"
+    "test": "vitest run",
+    "audit:coverage": "node scripts/audit-coverage.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",
