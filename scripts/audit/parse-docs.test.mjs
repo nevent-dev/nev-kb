@@ -11,6 +11,9 @@ describe('areaFromPath', () => {
   it('excluye el locale en/', () => {
     expect(areaFromPath('en/campanas/crear.mdx')).toBeNull();
   });
+  it('normaliza separadores de Windows', () => {
+    expect(areaFromPath('campanas\\crear.mdx')).toBe('campanas');
+  });
 });
 
 describe('toRecord', () => {

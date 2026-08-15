@@ -4,7 +4,7 @@ export const QUADRANTS = ['tutorial', 'how-to', 'reference', 'explanation'];
 
 // relPath relativo a content/docs -> área o null (raíz / i18n)
 export function areaFromPath(relPath) {
-  const parts = relPath.split('/');
+  const parts = relPath.split(/[\\/]/);
   if (parts.length < 2) return null;   // fichero de raíz
   if (parts[0] === 'en') return null;  // locale i18n
   return parts[0];
