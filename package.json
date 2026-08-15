@@ -15,7 +15,8 @@
     "seo:indexnow": "node scripts/indexnow-submit.js",
     "deploy": "bash scripts/deploy.sh",
     "test": "vitest run",
-    "audit:coverage": "node scripts/audit-coverage.mjs"
+    "audit:coverage": "node scripts/audit-coverage.mjs",
+    "validate:diataxis": "node scripts/validate-docs.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",
