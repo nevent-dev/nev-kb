@@ -13,7 +13,8 @@
     "validate": "node scripts/validate-content.js",
     "detect:categories": "node scripts/detect-categories.js",
     "seo:indexnow": "node scripts/indexnow-submit.js",
-    "deploy": "bash scripts/deploy.sh"
+    "deploy": "bash scripts/deploy.sh",
+    "test": "vitest run"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",
@@ -27,6 +28,7 @@
   },
   "devDependencies": {
     "slugify": "^1.6.6",
-    "typescript": "^6.0.3"
+    "typescript": "^6.0.3",
+    "vitest": "^4.1.10"
   }
 }
