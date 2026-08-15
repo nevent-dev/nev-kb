@@ -216,6 +216,7 @@ export default defineConfig({
 				{
 					label: 'Segmentación',
 					items: [
+						{ label: 'Crea tu primer segmento', slug: 'segmentacion/tu-primer-segmento', badge: { text: 'Nuevo', variant: 'tip' } },
 						{
 							label: 'Motor de Segmentación',
 							items: [
@@ -278,6 +279,7 @@ export default defineConfig({
 							],
 						},
 						{ label: 'Buenas prácticas para tus campañas', slug: 'campanas/mejores-practicas', badge: { text: 'Nuevo', variant: 'tip' } },
+						{ label: 'Referencia de campañas', slug: 'campanas/referencia', badge: { text: 'Nuevo', variant: 'tip' } },
 					],
 				},
 				{
@@ -296,6 +298,7 @@ export default defineConfig({
 				{
 					label: 'Analítica',
 					items: [
+						{ label: 'Tu primer análisis', slug: 'analitica/tu-primer-analisis', badge: { text: 'Nuevo', variant: 'tip' } },
 						{ label: 'Catálogo', slug: 'analitica' },
 						{ label: 'Eventos y entradas', slug: 'analitica/eventos-y-entradas' },
 						{ label: 'Audiencia y fans', slug: 'analitica/audiencia' },
@@ -305,6 +308,7 @@ export default defineConfig({
 						{ label: 'Deliverability', slug: 'analitica/deliverability' },
 						{ label: 'Cómo agrupar y filtrar', slug: 'analitica/agrupar-y-filtrar' },
 						{ label: 'FAQ', slug: 'analitica/faq' },
+						{ label: 'Cómo entender la analítica', slug: 'analitica/como-entender-la-analitica', badge: { text: 'Nuevo', variant: 'tip' } },
 						{
 							label: 'Casos prácticos',
 							collapsed: false,
@@ -358,6 +362,7 @@ export default defineConfig({
 					label: 'Nevent AI',
 					items: [
 						{ label: 'Qué es Nevent IA', slug: 'nevent-ai', badge: { text: 'Nuevo', variant: 'tip' } },
+						{ label: 'Primeros pasos', slug: 'nevent-ai/primeros-pasos', badge: { text: 'Nuevo', variant: 'tip' } },
 						{ label: 'Conectar con Claude', slug: 'nevent-ai/conectar-claude' },
 						{ label: 'Conectar con ChatGPT', slug: 'nevent-ai/conectar-chatgpt' },
 						{

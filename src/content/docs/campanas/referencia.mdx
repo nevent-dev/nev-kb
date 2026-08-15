@@ -1,0 +1,228 @@
+---
+title: Referencia de campañas
+description: Tablas de referencia con los tipos de campaña, estados, canales, campos del asistente y definiciones de todas las métricas de los informes en Nevent.
+diataxis: reference
+faqs:
+  - q: "¿Qué tipos de campaña existen en Nevent?"
+    a: "Existen dos tipos: campaña de marketing (para promociones, newsletters y comunicaciones comerciales) y campaña transaccional (para confirmaciones, recordatorios y notificaciones importantes). Nevent detecta el tipo automáticamente según el contenido de la plantilla elegida."
+  - q: "¿Qué significa el estado 'En cola' en una campaña?"
+    a: "Significa que el proceso de envío ha comenzado pero la campaña está esperando para procesarse. Es un estado transitorio entre Programada y Enviando."
+  - q: "¿Cómo se calcula la tasa de apertura?"
+    a: "La tasa de apertura es el porcentaje de emails abiertos sobre el total de emails enviados, no sobre los entregados."
+  - q: "¿Qué diferencia hay entre un rebote suave y un rebote duro?"
+    a: "Un rebote suave es un fallo temporal (bandeja llena, servidor caído). Un rebote duro es un fallo permanente (dirección que no existe). Nevent marca automáticamente las direcciones con rebote duro para excluirlas de futuros envíos."
+  - q: "¿Qué estados puede tener una plantilla de WhatsApp?"
+    a: "Una plantilla de WhatsApp puede estar en uno de estos estados: Borrador, En revisión, Activa o Rechazada. Solo las plantillas Activas pueden usarse en campañas."
+---
+
+Esta página recoge en tablas toda la información de referencia del área de campañas: tipos de campaña, canales disponibles, estados, campos del asistente de creación y definiciones de las métricas de los informes. No es una guía paso a paso; para eso consulta los how-to del área.
+
+## Tipos de campaña
+
+| Tipo | Descripción | Incluye enlace de baja | Respeta preferencias del usuario |
+|------|-------------|------------------------|----------------------------------|
+| Marketing | Promociones, newsletters y comunicaciones comerciales | Sí, automáticamente | Sí |
+| Transaccional | Confirmaciones, recordatorios y notificaciones importantes | No obligatorio | No |
+
+El tipo se detecta automáticamente según el contenido de la plantilla seleccionada.
+
+## Canales disponibles
+
+| Canal | Disponibilidad por defecto | Activación requerida |
+|-------|---------------------------|---------------------|
+| Email | Sí | No |
+| Push | Sí | No |
+| SMS | No | Sí, desde Ajustes > Canales |
+| WhatsApp | No | Sí, desde Ajustes > Canales |
+
+## Estados de una campaña
+
+| Estado | Descripción | Acciones disponibles |
+|--------|-------------|---------------------|
+| Borrador | La campaña está incompleta y no se ha lanzado. | Editar borrador, Copiar ID, Archivar |
+| Programada | La campaña tiene fecha y hora de envío fijadas y está lista. | Ver detalles, Reprogramar, Editar, Pausar, Cancelar, Clonar, Copiar ID, Archivar |
+| En cola | El proceso de envío ha comenzado; la campaña espera para procesarse. | Sin acciones documentadas |
+| Enviando | El envío está en marcha en este momento. | Sin acciones documentadas |
+| Enviada | El envío ha terminado. Las métricas están disponibles. | Ver detalles, Clonar, Copiar ID, Archivar |
+| Pausada | Una campaña en marcha se ha pausado manualmente. | Sin acciones documentadas |
+| Detenida | El envío se interrumpió antes de completarse. | Sin acciones documentadas |
+| Fallida | El envío no pudo completarse por un error. | Sin acciones documentadas |
+
+Cancelar una campaña programada es irreversible. La plataforma pide confirmación antes de ejecutarlo.
+
+## Campos del asistente de creación (8 pasos)
+
+| Paso | Nombre | Campos o datos | Obligatorio |
+|------|--------|----------------|-------------|
+| 1 | Información básica | Nombre de la campaña | Sí |
+| 2 | Canal | Canal de envío (Email, Push, SMS, WhatsApp) | Sí |
+| 3 | Contenido | Plantilla a usar | Sí |
+| 4 | Tipo de envío | Tipo de campaña (detectado automáticamente) | No requiere acción |
+| 5 | Audiencia | Segmento o segmentos destinatarios | Sí |
+| 6 | Asunto y UTMs | Remitente, Asunto, Texto de vista previa | Asunto obligatorio; remitente y vista previa opcionales |
+| 7 | Programación de envío | Enviar ahora / Programar (fecha y hora) | Sí |
+| 8 | Revisión | Resumen completo, coste estimado en créditos | Lectura; no requiere rellenar |
+
+Se pueden usar varios segmentos a la vez en el paso de audiencia. El borrador se guarda automáticamente al salir del asistente.
+
+## Campos del asistente de creación: paso Asunto y UTMs (detalle)
+
+| Campo | Descripción | Obligatorio |
+|-------|-------------|-------------|
+| Remitente | Nombre y email del remitente. Puede usarse la configuración global de la cuenta o personalizarse para la campaña. | No (usa el global por defecto) |
+| Asunto | Texto que ve el destinatario en la bandeja de entrada. | Sí |
+| Texto de vista previa | Texto secundario visible junto al asunto en muchos clientes de email. | No |
+
+El campo de asunto admite variables de personalización (por ejemplo, el nombre de pila del destinatario).
+
+## Columnas del listado de campañas
+
+| Columna | Descripción |
+|---------|-------------|
+| Canal | Icono del canal de envío (email, push, SMS, WhatsApp) |
+| Nombre | Nombre de la campaña |
+| Objetivo | Tipo de objetivo de la campaña |
+| Estado | Estado actual (ver tabla de estados) |
+| Fecha | Fecha de envío o programación |
+| Audiencia | Número de destinatarios del segmento seleccionado |
+| Enviados | Emails que salieron |
+| Aperturas | Emails abiertos por los destinatarios |
+| Clics | Clics en enlaces del email |
+| Ingresos | Ingresos atribuidos a la campaña |
+
+Se puede ordenar por cualquier columna haciendo clic en su encabezado.
+
+## Métricas del informe: bloque de resumen
+
+| Métrica | Definición | Base del cálculo |
+|---------|------------|-----------------|
+| Enviados | Total de emails que Nevent intentó entregar. | - |
+| Entregados | Emails que el servidor del destinatario aceptó. | Sobre enviados |
+| Abiertos | Destinatarios que abrieron el email al menos una vez. | Sobre enviados |
+| Clics | Veces que alguien hizo clic en un enlace del email. | Sobre enviados |
+
+Un email "entregado" no garantiza que llegó a la bandeja de entrada: puede haber acabado en la carpeta de spam.
+
+## Métricas del informe: sección Entregabilidad
+
+| Métrica | Definición |
+|---------|------------|
+| Enviados | Emails que Nevent intentó entregar. |
+| Entregados | Emails que el servidor del destinatario aceptó. |
+| Tasa de entrega | Porcentaje de enviados que se entregaron correctamente. |
+| Rebotes suaves | Fallos temporales: bandeja de entrada llena, servidor caído momentáneamente. Nevent puede reintentar el envío. |
+| Rebotes duros | Fallos permanentes: dirección que no existe. Nevent marca estas direcciones automáticamente para excluirlas de futuros envíos. |
+
+## Métricas del informe: sección Desuscripciones
+
+| Métrica | Definición | Base del cálculo |
+|---------|------------|-----------------|
+| Desuscripciones | Número de contactos que hicieron clic en el enlace de baja. | - |
+| Tasa de baja | Porcentaje de desuscripciones. | Sobre emails entregados |
+| Quejas de spam | Contactos que marcaron el email como no deseado en su cliente de correo. | - |
+| Tasa de quejas | Porcentaje de quejas de spam. | Sobre emails entregados |
+
+Cuando un contacto se da de baja, Nevent lo excluye automáticamente de todos los envíos futuros de la organización. No es necesaria ninguna acción manual.
+
+La tabla de motivos de baja recoge las razones que los contactos indicaron al darse de baja, si las proporcionaron.
+
+## Filtros de interacción por destinatario
+
+La sección Interacción del informe permite filtrar la lista de destinatarios por los siguientes estados:
+
+| Filtro | Descripción |
+|--------|-------------|
+| Todos | Muestra todos los destinatarios del envío. |
+| Programados | Los que quedaron en cola pero aún no se procesaron. |
+| Entregados | Los que recibieron el email correctamente. |
+| Abiertos | Los que abrieron el email al menos una vez. |
+| Clicados | Los que hicieron clic en algún enlace del email. |
+| Rebotados | Los que no recibieron el email por un error de entrega. |
+| Dados de baja | Los que se desuscribieron a raíz de este envío. |
+
+## Rangos orientativos de referencia
+
+Los valores siguientes son referencias para campañas de eventos. No son umbrales garantizados ni compromisos de la plataforma.
+
+| Métrica | Resultado saludable | Señal de alerta |
+|---------|---------------------|-----------------|
+| Tasa de entrega | Por encima del 95% | Por debajo del 90% |
+| Tasa de apertura | Por encima del 25% | Por debajo del 15% |
+| Tasa de clic | Por encima del 5% | Por debajo del 2% |
+| Tasa de baja | Por debajo del 0,5% | Por encima del 1% |
+| Tasa de quejas de spam | Por debajo del 0,1% | Por encima del 0,1% |
+| Tasa de rebotes duros | Por debajo del 2% | Por encima del 2% |
+
+## Secciones del informe de campaña
+
+| Sección | Qué contiene |
+|---------|-------------|
+| Resumen | Visión general de la campaña, datos de configuración y bloque de cuatro métricas principales. |
+| Entregabilidad | Enviados, entregados, tasa de entrega, rebotes suaves y rebotes duros. |
+| Desuscripciones | Número de bajas, tasa de baja, quejas de spam, tasa de quejas y tabla de motivos de baja. |
+| Segmentos | Segmentos a los que se envió la campaña, con sus criterios de filtrado y estado actual. |
+| Interacción | Lista de destinatarios con su estado individual, filtrable por tipo de interacción. |
+
+## Plantillas de email: bloques de contenido disponibles
+
+| Bloque | Para qué sirve |
+|--------|---------------|
+| Text | Párrafo de texto editable. |
+| Button | Botón con enlace (para entradas, reservas, etc.). |
+| Image | Foto o imagen del cartel, artista o recinto. |
+| Divider | Línea separadora entre secciones. |
+| Social | Iconos de redes sociales. |
+| Spacer | Espacio vacío para separar bloques. |
+| Hero | Bloque grande de imagen con texto encima. |
+| Navbar | Menú de navegación. |
+| HTML block | Código HTML personalizado. |
+
+Los bloques de Layout permiten organizar el contenido en columnas (1 columna, 2 columnas 50/50, 2 columnas 25/75, etc.).
+
+## Plantillas de WhatsApp: categorías
+
+| Categoría | Cuándo usarla |
+|-----------|---------------|
+| Marketing | Promociones, ofertas, anuncios de lineup, early birds. |
+| Utilidad | Confirmaciones de compra, actualizaciones de cuenta, avisos de acceso. |
+
+## Plantillas de WhatsApp: tipos de encabezado
+
+| Tipo | Descripción |
+|------|-------------|
+| Ninguno | El mensaje empieza directamente con el cuerpo de texto. |
+| Texto | Una línea de texto destacado encima del cuerpo. |
+| Imagen | Foto o cartel del evento. |
+| Video | Clip corto. |
+| PDF | Documento adjunto. |
+
+## Plantillas de WhatsApp: tipos de botón
+
+| Tipo | Descripción |
+|------|-------------|
+| Respuestas rápidas | Botón con texto predefinido que el usuario pulsa para responder. |
+| Llamada a la acción (URL) | Botón que lleva a una URL externa. |
+| Llamada a la acción (Teléfono) | Botón que marca un número de teléfono directamente. |
+
+Se pueden añadir hasta 10 botones en total por plantilla.
+
+## Plantillas de WhatsApp: estados
+
+| Estado | Descripción |
+|--------|-------------|
+| Borrador | Plantilla guardada pero no enviada a Meta todavía. Se puede editar. |
+| En revisión | Enviada a Meta para su aprobación. No se pueden editar los campos principales. |
+| Activa | Aprobada por Meta. Disponible para usar en campañas. |
+| Rechazada | Meta la rechazó. Se debe crear una nueva versión corregida. |
+
+El tiempo de revisión de Meta puede ir desde unos minutos hasta 24 horas.
+
+## Límites y restricciones de plantillas de WhatsApp
+
+| Campo | Límite |
+|-------|--------|
+| Cuerpo del mensaje | 1.024 caracteres |
+| Pie de página | 60 caracteres |
+| Nombre de plantilla | Solo minúsculas, números y guiones bajos; debe ser único por idioma |
+| Número de botones | Hasta 10 en total |
+| Variables | Formato: `{{1}}`, `{{2}}`, etc. Cada una requiere un ejemplo para Meta |

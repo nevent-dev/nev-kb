@@ -1,0 +1,155 @@
+---
+title: "Cómo entender la analítica de Nevent"
+description: "Qué mide cada área de analítica en Nevent, cómo interpretar los datos y qué es la atribución, explicado para promotores de eventos sin perfil técnico."
+diataxis: explanation
+faqs:
+  - q: "¿Qué diferencia hay entre el revenue atribuido de una campaña y los ingresos totales del evento?"
+    a: "Los ingresos totales del evento suman todas las entradas vendidas, sin importar de dónde vinieron. El revenue atribuido a una campaña solo cuenta las ventas que Nevent puede relacionar con un clic o una interacción en esa campaña concreta. La diferencia puede deberse a ventas directas, orgánicas o de canales no rastreados."
+  - q: "¿Por qué el open rate de mis emails parece alto pero las ventas son bajas?"
+    a: "Open rate y ventas miden cosas distintas. Un fan puede abrir el email, leerlo y no comprar. El indicador que conecta ambos es el conversion rate: el porcentaje de fans que clicaron y luego compraron. Si el open rate es alto pero el conversion rate es bajo, el problema está en el destino del enlace (la página de venta o el precio), no en el asunto del email."
+  - q: "¿Qué significa que un fan sea 'Templado' o 'Congelado' en la Temperatura Nevent?"
+    a: "La Temperatura Nevent clasifica a cada fan según su actividad reciente y su valor histórico. Un fan Templado ha comprado en el pasado pero hace tiempo que no interactúa contigo. Un fan Congelado lleva mucho tiempo sin actividad. Son señales de que ese fan puede perderse si no hay una campaña de reactivación."
+  - q: "¿Por qué la deliverability afecta a los resultados de mis campañas?"
+    a: "Si tus emails van a spam en lugar de a la bandeja de entrada, tus fans nunca los ven. Eso hace que el open rate caiga aunque el contenido y el asunto sean buenos. La deliverability es la condición previa para que cualquier otra métrica de campaña tenga sentido."
+  - q: "¿Qué es el ROAS y por qué es distinto en campañas de email y en publicidad de pago?"
+    a: "El ROAS mide cuántos euros de ventas generas por cada euro invertido. En email, el coste es bajo (el precio del plan), por lo que el ROAS suele ser muy alto. En publicidad de pago (Meta Ads, Google Ads), el coste es la inversión directa en anuncios, que puede ser significativa. Compararlos sin tener en cuenta esa diferencia de escala puede llevar a conclusiones erróneas."
+sidebar:
+  order: 9
+---
+
+import { Aside } from '@astrojs/starlight/components';
+
+La analítica de Nevent reúne más de 80 indicadores sobre tus eventos, tu audiencia, tus campañas y tu publicidad. Tener acceso a muchos datos no garantiza que sean útiles: lo importante es saber qué mide cada cosa, cuándo un número es bueno o malo y, sobre todo, por qué los datos se comportan como se comportan.
+
+Este documento explica el propósito de cada área de métricas y los conceptos clave que hay detrás, sin describir clics en la interfaz.
+
+## Por qué existen siete áreas distintas
+
+Nevent organiza sus métricas en siete grupos porque cada grupo responde a un tipo de pregunta diferente. Mezclarlos sin entender su función lleva a conclusiones equivocadas.
+
+Las siete áreas son: eventos y entradas, audiencia, campañas, paid media, tracking y atribución, deliverability, y agrupación y filtrado. Las primeras seis miden realidades distintas de tu negocio. La séptima no es un área de métricas propiamente dicha, sino la capa que permite cruzar cualquier métrica con dimensiones como fecha, canal, ciudad o segmento de fan.
+
+## Qué miden los eventos y las entradas
+
+Las métricas de eventos y entradas responden a las preguntas más directas: cuántas entradas vendiste, a qué precio, con qué margen y a qué velocidad.
+
+La velocidad de venta es uno de los indicadores más útiles en este grupo. No te dice solo cuánto llevas vendido, sino si el ritmo es suficiente para agotar el aforo antes del evento. Si tienes 2.000 aforo y a tres semanas del evento llevas 600 entradas vendidas, la velocidad de venta te indica si ese ritmo es normal o si necesitas activar comunicación urgente.
+
+El ticket medio es el valor promedio de cada transacción. Si un comprador adquiere dos entradas generales y un tipo premium, el ticket medio incluye esa suma completa. Un ticket medio bajo con alta ocupación puede indicar que la demanda existe y el precio podría subir. Un ticket medio alto con ocupación baja sugiere lo contrario.
+
+El margen por evento relaciona los ingresos con el coste de vender cada entrada. Esta métrica permite comparar la rentabilidad entre eventos distintos, aunque todos estén llenos.
+
+## Qué mide la audiencia y por qué es la visión a largo plazo
+
+Las métricas de audiencia van más allá de lo que ocurre en un evento concreto. Miden el valor y el comportamiento de tus fans a lo largo del tiempo.
+
+### El LTV: cuánto vale un fan a largo plazo
+
+El LTV (Lifetime Value, o valor de vida del cliente) es el ingreso total que un fan genera desde su primera compra hasta que deja de comprarte. Es la métrica más estratégica de toda la analítica porque conecta el coste de captar fans con el retorno que generan.
+
+Si tu LTV medio es de 180 euros en dos años, puedes decidir con fundamento cuánto invertir en publicidad para captar un fan nuevo. Sin ese dato, cualquier decisión de presupuesto publicitario es una suposición.
+
+### El churn: cuántos fans se pierden
+
+El churn es el porcentaje de fans que deja de comprarte en un periodo determinado. Un churn alto indica que tus eventos no están generando suficiente fidelidad para que los fans vuelvan.
+
+El análisis de churn cobra especial sentido cuando se combina con cohortes. Una cohorte es un grupo de fans que compraron por primera vez en el mismo mes o el mismo evento. Comparar el churn de distintas cohortes permite detectar qué eventos generan fans más fieles y qué eventos producen compradores de una sola vez.
+
+### La Temperatura Nevent: cómo priorizar a quién comunicarte
+
+La Temperatura Nevent clasifica a cada fan en seis niveles (Muy Caliente, Caliente, Templado, Frío, Muy Frío, Congelado) según su actividad reciente y su valor histórico. Esta clasificación responde a una pregunta práctica: ¿con quién tiene más sentido comunicarse ahora mismo?
+
+Un fan Muy Caliente compra con frecuencia y tiene alto valor. Un fan Congelado lleva mucho tiempo sin actividad. Saber cuántos fans tienes en cada categoría te permite decidir qué tipo de campaña lanzar antes de gastar presupuesto.
+
+La distribución RFM (Recencia, Frecuencia, Valor monetario) opera con una lógica parecida, pero con segmentos con nombres propios como Champions o At Risk, que describen el comportamiento histórico de cada fan de forma más granular.
+
+## Qué miden las campañas y cómo se interpreta el embudo
+
+Las métricas de campañas describen lo que ocurre cuando envías una comunicación a tus fans: cuántos la reciben, cuántos la abren, cuántos hacen algo y cuántos acaban comprando.
+
+Este conjunto de métricas forma un embudo con tres escalones:
+
+1. El open rate mide qué porcentaje de destinatarios abrió el mensaje. Evalúa si el asunto y el remitente generan curiosidad.
+2. El click rate mide qué porcentaje hizo clic en algún enlace. Evalúa si el contenido genera suficiente interés como para actuar.
+3. El conversion rate mide qué porcentaje completó la compra. Evalúa si la página de destino y el precio convierten.
+
+Cada escalón puede tener un problema distinto. Un open rate bajo indica un problema con el asunto o la reputación del remitente. Un click rate bajo con buen open rate indica que el contenido no engancha. Un conversion rate bajo con buen click rate indica que el problema está en la página de compra o en el precio.
+
+El revenue atribuido va un paso más allá: no solo cuenta cuántos compraron, sino cuánto dinero generó esa campaña. Dos campañas con el mismo conversion rate pueden generar revenues muy distintos si el ticket medio difiere.
+
+El ROAS de una campaña (Return On Ad Spend) divide el revenue atribuido por el coste de la campaña. Para canales como email y SMS, el coste incluye el precio de la herramienta más el tiempo de producción del contenido. Esta métrica permite comparar la eficiencia económica entre campañas y entre canales.
+
+El unsubscribe rate (porcentaje de bajas) y el bounce rate (porcentaje de emails no entregados) son señales de alerta. Un unsubscribe alto indica que estás enviando demasiado o a personas que no quieren recibirte. Un bounce rate alto indica que tu lista contiene muchas direcciones inválidas.
+
+## Qué mide el paid media y cómo se diferencia del email
+
+Las métricas de paid media cubren la publicidad de pago: Meta Ads (Facebook e Instagram) y Google Ads. Aunque algunas métricas tienen el mismo nombre que en campañas (ROAS, conversión), su lógica es diferente porque el coste es distinto.
+
+En publicidad de pago, el coste es la inversión directa en anuncios. El ROAS aquí mide cuántos euros de entradas vendes por cada euro que gastas en anuncios. Para eventos en vivo, un ROAS de 2-3 cubre costes, un ROAS de 5-10 es saludable, y valores superiores a 10 son posibles con audiencias de remarketing muy cualificadas.
+
+El CPA (Cost Per Acquisition) es el coste de conseguir una venta a través de anuncios. Si gastas 1.000 euros en Meta Ads y vendes 50 entradas, tu CPA es de 20 euros por entrada. El CPA y el ROAS son complementarios: el CPA te dice si la venta es rentable en términos absolutos, el ROAS te dice cuánto multiplicas la inversión.
+
+El CTR (Click-Through Rate) mide qué porcentaje de personas que ven el anuncio hacen clic. Un CTR bajo indica que la creatividad o el mensaje no conectan con la audiencia que te están mostrando.
+
+### Qué es la atribución multi-touch y por qué importa
+
+Un fan no siempre compra la primera vez que ve un anuncio. Lo habitual es que vea varios anuncios en distintos momentos antes de decidir. La atribución multi-touch asigna parte del crédito de una venta a cada punto de contacto que el fan tuvo antes de comprar.
+
+Sin atribución multi-touch, toda la venta se asigna al último clic (o al primero, dependiendo del modelo). Eso puede hacer que los anuncios de remarketing parezcan muy rentables (porque son los últimos que ve el fan antes de comprar) mientras que los anuncios de prospección, que fueron los que lo introdujeron al evento, parecen no generar nada.
+
+Entender cómo contribuye cada punto de contacto permite repartir mejor el presupuesto entre las fases del proceso de compra.
+
+## Qué mide el tracking de enlaces
+
+El tracking de enlaces es la capa más granular de la atribución. Mientras las métricas de campañas te dicen cuántos fans compraron tras recibir un email, el tracking de enlaces te dice qué enlace concreto dentro de ese email fue el que llevó a la compra.
+
+Un enlace tiene cuatro métricas principales:
+
+- Clics totales: todas las veces que se pulsó ese enlace, incluyendo múltiples clics del mismo fan.
+- Clics únicos: cuántos fans distintos clicaron al menos una vez.
+- Conversión post-clic: qué porcentaje de fans que clicaron acabaron comprando.
+- Revenue atribuido: cuánto dinero generaron las compras originadas por ese enlace concreto.
+
+Los clics únicos son el denominador correcto para calcular la conversión real. Si un enlace tiene 500 clics totales pero solo 200 únicos, un subgrupo de fans está clicando varias veces, probablemente comparando opciones. La conversión sobre clics únicos refleja mejor cuántos fans distintos tomaron la decisión de comprar.
+
+Esta información permite comparar variantes dentro de la misma campaña: si el enlace situado al principio del email convierte al 22% y el del final convierte al 14%, las siguientes campañas pueden incorporar ese aprendizaje.
+
+## Qué mide la deliverability y por qué es la condición previa
+
+La deliverability mide algo más básico que el rendimiento de tus campañas: si tus emails llegan realmente a la bandeja de entrada de tus fans.
+
+Puedes tener el asunto perfecto, el contenido relevante y la audiencia bien segmentada, y aun así no generar ventas si los emails van a la carpeta de spam. En ese caso, el open rate parecerá bajo por un motivo técnico, no porque el contenido falle.
+
+Las cinco métricas clave en este área son:
+
+- Sender reputation: la puntuación que Gmail, Outlook y otros proveedores asignan a tu dominio según tu historial de envíos. Una reputación baja hace que tus emails vayan a spam aunque el contenido sea correcto.
+- Inbox placement rate: el porcentaje de emails que llegan a la bandeja de entrada principal. Por debajo del 85% empieza a ser preocupante.
+- Bounce rate: el porcentaje de emails no entregados. Un bounce duro (dirección que no existe) daña la reputación inmediatamente. Un bounce blando (buzón lleno, servidor caído) es temporal y Nevent lo reintenta automáticamente.
+- Spam complaint rate: el porcentaje de fans que marcaron tu email como spam. Por encima del 0,1% deteriora la reputación de forma significativa.
+- Suppression list: el conjunto de fans a los que Nevent no enviará emails, porque se dieron de baja, porque su dirección genera bounces o porque presentaron quejas de spam. Si supera el 10% de tu lista, puede indicar un problema en la forma de captar contactos.
+
+La sender reputation es frágil: puede deteriorarse en pocas semanas y tardar semanas en recuperarse. Por eso es la única área de analítica donde el umbral de alerta es más estricto que en el resto.
+
+## Cómo se relacionan todas las áreas entre sí
+
+Las siete áreas no son compartimentos estancos. Se conectan de una forma que importa entender.
+
+La deliverability es la condición previa. Si los emails no llegan, las métricas de campañas no reflejan la realidad.
+
+Las métricas de campañas y de paid media son dos formas distintas de medir lo mismo: cuánto revenue generan tus acciones de marketing. La diferencia está en el tipo de canal. Los canales propios (email, SMS, WhatsApp) tienen un coste fijo bajo y un alcance limitado a tu base actual. Los canales de pago tienen un coste variable pero pueden llegar a nuevas audiencias.
+
+El tracking de enlaces añade granularidad dentro de las campañas. En lugar de saber solo que una campaña generó X euros, sabes exactamente qué enlace, en qué posición, con qué texto, fue el responsable.
+
+La audiencia conecta las ventas pasadas con las decisiones futuras. Saber el LTV te dice cuánto puedes invertir en captación. Saber el churn te dice si tus eventos están generando fidelidad o solo compradores de una sola vez.
+
+Las métricas de eventos son la base de todo: sin entradas vendidas, no hay nada que atribuir ni ningún fan que retener.
+
+## Qué no mide la analítica de Nevent (actualmente)
+
+Conocer los límites de una herramienta es tan importante como conocer sus capacidades. Según la documentación oficial de Nevent, la predicción de demanda de eventos futuros y la recomendación automatizada de precios dinámicos están en el roadmap pero no están disponibles en la versión actual.
+
+Esto significa que la analítica de Nevent describe lo que ha ocurrido y lo que está ocurriendo, no lo que ocurrirá. Las decisiones prospectivas (qué precio poner, cuánto aforo abrir) requieren la interpretación del promotor combinada con los datos históricos disponibles.
+
+## Cómo acceder a estas métricas
+
+Los datos están accesibles desde tres canales distintos: la admin web de Nevent (interfaz visual sin código), conversación con un asistente de IA en lenguaje natural, y API directa para integraciones técnicas. Los mismos datos subyacentes están disponibles por los tres canales, con latencias distintas: los datos de compras tienen latencia inferior a 5 minutos, las métricas agregadas se actualizan a diario, y las métricas de campañas y atribución se actualizan varias veces al día.

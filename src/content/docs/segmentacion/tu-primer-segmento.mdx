@@ -1,0 +1,191 @@
+---
+title: "Crea tu primer segmento"
+description: "Tutorial guiado para crear tu primer segmento en Nevent desde cero, entender qué estás haciendo en cada paso y ganar confianza con el motor de segmentación."
+diataxis: tutorial
+faqs:
+  - q: "¿Para qué sirve un segmento en Nevent?"
+    a: "Un segmento es un grupo de fans de tu base de datos que cumplen una serie de condiciones que tú defines. Por ejemplo, puedes crear un segmento con todos los fans que viven en Madrid y han asistido a dos o más eventos tuyos. Ese grupo lo usas después para enviarles una campaña relevante solo a ellos."
+  - q: "¿Tengo que saber mucho de marketing para crear un segmento?"
+    a: "No. Este tutorial te guía paso a paso con un ejemplo concreto y sencillo. Con una sola condición ya tienes un segmento funcional. La complejidad es opcional y puedes añadirla poco a poco."
+  - q: "¿Cuántos fans debe tener mi segmento para que sea útil?"
+    a: "Depende del objetivo. Para una campaña de email masivo general, se recomienda un mínimo de 1.000 fans. Para una promoción segmentada (oferta concreta a un grupo específico), el suelo habitual es 300 fans. Para ofertas muy exclusivas (VIP, preventa), 50-300 fans puede ser suficiente. Si el segmento tiene menos de 50 fans, suele indicar que los criterios son demasiado restrictivos."
+  - q: "¿El segmento se actualiza solo cuando cambian los datos de mis fans?"
+    a: "Sí. Por defecto, los segmentos en Nevent son dinámicos: cada vez que lanzas una campaña, el sistema recalcula quién cumple los criterios en ese momento. Si un fan compró ayer, estará en el segmento mañana sin que tengas que hacer nada."
+  - q: "¿Puedo guardar el segmento y reutilizarlo en otra campaña?"
+    a: "Sí. Una vez guardado, el segmento queda disponible para usarlo cuantas veces quieras. Se recomienda darle un nombre descriptivo, por ejemplo 'Madrid_AsistentesRepetidores', para localizarlo fácilmente más adelante."
+---
+
+import { Aside } from '@astrojs/starlight/components';
+
+Este tutorial te lleva de la mano para crear tu primer segmento de fans en Nevent. Al terminar, habrás construido un segmento real, entenderás qué hace cada parte y sabrás cómo ampliarlo cuando quieras afinar más.
+
+No necesitas experiencia previa con herramientas de marketing. Solo necesitas acceso a Nevent y tener fans en tu base de datos.
+
+## Qué vas a aprender
+
+Al completar este tutorial sabrás:
+
+- Qué es un segmento y para qué sirve en la práctica.
+- Cómo elegir una categoría de criterios.
+- Cómo configurar una condición sencilla.
+- Cómo previsualizar el resultado antes de guardar.
+- Cómo guardar el segmento con un nombre que te ayude a localizarlo.
+
+## Qué es un segmento, explicado sin tecnicismos
+
+Imagina que tienes una lista con todos los asistentes que alguna vez han comprado una entrada a tus eventos. Son miles de personas distintas: algunos viven cerca, otros viajan desde lejos; algunos compran con meses de antelación, otros en el último momento; algunos llevan contigo tres ediciones, otros acaban de conocerte.
+
+Un segmento es, sencillamente, un subgrupo de esa lista. Defines una o varias condiciones, y Nevent te muestra quién las cumple.
+
+El motivo por el que esto importa es directo: cuando envías el mismo mensaje a todo el mundo, la mayoría lo ignora porque no les resulta relevante. Cuando envías un mensaje pensado para un grupo concreto, más personas lo abren y actúan.
+
+## El ejemplo que vas a construir
+
+Durante el tutorial crearás este segmento:
+
+**Nombre:** Fans de Madrid con experiencia
+
+**Condiciones:**
+- Ciudad de residencia: Madrid
+- Número de eventos asistidos: dos o más
+
+Este es un segmento de nivel principiante. Tiene solo dos criterios, resulta en una audiencia de tamaño razonable y el objetivo es claro: fans locales con historial de asistencia, adecuados para campañas de preventa o comunicaciones sobre eventos en tu ciudad.
+
+Cuando termines, te explicaremos cómo ampliarlo si quieres.
+
+## Paso 1. Abre el motor de segmentación
+
+Accede a Nevent y navega al apartado de segmentación. Verás la lista de segmentos que ya existen (si los hay) y un botón para crear uno nuevo.
+
+Haz clic en **Nuevo segmento**.
+
+Se abrirá el editor de segmentos. En este punto verás un formulario en blanco con espacio para dar nombre al segmento y una sección para añadir criterios.
+
+<Aside type="tip">
+Si es la primera vez que entras, puede que el editor te muestre un mensaje de ayuda o un ejemplo preconfigurado. Puedes cerrarlo y empezar desde cero.
+</Aside>
+
+## Paso 2. Ponle nombre a tu segmento
+
+Escribe un nombre descriptivo en el campo de nombre. Para este tutorial usa:
+
+```
+Madrid_AsistentesRepetidores
+```
+
+Un buen nombre responde a dos preguntas: quiénes son y por qué los agrupas. Evita nombres como "Segmento 1" o "Prueba", que no te dicen nada cuando los buscas semanas después.
+
+## Paso 3. Elige la categoría del primer criterio
+
+En el editor verás que los criterios están organizados en categorías. Nevent agrupa los filtros disponibles en seis categorías principales:
+
+- **Asistencia**: datos sobre los eventos a los que han ido tus fans (nombre del evento, tipo de entrada, número de veces que han asistido, artista, género musical...).
+- **Atributos del fan**: información personal como ciudad de residencia, edad o idioma.
+- **Consumo**: datos de compra como gasto total o fecha de última transacción.
+- **Interacción**: cómo responden a tus emails (si los abren, si hacen clic).
+- **Canales**: si tienen la app descargada, el teléfono verificado, redes sociales conectadas.
+- **Nevent Score**: la puntuación automática de engagement que calcula Nevent para cada fan (explicada más abajo).
+
+Para el primer criterio de este tutorial selecciona la categoría **Atributos del fan**.
+
+## Paso 4. Configura el primer criterio: ciudad de residencia
+
+Dentro de la categoría Atributos del fan, selecciona el criterio **Ciudad de residencia**.
+
+A continuación verás dos campos más:
+
+- **Operador**: define cómo se compara el valor. Selecciona **Es igual a**.
+- **Valor**: escribe o selecciona **Madrid**.
+
+Esto le dice a Nevent: "quiero fans cuya ciudad de residencia sea exactamente Madrid".
+
+<Aside type="note">
+Cuando escribas "Madrid" en el campo de valor, Nevent mostrará sugerencias basadas en los datos reales de tu base de datos. Selecciona la opción correcta de esa lista para evitar errores tipográficos.
+</Aside>
+
+## Paso 5. Añade el segundo criterio: número de eventos asistidos
+
+Ahora añade una segunda condición. Haz clic en **Añadir criterio** (o el botón equivalente en la interfaz).
+
+Selecciona la categoría **Asistencia** y el criterio **Número de eventos asistidos**.
+
+Configura así:
+
+- **Operador**: **Mayor o igual que**
+- **Valor**: **2**
+
+Esto añade la condición: "el fan debe haber asistido a al menos dos eventos tuyos".
+
+Los dos criterios quedan unidos con el operador **Y** (AND), lo que significa que el fan debe cumplir ambos a la vez: vivir en Madrid y haber asistido dos o más veces. Si cumple solo uno de los dos, no entra en el segmento.
+
+<Aside type="tip">
+El operador Y reduce el tamaño del segmento pero aumenta su precisión. Si quisieras llegar a más fans, podrías usar solo uno de los dos criterios. Para este tutorial, los dos juntos tienen sentido: buscamos a fans locales con experiencia previa.
+</Aside>
+
+## Paso 6. Previsualiza el resultado
+
+Antes de guardar, usa la función de **preview** o **previsualizar**.
+
+Nevent calculará cuántos fans cumplen los criterios en ese momento y te mostrará:
+
+- El número estimado de fans en el segmento.
+- Una muestra de 10 a 20 perfiles reales para que compruebes que el resultado tiene sentido.
+- La distribución por temperatura Nevent: cada fan aparece clasificado en uno de seis niveles (Muy Caliente, Caliente, Templado, Frío, Muy Frío o Congelado); consulta [Nevent Score y Temperatura](/segmentacion/capacidades/score-y-temperatura/) si quieres entender qué significa cada nivel.
+
+Fíjate en el número total. Si ves algo como esto, interprétalo así:
+
+| Resultado | Qué significa | Qué puedes hacer |
+|---|---|---|
+| Menos de 50 fans | Los criterios son demasiado restrictivos | Sube el umbral de eventos a 1 o amplía la ciudad |
+| Entre 200 y 2000 fans | Tamaño adecuado para la mayoría de campañas | Continúa y guarda |
+| Más de 5000 fans | Es un segmento amplio | Está bien para campañas generales; si quieres más precisión, añade un tercer criterio |
+
+Si el número parece raro, revisa los criterios. Un error tipográfico en "Madrid" o un operador incorrecto son causas habituales.
+
+## Paso 7. Guarda el segmento
+
+Si el preview te parece correcto, guarda el segmento.
+
+Confirma que el nombre es `Madrid_AsistentesRepetidores` y haz clic en **Guardar** (o **Crear segmento**, según la versión de la interfaz).
+
+El segmento quedará guardado y disponible para usarlo en tus campañas.
+
+<Aside type="note">
+Por defecto, el segmento se guarda como **dinámico**: cada vez que lo uses en una campaña, Nevent recalculará quién cumple los criterios en ese momento. Si un fan se muda de Madrid o si alguien que vivía en Madrid asistió a su segundo evento ayer, el segmento lo reflejará automáticamente.
+</Aside>
+
+## Lo que acabas de aprender
+
+Has creado un segmento con dos criterios, has previsualizado el resultado y lo has guardado. En el proceso has conocido:
+
+- Las seis categorías de criterios (Asistencia, Atributos, Consumo, Interacción, Canales, Nevent Score).
+- El operador **Mayor o igual que** para criterios numéricos.
+- El operador **Es igual a** para texto.
+- El operador lógico **Y** (AND), que exige que se cumplan todas las condiciones.
+- La función de preview y cómo interpretar el tamaño del segmento.
+- La Temperatura Nevent como indicador rápido de engagement.
+
+## Qué puedes probar ahora
+
+El siguiente paso natural es añadir un tercer criterio para afinar más el segmento, o crear uno nuevo con una lógica distinta. Aquí tienes tres ideas concretas:
+
+**Idea 1. Añadir temperatura como tercer filtro**
+
+Dentro del segmento que acabas de crear, añade el criterio **Temperatura Nevent** y selecciona **Caliente** o **Muy Caliente**. Así te quedas solo con los fans de Madrid con experiencia que además están activos en este momento.
+
+**Idea 2. Cambiar la ciudad**
+
+Duplica o crea un segmento nuevo con la misma lógica pero cambiando la ciudad. Si organizas eventos en varias ciudades, tener un segmento por ciudad te permite comunicarte con cada grupo de forma independiente.
+
+**Idea 3. Probar un solo criterio**
+
+Crea un segmento con un único criterio: Temperatura **Muy Caliente**. Este es el segmento más sencillo posible y uno de los más útiles: son tus fans más comprometidos, independientemente de dónde vivan o cuántas veces hayan asistido.
+
+## Documentos relacionados
+
+Para continuar aprendiendo sobre segmentación en Nevent:
+
+- [Las 6 categorías de criterios](/segmentacion/motor-segmentacion/categorias/) - referencia completa de todos los filtros disponibles.
+- [Operadores y lógica Y/O](/segmentacion/motor-segmentacion/operadores-logica/) - cómo combinar criterios con AND y OR para construir segmentos más complejos.
+- [Nevent Score y Temperatura](/segmentacion/capacidades/score-y-temperatura/) - explicación de cómo se calcula la puntuación automática de engagement.
+- [Mejores prácticas de segmentación](/segmentacion/motor-segmentacion/mejores-practicas/) - reglas habituales sobre tamaño de segmentos, frecuencia de envío y naming.

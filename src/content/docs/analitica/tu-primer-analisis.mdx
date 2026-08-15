@@ -1,0 +1,136 @@
+---
+title: "Tu primer análisis en Nevent"
+description: "Recorre por primera vez la analítica de Nevent: desde ver cuántas entradas has vendido hasta entender qué canal convierte mejor, paso a paso."
+diataxis: tutorial
+faqs:
+  - q: "¿Qué necesito tener configurado antes de hacer mi primer análisis?"
+    a: "Al menos un evento publicado con ventas registradas en Nevent. Los datos de compras aparecen con una latencia inferior a 5 minutos, así que no hace falta esperar días para ver resultados."
+  - q: "¿Puedo exportar lo que veo en pantalla a Excel o CSV?"
+    a: "Sí. Todas las tablas de resultados son exportables con un clic. La exportación respeta los filtros y dimensiones que hayas aplicado, así que descargas exactamente la vista que tienes en pantalla."
+  - q: "¿Mis datos son visibles para otras promotoras en Nevent?"
+    a: "No. Nevent tiene aislamiento completo por cuenta: ningún otro promotor puede ver tus fans, eventos ni campañas."
+  - q: "¿Con qué frecuencia se actualizan los datos?"
+    a: "Los datos de compras tienen una latencia inferior a 5 minutos. Las métricas agregadas por evento o periodo se actualizan a diario. Las métricas de campañas y atribución se actualizan varias veces al día."
+  - q: "¿Puedo comparar el rendimiento de este mes con el del mes anterior?"
+    a: "Sí. Los filtros temporales incluyen una opción de comparativa con el periodo anterior. El resultado aparece en la misma tabla con la variación porcentual."
+sidebar:
+  order: 5
+---
+
+import { Aside, Steps } from '@astrojs/starlight/components';
+
+En este tutorial vas a dar tu primer recorrido por la analítica de Nevent. Al terminar sabrás dónde encontrar tus datos de ventas, cómo ver el rendimiento de una campaña y qué significan los indicadores que vas a ver con más frecuencia.
+
+No necesitas conocimientos técnicos previos. Solo necesitas tener al menos un evento con ventas en tu cuenta.
+
+## Qué vas a aprender
+
+Cuando termines este tutorial habrás hecho tres cosas concretas:
+
+1. Ver cuántas entradas has vendido y a qué ritmo.
+2. Revisar el rendimiento de una campaña de email.
+3. Filtrar los datos por un periodo concreto y compararlo con el periodo anterior.
+
+Cada paso es corto. No saltes pasos: el orden está pensado para que las ideas encajen solas.
+
+---
+
+## Paso 1: Oriéntate en la analítica de Nevent
+
+Nevent organiza los datos en varias secciones: ventas de entradas, campañas de email y SMS, audiencia y más. En este tutorial solo vas a trabajar con ventas de entradas, campañas y filtros temporales. Son las tres áreas más útiles para empezar y bastan para tomar decisiones concretas.
+
+---
+
+## Paso 2: Mira cuántas entradas has vendido
+
+Este es el punto de partida más natural. Antes de mirar campañas o publicidad, conviene tener claro el volumen de ventas de tu evento.
+
+<Steps>
+
+1. **Accede a la sección de eventos y entradas** dentro del área de analítica de Nevent.
+
+2. **Localiza el evento que quieres revisar.** Si tienes varios eventos activos, selecciona el más reciente para empezar.
+
+3. **Fíjate en dos cifras en primer lugar:**
+
+   - **Ocupación**: qué porcentaje del aforo total ya está vendido. Una ocupación del 60% a tres semanas del evento es un dato muy diferente que esa misma ocupación a tres días.
+   - **Velocidad de venta**: cuántas entradas se venden por día o semana. Esta cifra te dice si la venta se está acelerando o frenando. Si a falta de tres semanas llevas un ritmo de 30 entradas al día pero necesitas vender 600 más, tienes tiempo de reaccionar con una campaña antes de que sea tarde.
+
+4. **Revisa también el ticket medio.** Es el valor promedio de cada transacción. Si un comprador adquiere dos entradas generales y una recarga cashless, su ticket es la suma de todo. Un ticket medio bajo con alta ocupación puede indicar que la demanda existe pero el precio podría subir. Un ticket medio alto con baja ocupación sugiere lo contrario.
+
+</Steps>
+
+No necesitas analizar todas las métricas de entradas ahora. Con ocupación, velocidad de venta y ticket medio ya tienes una foto clara de cómo va el evento.
+
+---
+
+## Paso 3: Revisa el rendimiento de una campaña
+
+Si has enviado al menos un email o SMS para promocionar tu evento, ahora puedes ver exactamente qué efecto tuvo.
+
+<Steps>
+
+1. **Ve a la sección de campañas** en la analítica de Nevent.
+
+2. **Selecciona la campaña que quieres revisar.** Si enviaste una campaña de lanzamiento o de early bird para tu evento, empieza por esa.
+
+3. **Lee el embudo de izquierda a derecha:**
+
+   - **Enviados**: cuántos fans recibieron la campaña.
+   - **Open rate**: qué porcentaje la abrió. Para listas segmentadas en eventos en vivo, un open rate entre el 30% y el 50% es un resultado saludable.
+   - **Click rate**: qué porcentaje de los envíos hizo clic en algún enlace.
+   - **Conversion rate**: qué porcentaje de los envíos acabó comprando una entrada.
+
+4. **Mira el revenue atribuido.** Esta cifra responde a la pregunta que más importa: ¿cuánto dinero generó esa campaña? No cuántos la abrieron, sino cuánto vendiste gracias a ella.
+
+</Steps>
+
+<Aside type="tip">
+Si el open rate es bajo pero el revenue atribuido es alto, tu lista puede ser pequeña pero muy cualificada. Si el open rate es alto pero el revenue es bajo, el problema puede estar en el precio de la entrada, en el enlace de compra o en el momento del envío.
+</Aside>
+
+El unsubscribe rate (porcentaje de fans que se dieron de baja tras el envío) y el bounce rate (emails que no llegaron) también aparecen en esta vista. Si alguno de los dos está por encima de lo normal, es señal de que la lista tiene problemas de calidad o de que la frecuencia de envío es demasiado alta para ese segmento.
+
+---
+
+## Paso 4: Filtra por el periodo que te interesa
+
+Los datos en bruto, sin filtrar, no dicen mucho. El valor está en ver el periodo que necesitas y compararlo con otro.
+
+<Steps>
+
+1. **Localiza el selector de filtro temporal.** Está disponible en todas las secciones de analítica.
+
+2. **Aplica el filtro "Este mes"** para ver solo los datos del mes en curso. Así tienes una foto limpia sin que los datos de meses anteriores distorsionen la lectura.
+
+3. **Activa la comparativa con el periodo anterior.** Nevent puede mostrar el mismo periodo del mes pasado, del trimestre anterior o del año pasado en la misma tabla, con la variación porcentual. Esa comparativa convierte un número suelto en contexto: saber que vendiste 1.200 entradas este mes solo tiene sentido si el periodo anterior vendiste 800 o si vendiste 1.500.
+
+4. **Prueba el filtro "Últimos 30 días".** A diferencia de "Este mes", este filtro es una ventana deslizante: siempre muestra los 30 días anteriores a hoy, independientemente de en qué punto del mes estés. Es útil para seguimiento semanal sin que el cambio de mes corte los datos a la mitad.
+
+</Steps>
+
+Puedes exportar cualquier vista filtrada a CSV o Excel con un clic. La exportación respeta los filtros aplicados, así que descargas exactamente lo que ves en pantalla.
+
+---
+
+## Resumen de lo que has aprendido
+
+Has completado tu primer recorrido por la analítica de Nevent. Ahora sabes:
+
+- Dónde encontrar los datos de ventas de un evento concreto y qué significan ocupación, velocidad de venta y ticket medio.
+- Cómo leer el embudo de una campaña de email: desde los enviados hasta el revenue atribuido.
+- Cómo filtrar por periodos concretos y activar la comparativa con el periodo anterior.
+
+Cuando quieras llevar este análisis a tu rutina habitual, la sección [Cómo agrupar y filtrar](/analitica/agrupar-y-filtrar/) explica todas las dimensiones y filtros disponibles para profundizar en los datos.
+
+---
+
+## Siguiente paso
+
+Cuando estés cómodo con estas tres áreas, puedes ampliar el análisis a:
+
+- **Audiencia y fans**: entiende quiénes son tus fans más valiosos, cuánto valen a largo plazo (LTV) y cuántos están en riesgo de no volver (churn). Esta información es la base para decidir cuánto puedes invertir en captar fans nuevos.
+- **Paid media**: si usas publicidad en Meta o Google para vender entradas, revisa el ROAS (retorno sobre la inversión publicitaria) de cada campaña para saber si estás ganando o perdiendo dinero con cada euro invertido.
+- **Tracking y atribución**: cuando tengas varias campañas activas al mismo tiempo, el tracking de enlaces te dice exactamente qué enlace, en qué canal, generó más ventas. Esa información te permite optimizar sin adivinar.
+
+Si prefieres explorar los datos con preguntas en lenguaje natural en lugar de navegar por menús, puedes usar el asistente de IA de Nevent para obtener cualquiera de estas métricas con una pregunta directa, sin necesidad de aplicar filtros manualmente.
