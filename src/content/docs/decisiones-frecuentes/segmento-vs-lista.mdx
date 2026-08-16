@@ -1,0 +1,145 @@
+---
+title: "Segmento dinámico o lista: cuál usar"
+description: "Entiende la diferencia entre un segmento dinámico y una lista estática en Nevent, y cuándo tiene sentido usar cada uno según tu objetivo."
+diataxis: explanation
+faqs:
+  - q: "¿Un segmento dinámico puede quedarse vacío si cambian los datos de mis fans?"
+    a: "Sí. El segmento recalcula sus miembros cada vez que lo usas. Si los fans que antes cumplían los criterios ya no los cumplen (por ejemplo, porque su temperatura bajó o porque ya compraron), el segmento reflejará ese cambio. Eso es precisamente lo que lo hace útil: siempre trabaja con datos actualizados."
+  - q: "¿Cuando importo fans puedo añadirlos directamente a un segmento?"
+    a: "Sí, pero el segmento que se crea en ese momento es una lista de etiqueta estática. Nevent te ofrece tres opciones al importar: no volcar, añadir a un segmento existente o crear un segmento nuevo. En los dos últimos casos, los fans del archivo se asignan fijos a ese grupo, independientemente de los criterios del motor de segmentación."
+  - q: "¿Puedo combinar una lista estática con el motor de segmentación?"
+    a: "Puedes usar la etiqueta de carpeta como un criterio más dentro del motor. Por ejemplo, puedes construir un segmento dinámico que diga: 'fans que pertenecen a la carpeta Importacion_Mayo_2025 Y que tienen temperatura Caliente o Muy Caliente'. Así filtras una lista importada con criterios de comportamiento."
+  - q: "¿El segmento dinámico afecta a cuántos fans reciben realmente mi campaña?"
+    a: "El segmento define quiénes califican según los criterios. Pero Nevent aplica un segundo filtro antes de enviar: solo llega la campaña a los fans que tienen consentimiento de marketing activo y dirección válida. La columna de contactabilidad en la pantalla de segmentos te muestra el porcentaje de fans del segmento que son realmente contactables."
+  - q: "¿Cuándo tiene sentido usar una lista estática en lugar de un segmento dinámico?"
+    a: "Cuando la pertenencia al grupo depende de algo que ocurrió en el pasado y que no debe cambiar con el tiempo. Por ejemplo: participantes de un sorteo, asistentes a un evento de prensa, contactos traídos de una herramienta externa con un consentimiento distinto. En esos casos necesitas fijar el grupo en el momento exacto de la importación o la acción."
+---
+
+import { Aside } from '@astrojs/starlight/components';
+
+## De qué va esta página
+
+Nevent te da dos formas de organizar a tus fans en grupos: los segmentos dinámicos, que construyes con el motor de segmentación, y las listas o audiencias estáticas, que se forman al importar contactos o asignarlos manualmente a una carpeta. Parecen lo mismo porque en ambos casos el resultado es un conjunto de personas al que puedes dirigir una campaña. Pero funcionan de forma muy distinta, y entender esa diferencia te evita errores y te ayuda a elegir bien en cada situación.
+
+Esta página explica qué es cada uno, cómo funciona por dentro y cuáles son las señales que indican que deberías usar uno u otro.
+
+---
+
+## Qué es un segmento dinámico
+
+Un segmento dinámico es una pregunta que le haces al motor de segmentación de Nevent: "dame todos los fans que cumplen estas condiciones ahora mismo". Nevent evalúa esa pregunta sobre tu base de fans en el momento en que la lanzas, y te devuelve el grupo de personas que encajan.
+
+La clave está en las dos palabras: "que cumplen" y "ahora mismo". El segmento no guarda una lista fija de personas. Guarda la regla. Cada vez que lo usas, la regla se aplica de nuevo sobre los datos actuales.
+
+Eso significa que si ayer un fan era "Muy Frío" en el Nevent Score y hoy ha comprado una entrada y ha abierto dos emails, mañana puede aparecer en tu segmento de fans "Calientes" sin que hayas tocado nada. El motor lo recalcula solo.
+
+El motor de segmentación de Nevent organiza los criterios disponibles en seis categorías: Asistencia (eventos a los que ha ido el fan, tipo de entrada, artista, género musical), Atributos del fan (ciudad de residencia, edad, idioma), Consumo (gasto total, número de compras, recargas cashless), Interacción (emails abiertos, clics, velocidad de respuesta), Canales (app descargada, teléfono verificado, redes sociales conectadas) y Nevent Score (la temperatura y el valor numérico del score de engagement). Puedes combinar criterios de distintas categorías con operadores lógicos Y y O, y añadir modificadores de recencia y frecuencia para filtrar no solo por lo que ha hecho el fan sino por cuántas veces lo ha hecho y en qué periodo de tiempo.
+
+<Aside type="tip">
+La [guía del motor de segmentación](/segmentacion/motor-segmentacion/) explica cada categoría de criterios y cómo combinarlos. Si quieres ver cómo se construye un segmento paso a paso, la guía [Crea tu primer segmento](/segmentacion/tu-primer-segmento/) te lo enseña con un ejemplo concreto.
+</Aside>
+
+---
+
+## Qué es una lista estática
+
+Una lista estática (o audiencia estática) es un grupo fijo de personas. Se crea en el momento en que las añades al grupo, y no cambia sola.
+
+En Nevent, las listas estáticas aparecen principalmente cuando importas contactos. Al final del proceso de importación, Nevent te pregunta si quieres volcar esos contactos a un segmento. Si respondes que sí, puedes añadirlos a un segmento existente o crear uno nuevo. Los contactos del archivo quedan asignados a ese grupo en ese instante. La lista no evalúa condiciones: simplemente registra que esas personas fueron añadidas.
+
+El grupo resultante no se actualiza solo. Si un contacto de esa lista cambia su comportamiento, su temperatura o su historial de compras, eso no le saca ni le mete en la lista. Solo lo haría una acción manual o una nueva importación.
+
+<Aside type="note">
+La guía [Importa tus contactos](/audiencia/importar-fans/) describe el paso de volcado a segmento con detalle, incluyendo las tres opciones disponibles: no volcar, añadir a un segmento existente y crear un segmento nuevo.
+</Aside>
+
+---
+
+## La diferencia que importa: regla frente a instantánea
+
+La forma más clara de entender la diferencia es con esta imagen:
+
+Un segmento dinámico es una **regla permanente**. Se evalúa cada vez. El grupo que produce cambia porque los datos de tus fans cambian.
+
+Una lista estática es una **instantánea en el tiempo**. Refleja quién estaba en ese grupo en el momento en que se formó. No evoluciona a menos que intervengas.
+
+Eso tiene consecuencias prácticas muy directas:
+
+Si envías una campaña de preventa a un segmento dinámico de "fans con temperatura Caliente o Muy Caliente", el día del envío Nevent calcula quién tiene ese nivel de temperatura en ese momento. Un fan que se enfrió en las últimas semanas no recibirá el mensaje. Uno que se activó recientemente sí lo recibirá, aunque no estuviera en el grupo la semana pasada. El segmento se adapta a la realidad actual de tu audiencia.
+
+Si en cambio envías esa campaña a una lista estática que importaste hace tres meses, el grupo es exactamente el mismo que cuando lo creaste. Los fans que se enfriaron siguen dentro. Los nuevos que se activaron desde entonces no están. Recibes un corte del pasado, no del presente.
+
+---
+
+## Por qué el motor de segmentación es la herramienta principal
+
+La lógica del motor está diseñada para promotores de eventos, donde la actividad de los fans cambia con el tiempo de forma muy marcada. Un fan que compró entradas hace dos meses tiene un comportamiento y un nivel de engagement distintos a los que tendrá en la semana de venta de early birds del próximo festival. Si tu grupo no se actualiza, estás enviando mensajes basados en una realidad que ya no existe.
+
+Además, el Nevent Score (que incluye la temperatura y el valor numérico del score de engagement) se recalcula automáticamente para cada fan. Nevent tiene en cuenta factores como la frecuencia de asistencia a eventos, la recencia de las compras, el gasto total histórico, el engagement con emails y la velocidad de compra. Ese recálculo solo tiene efecto en tus campañas si usas segmentos dinámicos que incluyan esos criterios. Con una lista estática, el Nevent Score actualizado de tus fans es invisible para el grupo.
+
+Los [casos de uso prácticos del motor de segmentación](/segmentacion/motor-segmentacion/casos-uso/) muestran ejemplos concretos donde esta dinámica marca una diferencia de resultado: segmentos de fans en riesgo que se actualizan solos cuando alguien vuelve a comprar, audiencias de early birds que solo incluyen a quienes compraron con antelación en las últimas temporadas, o grupos de reactivación que cambian conforme avanzan las campañas de win-back.
+
+---
+
+## Cuándo tiene sentido una lista estática
+
+Las listas estáticas no son una opción inferior: son la herramienta correcta cuando necesitas exactamente lo que ofrecen, un grupo congelado en el tiempo.
+
+**Tienes contactos de fuera de Nevent con un historial que no está en el sistema.** Cuando importas una lista de fans de otra plataforma, esas personas no tienen todavía actividad registrada en Nevent. No tienen temperatura, no tienen historial de compras en tu sistema, no tienen interacción con tus emails. Un segmento dinámico con criterios de comportamiento no les incluiría porque no hay datos que evaluar. La lista estática es la única forma de trabajar con ellos mientras el sistema va acumulando información.
+
+**La pertenencia al grupo depende de algo que ocurrió en el pasado y no debe cambiar.** Participantes de un sorteo celebrado en un evento, asistentes a una sesión de prensa, ganadores de un concurso, contactos vinculados a un patrocinador concreto. En todos estos casos, lo que define al grupo es un hecho histórico puntual, no un estado actual. Que un participante del sorteo abra o no tus emails a partir de ese momento no debería sacarle del grupo.
+
+**Estás gestionando una base de datos externa que tiene sus propias condiciones de consentimiento.** Si importas fans que dieron su consentimiento en una plataforma distinta con condiciones distintas, puede que necesites tratar ese grupo de forma separada y controlada, sin que el motor los mezcle con el resto de tu audiencia según criterios de comportamiento.
+
+---
+
+## Cuándo usar cada uno: una guía rápida
+
+| Situación | Usa... |
+|---|---|
+| Enviar una campaña de early bird a tus fans más activos en este momento | Segmento dinámico (temperatura Caliente o Muy Caliente) |
+| Llegar a fans que asistieron a tu festival el año pasado | Segmento dinámico (criterio de asistencia, evento específico) |
+| Reactivar fans que no han comprado en más de seis meses | Segmento dinámico (modificador de recencia en consumo) |
+| Contactar a fans importados de otra herramienta que aún no tienen actividad en Nevent | Lista estática (volcado al importar) |
+| Gestionar un grupo puntual de prensa, patrocinadores o invitados especiales | Lista estática (asignación manual o importación) |
+| Hacer un seguimiento a los participantes de una acción concreta en el pasado | Lista estática (refleja ese momento histórico) |
+
+---
+
+## La contactabilidad se aplica en los dos casos
+
+Independientemente de si usas un segmento dinámico o una lista estática, Nevent aplica siempre el mismo filtro antes de enviar una campaña: solo reciben el mensaje los fans que tienen consentimiento de marketing activo y dirección de email marcada como válida.
+
+La pantalla de segmentos en Nevent muestra, para cada segmento, la audiencia de marketing estimada desglosada por canal (email, SMS, push) y el porcentaje de contactabilidad por email. Un segmento de cincuenta fans puede tener solo treinta y cinco contactables si los quince restantes tienen el consentimiento desactivado o la dirección marcada como inválida por un rebote.
+
+Esto significa que el tamaño de un grupo (tanto dinámico como estático) nunca es el tamaño real del envío. Es el punto de partida. La guía [Como entiende Nevent tu audiencia](/audiencia/como-entiende-nevent-tu-audiencia/) explica en detalle qué es la contactabilidad y por qué varía.
+
+---
+
+## Puedes combinar ambas herramientas
+
+Las listas estáticas y los segmentos dinámicos no son excluyentes. Puedes usar la carpeta o etiqueta de una lista como un criterio dentro del motor de segmentación.
+
+Por ejemplo: tienes una lista importada de fans que asistieron a un festival de otra promotora hace dos años (datos que no están en el historial de Nevent). Los importaste con su correspondiente etiqueta. Puedes construir un segmento dinámico que diga: "fans de la carpeta Importacion_FestivalX que además tienen temperatura Caliente o Muy Caliente en Nevent". El resultado es un grupo que combina el origen externo (lista estática) con el comportamiento actual (segmento dinámico).
+
+Esta combinación es especialmente útil cuando quieres cualificar una base importada con criterios de engagement antes de enviarles una campaña, en lugar de enviarla a todos los contactos de la lista sin distinción.
+
+---
+
+## Resumen
+
+El motor de segmentación de Nevent está pensado para ser tu herramienta de trabajo habitual en campañas. Evalúa los datos en tiempo real, refleja el estado actual de cada fan y se beneficia de todo lo que el sistema sabe sobre el comportamiento de tu audiencia, incluyendo el Nevent Score y sus modificadores de recencia y frecuencia.
+
+Las listas estáticas tienen su lugar cuando trabajas con contactos sin historial en Nevent, cuando necesitas preservar un grupo histórico puntual o cuando la lógica de pertenencia no es conductual sino administrativa.
+
+Entender cuándo usar cada uno no es una cuestión técnica: es entender si tu objetivo es hablar con las personas que son relevantes *ahora mismo* (segmento dinámico) o con un grupo específico que definiste *en un momento concreto* (lista estática).
+
+---
+
+## Próximos pasos
+
+- [Motor de segmentación: qué es y cómo funciona](/segmentacion/motor-segmentacion/) para entender en profundidad las seis categorías de criterios.
+- [Crea tu primer segmento](/segmentacion/tu-primer-segmento/) si quieres construir tu primer segmento dinámico paso a paso.
+- [Las 6 categorías de criterios](/segmentacion/motor-segmentacion/categorias/) para ver todos los filtros disponibles con ejemplos.
+- [Importa tus contactos](/audiencia/importar-fans/) para entender el proceso de volcado a lista al subir un archivo.
+- [Como entiende Nevent tu audiencia](/audiencia/como-entiende-nevent-tu-audiencia/) para profundizar en consentimientos, contactabilidad y limpieza de datos.

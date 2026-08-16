@@ -1,0 +1,165 @@
+---
+title: "Mis emails van a spam: cómo diagnosticarlo y solucionarlo"
+description: "Guía paso a paso para identificar por qué tus campañas de Nevent acaban en la carpeta de spam y cómo corregirlo actuando sobre el dominio, la reputación, el contenido y la higiene de lista."
+diataxis: how-to
+faqs:
+  - q: "Ya tengo dominio dedicado configurado. ¿Por qué siguen llegando mis emails a spam?"
+    a: "El dominio dedicado es una condición necesaria pero no suficiente. Revisa también los rebotes duros (deben estar por debajo del 2 %), las quejas de spam (por debajo del 0,1 %) y el contenido del email. Un asunto con muchas mayúsculas, exceso de imágenes o palabras típicas de spam puede hacer que los filtros actúen aunque el dominio esté correctamente autenticado."
+  - q: "¿Qué es un rebote duro y cómo afecta a mi reputación?"
+    a: "Un rebote duro ocurre cuando el servidor del destinatario rechaza el email de forma permanente, por ejemplo porque la dirección no existe. Nevent excluye esa dirección de futuros envíos de forma automática, pero si tienes muchos rebotes duros acumulados los servidores de correo empiezan a tratar tus mensajes como no fiables. Mantener los rebotes duros por debajo del 2 % es clave para proteger tu entregabilidad."
+  - q: "¿Qué diferencia hay entre una queja de spam y una desuscripción?"
+    a: "Una desuscripción ocurre cuando el contacto hace clic en el enlace de baja del email. Una queja de spam ocurre cuando lo marca como no deseado directamente en su cliente de correo (Gmail, Outlook, etc.). Las quejas dañan mucho más la reputación del remitente porque son una señal directa para los filtros. Mantener las quejas por debajo del 0,1 % es fundamental."
+  - q: "¿Cuánto tarda en verificarse el dominio dedicado una vez creados los registros DNS?"
+    a: "Dependiendo del proveedor de dominio, la propagación de los registros DNS puede tardar desde unos minutos hasta 72 horas. Si tras 72 horas algún registro sigue en estado Pendiente, revisa en el panel de tu proveedor que copiaste el nombre y el valor exactamente como los muestra Nevent."
+  - q: "Si no tengo dominio dedicado, ¿mis emails llegan a spam siempre?"
+    a: "No necesariamente. Con el dominio compartido de Nevent los emails se envían desde el primer día y pueden llegar a bandeja de entrada. El riesgo es que compartes reputación con otros remitentes de la plataforma. Si otro usuario tiene problemas de reputación, puede afectarte. Configurar un dominio dedicado aísla tu reputación completamente."
+---
+
+Esta guía te ayuda a diagnosticar por qué una campaña de email de Nevent acaba en la carpeta de spam y a aplicar las correcciones necesarias, paso a paso y en orden de prioridad. Al terminar sabrás exactamente dónde está el problema y cómo resolverlo.
+
+## Antes de empezar
+
+Necesitas tener al menos una campaña enviada para poder revisar los datos. Si todavía no has lanzado ninguna, sigue primero la guía [Como crear tu primera campaña](/campanas/crear-primera-campana).
+
+Para los pasos de configuración de dominio necesitarás acceso al panel de administración de Nevent con rol de administrador.
+
+---
+
+## Paso 1: comprueba los rebotes de la campaña
+
+Lo primero es revisar los datos de entrega de la campaña que sospechas que está cayendo en spam.
+
+1. En el menú lateral, haz clic en **Mis campañas** y abre la campaña enviada.
+2. Dentro del informe, haz clic en **Entregabilidad** en el menú lateral izquierdo.
+
+Esta sección muestra cinco tarjetas: Enviados, Entregados, Tasa de entrega, Rebotes suaves y Rebotes duros.
+
+Fíjate en estos valores:
+
+- **Tasa de entrega.** Por encima del 95 % es saludable. Si baja del 90 %, la calidad de tu lista es el problema principal.
+- **Rebotes duros.** Si superan el 2 %, los servidores de correo empiezan a tratar tus mensajes como no fiables. Nevent excluye automáticamente esas direcciones de futuros envíos, pero el daño a tu reputación ya está hecho.
+- **Rebotes suaves.** Son temporales (bandeja llena, servidor caído). No son urgentes, pero si se repiten en la misma dirección, conviene depurarla.
+
+Si tienes rebotes duros, haz clic en **Ver** junto a "Rebotes duros" para ver la lista de direcciones afectadas. Elimínalas de tu base de datos de contactos para no acumular más daño.
+
+Consulta todos los detalles en [Como consultar los rebotes de tus campañas](/campanas/informe/rebotes).
+
+---
+
+## Paso 2: revisa las quejas de spam y las bajas
+
+En el mismo informe de campaña, haz clic en **Desuscripciones** en el menú lateral izquierdo.
+
+Esta sección muestra cuatro tarjetas: Desuscripciones, Tasa de baja, Quejas de spam y Tasa de quejas.
+
+Estos son los umbrales que debes vigilar:
+
+- **Tasa de baja.** Por debajo del 0,5 % es saludable. Si supera el 1 %, revisa la segmentación y la frecuencia de envío.
+- **Tasa de quejas.** Mantenerla por debajo del 0,1 % es fundamental. Las quejas de spam son la señal más directa que pueden enviar tus contactos a los filtros de correo: cada queja le dice al proveedor (Gmail, Outlook) que tu email no es bienvenido.
+
+Si la tasa de quejas es alta, el problema suele estar en que envías a personas que no te dieron su consentimiento explícito o que no recuerdan haberte dado permiso. La solución es limpiar la lista (paso 5) y ajustar la segmentación.
+
+Consulta el detalle en [Quien se dio de baja tras tu campaña](/campanas/informe/desuscripciones).
+
+---
+
+## Paso 3: verifica el estado de tu dominio de envío
+
+Un dominio sin autenticación correcta es una de las causas más frecuentes de que los emails acaben en spam. Nevent te permite comprobarlo desde la pantalla de configuración.
+
+1. En el menú lateral, desplázate hasta la parte inferior y abre **Configuración**.
+2. Dentro del grupo **Avanzado**, haz clic en **Envío de emails**.
+
+Esta pantalla muestra tres bloques de información.
+
+**Tipo de dominio.** El campo puede mostrar dos valores:
+
+- **Dominio compartido.** Tus emails salen desde un subdominio de Nevent que comparten todas las cuentas de la plataforma. Funciona, pero compartes reputación con otros remitentes.
+- **Dominio dedicado.** Tus emails salen desde un subdominio de tu propio dominio, con reputación completamente tuya.
+
+**Estado de componentes.** Aquí ves tres elementos: Subdominio automático, Configuration Sets y SES Tenant. Si los tres aparecen como "No configurado", "No configurados" o "No creado", tu cuenta todavía usa la infraestructura compartida de Nevent.
+
+Si quieres aislar tu reputación, haz clic en el botón **Provisionar dominio y crear SES Tenant**. Nevent creará los tres componentes automáticamente. El proceso puede tardar varios minutos: no pulses el botón más de una vez.
+
+Consulta qué significa cada componente en [Ajustes de envío de emails](/entregabilidad/envio-de-emails).
+
+---
+
+## Paso 4: configura o verifica tu dominio dedicado
+
+Si el tipo de dominio es "Dominio compartido" y quieres resolver la causa de fondo, el paso más importante es configurar tu propio dominio dedicado con autenticación SPF, DKIM y DMARC.
+
+1. En el menú lateral, abre **Configuración** y localiza el grupo **Espacio de trabajo**.
+2. Haz clic en **Dominio dedicado** y luego en **Comenzar configuración**.
+3. El asistente te guía por tres pasos: introduce tu dominio raíz (por ejemplo, `tufestival.com`), elige el subdominio de envíos (por defecto `email`) y confirma la configuración.
+4. Nevent genera los registros DNS que debes crear en el panel de tu proveedor de dominio: DKIM (tipo CNAME), SPF (tipo TXT), MAIL FROM (tipo MX) y DMARC (tipo TXT).
+5. Crea cada registro en tu proveedor copiando los valores exactamente como los muestra Nevent. No transcribas a mano los valores de DKIM: son cadenas largas y un carácter incorrecto impide la verificación.
+6. Vuelve a Nevent y haz clic en **Verificar estado**. La propagación puede tardar desde unos minutos hasta 72 horas.
+
+Cuando todos los registros estén verificados, tus próximas campañas saldrán desde `email.tufestival.com` con autenticación completa, lo que reduce significativamente la probabilidad de que caigan en spam.
+
+Sigue el proceso completo en [Configura tu dominio dedicado](/entregabilidad/dominio-dedicado).
+
+---
+
+## Paso 5: limpia tu lista de contactos
+
+Una lista con direcciones inválidas, inactivas o sin consentimiento explícito es una fuente continua de rebotes duros y quejas de spam. Depurarla es una de las acciones con mayor impacto en la entregabilidad.
+
+Estas son las acciones concretas:
+
+- **Elimina las direcciones con rebotes duros.** Nevent las excluye automáticamente de futuros envíos, pero es buena práctica borrarlas también de tu base de datos de fans para evitar confusiones.
+- **No envíes a quienes se dieron de baja.** Nevent lo gestiona automáticamente: cuando alguien hace clic en el enlace de baja, queda excluido de todos los envíos futuros de tu organización. Nunca intentes saltarte esa baja.
+- **Evita listas compradas o importadas sin consentimiento.** Enviar a personas que no te dieron su permiso explícito es la vía más rápida para acumular quejas de spam y arruinar tu reputación, además de incumplir el RGPD.
+- **Revisa los contactos inactivos.** Si una parte de tu lista lleva varios envíos sin abrir ningún email, plantéate si tiene sentido seguir enviándoles o si prefieres segmentarlos aparte y enviar con menos frecuencia.
+
+---
+
+## Paso 6: revisa el contenido del email
+
+Los filtros de spam no solo analizan el dominio y la reputación: también leen el contenido del email. Ciertos patrones activan los filtros aunque el dominio esté correctamente autenticado.
+
+Comprueba estos puntos antes de enviar la próxima campaña:
+
+- **Asunto.** Evita escribir en mayúsculas o con exceso de signos de exclamación. Un asunto como "COMPRA YA!!! OFERTA INCREÍBLE!!!" activa los filtros de spam. Usa lenguaje claro y concreto.
+- **Equilibrio texto e imágenes.** Un email que es una sola imagen grande sin texto se comporta mal en los filtros. Asegúrate de que hay texto suficiente para que el mensaje tenga sentido incluso con las imágenes desactivadas.
+- **Número de enlaces.** Demasiados enlaces, especialmente si son acortados o apuntan a dominios diferentes, generan sospecha. Usa solo los enlaces necesarios.
+- **Palabras de riesgo.** Términos repetidos como "gratis", "urgente", "gana dinero" o "sin coste" pueden actuar como señales de spam. No los elimines si son relevantes, pero no los uses en exceso ni en el asunto.
+- **Enlace de baja visible.** El enlace de cancelación de suscripción debe estar siempre presente y ser fácil de encontrar. Nevent lo incluye automáticamente en la firma de email configurada en Configuración > Canales > Correo electrónico.
+
+Revisa más buenas prácticas en [Buenas practicas para tus campañas](/campanas/mejores-practicas) y en [Reputación de envío: como evitar el spam](/entregabilidad/reputacion-y-spam).
+
+---
+
+## Paso 7: empieza despacio si la lista es nueva o grande
+
+Si acabas de configurar tu dominio dedicado o vas a enviar por primera vez a una lista grande, no lo envíes todo de golpe. Empezar con un volumen muy alto desde un dominio nuevo levanta sospechas en los servidores de correo.
+
+La estrategia recomendada es enviar primero a tus contactos más activos (los que han abierto emails recientes o comprado entradas en los últimos meses) y ampliar el alcance de forma progresiva. Así, los servidores ven un remitente que genera buena interacción desde el principio y consolidan una reputación positiva.
+
+---
+
+## Lista de comprobación
+
+Antes de enviar la próxima campaña, repasa estos puntos:
+
+- [ ] Rebotes duros de la última campaña por debajo del 2 %.
+- [ ] Tasa de quejas por debajo del 0,1 %.
+- [ ] Tasa de baja por debajo del 0,5 % (o revisada y con acción tomada si supera el 1 %).
+- [ ] Tipo de dominio: Dominio dedicado (o Dominio compartido con componentes provisionados).
+- [ ] Registros SPF, DKIM y DMARC verificados en Nevent.
+- [ ] Lista depurada: sin rebotes duros acumulados, sin contactos dados de baja.
+- [ ] Asunto sin mayúsculas excesivas ni signos de exclamación repetidos.
+- [ ] Email con equilibrio entre texto e imágenes.
+- [ ] Enlace de baja visible en el pie del email.
+
+---
+
+## Guías relacionadas
+
+- [Reputación de envío: como evitar el spam](/entregabilidad/reputacion-y-spam): explica en detalle qué es la reputación de remitente y los hábitos que la protegen.
+- [Configura tu dominio dedicado](/entregabilidad/dominio-dedicado): instrucciones paso a paso para configurar SPF, DKIM y DMARC desde el asistente de Nevent.
+- [Ajustes de envío de emails](/entregabilidad/envio-de-emails): qué significa cada componente de la pantalla de envío y cómo provisionarlos.
+- [Como consultar los rebotes de tus campañas](/campanas/informe/rebotes): cómo leer los datos de entregabilidad de una campaña enviada.
+- [Quien se dio de baja tras tu campaña](/campanas/informe/desuscripciones): cómo interpretar las bajas y las quejas de spam de una campaña.
+- [Buenas practicas para tus campañas](/campanas/mejores-practicas): segmentación, asunto, frecuencia y medición para mejorar los resultados.

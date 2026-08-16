@@ -1,0 +1,175 @@
+---
+title: "No veo ventas atribuidas a mis campañas"
+description: "Por qué una campaña puede aparecer sin revenue atribuido en Nevent, cómo funciona la atribución y qué revisar paso a paso para diagnosticar el problema."
+diataxis: how-to
+faqs:
+  - q: "La campaña tiene clics pero el revenue atribuido aparece a cero. ¿Por qué?"
+    a: "Los clics y el revenue atribuido son métricas distintas. Que alguien clique no garantiza que haya comprado. Revisa si el enlace del email llevaba a la página de venta correcta, si la venta se completó realmente y si el filtro temporal del informe cubre el periodo posterior al envío. También puede ocurrir que la venta se realizara por otro canal (directo, orgánico) y Nevent la atribuya a ese canal en lugar de a tu campaña."
+  - q: "¿Cuánto tarda en aparecer el revenue atribuido tras un envío?"
+    a: "Las métricas de campañas y atribución se actualizan varias veces al día. Si el envío fue hace menos de una hora, espera un poco y recarga el informe. Si han pasado varias horas y sigue a cero, sigue la guía de diagnóstico."
+  - q: "¿Es posible que la venta exista pero no aparezca atribuida a ninguna campaña?"
+    a: "Sí. Las ventas que llegan por tráfico directo, orgánico o por canales no rastreados no se asignan a ninguna campaña concreta. En la vista de atribución por canal puedes ver el revenue de los canales 'Orgánico' y 'Directo', que agrupa esas ventas sin campaña asignada."
+  - q: "¿Qué diferencia hay entre el revenue atribuido de la campaña y los ingresos totales del evento?"
+    a: "Los ingresos totales del evento suman todas las entradas vendidas, sin importar de dónde vinieron. El revenue atribuido a una campaña solo cuenta las ventas que Nevent puede relacionar con un clic o una interacción en esa campaña concreta. La diferencia son ventas directas, orgánicas o de canales no rastreados."
+---
+
+import { Aside, CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+Esta guía te ayuda a identificar por qué una campaña enviada en Nevent no muestra ventas atribuidas, cómo funciona la atribución internamente y qué revisar paso a paso para diagnosticar el problema.
+
+## Antes de empezar
+
+Necesitas tener al menos una campaña en estado **Enviada** y acceso al informe de esa campaña desde **Campañas > Mis campañas**. Si todavía no has enviado ninguna campaña, sigue primero [Como crear tu primera campaña](/campanas/crear-primera-campana).
+
+---
+
+## Cómo funciona la atribución en Nevent
+
+Antes de diagnosticar, conviene entender qué está midiendo exactamente el campo "revenue atribuido".
+
+Cuando envías una campaña, Nevent instrumenta automáticamente cada enlace que contiene. Cuando un fan hace clic en ese enlace y después completa una compra, Nevent asigna el ingreso de esa venta al enlace y, por tanto, a la campaña que lo contenía.
+
+Esto significa que la atribución requiere tres condiciones simultáneas:
+
+1. El fan recibió y abrió el email (o SMS, o WhatsApp).
+2. El fan hizo clic en un enlace rastreado dentro de ese mensaje.
+3. El fan completó la compra en la ventana de tiempo posterior al clic.
+
+Si alguna de esas tres condiciones falla, la venta no queda atribuida a la campaña.
+
+La métrica de **clics** y la de **revenue atribuido** son independientes: que una campaña tenga muchos clics no garantiza que haya generado revenue atribuido. El indicador que conecta ambas es la **conversión post-clic**, que mide qué porcentaje de fans que clicaron acabó comprando.
+
+Para entender en profundidad cómo funciona cada métrica de atribución, consulta [Tracking y atribución de enlaces](/analitica/tracking-y-atribucion/).
+
+---
+
+## Diagnóstico: pasos a seguir
+
+### Paso 1: Comprueba el estado y la fecha de la campaña
+
+Abre el informe de la campaña desde **Campañas > Mis campañas**. Comprueba que:
+
+- El estado de la campaña es **Enviada**, no "Programada" ni "Borrador".
+- La fecha de envío es la que esperabas. Si programaste la campaña para una fecha futura y todavía no ha llegado, el revenue atribuido será cero porque el envío aún no se ha producido.
+
+Si la campaña está programada para el futuro, simplemente no hay nada que diagnosticar todavía: espera a que se envíe.
+
+### Paso 2: Revisa el bloque de métricas del informe
+
+En la sección **Resumen** del informe de la campaña verás cuatro tarjetas: Enviados, Entregados, Abiertos y Clics.
+
+Fíjate en estas señales:
+
+- Si **Enviados** es cero o muy bajo: el envío no se produjo o se abortó. Revisa la configuración de la campaña.
+- Si **Entregados** es mucho menor que **Enviados**: hay rebotes elevados. Consulta [Como consultar los rebotes de tus campañas](/campanas/informe/rebotes) para diagnosticar el problema.
+- Si **Abiertos** es bajo (por debajo del 15% es una señal de alerta): pocas personas vieron el email. Sin apertura, no hay clic posible y por tanto no hay atribución. Revisa el asunto y el remitente.
+- Si **Clics** es bajo o cero: nadie hizo clic en el enlace de compra. Sin clic rastreado, no hay atribución. Revisa que el email incluía un enlace de compra claro y visible.
+
+Consulta los rangos orientativos de [Como interpretar los resultados de tu campaña](/campanas/informe/resultados) para saber si tus valores son normales.
+
+### Paso 3: Verifica que el email incluía un enlace rastreado a la página de venta
+
+La atribución solo funciona si el email contenía un enlace que:
+
+- Llevaba a la página de venta de entradas de tu evento (no a una página de inicio genérica ni a redes sociales).
+- Era un enlace instrumentado por Nevent, es decir, un enlace insertado desde el editor de plantillas o desde el asistente de campaña, no un texto plano escrito manualmente sin hipervínculos.
+
+Si copiaste y pegaste la URL directamente como texto sin crear un hipervínculo en el editor, Nevent no puede rastrear ese clic y la atribución no se produce.
+
+Revisa la plantilla utilizada en la campaña desde **Campañas > Plantillas** para confirmar que el botón o enlace de compra está correctamente configurado.
+
+### Paso 4: Comprueba que hubo ventas reales en ese periodo
+
+Antes de concluir que el problema está en la atribución, verifica que efectivamente se vendieron entradas en el periodo posterior al envío.
+
+Ve a la sección de **Eventos y entradas** en la analítica de Nevent y filtra por el evento y las fechas correspondientes. Si no hay ventas en ese periodo, la campaña puede haber funcionado correctamente pero simplemente no convirtió.
+
+Si sí hubo ventas pero no aparecen atribuidas a la campaña, continúa con el siguiente paso.
+
+### Paso 5: Revisa la deliverability del envío
+
+Una causa frecuente de revenue atribuido bajo es que los emails no llegaron a la bandeja de entrada de los fans, sino a la carpeta de spam o promociones. En ese caso, los fans nunca vieron la campaña aunque técnicamente fue "enviada" y "entregada".
+
+Ve a la sección **Entregabilidad** del informe de la campaña y comprueba:
+
+- La **tasa de entrega**: debe estar por encima del 95%. Si está por debajo del 90%, hay un problema de rebotes.
+- Los **rebotes duros**: direcciones que no existen. Nevent las excluye de futuros envíos, pero si el porcentaje es alto en este envío, tu lista puede estar deteriorada.
+- Los **rebotes suaves**: fallos temporales. Nevent reintenta automáticamente, pero si son numerosos puede haber afectado al alcance real.
+
+Para entender cómo afecta la deliverability a tus resultados, consulta [Deliverability: reputación sender e inbox placement](/analitica/deliverability/). Si el inbox placement rate está por debajo del 80%, una parte significativa de tus fans no vio la campaña. Un valor por encima del 90% se considera saludable.
+
+<Aside type="tip">
+Si sospechas que tus emails están llegando a spam, puedes monitorizar tu reputación de dominio en [Google Postmaster Tools](https://postmaster.google.com). Una sender reputation baja explica open rates aparentemente bajos que en realidad son un problema de entrega, no de contenido.
+</Aside>
+
+### Paso 6: Comprueba el filtro de fechas en la vista de atribución
+
+Cuando consultas el revenue atribuido desde la analítica general (no desde el informe de campaña), asegúrate de que el filtro temporal cubre el periodo correcto.
+
+Si enviaste la campaña el día 10 y tienes el filtro en "Esta semana" pero ya cambiaste de semana, los datos de esa campaña pueden quedar fuera del rango visible. Usa un rango personalizado que incluya la fecha de envío y varios días posteriores para capturar el efecto de la campaña.
+
+Para aprender a configurar filtros temporales, consulta [Como agrupar y filtrar datos de analítica](/analitica/agrupar-y-filtrar/).
+
+### Paso 7: Contrasta con la vista de atribución por canal
+
+Si has completado los pasos anteriores y todavía no encuentras el revenue, ve a la vista de **atribución por canal** en la analítica de Nevent.
+
+Esa vista muestra el revenue total agrupado por canal: Email, SMS, WhatsApp, Meta Ads, Google Ads, Orgánico y Directo. Si ves revenue en "Orgánico" o "Directo" pero no en "Email", significa que las ventas se produjeron pero el fan llegó a la página de compra sin pasar por el enlace de tu campaña (por ejemplo, buscando directamente en Google o escribiendo la URL).
+
+Eso no significa que la campaña no haya influido: puede haber generado interés que el fan actuó en otro momento. Pero en ese caso, la atribución directa no se registra en la campaña.
+
+Consulta el caso práctico [Atribución de revenue por canal de marketing](/analitica/casos/atribucion-por-canal/) para comparar el rendimiento entre canales y entender el peso de cada uno.
+
+---
+
+## Tabla de diagnóstico rápido
+
+Usa esta tabla para identificar la causa más probable según lo que ves en el informe:
+
+| Lo que ves en el informe | Causa más probable | Dónde revisar |
+|---|---|---|
+| Enviados = 0 | La campaña no se envió | Estado de la campaña en Mis campañas |
+| Entregados mucho menor que Enviados | Rebotes elevados, lista sucia | Sección Entregabilidad del informe |
+| Abiertos por debajo del 15% | Asunto débil o problemas de deliverability | Sección Resumen y métricas de deliverability |
+| Clics = 0 o muy bajos | El email no tenía enlace de compra claro | Plantilla usada en la campaña |
+| Clics hay pero revenue = 0 | El enlace no lleva a la página de venta o la venta no se completó | Destino del enlace en la plantilla |
+| Revenue en "Directo" u "Orgánico" pero no en la campaña | Los fans compraron sin pasar por el enlace rastreado | Vista de atribución por canal |
+| Datos correctos pero no aparecen | Filtro temporal incorrecto en la vista de analítica | Filtros de fecha en analítica |
+
+---
+
+## Qué no hace la atribución de Nevent
+
+La atribución de Nevent es de último clic: asigna la venta al último enlace rastreado que el fan clicó antes de completar la compra. Esto significa:
+
+- Si el fan recibió tu email, lo cerró sin comprar, y volvió tres días después a comprar desde una búsqueda de Google, la venta se atribuirá al canal orgánico, no a la campaña de email.
+- Si el fan clicó el enlace desde el email pero luego cerró la página y volvió a ella directamente escribiendo la URL, la atribución puede no registrarse para la campaña.
+
+Estas situaciones son normales y no indican un error. Significan que la campaña contribuyó a generar interés aunque la atribución directa no se capture.
+
+---
+
+## Siguiente paso
+
+<CardGrid>
+  <LinkCard
+    title="Tracking y atribución de enlaces"
+    href="/analitica/tracking-y-atribucion/"
+    description="Clics únicos, conversión post-clic y revenue atribuido por enlace explicados."
+  />
+  <LinkCard
+    title="Como interpretar los resultados de tu campaña"
+    href="/campanas/informe/resultados/"
+    description="Qué significa cada métrica del resumen del informe y qué hacer si son bajas."
+  />
+  <LinkCard
+    title="Deliverability: reputación sender e inbox placement"
+    href="/analitica/deliverability/"
+    description="Por qué tus emails pueden no llegar a la bandeja de entrada y cómo detectarlo."
+  />
+  <LinkCard
+    title="Atribución de revenue por canal"
+    href="/analitica/casos/atribucion-por-canal/"
+    description="Compara el revenue atribuido a cada canal en una sola tabla."
+  />
+</CardGrid>

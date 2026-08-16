@@ -1,0 +1,132 @@
+---
+title: "Email, SMS o WhatsApp: cuándo usar cada canal"
+description: "Entiende qué aporta cada canal de comunicación de Nevent, qué cuesta y cuándo conviene usar cada uno para maximizar el impacto de tus campañas."
+diataxis: explanation
+faqs:
+  - q: "¿El email está disponible desde el primer día sin configuración adicional?"
+    a: "Sí. El email es el único canal que viene activado por defecto en todas las cuentas de Nevent. No necesitas hacer nada antes de enviar tu primera campaña de email."
+  - q: "¿Por qué SMS y WhatsApp no están activos por defecto?"
+    a: "Ambos canales requieren un paso de activación previo. SMS necesita un Sender ID registrado y, a partir del 15 de septiembre de 2026, el registro en el alias CNMC que gestiona Nevent. WhatsApp requiere conectar una cuenta de WhatsApp Business a través del flujo de verificación de Meta."
+  - q: "¿Las plantillas de WhatsApp pueden usarse en cuanto las creo?"
+    a: "No. Cada plantilla debe pasar la revisión de Meta antes de estar disponible para campañas. Meta puede tardar desde unos minutos hasta 24 horas en aprobarla. Solo las plantillas con estado Activa pueden usarse en un envío."
+  - q: "¿Todos los canales consumen créditos de la misma manera?"
+    a: "El consumo de créditos se muestra como coste estimado en el paso de revisión del asistente de campaña, antes de lanzar. El saldo disponible y el coste estimado están siempre visibles en ese último paso para que puedas decidir antes de confirmar el envío."
+---
+
+Cuando preparas una campaña en Nevent, el segundo paso del asistente te pide elegir el canal: Email, Push, SMS o WhatsApp. Esa elección afecta a cuánto llega tu mensaje, con qué rapidez lo ve el destinatario y qué necesitas tener configurado antes de enviarlo. Esta guía te explica qué aporta cada canal y en qué situaciones conviene más uno que otro.
+
+## Los cuatro canales de Nevent
+
+Según la documentación de la plataforma, Nevent dispone de cuatro canales de comunicación: Email, Push, SMS y WhatsApp. De los cuatro, Email y Push están activos por defecto en todas las cuentas; SMS y WhatsApp requieren activación desde Configuración > Canales antes de poder usarlos.
+
+Esta guía se centra en los tres canales más usados para campañas de promoción y comunicación directa con asistentes: Email, SMS y WhatsApp. Push tiene un caso de uso distinto (notificaciones en la aplicación móvil) y queda fuera del alcance de esta comparativa.
+
+## Email: el canal de referencia para campañas de eventos
+
+El email es el canal principal de Nevent y el único que funciona sin ninguna configuración adicional. Desde el primer día puedes crear una plantilla con el editor visual de bloques, elegir un segmento de audiencia y lanzar una campaña.
+
+### Qué aporta el email
+
+**Contenido rico.** El editor de plantillas permite combinar imágenes, texto, botones de llamada a la acción, columnas, separadores e iconos de redes sociales. Es el canal que más espacio da para contar la historia de un evento: cartel, lineup, fecha, recinto y enlace de compra, todo en un único mensaje.
+
+**Mensurabilidad completa.** Cada campaña de email genera un informe con cinco secciones: Resumen, Entregabilidad, Desuscripciones, Segmentos e Interacción. Puedes ver cuántos emails se entregaron, cuántos se abrieron, cuántos enlaces se clicaron y quién se dio de baja. Los rangos orientativos de la plataforma sitúan una tasa de apertura saludable por encima del 25% y una tasa de clic saludable por encima del 5%.
+
+**Control sobre la entregabilidad.** Nevent permite configurar un dominio dedicado para que tus emails salgan desde tu propio dominio en lugar del dominio compartido de la plataforma. Esto mejora la llegada a la bandeja de entrada y protege tu reputación como remitente. Los registros SPF, DKIM y DMARC que se configuran en ese proceso son el estándar técnico que los servidores de correo usan para decidir si un mensaje es legítimo.
+
+**Dos tipos de campaña.** Nevent detecta automáticamente si una campaña es de marketing (promociones, newsletters, early birds) o transaccional (confirmaciones, recordatorios, accesos). Las campañas de marketing incluyen enlace de baja y respetan las preferencias del usuario; las transaccionales no.
+
+### Cuándo usar email
+
+El email funciona bien cuando el mensaje tiene contenido visual que justifica el formato, cuando necesitas medir el rendimiento con detalle o cuando el ciclo de compra del asistente es más largo y merece un mensaje elaborado. Es el canal idóneo para el lanzamiento de entradas, la comunicación del programa y los recordatorios previos al evento.
+
+### Qué hay que tener claro
+
+El email convive con los filtros de spam de los proveedores de correo. Mantener los rebotes bajos, respetar las bajas y enviar a listas con consentimiento son prácticas que protegen tu reputación como remitente. Si tu tasa de rebotes duros supera el 2% o tu tasa de quejas de spam supera el 0,1%, son señales de alerta según los rangos de referencia de Nevent.
+
+## SMS: inmediatez directa al móvil
+
+El SMS llega al teléfono móvil del contacto como un mensaje de texto, sin necesidad de que tenga instalada ninguna aplicación ni una cuenta de correo activa. Es el canal con mayor tasa de apertura, según se indica en la documentación de Nevent sobre la activación de canales.
+
+### Qué aporta el SMS
+
+**Llegada inmediata.** El SMS no compite con una bandeja de entrada llena ni con un filtro de spam. Cuando el mensaje sale, el destinatario recibe una notificación directamente en su pantalla de bloqueo.
+
+**Formato conciso.** El SMS es texto plano: no hay imágenes, no hay botones de diseño, no hay columnas. Eso lo hace ideal para mensajes cortos y directos: un recordatorio de acceso, un aviso de última hora, un código de descuento con fecha límite.
+
+**Sender ID reconocible.** Al configurar el canal SMS en Nevent puedes definir un Sender ID de hasta 11 caracteres, que es el nombre que aparece como remitente en el móvil del destinatario (por ejemplo, DEMOFEST o MIFESTIVAL). El destinatario ve el nombre de tu evento, no un número desconocido.
+
+### Cuándo usar SMS
+
+El SMS encaja bien en mensajes urgentes o de alta importancia que deben llegar y leerse de inmediato: el recordatorio del día anterior al evento, un cambio de horario de último minuto, un aviso de apertura de puertas o una comunicación de seguridad. También funciona bien para promociones con fecha límite muy corta, donde la inmediatez es clave.
+
+### Qué hay que tener claro
+
+SMS no está activo por defecto. Para enviarlo necesitas activar el canal desde Configuración > Canales, añadir al menos un Sender ID y, en el caso de España, gestionar el registro del alias en la CNMC antes del 15 de septiembre de 2026. Según la documentación de Nevent, los operadores bloquearán los SMS cuyo remitente no esté registrado a partir de esa fecha. Nevent tramita ese registro por ti si contactas con el equipo de soporte.
+
+El SMS no tiene informe de apertura individual comparable al del email. Es un canal de envío, no de medición detallada de interacción.
+
+## WhatsApp: el canal de la aplicación de mensajería
+
+WhatsApp permite enviar campañas directamente a la aplicación de mensajería instalada en el móvil del contacto. A diferencia del SMS, el mensaje llega dentro de la conversación de WhatsApp, donde el destinatario puede ver el estado de lectura.
+
+### Qué aporta WhatsApp
+
+**Confirmación de lectura.** WhatsApp ofrece confirmación de lectura, lo que da una capa adicional de información sobre si el mensaje fue visto. La pantalla de activación del canal en Nevent menciona expresamente las métricas en tiempo real y la confirmación de lectura como beneficios del canal.
+
+**Contenido más rico que el SMS.** Una plantilla de WhatsApp puede incluir un encabezado de imagen, vídeo o PDF, el cuerpo del mensaje con texto y variables de personalización, un pie de página y hasta 10 botones de dos tipos: respuestas rápidas y llamadas a la acción (URL externa o número de teléfono). Eso lo hace más expresivo que el SMS, aunque menos flexible que el email en términos de diseño.
+
+**Variables de personalización.** Como en el email, puedes insertar el nombre del contacto u otros datos en el cuerpo del mensaje usando el formato de variables (doble llave con número). Nevent sustituye la variable por los datos reales de cada contacto en el momento del envío.
+
+**Categorías alineadas con el uso:** Marketing (promociones, early birds, anuncios de lineup) y Utilidad (confirmaciones de compra, avisos de acceso, actualizaciones de cuenta). La categoría se define al crear la plantilla y no puede cambiarse después.
+
+### Cuándo usar WhatsApp
+
+WhatsApp es útil cuando el contacto usa la aplicación de forma habitual y el nivel de cercanía con la marca lo justifica. Funciona bien para recordatorios de acceso con enlace directo, anuncios de lanzamiento de entradas a una audiencia que ya consintió recibir comunicaciones por este canal, o confirmaciones de compra en formato Utilidad.
+
+### Qué hay que tener claro
+
+WhatsApp requiere dos pasos de activación antes de poder enviar. Primero conectar una cuenta de WhatsApp Business a través del flujo de verificación de Meta desde Configuración > Canales. Después, cada plantilla que quieras usar debe enviarse a revisión y ser aprobada por Meta, lo que puede tardar desde unos minutos hasta 24 horas. Solo las plantillas con estado Activa pueden seleccionarse al crear una campaña.
+
+Si Meta rechaza una plantilla, es necesario crear una nueva versión corregida; la plantilla rechazada no se puede editar directamente.
+
+## Cómo se relacionan con el coste en créditos
+
+Los tres canales consumen créditos de tu plan de Nevent. El paso de revisión del asistente de campaña, el último antes de lanzar, muestra el coste estimado en créditos junto con el saldo disponible. Puedes revisar ese dato antes de confirmar cualquier envío.
+
+Los créditos mensuales incluidos en el plan se reinician cada ciclo de facturación y no se acumulan. Si un envío de alto volumen agota el saldo del mes, puedes comprar paquetes adicionales de créditos desde el Centro de facturación para reactivar la capacidad sin esperar a la renovación.
+
+## Tabla comparativa de los tres canales
+
+| | Email | SMS | WhatsApp |
+|---|---|---|---|
+| Activación requerida | No (activo por defecto) | Sí (Sender ID + registro CNMC) | Sí (WhatsApp Business + aprobación de plantillas por Meta) |
+| Formato de contenido | Rico (imágenes, botones, columnas, diseño visual) | Texto plano | Texto con encabezado multimedia y botones opcionales |
+| Inmediatez | Media (llega a la bandeja de entrada) | Alta (notificación directa en la pantalla de bloqueo) | Alta (notificación en la aplicación de mensajería) |
+| Confirmación de lectura | No (tasa de apertura estimada) | No | Sí |
+| Informes de campaña | Completos (entrega, apertura, clics, rebotes, bajas) | Limitados | Métricas en tiempo real según se indica en la documentación |
+| Tipos de campaña | Marketing y Transaccional | Sin distinción de tipo documentada | Marketing y Utilidad |
+| Revisión previa obligatoria | No | No | Sí (Meta revisa y aprueba cada plantilla) |
+
+## Cómo decidir
+
+No hay un canal universalmente mejor: cada uno sirve para momentos distintos dentro del ciclo de vida de un evento.
+
+El **email** es el punto de partida natural para cualquier organizador que empieza con Nevent. No requiere configuración, permite diseños ricos y ofrece el informe más completo. Es el canal de referencia para lanzamientos, newsletters y comunicaciones elaboradas.
+
+El **SMS** gana cuando la urgencia y la inmediatez son lo que importa. Si necesitas que el mensaje llegue y se lea en los próximos minutos, el SMS es la herramienta adecuada. Su limitación de formato es también su ventaja: obliga a ir al grano.
+
+El **WhatsApp** combina la inmediatez del SMS con algo más de riqueza de contenido y la confirmación de lectura. Su punto débil es la fricción inicial: conectar la cuenta de negocio y esperar la aprobación de Meta para cada plantilla. Una vez superado ese proceso, es un canal eficaz para audiencias acostumbradas a comunicarse por esa aplicación.
+
+En la práctica, los tres canales se complementan. Una secuencia habitual en un evento puede combinar un email de lanzamiento con diseño completo, un SMS de recordatorio el día antes y una confirmación de acceso por WhatsApp.
+
+---
+
+## Guías relacionadas
+
+- [Activa tus canales de comunicación](/entregabilidad/activar-canales): cómo revisar el estado de cada canal y activar SMS y WhatsApp desde Configuración.
+- [Como crear tu primera campaña](/campanas/crear-primera-campana): el recorrido completo por el asistente de ocho pasos para lanzar una campaña en cualquier canal.
+- [Como crear plantillas de WhatsApp](/campanas/plantillas-whatsapp): cómo diseñar una plantilla, enviarla a revisión de Meta y usarla en una campaña.
+- [Como diseñar plantillas de email](/campanas/plantillas-email): el editor visual de bloques para crear el diseño de tus campañas de email.
+- [Buenas practicas para tus campañas](/campanas/mejores-practicas): segmentación, asunto, frecuencia y medición para mejorar los resultados de cualquier canal.
+- [Reputación de envío: como evitar el spam](/entregabilidad/reputacion-y-spam): cómo cuidar la reputación de remitente para que tus emails lleguen a la bandeja de entrada.
+- [Como funcionan el plan y los créditos](/consumo/como-funcionan-los-creditos): qué son los créditos, cómo se consumen y qué pasa cuando se agotan.

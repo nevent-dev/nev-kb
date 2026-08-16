@@ -200,6 +200,23 @@ export default defineConfig({
 			// Starlight selecciona automáticamente los items del locale activo
 			sidebar: [
 				{
+					label: 'Solución de problemas',
+					items: [
+					{ label: 'Mis emails van a spam', slug: 'solucion-de-problemas/emails-a-spam', badge: { text: 'Nuevo', variant: 'tip' } },
+					{ label: 'Baja tasa de apertura', slug: 'solucion-de-problemas/baja-tasa-de-apertura', badge: { text: 'Nuevo', variant: 'tip' } },
+					{ label: 'No veo ventas atribuidas', slug: 'solucion-de-problemas/ventas-no-atribuidas', badge: { text: 'Nuevo', variant: 'tip' } },
+					{ label: 'Mi dominio no verifica', slug: 'solucion-de-problemas/dominio-no-verifica', badge: { text: 'Nuevo', variant: 'tip' } },
+					],
+				},
+				{
+					label: 'Decisiones frecuentes',
+					items: [
+					{ label: 'Email, SMS o WhatsApp', slug: 'decisiones-frecuentes/email-sms-o-whatsapp', badge: { text: 'Nuevo', variant: 'tip' } },
+					{ label: 'Segmento o lista', slug: 'decisiones-frecuentes/segmento-vs-lista', badge: { text: 'Nuevo', variant: 'tip' } },
+					{ label: 'Cuánto y cuándo enviar', slug: 'decisiones-frecuentes/cuanto-y-cuando-enviar', badge: { text: 'Nuevo', variant: 'tip' } },
+					],
+				},
+				{
 					label: 'Guías por objetivo',
 					items: [
 					{ label: 'Cómo llenar tu evento', slug: 'guias-por-objetivo/llenar-tu-evento', badge: { text: 'Nuevo', variant: 'tip' } },
