@@ -1,0 +1,249 @@
+---
+title: "Estrategia de lanzamiento en 72 horas"
+description: "Playbook intensivo con la secuencia multicanal exacta, los segmentos y los timings para maximizar ventas en las 72 horas alrededor del anuncio o arranque de venta de tu evento."
+diataxis: how-to
+faqs:
+  - q: "¿Puedo usar este playbook si es la primera vez que vendo con Nevent y no tengo historial de compra?"
+    a: "Puedes usar los canales y la estructura del playbook, pero los segmentos basados en RFM, fans tempranos o carrito abandonado requieren historial previo en la plataforma. Para una primera venta, trabaja con segmentos de atributos del fan (ciudad, idioma, edad) y temperatura general, y empieza a construir el historial desde ese primer lanzamiento."
+  - q: "¿Qué pasa si no tengo activado WhatsApp ni SMS?"
+    a: "El núcleo del playbook funciona perfectamente solo con email y push. WhatsApp y SMS amplían el alcance pero no son imprescindibles. Activa esos canales desde Ajustes, Canales cuando estés listo para añadirlos."
+  - q: "¿Cuántas campañas debo crear en total para este playbook?"
+    a: "Entre cuatro y seis campañas de email o WhatsApp, dependiendo de cuántos segmentos uses, más los envíos push desde la Superapp si tu evento tiene app. Puedes preparar todas como borrador antes del lanzamiento y programarlas con fecha y hora."
+  - q: "¿Cómo sé si el segmento de fans tempranos tiene suficiente tamaño?"
+    a: "Crea el segmento en Audiencia, Segmentos y revisa la preview antes de guardar. Si el número de destinatarios estimados es inferior a 50, amplía el criterio: añade el segmento de Champions RFM o amplía la ventana temporal de compra anticipada."
+  - q: "¿Puedo clonar las campañas de este playbook para el siguiente lanzamiento?"
+    a: "Sí. Una vez que las campañas están en estado Enviada, el menú de tres puntos permite Clonar. Así reutilizas la configuración, el segmento y la plantilla, y solo cambias el asunto, el contenido y la fecha de envío."
+---
+
+Este playbook define qué enviar, a quién y cuándo en las 72 horas alrededor del momento de lanzamiento de tu evento: ya sea el anuncio del cartel, la apertura de la venta o la salida de una nueva fase de entradas. El objetivo es maximizar las ventas en la ventana de mayor intención de compra sin saturar a toda tu base ni desperdiciar esfuerzo en audiencias que no van a convertir.
+
+## Para quién es este playbook
+
+Para promotores de conciertos, festivales o cualquier evento en vivo que ya tienen base de fans en Nevent y quieren estructurar sus comunicaciones de lanzamiento de forma sistemática, multicanal y segmentada.
+
+Necesitas tener al menos:
+
+- Segmentos de audiencia creados o listos para crear en Nevent.
+- Plantillas de email (y de WhatsApp si tienes ese canal activo) preparadas antes de empezar.
+- La Superapp configurada con el evento en Home si tu evento usa la app de Nevent.
+
+Si todavía no has creado segmentos, empieza por [Cómo crear un segmento](/segmentacion/motor-segmentacion/crear-segmento/). Si todavía no tienes plantillas, ve a [Campañas, Plantillas](/campanas/plantillas-email/) antes de seguir.
+
+## Cuándo usar este playbook
+
+Usa este playbook cada vez que ocurra uno de estos momentos:
+
+- Anuncio oficial del evento o del cartel (antes de que haya venta abierta).
+- Apertura de la primera fase de venta (Early Bird, preventa exclusiva).
+- Salida de una nueva fase cuando se agota la anterior.
+- Reapertura de venta tras un sold-out temporal.
+
+Las 72 horas se dividen en tres bloques: las 24 horas previas al lanzamiento, el momento del lanzamiento en sí y las 48 horas posteriores. Cada bloque tiene su propio objetivo y sus propios segmentos.
+
+---
+
+## Las tres fases del playbook
+
+### Fase 1: 24-48 horas antes del lanzamiento
+
+**Objetivo:** calentar la audiencia de mayor valor y crear expectativa antes de que se abra la venta al público general.
+
+Esta fase es exclusiva para tus fans de mayor intención. No se anuncia la venta todavía: se genera anticipación y se prepara el terreno para que, en cuanto abra la compra, estas personas actúen de inmediato.
+
+#### Paso 1A: Acceso anticipado para Champions y fans tempranos (email)
+
+**Segmento:** fans clasificados como [Champions o Loyal Customers en el modelo RFM](/segmentacion/capacidades/rfm/) O fans con historial de compra en fases Early Bird ([segmento de fans tempranos](/segmentacion/casos/fans-tempranos/)).
+
+**Canal:** email.
+
+**Qué dice el mensaje:** comunica que hay algo importante a punto de pasar, sin revelar todos los detalles. El tono es de exclusividad: "tú lo sabrás antes que nadie". Si la venta abre con acceso anticipado 24 horas antes para este grupo, díselo directamente.
+
+**Timing:** 36-48 horas antes del momento de lanzamiento público.
+
+**Cómo crearlo en Nevent:**
+1. Crea el segmento combinando RFM Champions O fans tempranos desde [Audiencia, Segmentos](/segmentacion/motor-segmentacion/crear-segmento/).
+2. Abre el asistente con [+ Crear campaña](/campanas/crear-primera-campana/) y selecciona canal Email.
+3. En el paso de asunto, personaliza con el nombre del destinatario: el campo de asunto admite variables de personalización.
+4. En el paso de programación, elige "Programar envío" y fija la fecha y hora.
+
+:::note[Por qué este segmento primero]
+Los fans tempranos tienen historial probado de compra anticipada. Una comunicación a este grupo antes que al resto crea urgencia genuina y puede agotar la primera fase sin gasto publicitario. Consulta las [métricas orientativas del segmento de fans tempranos](/segmentacion/casos/fans-tempranos/): open rate típico entre el 35% y el 55%.
+:::
+
+#### Paso 1B: Notificación push de expectativa (Superapp)
+
+**Segmento:** todos los asistentes con la app instalada y notificaciones activadas.
+
+**Canal:** push desde la Superapp.
+
+**Qué dice el mensaje:** un aviso corto de que algo está por llegar. El título tiene hasta 65 caracteres; el cuerpo, hasta 500. Ve al grano: "Mañana hay novedades sobre [nombre del evento]. Estate atento."
+
+**Timing:** 24 horas antes del lanzamiento.
+
+**Cómo crearlo en Nevent:** desde la sección [SUPERAPP, Enviar push](/superapp/que-es/), el panel muestra cuántos asistentes recibirán la notificación antes de enviarla. El envío es inmediato, no se puede programar, así que ejecútalo en el momento correcto.
+
+:::caution[Atención]
+La push de la Superapp es inmediata y no tiene marcha atrás. Prepara el texto con antelación y envíalo solo cuando estés en el momento correcto del timing.
+:::
+
+---
+
+### Fase 2: El momento del lanzamiento (hora 0)
+
+**Objetivo:** convertir la expectativa en compras en las primeras horas. Las primeras ventas son las que crean el efecto de sold-out temprano.
+
+#### Paso 2A: Email de apertura a Champions y fans tempranos
+
+**Segmento:** el mismo que en el Paso 1A (Champions, Loyal Customers, fans tempranos).
+
+**Canal:** email.
+
+**Qué dice el mensaje:** ya está abierto. Enlace directo a la compra, precio o condiciones de la fase actual, y urgencia real si hay stock limitado. Asunto corto y directo: "Las entradas ya están disponibles" o "Tu acceso anticipado empieza ahora" funcionan mejor que mensajes largos.
+
+**Timing:** en el momento exacto en que se abre la venta (hora 0).
+
+**Cómo crearlo en Nevent:** prepara esta campaña como borrador con antelación. En el paso de programación, elige "Programar envío" y fija la hora exacta de apertura. Así sale sola sin que tengas que estar delante en ese momento.
+
+#### Paso 2B: Email de lanzamiento a la base ampliada
+
+**Segmento:** base ampliada: fans con [Temperatura Muy Caliente o Caliente](/segmentacion/capacidades/score-y-temperatura/) que no estén ya en el segmento del Paso 2A, O todos los fans activos de la base con email válido.
+
+**Canal:** email.
+
+**Qué dice el mensaje:** el anuncio del evento o la apertura de venta para el público general. Puede ser el mismo contenido que el Paso 2A o una versión ligeramente diferente (sin mencionar el acceso anticipado exclusivo).
+
+**Timing:** 2-4 horas después del Paso 2A. Dejar ese margen da tiempo a los fans tempranos para actuar antes de que el anuncio llegue a todos.
+
+**Cómo crearlo en Nevent:** crea una segunda campaña con el mismo asistente de 8 pasos, usando este segmento diferente. Si el contenido de la plantilla es el mismo, puedes [clonar la campaña del Paso 2A](/campanas/gestionar-campanas/) y cambiar solo el segmento y la hora de envío.
+
+#### Paso 2C: WhatsApp de apertura (si el canal está activo)
+
+**Segmento:** fans con Temperatura Muy Caliente o Caliente que tienen número de móvil verificado.
+
+**Canal:** WhatsApp.
+
+**Qué dice el mensaje:** mensaje corto con encabezado de imagen (el cartel del evento), cuerpo con la información esencial y un botón de llamada a la acción con enlace directo a la compra.
+
+**Timing:** en paralelo con el Paso 2B o hasta 1 hora después.
+
+**Cómo crearlo en Nevent:** necesitas una [plantilla de WhatsApp aprobada por Meta](/campanas/plantillas-whatsapp/) con categoría Marketing. Ten en cuenta que Meta puede tardar hasta 24 horas en aprobar una plantilla nueva, así que créala con suficiente antelación. Una vez aprobada, selecciónala en el asistente de campaña eligiendo canal WhatsApp.
+
+:::note[Preparación previa necesaria]
+Las plantillas de WhatsApp requieren aprobación de Meta antes de poder enviarse. Créalas al menos 24-48 horas antes del lanzamiento para asegurarte de que están en estado Activa cuando las necesites.
+:::
+
+#### Paso 2D: Push de apertura (Superapp)
+
+**Segmento:** todos los asistentes con la app instalada.
+
+**Canal:** push desde la Superapp.
+
+**Qué dice el mensaje:** "Ya están disponibles las entradas para [evento]. Compra ahora." Con un tono directo y el enlace a la compra si la configuración lo permite.
+
+**Timing:** en el momento de apertura o hasta 30 minutos después.
+
+---
+
+### Fase 3: 24-48 horas después del lanzamiento
+
+**Objetivo:** recuperar a los que mostraron interés pero no compraron, y reactivar a los que no abrieron el email de lanzamiento.
+
+#### Paso 3A: Recuperación de carrito abandonado
+
+**Segmento:** fans con inicio de compra no completado en las últimas 24-48 horas ([segmento de carrito abandonado](/segmentacion/casos/carrito-abandonado/)).
+
+**Canal:** email.
+
+**Qué dice el mensaje:** recordatorio amable y directo. "Te quedaste a un paso" o "Tu entrada te está esperando" son asuntos con buen rendimiento en este tipo de campaña. No hace falta incentivo en todos los casos: muchos abandonos son por distracción, no por objeción de precio. Si queda poco stock, mencionarlo añade urgencia real.
+
+**Timing:** 6-12 horas después del abandono registrado. Cuanto antes se envíe dentro de ese margen, mejor.
+
+**Cómo crearlo en Nevent:** construye el segmento con el criterio de carrito abandonado en los últimos 1-2 días (disponible en la categoría de [engagement digital](/segmentacion/capacidades/engagement/)) combinado con "sin transacción confirmada". Crea la campaña con el asistente habitual y prográmala para que salga en el momento correcto.
+
+:::note[Disponibilidad del criterio]
+La disponibilidad del carrito abandonado como criterio de segmentación puede variar según la configuración de tu cuenta. Consulta con tu equipo de Nevent si está activo para tu organización.
+:::
+
+#### Paso 3B: Segundo impacto a los que abrieron pero no compraron
+
+**Segmento:** fans que abrieron el email del Paso 2B pero no tienen entrada confirmada. Construye este segmento con el criterio de apertura de email ([engagement: apertura de emails](/segmentacion/capacidades/engagement/)) referenciando esa campaña concreta, combinado con "sin compra completada".
+
+**Canal:** email.
+
+**Qué dice el mensaje:** un segundo aviso con otro enfoque: más detalle sobre el evento, el lineup, la experiencia. El fan ya sabe que el evento existe (abrió el email), pero algo lo frenó. Darle más razones para comprar, o recordarle que las entradas son limitadas, puede cerrar esa venta.
+
+**Timing:** 24-36 horas después del email de lanzamiento.
+
+#### Paso 3C: Reactivación de fans inactivos de alto valor
+
+**Segmento:** fans con alto gasto histórico que llevan más de doce meses sin comprar ([segmento de reactivación de inactivos](/segmentacion/casos/reactivar-fans-inactivos/)). Este segmento es opcional en el playbook de 72 horas: úsalo si el evento conecta claramente con la programación histórica de tu promotora y quieres barrer fans que podrían estar interesados pero que no están activos en tu base.
+
+**Canal:** email.
+
+**Qué dice el mensaje:** tono reconocido, como si retomases una conversación. "Llevabas tiempo sin venir" o "Esto te puede interesar" funcionan mejor que un mensaje de venta pura.
+
+**Timing:** 36-48 horas después del lanzamiento, como cierre del playbook.
+
+---
+
+## Resumen del timeline
+
+| Timing | Acción | Segmento | Canal |
+|--------|--------|----------|-------|
+| T menos 36-48 h | Expectativa exclusiva | Champions, Loyal, fans tempranos | Email |
+| T menos 24 h | Push de anticipación | App instalada | Push (Superapp) |
+| T = 0 | Email de apertura anticipada | Champions, Loyal, fans tempranos | Email |
+| T + 2-4 h | Email de lanzamiento general | Base ampliada (Temperatura alta) | Email |
+| T + 2-4 h | WhatsApp de apertura | Temperatura alta con móvil | WhatsApp |
+| T + 0-30 min | Push de apertura | App instalada | Push (Superapp) |
+| T + 6-12 h | Recuperación carrito abandonado | Carrito no completado | Email |
+| T + 24-36 h | Segundo impacto: abrieron, no compraron | Abrió email lanzamiento, sin compra | Email |
+| T + 36-48 h | Reactivación inactivos (opcional) | Alto gasto histórico, inactivos | Email |
+
+---
+
+## Cómo medir el resultado
+
+Una vez enviadas las campañas, revisa los informes desde [Mis campañas](/campanas/gestionar-campanas/). Las métricas clave para este playbook son:
+
+**Aperturas y clics:** abre el [informe de resultados de cada campaña](/campanas/informe/resultados/) y compara la tasa de apertura con los rangos orientativos para eventos en vivo (saludable por encima del 25%; señal de alerta por debajo del 15%). Las campañas al segmento de Champions y fans tempranos deberían superar esas medias con claridad.
+
+**Interacción individual:** en la sección [Interacción](/campanas/informe/aperturas-y-clics/) de cada informe puedes filtrar por quién abrió y quién hizo clic. Esa lista es útil para construir el segmento del Paso 3B: los que abrieron pero no compraron.
+
+**Desuscripciones:** revisa la tasa de baja de cada envío en el [informe de desuscripciones](/campanas/informe/desuscripciones/). Una tasa por debajo del 0,5% es normal; si supera el 1%, el mensaje o el segmento no estaban bien alineados.
+
+**Actividad de la app:** si enviaste notificaciones push, la pantalla de [Actividad de la app en la Superapp](/superapp/que-es/) muestra cuántas notificaciones llegaron al dispositivo y cuántas fueron pulsadas. Úsalo para calibrar la efectividad de la push en futuros lanzamientos.
+
+---
+
+## Errores frecuentes y cómo evitarlos
+
+**Enviar todo al mismo segmento al mismo tiempo.** Si mandas el email de apertura exclusiva y el email general a la misma hora al mismo grupo, pierdes el efecto de exclusividad. El valor de los segmentos de Champions y fans tempranos está en recibirlo antes que el resto.
+
+**No preparar las plantillas con antelación.** El asistente de campaña necesita que la plantilla exista antes de empezar. Si no tienes la plantilla de email o la plantilla de WhatsApp lista, el proceso se para. Prepáralas uno o dos días antes del lanzamiento y, en el caso de WhatsApp, envíalas a revisión de Meta con suficiente margen.
+
+**Crear los segmentos en el momento del lanzamiento.** Los segmentos se pueden preparar y guardar antes de crear la campaña. Haciéndolo con antelación tienes tiempo de revisar el tamaño de la audiencia en la preview y ajustar los criterios si el resultado es demasiado pequeño o demasiado amplio.
+
+**Enviar la push de la Superapp en un momento incorrecto.** La push es inmediata y no se puede deshacer. Defínela con antelación, cópiala en un documento de referencia y ejecútala solo cuando llegue el momento correcto. No hay opción de programarla.
+
+**No revisar los rebotes antes del lanzamiento.** Si tu lista tiene muchas direcciones con rebote duro de campañas anteriores, la tasa de entrega de la campaña de lanzamiento puede verse afectada. Antes de los envíos importantes, revisa el [informe de rebotes](/campanas/informe/rebotes/) de tus últimas campañas y depura las direcciones problemáticas.
+
+**Saturar la misma audiencia con demasiados envíos en 72 horas.** El playbook tiene entre cuatro y seis puntos de contacto, pero no todos van al mismo segmento. El segmento de Champions recibe el email de expectativa y el de apertura anticipada: dos emails en 48 horas es razonable para una audiencia comprometida. La base general recibe el email de lanzamiento y, si no abre, puede recibir el segundo impacto 24-36 horas después. Más de eso en una ventana tan corta empieza a generar bajas.
+
+---
+
+## Guías relacionadas
+
+- [Cómo crear un segmento](/segmentacion/motor-segmentacion/crear-segmento/)
+- [Fans tempranos para Early Bird](/segmentacion/casos/fans-tempranos/)
+- [Segmento VIP con RFM Champions](/segmentacion/casos/top-rfm-vip/)
+- [Recuperar carritos abandonados](/segmentacion/casos/carrito-abandonado/)
+- [Reactivar fans inactivos de alto valor](/segmentacion/casos/reactivar-fans-inactivos/)
+- [Cómo crear tu primera campaña](/campanas/crear-primera-campana/)
+- [Cómo crear plantillas de WhatsApp](/campanas/plantillas-whatsapp/)
+- [Gestiona tus campañas](/campanas/gestionar-campanas/)
+- [Cómo interpretar los resultados de tu campaña](/campanas/informe/resultados/)
+- [Quién abrió y clicó tu campaña](/campanas/informe/aperturas-y-clics/)
+- [Nevent Score y Temperatura](/segmentacion/capacidades/score-y-temperatura/)
+- [Engagement digital: criterios de comportamiento en email](/segmentacion/capacidades/engagement/)
+- [Qué es la Superapp y para qué sirve](/superapp/que-es/)

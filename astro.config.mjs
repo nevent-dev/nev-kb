@@ -199,6 +199,17 @@ export default defineConfig({
 			// Sidebar — ES (raíz) y EN (/en/)
 			// Starlight selecciona automáticamente los items del locale activo
 			sidebar: [
+				{
+					label: 'Guías por objetivo',
+					items: [
+					{ label: 'Cómo llenar tu evento', slug: 'guias-por-objetivo/llenar-tu-evento', badge: { text: 'Nuevo', variant: 'tip' } },
+					{ label: 'Lanzamiento en 72 horas', slug: 'guias-por-objetivo/lanzamiento-72h', badge: { text: 'Nuevo', variant: 'tip' } },
+					{ label: 'Recupera carritos abandonados', slug: 'guias-por-objetivo/recuperar-carritos-abandonados', badge: { text: 'Nuevo', variant: 'tip' } },
+					{ label: 'Reactiva fans inactivos', slug: 'guias-por-objetivo/reactivar-fans-inactivos', badge: { text: 'Nuevo', variant: 'tip' } },
+					{ label: 'Vende más en la preventa', slug: 'guias-por-objetivo/vender-en-preventa', badge: { text: 'Nuevo', variant: 'tip' } },
+					{ label: 'Fideliza tras el evento', slug: 'guias-por-objetivo/fidelizar-post-evento', badge: { text: 'Nuevo', variant: 'tip' } },
+					],
+				},
 				// ─── Audiencia — ES ──────────────────────────────────────────
 				{
 					label: 'Audiencia',

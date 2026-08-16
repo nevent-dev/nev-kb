@@ -1,0 +1,279 @@
+---
+title: "Cómo llenar tu evento"
+description: "Playbook de marketing de principio a fin para vender el aforo: desde la preventa hasta el last-minute, con segmentos, campañas multicanal y medición en Nevent."
+diataxis: how-to
+faqs:
+  - q: "¿Por dónde empiezo si nunca he enviado una campaña en Nevent?"
+    a: "Empieza por revisar que tienes los canales activos en Configuración > Marca y Contenido > Canales y al menos una plantilla creada en Campañas > Plantillas. Con eso listo, sigue la Fase 1 de este playbook: primero los fans con historial de compra anticipada, después el resto de la base."
+  - q: "¿Cuántas campañas debería enviar para un evento?"
+    a: "Un esquema razonable para un evento con 6-8 semanas de venta es: 1 campaña de preventa exclusiva (Fase 1), 1-2 campañas de apertura general (Fase 2), 1 campaña de urgencia a mitad de venta (Fase 3) y 1-2 campañas de last-minute en la semana final (Fase 4). La clave no es el número sino que cada una llegue al segmento correcto con el mensaje correcto."
+  - q: "¿Qué canal convierte mejor para venta de entradas?"
+    a: "El email convierte bien en fases tempranas porque permite transmitir la propuesta del evento con detalle. El SMS tiene open rate del 85-95% y es muy eficaz para urgencia y last-minute. WhatsApp, si lo tienes activado, es el canal más cercano y funciona muy bien para fans VIP o Champions RFM. Lo ideal es combinarlos según la fase y el segmento."
+  - q: "¿Qué hago si a dos semanas del evento aún me queda mucho aforo?"
+    a: "Activa las tres palancas de Fase 4: campañas de carrito abandonado a quienes iniciaron la compra y no terminaron, campaña de reactivación a fans inactivos de alto valor (At Risk y Can't Lose Them en RFM) y una campaña last-minute a toda la base activa con urgencia real basada en entradas disponibles. Si tienes SMS o WhatsApp activados, úsalos en esta fase: el open rate es mucho mayor que el email."
+  - q: "¿Cómo sé si mis campañas están funcionando bien?"
+    a: "Para campañas de eventos, los rangos saludables son: tasa de entrega por encima del 95%, tasa de apertura por encima del 25% y tasa de clic por encima del 5%. Si la apertura está por debajo del 15%, revisa el asunto y el momento de envío. Si el clic es bajo, revisa que el email tiene un botón de compra claro y visible. El informe de cada campaña en Nevent te da estas métricas en cuanto termina el envío."
+---
+
+import { Aside, CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+Este playbook describe, paso a paso y fase a fase, cómo organizar tus campañas de marketing en Nevent para vender el aforo de un evento. No es una guía técnica de la plataforma: cada paso enlaza a la guía detallada correspondiente. El objetivo aquí es la estrategia y el orden.
+
+## Para quién es este playbook
+
+Para promotores de eventos que ya tienen su evento publicado en Nevent y quieren llenar las entradas de manera sistemática, sin improvisar comunicación a última hora. Sirve tanto si llevas meses en la plataforma como si acabas de empezar.
+
+## Cuándo usarlo
+
+Úsalo en cuanto tengas fecha de venta confirmada, antes de lanzar la primera campaña. Cuanto antes definas las fases, mejor podrás aprovechar los segmentos de compra anticipada y evitar desperdiciar créditos enviando mensajes poco relevantes a toda la base.
+
+---
+
+## Antes de empezar: comprueba que tienes todo listo
+
+Antes de lanzar la primera campaña, revisa tres cosas:
+
+**1. Los canales están activos.**
+El email viene activo por defecto. Si quieres usar SMS o WhatsApp, actívalos desde [Configuración > Marca y Contenido > Canales](/entregabilidad/activar-canales/). WhatsApp requiere conectar una cuenta de WhatsApp Business. Para los SMS, el registro del Sender ID en la CNMC lo gestiona Nevent: contacta con soporte para iniciar ese trámite.
+
+**2. Tienes al menos una plantilla de email creada.**
+Sin plantilla no puedes lanzar una campaña de email. Ve a Campañas > Plantillas y crea una antes de seguir. Si usas WhatsApp, ten en cuenta que las plantillas de ese canal necesitan aprobación de Meta antes de poder enviarse: [cómo crear plantillas de WhatsApp](/campanas/plantillas-whatsapp/).
+
+**3. Tu dominio está autenticado.**
+Un dominio dedicado configurado con SPF, DKIM y DMARC mejora la entregabilidad y protege tu reputación como remitente. Si aún no lo tienes configurado, consulta la guía de [reputación de envío](/entregabilidad/reputacion-y-spam/).
+
+---
+
+## Fase 1: Preventa exclusiva (semanas -8 a -6 antes del evento)
+
+El objetivo de esta fase es llenar la primera fase de entradas o agotar la preventa sin invertir en publicidad, activando a los fans con mayor probabilidad de compra inmediata.
+
+### Segmento 1: Fans Early Bird
+
+El primer segmento que activas son los fans que en eventos anteriores compraron durante la primera fase, en preventa o en las primeras horas de venta. Son fans educados para comprar rápido y no necesitan ser convencidos: necesitan ser avisados.
+
+Cómo construirlo: fans que compraron entradas de tipo Early Bird, preventa o primera fase en eventos anteriores (ventana de dos a tres años). Puedes refinar el segmento filtrando por ciudad si el evento es regional o añadiendo el perfil Champions del modelo RFM para dar acceso aún más anticipado a tus mejores fans.
+
+Consulta el caso práctico completo: [Fans Early Bird, segmentar compradores tempranos](/segmentacion/casos/fans-tempranos/).
+
+**Canal:** email. En esta fase la comunicación puede ser detallada: el fan quiere saber el lineup, la fecha, el recinto y el precio antes de decidir.
+
+**Mensaje:** acceso anticipado 24-48 horas antes del lanzamiento público. El asunto debe ser directo y concreto: algo del tipo "Acceso exclusivo: entradas para [nombre del evento] disponibles desde hoy" funciona mejor que titulares genéricos. El campo de asunto en el asistente de campaña admite variables de personalización, por ejemplo el nombre del fan.
+
+**Timing:** envía esta campaña la tarde-noche anterior al lanzamiento público, para que la bandeja de entrada esté activa cuando el fan despierte.
+
+### Segmento 2: Champions y Loyal Customers RFM
+
+Si tienes historial de ventas, el modelo RFM de Nevent clasifica automáticamente a tus fans en 11 perfiles. Los Champions (alta recencia, alta frecuencia, alto gasto) y los Loyal Customers son tus mejores fans.
+
+Para una preventa exclusiva o un producto de alto ticket (zona VIP, meet and greet, abono), estos son los primeros a los que se lo comunicas. No necesitan descuento: responden a la exclusividad y al reconocimiento.
+
+Consulta el caso práctico: [Segmento VIP con RFM Champions](/segmentacion/casos/top-rfm-vip/).
+
+Para entender todos los perfiles disponibles: [RFM automático, 11 perfiles de fans](/segmentacion/capacidades/rfm/).
+
+**Canal:** email o WhatsApp si lo tienes activado. WhatsApp tiene un open rate del 70-90% y es el canal más cercano para este tipo de comunicación exclusiva.
+
+**Qué medir al terminar esta fase:**
+- Tasa de apertura del email de preventa (referencia saludable: por encima del 35% en este segmento).
+- Porcentaje de entradas vendidas sobre el total de la primera fase.
+- Si agotaste la preventa, no necesitas Fase 1 en el próximo evento: el segmento está validado.
+
+---
+
+## Fase 2: Apertura general (semanas -6 a -4)
+
+Con la preventa cerrada o en marcha, abres la venta al público general. Aquí amplías la audiencia, pero no a toda la base a la vez: priorizas por relevancia.
+
+### Segmento 3: Audiencia geolocalizada
+
+Comunicar el evento a fans que viven a 500 km es ineficiente. Construye un segmento con fans dentro de un radio razonable del recinto (por ejemplo, 75 km) o que hayan asistido alguna vez a un evento tuyo en esa misma ciudad.
+
+Si tu base es nacional, este filtro suele reducir el segmento al 15-25% del total, pero ese subconjunto tiene una conversión a compra muy superior al envío masivo porque estás hablando con personas que pueden asistir físicamente.
+
+Consulta el caso práctico: [Audiencia geo-localizada para eventos regionales](/segmentacion/casos/audiencia-geolocalizada/).
+
+**Canal:** email. Esta es la campaña principal de apertura: detalla el lineup, el precio, los tipos de entrada disponibles y enlaza directamente a la página de compra.
+
+**Mensaje:** el lanzamiento oficial. El asunto debe contener el nombre del evento, la ciudad y una señal de urgencia suave ("Ya disponibles", "Compra ahora antes de que se agoten las primeras entradas"). Usa el texto de vista previa del asistente para añadir un segundo gancho.
+
+### Segmento 4: Audiencia con preferencia declarada
+
+Si has recogido el género musical preferido de tus fans mediante formularios de registro o encuestas, este segmento combina preferencia declarada con actividad reciente. Es el segmento con mayor conversión relativa porque combina interés explícito con comportamiento activo.
+
+Úsalo especialmente si el evento es de un género específico (jazz, electrónica, reggae, hip-hop): en ese caso, excluir a fans de otros géneros eleva la relevancia del mensaje y mejora tus métricas.
+
+Consulta el caso práctico: [Segmentar por preferencia musical declarada](/segmentacion/casos/audiencia-con-preferencia/).
+
+**Canal:** email.
+
+**Mensaje:** personalizado al género. El fan que declaró preferencia por electrónica debe recibir un email que hable del lineup de ese género, no un email genérico del festival completo.
+
+### Crear las campañas en Nevent
+
+Para cada segmento de esta fase, crea una campaña desde el asistente: [Cómo crear tu primera campaña](/campanas/crear-primera-campana/).
+
+El asistente tiene 8 pasos: nombre, canal, plantilla, tipo de campaña (se detecta automáticamente), audiencia (aquí seleccionas el segmento), asunto, programación y revisión. En el paso de audiencia puedes combinar varios segmentos si quieres hacer un único envío a varios grupos.
+
+**Qué medir al terminar esta fase:**
+- Tasa de apertura de las campañas de apertura general (referencia: por encima del 25%).
+- Tasa de clic (referencia: por encima del 5%).
+- Revenue atribuido a estas campañas en el informe: [Cómo interpretar los resultados de tu campaña](/campanas/informe/resultados/).
+
+---
+
+## Fase 3: Mantenimiento de la venta (semanas -4 a -2)
+
+Entre la apertura y el last-minute, la venta suele asentarse y el ritmo baja. Esta fase es para sostener la demanda sin saturar a la audiencia que ya ha recibido las campañas anteriores.
+
+### Segmento 5: Fans que abrieron pero no compraron
+
+Los fans que abrieron la campaña de apertura pero no tienen entrada comprada son una audiencia de alto valor: ya demostraron interés, pero algo les frenó. Un segundo impacto, con un mensaje diferente (más información sobre el evento, un testimonio de ediciones anteriores, la disponibilidad de entradas restantes) puede resolver la duda.
+
+Construye este segmento filtrando por fans que abrieron la campaña de apertura (criterio de apertura de emails) y que no tienen transacción confirmada para el evento. Consulta los criterios disponibles: [Engagement digital, segmentar fans por comportamiento en email](/segmentacion/capacidades/engagement/).
+
+**Canal:** email. No repitas el mismo mensaje de la primera campaña: cambia el asunto y el enfoque.
+
+**Timing:** entre 7 y 10 días después de la campaña de apertura.
+
+### Segmento 6: Fans inactivos de alto valor
+
+Si llevas tiempo sin activar a fans que antes asistían con regularidad, este es el momento de intentarlo. Los perfiles At Risk y Can't Lose Them del modelo RFM agrupan a fans que fueron Champions o Loyal Customers en el pasado pero llevan meses sin comprar. Recuperar uno de estos fans cuesta mucho menos que captar uno nuevo.
+
+Construye el segmento con fans que tienen gasto histórico por encima de un umbral (el percentil 60-70 de tu distribución) y llevan más de doce meses sin asistir a ningún evento tuyo.
+
+Consulta el caso práctico: [Reactivar fans inactivos de alto valor](/segmentacion/casos/reactivar-fans-inactivos/).
+
+**Canal:** email. El tono debe ser de reconocimiento y recuperación, no de venta agresiva. Haz referencia a eventos anteriores si puedes personalizar el mensaje.
+
+**Qué medir al terminar esta fase:**
+- Ventas adicionales generadas por las campañas de esta fase (revenue atribuido en el informe de campaña).
+- Tasa de baja: si supera el 1% en algún envío, estás saturando a esa audiencia. Reduce la frecuencia o revisa la relevancia del mensaje.
+
+---
+
+## Fase 4: Last-minute (semana final y últimas 48 horas)
+
+En la semana final, la urgencia es real y tienes que convertirla en argumento de venta. Aquí el ritmo de envíos puede ser más alto, pero sigue siendo importante segmentar.
+
+### Segmento 7: Carrito abandonado
+
+Durante toda la venta, algunos fans han iniciado el proceso de compra y no lo han terminado. Esta señal de intención es la más valiosa que existe: el fan llegó hasta el checkout y en algún momento se fue sin pagar.
+
+Construye el segmento con fans que iniciaron la compra en las últimas 24-48 horas y no tienen transacción confirmada. Las campañas de recuperación bien ejecutadas convierten entre el 15% y el 30% de esos abandonos.
+
+Consulta el caso práctico: [Recuperar carritos abandonados de entradas](/segmentacion/casos/carrito-abandonado/).
+
+**Canal:** email en las primeras 6-12 horas tras el abandono. Si tienes SMS activado, un SMS de recordatorio en las 12-24 horas siguientes refuerza el impacto. El SMS tiene un open rate del 85-95% y es especialmente eficaz cuando el mensaje es corto y con una llamada a la acción directa.
+
+**Mensaje:** el asunto debe hacer referencia explícita a que el fan dejó una compra a medias. Algo como "Te quedaste a un paso" o "Tu entrada sigue disponible, pero por poco tiempo" es más efectivo que un mensaje genérico. No siempre se necesita descuento: muchos abandonos son de distracción, no de objeción de precio.
+
+### Segmento 8: Toda la base activa con urgencia real
+
+Para las últimas 48 horas, lanza una campaña a toda la base activa (fans con email válido, sin bajas, sin rebotes duros) con un argumento de urgencia basado en datos reales: entradas disponibles restantes o cierre de venta online.
+
+No inventes escasez: si el evento no está casi agotado, el mensaje debe ser de cierre de venta online, no de "últimas entradas". La credibilidad de futuras campañas depende de que los fans perciban tus mensajes como honestos.
+
+**Canal:** email para el envío principal. Si tienes SMS o WhatsApp activados, úsalos para un recordatorio final en las últimas horas: el open rate de estos canales es muy superior al email y son ideales para mensajes cortos de urgencia.
+
+Para activar SMS, consulta: [Activa tus canales de comunicación](/entregabilidad/activar-canales/).
+
+**Mensaje:** breve, directo, con el botón de compra en el primer tercio del email. En el asunto, incluye la fecha del evento y la señal de urgencia.
+
+**Qué medir al terminar esta fase:**
+- Porcentaje de aforo vendido total.
+- Revenue atribuido a campañas de last-minute (informe por campaña).
+- Comparativa de ROAS entre canales si usaste email, SMS y WhatsApp en paralelo: cuál generó más revenue por crédito invertido.
+
+---
+
+## Cómo medir el resultado del playbook completo
+
+Una vez terminada la venta, revisa estas métricas en Nevent para evaluar qué funcionó:
+
+**Por campaña individual:**
+Cada campaña tiene su propio informe con cuatro métricas principales (enviados, entregados, abiertos, clics) y el revenue atribuido. Compara el open rate y el click rate de cada fase para ver qué segmentos respondieron mejor. Referencia de métricas: [Métricas de campañas email, SMS y WhatsApp](/analitica/campanas/).
+
+**Rangos orientativos para campañas de eventos:**
+
+| Métrica | Resultado saludable | Señal de alerta |
+|---|---|---|
+| Tasa de entrega | Por encima del 95% | Por debajo del 90% |
+| Tasa de apertura | Por encima del 25% | Por debajo del 15% |
+| Tasa de clic | Por encima del 5% | Por debajo del 2% |
+
+**Revenue atribuido por segmento:**
+Compara cuánto vendió la campaña de Early Bird frente a la de apertura general. En la mayoría de los casos, las campañas a segmentos reducidos pero relevantes tienen un ROAS (retorno sobre la inversión de la campaña) muy superior a los envíos masivos.
+
+**Informe de entregabilidad:**
+Si la tasa de entrega baja o los rebotes suben en alguna campaña, revisa la guía de [reputación de envío](/entregabilidad/reputacion-y-spam/) antes de lanzar más campañas. Una lista con muchos rebotes duros daña tu reputación como remitente y afecta a los envíos futuros.
+
+---
+
+## Errores a evitar
+
+**Enviar todo a toda la base desde el principio.**
+El error más frecuente es lanzar la primera campaña a los 50.000 fans sin segmentar. Aparte de ser ineficiente (pagas créditos por envíos irrelevantes), quema la audiencia antes de tiempo: cuando llegues a last-minute con la campaña de urgencia, la base ya estará saturada y la tasa de baja habrá subido.
+
+**Usar el mismo asunto en campañas distintas de la misma venta.**
+Si el fan recibe dos emails con el mismo asunto o con asuntos muy parecidos, el segundo no se abre. Cambia siempre el enfoque del asunto entre campañas de la misma fase.
+
+**Ignorar la entregabilidad hasta que hay un problema.**
+Si no tienes dominio dedicado configurado o llevas tiempo sin revisar los rebotes, parte de tus envíos puede estar acabando en spam sin que lo sepas. Consulta el estado de entregabilidad antes de lanzar el playbook en un evento importante.
+
+**Saturar a los fans VIP con las mismas campañas que el resto.**
+Los Champions y Loyal Customers merecen un trato diferente. Si les envías la misma campaña masiva que al resto, pierdes la oportunidad de activar su capacidad de compra más alta y deterioras la relación. Segméntalos siempre por separado en al menos una campaña del ciclo.
+
+**Lanzar plantillas de WhatsApp sin tiempo para la aprobación de Meta.**
+Las plantillas de WhatsApp pueden tardar hasta 24 horas en ser aprobadas. Si las creas el día del envío, es posible que no puedas usarlas a tiempo. Crea y envía a revisión las plantillas con al menos 48 horas de antelación respecto al envío planificado.
+
+**No revisar el informe después de cada campaña.**
+Cada envío te deja datos. Si no los lees, repites los mismos errores en la siguiente fase. Dedica 5 minutos a revisar el informe de cada campaña antes de lanzar la siguiente.
+
+---
+
+## Resumen del playbook por fases
+
+| Fase | Cuándo | Segmento principal | Canal | Objetivo |
+|---|---|---|---|---|
+| 1. Preventa | 8-6 semanas antes | Early Bird + Champions RFM | Email (WhatsApp opcional) | Agotar la preventa sin publicidad |
+| 2. Apertura | 6-4 semanas antes | Geo-localizado + Preferencia declarada | Email | Activar la venta general |
+| 3. Mantenimiento | 4-2 semanas antes | Abrieron pero no compraron + Inactivos de alto valor | Email | Sostener la demanda |
+| 4. Last-minute | Semana final | Carrito abandonado + Base activa | Email + SMS o WhatsApp | Convertir los indecisos y urgencia final |
+
+---
+
+## Guías relacionadas
+
+<CardGrid>
+  <LinkCard
+    title="Cómo crear tu primera campaña"
+    href="/campanas/crear-primera-campana/"
+    description="El asistente de 8 pasos para lanzar cualquier campaña en Nevent."
+  />
+  <LinkCard
+    title="Cómo crear un segmento"
+    href="/segmentacion/motor-segmentacion/crear-segmento/"
+    description="Proceso paso a paso para construir los segmentos de cada fase."
+  />
+  <LinkCard
+    title="RFM automático: 11 perfiles de fans"
+    href="/segmentacion/capacidades/rfm/"
+    description="Entiende los perfiles Champions, At Risk y Can't Lose Them para segmentar con precisión."
+  />
+  <LinkCard
+    title="Buenas prácticas para tus campañas"
+    href="/campanas/mejores-practicas/"
+    description="Asunto, frecuencia, limpieza de lista y medición."
+  />
+  <LinkCard
+    title="Métricas de campañas"
+    href="/analitica/campanas/"
+    description="Open rate, click rate, revenue atribuido y ROAS por canal."
+  />
+  <LinkCard
+    title="Reputación de envío"
+    href="/entregabilidad/reputacion-y-spam/"
+    description="Cómo proteger la entregabilidad antes de lanzar el playbook."
+  />
+</CardGrid>
