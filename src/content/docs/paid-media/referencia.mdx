@@ -1,0 +1,98 @@
+---
+title: Referencia de Paid Media
+description: Tablas de referencia con las plataformas que agrega el módulo, las métricas del panel global, los estados de campaña, los objetivos disponibles y las columnas de la tabla de campañas.
+diataxis: reference
+faqs:
+  - q: "¿Qué plataformas de publicidad agrega Nevent en el módulo de Paid Media?"
+    a: "Nevent agrega campañas de Meta, TikTok y Google en un único panel. Los datos provienen de las cuentas de anuncios que hayas conectado a tu organización."
+  - q: "¿Qué significa el estado Archivada en una campaña?"
+    a: "Una campaña Archivada es una campaña histórica que ya no está activa ni pausada. Sus columnas de métricas muestran guiones (--) en el panel."
+  - q: "¿Por qué el ROAS aparece como guiones (--) en el panel?"
+    a: "El ROAS solo se muestra cuando la plataforma devuelve datos de ingresos atribuidos. Si no hay datos disponibles para el período seleccionado o para la cuenta conectada, la celda aparece vacía con guiones."
+  - q: "¿Qué diferencia hay entre Resultados y Coste por resultado?"
+    a: "Resultados es el número total de acciones conseguidas (clics, visitas o conversiones, según el objetivo de la campaña). Coste por resultado es el gasto total dividido entre ese número de acciones, es decir, cuánto cuesta en promedio conseguir cada una."
+  - q: "¿Puedo buscar una campaña por nombre?"
+    a: "Sí. El panel incluye un campo de búsqueda de texto libre que filtra la tabla por el nombre de la campaña."
+---
+
+Esta página recoge en tablas toda la información de referencia del área de Paid Media: plataformas que agrega el módulo, métricas del panel global, filtros disponibles, estados de campaña, objetivos de campaña y columnas de la tabla. No es una guía paso a paso; para eso consulta los how-to del área.
+
+## Plataformas agregadas
+
+Nevent centraliza campañas de las tres plataformas siguientes. Los datos llegan desde las cuentas de anuncios conectadas a tu organización.
+
+| Plataforma | Descripción |
+|------------|-------------|
+| Meta | Campañas de Facebook e Instagram Ads gestionadas desde Meta Ads Manager. |
+| TikTok | Campañas de TikTok Ads gestionadas desde TikTok Ads Manager. |
+| Google | Campañas de Google Ads gestionadas desde Google Ads. |
+
+Nevent no crea anuncios. La creación y edición de los anuncios se hace siempre en la plataforma de origen correspondiente.
+
+## Métricas del panel global
+
+La cabecera del panel muestra cuatro indicadores para el período y la plataforma seleccionados. Cada indicador incluye la variación porcentual respecto al período anterior.
+
+| Métrica | Definición |
+|---------|------------|
+| Gasto | Inversión publicitaria total en euros para el período y la plataforma seleccionados. |
+| Resultados | Número total de resultados obtenidos. El tipo de resultado depende del objetivo de cada campaña (puede ser clics, visitas, leads o conversiones). |
+| Coste por resultado | Gasto total dividido entre el número de resultados. Indica cuánto cuesta en promedio conseguir un resultado. |
+| ROAS | Return on Ad Spend. Ingresos atribuidos divididos entre el gasto. Un ROAS de 5 significa que por cada euro invertido se atribuyen cinco euros de ingresos. Solo se muestra cuando la plataforma devuelve datos de ingresos; de lo contrario aparece como guiones (--). |
+
+## Filtros del panel
+
+Los filtros están disponibles en la barra situada entre la cabecera de métricas y la tabla de campañas. Al cambiar cualquier filtro, los indicadores y la tabla se actualizan.
+
+| Filtro | Opciones disponibles | Valor por defecto |
+|--------|---------------------|-------------------|
+| Período | 7 días, 14 días, 30 días, Máximo, Rango personalizado | 7 días |
+| Plataforma | Meta, TikTok, Google | Meta |
+| Estado de campaña | Todas, Activas, Pausadas | Todas |
+| Búsqueda por nombre | Campo de texto libre | (vacío) |
+
+## Estados de campaña
+
+| Estado | Descripción | Comportamiento en la tabla |
+|--------|-------------|---------------------------|
+| Activa | La campaña está publicando anuncios y generando datos en tiempo real. | Las columnas de métricas muestran valores numéricos. |
+| Pausada | La campaña está detenida temporalmente y no genera nuevos datos. | Las columnas de métricas muestran guiones (--). |
+| Archivada | La campaña es histórica. No está activa ni pausada. | Las columnas de métricas muestran guiones (--). |
+
+Las campañas pausadas y archivadas no producen gasto ni resultados durante el período en que permanecen en ese estado, por lo que sus columnas aparecen vacías en el panel.
+
+## Objetivos de campaña
+
+El objetivo indica qué resultado pretende conseguir la campaña. Nevent muestra el objetivo tal y como lo define la plataforma de origen.
+
+| Objetivo | Descripción |
+|----------|-------------|
+| Reconocimiento | Maximizar el número de personas que ven el anuncio (impresiones y alcance). |
+| Tráfico | Dirigir personas a una URL, como la página de venta de entradas de un evento. |
+| Generación de leads | Captar datos de contacto de personas interesadas en el evento. |
+| Ventas | Conseguir conversiones directas, como la compra de una entrada o un producto. |
+
+## Columnas de la tabla de campañas
+
+Las columnas de la tabla son configurables mediante el selector "Columnas visibles". Las siguientes son las columnas visibles por defecto.
+
+| Columna | Descripción |
+|---------|-------------|
+| PLAT. | Icono de la plataforma de origen de la campaña (Meta, TikTok o Google). |
+| CAMPAÑA | Nombre de la campaña tal y como aparece en la plataforma de origen. |
+| ESTADO | Estado actual de la campaña: Activa, Pausada o Archivada. |
+| OBJETIVO | Objetivo de la campaña (ver tabla de objetivos). |
+| GASTO | Inversión en euros para el período seleccionado. |
+| IMP. | Impresiones: número de veces que los anuncios de la campaña se mostraron a usuarios. |
+| ALCANCE | Número de personas únicas que vieron al menos un anuncio de la campaña. |
+| CLICKS | Número de clics en los anuncios de la campaña. |
+| CTR | Click-through rate. Porcentaje de impresiones que resultaron en un clic. |
+| RESULTADOS | Número de resultados obtenidos según el objetivo de la campaña. |
+| COSTE/RESULT. | Gasto dividido entre el número de resultados. |
+| ROAS | Return on Ad Spend para esa campaña en el período seleccionado. Aparece como guiones (--) cuando no hay datos disponibles. |
+
+Las campañas pausadas o archivadas muestran guiones (--) en todas las columnas de métricas.
+
+## Indicador de actualización de datos
+
+El panel incluye un indicador que muestra cuánto tiempo hace que se sincronizaron los datos desde las plataformas de origen (por ejemplo, "Hace 19 min").

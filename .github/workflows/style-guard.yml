@@ -1,0 +1,21 @@
+name: style-guard
+on:
+  pull_request:
+  push: { branches: [main] }
+jobs:
+  guard:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - id: files
+        run: |
+          BASE="${{ github.event.pull_request.base.sha }}"; [ -z "$BASE" ] && BASE="${{ github.event.before }}"; [ -z "$BASE" ] && BASE=$(git rev-parse HEAD~1 2>/dev/null || echo "")
+          if [ -n "$BASE" ]; then LIST=$(git diff --name-only --diff-filter=ACMR "$BASE"...HEAD | grep -E '\.(astro|css|scss|sass)$' | tr '\n' ' ' || true); else LIST=$(git ls-files | grep -E '\.(astro|css|scss|sass)$' | tr '\n' ' ' || true); fi
+          echo "list=$LIST" >> "$GITHUB_OUTPUT"
+      - env: { FILE_LIST: "${{ steps.files.outputs.list }}" }
+        run: |
+          IFS=' ' read -ra FILES <<< "$FILE_LIST"; [ ${#FILES[@]} -eq 0 ] && exit 0
+          node scripts/style-guard.mjs "${FILES[@]}"

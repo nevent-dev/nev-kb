@@ -1,0 +1,74 @@
+---
+title: "Qué son las experiencias en Nevent"
+description: "Entiende qué es una experiencia en Nevent, cómo se relaciona con el historial de ventas y por qué los complementos forman parte del mismo bloque de gestión."
+diataxis: explanation
+faqs:
+  - q: "¿Qué diferencia hay entre una experiencia y un evento?"
+    a: "En Nevent los dos términos se usan para lo mismo. La sección del panel se llama Experiencias, pero cada fila de la lista es lo que en el mundo del espectáculo se conoce como un evento: un concierto, un festival, una obra de teatro o cualquier celebración que tiene aforo, fecha y entradas. Nevent usa el término experiencia para subrayar que lo que el promotor vende no es solo un ticket, sino el conjunto completo de lo que el asistente va a vivir."
+  - q: "¿Las ventas que aparecen en la sección Ventas son solo entradas?"
+    a: "La sección Ventas recoge todas las compras que los asistentes han realizado en el tenant, tanto entradas como complementos. Cada fila muestra la fecha, el comprador, la referencia de la transacción y el importe total. No es posible separar desde esa vista qué parte del importe corresponde a la entrada y qué parte a los complementos."
+  - q: "¿Un complemento puede venderse independientemente de una experiencia?"
+    a: "Los complementos se configuran en el catálogo de la sección Complementos, pero la relación exacta entre un complemento y una experiencia concreta no es visible desde la vista de lista del catálogo. Lo que sí está claro es que los complementos son productos adicionales que amplían lo que el asistente puede comprar más allá de la entrada."
+  - q: "¿Qué estados puede tener una experiencia?"
+    a: "En el tenant DEMO FEST el único estado observado es Programado, que indica que el evento está creado y tiene entradas disponibles. Es posible que existan otros estados para eventos pasados o cancelados, pero no son visibles en la vista actual de eventos actuales."
+  - q: "¿Puedo tener más de una experiencia activa al mismo tiempo?"
+    a: "Sí. La lista de experiencias muestra todos los eventos que el promotor tiene en el tenant. Cada uno tiene su propio aforo, sus propias fechas y su propio estado. El promotor puede gestionar varios eventos en paralelo desde la misma pantalla."
+---
+
+## De qué hablamos cuando decimos experiencia
+
+En Nevent, una experiencia es la unidad central de trabajo del promotor. Es el evento que organiza: un concierto, un festival de varios días, una obra de teatro, una feria o cualquier celebración que tiene fecha, lugar y entradas.
+
+El término experiencia no es solo un nombre alternativo a evento. Nevent lo usa para recordar que lo que el promotor vende no acaba en el ticket. Vende el conjunto de lo que el asistente va a vivir: el acceso al recinto, los artistas que va a escuchar, el alojamiento que puede reservar, el transporte que puede contratar, la camiseta que puede llevarse a casa. Esa visión completa es la que el bloque de Experiencias, Ventas y Complementos cubre desde el panel de administración.
+
+## Cómo está organizado el bloque
+
+Dentro del menú de Nevent hay un bloque de tres secciones que trabajan juntas:
+
+**Experiencias** es la lista de todos los eventos que el promotor ha creado en el tenant. Desde ahí se puede ver el estado de cada evento, las entradas vendidas sobre el aforo total, la localización y la fecha. También es el punto de entrada para acceder al detalle de cada evento.
+
+**Ventas** es el historial completo de compras realizadas en el tenant. Cada vez que un asistente compra entradas o complementos, esa transacción queda registrada aquí con la fecha, el comprador, la referencia de la operación y el importe. La sección es de solo lectura: permite consultar y filtrar, no editar las ventas.
+
+**Complementos** es el catálogo de productos adicionales que el promotor puede ofrecer junto a la entrada. No son entradas, son productos que amplían la experiencia: merchandising, alojamiento, transporte, comida, bebida y actividades.
+
+Las tres secciones están relacionadas. Una experiencia genera ventas. Las ventas pueden incluir complementos. El catálogo de complementos está disponible para todos los eventos del tenant.
+
+## Qué es una experiencia en la lista
+
+Cuando el promotor abre la sección Experiencias, ve una tabla con todos sus eventos. Cada fila contiene el canal de venta, el nombre del evento, la localización, la fecha de inicio, las entradas vendidas sobre el aforo total, el estado del evento y el nombre de la organización promotora.
+
+La columna de entradas es especialmente útil de un vistazo: muestra el número vendido y el aforo disponible. Por ejemplo, un evento con 727 de 5.086 entradas vendidas indica que se ha cubierto algo más del catorce por ciento del aforo y que queda recorrido por delante. Esa misma información, vista en un evento con 0 de 4.284, señala que la venta no ha empezado o que hay algo que revisar.
+
+El promotor puede filtrar la lista por fecha (eventos actuales, pasados o todos) y buscar por nombre de evento. Las acciones disponibles por fila son ver los asistentes del evento, copiar el enlace del evento y clonar la experiencia para reutilizarla como base de un nuevo evento.
+
+## Qué son las ventas y por qué están aquí
+
+La sección Ventas no es un informe analítico. Es el registro transaccional: una lista cronológica de cada compra que se ha realizado en el tenant.
+
+Cada fila de ventas tiene una referencia única (un identificador de la transacción), la fecha y hora exacta de la compra, el nombre y correo electrónico del comprador, el importe en euros y el estado de la venta. El único estado visible en el tenant de demostración es Completado, que indica una transacción cerrada correctamente.
+
+El promotor puede filtrar las ventas por evento, por rango de fechas, por importe mínimo o máximo, y buscar por nombre o código de comprador. Esto permite localizar una transacción concreta o revisar las ventas de un periodo determinado sin necesidad de exportar nada.
+
+La sección Ventas existe dentro del bloque de Experiencias porque las ventas son la consecuencia directa de tener eventos activos. No tendría sentido separar el historial de compras del catálogo de eventos que las originan.
+
+## Qué son los complementos
+
+Un complemento es cualquier producto que el promotor puede vender a un asistente además de la entrada. La entrada da acceso al evento. El complemento amplía esa experiencia con algo más.
+
+Nevent organiza los complementos en seis categorías: merch, comida, bebida, transporte, alojamiento y actividades. Un promotor puede ofrecer, por ejemplo, una habitación de hotel junto a la entrada del festival, un carruaje privado para llegar al recinto, una camiseta del artista o acceso a una actividad exclusiva durante el evento.
+
+Cada complemento tiene nombre, precio, un contador de unidades vendidas y un estado. El estado puede ser Disponible (el producto está activo y a la venta) o Fuera de stock (no quedan unidades disponibles). El precio puede ser cero, lo que permite incluir complementos gratuitos o informacionales dentro del catálogo.
+
+El promotor gestiona el catálogo de complementos desde la sección Complementos, con los mismos controles de creación y sincronización que tiene en la sección de Experiencias.
+
+## Por qué el bloque se llama Experiencias y no Eventos
+
+La elección del nombre no es casual. Un evento es algo que ocurre. Una experiencia es algo que se vive. Nevent apuesta por ese segundo enfoque porque el objetivo del promotor no es vender un ticket, sino que el asistente tenga un buen recuerdo de principio a fin.
+
+Esa filosofía tiene consecuencias prácticas en la plataforma: las herramientas de análisis, segmentación y comunicación de Nevent están diseñadas para trabajar con la audiencia del evento antes, durante y después de la fecha de celebración. La experiencia no termina cuando el asistente entra por la puerta.
+
+## Relación con el resto de la plataforma
+
+Las experiencias son el punto de partida de casi todo lo que ocurre en Nevent. Los asistentes de un evento alimentan la base de audiencia desde la que el promotor puede segmentar y lanzar campañas. Los complementos vendidos aparecen en el historial de ventas junto a las entradas. La analítica de cada evento se consulta desde el detalle de la experiencia.
+
+Cuando el promotor abre un evento desde la lista de Experiencias, accede a todas las secciones específicas de ese evento: Analytics, Descripción, Celebración, Entradas, Suplementos, Sponsors, Asistentes, Complementos, Campañas, Reasignación y Perfil musical. Cada una de esas secciones añade una capa a la experiencia que el asistente va a tener.

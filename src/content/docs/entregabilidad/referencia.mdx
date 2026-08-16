@@ -1,0 +1,136 @@
+---
+title: "Referencia de configuración de entrega y dominio"
+description: "Descripción de todas las opciones de la pantalla Envío de emails (/settings/email-sending) y la pantalla Dominio dedicado (/settings/custom-domains): qué es cada campo, componente y protocolo, y qué estado puede tener."
+diataxis: reference
+sidebar:
+  order: 5
+faqs:
+  - q: "¿Qué diferencia hay entre dominio compartido y dominio dedicado?"
+    a: "Con el dominio compartido, tus emails salen desde un subdominio de Nevent que comparten todas las cuentas de la plataforma. Con un dominio dedicado, tus emails salen desde un subdominio de tu propio dominio, y la reputación de tus envíos es completamente tuya."
+  - q: "¿Qué es el SES Tenant y por qué importa?"
+    a: "Es una cuenta de envío propia dentro de AWS SES, el servicio de infraestructura de email que usa Nevent. Cuando está creado, tus emails salen desde una infraestructura aislada: si otro usuario de Nevent tiene un problema de reputación, no te afecta a ti."
+  - q: "¿Para qué sirven los registros SPF, DKIM y DMARC?"
+    a: "Son tres protocolos de autenticación de email. SPF indica qué servidores tienen permiso para enviar en nombre de tu dominio. DKIM añade una firma digital a cada mensaje para acreditar que no ha sido alterado. DMARC establece la política que siguen los servidores de correo cuando un mensaje no supera SPF o DKIM."
+  - q: "¿Qué significa que un componente aparece como 'No configurado'?"
+    a: "Significa que tu cuenta todavía usa el dominio compartido estándar de Nevent. Tus emails se envían con normalidad, pero comparten reputación con los demás remitentes de la plataforma. Para aislar tu reputación, debes provisionar los componentes desde la pantalla Envío de emails."
+  - q: "¿Qué dirección verán mis contactos como remitente si no tengo dominio dedicado?"
+    a: "Verán la dirección de envío efectiva que aparece en la pantalla Envío de emails, junto al nombre de tu organización seguido de 'via Nevent'. Esto indica que el envío usa la infraestructura compartida de Nevent."
+---
+
+import { Aside } from '@astrojs/starlight/components';
+
+Esta página describe todos los campos, opciones y estados de las dos pantallas de configuración relacionadas con la entrega de emails en Nevent: **Envío de emails** (`/settings/email-sending`) y **Dominio dedicado** (`/settings/custom-domains`).
+
+Úsala como consulta rápida cuando necesites saber qué significa un valor concreto, qué hace cada componente o cuáles son los protocolos de autenticación que Nevent utiliza.
+
+---
+
+## Pantalla Envío de emails
+
+**Ruta:** Configuración > Avanzado > Envío de emails (`/settings/email-sending`)
+
+Esta pantalla muestra el estado técnico de la infraestructura de envío de emails de tu cuenta y permite provisionar los componentes necesarios para tener reputación propia como remitente.
+
+### Bloque: configuración de envío efectiva
+
+Este bloque muestra los valores activos con los que salen tus emails en este momento.
+
+| Campo | Descripción |
+|---|---|
+| Dirección de envío efectiva | Dirección de email desde la que tus contactos reciben las campañas. Si no tienes dominio dedicado configurado, corresponde a un subdominio de Nevent. |
+| Nombre visible del remitente | El nombre que aparece en el campo "De" de la bandeja de entrada del destinatario. Se compone del nombre de tu organización seguido de "via Nevent" cuando se usa la infraestructura compartida. |
+| Tipo de dominio | Indica si estás usando el dominio compartido de Nevent o un dominio dedicado propio. Los dos valores posibles son **Dominio compartido** y **Dominio dedicado**. |
+
+#### Tipo de dominio: valores posibles
+
+| Valor | Descripción |
+|---|---|
+| Dominio compartido | El envío sale desde un subdominio de Nevent compartido entre todas las cuentas de la plataforma. Es el valor por defecto cuando no se ha configurado ningún dominio propio. La reputación se comparte con los demás remitentes de Nevent. |
+| Dominio dedicado | El envío sale desde un subdominio de tu propio dominio. La reputación es exclusivamente tuya. Este valor aparece cuando tienes un dominio configurado en la pantalla Dominio dedicado y los componentes técnicos provisionados. |
+
+---
+
+### Bloque: estado de componentes
+
+Este bloque muestra el estado de los tres elementos técnicos que gestionan el aislamiento de reputación de tu cuenta en AWS SES, el servicio de infraestructura de email que usa Nevent.
+
+| Componente | Descripción |
+|---|---|
+| Subdominio automático | Un subdominio único y verificado en AWS asignado a tu cuenta. Cuando está activo, los proveedores de correo como Gmail o Outlook asocian la reputación de tus envíos solo a tu cuenta, no al conjunto de remitentes de Nevent. |
+| Configuration Sets | Configuración AWS SES para el seguimiento de envíos de marketing y transaccionales. Controla qué eventos se registran: aperturas, clics, rebotes y quejas. |
+| SES Tenant | Una cuenta de envío propia dentro de AWS SES. Cuando está creado, tus emails salen desde una infraestructura completamente aislada. Un problema de reputación en otra cuenta de Nevent no te afecta. |
+
+#### Estados de los componentes
+
+| Estado | Significado |
+|---|---|
+| No configurado | El componente no ha sido creado. Tu cuenta usa el dominio compartido estándar. |
+| No configurados | Variante del estado anterior aplicada al componente Configuration Sets. |
+| No creado | Variante del estado anterior aplicada al componente SES Tenant. |
+
+<Aside type="note">
+Los tres componentes se crean al mismo tiempo mediante el botón "Provisionar dominio y crear SES Tenant". No se pueden activar de forma individual desde la interfaz.
+</Aside>
+
+---
+
+### Acción: Provisionar dominio y crear SES Tenant
+
+| Elemento | Descripción |
+|---|---|
+| Botón | "Provisionar dominio y crear SES Tenant" |
+| Efecto | Crea los tres componentes de forma simultánea: el subdominio automático, los configuration sets y el SES Tenant. |
+| Duración | El proceso puede tardar varios minutos desde que se pulsa el botón hasta que los componentes aparecen como activos. |
+
+---
+
+## Pantalla Dominio dedicado
+
+**Ruta:** Configuración > Espacio de trabajo > Dominio dedicado (`/settings/custom-domains`)
+
+Esta pantalla permite configurar un dominio personalizado para que tus campañas de email salgan desde un subdominio de tu propio dominio en lugar del dominio compartido de Nevent.
+
+### Beneficios descritos en pantalla
+
+La pantalla de bienvenida de este módulo describe tres beneficios de configurar un dominio dedicado.
+
+| Beneficio | Descripción visible en la interfaz |
+|---|---|
+| Aumentar la tasa de entrega | Evita que tus emails acaben en spam utilizando un dominio propio. |
+| Mejorar tu identidad de marca | Fortalece tu imagen profesional con un dominio personalizado. |
+| Proteger tu reputación | Asegura la autenticación de tus emails con registros SPF, DKIM y DMARC. |
+
+---
+
+### Protocolos de autenticación de email
+
+La configuración de un dominio dedicado requiere implementar tres protocolos estándar de autenticación de email.
+
+| Protocolo | Descripción |
+|---|---|
+| SPF (Sender Policy Framework) | Lista los servidores de correo que tienen permiso para enviar emails en nombre de tu dominio. Los proveedores de correo comprueban este registro para decidir si el mensaje es legítimo. |
+| DKIM (DomainKeys Identified Mail) | Añade una firma digital a cada email que acredita que el mensaje fue enviado por ti y que no ha sido modificado en tránsito. |
+| DMARC (Domain-based Message Authentication, Reporting and Conformance) | Define la política que deben aplicar los servidores de correo cuando un mensaje no supera la verificación de SPF o DKIM. Por ejemplo, rechazarlo o enviarlo a spam. |
+
+<Aside type="note">
+Los tres protocolos trabajan en conjunto. SPF y DKIM verifican el origen y la integridad del mensaje; DMARC indica qué hacer cuando alguno de los dos falla. Configurar los tres mejora la llegada a la bandeja de entrada y protege tu dominio ante usos no autorizados.
+</Aside>
+
+---
+
+## Relación entre las dos pantallas
+
+Las pantallas Envío de emails y Dominio dedicado son complementarias: una gestiona la infraestructura de envío en AWS y la otra gestiona la autenticación del dominio mediante DNS.
+
+| Pantalla | Qué configura | Dónde se ve el resultado |
+|---|---|---|
+| Envío de emails (`/settings/email-sending`) | Infraestructura de envío: subdominio en AWS, configuration sets y cuenta SES propia. | Tipo de dominio y dirección de envío efectiva en el mismo bloque. |
+| Dominio dedicado (`/settings/custom-domains`) | Autenticación del dominio mediante registros DNS: SPF, DKIM y DMARC. | Estado de los registros en la pantalla del asistente. |
+
+---
+
+## Documentos relacionados
+
+- [Ajustes de envío de emails](/entregabilidad/envio-de-emails): recorrido paso a paso por la pantalla Envío de emails.
+- [Configura tu dominio dedicado](/entregabilidad/dominio-dedicado): instrucciones para completar el asistente de dominio dedicado y crear los registros DNS.
+- [Reputación de envío: cómo evitar el spam](/entregabilidad/reputacion-y-spam): explicación de qué es la reputación de remitente y cómo cuidarla.

@@ -1,0 +1,115 @@
+---
+title: "Tu primer vistazo a Paid Media"
+diataxis: tutorial
+description: "Recorrido guiado por el panel de Paid Media de Nevent: accede al módulo, explora los filtros, lee los KPIs principales y localiza tus campañas activas."
+sidebar:
+  order: 10
+faqs:
+  - q: "¿Necesito crear los anuncios en Nevent?"
+    a: "No. Los anuncios se crean y gestionan en Meta Ads Manager, Google Ads o TikTok Ads Manager. Nevent solo muestra los datos que ya existen en esas plataformas."
+  - q: "¿Cada cuánto se actualizan los datos del panel?"
+    a: "El panel indica el momento de la última actualización junto a la tabla de campañas. En el tenant de demostración, el indicador mostraba 'Hace 19 min', lo que da una idea de la frecuencia de refresco."
+  - q: "¿Qué significa que una campaña muestre guiones en todas sus columnas?"
+    a: "Significa que la campaña está pausada o archivada y no ha tenido actividad en el período seleccionado. Es un comportamiento normal, no un error."
+  - q: "¿Puedo ver campañas de TikTok y Google en el mismo panel?"
+    a: "Sí. El filtro de plataforma te permite seleccionar Meta, TikTok o Google, y el panel agrupa campañas de las tres redes en una sola vista."
+  - q: "¿Qué es el ROAS?"
+    a: "ROAS son las siglas de Return on Ad Spend (retorno sobre el gasto en publicidad). Indica cuántos euros de ingresos obtienes por cada euro invertido en anuncios. Si el panel muestra guiones en esa columna, significa que ese dato no está disponible para tu cuenta en el período seleccionado."
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+En este tutorial vas a recorrer el panel de Paid Media de Nevent por primera vez. Al terminar sabrás dónde están los indicadores principales, cómo filtrar campañas y qué significa cada cifra que ves en pantalla.
+
+No necesitas experiencia previa con publicidad digital. Solo necesitas tener acceso a Nevent con al menos una cuenta de anuncios ya conectada.
+
+Tiempo estimado: 10 minutos.
+
+## Antes de empezar
+
+El panel de Paid Media muestra datos que vienen de tus cuentas de Meta, TikTok o Google. Si todavía no has conectado ninguna cuenta, los datos aparecerán vacíos. Contacta con tu equipo o con soporte de Nevent para completar la conexión antes de continuar.
+
+---
+
+<Steps>
+
+1. **Accede al módulo de Paid Media**
+
+   En el menú lateral, busca la sección **Campañas** y haz clic en **Paid Ads**.
+
+   Se abre la pantalla principal de **Publicidad**. Es la única pantalla del módulo: todo lo que necesitas ver está aquí.
+
+2. **Fíjate en los indicadores de la cabecera**
+
+   En la parte superior del panel verás cuatro cifras correspondientes al período y la plataforma que estén seleccionados en ese momento:
+
+   - **Gasto**: el dinero total invertido en anuncios durante el período.
+   - **Resultados**: el número total de resultados obtenidos (clics, visitas o conversiones, según el objetivo de cada campaña).
+   - **Coste/resultado**: cuánto cuesta de media cada resultado. Un número más bajo es mejor.
+   - **ROAS**: Return on Ad Spend, es decir, cuántos euros de ingresos obtienes por cada euro gastado. Si ves guiones en este campo, significa que ese dato no está disponible para tu cuenta en el período actual.
+
+   Cada indicador muestra también el porcentaje de variación respecto al período anterior. Un porcentaje negativo en Gasto puede ser bueno si también bajan los Resultados, o puede indicar que tus campañas se pausaron. Lee siempre los cuatro indicadores en conjunto, no de forma aislada.
+
+3. **Usa los filtros para acotar la vista**
+
+   Justo debajo de los indicadores tienes tres filtros:
+
+   - **Período**: puedes elegir entre los últimos 7 días (el valor por defecto), 14 días, 30 días, el máximo histórico disponible, o un rango de fechas personalizado. Los indicadores y la tabla se actualizan al instante cada vez que cambias el período.
+   - **Plataforma**: selecciona Meta, TikTok o Google para ver solo las campañas de esa red. Por defecto, Meta aparece seleccionada.
+   - **Estado**: filtra entre Todas las campañas, solo las Activas o solo las Pausadas. Usa "Activas" cuando solo quieras ver lo que está en marcha ahora mismo.
+
+   También hay un campo de búsqueda por nombre para localizar una campaña concreta si tienes muchas en la tabla.
+
+4. **Lee la tabla de campañas**
+
+   La tabla muestra todas las campañas sincronizadas para el filtro activo. Cada fila corresponde a una campaña.
+
+   Las columnas que verás por defecto son:
+
+   | Columna | Qué indica |
+   |---|---|
+   | PLAT. | Icono de la plataforma (Meta, TikTok o Google) |
+   | CAMPAÑA | Nombre de la campaña |
+   | ESTADO | Activa, Pausada o Archivada |
+   | OBJETIVO | Para qué fue diseñada: Reconocimiento, Tráfico, Generación de leads o Ventas |
+   | GASTO | Dinero invertido en el período |
+   | IMP. | Impresiones: número de veces que se mostró algún anuncio de la campaña |
+   | ALCANCE | Personas únicas que vieron el anuncio al menos una vez |
+   | CLICKS | Total de clics en los anuncios |
+   | CTR | Click-through rate: porcentaje de personas que hicieron clic sobre las que vieron el anuncio |
+   | RESULTADOS | Total de resultados según el objetivo de la campaña |
+   | COSTE/RESULT. | Coste medio por cada resultado |
+   | ROAS | Retorno sobre el gasto en publicidad |
+
+   Las columnas son configurables: puedes mostrar u ocultar las que no necesites usando el botón **Columnas visibles**.
+
+5. **Identifica qué campañas tienen datos y cuáles no**
+
+   El subtítulo de la tabla te indica cuántas campañas están visibles y cuántas tienen datos reales en el período seleccionado. Por ejemplo: "25 campañas · 2 con insights · click para ver detalle".
+
+   Las campañas con datos activos muestran cifras en todas las columnas. Las campañas pausadas o archivadas, o las que no tuvieron actividad en el período, muestran guiones en las columnas de métricas. Esto es normal y no indica ningún problema.
+
+6. **Comprueba cuándo se actualizaron los datos por última vez**
+
+   En la parte inferior del panel verás un indicador de texto como "Hace 19 min". Ese texto te dice cuándo fue la última sincronización con las plataformas de anuncios. Si el dato que buscas parece desactualizado, espera unos minutos y recarga la página.
+
+</Steps>
+
+---
+
+## Lo que has aprendido
+
+Has recorrido la pantalla principal del módulo de Paid Media. Ya sabes:
+
+- Dónde están los cuatro KPIs globales y qué significa cada uno.
+- Cómo usar los filtros de período, plataforma y estado para acotar la vista.
+- Qué columnas tiene la tabla de campañas y cómo interpretar campañas con y sin datos.
+- Cómo saber si los datos que ves están actualizados.
+
+---
+
+## Siguiente paso
+
+Cuando te sientas cómodo con la vista general, puedes profundizar en el análisis:
+
+- [Paid Media: conecta tus cuentas y entiende el panel](/paid-media/introduccion) para un recorrido más completo del módulo.

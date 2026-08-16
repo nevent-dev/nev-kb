@@ -12,6 +12,11 @@ export const collections = {
 			extend: z.object({
 				faqs: z.array(z.object({ q: z.string(), a: z.string() })).optional(),
 				ogImage: z.string().optional(),
+				// diataxis: tipo de documento según Diátaxis (poblado por el auditor / auto-clasificador).
+				//   'mixed' marca un doc que viola la separación de tipos y debe dividirse.
+				diataxis: z
+					.enum(['tutorial', 'how-to', 'reference', 'explanation', 'mixed'])
+					.optional(),
 			}),
 		}),
 	}),

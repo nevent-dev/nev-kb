@@ -1,0 +1,94 @@
+/*
+ * nevent-theme.css — adopta @nevent/tokens en el help center (Starlight).
+ * Mapea las variables de Starlight (--sl-*) a los tokens de marca de Nevent.
+ * Tokens vendorizados en nevent-tokens.css (generado desde @nevent/tokens).
+ * Carga este fichero DESPUÉS de nevent-tokens.css y custom.css.
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+  /* Tipografía de marca */
+  --sl-font: var(--font-body);
+  --sl-font-mono: var(--font-mono);
+
+  /* Acento = púrpura de marca #a64eff (166,78,255). accent-high oscuro para
+     contraste AA de enlaces/texto sobre fondo claro. */
+  --sl-color-accent-low: 166, 78, 255;
+  --sl-color-accent: 166, 78, 255;
+  --sl-color-accent-high: 124, 58, 237; /* #7c3aed */
+}
+
+:root[data-theme='dark'] {
+  /* En oscuro el texto de acento va más claro para legibilidad. */
+  --sl-color-accent-high: 200, 160, 255;
+}
+
+/* Titulares en Poppins (contenido, portada y UI). */
+:is(h1, h2, h3, h4, h5, h6),
+.sl-markdown-content :is(h1, h2, h3, h4, h5, h6),
+.site-title,
+.hero h1 {
+  font-family: var(--font-display);
+  letter-spacing: var(--letter-spacing-tight);
+}
+
+/* Labels/eyebrows de la navegación con el mono de marca. */
+.sidebar-content summary,
+nav.sidebar .group-label span {
+  font-family: var(--font-mono);
+  letter-spacing: var(--letter-spacing-wide);
+  text-transform: uppercase;
+  font-size: var(--font-size-xs);
+}
+
+/* Gradiente de marca real (orchid -> magenta) para el wordmark del hero. */
+.text-gradient {
+  background: var(--gradient-hero);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ---- Portada (splash): estilo de marca sobre tokens v1. Sin hover. ---- */
+.hero h1 {
+  font-family: var(--font-display);
+  font-size: var(--font-size-6xl);
+  line-height: var(--line-height-tight);
+  letter-spacing: var(--letter-spacing-tighter);
+}
+.hero .tagline {
+  font-family: var(--font-body);
+  font-size: var(--font-size-lg);
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-normal);
+  max-width: 48ch;
+}
+.sl-markdown-content h2 {
+  font-family: var(--font-display);
+  letter-spacing: var(--letter-spacing-tight);
+  margin-top: var(--space-5);
+}
+/* Tarjetas de área: superficie de marca, radios generosos, foco visible. */
+.sl-markdown-content .card {
+  background: var(--color-surface-base);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-xl);
+}
+.sl-markdown-content .card .title {
+  font-family: var(--font-display);
+  color: var(--color-text-primary);
+  letter-spacing: var(--letter-spacing-tight);
+}
+.sl-markdown-content .card .icon {
+  color: var(--color-primary-text);
+}
+/* LinkCards: marca + foco. */
+.sl-markdown-content .sl-link-card {
+  border-radius: var(--radius-lg);
+  border-color: var(--color-border-subtle);
+}
+.sl-markdown-content .sl-link-card:focus-within {
+  outline: var(--focus-ring-width) solid var(--color-focus-ring);
+  outline-offset: var(--focus-ring-offset);
+}

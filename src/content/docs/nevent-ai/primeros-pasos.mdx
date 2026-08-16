@@ -1,0 +1,217 @@
+---
+title: Primeros pasos con Nevent AI
+description: Conecta Nevent a Claude o ChatGPT y haz tu primera consulta sobre campañas o eventos en menos de diez minutos.
+diataxis: tutorial
+faqs:
+  - q: "¿Necesito saber programar para usar Nevent AI?"
+    a: "No. La conexión se hace desde la interfaz de Claude (en la web o en la aplicación de escritorio) o de ChatGPT en unos pocos clics. Una vez conectado, hablas con el asistente en lenguaje normal, como si escribieras un mensaje."
+  - q: "¿Mis datos de Nevent quedan expuestos cuando uso el asistente de IA?"
+    a: "No. La conexión usa OAuth 2.1, el mismo sistema que 'Iniciar sesión con Google'. Tu contraseña nunca llega al asistente de IA, solo un token temporal que caduca automáticamente. Además, los datos de tu cuenta no se usan para entrenar los modelos de lenguaje de Anthropic ni de OpenAI."
+  - q: "¿El asistente puede modificar o eliminar datos de mi cuenta sin que yo lo pida?"
+    a: "No. Nevent AI solo actúa cuando tú se lo pides de forma explícita. En el modo predeterminado de solo lectura, el asistente únicamente consulta datos y no puede cambiar nada."
+  - q: "¿Qué planes de Claude o ChatGPT necesito?"
+    a: "Para Claude, necesitas el plan Pro o superior en Claude.ai. Para ChatGPT, el plan Plus, Pro o Team. Los planes gratuitos no incluyen conectores MCP."
+  - q: "¿Puedo usar Nevent AI con mi equipo?"
+    a: "Sí. Cada miembro puede conectar Nevent AI con su propia cuenta de Claude o ChatGPT. Cada conexión es independiente y respeta los permisos que ese usuario tiene en Nevent."
+sidebar:
+  order: 2
+---
+
+import { Steps, Aside } from '@astrojs/starlight/components';
+
+En este tutorial conectarás Nevent a Claude y harás tres consultas reales sobre tu cuenta: tus campañas recientes, un segmento de audiencia y los datos de un evento. Al terminar sabrás cómo funciona el asistente y podrás usarlo en tu día a día.
+
+No necesitas saber nada técnico. Solo necesitas una cuenta activa en Nevent y acceso a Claude (en la web o en la aplicación de escritorio).
+
+**Tiempo estimado: unos diez minutos.**
+
+---
+
+## Qué vas a aprender
+
+Al completar este tutorial serás capaz de:
+
+- Conectar Nevent a Claude con la URL del servidor.
+- Comprobar que la conexión funciona correctamente.
+- Hacer preguntas sobre tus campañas, tu audiencia y tus eventos en lenguaje natural.
+- Entender qué puede y qué no puede hacer el asistente en el modo predeterminado.
+
+---
+
+## Antes de empezar
+
+Comprueba que tienes:
+
+- **Acceso a Claude.** Puedes usar la versión web en [claude.ai](https://claude.ai) o la aplicación de escritorio Claude Desktop. Ambas admiten conectores MCP. Si prefieres la aplicación de escritorio, descárgala desde [claude.ai/download](https://claude.ai/download).
+- **Una cuenta activa en Nevent.** Debes poder entrar en [admin.nevent.es](https://admin.nevent.es) con tu usuario y contraseña.
+- **Plan Pro de Claude.ai** o superior. Los conectores MCP no están disponibles en el plan gratuito.
+
+:::note
+Si prefieres usar ChatGPT en lugar de Claude, el proceso es muy parecido. Puedes seguirlo en la guía [Cómo conectar Nevent MCP con ChatGPT](/nevent-ai/conectar-chatgpt/). Para este tutorial usamos Claude Desktop porque los pasos son los mismos en Mac y Windows y el conector está disponible en todos los planes Pro.
+:::
+
+---
+
+## Parte 1: conecta Nevent a Claude
+
+<Steps>
+
+1. **Abre Claude Desktop.**
+
+   Lanza la aplicación en tu ordenador. Verás la pantalla principal con el campo de chat vacío.
+
+2. **Abre los ajustes.**
+
+   - En **Mac**: pulsa `cmd + ,` o ve al menú Claude en la barra superior y selecciona **Settings**.
+   - En **Windows**: pulsa `ctrl + ,` o ve al menú File y selecciona **Settings**.
+
+3. **Ve a la sección de conectores.**
+
+   Dentro de los ajustes, busca una sección llamada **Connectors**, **Integrations** o **Extensiones**. El nombre exacto puede variar según tu idioma y versión de Claude Desktop.
+
+   :::note
+   Si no ves esta sección, tu versión de Claude Desktop puede ser antigua. Actualiza desde [claude.ai/download](https://claude.ai/download) y vuelve a intentarlo.
+   :::
+
+4. **Pulsa "Añadir conector personalizado".**
+
+   Busca el botón **Add Custom Connector** o **Añadir conector personalizado** y pulsa sobre él.
+
+5. **Rellena el formulario.**
+
+   Aparece un formulario con dos campos. Rellénalos exactamente así:
+
+   | Campo | Valor |
+   |---|---|
+   | **Nombre** (Name) | Nevent |
+   | **URL** | `https://mcp.nevent.ai/mcp` |
+
+   :::note
+   Copia la URL tal cual aparece: con `https://` al principio y `/mcp` al final. Un carácter de diferencia impide la conexión.
+   :::
+
+6. **Pulsa "Conectar".**
+
+   Claude Desktop abre automáticamente una ventana en tu navegador para que inicies sesión en Nevent.
+
+7. **Inicia sesión en Nevent.**
+
+   En la ventana del navegador, introduce el mismo usuario y contraseña que usas habitualmente para entrar en [admin.nevent.es](https://admin.nevent.es). Nevent te pedirá que confirmes que autorizas el acceso desde Claude.
+
+   Tu contraseña nunca llega a Claude. El sistema usa OAuth 2.1: Nevent emite un token temporal y eso es lo que usa el asistente para consultar tus datos.
+
+8. **Vuelve a Claude Desktop.**
+
+   Cierra la ventana del navegador (o se cerrará sola) y regresa a Claude Desktop. Deberías ver **Nevent** en la lista de conectores activos con el estado "Conectado".
+
+</Steps>
+
+Nevent ya está conectado. Pasamos a comprobarlo.
+
+---
+
+## Parte 2: comprueba que funciona
+
+Abre una conversación nueva en Claude. En la barra de escritura, pulsa el icono de herramientas (o el botón `+`) y verifica que aparece **Nevent** en la lista de herramientas disponibles.
+
+Ahora escribe este mensaje en el chat:
+
+```
+Lista mis últimas campañas
+```
+
+Claude consultará tu cuenta de Nevent y te responderá con las campañas más recientes, incluyendo su nombre, estado y canal (email, SMS o WhatsApp). Si ves datos reales de tu cuenta, la conexión funciona perfectamente.
+
+:::note
+Si Claude responde que no tiene acceso a Nevent, escribe: "¿Qué herramientas tienes disponibles?" para ver si el conector está activo en esa conversación. Si usas la aplicación de escritorio y sigue sin aparecer, ciérrala completamente (en Mac: `cmd+Q`; en Windows: desde la bandeja del sistema) y vuelve a abrirla.
+:::
+
+---
+
+## Parte 3: tus primeras tres consultas
+
+Ahora vas a hacer tres preguntas reales. Cada una te muestra una capacidad diferente del asistente.
+
+### Consulta 1: el rendimiento de tus campañas
+
+Escribe en el chat:
+
+```
+¿Qué campañas enviadas el mes pasado tuvieron mejor tasa de apertura?
+```
+
+El asistente consulta tu cuenta y te devuelve la lista de campañas del mes anterior ordenadas por tasa de apertura. Puedes seguir preguntando sobre cualquiera de ellas. Por ejemplo:
+
+```
+Dame los detalles de la primera: aperturas, clics y desuscripciones
+```
+
+El asistente accede a los datos reales de tu cuenta y te los presenta en lenguaje natural, sin que tengas que exportar nada ni navegar por menús.
+
+### Consulta 2: tu audiencia y tus segmentos
+
+Escribe:
+
+```
+Lista todos mis segmentos guardados con el número de contactos de cada uno
+```
+
+El asistente te devuelve la lista de segmentos que tienes en Nevent con el recuento de contactos en cada uno. Si quieres saber cuántas personas entrarían en un segmento que todavía no existe, puedes describirlo:
+
+```
+¿Cuántas personas entrarían en un segmento de asistentes que compraron en los últimos 6 meses y tienen email válido?
+```
+
+El asistente calcula el tamaño estimado antes de que guardes nada. Esto te permite explorar tu audiencia sin comprometerte a crear nada hasta que el resultado tenga sentido.
+
+:::note
+En el modo predeterminado de solo lectura, el asistente puede listar, consultar y previsualizar segmentos (incluidos los que todavía no existen). Crear o guardar un segmento nuevo requiere el modo STANDARD. Puedes leer más en la guía de [permisos y seguridad](/nevent-ai/permisos-y-seguridad/).
+:::
+
+### Consulta 3: los datos de un evento concreto
+
+Escribe el nombre de alguno de tus eventos recientes, por ejemplo:
+
+```
+Muéstrame las inscripciones del [nombre de tu evento] desglosadas por tipo de entrada
+```
+
+El asistente te devuelve el desglose de entradas vendidas por categoría (por ejemplo, general, VIP, abono). Puedes seguir preguntando:
+
+```
+¿Cuántas entradas quedan disponibles?
+```
+
+o
+
+```
+¿Cuál fue el ingreso total de ese evento?
+```
+
+El asistente cruza los datos al momento y te responde sin que tengas que saber cómo están organizados en tu cuenta.
+
+---
+
+## Qué has aprendido
+
+Has conectado Nevent a Claude y has hecho tus primeras consultas reales. Ahora sabes que:
+
+- El conector se configura una sola vez. Cada conversación inicia una sesión nueva con su propio token, que caduca al cerrarla.
+- Puedes preguntar sobre campañas, segmentos y eventos en lenguaje natural.
+- En el modo predeterminado, el asistente solo consulta datos y no modifica nada en tu cuenta.
+- Si quieres preparar borradores de campañas o crear segmentos, necesitas el modo STANDARD. Consulta la guía de [permisos y seguridad](/nevent-ai/permisos-y-seguridad/) para saber cómo activarlo.
+
+---
+
+## Qué hacer a continuación
+
+Ahora que tienes el asistente conectado y sabes cómo funciona, puedes profundizar por donde más te interese:
+
+- **Frases listas para usar** - un catálogo de preguntas organizadas por área (campañas, analítica, audiencia, publicidad...) que puedes copiar directamente en el chat: [ver el catálogo](/nevent-ai/frases-listas-para-usar/).
+- **Casos prácticos** - flujos completos con varios pasos encadenados, como lanzar un evento o recuperar audiencia dormida: [ver los casos](/nevent-ai/casos-practicos/).
+- **Lo que puedes hacer** - el alcance completo por área, con lo que se puede consultar, lo que el asistente puede preparar y lo que no puede hacer todavía: [ver el alcance](/nevent-ai/que-puedes-hacer/).
+- **Permisos y seguridad** - cómo controlar qué puede y qué no puede hacer el asistente en tu cuenta: [ver permisos](/nevent-ai/permisos-y-seguridad/).
+
+<Aside type="tip" title="¿Tienes dudas sobre alguna respuesta del asistente?">
+Si el asistente no encuentra un dato o dice que no tiene acceso, comprueba primero que el conector de Nevent aparece activo en esa conversación. Si el problema persiste, consulta las [preguntas frecuentes](/nevent-ai/preguntas-frecuentes/) o escribe a [support@nevent.ai](mailto:support@nevent.ai).
+</Aside>

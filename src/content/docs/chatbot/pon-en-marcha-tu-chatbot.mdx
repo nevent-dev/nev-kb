@@ -1,0 +1,133 @@
+---
+title: "Pon en marcha tu chatbot"
+description: "Guía práctica para activar el chatbot de Nevent por primera vez: escribe las instrucciones básicas, sube un documento de referencia y comprueba que el bot responde bien antes de publicarlo."
+diataxis: tutorial
+faqs:
+  - q: "¿Necesito saber programar para poner en marcha el chatbot?"
+    a: "No. Las instrucciones son texto libre en lenguaje natural, igual que si le explicaras algo a una persona. El único paso que requiere tocar código es pegar el snippet de instalación en tu web, y eso lo puede hacer cualquier persona con acceso al editor de la página."
+  - q: "¿Las conversaciones de prueba llegan a mis fans?"
+    a: "No. La pestaña 'Probar chatbot' es un entorno aislado. Los mensajes que escribas ahí no aparecen en la bandeja de entrada ni los ven tus asistentes."
+  - q: "¿Cuántos caracteres puedo escribir en las instrucciones?"
+    a: "Hasta 5000 caracteres. El propio campo muestra un contador para que veas cuánto espacio te queda."
+  - q: "¿Qué formatos de documento admite el chatbot?"
+    a: "PDF, TXT, MD y DOCX. El peso máximo por archivo es de 10 MB."
+  - q: "¿El chatbot responde solo en español?"
+    a: "No. El chatbot responde en el idioma en el que escribe cada asistente. En el tenant Demo Fest se han observado conversaciones en español, neerlandés, japonés y rumano."
+---
+
+En este tutorial vas a dejar el chatbot de Nevent listo para atender preguntas de tus asistentes por primera vez. Al terminar habrás escrito las instrucciones básicas del bot, comprobado que responde bien y entendido cómo publicarlo en tu web.
+
+No hace falta experiencia previa. El tutorial dura unos quince minutos.
+
+## Antes de empezar
+
+Asegúrate de tener a mano:
+
+- Acceso a tu cuenta de Nevent con permisos de administrador.
+- Una idea aproximada del tono que quieres que use el bot: formal, cercano, divertido, etc.
+- Opcionalmente, un documento con información del evento (un PDF, un Word o un archivo de texto con horarios, normas de acceso, FAQ, etc.) para subirlo en el paso 3.
+
+---
+
+## Paso 1: Abre la configuración del chatbot
+
+En el menú lateral de Nevent, busca la sección **Chatbot** y haz clic en **Configuración**.
+
+Se abre la pantalla principal del chatbot. A la izquierda hay seis pestañas. A la derecha hay un panel llamado **Estado del asistente** que te muestra, de un vistazo, si el bot está activo y qué tiene configurado.
+
+Fíjate en ese panel. Verás algo como:
+
+- **Estado:** Activo
+- **Instrucciones:** Sin definir
+- **Documentos listos:** 1 de 1 (o 0 si no hay ningún documento todavía)
+- **Fuentes activas:** 7 de 8
+- **Modelo:** gemini-3.5-flash-lite
+
+El estado "Activo" significa que el bot ya está funcionando. Lo que haremos en este tutorial es darle instrucciones para que sepa cómo atender a tus fans.
+
+---
+
+## Paso 2: Escribe las instrucciones del bot
+
+La pestaña **Instrucciones personalizadas** es la más importante. Aquí le dices al chatbot quién es, qué tono debe usar y qué tiene que priorizar cuando alguien le escribe.
+
+1. Haz clic en la pestaña **Instrucciones personalizadas** (se abre por defecto al entrar en Configuración).
+2. Verás un campo de texto grande con el texto "Sin definir" o vacío. Haz clic dentro del campo.
+3. Escribe las instrucciones. Si no sabes por dónde empezar, copia y adapta este ejemplo:
+
+   > Eres el asistente oficial de [nombre de tu evento]. Responde siempre en un tono cercano y amigable. Prioriza información sobre accesos, horarios y la agenda de artistas. Si no conoces la respuesta a una pregunta, dile al usuario que contacte con el equipo de soporte en [email de soporte].
+
+   El campo admite hasta 5000 caracteres. El contador en la esquina inferior te indica cuánto llevas.
+
+4. Cuando estés satisfecho con el texto, haz clic en el botón **Guardar**.
+
+Eso es todo para las instrucciones. Puedes volver a editarlas cuando quieras: el cambio se aplica de inmediato.
+
+---
+
+## Paso 3: Sube un documento de referencia
+
+El chatbot puede consultar documentos que tú le proporciones: la guía del recinto, el FAQ del evento, las normas de acceso, el mapa de escenarios, etc. Cuanta más información tenga, mejores serán sus respuestas.
+
+1. Haz clic en la pestaña **Documentos de referencia**.
+2. Haz clic en el botón **Subir**.
+3. Selecciona el archivo en tu ordenador. Formatos admitidos: PDF, TXT, MD y DOCX. Peso máximo: 10 MB.
+4. Espera a que el documento aparezca en la lista con el estado **Listo**. Ese estado indica que el bot ya puede consultarlo.
+
+Si por ahora no tienes ningún documento, puedes saltarte este paso y volver más adelante. El chatbot seguirá funcionando con las instrucciones y las fuentes de datos de Nevent.
+
+---
+
+## Paso 4: Revisa las fuentes de datos activas
+
+Nevent conecta al chatbot con la información de tu evento de forma automática: nombre del evento, ubicación, horarios, lineup de artistas, datos de las entradas de cada asistente, etc. A esto se llaman fuentes de datos.
+
+1. Haz clic en la pestaña **Fuentes de datos**.
+2. Verás una lista de ocho fuentes agrupadas en tres bloques: información del evento, información del usuario e información adicional.
+3. Comprueba que las fuentes que quieres activar están marcadas. Por defecto, siete de las ocho están activas.
+
+No es necesario que cambies nada en este paso si acabas de empezar. Las fuentes por defecto cubren lo más habitual: nombre del evento, venue, artistas, perfil del asistente, su entrada y los mapas del recinto.
+
+La única fuente que viene sin marcar por defecto es **Patrocinadores**. Actívala si quieres que el bot pueda mencionar las marcas patrocinadoras de tu evento.
+
+---
+
+## Paso 5: Prueba el chatbot
+
+Antes de publicar el chatbot en tu web, comprueba que responde como esperas.
+
+1. Haz clic en la pestaña **Probar chatbot**.
+2. Verás el aviso: "Entorno de pruebas: esta conversación no afecta a las conversaciones reales de tus usuarios." Eso significa que lo que escribas aquí es completamente privado.
+3. Escribe en el campo de texto una pregunta típica de tus fans. Por ejemplo:
+   - "¿A qué hora abren puertas?"
+   - "¿Cómo llego al recinto?"
+   - "¿Qué incluye mi entrada?"
+4. Pulsa **Enviar** (o la tecla Enter) y lee la respuesta del bot.
+
+Fíjate en si el tono coincide con lo que escribiste en las instrucciones y en si la información es correcta. Si algo no te convence, vuelve a la pestaña **Instrucciones personalizadas** y ajusta el texto.
+
+Repite con dos o tres preguntas más hasta que te sientas cómodo con las respuestas.
+
+---
+
+## Qué has conseguido
+
+Has completado la puesta en marcha básica del chatbot:
+
+- El bot tiene instrucciones claras sobre cómo comportarse.
+- Tiene acceso a la información de tu evento a través de las fuentes de datos.
+- Has comprobado en el entorno de pruebas que responde de forma coherente.
+
+El panel **Estado del asistente** debería mostrar ahora que las instrucciones ya no están "Sin definir".
+
+---
+
+## El siguiente paso: publicar el chatbot en tu web
+
+El chatbot ya está configurado, pero todavía no está visible para tus fans. Para eso necesitas instalar un pequeño fragmento de código en tu web.
+
+Ve al menú lateral y haz clic en **Canal web**. Verás el código de instalación listo para copiar. Pégalo justo antes de la etiqueta `</body>` de tu web o landing page.
+
+Si usas Google Tag Manager, WordPress o Shopify, la propia pantalla de Canal web tiene guías específicas para cada plataforma.
+
+Una vez instalado, tu chatbot empezará a atender preguntas de tus asistentes de forma automática. Podrás ver todas las conversaciones desde **Bandeja de entrada** en el menú lateral.

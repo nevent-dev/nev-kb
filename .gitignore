@@ -22,3 +22,4 @@ pnpm-debug.log*
 
 # QA / capturas temporales del proceso de documentación
 qa-screenshots/
+coverage-report.md

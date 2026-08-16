@@ -1,0 +1,258 @@
+---
+title: "Referencia de la Superapp"
+description: "Descripción de cada pantalla de la Superapp de Nevent, los campos disponibles, los bloques del panel de actividad en vivo y los límites técnicos del envío de notificaciones push."
+diataxis: reference
+faqs:
+  - q: "¿Cuántos caracteres puede tener el título de una notificación push?"
+    a: "65 caracteres como máximo."
+  - q: "¿Qué peso máximo tiene la imagen de una push?"
+    a: "1 MB, con proporción 2:1 (por ejemplo, 1200x600 px)."
+  - q: "¿Puedo programar una push para más tarde?"
+    a: "No. El formulario de Enviar push envía de forma inmediata. Para envíos programados, usa las campañas push del módulo de Campañas."
+  - q: "¿Qué cuentan las 'personas activas' del panel en directo?"
+    a: "Fans que han tenido la app abierta en el período mostrado (jornada o festival completo)."
+  - q: "¿Qué pasa si dejo vacíos los campos de fecha en la configuración del Home?"
+    a: "La cuenta atrás no se muestra y el modo directo de la app no se activa."
+---
+
+La Superapp es la app móvil que los fans del festival descargan en su teléfono. Desde el panel de administración de Nevent, el área **SUPERAPP** agrupa cuatro pantallas: **Home**, **Actividad de la app**, **Enviar push** y **Onboarding**. Este documento describe los campos, los bloques de datos y los límites técnicos de cada una.
+
+---
+
+## Pantalla Home (Configuración de home)
+
+**Ruta:** `/superapp/home`
+
+Determina qué evento aparece en la pantalla de inicio de la app y controla la cuenta atrás hasta el festival.
+
+| Campo | Tipo | Descripción |
+|---|---|---|
+| Evento principal | Selector desplegable | El evento que se muestra en la home y en el Lineup de la app. Solo puede haber uno activo. |
+| Inicio del festival | Fecha y hora | Momento en que arranca el festival, en hora local del recinto (Europe/Madrid). Activa la cuenta atrás y el modo directo de la app. |
+| Fin del festival | Fecha y hora | Momento en que termina el festival. Cuando se supera, la app sale del modo directo. |
+
+**Comportamiento al dejar las fechas vacías:** si se dejan vacíos ambos campos de fecha, la cuenta atrás no se muestra y el modo directo no se activa.
+
+**Acción disponible:** botón **Guardar**.
+
+---
+
+## Pantalla Actividad de la app
+
+**Ruta:** `/superapp/live-activity`
+
+Panel de métricas sobre el uso de la app. No requiere configuración: los datos se generan automáticamente a partir de la actividad de los fans.
+
+### Filtros de jornada
+
+Permiten acotar el período de los datos que se muestran en la mayoría de bloques:
+
+| Filtro | Alcance |
+|---|---|
+| Jornada individual (p. ej. "18 sept") | Datos de ese día únicamente. |
+| En directo (p. ej. "en directo 19 sept") | Datos en tiempo real de la jornada en curso. |
+| Todo el festival | Datos acumulados desde el inicio hasta el fin del festival. |
+
+**Acceso rápido:** botón **Enviar push** que enlaza directamente a `/superapp/send-push`.
+
+---
+
+### Bloque EN DIRECTO
+
+Aparece cuando el festival está en marcha. Los datos se actualizan automáticamente; el panel indica el tiempo transcurrido desde la última actualización (por ejemplo, "consultado hace menos de 1 min").
+
+| Métrica | Qué mide |
+|---|---|
+| Personas activas | Fans con actividad en la app durante la jornada en curso. |
+| Sesiones | Número de veces que se ha abierto la app en la jornada. |
+| Artistas guardados | Artistas añadidos a la agenda personal por los fans. |
+| Clics a chatbot | Veces que se ha abierto el chat de soporte de la app. |
+| Interacciones | Total de acciones registradas dentro de la app. |
+| Ahora (últimos 30 min) | Interacciones en los últimos treinta minutos. |
+
+---
+
+### Bloque VIENDO
+
+Muestra datos acumulados según el filtro de jornada seleccionado.
+
+| Métrica | Qué mide |
+|---|---|
+| Personas activas | Fans identificados en el CRM que han usado la app en el período. |
+| Sesiones | Número total de sesiones en el período. |
+| Interacciones | Total de acciones registradas en el período. |
+| Artistas guardados | Total de artistas añadidos a agendas en el período. |
+| Clics a chatbot | Total de aperturas del chat en el período. |
+
+**Nota:** el número de personas activas de este bloque solo incluye fans identificados en el CRM. El total (incluidos fans sin identificar) aparece en el bloque de Adopción.
+
+---
+
+### Bloque Ritmo del festival
+
+Gráfico de interacciones por hora correspondiente a la última jornada. Permite ver en qué tramo horario la app tiene más actividad. Incluye una tabla hora a hora (de las 06:00 a las 05:00 del día siguiente).
+
+---
+
+### Bloque Adopción
+
+| Métrica | Qué mide |
+|---|---|
+| Total de personas | Fans que han usado la app en el período, incluyendo los no identificados en el CRM. |
+| iOS | Número de usuarios identificados que acceden desde iPhone. |
+| Android | Número de usuarios identificados que acceden desde un dispositivo Android. |
+| Sesiones totales | Total de sesiones en el período. |
+| Inicios de sesión | Veces que un fan ha iniciado sesión con su cuenta. |
+
+---
+
+### Bloque MARCAS
+
+Muestra el rendimiento de los espacios de patrocinio en la app.
+
+| Métrica | Qué mide |
+|---|---|
+| Impresiones | Veces que se ha mostrado el espacio de la marca en la app. |
+| Alcance | Número de fans distintos que han visto el espacio. |
+| Minutos de atención | Tiempo total acumulado que los fans han dedicado a ese espacio. |
+
+Los datos se desglosan por patrocinador y por el nombre del espacio que ocupa dentro de la app (por ejemplo, "Mainframe", "Neon Grid").
+
+---
+
+### Bloque ARTISTAS
+
+| Métrica | Qué mide |
+|---|---|
+| En agendas | Número de fans que han guardado ese artista en su agenda personal. |
+| Visitas al perfil | Veces que se ha abierto el perfil del artista en la app. |
+| Escuchas de previews | Total de reproducciones de los adelantos musicales en la app. |
+| Personas que han escuchado un adelanto | Fans distintos que han reproducido al menos un preview. |
+
+Los artistas se ordenan de mayor a menor según el número de fans que los tienen en agenda.
+
+**Comportamiento automático relacionado:** cuando un fan guarda un artista, la app le envía una notificación push automática treinta minutos antes de la actuación.
+
+---
+
+### Bloque RECINTO
+
+Muestra los puntos de interés del mapa que más toques han recibido.
+
+Los puntos se agrupan en dos categorías:
+
+| Categoría | Ejemplos de puntos |
+|---|---|
+| Operativa | Aseos, Salida de emergencia, Cashless, Servicios médicos, Barra. |
+| Marcas y experiencias | Escenarios de patrocinadores y zonas de experiencia. |
+
+---
+
+### Bloque CASHLESS
+
+Muestra el comportamiento de los fans dentro del flujo de recarga de saldo.
+
+**Embudo "De mirar el saldo a recargar":**
+
+| Paso del embudo | Qué mide |
+|---|---|
+| Miran su saldo | Fans que han consultado su saldo en la app, y número de veces que se ha consultado. |
+| Abren la recarga | Fans que han tocado el botón de recarga, y número de clics. |
+
+El porcentaje de conversión entre pasos se calcula sobre el número de fans del primer paso.
+
+Fuera del embudo, se muestran dos cifras globales del festival (todas las vías de recarga, no solo la app):
+
+| Métrica | Qué mide |
+|---|---|
+| Euros recargados | Importe total cargado en tarjetas cashless durante el festival. |
+| Euros consumidos | Importe total gastado en barras y producto durante el festival. |
+
+---
+
+### Bloque COMUNICACIÓN
+
+| Métrica | Qué mide |
+|---|---|
+| Push recibidas en dispositivo | Notificaciones push entregadas en los móviles de los fans en el período. Incluye los avisos automáticos de treinta minutos antes de cada actuación. |
+| Push pulsadas | Fans que han tocado una notificación push para abrirla. |
+| Soporte por WhatsApp | Total de clics al enlace de soporte por WhatsApp, con desglose por hora. |
+
+**Nota:** el recuento de envíos totales de cada campaña push está en el módulo de Campañas, no en este bloque. Aquí solo se ve lo que ocurre en el dispositivo del fan.
+
+---
+
+## Pantalla Enviar push
+
+**Ruta:** `/superapp/send-push`
+
+Permite enviar una notificación push inmediata a todos los fans que tienen la app instalada con push activado. No admite segmentación ni programación.
+
+### Formulario
+
+| Campo | Límite | Descripción |
+|---|---|---|
+| Título | 65 caracteres | Texto en negrita que aparece en la notificación. Contador visible en pantalla. |
+| Mensaje | 500 caracteres | Cuerpo de la notificación. Contador visible en pantalla. |
+| Imagen | 1 MB, proporción 2:1 | Imagen opcional que acompaña la notificación. Se selecciona desde el dispositivo. |
+| Al tocar la notificación | Selector desplegable | Pantalla de la app que se abre cuando el fan toca el aviso. |
+
+### Indicadores en pantalla
+
+| Indicador | Qué muestra |
+|---|---|
+| Alcance estimado | Número aproximado de fans con la app instalada y push activado en ese momento. Se muestra como "aprox. N usuarios". |
+| Identificador de app | Identificador técnico de la app (`com.nevent.app`). Indica que el envío va a la app instalada con push activo. |
+| Vista previa Android | Simulación de cómo se verá la notificación en un dispositivo Android, con el nombre del evento y la hora. |
+
+### Comportamiento del envío
+
+- El envío es **inmediato** al pulsar el botón **Enviar a aprox. N usuarios**.
+- No se puede deshacer ni programar desde esta pantalla.
+- Al enviar, se crea automáticamente una campaña push en el módulo de Campañas para registrar el envío.
+- El botón permanece deshabilitado mientras el formulario esté vacío.
+
+---
+
+## Pantalla Onboarding de la App
+
+**Ruta:** `/superapp/onboarding`
+
+Permite configurar las pantallas que ven los fans la primera vez que abren la app. Cada pantalla se llama "slide".
+
+### Estado sin slides
+
+Si no hay ningún slide creado, la pantalla muestra el mensaje "No hay slides configurados. Crea el primer slide para comenzar" y el botón **Crear slide**.
+
+### Acciones disponibles
+
+| Acción | Cómo acceder |
+|---|---|
+| Crear slide | Botón **+ Nuevo slide** en la cabecera o botón **Crear slide** en el estado vacío. |
+
+### Campos del slide (formulario de creación)
+
+Los campos disponibles en DEMO FEST son los siguientes. Los campos obligatorios se indican como tales.
+
+| Campo | Obligatorio | Descripción |
+|---|---|---|
+| Orden | Sí | Número entero que determina la posición del slide. El slide con orden 1 es el primero que ve el fan. |
+| Título | Sí | Texto principal de la pantalla de bienvenida. |
+| Subtítulo | No | Texto de apoyo que aparece bajo el título. |
+| URL de imagen | No | Dirección web de la imagen de fondo del slide. |
+| Permisos a solicitar | No | Selector de los permisos del sistema que se piden en este slide: **Notificaciones** y **Ubicación** son las opciones disponibles. |
+| Solicitar transparencia de rastreo | No | Toggle que activa el aviso de seguimiento en iOS (App Tracking Transparency). Solo afecta a dispositivos Apple. |
+| Estado | No | Activa o desactiva el slide sin necesidad de borrarlo. |
+
+---
+
+## Resumen de límites técnicos
+
+| Parámetro | Límite |
+|---|---|
+| Caracteres en el título de una push | 65 |
+| Caracteres en el mensaje de una push | 500 |
+| Tamaño máximo de imagen en una push | 1 MB |
+| Proporción de imagen en una push | 2:1 |
+| Segmentación en envío desde esta pantalla | No disponible (envío universal) |
+| Programación de envío desde esta pantalla | No disponible (envío inmediato) |
