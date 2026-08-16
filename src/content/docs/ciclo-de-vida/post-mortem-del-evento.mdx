@@ -1,0 +1,236 @@
+---
+title: "Analiza tu evento y prepara el siguiente"
+description: "Guía how-to post-evento: lee los resultados de ventas, atribución y campañas, identifica a tus mejores fans con RFM y deja preparada la reactivación para el próximo ciclo."
+diataxis: how-to
+faqs:
+  - q: "¿Cuánto tiempo después del evento debo hacer este análisis?"
+    a: "Entre 48 horas y siete días después del cierre. Antes de 48 horas algunos datos de atribución de las últimas campañas todavía pueden estar consolidándose. Más allá de diez días pierdes el momento óptimo para lanzar el email de agradecimiento, que es la primera acción de este flujo y la que tiene mayor impacto en la relación con el fan."
+  - q: "¿Qué necesito tener configurado en Nevent para poder seguir esta guía?"
+    a: "Al menos un evento cerrado con ventas registradas en Nevent, al menos una campaña enviada antes o durante ese evento, y acceso al motor de segmentación. Con esas tres condiciones puedes completar los cinco pasos. Si además tienes histórico de varios eventos, el modelo RFM estará mejor calibrado y los segmentos Champions y At Risk serán más fiables."
+  - q: "¿El modelo RFM funciona si mi base tiene menos de seis meses de antigüedad?"
+    a: "En bases de menos de seis meses, los perfiles RFM automáticos no están bien calibrados porque hay pocos ciclos de compra para calcular la recencia, la frecuencia y el valor monetario con precisión. En ese caso construye tu segmento de alto valor de forma manual combinando gasto total histórico por encima del percentil 60-70 y número de eventos asistidos igual o superior a dos. La guía de segmentación por gasto y consumo explica estos criterios en detalle."
+  - q: "¿Dónde veo el revenue atribuido a cada canal de marketing?"
+    a: "En la sección de analítica de Nevent, dentro del caso de atribución por canal. Allí puedes ver una tabla con cada canal (email, SMS, WhatsApp, Meta Ads, Google Ads, orgánico, directo), el revenue que se le atribuye en el periodo, el coste y el ROAS calculado. Si solo tienes una campaña, el informe de esa campaña muestra directamente el revenue atribuido en la sección Resumen."
+  - q: "¿Puedo exportar los datos del análisis a Excel o CSV?"
+    a: "Sí. Todas las tablas de resultados en la analítica de Nevent son exportables con un clic. La exportación respeta los filtros y dimensiones que hayas aplicado, de modo que descargas exactamente la vista que tienes en pantalla. Eso te permite guardar un histórico del evento o compartirlo con tu equipo."
+---
+
+import { Aside, CardGrid, LinkCard, Steps } from '@astrojs/starlight/components';
+
+Acabas de cerrar un evento. La taquilla está cerrada y en tu cuenta de Nevent tienes el registro completo: ventas, campañas enviadas, datos de atribución y el comportamiento de cada fan. Ese registro es el punto de partida más valioso que tienes para el próximo evento, pero solo si lo lees a tiempo y actúas sobre él.
+
+Esta guía te lleva paso a paso por el análisis post-evento: qué datos mirar, en qué orden, qué decisiones tomar con cada bloque de información y cómo dejar preparados los segmentos para la primera ola de ventas del siguiente ciclo.
+
+## Antes de empezar
+
+Necesitas:
+
+- Al menos un evento cerrado con ventas registradas en Nevent.
+- Al menos una campaña enviada (email, SMS o WhatsApp) antes o durante ese evento.
+- Acceso al motor de segmentación.
+
+No necesitas conocimientos técnicos previos. Si ya has completado el [tutorial de tu primer análisis en Nevent](/analitica/tu-primer-analisis/), reconocerás las pantallas que se mencionan aquí.
+
+---
+
+## Paso 1: Lee los resultados de ventas del evento
+
+El primer bloque de datos que debes revisar es el rendimiento comercial del evento en sí: cuánto vendiste, a qué ritmo y con qué margen.
+
+<Steps>
+
+1. **Accede a la sección de eventos y entradas** dentro del área de analítica de Nevent.
+
+2. **Selecciona el evento recién cerrado.** Si tienes varios eventos, filtra por el periodo o busca por nombre.
+
+3. **Revisa las cuatro métricas de cierre:**
+
+   - **Ocupación final**: qué porcentaje del aforo se vendió. Una ocupación del 100% no siempre es el mejor resultado si se logró con descuentos agresivos de última hora; una ocupación del 85% con ticket medio alto puede ser más rentable.
+   - **Ingresos totales del evento**: la facturación bruta. Compara con eventos anteriores de formato similar para saber si el evento está creciendo o no.
+   - **Ticket medio**: el valor promedio de cada transacción. Un ticket medio bajo en un evento de alta ocupación puede indicar que el precio podría subir en la siguiente edición.
+   - **Mix de tipos de entrada**: qué porcentaje fueron early bird, general, VIP o abono. Si el early bird se agotó en horas y el general tardó semanas en venderse, tienes datos para ajustar la proporción de early bird en el siguiente evento.
+
+4. **Exporta la vista si quieres guardar un histórico.** Todas las tablas de resultados se exportan a CSV o Excel con un clic, respetando los filtros aplicados.
+
+</Steps>
+
+<Aside type="tip">
+La métrica de recompra, disponible en el área de métricas de ventas, te dice qué porcentaje de los compradores de este evento ya habían asistido a eventos anteriores tuyos. Un porcentaje de recompra alto indica que estás construyendo una base fiel; uno bajo puede señalar que dependes demasiado de audiencia nueva.
+</Aside>
+
+Las métricas completas de eventos y entradas, con la explicación de cada indicador, están en la referencia de [métricas de eventos y entradas](/analitica/eventos-y-entradas/).
+
+---
+
+## Paso 2: Revisa el rendimiento de tus campañas
+
+Con los datos de ventas claros, el segundo bloque es entender qué campañas de marketing impulsaron esas ventas y cuáles no funcionaron como esperabas.
+
+<Steps>
+
+1. **Ve a Campañas → Mis campañas.** Filtra por el evento o por el periodo de la campaña de lanzamiento.
+
+2. **Para cada campaña enviada, lee el embudo de izquierda a derecha:**
+
+   - **Enviados**: cuántos fans recibieron la campaña.
+   - **Tasa de entrega**: qué porcentaje llegó correctamente al servidor del destinatario. Por encima del 95% es saludable; por debajo del 90% hay un problema de lista o de reputación.
+   - **Tasa de apertura**: qué porcentaje abrió el mensaje. Para listas segmentadas en eventos en vivo, el rango saludable se sitúa entre el 25% y el 40%.
+   - **Tasa de clic**: qué porcentaje hizo clic en algún enlace. Por encima del 5% indica interés real en la oferta.
+   - **Revenue atribuido**: cuánto dinero generó esa campaña. Esta es la cifra que más importa, porque traduce el rendimiento del email o el SMS en euros.
+
+3. **Fíjate en la tasa de desuscripción de cada campaña.** Por debajo del 0,5% es normal; por encima del 1%, la segmentación o la frecuencia estaban mal ajustadas para esa audiencia.
+
+4. **Revisa la sección Interacción.** Desde el informe de la campaña, haz clic en Interacción para ver la lista individual de fans que abrieron, clicaron o se dieron de baja. Esa lista es útil en el paso 4 para construir segmentos de engagement.
+
+</Steps>
+
+Para entender los rangos orientativos de cada métrica y qué hacer si son bajos, consulta [Cómo interpretar los resultados de tu campaña](/campanas/informe/resultados/). La guía [Quién abrió y clicó tu campaña](/campanas/informe/aperturas-y-clics/) explica cómo usar la lista de interacción individual.
+
+---
+
+## Paso 3: Consulta la atribución por canal
+
+Si para este evento usaste más de un canal de marketing (por ejemplo, email más Meta Ads, o email más SMS), el análisis de atribución por canal te dice cuál de ellos generó más revenue y con qué coste.
+
+<Steps>
+
+1. **Accede al caso de atribución por canal** dentro del área de analítica de Nevent. Allí encontrarás una tabla con una fila por canal y las columnas: revenue atribuido, coste y ROAS (euros ingresados por cada euro invertido).
+
+2. **Ordena por revenue atribuido** para ver qué canal lideró las ventas de este evento.
+
+3. **Compara el ROAS de los canales de pago** (Meta Ads, Google Ads) con el de los canales propios (email, SMS, WhatsApp). Los canales propios suelen mostrar ROAS muy superiores porque su coste fijo es mucho menor, aunque su alcance está limitado a tu base actual.
+
+4. **Identifica el canal con peor ROAS.** Si un canal lleva dos o tres eventos consecutivos con ROAS por debajo del mínimo rentable para tu negocio, tienes datos objetivos para replantearte su uso o reducir su presupuesto.
+
+</Steps>
+
+<Aside type="note">
+La tabla de atribución por canal es una vista agregada: te dice cuál canal funciona mejor en global, pero no el detalle de una campaña concreta. Para profundizar en el ROAS de una campaña específica, el caso de [ROAS últimos 30 días](/analitica/casos/roas-ultimos-30-dias/) y el caso de [atribución por canal](/analitica/casos/atribucion-por-canal/) son los más útiles.
+</Aside>
+
+El informe de campaña individual también muestra el revenue atribuido directamente en la sección Resumen, junto con las métricas de apertura y clic. La referencia completa de qué métricas de campaña puedes medir está en [métricas de campañas email SMS WhatsApp](/analitica/campanas/).
+
+---
+
+## Paso 4: Identifica a tus mejores fans con RFM
+
+Con los datos de ventas y campañas revisados, el cuarto paso es identificar a los fans de mayor valor de tu base. Esto es lo que te permite tratar de forma diferente a tus mejores asistentes en el siguiente evento.
+
+### El modelo RFM y los 11 perfiles automáticos
+
+Nevent calcula automáticamente el perfil RFM de cada fan a partir de tres dimensiones:
+
+- **Recency (Recencia)**: cuánto tiempo ha pasado desde su última compra.
+- **Frequency (Frecuencia)**: con cuánta frecuencia compra entradas.
+- **Monetary (Monetario)**: cuánto ha gastado en total.
+
+Con esas tres dimensiones, Nevent clasifica a cada fan en uno de los 11 perfiles automáticos: desde Champions (el más alto: alta recencia, alta frecuencia y alto gasto) hasta Lost (sin actividad en mucho tiempo). No necesitas configurar nada: el modelo se actualiza continuamente con cada nueva compra.
+
+La explicación completa de qué significa cada perfil y cómo usarlos en campañas está en [RFM automático: 11 perfiles de fans para eventos en vivo](/segmentacion/capacidades/rfm/).
+
+### Cómo construir el segmento de Champions tras el evento
+
+<Steps>
+
+1. **Ve a Audiencia → Segmentos → Nuevo segmento.**
+
+2. **Añade el criterio de perfil RFM = Champions.**
+
+3. **De forma opcional**, añade el filtro de asistencia al evento recién cerrado para quedarte solo con los Champions que estuvieron presentes, no todos los de tu base global.
+
+4. **Comprueba el tamaño del segmento.** En una base sana, los Champions suelen representar entre el 1% y el 3% del total. Si el segmento es muy pequeño (menos del 0,5%), puede que el modelo RFM necesite más ciclos de compra para calibrarse, especialmente si tu base tiene menos de seis meses de antigüedad.
+
+5. **Guarda el segmento** con un nombre claro, por ejemplo "Champions - [Nombre del evento] - [Fecha]".
+
+</Steps>
+
+El caso de uso detallado, con los resultados que puedes esperar y las variaciones más útiles, está en [Segmento VIP con RFM Champions: cómo llegar a tu top 10%](/segmentacion/casos/top-rfm-vip/).
+
+### Si tu base tiene menos de seis meses de antigüedad
+
+En bases nuevas el modelo RFM no está bien calibrado. En ese caso construye el segmento de alto valor de forma manual:
+
+- Gasto total histórico por encima del percentil 60-70 de tu distribución.
+- Número de eventos asistidos igual o superior a 2 o 3.
+- Las dos condiciones deben cumplirse a la vez (lógica Y).
+
+Como alternativa rápida, puedes usar la **Temperatura Nevent**: los fans clasificados como Muy Caliente o Caliente son tu audiencia de mayor valor agregado sin necesidad de configurar criterios manuales. La guía [Nevent Score y Temperatura](/segmentacion/capacidades/score-y-temperatura/) explica qué hay detrás de cada nivel.
+
+---
+
+## Paso 5: Deja preparada la reactivación para el próximo evento
+
+Con los segmentos identificados, el último paso de este análisis es dejar los ingredientes listos para la primera ola de ventas del siguiente evento. No necesitas lanzar nada todavía, pero sí preparar las piezas con tiempo.
+
+### Las tres audiencias que necesitas tener listas
+
+**Audiencia 1: Champions y fans de alto valor.** El segmento que construiste en el paso anterior. Serán los primeros en recibir el acceso anticipado a la preventa del siguiente evento, normalmente 24 o 48 horas antes del lanzamiento general. El playbook completo de cómo comunicarles algo exclusivo, con los mensajes que funcionan y los que no, está en [Fideliza a tus asistentes después del evento](/guias-por-objetivo/fidelizar-post-evento/).
+
+**Audiencia 2: Fans en riesgo (At Risk y Can't Lose Them).** Son fans que en el pasado tuvieron un comportamiento excelente pero que llevan tiempo sin asistir. El modelo RFM los clasifica automáticamente. Construye este segmento desde el motor de segmentación:
+
+- Criterio 1: perfil RFM = At Risk o Can't Lose Them.
+- Criterio 2: última asistencia hace más de 180 o 365 días.
+- Excluye siempre a los que ya tienen entrada para tu próximo evento.
+
+El caso de uso con rangos de gasto y ventanas temporales está en [Reactivar fans inactivos de alto valor](/segmentacion/casos/reactivar-fans-inactivos/). La guía por objetivo con el flujo completo de comunicación está en [Reactivar fans inactivos](/guias-por-objetivo/reactivar-fans-inactivos/).
+
+**Audiencia 3: Fans tempranos (Early Bird).** Fans que en eventos anteriores compraron en las primeras horas de la venta. Su comportamiento pasado predice que volverán a comprar rápido si les comunicas antes que al resto. El caso de uso está en [Fans Early Bird: segmentar compradores tempranos](/segmentacion/casos/fans-tempranos/).
+
+### Qué hacer ahora con estos segmentos
+
+No tienes que lanzar nada inmediatamente. Guarda los tres segmentos con nombres claros. Cuando abras la venta del siguiente evento, los tendrás listos para:
+
+1. Enviar la comunicación exclusiva a Champions 24-48 horas antes del lanzamiento general.
+2. Activar la campaña de reactivación a At Risk en paralelo o en los días siguientes.
+3. Incluir a los fans Early Bird en la primera oleada junto con los Champions.
+
+Este escalonamiento tiene una ventaja práctica: cuando el público general recibe el anuncio, una parte del aforo ya está vendida gracias a los segmentos de mayor valor. Eso genera urgencia real, no simulada.
+
+---
+
+## Resumen del flujo completo
+
+| Paso | Qué haces | Dónde en Nevent |
+|---|---|---|
+| 1 | Leer ocupación, ingresos, ticket medio y mix de entradas | Analítica → Eventos y entradas |
+| 2 | Revisar tasa de apertura, clic, revenue atribuido y bajas por campaña | Campañas → Mis campañas → Informe |
+| 3 | Comparar revenue atribuido y ROAS por canal de marketing | Analítica → Casos → Atribución por canal |
+| 4 | Identificar Champions y fans de alto valor con RFM | Audiencia → Segmentos → Nuevo segmento |
+| 5 | Preparar segmentos de reactivación y Early Bird para el siguiente evento | Audiencia → Segmentos → Guardar |
+
+---
+
+## Guías relacionadas
+
+<CardGrid>
+  <LinkCard
+    title="Fideliza a tus asistentes después del evento"
+    href="/guias-por-objetivo/fidelizar-post-evento/"
+    description="Playbook completo post-evento: email de agradecimiento, comunicación a Champions y preparación de la preventa."
+  />
+  <LinkCard
+    title="Reactivar fans inactivos"
+    href="/guias-por-objetivo/reactivar-fans-inactivos/"
+    description="Flujo completo para recuperar fans que gastaron mucho en el pasado pero llevan tiempo sin asistir."
+  />
+  <LinkCard
+    title="RFM automático: 11 perfiles de fans"
+    href="/segmentacion/capacidades/rfm/"
+    description="Champions, At Risk, Can't Lose Them: qué significa cada perfil y cómo usarlos en campañas."
+  />
+  <LinkCard
+    title="Segmento VIP con RFM Champions"
+    href="/segmentacion/casos/top-rfm-vip/"
+    description="Cómo identificar a tu top 1-3% de fans y comunicarles experiencias premium o acceso anticipado."
+  />
+  <LinkCard
+    title="Reactivar fans inactivos de alto valor"
+    href="/segmentacion/casos/reactivar-fans-inactivos/"
+    description="Caso de uso con rangos de gasto y ventanas temporales para recuperar fans en riesgo."
+  />
+  <LinkCard
+    title="Cómo interpretar los resultados de tu campaña"
+    href="/campanas/informe/resultados/"
+    description="Qué significan apertura, clic y entrega, y cómo saber si tu campaña estuvo a la altura."
+  />
+</CardGrid>
