@@ -581,7 +581,9 @@ export default defineConfig({
 
 			// Customización de UI
 			customCss: [
+				'./src/styles/nevent-tokens.css',
 				'./src/styles/custom.css',
+				'./src/styles/nevent-theme.css',
 			],
 
 			// i18n — español en raíz, inglés bajo /en/
