@@ -24,8 +24,8 @@ export function findHoverViolations(text) {
 export function findColorViolations(text) {
   const out = [];
   text.split('\n').forEach((line, i) => {
-    // ignorar comentarios de línea simples para reducir ruido
-    const code = line.replace(/\/\/.*$/, '');
+    // Quitar comentarios antes de buscar: /* inline */ (CSS/SCSS) y // a fin de línea (SCSS/Sass).
+    const code = line.replace(/\/\*.*?\*\//g, '').replace(/\/\/.*$/, '');
     if (HEX.test(code) || FUNC_COLOR.test(code)) out.push({ line: i + 1, text: line.trim().slice(0, 80) });
   });
   return out;
@@ -36,7 +36,7 @@ function checkFile(path) {
   try { text = readFileSync(path, 'utf8'); } catch { return []; }
   const violations = [];
   for (const v of findHoverViolations(text)) violations.push({ path, rule: 'no-hover', ...v });
-  if (!COLOR_ALLOWLIST.test(basename(path)) && !COLOR_ALLOWLIST.test(path)) {
+  if (!COLOR_ALLOWLIST.test(basename(path))) {
     for (const v of findColorViolations(text)) violations.push({ path, rule: 'no-hardcoded-color', ...v });
   }
   return violations;

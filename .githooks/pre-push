@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 set -euo pipefail
-BASE=$(git merge-base HEAD origin/main 2>/dev/null || git rev-parse HEAD~1 2>/dev/null || echo HEAD)
-FILES=$(git diff --name-only --diff-filter=ACMR "$BASE"...HEAD | grep -E '\.(astro|css|scss|sass)$' || true)
+BASE=$(git merge-base HEAD origin/main 2>/dev/null || echo "")
+if [ -n "$BASE" ]; then
+  FILES=$(git diff --name-only --diff-filter=ACMR "$BASE"...HEAD | grep -E '\.(astro|css|scss|sass)$' || true)
+else
+  FILES=$(git ls-files | grep -E '\.(astro|css|scss|sass)$' || true)
+fi
 [ -z "$FILES" ] && exit 0
 node scripts/style-guard.mjs $FILES
