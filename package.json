@@ -16,7 +16,9 @@
     "deploy": "bash scripts/deploy.sh",
     "test": "vitest run",
     "audit:coverage": "node scripts/audit-coverage.mjs",
-    "validate:diataxis": "node scripts/validate-docs.mjs"
+    "validate:diataxis": "node scripts/validate-docs.mjs",
+    "prepare": "git config core.hooksPath .githooks",
+    "guard:style": "node scripts/style-guard.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",
