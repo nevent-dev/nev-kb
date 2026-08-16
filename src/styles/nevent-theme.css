@@ -49,3 +49,46 @@ nav.sidebar .group-label span {
   background-clip: text;
   color: transparent;
 }
+
+/* ---- Portada (splash): estilo de marca sobre tokens v1. Sin hover. ---- */
+.hero h1 {
+  font-family: var(--font-display);
+  font-size: var(--font-size-6xl);
+  line-height: var(--line-height-tight);
+  letter-spacing: var(--letter-spacing-tighter);
+}
+.hero .tagline {
+  font-family: var(--font-body);
+  font-size: var(--font-size-lg);
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-normal);
+  max-width: 48ch;
+}
+.sl-markdown-content h2 {
+  font-family: var(--font-display);
+  letter-spacing: var(--letter-spacing-tight);
+  margin-top: var(--space-5);
+}
+/* Tarjetas de área: superficie de marca, radios generosos, foco visible. */
+.sl-markdown-content .card {
+  background: var(--color-surface-base);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-xl);
+}
+.sl-markdown-content .card .title {
+  font-family: var(--font-display);
+  color: var(--color-text-primary);
+  letter-spacing: var(--letter-spacing-tight);
+}
+.sl-markdown-content .card .icon {
+  color: var(--color-primary-text);
+}
+/* LinkCards: marca + foco. */
+.sl-markdown-content .sl-link-card {
+  border-radius: var(--radius-lg);
+  border-color: var(--color-border-subtle);
+}
+.sl-markdown-content .sl-link-card:focus-within {
+  outline: var(--focus-ring-width) solid var(--color-focus-ring);
+  outline-offset: var(--focus-ring-offset);
+}
