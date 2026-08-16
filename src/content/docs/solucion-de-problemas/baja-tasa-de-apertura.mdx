@@ -1,0 +1,142 @@
+---
+title: "Baja tasa de apertura: qué revisar"
+description: Guía de diagnóstico para promotores que ven una tasa de apertura por debajo del 15 % en sus campañas de Nevent.
+diataxis: how-to
+faqs:
+  - q: "¿Cuál es la tasa de apertura mínima que debería tener mi campaña?"
+    a: "Para campañas de eventos en vivo, una tasa de apertura por encima del 25 % se considera saludable. Si baja del 15 %, es una señal de alerta que conviene investigar siguiendo los pasos de esta guía."
+  - q: "¿Por qué la tasa de apertura puede aparecer baja si en realidad se enviaron muchos emails?"
+    a: "El porcentaje de aperturas se calcula sobre el total de enviados, no sobre los entregados. Si hay muchos rebotes, el denominador es alto y el porcentaje baja aunque el número absoluto de aperturas sea razonable. Revisa primero la sección Entregabilidad del informe para descartar un problema de rebotes."
+  - q: "¿Nevent descuenta automáticamente los rebotados de futuros envíos?"
+    a: "Sí. Las direcciones con rebote duro (permanente) quedan excluidas automáticamente de todos los envíos posteriores de tu organización. No tienes que hacer nada manualmente."
+  - q: "¿Puedo ver qué contactos concretos no abrieron el email?"
+    a: "Sí. En el informe de la campaña, ve a la sección Interacción y usa el desplegable para filtrar por Entregados. La diferencia entre ese número y los Abiertos son los contactos que no lo abrieron."
+  - q: "¿Cambiar el asunto requiere reenviar la campaña?"
+    a: "Sí, el asunto es parte del envío original y no se puede modificar una vez enviado. Para probar un asunto diferente tienes que crear una nueva campaña. Puedes enviarla solo a los contactos que no abrieron la anterior."
+---
+
+Esta guía te ayuda a diagnosticar por qué la tasa de apertura de una campaña está baja y a tomar medidas concretas en cada caso. La tasa de apertura mide el porcentaje de contactos que abrieron tu email sobre el total de enviados. Para campañas de eventos en vivo, una tasa por encima del **25 %** es saludable; por debajo del **15 %** es una señal de alerta que conviene investigar.
+
+Antes de hacer cambios, identifica la causa. Las causas más habituales son el asunto, el remitente, un problema de entregabilidad, un segmento poco adecuado y el horario del envío. Esta guía las revisa en ese orden, de mayor a menor impacto habitual.
+
+## Antes de empezar
+
+Necesitas una campaña en estado **Enviada** con al menos unas horas de margen desde el envío, porque las aperturas se registran durante las primeras horas y días después del envío.
+
+Si todavía no has lanzado ninguna campaña, sigue primero [Cómo crear tu primera campaña](/campanas/crear-primera-campana).
+
+## Paso 1: confirma que el problema es la apertura, no la entrega
+
+Antes de tocar el asunto o el remitente, descarta que el problema sea un porcentaje alto de rebotes que esté bajando artificialmente la tasa de apertura.
+
+Abre el informe de tu campaña. En el menú lateral izquierdo del informe, haz clic en **Entregabilidad**.
+
+Revisa la tarjeta **Tasa de entrega**:
+
+- Si está **por encima del 95 %**, la entrega va bien y el problema real es la apertura. Continúa con el Paso 2.
+- Si está **por debajo del 90 %**, tienes un problema de rebotes que necesitas resolver primero. Lee [Cómo consultar los rebotes de tus campañas](/campanas/informe/rebotes).
+
+Revisa también la tarjeta **Rebotes duros**. Si el porcentaje de rebotes duros supera el **2 %**, tu lista necesita limpieza urgente. Los rebotes duros acumulados dañan tu reputación como remitente y hacen que tus próximos emails lleguen con más dificultad, incluso a contactos válidos. Consulta [Reputación de envío: cómo evitar el spam](/entregabilidad/reputacion-y-spam) para entender cómo afecta a tus envíos futuros.
+
+## Paso 2: revisa el asunto
+
+El asunto es el factor con mayor influencia en la tasa de apertura. Es lo primero que lee el destinatario y lo que decide si abre o no el email.
+
+Abre el informe de la campaña y mira el asunto que usaste. Hazte estas preguntas:
+
+**¿Es claro y concreto?** Un asunto como "Early Bird de Demo Fest, solo 48 horas" funciona mejor que "Novedades" o "Te tenemos algo especial".
+
+**¿Es demasiado largo para el móvil?** En la mayoría de móviles solo se ven unos **40 caracteres** del asunto. Si el texto importante está al final, es posible que no se llegue a leer. Pon la información clave al principio.
+
+**¿Tiene aspecto de spam?** Asuntos en MAYÚSCULAS, con muchos signos de exclamación o con palabras como "gratis" o "urgente" en exceso activan los filtros de spam de los proveedores de correo y generan desconfianza en el destinatario. Escríbelo como le escribirías a un fan, no como un anuncio publicitario.
+
+**¿Incluye el nombre del destinatario?** Los asuntos personalizados con el nombre de pila suelen abrirse más. En el asistente de creación de campaña, en el paso de asunto, hay un botón **Personalizar** que te permite insertar el nombre del destinatario como variable.
+
+Si el asunto tiene alguno de estos problemas, la mejora más rápida para tu próxima campaña es escribir uno más directo, más corto o más personalizado. No puedes cambiar el asunto de una campaña ya enviada.
+
+## Paso 3: revisa el nombre del remitente
+
+El destinatario no solo lee el asunto: también ve quién envía el email. Si el nombre del remitente no le dice nada o no lo reconoce, es probable que no abra.
+
+El nombre del remitente se configura en dos sitios:
+
+- **Configuración global:** en el menú lateral, ve a **Configuración**, luego a **Marca y Contenido** y abre **Canales**. En la pestaña **Correo electrónico** tienes el campo **Remitente** con el nombre que se aplica a todas las campañas por defecto.
+- **Por campaña:** en el paso 6 del asistente de campaña ("Asunto y UTMs"), puedes sobreescribir el remitente para ese envío concreto.
+
+Comprueba que el nombre del remitente que usó la campaña es reconocible para tu audiencia: debe ser el nombre de tu evento, recinto o marca, no un alias genérico.
+
+Si tus emails salen con el texto "via Nevent" junto al nombre de tu organización, significa que están usando el dominio compartido de Nevent. Esto no impide que lleguen, pero puede reducir la confianza de los destinatarios. Configurar un dominio dedicado hace que el remitente muestre tu propio dominio. Puedes verlo en [Ajustes de envío de emails](/entregabilidad/envio-de-emails) y configurarlo en [Configura tu dominio dedicado](/entregabilidad/dominio-dedicado).
+
+## Paso 4: comprueba si tus emails están llegando a la bandeja de entrada o a spam
+
+Una tasa de entrega alta no garantiza que el email llegue a la bandeja de entrada principal. Puede que haya llegado a la carpeta de spam o de promociones sin que lo cuente como rebote.
+
+Las principales causas de que un email acabe en spam son:
+
+- **Sin autenticación del dominio:** si no tienes configurados SPF, DKIM y DMARC para tu dominio, los proveedores de correo (Gmail, Outlook) tratan tus emails con menos confianza. Consulta [Configura tu dominio dedicado](/entregabilidad/dominio-dedicado) para configurarlos.
+- **Contenido con patrón de spam:** asuntos o cuerpos del email con exceso de mayúsculas, signos de exclamación, demasiados enlaces o palabras que los filtros asocian al spam. Revisar el contenido del email puede ayudar.
+- **Lista con contactos de dudosa calidad:** si enviaste a una lista comprada o a contactos que nunca te dieron permiso, es muy probable que marquen el email como spam. Las quejas de spam dañan tu reputación rápidamente. Mantén la tasa de quejas por debajo del **0,1 %** para proteger tu capacidad de envío.
+
+Para confirmar si el problema es el spam, haz la siguiente prueba: envíate la campaña a ti mismo (o a una cuenta que puedas controlar en Gmail y en Outlook) y mira en qué carpeta llega.
+
+La solución de fondo es mejorar la autenticación y la calidad de la lista. Lee [Reputación de envío: cómo evitar el spam](/entregabilidad/reputacion-y-spam) para las pautas completas.
+
+## Paso 5: revisa el segmento al que enviaste
+
+Una apertura baja puede indicar que el mensaje no era relevante para esa audiencia, aunque el asunto fuera bueno.
+
+Abre el informe de la campaña y haz clic en **Segmentos** en el menú lateral izquierdo. Verás a qué segmentos se envió la campaña y los criterios que los definían.
+
+Pregúntate: ¿tenía sentido enviar este mensaje a esa audiencia? Por ejemplo, si enviaste una oferta de entradas para un festival de electrónica a toda tu base de datos (incluyendo fans de otros géneros o de eventos de años anteriores que ya no están activos), la tasa de apertura será más baja que si lo hubieras enviado solo a quienes compraron o mostraron interés en ese tipo de evento.
+
+Si el segmento era demasiado amplio o poco relevante, la mejora para la próxima campaña es crear un segmento más afinado antes de enviar. Consulta [Buenas prácticas para tus campañas](/campanas/mejores-practicas) para orientación sobre segmentación.
+
+También puedes usar la sección **Interacción** del informe para ver exactamente quién abrió el email. Filtra por **Abiertos** y analiza el perfil de esos contactos frente al total de destinatarios. Si los que abren son siempre los mismos perfiles, tienes información para afinar tu segmento la próxima vez.
+
+## Paso 6: revisa el horario del envío
+
+El horario afecta de forma significativa a la tasa de apertura. Enviar de madrugada o en un momento en que tu audiencia no está activa baja el porcentaje aunque el resto de la campaña esté bien.
+
+Desde el informe de la campaña puedes ver la fecha y hora del envío en el bloque de configuración del Resumen.
+
+Para saber cuándo está activa tu audiencia, consulta la analítica de tu evento en **Analítica**. Los patrones temporales te indican el día de la semana y la franja horaria en que más compra y se activa tu público. Programa el envío justo antes de ese momento.
+
+Si no tienes suficientes datos todavía, como regla general los envíos entre semana por la mañana suelen obtener mejores resultados que los fines de semana o en horarios nocturnos, aunque esto varía según el perfil de tu audiencia.
+
+:::tip[Consejo]
+No envíes en varios días seguidos si ya tienes una tasa de apertura baja. La frecuencia alta satura a tu audiencia y sube las desuscripciones. Una tasa de baja por encima del **1 %** es una señal de que estás enviando demasiado seguido o a una audiencia que no quiere ese tipo de contenido.
+:::
+
+## Después del diagnóstico: qué hacer con esta campaña
+
+Si has identificado la causa o causas, tienes dos opciones:
+
+**Enviar una campaña de seguimiento a los que no abrieron.** Esta es la opción más eficaz a corto plazo. Para hacerlo:
+
+1. Abre el informe de la campaña y ve a **Interacción**.
+2. Filtra por **Abiertos** para ver quién sí abrió el email.
+3. Los contactos que no aparecen en esa lista son los que no abrieron: crea un segmento con ese grupo y envíales una nueva campaña con un asunto diferente y en un horario distinto.
+
+**Aplicar los cambios a la próxima campaña.** El asunto, el remitente y la segmentación no se pueden cambiar en un envío ya hecho. Toma nota de lo que has encontrado y aplica las mejoras al próximo envío.
+
+:::tip[Consejo]
+Si envías un seguimiento a los que no abrieron, espera al menos 48 horas desde el envío original antes de reenviar. Muchos contactos abren los emails uno o dos días después de recibirlos.
+:::
+
+## Resumen rápido
+
+1. **Comprueba la tasa de entrega** (señal saludable: por encima del 95 %; señal de alerta: por debajo del 90 %). Si los rebotes duros superan el 2 %, limpia la lista primero.
+2. **Revisa el asunto:** claro, conciso (unos 40 caracteres visibles en móvil), sin aspecto de spam, personalizado si es posible.
+3. **Comprueba el remitente:** debe ser un nombre reconocible para tu audiencia.
+4. **Descarta que estés cayendo en spam:** envíate la campaña a ti mismo y mira en qué carpeta llega. Si no tienes dominio dedicado con SPF, DKIM y DMARC configurados, eso puede estar contribuyendo.
+5. **Evalúa el segmento:** la audiencia tiene que ser relevante para el mensaje que enviaste.
+6. **Revisa el horario:** envía cuando tu audiencia está activa, no cuando te va bien a ti.
+
+## Siguiente paso
+
+- [Cómo consultar los rebotes de tus campañas](/campanas/informe/rebotes)
+- [¿Quién abrió y clicó tu campaña?](/campanas/informe/aperturas-y-clics)
+- [¿Cómo interpretar los resultados de tu campaña?](/campanas/informe/resultados)
+- [Reputación de envío: cómo evitar el spam](/entregabilidad/reputacion-y-spam)
+- [Configura tu dominio dedicado](/entregabilidad/dominio-dedicado)
+- [Buenas prácticas para tus campañas](/campanas/mejores-practicas)

@@ -1,0 +1,128 @@
+---
+title: "Mi dominio no verifica (SPF, DKIM, DMARC)"
+description: "Diagnostica y resuelve los problemas más habituales que impiden que los registros DNS de tu dominio dedicado queden verificados en Nevent."
+diataxis: how-to
+faqs:
+  - q: "Llevo más de 72 horas esperando y un registro sigue en Pendiente. ¿Qué hago?"
+    a: "Vuelve a la pantalla Dominio dedicado en Nevent, copia de nuevo el valor del registro que falla y comprueba en el panel DNS de tu proveedor que el campo Nombre y el campo Valor son exactamente iguales, sin espacios de más ni caracteres distintos. Un solo carácter incorrecto impide la verificación. Si tras corregirlo el registro sigue sin verificarse pasadas otras 24 horas, contacta con el equipo de soporte de Nevent."
+  - q: "Tengo Cloudflare. ¿Por qué mis registros CNAME de DKIM no verifican?"
+    a: "Cloudflare activa por defecto el proxy (icono de nube naranja) en los registros CNAME, lo que transforma el valor del registro y rompe la verificación de DKIM. Edita cada registro CNAME de DKIM en Cloudflare y cambia el estado del proxy a Solo DNS (nube gris). Guarda los cambios y vuelve a verificar en Nevent."
+  - q: "¿Cuánto tarda en propagarse un registro DNS?"
+    a: "Depende del proveedor. Puede ser cuestión de minutos o tardar hasta 72 horas. Nevent lo indica expresamente en la pantalla de verificación. Si acabas de crear el registro, espera al menos unas horas antes de volver a pulsar Verificar estado."
+  - q: "¿Tengo que esperar a que estén todos los registros verificados para cerrar la pantalla?"
+    a: "No. Puedes salir de la pantalla y volver más tarde. Nevent conserva el estado de cada registro y lo muestra cada vez que vuelves a la sección Dominio dedicado."
+  - q: "¿Qué pasa si tengo un registro SPF previo en mi dominio?"
+    a: "Solo puede existir un registro TXT de tipo SPF por subdominio. Si ya tienes uno para el subdominio de envíos, no crees un segundo registro: fusiona el contenido incluyendo el valor que indica Nevent dentro del registro existente. Si no estás seguro de cómo hacerlo, consulta la documentación de tu proveedor de dominio o pide ayuda a quien gestione tu DNS."
+---
+
+Cuando configuras un dominio dedicado en Nevent, el último paso es verificar los registros DNS que generaste con el asistente. A veces uno o varios registros se quedan en estado "Pendiente" durante horas o incluso días. Esta guía te ayuda a identificar la causa concreta y a corregirla.
+
+Antes de seguir, asegúrate de haber completado el asistente de dominio dedicado y de haber creado los registros en el panel de tu proveedor. Si todavía no lo has hecho, empieza por la guía [Configura tu dominio dedicado](/entregabilidad/dominio-dedicado).
+
+## Qué registros genera Nevent y para qué sirven
+
+El asistente de Nevent genera entre cinco y seis registros agrupados en cuatro tipos. Conocerlos te ayudará a saber cuál de ellos está fallando y por qué.
+
+| Tipo | Formato del registro | Para qué sirve |
+|---|---|---|
+| DKIM | Uno o varios registros de tipo CNAME | Firma digital que prueba que el email lo envías tú y no un tercero |
+| SPF | Un registro de tipo TXT | Lista los servidores autorizados a enviar en nombre de tu dominio |
+| MAIL FROM | Un registro de tipo MX | Dirección técnica de rebote; mejora la reputación del dominio |
+| DMARC | Un registro de tipo TXT | Política que indica a los servidores de correo qué hacer si un email no supera SPF o DKIM |
+
+Para más detalle sobre qué significa cada protocolo, consulta la [Referencia de configuración de entrega y dominio](/entregabilidad/referencia).
+
+## Paso 1: comprueba el estado actual en Nevent
+
+Antes de tocar nada en tu proveedor de dominio, ve a Nevent y mira qué registros siguen pendientes.
+
+1. En el menú lateral, haz clic en **Configuración**.
+2. En el menú secundario de la izquierda, dentro del grupo **Espacio de trabajo**, haz clic en **Dominio dedicado**.
+3. Haz clic en el botón **Verificar estado**.
+
+Nevent muestra el estado de cada registro: verificado o pendiente. Anota cuáles siguen en Pendiente. Eso te dice exactamente dónde buscar el problema.
+
+:::note[Nota]
+La verificación puede tardar desde unos minutos hasta 72 horas, según tu proveedor de dominio. Si acabas de crear los registros, espera al menos unas horas antes de sacar conclusiones.
+:::
+
+## Paso 2: abre el panel DNS de tu proveedor y compara los valores
+
+Ve al panel de administración de tu proveedor de dominio (GoDaddy, Namecheap, Cloudflare, el de tu hosting u otro) y busca los registros que creaste.
+
+Para cada registro que sigue en Pendiente, compara el valor que ves en tu proveedor con el valor que muestra Nevent en la pantalla de Dominio dedicado. Comprueba tres cosas:
+
+**El campo Nombre es exactamente igual**
+El nombre del registro incluye el subdominio que elegiste (por ejemplo, `email.tufestival.com`) o un prefijo delante de él (por ejemplo, `_dmarc.email.tufestival.com` para DMARC o un identificador largo para DKIM). Copia el campo Nombre de Nevent y compáralo carácter a carácter con lo que tienes en tu proveedor.
+
+**El campo Valor es exactamente igual**
+Los valores de DKIM son cadenas de texto muy largas. No los transcribas a mano: usa siempre el botón de copiar de Nevent para evitar errores. Una sola letra diferente impide la verificación.
+
+**El tipo de registro es el correcto**
+DKIM usa registros de tipo CNAME. SPF y DMARC usan registros de tipo TXT. MAIL FROM usa un registro de tipo MX. Si el tipo no coincide, el registro no funcionará aunque el valor sea correcto.
+
+:::tip[Consejo]
+Abre la pantalla de Dominio dedicado de Nevent y el panel DNS de tu proveedor en dos ventanas o pestañas distintas y compara los valores uno a uno.
+:::
+
+## Paso 3: corrige los errores más habituales
+
+### El registro no existe en el proveedor
+
+Si no encuentras el registro en el panel de tu proveedor, significa que no se creó. Vuelve a la pantalla de Dominio dedicado en Nevent, copia el Nombre, Tipo y Valor del registro que falta usando el icono de copiar y créalo en tu proveedor.
+
+### El valor tiene espacios o caracteres de más
+
+Al pegar un valor largo (especialmente los de DKIM) algunos paneles de proveedor añaden un espacio al principio o al final, o parten el texto en varias líneas. Edita el registro en tu proveedor y asegúrate de que el valor es una sola cadena continua, sin espacios ni saltos de línea.
+
+### El campo Nombre tiene el dominio duplicado
+
+Algunos proveedores de dominio añaden automáticamente tu dominio raíz al final del nombre del registro. Si Nevent indica que el Nombre del registro debe ser `email.tufestival.com` y tu proveedor ya añade `.tufestival.com` de forma automática, el campo Nombre que debes escribir es solo `email`, sin el dominio raíz. Consulta la documentación de tu proveedor para saber si hace esta adición automática.
+
+### Los registros CNAME de DKIM tienen el proxy activado en Cloudflare
+
+Si usas Cloudflare, comprueba si los registros CNAME de DKIM tienen el icono de nube naranja (proxy activado). Cloudflare intercepta el tráfico de esos registros cuando el proxy está activo y rompe la verificación de DKIM.
+
+Para corregirlo:
+
+1. En el panel DNS de Cloudflare, haz clic en el registro CNAME de DKIM que quieres editar.
+2. Cambia el estado del proxy de **Con proxy** (nube naranja) a **Solo DNS** (nube gris).
+3. Guarda el cambio.
+4. Repite para cada registro CNAME de DKIM que tenga el proxy activo.
+
+Después, vuelve a Nevent y pulsa **Verificar estado**.
+
+### Ya existe un registro SPF en tu dominio
+
+El protocolo SPF no permite tener dos registros TXT de SPF en el mismo subdominio. Si ya tienes un registro TXT de SPF para el subdominio de envíos, no crees un segundo registro: el resultado sería un conflicto que los servidores de correo no saben resolver.
+
+En ese caso, edita el registro SPF existente en tu proveedor e incluye dentro de él el contenido que Nevent indica en su registro SPF. Si no estás seguro de cómo fusionar dos registros SPF, consulta la documentación de tu proveedor o pide ayuda a quien gestione el DNS de tu dominio.
+
+## Paso 4: vuelve a verificar en Nevent
+
+Una vez que hayas corregido los registros en tu proveedor, vuelve a la pantalla de Dominio dedicado en Nevent y haz clic en **Verificar estado**.
+
+Los cambios DNS pueden tardar en propagarse. Si el registro sigue en Pendiente después de corregirlo, espera unas horas e inténtalo de nuevo. La propagación puede llevar hasta 72 horas según el proveedor.
+
+:::note[Nota]
+No tienes que esperar a que estén todos los registros verificados para cerrar la pantalla. Puedes salir y volver más tarde a comprobar el estado.
+:::
+
+Cuando todos los registros estén verificados, el dominio dedicado queda activo y tus próximas campañas se envían desde tu propio subdominio.
+
+## Si el problema persiste pasadas 72 horas
+
+Si tras 72 horas uno o varios registros siguen en Pendiente y has revisado los puntos anteriores sin encontrar el error, contacta con el equipo de soporte de Nevent. Antes de escribir, ten a mano:
+
+- El nombre del registro que no verifica (tal como aparece en Nevent).
+- El valor que tienes en tu proveedor para ese registro.
+- El nombre de tu proveedor de dominio.
+
+Con esa información, el equipo podrá ayudarte con mayor rapidez.
+
+## Guías relacionadas
+
+- [Configura tu dominio dedicado](/entregabilidad/dominio-dedicado): instrucciones completas para completar el asistente y crear los registros DNS por primera vez.
+- [Ajustes de envío de emails](/entregabilidad/envio-de-emails): dónde ver tu dirección de remitente actual y el estado de los componentes técnicos de tu cuenta.
+- [Referencia de configuración de entrega y dominio](/entregabilidad/referencia): descripción detallada de cada protocolo (SPF, DKIM, DMARC) y de cada campo de las pantallas de configuración.
+- [Reputación de envío: como evitar el spam](/entregabilidad/reputacion-y-spam): por qué la autenticación del dominio mejora la llegada de tus emails a bandeja de entrada.
