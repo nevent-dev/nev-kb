@@ -1,0 +1,287 @@
+---
+title: "Checklist para lanzar tu evento"
+description: "Todo lo que debes tener listo en Nevent antes de abrir la venta: canales, dominio, audiencia, formulario, primera campaña y medición."
+diataxis: how-to
+faqs:
+  - q: "¿Puedo saltarme la configuración del dominio dedicado y empezar a enviar directamente?"
+    a: "Sí. El email viene activo desde el primer día con el dominio compartido de Nevent y los envíos salen sin configuración adicional. El dominio dedicado (con SPF, DKIM y DMARC en tu propio dominio) es opcional pero recomendable: mejora la llegada a bandeja de entrada y hace que tus fans vean tu marca como remitente. Puedes configurarlo antes del primer envío o en cualquier momento posterior."
+  - q: "¿Es obligatorio crear un formulario de suscripción antes de lanzar una campaña?"
+    a: "No es obligatorio, pero sí muy recomendable. Sin un formulario activo en tu web pierdes la oportunidad de captar fans que visitan tu página antes de que abras la venta. Con el formulario en marcha desde el anuncio del evento, llegas al momento de apertura con una lista de personas que ya han levantado la mano y quieren saber de ti."
+  - q: "¿Para qué sirve segmentar si aún tengo poca base de datos?"
+    a: "Incluso con una base pequeña, segmentar permite distinguir entre fans que compraron antes (aunque sea en ediciones anteriores o en otra plataforma importados) y personas que se acaban de suscribir. Ese criterio básico ya mejora la relevancia del mensaje. Además, construir buenos hábitos de segmentación desde el principio facilita el trabajo cuando la base crezca."
+  - q: "¿Qué métricas debo revisar después de la primera campaña?"
+    a: "Las cuatro métricas básicas son: tasa de entrega (saludable por encima del 95%), tasa de apertura (saludable por encima del 25%), tasa de clic (saludable por encima del 5%) y tasa de baja (señal de alerta por encima del 1%). Si la apertura está por debajo del 15%, revisa el asunto y el momento del envío. Si la tasa de baja supera el 1%, el mensaje o el segmento no estaban alineados."
+  - q: "¿Qué pasa si no tengo SMS ni WhatsApp activados para el primer lanzamiento?"
+    a: "El email es el canal principal y funciona muy bien como único canal para un primer lanzamiento. SMS y WhatsApp amplían el alcance y aumentan el open rate en momentos de urgencia, pero no son imprescindibles para empezar. Puedes activarlos desde Configuración, Canales cuando quieras añadir esos canales a tu estrategia."
+---
+
+Esta guía recorre, en orden, todo lo que debes tener configurado en Nevent antes de abrir la venta de un evento. Está pensada para promotores que están preparando un lanzamiento y quieren asegurarse de no olvidar ningún paso crítico. Cada punto enlaza a la guía detallada correspondiente.
+
+El objetivo no es explicar cada pantalla en detalle, sino darte el orden correcto y el contexto de por qué cada paso importa.
+
+---
+
+## Fase 1: Infraestructura de envío
+
+Esta fase garantiza que tus emails lleguen bien y que tus fans te reconozcan como remitente. Es el trabajo técnico que se hace una sola vez y que condiciona todos los envíos futuros.
+
+### 1.1. Activa tus canales de comunicación
+
+Antes de enviar nada, comprueba que los canales que quieres usar están activos y configurados. El email viene activo por defecto, pero SMS y WhatsApp requieren pasos adicionales.
+
+Ve a **Configuración, Marca y Contenido, Canales** y revisa las cuatro pestañas:
+
+- **Correo electrónico:** activo por defecto. Rellena el nombre del remitente, la dirección de respuesta y la firma de email. La firma incluye los datos legales y el enlace de cancelación de suscripción que Nevent añade automáticamente a cada campaña.
+- **SMS:** requiere activar el interruptor y configurar al menos un Sender ID (hasta 11 caracteres, por ejemplo el nombre de tu festival). Desde el 15 de septiembre de 2026, los operadores bloquearán los SMS cuyo remitente no esté registrado en la CNMC. Nevent gestiona ese trámite: escribe al equipo de soporte cuanto antes si quieres usar SMS.
+- **WhatsApp:** requiere conectar una cuenta de WhatsApp Business a través del flujo de autenticación de Meta. Una vez conectado, podrás crear plantillas de mensaje, aunque cada plantilla necesita aprobación de Meta antes de poder usarse.
+- **Analytics:** conecta tu Meta Pixel (ID numérico) y tu propiedad Google Analytics 4 (formato G-XXXXXXXXXX) para que Nevent envíe eventos de conversión a esas plataformas automáticamente.
+
+Guía detallada: [Activa tus canales de comunicación](/entregabilidad/activar-canales/)
+
+### 1.2. Configura tu dominio dedicado
+
+Con el dominio compartido de Nevent tus emails salen desde el primer día, pero si quieres que tus fans vean tu propio dominio como remitente (por ejemplo `email.tufestival.com`) y mejorar la llegada a bandeja de entrada, configura un dominio dedicado.
+
+El asistente de configuración guiado tarda unos 3 minutos. Después necesitarás crear entre cinco y seis registros DNS (DKIM, SPF, MAIL FROM y DMARC) en el panel de tu proveedor de dominio. La propagación puede tardar entre unas horas y 72 horas.
+
+Ve a **Configuración, Espacio de trabajo, Dominio dedicado** y haz clic en **Comenzar configuración**.
+
+Guía detallada: [Configura tu dominio dedicado](/entregabilidad/dominio-dedicado/)
+
+Para entender el conjunto de la infraestructura de envío (subdominio automático, configuration sets y SES Tenant): [Configura tu entrega de emails](/entregabilidad/configura-tu-entrega/)
+
+---
+
+## Fase 2: Audiencia
+
+Esta fase prepara la base de contactos que recibirá tus campañas. Cuanto mejor estructurada esté la audiencia antes del lanzamiento, más relevantes y más rentables serán los envíos.
+
+### 2.1. Importa o revisa tu base de contactos
+
+Si tienes fans de ediciones anteriores en otra herramienta o ticketera, impórtalos a Nevent antes de empezar a crear segmentos. La importación es el punto de entrada para cualquier persona que ya está en tu base pero todavía no tiene historial en Nevent.
+
+Una vez importados, asegúrate de que cada contacto tiene una dirección de email válida y que los datos de asistencia y compra están sincronizados con Nevent. Esos datos son los que alimentan el motor de segmentación.
+
+### 2.2. Crea los segmentos para el lanzamiento
+
+Los segmentos son agrupaciones de fans basadas en criterios de comportamiento, atributos o historial de compra. Crearlos antes de lanzar la primera campaña evita improvisaciones el día del envío y permite revisar el tamaño de cada audiencia con antelación.
+
+Para un primer lanzamiento, los segmentos más útiles son:
+
+**Fans Early Bird o compradores tempranos.** Fans que en eventos anteriores compraron durante la primera fase, en preventa o en las primeras horas. Son los primeros que activas porque ya están educados para comprar con anticipación. Criterio en Nevent: tipo de entrada Early Bird o preventa en eventos anteriores, en una ventana de dos a tres años.
+
+Caso práctico: [Fans Early Bird para preventa exclusiva](/segmentacion/casos/fans-tempranos/)
+
+**Champions y Loyal Customers RFM.** El modelo RFM de Nevent clasifica automáticamente a tus fans en 11 perfiles según recencia, frecuencia y gasto. Champions y Loyal Customers son los fans de mayor valor: los que compran con frecuencia, gastan más y llevan poco tiempo desde su última compra. Para comunicaciones de acceso anticipado o productos de alto ticket (VIP, meet and greet, abono), son el primer segmento.
+
+Referencia completa: [RFM automático: 11 perfiles de fans](/segmentacion/capacidades/rfm/)
+Caso práctico: [Segmento VIP con RFM Champions](/segmentacion/casos/top-rfm-vip/)
+
+**Audiencia geolocalizada.** Fans que viven dentro de un radio razonable del recinto o que han asistido a algún evento tuyo en esa ciudad. Especialmente útil si el evento es regional o tiene una ciudad de referencia clara. Nevent permite filtrar por ciudad de residencia del fan o por ciudad del evento al que asistieron.
+
+Caso práctico: [Audiencia geo-localizada para eventos regionales](/segmentacion/casos/audiencia-geolocalizada/)
+
+**Base activa general.** Todos los fans con email válido y sin baja registrada. Es el segmento más amplio y se usa para la campaña de apertura al público general, después de haber dado acceso anticipado a los segmentos anteriores.
+
+Guía paso a paso para crear cualquier segmento: [Crear un segmento](/segmentacion/motor-segmentacion/crear-segmento/)
+
+Antes de guardar un segmento, usa la **vista previa** del motor de segmentación para ver cuántos fans cumplen los criterios. Un segmento con menos de 20 fans puede indicar criterios demasiado restrictivos; uno con el 100% de la base probablemente necesita más filtros.
+
+---
+
+## Fase 3: Formulario de suscripción
+
+Un formulario de suscripción activo en tu web desde el momento del anuncio del evento te permite acumular una lista de personas interesadas antes de que abras la venta. Cuando llega el momento de lanzar, tienes ya una audiencia que está esperando ese correo.
+
+### 3.1. Rellena los datos legales
+
+Nevent no permite activar ningún formulario de suscripción hasta que tu organización tenga rellenos la razón social y la URL de la política de privacidad. Estos datos son los que la ley exige mostrar a cualquier persona cuando le pides que se suscriba (RGPD).
+
+Si ves el aviso rojo "Faltan datos legales del tenant" al entrar en Suscripciones, haz clic en **Completar datos legales** antes de continuar.
+
+Referencia: [Para qué sirven las suscripciones (y por qué el consentimiento importa)](/suscripciones/para-que-sirven/)
+
+### 3.2. Crea el formulario
+
+Ve a **Audiencia, Suscripciones** y haz clic en **+ Crear suscripción**. El asistente tiene tres pasos:
+
+1. **Información básica:** nombre interno del formulario (el fan no lo ve) y, opcionalmente, descripción y carpetas.
+2. **Campos del formulario:** el email es el único campo obligatorio y no se puede eliminar. Puedes añadir nombre, apellidos y campos personalizados de tu organización. Cuantos menos campos pidas, más fácil es suscribirse y mayor es la tasa de conversión.
+3. **Suplementos visual:** colores, tipografía y espaciado. Puedes ajustarlo ahora o después desde la sección Apariencia del formulario.
+
+Una vez creado, ve a la sección **Automatizaciones** del formulario para asignar automáticamente una carpeta a cada nuevo suscriptor. Esto te permite saber de dónde vienen (por ejemplo, "Web anuncio evento 2026") y crear segmentos específicos para esa audiencia captada.
+
+### 3.3. Instala el formulario en tu web
+
+Ve a la sección **Instalación** del formulario y copia el código HTML que aparece. Pégalo en tu web: en un bloque HTML personalizado de WordPress, en un componente Embed de Webflow, o en la sección de código de tu editor web. El formulario aparece de inmediato.
+
+Guía completa: [Crea un formulario de suscripción](/suscripciones/crear-formulario/)
+
+---
+
+## Fase 4: Primera campaña
+
+Con los canales activos, la audiencia segmentada y el formulario en marcha, ya tienes todo lo necesario para crear tu primera campaña de lanzamiento.
+
+### 4.1. Prepara la plantilla antes de crear la campaña
+
+El asistente de campaña necesita que la plantilla de email exista antes de llegar al paso de contenido. Si no tienes ninguna, ve a **Campañas, Plantillas** y crea una antes de empezar.
+
+Si vas a usar WhatsApp, las plantillas de ese canal necesitan aprobación de Meta antes de poder enviarse. Créala y envíala a revisión con al menos 24 a 48 horas de antelación respecto al envío planificado.
+
+Guía de plantillas de email: [Diseña plantillas de email](/campanas/plantillas-email/)
+Guía de plantillas de WhatsApp: [Crea plantillas de WhatsApp](/campanas/plantillas-whatsapp/)
+
+### 4.2. Crea la campaña con el asistente de 8 pasos
+
+Ve a **Campañas, Mis campañas** y haz clic en **+ Crear campaña**. El asistente recorre estos ocho pasos:
+
+1. **Nombre:** usa un nombre descriptivo que incluya el evento y el objetivo, por ejemplo "Festival 2026, acceso anticipado Early Bird". Te ayudará a identificar la campaña cuando tengas varias.
+2. **Canal:** selecciona el canal de envío. Email y push suelen estar activos por defecto; SMS y WhatsApp requieren activación previa.
+3. **Contenido:** elige la plantilla de email que has preparado. El panel derecho muestra una vista previa completa.
+4. **Tipo de campaña:** Nevent lo detecta automáticamente según la plantilla. Las campañas de marketing incluyen el enlace de baja y respetan las preferencias de los usuarios; las transaccionales son para confirmaciones o avisos importantes.
+5. **Audiencia:** elige el segmento o segmentos que recibirán la campaña. Cada segmento muestra los destinatarios estimados (usuarios totales menos bajas y emails no válidos). Puedes combinar varios segmentos en un mismo envío.
+6. **Asunto y UTMs:** escribe el asunto (obligatorio) y el texto de vista previa. El asistente muestra una simulación de cómo se verá en la bandeja de entrada. Usa el botón **Personalizar** para insertar el nombre del fan en el asunto.
+7. **Programación:** elige entre enviar ahora o programar una fecha y hora. Para un lanzamiento coordinado, programa el envío con antelación y no tengas que estar delante en el momento exacto.
+8. **Revisión:** resumen completo con el coste estimado en créditos, el saldo disponible y un botón de **Guardar borrador** si quieres volver más tarde. Cuando todo esté correcto, pulsa **Lanzar campaña**.
+
+Guía completa: [Cómo crear tu primera campaña](/campanas/crear-primera-campana/)
+
+### 4.3. Orden de envío recomendado
+
+No envíes la primera campaña a toda la base a la vez. El orden recomendado para el lanzamiento es el siguiente:
+
+| Momento | Segmento | Canal | Qué comunicas |
+|---|---|---|---|
+| 36-48 horas antes del lanzamiento público | Champions, Loyal Customers, fans Early Bird | Email | Acceso anticipado exclusivo, sin revelar todos los detalles |
+| En el momento del lanzamiento (hora 0) | El mismo grupo anterior | Email | Las entradas ya están disponibles, enlace directo |
+| 2-4 horas después | Base ampliada (temperatura alta) o base activa general | Email | Lanzamiento al público general |
+
+Este orden crea un efecto de exclusividad real: los fans de mayor valor lo saben antes que el resto y tienen margen para actuar. Las primeras ventas generan el efecto de sold-out temprano que impulsa las ventas siguientes.
+
+Playbook completo con timings y segmentos: [Estrategia de lanzamiento en 72 horas](/guias-por-objetivo/lanzamiento-72h/)
+
+### 4.4. Buenas prácticas básicas
+
+Antes de lanzar cualquier campaña, revisa estas cuatro cosas:
+
+- **Envíala a ti mismo primero.** El editor de plantillas y el asistente de campaña tienen un botón de envío de prueba. Comprueba que el asunto se entiende, las imágenes cargan, los enlaces funcionan y se ve bien en el móvil.
+- **Revisa el asunto.** En el móvil se ven unos 40 caracteres: pon lo importante al principio. Los asuntos concretos ("Early Bird de [festival], solo 48 horas") funcionan mejor que los genéricos ("Novedades").
+- **No satures.** Si notas que sube la tasa de baja tras varios envíos seguidos, baja el ritmo. Un email relevante supera siempre a varios irrelevantes.
+- **Programa en el mejor momento para tu audiencia.** Revisa en la analítica de tu evento el día y la franja horaria en que más compran tus fans y programa el envío justo antes.
+
+Referencia: [Buenas prácticas para tus campañas](/campanas/mejores-practicas/)
+
+---
+
+## Fase 5: Medición
+
+Enviar la campaña es solo la mitad del trabajo. Revisar las métricas después de cada envío cierra el ciclo y te da los datos que necesitas para mejorar el siguiente.
+
+### 5.1. Lee el informe de resultados
+
+En **Campañas, Mis campañas**, haz clic en el nombre de la campaña enviada para abrir su informe. El informe tiene cinco secciones: Resumen, Entregabilidad, Desuscripciones, Segmentos e Interacción.
+
+En la sección **Resumen** encontrarás las cuatro métricas básicas:
+
+- **Enviados:** el total de emails que Nevent intentó entregar.
+- **Entregados:** los que el servidor del destinatario aceptó (el porcentaje sobre enviados es la tasa de entrega).
+- **Abiertos:** los destinatarios que abrieron el email al menos una vez (tasa de apertura).
+- **Clics:** las veces que alguien hizo clic en un enlace (tasa de clic).
+
+Los rangos orientativos para campañas de eventos en vivo son:
+
+| Métrica | Resultado saludable | Señal de alerta |
+|---|---|---|
+| Tasa de entrega | Por encima del 95% | Por debajo del 90% |
+| Tasa de apertura | Por encima del 25% | Por debajo del 15% |
+| Tasa de clic | Por encima del 5% | Por debajo del 2% |
+| Tasa de baja | Por debajo del 0,5% | Por encima del 1% |
+
+Guía de lectura de métricas: [Cómo interpretar los resultados de tu campaña](/campanas/informe/resultados/)
+
+### 5.2. Revisa aperturas, clics y bajas en detalle
+
+Además del resumen, el informe tiene tres vistas de detalle relevantes antes del próximo envío:
+
+- **Interacción (aperturas y clics):** muestra quién abrió y quién hizo clic. Esa lista es la base para construir el segmento de "abrieron pero no compraron" en la siguiente campaña.
+- **Desuscripciones:** muestra quién se dio de baja y en qué momento. Si la tasa supera el 1%, el mensaje o el segmento no estaban alineados.
+- **Rebotes:** distingue entre rebotes duros (dirección que no existe, dañan la reputación de envío de forma permanente) y blandos (temporales, Nevent los reintenta automáticamente). Depura las direcciones con rebote duro antes del siguiente envío importante.
+
+Guías de detalle:
+- [Quién abrió y clicó tu campaña](/campanas/informe/aperturas-y-clics/)
+- [Desuscripciones de tus campañas](/campanas/informe/desuscripciones/)
+- [Rebotes de tus campañas](/campanas/informe/rebotes/)
+
+### 5.3. Entiende el revenue atribuido y el ROAS
+
+Además de las métricas de apertura y clic, Nevent calcula el **revenue atribuido** a cada campaña: cuánto dinero generaron las ventas que Nevent puede relacionar con un clic en esa campaña concreta. El **ROAS** (Return On Ad Spend) divide ese revenue por el coste de la campaña y te dice cuántos euros de ventas generas por cada euro invertido.
+
+Estas dos métricas te permiten comparar la eficiencia real entre campañas y entre canales, no solo el engagement. Una campaña al segmento de Champions con 500 destinatarios puede tener un ROAS mucho mayor que un envío masivo a 50.000 fans, aunque el número de aperturas sea menor.
+
+Referencia de métricas: [Métricas de campañas email, SMS y WhatsApp](/analitica/campanas/)
+
+### 5.4. Conecta con la analítica de audiencia
+
+Más allá de las métricas de campaña, la analítica de audiencia de Nevent te da una visión a largo plazo de tu base de fans. El **LTV** (Lifetime Value) muestra cuánto ingreso genera un fan a lo largo del tiempo, lo que permite decidir con fundamento cuánto invertir en captación. La **Temperatura Nevent** clasifica a cada fan en seis niveles (de Muy Caliente a Congelado) según su actividad reciente, lo que facilita priorizar a quién comunicarse en cada momento.
+
+Guía de interpretación: [Cómo entender la analítica de Nevent](/analitica/como-entender-la-analitica/)
+
+---
+
+## Resumen del checklist
+
+Antes de abrir la venta de tu evento, verifica que has completado estos puntos:
+
+**Infraestructura de envío**
+- [ ] Canal de email activo con remitente, dirección de respuesta y firma configurados
+- [ ] SMS activo con Sender ID registrado (si vas a usar SMS)
+- [ ] WhatsApp Business conectado (si vas a usar WhatsApp)
+- [ ] Meta Pixel y GA4 conectados en la pestaña Analytics (si usas publicidad de pago)
+- [ ] Dominio dedicado configurado con registros DNS verificados (recomendado)
+
+**Audiencia**
+- [ ] Contactos importados o sincronizados desde tu ticketera
+- [ ] Segmento de fans Early Bird o compradores tempranos creado y con tamaño revisado
+- [ ] Segmento de Champions y Loyal Customers RFM identificado
+- [ ] Segmento de audiencia geolocalizada creado (si el evento es regional)
+
+**Formulario de suscripción**
+- [ ] Datos legales completados (razón social y URL de política de privacidad)
+- [ ] Formulario creado con los campos necesarios
+- [ ] Automatización de carpeta configurada para saber de dónde vienen los suscriptores
+- [ ] Formulario instalado en la web del evento
+
+**Primera campaña**
+- [ ] Plantilla de email creada (y plantilla de WhatsApp enviada a revisión con 48 horas de antelación si aplica)
+- [ ] Segmentos asignados a cada campaña del lanzamiento
+- [ ] Asunto revisado y testeado con envío de prueba
+- [ ] Campañas programadas con los timings del orden de envío recomendado
+
+**Medición**
+- [ ] Rangos orientativos de métricas revisados antes del primer envío
+- [ ] Informe de resultados consultado después de cada campaña
+
+---
+
+## Guías relacionadas
+
+- [Activa tus canales de comunicación](/entregabilidad/activar-canales/)
+- [Configura tu dominio dedicado](/entregabilidad/dominio-dedicado/)
+- [Configura tu entrega de emails](/entregabilidad/configura-tu-entrega/)
+- [Para qué sirven las suscripciones](/suscripciones/para-que-sirven/)
+- [Crea un formulario de suscripción](/suscripciones/crear-formulario/)
+- [Crea un segmento](/segmentacion/motor-segmentacion/crear-segmento/)
+- [Fans Early Bird para preventa exclusiva](/segmentacion/casos/fans-tempranos/)
+- [Segmento VIP con RFM Champions](/segmentacion/casos/top-rfm-vip/)
+- [Audiencia geo-localizada para eventos regionales](/segmentacion/casos/audiencia-geolocalizada/)
+- [Cómo crear tu primera campaña](/campanas/crear-primera-campana/)
+- [Diseña plantillas de email](/campanas/plantillas-email/)
+- [Crea plantillas de WhatsApp](/campanas/plantillas-whatsapp/)
+- [Buenas prácticas para tus campañas](/campanas/mejores-practicas/)
+- [Cómo interpretar los resultados de tu campaña](/campanas/informe/resultados/)
+- [Quién abrió y clicó tu campaña](/campanas/informe/aperturas-y-clics/)
+- [Métricas de campañas email, SMS y WhatsApp](/analitica/campanas/)
+- [Cómo entender la analítica de Nevent](/analitica/como-entender-la-analitica/)
+- [Estrategia de lanzamiento en 72 horas](/guias-por-objetivo/lanzamiento-72h/)
+- [Cómo llenar tu evento](/guias-por-objetivo/llenar-tu-evento/)

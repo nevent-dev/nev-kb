@@ -200,6 +200,14 @@ export default defineConfig({
 			// Starlight selecciona automáticamente los items del locale activo
 			sidebar: [
 				{
+					label: 'Ciclo de vida del evento',
+					items: [
+					{ label: 'Checklist de lanzamiento', slug: 'ciclo-de-vida/checklist-de-lanzamiento', badge: { text: 'Nuevo', variant: 'tip' } },
+					{ label: 'La semana de tu evento', slug: 'ciclo-de-vida/semana-del-evento', badge: { text: 'Nuevo', variant: 'tip' } },
+					{ label: 'Post-mortem del evento', slug: 'ciclo-de-vida/post-mortem-del-evento', badge: { text: 'Nuevo', variant: 'tip' } },
+					],
+				},
+				{
 					label: 'Solución de problemas',
 					items: [
 					{ label: 'Mis emails van a spam', slug: 'solucion-de-problemas/emails-a-spam', badge: { text: 'Nuevo', variant: 'tip' } },
