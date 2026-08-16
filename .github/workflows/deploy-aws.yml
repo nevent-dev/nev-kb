@@ -90,6 +90,18 @@ jobs:
             --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} \
             --paths "/*"
 
+      # Notifica a IndexNow (Bing, Yandex, Naver, Seznam) las URLs del sitemap
+      # RECIEN construido (dist/), no del live, para no depender de la cache de
+      # CloudFront. No bloquea el deploy si falla.
+      - name: Notify IndexNow
+        run: |
+          URLS=$(grep -oE 'https://help\.nevent\.ai/[^<]*' dist/sitemap-0.xml | tr '\n' ' ')
+          if [ -n "$URLS" ]; then
+            node scripts/indexnow-submit.js $URLS || echo "WARN: IndexNow submission fallo (no bloquea el deploy)"
+          else
+            echo "WARN: no se encontraron URLs en dist/sitemap-0.xml; se omite IndexNow"
+          fi
+
       - name: Deployment summary
         run: |
           echo "✅ Deployment completed successfully!"
