@@ -100,3 +100,35 @@ a.site-title img {
   height: 1.6rem;
   width: auto;
 }
+
+/* ---- Rejilla de tiles de área (portada): visual, poco texto. Sin hover. ---- */
+.area-tiles {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: var(--space-1-5);
+  margin-block: var(--space-4) var(--space-5);
+}
+.area-tile {
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: var(--space-1-5);
+  text-align: center; text-decoration: none; min-height: 128px;
+  padding: var(--space-3) var(--space-2);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-xl);
+  background: var(--color-surface-base);
+  color: var(--color-text-primary);
+  font-family: var(--font-display); font-weight: var(--font-weight-semibold); font-size: var(--font-size-base);
+  transition: background var(--motion-duration-fast) var(--motion-easing-standard),
+    transform var(--motion-duration-fast) var(--motion-easing-spring);
+}
+.area-tile:focus-visible { outline: var(--focus-ring-width) solid var(--color-focus-ring); outline-offset: var(--focus-ring-offset); }
+.area-tile:active { transform: scale(0.98); background: var(--color-surface-sunken); }
+.area-tile__ic {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 3.25rem; height: 3.25rem; border-radius: var(--radius-lg);
+  background: var(--color-primary-subtle); color: var(--color-primary-text);
+}
+.area-tile__ic svg { width: 1.6rem; height: 1.6rem; }
+@media (prefers-reduced-motion: reduce) {
+  .area-tile { transition: none; }
+  .area-tile:active { transform: none; }
+}
