@@ -6,7 +6,7 @@ hero:
   title: |
     Centro de ayuda de <span class="text-gradient">Nevent</span>
   tagline: |
-    Todo lo que necesitas para sacar partido a tu plataforma de eventos en vivo. Guías claras, paso a paso y con ejemplos reales, desde tu audiencia hasta la analítica.
+    Aprende a sacarle todo el partido a tu plataforma de eventos en vivo: audiencia, campañas, analítica, publicidad y Nevent AI. Guías claras, paso a paso y con ejemplos reales.
   actions:
     - text: Crea tu primera campaña
       link: /campanas/crear-primera-campana/
@@ -18,11 +18,40 @@ hero:
       variant: secondary
 ---
 
-import { Card, CardGrid, LinkCard, Aside } from '@astrojs/starlight/components';
+import { Card, CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+Todo lo que necesitas para manejar Nevent, organizado por lo que quieres conseguir. Empieza por los primeros pasos, explora por área o busca cualquier duda en el buscador de arriba.
+
+## Empieza aquí
+
+Las cuatro guías que te ponen en marcha, en orden.
+
+<CardGrid>
+  <LinkCard
+    title="Crea tu primera campaña"
+    description="Recorre el asistente de principio a fin y lanza tu primer envío en minutos."
+    href="/campanas/crear-primera-campana/"
+  />
+  <LinkCard
+    title="Importa tus contactos"
+    description="Sube tu lista de fans desde un archivo CSV o Excel y ténlos listos para segmentar."
+    href="/audiencia/importar-fans/"
+  />
+  <LinkCard
+    title="Crea tu primer segmento"
+    description="Agrupa a tus fans por comportamiento, compra y consumo para enviar a quien toca."
+    href="/segmentacion/motor-segmentacion/crear-segmento/"
+  />
+  <LinkCard
+    title="Activa tus canales"
+    description="Configura email, SMS, WhatsApp y push para empezar a comunicarte con tu audiencia."
+    href="/entregabilidad/activar-canales/"
+  />
+</CardGrid>
 
 ## Explora por área
 
-Cada área reúne las guías de una parte de la plataforma. Empieza por donde más lo necesites.
+Cada área reúne las guías de una parte de la plataforma. Entra por donde más lo necesites.
 
 <CardGrid>
   <Card title="Experiencias" icon="star">
@@ -87,34 +116,9 @@ Cada área reúne las guías de una parte de la plataforma. Empieza por donde m�
   </Card>
 </CardGrid>
 
-## Primeros pasos
-
-Las guías más útiles para arrancar, en orden.
-
-<CardGrid>
-  <LinkCard
-    title="Crea tu primera campaña"
-    description="Recorre el asistente de principio a fin y lanza tu primer envío."
-    href="/campanas/crear-primera-campana/"
-  />
-  <LinkCard
-    title="Importa tus contactos"
-    description="Sube tu lista de fans desde un archivo CSV o Excel."
-    href="/audiencia/importar-fans/"
-  />
-  <LinkCard
-    title="Crea tu primer segmento"
-    description="Agrupa a tus fans por criterios y prepáralos para campañas."
-    href="/segmentacion/motor-segmentacion/crear-segmento/"
-  />
-  <LinkCard
-    title="Activa tus canales"
-    description="Configura email, SMS, WhatsApp y push para empezar a enviar."
-    href="/entregabilidad/activar-canales/"
-  />
-</CardGrid>
-
 ## Saca más partido a tus datos
+
+Cuando ya envías, estas guías te ayudan a leer los resultados y mejorar.
 
 <CardGrid>
   <Card title="Entiende tus resultados" icon="bars">
@@ -138,7 +142,3 @@ Las guías más útiles para arrancar, en orden.
 
   [Conéctalo en 2 minutos →](/nevent-ai/conectar-claude/)
 </Card>
-
-<Aside type="tip" title="¿Aún no tienes cuenta de Nevent?">
-  Este centro de ayuda cubre la plataforma de Nevent. Si todavía no tienes cuenta, escríbenos a [support@nevent.es](mailto:support@nevent.es) o visita [nevent.ai](https://nevent.ai).
-</Aside>

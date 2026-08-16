@@ -92,3 +92,11 @@ nav.sidebar .group-label span {
   outline: var(--focus-ring-width) solid var(--color-focus-ring);
   outline-offset: var(--focus-ring-offset);
 }
+
+/* Logo del header: tamaño contenido (por defecto salía demasiado grande). */
+.site-title img,
+header .site-title img,
+a.site-title img {
+  height: 1.6rem;
+  width: auto;
+}
