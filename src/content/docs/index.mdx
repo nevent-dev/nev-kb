@@ -6,139 +6,48 @@ hero:
   title: |
     Centro de ayuda de <span class="text-gradient">Nevent</span>
   tagline: |
-    Aprende a sacarle todo el partido a tu plataforma de eventos en vivo: audiencia, campañas, analítica, publicidad y Nevent AI. Guías claras, paso a paso y con ejemplos reales.
+    Todo lo que necesitas para manejar tu plataforma de eventos, en guías rápidas. Elige un área y empieza.
   actions:
     - text: Crea tu primera campaña
       link: /campanas/crear-primera-campana/
       icon: right-arrow
       variant: primary
-    - text: Habla con tu CRM (Nevent AI)
+    - text: Nevent AI
       link: /nevent-ai/
       icon: rocket
       variant: secondary
 ---
 
-import { Card, CardGrid, LinkCard } from '@astrojs/starlight/components';
+import { Icon, Card, CardGrid, LinkCard } from '@astrojs/starlight/components';
 
-Todo lo que necesitas para manejar Nevent, organizado por lo que quieres conseguir. Empieza por los primeros pasos, explora por área o busca cualquier duda en el buscador de arriba.
+<div class="area-tiles">
+  <a class="area-tile" href="/campanas/crear-primera-campana/"><span class="area-tile__ic"><Icon name="email" /></span>Campañas</a>
+  <a class="area-tile" href="/audiencia/importar-fans/"><span class="area-tile__ic"><Icon name="heart" /></span>Audiencia</a>
+  <a class="area-tile" href="/segmentacion/motor-segmentacion/"><span class="area-tile__ic"><Icon name="puzzle" /></span>Segmentación</a>
+  <a class="area-tile" href="/analitica/"><span class="area-tile__ic"><Icon name="list-format" /></span>Analítica</a>
+  <a class="area-tile" href="/paid-media/introduccion/"><span class="area-tile__ic"><Icon name="bars" /></span>Paid Media</a>
+  <a class="area-tile" href="/entregabilidad/activar-canales/"><span class="area-tile__ic"><Icon name="approve-check" /></span>Entregabilidad</a>
+  <a class="area-tile" href="/experiencias/analytics/"><span class="area-tile__ic"><Icon name="star" /></span>Experiencias</a>
+  <a class="area-tile" href="/suscripciones/crear-formulario/"><span class="area-tile__ic"><Icon name="add-document" /></span>Suscripciones</a>
+  <a class="area-tile" href="/herramientas/magic-links/"><span class="area-tile__ic"><Icon name="external" /></span>Herramientas</a>
+  <a class="area-tile" href="/chatbot/configuracion/"><span class="area-tile__ic"><Icon name="comment" /></span>Chatbot</a>
+  <a class="area-tile" href="/superapp/introduccion/"><span class="area-tile__ic"><Icon name="rocket" /></span>Superapp</a>
+  <a class="area-tile" href="/nevent-ai/"><span class="area-tile__ic"><Icon name="open-book" /></span>Nevent AI</a>
+</div>
 
 ## Empieza aquí
 
-Las cuatro guías que te ponen en marcha, en orden.
-
 <CardGrid>
-  <LinkCard
-    title="Crea tu primera campaña"
-    description="Recorre el asistente de principio a fin y lanza tu primer envío en minutos."
-    href="/campanas/crear-primera-campana/"
-  />
-  <LinkCard
-    title="Importa tus contactos"
-    description="Sube tu lista de fans desde un archivo CSV o Excel y ténlos listos para segmentar."
-    href="/audiencia/importar-fans/"
-  />
-  <LinkCard
-    title="Crea tu primer segmento"
-    description="Agrupa a tus fans por comportamiento, compra y consumo para enviar a quien toca."
-    href="/segmentacion/motor-segmentacion/crear-segmento/"
-  />
-  <LinkCard
-    title="Activa tus canales"
-    description="Configura email, SMS, WhatsApp y push para empezar a comunicarte con tu audiencia."
-    href="/entregabilidad/activar-canales/"
-  />
+  <LinkCard title="Crea tu primera campaña" href="/campanas/crear-primera-campana/" />
+  <LinkCard title="Importa tus contactos" href="/audiencia/importar-fans/" />
+  <LinkCard title="Crea tu primer segmento" href="/segmentacion/motor-segmentacion/crear-segmento/" />
+  <LinkCard title="Activa tus canales" href="/entregabilidad/activar-canales/" />
 </CardGrid>
 
-## Explora por área
-
-Cada área reúne las guías de una parte de la plataforma. Entra por donde más lo necesites.
-
-<CardGrid>
-  <Card title="Experiencias" icon="star">
-    Analítica de tus eventos y el perfil musical de tu audiencia.
-
-    [Ver guías →](/experiencias/analytics/)
-  </Card>
-  <Card title="Audiencia" icon="heart">
-    Importa contactos y consulta el perfil completo de cada fan.
-
-    [Ver guías →](/audiencia/importar-fans/)
-  </Card>
-  <Card title="Suscripciones" icon="add-document">
-    Crea formularios para captar fans desde tu web.
-
-    [Ver guías →](/suscripciones/crear-formulario/)
-  </Card>
-  <Card title="Segmentación" icon="puzzle">
-    Crea audiencias ultra específicas por comportamiento, compra y consumo.
-
-    [Ver guías →](/segmentacion/motor-segmentacion/)
-  </Card>
-  <Card title="Campañas" icon="email">
-    Crea campañas de email, SMS y WhatsApp, diseña plantillas y lee sus resultados.
-
-    [Ver guías →](/campanas/crear-primera-campana/)
-  </Card>
-  <Card title="Paid Media" icon="bars">
-    Mide tus anuncios de Meta, Google y TikTok en un solo panel.
-
-    [Ver guías →](/paid-media/introduccion/)
-  </Card>
-  <Card title="Analítica" icon="list-format">
-    Métricas de eventos, audiencia, campañas, atribución y entregabilidad.
-
-    [Ver guías →](/analitica/)
-  </Card>
-  <Card title="Entregabilidad" icon="approve-check">
-    Activa tus canales, configura tu dominio y cuida tu reputación de envío.
-
-    [Ver guías →](/entregabilidad/activar-canales/)
-  </Card>
-  <Card title="Herramientas" icon="external">
-    Magic Links para acortar enlaces y medir cada clic.
-
-    [Ver guías →](/herramientas/magic-links/)
-  </Card>
-  <Card title="Chatbot" icon="comment">
-    Un asistente que responde a tus fans en tu web en tiempo real.
-
-    [Ver guías →](/chatbot/configuracion/)
-  </Card>
-  <Card title="Superapp" icon="rocket">
-    La app móvil para tus fans: home, onboarding y notificaciones push.
-
-    [Ver guías →](/superapp/introduccion/)
-  </Card>
-  <Card title="Nevent AI" icon="open-book">
-    Conecta tu CRM con Claude o ChatGPT y pregúntale en lenguaje natural.
-
-    [Empezar →](/nevent-ai/)
-  </Card>
-</CardGrid>
-
-## Saca más partido a tus datos
-
-Cuando ya envías, estas guías te ayudan a leer los resultados y mejorar.
-
-<CardGrid>
-  <Card title="Entiende tus resultados" icon="bars">
-    Aprende a leer el informe de cada campaña: aperturas, clics, rebotes y bajas, con el foco puesto en qué decisión tomar.
-
-    [Informe de campaña →](/campanas/informe/resultados/)
-  </Card>
-  <Card title="Mejora con buenas prácticas" icon="approve-check">
-    Consejos concretos para que tus campañas lleguen, se abran y vendan más entradas.
-
-    [Buenas prácticas →](/campanas/mejores-practicas/)
-  </Card>
-</CardGrid>
-
-## Habla con tu CRM en lenguaje natural
+## Pregúntale a tu CRM
 
 <Card title="Nevent AI" icon="rocket">
-  Conecta Nevent con Claude o ChatGPT y pregunta por tus campañas, segmentos, métricas o paid ads sin abrir un solo panel. Sin SQL, sin esperas.
-
-  *"Créame un segmento de asistentes que compraron VIP en 2025 pero no han abierto un email en 90 días."*
+  Conecta Nevent con Claude o ChatGPT y pregunta por tus campañas, segmentos o métricas en lenguaje natural. Sin SQL, sin esperas.
 
   [Conéctalo en 2 minutos →](/nevent-ai/conectar-claude/)
 </Card>
