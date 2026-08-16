@@ -1,0 +1,229 @@
+---
+title: "Playbook: recupera carritos abandonados"
+description: "Cómo identificar el segmento de carrito abandonado en Nevent y lanzarle una campaña de email de recuperación que puede convertir entre el 15 % y el 30 % de esos abandonos."
+diataxis: how-to
+faqs:
+  - q: "¿Cuánto tiempo tengo para enviar el email de recuperación?"
+    a: "La ventana eficaz es de 6 a 12 horas desde el abandono. Después de 72 horas la intención de compra decae y el recordatorio puede resultar intrusivo en lugar de oportuno."
+  - q: "¿Necesito ofrecer un descuento para recuperar el carrito?"
+    a: "No siempre. Muchos abandonos son de distracción, no de objeción de precio. Un recordatorio amable con el asunto correcto suele ser suficiente. Reserva el incentivo (descuento por tiempo limitado, upgrade) para los casos en que la primera campaña no convierte."
+  - q: "¿Puedo usar WhatsApp en lugar de email para este playbook?"
+    a: "Sí, siempre que tengas WhatsApp activado en Ajustes > Canales y una plantilla de la categoría Marketing aprobada por Meta. El proceso de creación de campaña es el mismo; solo cambia el canal en el paso 2 del asistente."
+  - q: "¿Qué pasa si el evento ya vendió todas las entradas antes de que envíe el email?"
+    a: "No envíes el email. Un recordatorio a alguien cuya entrada ya no está disponible genera frustración. Comprueba el stock disponible antes de lanzar la campaña y descártala si ya no hay entradas del tipo que abandonaron."
+  - q: "¿Cómo sé si la campaña recuperó ventas?"
+    a: "Consulta el informe de la campaña en Mis campañas. La columna Ingresos en el listado de campañas muestra los ingresos atribuidos al envío. Contrasta también la tasa de clic: si está por encima del 5 % y hay ingresos registrados, la campaña está funcionando."
+---
+
+import { Aside, CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+Este playbook te guía paso a paso para identificar a los fans que dejaron una compra a medias y enviarles una campaña de email de recuperación antes de que pierdan el interés. El proceso completo lleva menos de 20 minutos la primera vez.
+
+## Para quién es este playbook
+
+Para promotores de eventos que usan Nevent y tienen datos de intención de compra integrados desde su sistema de ticketing. Si los datos de carrito abandonado ya están fluyendo a Nevent, puedes seguir este playbook sin ayuda técnica.
+
+Si no sabes si tienes ese dato disponible, consulta con tu equipo de Nevent antes de empezar.
+
+## Cuándo usarlo
+
+Activa este playbook siempre que tengas ventas abiertas y quieras maximizar la conversión de tu tráfico activo. Los momentos de mayor impacto son:
+
+- **Primeros días de venta**, cuando hay entusiasmo y el evento es novedad.
+- **Cierre de una fase de precios** (por ejemplo, al acabarse los early birds), porque la urgencia temporal reduce la fricción.
+- **Cuando te quedan pocas entradas** de una categoría: la escasez añade motivación real.
+
+No lo uses si el evento ya no tiene entradas disponibles o si el abandono fue hace más de 72 horas. Pasada esa ventana, la intención de compra ha decaído y el contexto ha cambiado.
+
+---
+
+## Fase 1: crea el segmento de carrito abandonado
+
+El punto de partida de este playbook es un segmento que capture exactamente a las personas con intención de compra no completada. Nevent incluye el criterio **Carrito abandonado** dentro de la categoría de engagement digital.
+
+### Qué debe incluir el segmento
+
+Según el [caso de uso documentado para carrito abandonado](/segmentacion/casos/carrito-abandonado/), el segmento debe reunir a fans que cumplan todas estas condiciones a la vez:
+
+- Iniciaron el proceso de compra (selección de entradas o llegada al checkout) en las **últimas 24-48 horas**.
+- **No completaron** la transacción (sin compra confirmada).
+- **No están en la lista de supresión** (sin unsubscribe activo ni rebote duro).
+
+Si quieres un enfoque más preciso, puedes añadir un filtro adicional por tipo de entrada (por ejemplo, solo abandonos de VIP o de Early Bird) para concentrar el impacto en las categorías que más te interesa recuperar.
+
+### Cómo construirlo en Nevent
+
+Sigue la guía [Cómo crear un segmento](/segmentacion/motor-segmentacion/crear-segmento/) y configura los filtros de esta manera:
+
+1. Ve a **Audiencia > Segmentos** y pulsa **Nuevo segmento**.
+2. Ponle un nombre descriptivo: por ejemplo, "Carrito abandonado - Demo Fest 2026 - 24h".
+3. En la categoría **Engagement**, selecciona el criterio **Carrito abandonado** con el operador **En las últimas** y el valor **48 horas** (o 24 horas si quieres una ventana más ajustada).
+4. Añade un segundo filtro con la condición de que **no tengan compra completada** para ese evento.
+5. Añade un tercer filtro para **excluir a los que tienen unsubscribe o rebote duro activo**. Puedes hacerlo con los criterios de **Unsubscribe** y **Bounce** de la misma categoría de engagement, usando la lógica Y / NO. Consulta la referencia completa de criterios de engagement en [Engagement y comportamiento digital](/segmentacion/capacidades/engagement/).
+6. Usa la **previsualización** del segmento antes de guardar: te muestra cuántos fans cumplen los criterios y algunos perfiles de ejemplo. Si el resultado es cero, revisa que el dato de carrito abandonado esté disponible en tu cuenta.
+
+<Aside type="note">
+La disponibilidad del criterio de carrito abandonado puede variar según la configuración de tu cuenta. Si no lo ves en la categoría Engagement, consulta con tu equipo de Nevent para verificar que la integración con tu sistema de ticketing está activa.
+</Aside>
+
+Cuando el segmento tenga fans, guárdalo. El tamaño esperado es pequeño (decenas o centenares de personas según tu tráfico), pero es el segmento con mayor ratio de conversión de toda tu base.
+
+---
+
+## Fase 2: prepara la plantilla del email de recuperación
+
+Antes de crear la campaña necesitas una plantilla de email específica para este mensaje. Si ya tienes una, ve directamente a la fase 3.
+
+Si necesitas crearla, sigue la guía [Cómo diseñar plantillas de email](/campanas/plantillas-email/). Para un email de recuperación de carrito, la estructura que mejor funciona es:
+
+- **Asunto directo y reconocible**: algo como "Te quedaste a un paso" o "Tus entradas para [nombre del evento] siguen disponibles". El asunto es el factor que más influye en si el email se abre. Mantenlo por debajo de 40 caracteres para que se lea completo en móvil.
+- **Texto de vista previa**: usa este campo para reforzar el asunto con un segundo mensaje, por ejemplo "Solo quedan X entradas". Esto aparece junto al asunto en la bandeja de entrada.
+- **Imagen del evento** (bloque Hero o Image): el cartel o foto del recinto activa el recuerdo visual de por qué el fan estaba a punto de comprar.
+- **Un único botón de llamada a la acción** (bloque Button): lleva directamente a la página de compra. Un botón claro y visible es el factor que más influye en la tasa de clic.
+- **Mensaje breve y amable**: no hace falta un texto largo. Tres o cuatro líneas que recuerden al fan qué evento es, cuándo es y que todavía quedan entradas.
+
+<Aside type="tip">
+Clona una plantilla que ya tengas funcionando y modifica solo el asunto, el texto y el botón. Así mantienes la identidad visual del evento y ahorras tiempo de diseño.
+</Aside>
+
+Una vez lista la plantilla, envíate una prueba desde el editor (botón **Testear**) para comprobar que el diseño se ve bien en móvil y que el enlace del botón es correcto.
+
+---
+
+## Fase 3: crea y programa la campaña
+
+Con el segmento guardado y la plantilla lista, crea la campaña siguiendo los 8 pasos del asistente de Nevent. La guía completa está en [Cómo crear tu primera campaña](/campanas/crear-primera-campana/).
+
+Estos son los pasos clave para este playbook en concreto:
+
+### Paso 1: nombre de la campaña
+
+Usa un nombre que incluya el evento, el tipo de campaña y la fecha. Por ejemplo: "Demo Fest 2026 - Recuperación carrito - 16 ago". Te ayudará a encontrarla en la lista y a interpretar los resultados después.
+
+### Paso 2: canal
+
+Selecciona **Email**. Es el canal disponible por defecto y el que mejor funciona para este tipo de recuperación. El asistente te muestra las opciones de canal disponibles en tu cuenta.
+
+Si tienes WhatsApp activado en **Ajustes > Canales** y quieres usarlo como segundo impacto (no en lugar del email, sino además), puedes crear una segunda campaña con el mismo segmento y canal WhatsApp unas horas después del email.
+
+### Paso 3: plantilla
+
+Elige la plantilla de recuperación que preparaste en la fase 2. El panel derecho muestra una vista previa completa antes de confirmar.
+
+### Paso 5: audiencia
+
+Selecciona el segmento de carrito abandonado que creaste en la fase 1. El asistente te mostrará el número de usuarios del segmento y los destinatarios estimados (la diferencia son los que ya tienen email no válido o están dados de baja, que Nevent excluye automáticamente).
+
+### Paso 6: asunto y UTMs
+
+Escribe el asunto que preparaste en la plantilla. Usa el campo **Personalizar** para insertar el nombre de pila del destinatario si lo tienes: los asuntos personalizados suelen tener mayor tasa de apertura.
+
+Añade también el **texto de vista previa** para aprovechar ese segundo espacio visible en la bandeja de entrada.
+
+### Paso 7: programación
+
+Aquí está una de las decisiones más importantes del playbook.
+
+**El momento óptimo de envío es entre 6 y 12 horas después del abandono.** En ese intervalo, el contexto del fan todavía está activo: recuerda haber estado buscando entradas y el email llega como un recordatorio natural, no como publicidad intrusiva.
+
+Usa la opción **Programar envío** para fijar la hora exacta. Por ejemplo, si los abandonos se registran principalmente entre las 19:00 y las 22:00 de un día, programa el envío para las 9:00-11:00 del día siguiente.
+
+<Aside type="tip">
+Evita programar el envío en franja nocturna (entre las 23:00 y las 7:00). El email llegará en el momento de menor actividad y quedará enterrado bajo otros mensajes cuando el fan abra el móvil por la mañana.
+</Aside>
+
+### Paso 8: revisión y lanzamiento
+
+Revisa el resumen completo antes de lanzar: segmento, asunto, plantilla, canal y programación. Cada campo tiene un icono de lápiz para corregir sin salir del paso. Cuando todo esté correcto, pulsa **Lanzar campaña** (o **Guardar borrador** si quieres revisarlo más tarde).
+
+---
+
+## Fase 4: mide el resultado
+
+Una vez enviada la campaña, los resultados aparecen en el informe. Accede desde **Campañas > Mis campañas**, haz clic en el nombre de la campaña y revisa las secciones del informe.
+
+### Qué métricas mirar
+
+La guía detallada para interpretar métricas está en [Cómo interpretar los resultados de tu campaña](/campanas/informe/resultados/). Para este playbook, las métricas clave son:
+
+| Métrica | Qué indica para este playbook | Referencia saludable |
+|---|---|---|
+| Tasa de apertura | Si el asunto y el momento de envío fueron acertados | Por encima del 25 % |
+| Tasa de clic | Si el email generó intención de compra real | Por encima del 5 % |
+| Ingresos atribuidos | Las ventas directamente recuperadas por la campaña | Variable; depende del precio de la entrada |
+
+Si quieres ver qué contactos concretos abrieron o clicaron el email, ve a la sección **Interacción** del informe y usa el filtro desplegable. La guía está en [Quién abrió y clicó tu campaña](/campanas/informe/aperturas-y-clics/).
+
+### Cómo interpretar los ingresos atribuidos
+
+La columna **Ingresos** en el listado de campañas te muestra los ingresos que Nevent atribuye a esta campaña. Para un segmento de carrito abandonado bien ejecutado, los rangos orientativos de recuperación son del 15 % al 30 % de los abandonos registrados: si tienes 100 personas en el segmento y el email llega bien, espera entre 15 y 30 compras adicionales.
+
+### Si la tasa de apertura es baja
+
+Revisa el asunto y el nombre del remitente. Los destinatarios tienen que reconocer quién les escribe. Si el remitente no está configurado con el nombre de tu promotora o del evento, corrígelo en **Ajustes** antes del siguiente envío.
+
+### Si la tasa de clic es baja pero la apertura es alta
+
+El email se abre pero no convierte. Revisa que el botón de llamada a la acción sea claro, esté visible sin necesidad de hacer scroll y lleve a la URL correcta de compra.
+
+---
+
+## Errores habituales que debes evitar
+
+**Enviar el email demasiado tarde.** Pasadas las 72 horas desde el abandono, el contexto ha cambiado: el fan ya tomó otra decisión o simplemente ya no recuerda haber estado a punto de comprar. El email llega como publicidad, no como recordatorio.
+
+**No comprobar el stock antes de enviar.** Si el evento ya no tiene entradas de la categoría que el fan abandonó, el email solo generará frustración. Verifica el stock disponible antes de lanzar la campaña.
+
+**Usar un asunto genérico.** "Completa tu compra" es menos efectivo que "Tus entradas para Demo Fest siguen aquí". Cuanto más específico y reconocible sea el asunto, mayor será la tasa de apertura.
+
+**Incluir demasiados mensajes en el mismo email.** Un email de recuperación tiene un único objetivo: que el fan termine la compra. No añadas noticias del lineup, fechas de otros eventos ni promociones cruzadas. Un botón, un mensaje, un objetivo.
+
+**Saturar con demasiados impactos.** Un email de recuperación es suficiente como primer impacto. Si lanzas un segundo (por ejemplo, por WhatsApp unas horas después), asegúrate de excluir del segundo envío a los que ya compraron tras el primero para no molestar a quien ya convirtió.
+
+---
+
+## Resumen del proceso
+
+| Fase | Qué haces | Herramienta en Nevent | Tiempo estimado |
+|---|---|---|---|
+| 1 | Crea el segmento de carrito abandonado | Audiencia > Segmentos | 5 minutos |
+| 2 | Prepara la plantilla de email de recuperación | Campañas > Plantillas | 10 minutos |
+| 3 | Crea y programa la campaña | Campañas > Nueva campaña | 5 minutos |
+| 4 | Revisa los resultados | Campañas > Mis campañas | 5 minutos |
+
+---
+
+## Guías relacionadas
+
+<CardGrid>
+  <LinkCard
+    title="Caso de uso: carrito abandonado"
+    href="/segmentacion/casos/carrito-abandonado/"
+    description="Todos los detalles del segmento: criterios, variaciones, cuándo no usarlo y resultados esperados."
+  />
+  <LinkCard
+    title="Engagement y comportamiento digital"
+    href="/segmentacion/capacidades/engagement/"
+    description="Los criterios de apertura, clic, conversión y carrito disponibles en el motor de segmentación."
+  />
+  <LinkCard
+    title="Cómo crear un segmento"
+    href="/segmentacion/motor-segmentacion/crear-segmento/"
+    description="Tutorial paso a paso para construir cualquier segmento en Nevent."
+  />
+  <LinkCard
+    title="Cómo crear tu primera campaña"
+    href="/campanas/crear-primera-campana/"
+    description="Los 8 pasos del asistente de campaña, con capturas de cada pantalla."
+  />
+  <LinkCard
+    title="Cómo interpretar los resultados"
+    href="/campanas/informe/resultados/"
+    description="Qué significan las métricas de apertura, clics e ingresos y cómo actuar sobre ellas."
+  />
+  <LinkCard
+    title="Quién abrió y clicó tu campaña"
+    href="/campanas/informe/aperturas-y-clics/"
+    description="Cómo ver la lista individual de contactos que interactuaron con el email."
+  />
+</CardGrid>

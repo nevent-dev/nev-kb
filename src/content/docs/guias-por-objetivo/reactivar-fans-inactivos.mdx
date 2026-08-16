@@ -1,0 +1,210 @@
+---
+title: "Reactiva a tus fans inactivos"
+description: "Cómo crear el segmento de fans inactivos de alto valor y lanzarles una campaña de reactivación desde Nevent."
+diataxis: how-to
+faqs:
+  - q: "¿Cuántos fans necesito tener en la base para que este playbook tenga sentido?"
+    a: "Al menos doce meses de historial de compras y una base con suficiente volumen para que el segmento resultante tenga más de cincuenta contactos. Si tu base es muy nueva o pequeña, el segmento puede quedar vacío porque aún no hay suficientes datos de gasto y asistencia pasados."
+  - q: "¿Qué umbral de gasto debo usar para definir 'alto valor'?"
+    a: "Depende de tu distribución de gasto. Un punto de partida habitual es el percentil 60 o 70 de tu base: el 30-40 por ciento de fans que más han gastado históricamente. Si no estás seguro, empieza con un umbral concreto en euros, revisa cuántos fans entran en el segmento y ajústalo hasta tener entre 50 y 500 contactos para un primer envío."
+  - q: "¿Puedo combinar este segmento con el perfil RFM automático de Nevent?"
+    a: "Sí. Los perfiles 'At Risk' y 'Can't Lose Them' del modelo RFM son, en la práctica, las definiciones automáticas de fans inactivos de alto valor. Puedes usar directamente esos perfiles como criterio de segmentación, o construir el segmento manual con gasto histórico más días desde la última asistencia si quieres más control sobre los umbrales exactos."
+  - q: "¿Con qué frecuencia puedo repetir esta campaña?"
+    a: "No más de una vez cada dos o tres meses hacia el mismo segmento. Si repites demasiado pronto, saturas a la misma audiencia y reduces la efectividad de cada envío. Deja pasar al menos un evento entre campaña y campaña dirigida a estos fans."
+  - q: "¿Qué canal funciona mejor para reactivar fans inactivos?"
+    a: "El email es el canal principal para este tipo de campaña: permite un mensaje más largo, con imagen del evento y botón de compra, y tiene buenas tasas de apertura en audiencias que ya conocen tu marca. Si tienes WhatsApp activado, puedes usarlo como segundo toque unos días después para los que no abrieron el email, pero requiere una plantilla aprobada y una redacción muy concisa."
+---
+
+import { Aside, CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+Este playbook te guía, paso a paso, para identificar a los fans que más gastaron en tus eventos pero llevan más de doce meses sin volver, y lanzarles una campaña personalizada que los traiga de vuelta.
+
+## Para quién es este playbook
+
+Para promotores de eventos en vivo que ya tienen una base de fans consolidada con al menos un año de historial de compras. Si tienes fans que antes venían con frecuencia y ahora no aparecen, este playbook te ayuda a recuperarlos antes de que los pierdas definitivamente.
+
+No necesitas conocimientos técnicos. Solo necesitas acceso a Nevent con el módulo de segmentación y campañas activo.
+
+## Cuándo usarlo
+
+Usa este playbook cuando vayas a lanzar un evento que conecte con tu programación histórica y quieras una primera oleada de recuperación antes de abrirte a audiencias nuevas. Es especialmente útil si:
+
+- Llevas varios meses sin hacer campañas de reactivación.
+- Tu base ha crecido mucho y tienes fans "enterrados" con alto valor potencial.
+- Quieres maximizar el revenue del lanzamiento antes de invertir en captación de nuevos fans.
+
+No lo uses si el evento que vas a lanzar es muy diferente a tu cartera histórica, si ya hiciste una campaña de reactivación en los últimos dos o tres meses, o si tu base tiene menos de seis meses de antigüedad.
+
+---
+
+## Fase 1: Crea el segmento de fans inactivos de alto valor
+
+El segmento combina dos condiciones que deben cumplirse a la vez: alto gasto pasado e inactividad reciente. Es la misma lógica que Nevent aplica automáticamente en los perfiles RFM "At Risk" y "Can't Lose Them", pero puedes construirla de forma manual si quieres controlar los umbrales con precisión.
+
+### Paso 1.1: Abre el constructor de segmentos
+
+Ve a **Audiencia > Segmentos** y haz clic en **Nuevo segmento**. Ponle un nombre descriptivo que te permita identificarlo luego, por ejemplo: `Reactivacion_AltoValor_[mes][año]`.
+
+Para aprender los conceptos básicos del constructor antes de seguir, consulta la guía [Cómo crear un segmento](/segmentacion/motor-segmentacion/crear-segmento/).
+
+### Paso 1.2: Añade el criterio de alto gasto histórico
+
+El primer filtro identifica a los fans que históricamente han gastado por encima de la media.
+
+1. Selecciona la categoría **Gasto y consumo**.
+2. Elige el criterio **Gasto total histórico**.
+3. Pon el operador **Mayor que** y escribe el umbral en euros que corresponda a tu distribución. Un punto de partida habitual es el percentil 60-70 de tu base, es decir, el 30-40 por ciento de fans que más han gastado.
+
+Si no estás seguro del valor exacto, empieza con un número concreto (por ejemplo, 150€), mira cuántos fans entran en la preview y ajusta hasta tener una audiencia de entre 50 y 500 contactos.
+
+Para entender bien qué representa el gasto total y cómo combinarlo con otros criterios, consulta la referencia [Gasto y consumo: segmentar fans por valor económico](/segmentacion/capacidades/gasto-y-consumo/).
+
+<Aside type="tip">
+Si prefieres no definir el umbral a mano, puedes usar directamente el criterio de perfil RFM y seleccionar "At Risk" o "Can't Lose Them". Son los perfiles que Nevent calcula automáticamente para fans de alto valor que están dejando de comprar. Consulta la referencia [RFM automático: 11 perfiles de fans](/segmentacion/capacidades/rfm/) para entender qué significa cada perfil.
+</Aside>
+
+### Paso 1.3: Añade el criterio de inactividad
+
+El segundo filtro identifica a los fans que llevan más de doce meses sin asistir a ninguno de tus eventos.
+
+1. Mantén activa la lógica **Y** para que ambas condiciones se cumplan a la vez.
+2. Selecciona la categoría **Asistencia a eventos**.
+3. Elige el criterio **Días desde última asistencia**.
+4. Pon el operador **Mayor que** y escribe `365`.
+
+Puedes ajustar la ventana temporal según tu objetivo. Una ventana de seis meses captura fans en riesgo más reciente; una ventana de dieciocho o veinticuatro meses barre fans muy dormidos. Para entender bien este criterio y sus variantes, consulta la referencia [Asistencia a eventos: segmentar por historial de compra](/segmentacion/capacidades/asistencia/).
+
+### Paso 1.4: Añade el filtro de exclusión (opcional pero recomendado)
+
+Excluye a los fans que ya tienen entrada comprada para tu próximo evento. No tiene sentido enviarles un mensaje de venta a quien ya ha comprado.
+
+1. Añade un nuevo criterio con lógica **Y NO**.
+2. Selecciona la categoría **Asistencia a eventos**.
+3. Elige el criterio **Asistencia futura**.
+4. Marca que el fan no tiene entrada comprada para el evento que vas a lanzar.
+
+### Paso 1.5: Previsualiza y guarda el segmento
+
+Antes de guardar, revisa la preview. Un segmento sano para este caso suele representar entre el 3 y el 8 por ciento de tu base total: una audiencia compacta y de alto valor. Si el segmento tiene menos de 50 fans, amplía el umbral de gasto o la ventana temporal. Si tiene más del 15 por ciento de tu base, probablemente el umbral de gasto es demasiado bajo y la audiencia ha perdido precisión.
+
+Guarda el segmento con el nombre descriptivo que elegiste en el paso 1.1.
+
+---
+
+## Fase 2: Prepara el email de reactivación
+
+Antes de crear la campaña necesitas una plantilla de email diseñada para este contexto. No uses la misma plantilla que para una campaña de venta genérica: el tono aquí es diferente.
+
+### Paso 2.1: Diseña la plantilla
+
+Ve a **Campañas > Plantillas** y crea una nueva plantilla o clona una existente que tengas.
+
+El mensaje de reactivación tiene tres elementos clave que deben aparecer con claridad:
+
+- **Reconocimiento**: menciona que el fan ya conoce tu programación. No te presentes como si fuera la primera vez. Un encabezado del tipo "Te echamos de menos en [nombre de tu festival o ciclo de conciertos]" funciona mejor que un texto comercial genérico.
+- **El evento concreto**: imagen, nombre, fecha y lugar. No supongas que el fan va a buscar información: dásela en el email.
+- **Un motivo para actuar**: un precio de acceso anticipado, un acceso preferente a la compra antes de la venta general, o simplemente la urgencia real del aforo. No inventes escasez si no existe, pero si hay un límite real de entradas, dilo.
+
+Para saber cómo usar el editor visual y añadir bloques de imagen, texto y botón de llamada a la acción, consulta la guía [Cómo diseñar plantillas de email](/campanas/plantillas-email/).
+
+<Aside type="note">
+El asunto del email es lo que decide si te abren. Para una campaña de reactivación, un asunto que combine el nombre del evento con una referencia personal o temporal suele funcionar bien: "Demo Fest vuelve en octubre, y tú también puedes" o "Lleva tiempo sin verte por aquí". Cuida la longitud: en móvil se ven unos 40 caracteres, así que pon lo importante al principio.
+</Aside>
+
+---
+
+## Fase 3: Crea y lanza la campaña
+
+Con el segmento guardado y la plantilla lista, el proceso de creación de campaña es directo.
+
+### Paso 3.1: Crea la campaña
+
+Desde la pantalla de inicio, pulsa **+ Crear campaña**. El asistente tiene ocho pasos. Para recorrerlos todos, consulta la guía [Cómo crear tu primera campaña](/campanas/crear-primera-campana/).
+
+Los pasos más importantes para este playbook son:
+
+- **Canal**: selecciona **Solo Email**. Es el canal principal para este tipo de campaña.
+- **Contenido**: elige la plantilla que creaste en la fase anterior.
+- **Audiencia**: selecciona el segmento de fans inactivos de alto valor que guardaste en la fase 1.
+- **Asunto**: escribe el asunto que preparaste. Usa el botón "Personalizar" para insertar el nombre de pila del destinatario si lo tienes disponible.
+- **Programación**: elige la fecha y hora de envío. Los martes, miércoles y jueves por la mañana, entre las 9h y las 12h, suelen ser el momento en que más se abren los emails en audiencias de eventos en vivo. Consulta la analítica de tus eventos para ver el patrón específico de tu base.
+
+### Paso 3.2: Revisa antes de lanzar
+
+En el paso de revisión, comprueba:
+
+- Que el segmento seleccionado es el correcto y los destinatarios estimados tienen sentido.
+- Que el asunto y el remitente son los que preparaste.
+- Que el coste estimado en créditos es asumible con tu saldo disponible.
+
+Si algo no está bien, usa los iconos de lápiz para volver al paso correspondiente sin perder lo que ya configuraste.
+
+Cuando todo esté correcto, pulsa **Lanzar campaña**.
+
+---
+
+## Fase 4: Mide los resultados
+
+Unas horas después del envío, abre el informe de la campaña desde **Campañas > Mis campañas** y haz clic en el nombre de la campaña enviada.
+
+### Métricas principales a revisar
+
+Consulta la guía [Cómo interpretar los resultados de tu campaña](/campanas/informe/resultados/) para leer el bloque de métricas. Los rangos orientativos para una campaña de reactivación son:
+
+| Métrica | Resultado saludable | Señal de alerta |
+|---|---|---|
+| Tasa de entrega | Por encima del 95% | Por debajo del 90% |
+| Tasa de apertura | Por encima del 25% | Por debajo del 15% |
+| Tasa de clic | Por encima del 5% | Por debajo del 2% |
+
+Para campañas de reactivación hacia fans que ya conocen tu marca, la tasa de apertura suele estar por encima de la media general de tu base, precisamente porque el fan reconoce el remitente aunque lleve tiempo sin interactuar.
+
+### Quién abrió y quién no
+
+En la sección **Interacción** del informe puedes filtrar por "Abiertos" para ver exactamente qué fans respondieron. Consulta la guía [Quién abrió y clicó tu campaña](/campanas/informe/aperturas-y-clics/) para aprender a usar ese filtro.
+
+Con esa lista puedes hacer dos cosas útiles:
+
+- Crear un segmento con los que abrieron pero no compraron, para enviarles un segundo toque con otro asunto o un incentivo adicional.
+- Crear un segmento con los que no abrieron para intentarlo de nuevo con un asunto diferente unos días después.
+
+---
+
+## Errores frecuentes
+
+**Enviar al segmento completo de tu base en lugar de al segmento de inactivos.** El mensaje de reactivación no tiene sentido para fans activos o para nuevos contactos. Asegúrate de haber seleccionado el segmento correcto antes de lanzar.
+
+**Usar un umbral de gasto demasiado bajo.** Si incluyes a casi todos tus fans en el segmento, pierdes la personalización que hace efectivo este tipo de campaña. El segmento debe ser compacto y de alto valor, no un envío masivo disfrazado.
+
+**No excluir a quienes ya tienen entrada.** Enviar un email de "vuelve a comprarnos" a alguien que ya compró crea confusión y puede generar bajas innecesarias.
+
+**Repetir la campaña demasiado pronto.** Si vuelves a enviar al mismo segmento antes de que hayan pasado dos o tres meses, o antes de que haya un nuevo evento relevante, la efectividad cae y el riesgo de bajas sube.
+
+**No revisar el asunto.** El asunto es el factor que más influye en si te abren. Dedica tiempo a escribir varios y quédate con el más claro y directo. Consulta las [Buenas prácticas para tus campañas](/campanas/mejores-practicas/) para más orientación sobre asuntos, frecuencia y momento de envío.
+
+---
+
+## Siguientes pasos
+
+<CardGrid>
+  <LinkCard
+    title="Caso: reactivar fans inactivos de alto valor"
+    href="/segmentacion/casos/reactivar-fans-inactivos/"
+    description="Lee el caso completo de segmentación con rangos reales, variaciones y estimaciones de conversión."
+  />
+  <LinkCard
+    title="RFM automático: 11 perfiles de fans"
+    href="/segmentacion/capacidades/rfm/"
+    description="Entiende los perfiles At Risk y Can't Lose Them que Nevent calcula automáticamente."
+  />
+  <LinkCard
+    title="Buenas prácticas para tus campañas"
+    href="/campanas/mejores-practicas/"
+    description="Asunto, frecuencia, momento de envío y cómo limpiar tu lista."
+  />
+  <LinkCard
+    title="Cómo interpretar los resultados"
+    href="/campanas/informe/resultados/"
+    description="Lee las métricas de tu campaña y sabe qué hacer si las tasas son bajas."
+  />
+</CardGrid>
