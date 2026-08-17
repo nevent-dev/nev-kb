@@ -8,6 +8,7 @@ source:
 docs:
   repo: nevent-dev/nev-kb
   content_path: src/content/docs
+  site_url: https://help.nevent.ai
   framework: starlight
   languages: [es, en]
   style_guide: CLAUDE_GUIDE.md
