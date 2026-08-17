@@ -1,0 +1,61 @@
+---
+title: Trazabilidad de enlaces y rendimiento del chatbot
+diataxis: how-to
+description: "Activa la trazabilidad de enlaces de tu chatbot y consulta el Rendimiento del asistente para saber qué recomendaciones generan clics y ventas."
+sidebar:
+  order: 5
+  badge:
+    text: 'Nuevo'
+    variant: tip
+---
+
+Cuando tu asistente recomienda un evento o una página de tu documentación, puede enlazar con un enlace corto medible en lugar de la URL desnuda. Así sabes cuántas veces el chatbot empuja hacia la venta y cuántos de esos enlaces se acaban clicando.
+
+En esta guía verás cómo activar la trazabilidad de enlaces en la configuración del chatbot y cómo leer la página **Rendimiento del asistente**. Unos 5 minutos.
+
+## Paso 1: Activa la trazabilidad de enlaces
+
+En el menú lateral, dentro de la sección **Chatbot**, entra en **Configuración** y abre la pestaña **Enlaces trackeados**.
+
+Encontrarás tres interruptores que puedes activar de forma independiente:
+
+- **Enlaces de venta**: las recomendaciones de eventos usan un enlace corto estable por evento, con los parámetros de campaña del chatbot. Permite contar clics por evento.
+- **Atribución por conversación**: añade a cada enlace un identificador de la conversación que lo generó. Habilita el CTR conversacional y el bloque «Empuje a venta» de la página de rendimiento.
+- **Enlaces de documentación**: envuelve también los enlaces que salen de tu base de conocimiento (horarios, normas, FAQs) con la misma atribución.
+
+Cada interruptor se guarda al instante, sin necesidad de un botón de confirmación.
+
+![Pestaña "Enlaces trackeados" de la configuración del chatbot de Demo Fest con los tres interruptores activados: Enlaces de venta, Atribución por conversación y Enlaces de documentación, cada uno con su descripción.](/images/guias/chatbot/trazabilidad-de-enlaces/paso-1-enlaces-trackeados.png)
+
+:::note[Nota]
+**Atribución por conversación** requiere que **Enlaces de venta** esté activado; sin él, ese ajuste no tiene efecto. Además, hay un máximo de 200 enlaces nuevos al día por recinto: al superarlo, las respuestas usan la URL original.
+:::
+
+## Paso 2: Consulta el Rendimiento del asistente
+
+En el menú lateral, dentro de **Chatbot**, haz clic en **Rendimiento**. La página se abre por el bloque **Empuje a venta**, que resume qué generan los enlaces que el asistente pone en la conversación.
+
+Con los botones **7 días**, **30 días** y **90 días** eliges el período que quieres analizar. La página trabaja con cuatro indicadores:
+
+- **Recomendaciones con enlace**: cuántas veces el asistente ofreció un enlace.
+- **Clics desde el chat**: clics que salieron de la conversación, separando los de personas de los automatizados.
+- **Conversaciones que hicieron clic**: qué porcentaje de las conversaciones que recibieron una recomendación acabaron con clic.
+- **Otros clics**: clics en enlaces compartidos o antiguos, que no cuentan en los indicadores de arriba.
+
+Debajo, una tabla por destino muestra el tipo de enlace, la URL corta, el número de recomendaciones, los clics y la fecha del último clic.
+
+![Página "Rendimiento del asistente" de Demo Fest con el bloque Empuje a venta: el selector de 7/30/90 días, los indicadores Recomendaciones con enlace (3), Clics desde el chat (3), Conversaciones que hicieron clic (100%) y Otros clics (5), y la tabla por destino con el evento Demo Fest 2026.](/images/guias/chatbot/trazabilidad-de-enlaces/paso-2-rendimiento-del-asistente.png)
+
+:::tip[Consejo]
+La página es honesta con los datos aún incompletos: los clics recientes tardan en registrarse y algunos enlaces no se pueden rastrear con exactitud, así que los primeros días tómalo como una aproximación que irá creciendo. Los clics con un código que la plataforma no reconoce no cuentan en ninguna métrica.
+:::
+
+## Resultado
+
+Ya tienes la trazabilidad activada y sabes dónde ver el impacto de tu asistente. Cada vez que el chatbot recomienda un evento, ese enlace queda medido y aparece en el bloque **Empuje a venta**, para que puedas comprobar si tu asistente está ayudando a vender.
+
+## Siguiente paso
+
+- [Configura tu chatbot](/chatbot/configuracion) para ajustar instrucciones, documentos y fuentes de datos.
+- [Consulta tus Magic Links por destino](/herramientas/magic-links) para ver, junto a los enlaces manuales y de campañas, los que genera el asistente.
+- [Analiza tus campañas](/analitica/campanas) y cruza los clics del chatbot con el resto de tus métricas.
