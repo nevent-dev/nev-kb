@@ -1,0 +1,29 @@
+# Manifiesto docs-autopilot para Nevent
+# Las skills genéricas (nev-skills/operaciones) leen este fichero.
+project: nevent
+source:
+  repo: nevent-dev/nev-admin-web
+  branch: main
+  lookback_days: 7
+docs:
+  repo: nevent-dev/nev-kb
+  content_path: src/content/docs
+  framework: starlight
+  languages: [es, en]
+  style_guide: CLAUDE_GUIDE.md
+  validators: [scripts/validate-docs.mjs, scripts/style-guard.mjs]
+app:
+  url: https://admin.nevent.es
+  auth_secret_ref: ADMIN_DEMO_CREDS   # nombre del secreto, nunca el valor
+judge:
+  user_facing_labels: [feature, ux, enhancement]
+  ignore_labels: [chore, refactor, infra, test, ci, docs]
+publish:
+  strategy: auto-merge
+  quality_gate: true
+  max_fix_attempts: 3
+notify:
+  slack_channel: nevent-alerts
+  webhook_url: https://nevent.app.n8n.cloud/webhook/docs-autopilot-notify
+diataxis:
+  default_type: how-to
