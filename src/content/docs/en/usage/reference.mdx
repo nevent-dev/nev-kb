@@ -1,0 +1,144 @@
+---
+title: "Plan and Billing Reference"
+diataxis: reference
+description: Complete description of the Billing Center tabs in Nevent, the credits included in the plan, and the additional packs.
+sidebar:
+  order: 10
+faqs:
+  - q: "Where is the plan and billing managed in Nevent?"
+    a: "In Settings, inside the Account and plan section, under Billing Center. The direct URL is /settings/billing."
+  - q: "What credits does the Enterprise plan include?"
+    a: "The Enterprise plan includes 2,000 credits per month. The counter is shown in the Packs tab with the detail of how many have been consumed in the current month."
+  - q: "What happens to my data if I cancel the plan?"
+    a: "According to the notice shown in the Summary tab, cancelling means you lose access to all premium features at the end of the billing cycle, but your data stays secure for an additional 30 days."
+  - q: "What is a credit pack?"
+    a: "A pack is a block of additional credits you can buy to extend consumption beyond the credits included in the monthly plan. In the Packs tab you can see the history of purchased packs."
+  - q: "How do I see the full history of packs?"
+    a: "In the Packs tab, inside the My packs block, turn on the Include history selector. By default the selector shows Active only."
+---
+
+This page describes the structure and content of Nevent's Billing Center. It serves as a reference for what each tab contains, what data the system shows, and what actions are available. It doesn't explain how to perform tasks step by step; see the area's how-to guides for that.
+
+## How to access the Billing Center
+
+Path: **Settings > Account and plan > Billing Center**
+
+Direct URL: `/settings/billing`
+
+The screen's header shows the title "Billing Center" with the subtitle "Manage your billing details and check your invoices."
+
+---
+
+## Available tabs
+
+The Billing Center has five tabs. The tab active by default is Summary.
+
+| Tab | Parameter URL |
+|---|---|
+| Summary | `/settings/billing` (default) |
+| Payment method | Not determined |
+| Packs | `/settings/billing?tab=credit-packs` |
+| Invoices | Not determined |
+| Tax details | Not determined |
+
+---
+
+## Summary tab
+
+Shows the general status of the subscription, historical spend, and the cancellation option.
+
+### Current subscription block
+
+| Field | Reference value (DEMO FEST) |
+|---|---|
+| Status | Active |
+| Plan name | Enterprise Plan |
+| Price | 250.00 EUR / month |
+| Available action | "Change plan" button |
+
+### Spending History block
+
+- Title: "SPENDING HISTORY"
+- Subtitle: "Last 12 months. VAT included"
+- Shows the accumulated spend for the last 12 months. If there's no activity on the tenant, the text "No data" appears.
+
+### Cancel subscription block
+
+- Title: "Cancel subscription"
+- Informational text: "By cancelling, you'll lose access to all premium features at the end of the cycle. Your data will stay secure for an additional 30 days."
+- Available action: "Cancel plan" button.
+
+---
+
+## Payment method tab
+
+The content of this tab hasn't been explored in detail in the available sources. No fields or actions are described.
+
+---
+
+## Packs tab
+
+Shows the credits included in the plan and the history of purchased additional packs.
+
+### Credits block
+
+This block summarizes the status of the current month's credit consumption.
+
+| Field | Reference value (DEMO FEST, August 2026) |
+|---|---|
+| Source | Enterprise Plan, current month |
+| Active packs | 0 active packs |
+| Available credits | 2,000 available credits |
+| Month's consumption | 0 / 2,000 credits (0%) |
+
+When there are no active additional packs, the system shows the text "No active packs" and the "Buy pack" button.
+
+### My packs block
+
+- Title: "My packs"
+- Subtitle: "Full history of purchased packs."
+- Filter selector with two options: "Active only" (default value) and "Include history."
+- If no pack has been purchased, the text "You don't have any packs purchased yet" appears.
+
+---
+
+## Invoices tab
+
+The content of this tab hasn't been explored in detail in the available sources. No fields or actions are described.
+
+---
+
+## Tax details tab
+
+The content of this tab hasn't been explored in detail in the available sources. No fields or actions are described.
+
+---
+
+## Key data for the Enterprise plan (reference)
+
+| Data | Value |
+|---|---|
+| Plan name | Enterprise |
+| Status | Active |
+| Price | 250.00 EUR / month |
+| Included credits | 2,000 per month |
+
+Credits renew every month. The detail of how many credits each action consumes (campaigns, SMS, push notifications, etc.) isn't visible in the Billing Center; it's shown on the plan usage screen, accessible from the user menu.
+
+---
+
+## What this screen doesn't show
+
+The following data isn't available in the Billing Center as observed:
+
+- The credit cost of each type of action or channel.
+- The plan comparison shown when pressing "Change plan" (action not explored).
+- The price of additional credit packs (purchase action not explored).
+- The breakdown of consumption by channel (email, SMS, push). That breakdown is on the plan usage screen, not here.
+- The per-channel limits included in the Enterprise plan.
+
+---
+
+## Related content
+
+- [Your Usage Plan: Email and SMS Credits](/en/usage/your-usage-plan) to see real-time consumption per channel and the renewal date.

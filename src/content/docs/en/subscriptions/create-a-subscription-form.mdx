@@ -1,0 +1,178 @@
+---
+title: Create a Subscription Form
+diataxis: how-to
+description: Learn how to create a subscription form in Nevent, configure its fields, adjust its design, and install it on your website. About 10 minutes.
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+
+With a subscription form you can capture the email of anyone who visits your website: fans who haven't bought a ticket yet, people who want to know when you open sales, attendees from past editions. When someone fills it in, Nevent adds them to your database and you can send them campaigns from that moment on.
+
+In this guide you'll create your first form, configure what data it asks for, adjust its design, and install it on your website. About 10 minutes.
+
+## Before you start
+
+:::caution[Important: legal details required]
+To activate a subscription form, your organization needs two legal details on file: your legal business name and your privacy policy URL. Without them, Nevent won't let you activate the form or install the widget.
+
+If you see the red "Missing tenant legal details" notice when you enter Subscriptions, click **Complete legal details** before continuing with this guide.
+:::
+
+## Step 1: Open the Subscriptions section
+
+In the left side menu, inside the **Audience** block, click **Subscriptions**.
+
+You'll see the list of all your organization's forms. Each row shows the name, the status (active or paused), the number of subscribers, and the creation date.
+
+Click the **+ Create subscription** button in the top right corner.
+
+## Step 2: Fill in the basic information
+
+The creation wizard has three steps. The first is **Basic information**.
+
+Fill in the fields you need:
+
+- **Subscription name:** an internal name to identify the form, for example "Website Newsletter 2025." The fan doesn't see it.
+- **Description:** optional. Helps your team understand what this form is for.
+- **Folders:** if you organize your forms into folders, you can assign it here.
+
+On the right panel you'll see a real-time preview of the form as you configure it.
+
+Once you've written the name, the **Next** button becomes active. Click it.
+
+## Step 3: Configure the form's fields
+
+In step 2 of the wizard you define what data the form will ask the person subscribing.
+
+By default, the **Email** field is always included and can't be removed: it's the minimum data needed to send campaigns.
+
+To add more fields, click the **Add field...** dropdown. A selector opens with the available fields.
+
+The available fields are:
+
+- **First name**, **First surname**, **Second surname**
+- Custom fields you've created in your organization
+
+Click the field you want to add and it will appear in the list. You can drag it to change the order.
+
+### Configure each field
+
+Clicking any field's arrow expands it and lets you adjust three things:
+
+- **Custom label:** the text the person will see above the field. By default it's "Name," but you can write whatever you want.
+- **Placeholder text:** the grey text that appears inside the field when it's empty, as an example.
+- **Help text:** an optional sentence that appears below the field to guide the user.
+
+You can also mark a field as **required** with the asterisk icon, or remove it with the trash icon.
+
+Once you have the fields you need, click **Next**.
+
+:::note[Note]
+Only the "Email" field is required. All other fields are optional and you can remove them without any issue.
+:::
+
+## Step 4: Adjust the visual design
+
+The third and final step of the wizard is **Visual supplements**. Here you decide whether you want to customize the form's look now or later.
+
+You have two options:
+
+- **Customize now:** you get access to the design controls directly in this step.
+- **I'll do it later:** the form is created with the default design and you can adjust it later from the Appearance section.
+
+If you choose **Customize now**, three groups of controls unfold:
+
+**Colors**
+
+Four color pickers for the form's background, button, text, and border.
+
+**Typography and spacing**
+
+Font selector, sliders for the title and subtitle size, and controls for border radius, inner padding, and spacing between elements.
+
+The preview on the right updates in real time as you adjust the values.
+
+Once you're happy with it, click **Create subscription**.
+
+## The panel of the created form
+
+Once the form is created, Nevent takes you to its management panel. From here you control everything related to that form. The left side menu shows all the available sections.
+
+<CardGrid>
+  <Card title="Summary" icon="bars">
+    Overview with the form's metrics: total views, subscribers captured, and conversion rate.
+  </Card>
+  <Card title="General" icon="setting">
+    Edit the form's name, description, and folders at any time.
+  </Card>
+  <Card title="Fields" icon="list-format">
+    Add, remove, or reorder the form's fields after creating it.
+  </Card>
+  <Card title="Appearance" icon="pencil">
+    Edit the colors, typography, and spacing. Also the title, subtitle, and button text.
+  </Card>
+  <Card title="Automations" icon="puzzle">
+    Configure which folders or custom fields get automatically assigned to each person who subscribes.
+  </Card>
+  <Card title="Subscribers" icon="open-book">
+    List of everyone who has subscribed: email, name, status, and subscription date.
+  </Card>
+  <Card title="Installation" icon="document">
+    The code you paste into your website to display the form.
+  </Card>
+</CardGrid>
+
+## Step 5: Customize the appearance
+
+Go to the **Appearance** section in the form's side menu.
+
+Here you can edit both the form's content and its visual look. The left panel groups the options into collapsible sections: Content, Legal text, Container, Title, Subtitle, Input fields, CTA button, and Advanced. The preview on the right updates as you make changes.
+
+In the **Content** section you can change the title, description, and button text your visitor will see. When you make changes, click **Save**.
+
+## Step 6: Install the form on your website
+
+Go to the **Installation** section in the form's side menu.
+
+You'll see the **installation code** ready to copy. It's an HTML snippet: a `div` container where the form will appear, the library script, and a configuration block with your form's identifier.
+
+The steps to install it:
+
+1. Click **Copy code**.
+2. Paste it into your website: in the `<body>` of your HTML, in a WordPress custom code block, or in the scripts section of your web editor (Webflow, Squarespace, Wix, etc.).
+3. The form appears instantly on that page.
+
+:::tip[Tip]
+You don't need to know how to code to install it. In WordPress, look for the "Custom HTML" or "Code" block. In Webflow, use the "Embed" component. In Wix, use "HTML Code" in the page editor.
+:::
+
+The same screen includes a **CSS customization** section with variables for adjusting colors, typography, and borders if you want to go further than the visual Appearance controls.
+
+## Step 7: Configure the automations
+
+Go to the form's **Automations** section.
+
+Here you can configure two things that happen automatically every time someone subscribes:
+
+- **Automatic folder assignment:** choose one or more of your organization's folders. Every new subscriber will be assigned to those folders instantly, with nothing for you to do.
+- **Automatic custom field assignment:** if you have custom fields in your organization, like "Source" or "Capture festival," you can give them a fixed value for everyone who joins through this form.
+
+:::tip[Tip]
+Use automatic folder assignment to know where your subscribers come from. For example, create a folder called "Website 2025" and assign it to this form. That way you can create segments or filter campaigns for just the fans captured on your website this year.
+:::
+
+## Result
+
+You now have your form configured and ready to receive subscribers in Nevent.
+
+To see who has subscribed, go to the form's **Subscribers** section: you'll see their email, name (if you asked for it), confirmation status, and subscription date. You can export the full list with the **Export subscribers** button.
+
+:::note[Note]
+Each subscriber's status can be "Confirmed" or "Unsubscribed." A person moves to "Unsubscribed" if they click the unsubscribe link on any campaign. Nevent honours that unsubscribe automatically and stops including them in marketing campaigns.
+:::
+
+## Next step
+
+- [Import Existing Contacts](/en/audience/import-fans) if you have a list of fans from past editions you want to add to Nevent without going through the form.
+- [A Fan's Profile](/en/audience/fan-management) to understand what data Nevent stores about each person in your database.
+- [Create a Segment](/en/segmentation/segmentation-engine/creating-a-segment/) to group the subscribers captured by this form and send them a specific campaign.
