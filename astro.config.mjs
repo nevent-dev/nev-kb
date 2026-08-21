@@ -7,6 +7,7 @@ import starlightLlmsTxt from 'starlight-llms-txt';
 import starlightPageActions from 'starlight-page-actions';
 import remarkGfm from 'remark-gfm';
 import fixI18nLinks from './scripts/fix-i18n-links.mjs';
+import llmsEn from './scripts/llms-en.mjs';
 
 // https://astro.build/config
 export default defineConfig({
@@ -801,6 +802,6 @@ export default defineConfig({
 		// fallback-page "Copy Markdown" links and /en/en/ double prefixes so that
 		// no internal URL relies on Starlight's naive /en/ prefix swap (ES and EN
 		// trees use different slugs). See scripts/fix-i18n-links.mjs.
-		fixI18nLinks(),
+		fixI18nLinks(), llmsEn(),
 	],
 });
