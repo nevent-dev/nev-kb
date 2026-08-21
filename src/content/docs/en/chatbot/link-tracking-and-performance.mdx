@@ -1,0 +1,67 @@
+---
+title: "Link tracking and chatbot performance"
+diataxis: how-to
+description: "Turn on link tracking for your chatbot and check the Assistant performance page to see which recommendations generate clicks from the conversation."
+sidebar:
+  order: 5
+  badge:
+    text: 'New'
+    variant: tip
+---
+
+When your assistant recommends an event or a page from your documentation, it can link with a measurable short link instead of the bare URL. That way you know how many times the chatbot pushes toward a sale and how many of those links actually get clicked.
+
+In this guide you'll see how to turn on link tracking in the chatbot configuration and how to read the **Assistant performance** page. About 5 minutes.
+
+## Step 1: Turn on link tracking
+
+In the side menu, inside the **Chatbot** section, go to **Configuration** and open the **Tracked links** tab.
+
+You'll find three switches you can turn on independently:
+
+- **Sales links**: event recommendations use a stable short link per event, with the chatbot's campaign parameters. Lets you count clicks per event.
+- **Per-conversation attribution**: adds an identifier for the conversation that generated it to each link. Enables conversational CTR and the "Push to sale" block on the performance page.
+- **Documentation links**: also wraps links coming from your knowledge base (schedules, rules, FAQs) with the same attribution.
+
+Each switch saves instantly, with no confirmation button needed.
+
+:::note[Note]
+**Per-conversation attribution** requires **Sales links** to be turned on; without it, that setting has no effect. There's also a maximum of 200 new links per day per venue: once exceeded, responses use the original URL.
+:::
+
+## Step 2: Check the Assistant performance page
+
+In the side menu, inside **Chatbot**, click **Performance**. The page opens on the **Push to sale** block, which summarizes what the links the assistant places in the conversation generate.
+
+With the **7 days**, **30 days** and **90 days** buttons you choose the period to analyze. The page works with four indicators:
+
+- **Recommendations with link**: how many times the assistant offered a link.
+- **Clicks from chat**: clicks that came from the conversation, separating human clicks from automated ones.
+- **Conversations that clicked**: what percentage of conversations that received a recommendation ended with a click.
+- **Other clicks**: clicks on shared or old links, which don't count toward the indicators above.
+
+Below, a table by destination shows the link type, the short URL, the number of recommendations, the clicks and the date of the last click.
+
+:::tip[Tip]
+The page is honest about data that's still incomplete: recent clicks take time to register and some links can't be tracked exactly, so treat the first few days as an approximation that will keep growing. Clicks with a code the platform doesn't recognize don't count toward any metric.
+:::
+
+## Also check what your bot couldn't resolve
+
+The most useful data point isn't always the one that's going up. Go to the [inbox](/en/chatbot/inbox/) and look for conversations marked as **Escalated**, or the ones with an agent **In progress**. Open them and read what people were asking.
+
+That's, literally, what your bot still needs to learn, in your audience's own words. The fix is almost always simple: add that answer to your [reference documents or instructions](/en/chatbot/configuration/), so it already has it next time.
+
+:::caution[A click isn't a sale]
+Chatbot conversations are anonymous, so measurement only goes as far as the click on the link and isn't joined to any purchase that happens afterward. These indicators tell you the conversation ended in an action, not how much it sold.
+:::
+
+## Result
+
+You now have tracking turned on and know where to see your assistant's impact. Every time the chatbot recommends an event, that link gets measured and shows up in the **Push to sale** block, so you can check whether your assistant is driving people toward a purchase.
+
+## Next step
+
+- [Configure your chatbot](/en/chatbot/configuration/) to adjust instructions, documents and data sources.
+- [Check your Magic Links by destination](/en/tools/magic-links/) to see, alongside your manual and campaign links, the ones the assistant generates.
+- [Analyze your campaigns](/en/analytics/campaigns/) and cross-reference the chatbot's clicks with the rest of your metrics.

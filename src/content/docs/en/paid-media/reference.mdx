@@ -1,0 +1,98 @@
+---
+title: "Paid Media reference"
+diataxis: reference
+description: "Reference tables for the platforms the module aggregates, the global panel metrics, campaign states, available objectives and campaign table columns."
+faqs:
+  - q: "Which advertising platforms does Nevent aggregate in the Paid Media module?"
+    a: "Nevent aggregates campaigns from Meta, TikTok and Google in a single panel. The data comes from the ad accounts you've connected to your organization."
+  - q: "What does the Archived state mean for a campaign?"
+    a: "An Archived campaign is a historical campaign that's no longer active or paused. Its metric columns show dashes (--) in the panel."
+  - q: "Why does ROAS show up as dashes (--) in the panel?"
+    a: "ROAS only appears when the platform returns attributed revenue data. If no data is available for the selected period or for the connected account, the cell appears empty with dashes."
+  - q: "What's the difference between Results and Cost per result?"
+    a: "Results is the total number of actions obtained (clicks, visits or conversions, depending on the campaign's objective). Cost per result is the total spend divided by that number of actions, i.e. how much it costs on average to get each one."
+  - q: "Can I search for a campaign by name?"
+    a: "Yes. The panel includes a free-text search field that filters the table by campaign name."
+---
+
+This page collects, in tables, all the reference information for the Paid Media area: platforms the module aggregates, global panel metrics, available filters, campaign states, campaign objectives and table columns. This isn't a step-by-step guide; for that, see the how-to pages in this area.
+
+## Aggregated platforms
+
+Nevent centralizes campaigns from the following three platforms. The data comes from the ad accounts connected to your organization.
+
+| Platform | Description |
+|------------|-------------|
+| Meta | Facebook and Instagram Ads campaigns managed from Meta Ads Manager. |
+| TikTok | TikTok Ads campaigns managed from TikTok Ads Manager. |
+| Google | Google Ads campaigns managed from Google Ads. |
+
+Nevent doesn't create ads. Ads are always created and edited on their corresponding source platform.
+
+## Global panel metrics
+
+The panel header shows four indicators for the selected period and platform. Each indicator includes the percentage change versus the previous period.
+
+| Metric | Definition |
+|---------|------------|
+| Spend | Total ad investment in euros for the selected period and platform. |
+| Results | Total number of results obtained. The type of result depends on each campaign's objective (it can be clicks, visits, leads or conversions). |
+| Cost per result | Total spend divided by the number of results. Shows how much it costs on average to get one result. |
+| ROAS | Return on Ad Spend. Attributed revenue divided by spend. A ROAS of 5 means that for every euro invested, five euros of revenue are attributed. It only appears when the platform returns revenue data; otherwise it shows as dashes (--). |
+
+## Panel filters
+
+The filters are available in the bar between the metrics header and the campaign table. Changing any filter updates the indicators and the table.
+
+| Filter | Available options | Default value |
+|--------|---------------------|-------------------|
+| Period | 7 days, 14 days, 30 days, Maximum, Custom range | 7 days |
+| Platform | Meta, TikTok, Google | Meta |
+| Campaign status | All, Active, Paused | All |
+| Name search | Free-text field | (empty) |
+
+## Campaign states
+
+| State | Description | Behavior in the table |
+|--------|-------------|---------------------------|
+| Active | The campaign is serving ads and generating real-time data. | Metric columns show numeric values. |
+| Paused | The campaign is temporarily stopped and generates no new data. | Metric columns show dashes (--). |
+| Archived | The campaign is historical. Neither active nor paused. | Metric columns show dashes (--). |
+
+Paused and archived campaigns generate no spend or results during the time they stay in that state, so their columns appear empty in the panel.
+
+## Campaign objectives
+
+The objective indicates what result the campaign is meant to achieve. Nevent shows the objective exactly as defined by the source platform.
+
+| Objective | Description |
+|----------|-------------|
+| Awareness | Maximize the number of people who see the ad (impressions and reach). |
+| Traffic | Drive people to a URL, such as an event's ticket sales page. |
+| Lead generation | Capture contact details from people interested in the event. |
+| Sales | Get direct conversions, such as the purchase of a ticket or a product. |
+
+## Campaign table columns
+
+The table columns are configurable via the "Visible columns" selector. The following are the columns visible by default.
+
+| Column | Description |
+|---------|-------------|
+| PLAT. | Icon of the campaign's source platform (Meta, TikTok or Google). |
+| CAMPAIGN | Campaign name as it appears on the source platform. |
+| STATUS | Current campaign status: Active, Paused or Archived. |
+| OBJECTIVE | Campaign objective (see the objectives table). |
+| SPEND | Investment in euros for the selected period. |
+| IMPR. | Impressions: number of times the campaign's ads were shown to users. |
+| REACH | Number of unique people who saw at least one ad from the campaign. |
+| CLICKS | Number of clicks on the campaign's ads. |
+| CTR | Click-through rate. Percentage of impressions that resulted in a click. |
+| RESULTS | Number of results obtained according to the campaign's objective. |
+| COST/RESULT | Spend divided by the number of results. |
+| ROAS | Return on Ad Spend for that campaign in the selected period. Shows as dashes (--) when no data is available. |
+
+Paused or archived campaigns show dashes (--) in every metric column.
+
+## Data refresh indicator
+
+The panel includes an indicator showing how long ago the data was synced from the source platforms (for example, "19 min ago").

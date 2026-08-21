@@ -1,0 +1,176 @@
+---
+title: "Set up your email delivery"
+diataxis: tutorial
+description: "A first guided walkthrough of email sending in Nevent. Review your sender, provision your sending infrastructure and add your own domain."
+sidebar:
+  order: 0
+faqs:
+  - q: "Do my emails still send if I haven't provisioned any component?"
+    a: "Yes. With Nevent's shared domain, emails go out from day one. Provisioning improves reputation isolation, but it isn't a requirement to get started."
+  - q: "How long does provisioning the subdomain and the SES Tenant take?"
+    a: "Nevent indicates it can take several minutes. A single click on the button is enough; there's no need to repeat it."
+  - q: "What's the difference between the shared domain and a custom domain?"
+    a: "With the shared domain, your emails go out from a Nevent subdomain shared by every account on the platform. With a custom domain, your emails go out from your own domain, which improves deliverability and makes your contacts see your own brand as the sender."
+  - q: "Is it mandatory to set up a custom domain?"
+    a: "No. It's optional. The shared domain works fine to get started. A custom domain is recommended when you want to improve inbox placement and reinforce your organization's image."
+  - q: "What are SPF, DKIM and DMARC?"
+    a: "They're technical records created in your domain provider's DNS panel. They prove to mail servers that your emails are legitimate and not from an impostor. Nevent generates them automatically during the custom domain wizard."
+---
+
+In this tutorial you'll take the first steps to correctly configure email sending in Nevent. You'll start by reviewing which address your campaigns send from and what state your account's technical components are in. Then, if needed, you'll learn to provision those components and add your own domain.
+
+By the end, you'll know exactly how your email delivery is configured and have a clear picture of the two steps you can take to improve it.
+
+The full walkthrough takes about 10 minutes.
+
+## What you need
+
+- Access to the Nevent admin panel with an administrator role.
+- If you're going to set up a custom domain: know your root domain (for example, `yourfestival.com`) and have access to your domain provider's DNS panel.
+
+If you only want to review the current state without changing anything, you don't need any extra requirement.
+
+## Part 1: review your current sending configuration
+
+### Step 1: go to Email sending
+
+In the side menu, scroll down to the bottom. Inside the **Advanced** group, click **Email sending**.
+
+The "Email sending" screen opens with three blocks: the effective sending address, the domain type, and the status of the technical components.
+
+### Step 2: check your address and domain type
+
+The first block shows the **Effective sending address**: the address your contacts receive your campaigns from. Below it, your organization's name appears with the note "via Nevent".
+
+The **Domain type** field shows whether you're using Nevent's shared domain or your own custom domain.
+
+If you see "Shared domain", your emails go out from a Nevent subdomain shared by every account on the platform. This works fine to get started. If you want your contacts to see your own domain as the sender, you need to set up a custom domain (we'll do that in Part 2).
+
+### Step 3: review the status of the technical components
+
+The **Component status** block shows three elements that work together so your emails arrive well and don't end up in spam.
+
+**Automatic subdomain**
+A unique, verified subdomain in AWS (Nevent's sending provider) that gives your account its own reputation, separate from the rest of the platform's users. When active, mail servers like Gmail or Outlook associate the reputation of your sends with only your account.
+
+**Configuration Sets**
+These are the tracking settings inside AWS SES (the email sending service Nevent uses). They control which events from your campaigns get logged: opens, clicks, bounces and complaints. Nevent creates them together with the subdomain.
+
+**SES Tenant**
+A dedicated sending account inside AWS SES. When this component is active, your emails go out from isolated infrastructure. That way, if another Nevent account has reputation issues, it doesn't affect you.
+
+:::note[Initial state]
+If all three components show as "Not configured", "Not configured" or "Not created", your account is still using the standard shared domain. Your emails keep sending normally: you just share reputation with other Nevent senders.
+:::
+
+Make a mental note of each component's state. You'll use it in the next step.
+
+### Step 4: provision your domain and components (if not active)
+
+If all three components show as not configured and you want to move to your own sending infrastructure, click the **Provision domain and create SES Tenant** button.
+
+Clicking it makes Nevent automatically create the subdomain, the configuration sets and the SES Tenant in your account. The process can take several minutes.
+
+:::caution[Important]
+Don't click the button several times. A single click is enough. If after several minutes the components still don't show as configured, contact the Nevent support team.
+:::
+
+When the process finishes, all three components will switch to active status and your account will have its own reputation within Nevent's infrastructure.
+
+You've completed Part 1. You now know which address your emails send from, which domain you're using, and what state the technical components are in. If you don't need your own domain, you can stop here.
+
+---
+
+## Part 2: add your custom domain (optional)
+
+This part is optional. You need it if you want your emails to arrive from your own domain, for example `email.yourfestival.com`, instead of Nevent's shared domain. This improves the delivery rate and reinforces your organization's image with your contacts.
+
+You'll need your root domain and access to your domain provider's DNS panel.
+
+### Step 5: go to Custom domain
+
+In the side menu, click **Settings**. Inside Settings, find the **Workspace** group in the left-hand secondary menu. Click **Custom domain**.
+
+The module's welcome screen opens. You can read the three benefits described on screen (improving the delivery rate, reinforcing your brand image, and protecting your reputation via SPF, DKIM and DMARC), then click **Start setup** to open the wizard.
+
+### Step 6: enter your root domain
+
+The wizard shows the first step. Type your root domain in the field, without `www` or `https://`. For example: `yourfestival.com`.
+
+:::tip[Tip]
+Use exactly the same domain that appears on your website. If your website is `www.myvenue.com`, your root domain is `myvenue.com`.
+:::
+
+Once the field has a valid value, the **Next** button activates. Click it to continue.
+
+### Step 7: choose your sending subdomain
+
+In the second step, you define the subdomain Nevent will use to send your emails.
+
+By default, the field already suggests `email`. That means your campaigns' sender will be `email.yourfestival.com`. You can change it to another prefix if you prefer, though `email` is the most common choice.
+
+To the right of the field you can see how the full subdomain will look. Click **Next** once you're happy with it.
+
+### Step 8: confirm and generate the DNS records
+
+The third step shows a summary with the root domain and the full subdomain you chose. Review that both values are correct. If you spot an error, click **Back** to fix it.
+
+Once everything looks right, click **Set up domain**. Nevent generates the DNS records you'll need to create with your provider.
+
+:::caution[Important]
+Clicking "Set up domain" makes Nevent generate the DNS records for your account. Don't click that button several times: once is enough.
+:::
+
+### Step 9: create the DNS records with your provider
+
+After confirming, Nevent shows the DNS records you need to copy and paste into your domain provider's panel.
+
+The records are grouped into four types:
+
+| Record type | What it's for |
+|---|---|
+| **DKIM** (CNAME-type records) | A digital signature that proves the email was sent by you and not a third party |
+| **SPF** (a TXT-type record) | A list of servers authorized to send on behalf of your domain |
+| **MAIL FROM** (an MX-type record) | The technical bounce address; improves domain reputation |
+| **DMARC** (a TXT-type record) | A policy telling mail servers what to do if an email fails SPF or DKIM |
+
+For each record, copy the Name, Type and Value fields using the copy icon next to each one. Then go to your provider's DNS panel and create each record with those values.
+
+:::tip[Tip]
+Open your provider's panel in a new window and keep this Nevent screen open in another. Copy and paste each record one at a time to avoid mistakes.
+:::
+
+:::caution[Important]
+DKIM values are long strings of text. Don't transcribe them by hand: always use the copy button to avoid errors.
+:::
+
+### Step 10: verify the record status
+
+Once you've created every record with your provider, go back to Nevent and click the **Verify status** button.
+
+Nevent checks whether the records are already visible on the internet. Depending on your provider, propagation can take anywhere from a few minutes to 72 hours. If any record shows as "Pending" when you check, wait a few hours and try again.
+
+:::note[Note]
+You don't have to wait for everything to be verified before closing the screen. You can leave and come back later to check the status.
+:::
+
+Once every record is verified, your custom domain will become active and your next email campaigns will send from your own subdomain.
+
+---
+
+## Result
+
+You've completed email sending setup in Nevent. Now you know:
+
+- Which address your campaigns send from and what type of domain you're using.
+- What the automatic subdomain, configuration sets and SES Tenant are, and how to provision them.
+- How to add your own domain to improve deliverability and your brand image.
+
+:::tip[Tip]
+If, after 72 hours, a DNS record is still "Pending", check in your provider's panel that you copied the name and value exactly as Nevent shows them. An extra space or an incorrect character can prevent verification.
+:::
+
+## Next steps
+
+- [Sender reputation: how to avoid spam](/en/deliverability/sender-reputation-and-spam/) to understand the habits that protect your emails' arrival in the inbox.
+- [Activate your communication channels](/en/deliverability/activate-your-channels/) to review your sender, email signature, SMS, WhatsApp and Analytics.

@@ -1,0 +1,197 @@
+---
+title: "How the Nevent chatbot works"
+description: >
+  Discover what Nevent's chatbot is, how it combines instructions, voice,
+  documents and data sources to answer your fans, and its response language.
+diataxis: explanation
+faqs:
+  - q: "Does the chatbot use my event's information automatically?"
+    a: >
+      Yes. When you activate data sources such as the artist lineup, the venue
+      or ticket details, the chatbot queries that information in real time
+      without you having to copy it manually. You can turn each source on or
+      off independently.
+  - q: "What language does the chatbot use to answer my fans?"
+    a: >
+      The chatbot detects the language the visitor writes in and answers in
+      that same language, as long as the assistant supports it. In the Demo
+      Fest inbox, conversations have been observed in Spanish, Dutch, Japanese
+      and Romanian.
+  - q: "What happens if I don't define custom instructions?"
+    a: >
+      The chatbot stays active and can still answer using the data sources
+      and documents you've uploaded. Without instructions, it applies a
+      generic behavior. Instructions let you give it a personality,
+      priorities and restrictions specific to your event.
+  - q: "Can I upload any type of reference document?"
+    a: >
+      Supported formats are PDF, TXT, MD and DOCX, with a maximum size of
+      10 MB per document. The document must be processed correctly (status
+      "Ready") for the chatbot to be able to consult it.
+  - q: "Can the chatbot hand off to a human agent?"
+    a: >
+      Yes. From the inbox, any team member can take control of a
+      conversation manually. When that happens, the bot stops responding and
+      the agent writes directly to the fan.
+---
+
+The Nevent chatbot is a virtual support assistant that answers your fans'
+questions in real time from your website or landing page. This page explains
+how it works under the hood: where it gets its information from, what role
+each configuration layer plays, and why the system is designed this way.
+
+## What the Nevent chatbot is
+
+The chatbot is an artificial intelligence assistant that you install on your
+event's website to handle attendee questions without your team having to
+respond to every message. When someone asks about doors opening times, the
+lineup artists or how to top up cashless credit, the bot answers instantly
+with your event's information.
+
+It isn't a fixed question-and-answer chatbot. The assistant generates
+natural-language responses by combining several layers of information that
+the promoter controls.
+
+## The four layers that make up every response
+
+When a fan writes a message, the chatbot composes its reply from four layers
+that work together. Understanding each one helps explain why the bot answers
+the way it does and how to improve it.
+
+### 1. Custom instructions
+
+Instructions are the core of the assistant's behavior. Here you define who
+the bot is, what it prioritizes and how it acts in each situation. For
+example, you can tell it to call itself "Official Demo Fest Assistant", use
+an informal tone, prioritize information about access, or always offer the
+support email when it doesn't know the answer.
+
+The field accepts up to 5,000 characters of free-form natural language text.
+You don't need to know how to code. Writing style, on the other hand, is
+managed separately in the voice layer.
+
+### 2. The assistant's voice
+
+Voice defines how the assistant sounds when it writes: the vocabulary it
+uses, how long its sentences are, how formal it is. It's generated from real
+conversations your team has had. The platform recommends providing between
+two and six varied conversations (common questions, incidents, complaints)
+with a minimum of 500 words in total.
+
+The difference between instructions and voice is conceptual. Instructions say
+what to do; voice says how to say it. If you don't configure voice, the
+assistant writes with a generic default style.
+
+### 3. Reference documents
+
+These are files you upload that the bot can consult to give more precise
+answers: the venue guide, the event FAQ, access rules, the stage map.
+Supported formats are PDF, TXT, MD and DOCX, with a maximum size of 10 MB per
+document.
+
+When you upload a document, the platform processes it and sets it to
+"Ready" status. Only then can the chatbot read it. If the status isn't
+"Ready", the document isn't used.
+
+The logic is simple: the more complete and up to date the document, the more
+accurate the bot's answers will be. A well-written FAQ covering your event's
+common questions reduces the chance of the bot improvising or getting things
+wrong.
+
+### 4. Nevent data sources
+
+Data sources are the structured information that already exists in your
+Nevent account. Instead of manually copying that information into a
+document, the chatbot can query it in real time whenever the source is
+turned on.
+
+There are up to eight sources grouped into three blocks:
+
+**Event information:**
+The event's name, description and main image; the venue's physical location,
+dates and gate opening times; and the full lineup with set times, stages and
+featured artists.
+
+**User information:**
+The attendee's name, their assigned folders and current location; their
+loyalty points, tier reached and available benefits; and their ticket type,
+included experiences and purchased add-ons.
+
+**Additional information:**
+Points of interest, service locations and venue areas from the map; and the
+list of sponsor brands with their links.
+
+You can turn each source on or off independently. The reason for turning off
+sources you don't need is practical: the platform notes that unchecking
+unnecessary sources optimizes token usage. At Demo Fest, for example, the
+sponsors source is turned off, which explains the "7 of 8 sources active"
+marker visible in the status panel.
+
+## How the chatbot decides what to include in each response
+
+When a question comes in, the assistant combines what it knows from the four
+layers and generates a natural-language response. It doesn't look up a
+predefined answer; instead it reasons over the available information to
+build a reply appropriate to the context.
+
+The language model used by the assistant at Demo Fest is Gemini 3.5 Flash
+Lite, visible in the configuration's status panel.
+
+## What language the chatbot answers in
+
+The chatbot detects the language the visitor writes in and answers in that
+same language. This capability is automatic and requires no extra
+configuration from the promoter.
+
+In the Demo Fest inbox, active conversations have been observed in Spanish,
+Dutch, Japanese and Romanian, all handled by the same assistant.
+
+The widget has a default language setting (Spanish, English, Catalan or
+Portuguese), but if the page where it's installed declares another supported
+language, the widget adopts it automatically.
+
+## Tracked links and the push to sale
+
+When the chatbot recommends an event or links to documentation, it can use a
+measurable short link (with the nevt.link domain) instead of the original
+URL. This makes it possible to count how many clicks the assistant generates
+and attribute them to specific conversations.
+
+There's a limit of 200 new links per day per venue. If that's exceeded,
+responses go back to using the original URL with no tracking.
+
+This measurement layer is what feeds the "Push to sale" section in the
+performance panel, where the promoter can see how many link recommendations
+the bot made, how many clicks they generated, and what percentage of
+conversations resulted in a click.
+
+## The inbox and human intervention
+
+The chatbot isn't a closed channel. From the inbox, any team member can see
+the status of every conversation and take control of any of them in real
+time. When an agent steps in, the bot stops responding and the agent writes
+directly to the fan.
+
+Conversations have four possible states: bot in progress (the assistant is
+responding autonomously), in progress (a human agent has taken over),
+escalated (the bot couldn't resolve the query and is waiting for human
+attention) and resolved.
+
+This design lets the chatbot handle the high volume of repetitive questions,
+with human agents available for the cases that require judgment or
+information the bot doesn't have.
+
+## Why this layered architecture
+
+The separation into instructions, voice, documents and data sources responds
+to a specific goal: letting the promoter update each part without touching
+the others.
+
+If the lineup changes, the information is updated in the platform and the
+chatbot reflects it automatically through the "Artist lineup" source, with no
+need to edit any document or rewrite the instructions. If the festival's tone
+of voice changes, it's enough to adjust the voice or the instructions,
+without touching the event data.
+
+This modularity reduces maintenance work and lowers the risk of the bot
+working with outdated information.
