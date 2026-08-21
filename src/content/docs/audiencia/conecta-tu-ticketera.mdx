@@ -1,0 +1,83 @@
+---
+title: Cómo conectar tu ticketera a Nevent
+diataxis: tutorial
+description: Tutorial paso a paso para conectar tu ticketera a Nevent. En unos minutos tus fans empiezan a llegar solos, sin subir ningún archivo.
+sidebar:
+  order: 4
+faqs:
+  - q: "¿Necesito ayuda técnica para conectar mi ticketera?"
+    a: "No. Solo necesitas las credenciales que tu proveedor de ticketing te ha dado (usuario y contraseña, un token o una clave API, según el caso). No hace falta escribir código ni pedir ayuda a un desarrollador."
+  - q: "¿Conectar mi ticketera afecta a la venta de entradas?"
+    a: "No. La conexión solo permite que Nevent lea los datos de tus ventas y asistentes para construir tu audiencia. No toca precios, no modifica entradas y no interfiere con tu web de venta."
+  - q: "¿Qué pasa si me equivoco al escribir una credencial?"
+    a: "La integración no llega a activarse y no se borra ni se daña nada. Puedes volver a la pantalla de Integraciones, confirmar el dato con tu proveedor de ticketing y probar de nuevo."
+  - q: "¿Puedo desconectar la integración más adelante si cambio de ticketera?"
+    a: "Sí. Desde la misma pantalla de Integraciones puedes editar o eliminar la conexión cuando quieras, sin perder los fans que ya has importado hasta ese momento."
+---
+
+En esta guía vas a conectar tu ticketera a Nevent para que tus fans empiecen a entrar en tu audiencia de forma automática, sin que tengas que subir ningún archivo. Te llevará unos 5 minutos.
+
+No necesitas conocimientos técnicos. Solo necesitas tener a mano las credenciales que tu proveedor de ticketing te haya facilitado.
+
+## Antes de empezar
+
+Necesitas dos cosas:
+
+- **Acceso de administrador** a tu organización en Nevent.
+- **Las credenciales de tu ticketera.** Cada proveedor pide un tipo distinto: usuario y contraseña, un token de API o una clave API. Si no las tienes a mano, tu proveedor de ticketing te las puede facilitar desde su propio panel o su soporte.
+
+:::tip[Consejo]
+Si no sabes si tu ticketera está entre las disponibles, revisa la [referencia de integraciones](/audiencia/referencia-integraciones) antes de empezar. Así confirmas qué credencial exacta necesitarás.
+:::
+
+## Paso 1: Accede a Integraciones
+
+En el menú lateral, entra en **Configuración** y haz clic en **Integraciones**, dentro del bloque Operaciones.
+
+Verás la lista de integraciones que ya tiene activas tu organización. Si es la primera vez que conectas una fuente de datos, esta lista puede estar vacía o mostrar solo otras integraciones que no son de ticketing.
+
+![Pantalla de Integraciones de Nevent con una integración de Shopify activa y el botón "Añadir integración" en la esquina superior derecha](/images/guias/audiencia/conecta-tu-ticketera/paso-1-integraciones.png)
+
+## Paso 2: Elige tu proveedor de ticketing
+
+Haz clic en **Añadir integración**. Se abre un listado con todos los proveedores disponibles: Onebox, Fourvenues, Enterticket, Covermanager, DICE, CASFID, XCEED y Fever.
+
+Busca tu ticketera en la lista y lee la breve descripción para confirmar que es la tuya.
+
+![Ventana "Añadir integración" con las tarjetas de los proveedores disponibles, cada una con su descripción y un botón "Configurar"](/images/guias/audiencia/conecta-tu-ticketera/paso-2-listado-proveedores.png)
+
+:::note[Nota]
+Si tu proveedor no aparece en esta lista, no pasa nada. Tienes una alternativa en la guía [Qué hacer si tu ticketera no está integrada](/audiencia/mi-ticketera-no-esta-integrada).
+:::
+
+## Paso 3: Introduce tus credenciales
+
+Haz clic en **Configurar** sobre la tarjeta de tu proveedor. Se abre un formulario con los campos que ese proveedor necesita.
+
+Por ejemplo, si conectas Fourvenues, Nevent te pide dos claves: **Channel Manager API** e **Integrations API**. Otros proveedores piden un usuario y una contraseña, o una única clave API o token.
+
+![Formulario de configuración de Fourvenues con los campos "Channel Manager API" e "Integrations API" y el botón "Crear integración"](/images/guias/audiencia/conecta-tu-ticketera/paso-3-formulario-conexion.png)
+
+Copia y pega cada credencial en su campo correspondiente. Cuando termines, haz clic en **Crear integración**.
+
+:::caution[Importante]
+Trata estas credenciales como una contraseña: no las compartas por email ni las publiques en ningún sitio. Solo Nevent las necesita para leer tus datos de ventas.
+:::
+
+## Resultado
+
+En cuanto la conexión se activa, Nevent empieza a traer a tus fans de forma automática: cada venta y cada asistente de tu ticketera pasa a formar parte de tu audiencia en Nevent, sin que tengas que hacer nada más.
+
+![Listado de fans en Nevent mostrando contactos con nombre, correo electrónico y teléfono ya completados](/images/guias/audiencia/conecta-tu-ticketera/resultado.png)
+
+Ya tienes tu ticketera conectada. A partir de ahora, cada vez que alguien compre una entrada, aparecerá en tu lista de fans de forma automática.
+
+:::tip[Consejo]
+No necesitas revisar la integración a diario. Nevent se encarga de mantenerla sincronizada. Si alguna vez quieres editarla o eliminarla, la encuentras en el mismo listado de Integraciones.
+:::
+
+## Siguiente paso
+
+- [Por qué conectar tu ticketera cambia lo que puedes hacer](/audiencia/por-que-conectar-tu-ticketera) para entender la diferencia frente a importar un CSV.
+- [Crea tu primer segmento](/segmentacion/tu-primer-segmento) para empezar a agrupar a los fans que ya están entrando.
+- [Referencia de integraciones](/audiencia/referencia-integraciones) para consultar qué credencial necesita cada proveedor.

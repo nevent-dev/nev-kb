@@ -1,0 +1,54 @@
+---
+title: "Referencia de integraciones de ticketing y cashless"
+diataxis: reference
+description: "Consulta qué proveedores de ticketing y cashless puedes conectar en Nevent, qué categoría tiene cada uno y qué credencial necesitas para activarlo."
+sidebar:
+  order: 6
+faqs:
+  - q: "¿Dónde encuentro esta pantalla dentro de Nevent?"
+    a: "En el menú lateral, entra en Configuración y haz clic en Integraciones, dentro del bloque Operaciones. Ahí tienes dos pestañas: Integraciones y Tokens API. La lista de proveedores está en la pestaña Integraciones, dentro de Añadir integración."
+  - q: "¿Todos los proveedores de esta lista son ticketeras?"
+    a: "No todos. La mayoría pertenecen a la categoría Ticketing, pero CASFID es una integración de tipo Cashless, pensada para sincronizar consumo y saldo dentro del recinto, no ventas de entradas."
+  - q: "¿Puedo tener más de una integración activa a la vez?"
+    a: "Sí. Puedes conectar varias fuentes de datos en paralelo, por ejemplo tu ticketera y una integración cashless, y ambas alimentan tu audiencia de Nevent en paralelo."
+---
+
+Esta página recoge todos los proveedores de integración disponibles en Nevent en el momento de escribir esta guía, la categoría a la que pertenece cada uno y la credencial exacta que te pide el formulario de conexión.
+
+Úsala como consulta rápida antes de conectar una fuente de datos, para saber de antemano qué necesitas tener a mano.
+
+## Proveedores disponibles
+
+| Proveedor | Categoría | Qué necesitas para conectarlo |
+|---|---|---|
+| Onebox | Ticketing | Client secret |
+| Fourvenues | Ticketing | Channel Manager API e Integrations API |
+| Enterticket | Ticketing | Usuario y contraseña |
+| Covermanager | Ticketing | Cookie |
+| DICE | Ticketing | API Token |
+| CASFID | Cashless | Token de autenticación y mapeo de eventos (ID de evento CASFID vinculado a un ID de evento en Nevent) |
+| XCEED | Ticketing | API Key |
+| Fever | Ticketing | Usuario (email) y contraseña |
+
+:::note[Nota]
+Estas credenciales te las facilita tu proveedor de ticketing o cashless, normalmente desde su propio panel o a través de su equipo de soporte. Nevent no las genera por ti.
+:::
+
+## Qué aporta cada categoría
+
+**Ticketing.** Son los proveedores de venta de entradas: Onebox, Fourvenues, Enterticket, Covermanager, DICE, XCEED y Fever. Al conectarlos, Nevent incorpora a tu audiencia los datos de ventas y asistentes que se generan en cada uno de ellos.
+
+**Cashless.** CASFID pertenece a esta categoría. Sincroniza transacciones de consumo dentro del recinto (recargas de saldo, pagos con pulsera o tarjeta cashless), no ventas de entradas. Requiere además un paso adicional de configuración: mapear cada evento de CASFID con su evento correspondiente en Nevent.
+
+## Cómo llegar a esta pantalla
+
+Entra en **Configuración → Integraciones**. Ahí verás dos pestañas:
+
+- **Integraciones:** muestra las conexiones activas de tu organización y, mediante el botón **Añadir integración**, el catálogo completo de proveedores disponibles.
+- **Tokens API:** gestiona tokens para autenticar peticiones a la API o a webhooks de Nevent. No está relacionado con conectar una ticketera; sirve para integraciones a medida que tu equipo técnico construya contra Nevent.
+
+## Siguiente paso
+
+- [Conecta tu ticketera](/audiencia/conecta-tu-ticketera) siguiendo el paso a paso con cualquiera de estos proveedores.
+- [Qué hacer si tu ticketera no está integrada](/audiencia/mi-ticketera-no-esta-integrada) si tu proveedor no aparece en esta tabla.
+- [Por qué conectar tu ticketera](/audiencia/por-que-conectar-tu-ticketera) para entender qué ganas frente a importar un CSV.
