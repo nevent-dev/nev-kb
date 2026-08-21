@@ -1,0 +1,77 @@
+---
+title: "Sender reputation: how to avoid spam"
+diataxis: explanation
+description: Understand what sender reputation is and apply the keys so your Nevent emails reach the inbox instead of the spam folder.
+sidebar:
+  order: 4
+---
+
+You can have the best subject line and the best design, but if your emails end up in the spam folder, nobody will see them. Whether they reach the inbox depends mostly on your sender reputation. This guide explains what it is and how to protect it.
+
+## What sender reputation is
+
+Mail servers (Gmail, Outlook and the rest) score every sender based on how they behave. If your sends generate a lot of spam complaints, a lot of bounces or little engagement, your reputation drops and your emails start getting filtered as spam. If you send to people who read and respond well, your reputation goes up and you get better delivery.
+
+Reputation isn't bought: it's built through good sending habits.
+
+## Authenticate your domain
+
+Authentication is how you prove to mail servers that your emails really come from you and not from an impostor. It's done with three technical records: SPF, DKIM and DMARC.
+
+The most solid way to achieve this in Nevent is to set up your custom domain, which sends your campaigns from your own domain instead of the shared one. Follow the guide [Configure your custom sending domain](/en/deliverability/custom-sending-domain/).
+
+:::tip[Tip]
+An authenticated domain improves deliverability and trust: the recipient sees your brand as the sender, not a generic domain.
+:::
+
+## Only send to people who gave you permission
+
+Never buy contact lists or send to addresses that didn't opt in to receive your communications. It's the fastest way to rack up spam complaints and ruin your reputation, not to mention breaching GDPR.
+
+Capture contacts with their consent, for example with a [subscription form](/en/subscriptions/create-a-subscription-form/) or by checking consent when [importing your contacts](/en/audience/import-your-contacts/).
+
+## Keep your bounce rate low
+
+A bounce is an email that couldn't be delivered. A high rate of hard bounces (addresses that don't exist) tells mail servers your list is low quality.
+
+Review the bounces on each campaign and clean up your database. You'll find the detail in [How to check the bounces on your campaigns](/en/campaigns/reports/bounces/).
+
+## Respect unsubscribes
+
+When someone unsubscribes, stop sending to them. Nevent does this automatically, but never try to get around an unsubscribe: sending again to someone who asked to leave generates direct spam complaints, which is the worst thing for your reputation.
+
+You can see who unsubscribed in [Who unsubscribed after your campaign](/en/campaigns/reports/unsubscribes/).
+
+## Take care of your content
+
+Certain patterns make an email look like spam to filters:
+
+- Subject lines in all caps or with excessive exclamation marks.
+- Emails that are a single large image with no text.
+- Too many links or suspicious shortened links.
+- Typical spam words repeated ("free", "urgent", "make money").
+
+Write the way you'd write to a fan, with a healthy balance of text and images, and always with a visible unsubscribe link.
+
+## Start small
+
+If you've just set up your domain, or you're about to send to a large list for the first time, don't do it all at once. Start by sending to your most engaged contacts and expand gradually. That way mail servers see a sender generating good engagement from the start.
+
+## Watch your metrics
+
+Reputation shows up in your data. If you see your delivery rate drop or your bounces and unsubscribes rise, something's wrong. Regularly check the [Deliverability section in analytics](/en/analytics/deliverability/) and act before the problem grows.
+
+## Quick summary
+
+- Authenticate your domain (custom domain with SPF, DKIM and DMARC).
+- Only send to people who gave you permission.
+- Keep bounces low and your list clean.
+- Always respect unsubscribes.
+- Avoid spam-looking content.
+- Start small with new lists.
+- Watch your delivery metrics.
+
+## Next step
+
+- [Configure your custom sending domain](/en/deliverability/custom-sending-domain/)
+- [Best practices for your campaigns](/en/campaigns/best-practices/)

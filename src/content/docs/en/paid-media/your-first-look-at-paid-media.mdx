@@ -1,0 +1,115 @@
+---
+title: "Your first look at Paid Media"
+diataxis: tutorial
+description: "Guided walkthrough of the Nevent Paid Media panel: open the module, explore the filters, read the main KPIs and find your active campaigns."
+sidebar:
+  order: 10
+faqs:
+  - q: "Do I need to create the ads in Nevent?"
+    a: "No. Ads are created and managed in Meta Ads Manager, Google Ads or TikTok Ads Manager. Nevent only displays the data that already exists on those platforms."
+  - q: "How often does the panel's data refresh?"
+    a: "The panel shows the time of the last update next to the campaign table. On the demo tenant, the indicator read '19 min ago', which gives you an idea of the refresh frequency."
+  - q: "What does it mean when a campaign shows dashes in every column?"
+    a: "It means the campaign is paused or archived and had no activity in the selected period. That's normal behavior, not an error."
+  - q: "Can I see TikTok and Google campaigns on the same panel?"
+    a: "Yes. The platform filter lets you select Meta, TikTok or Google, and the panel groups campaigns from all three networks into a single view."
+  - q: "What is ROAS?"
+    a: "ROAS stands for Return on Ad Spend. It shows how many euros of revenue you get for every euro invested in ads. If the panel shows dashes in that column, it means that data isn't available for your account in the selected period."
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+In this tutorial you'll walk through the Nevent Paid Media panel for the first time. By the end you'll know where the main indicators are, how to filter campaigns, and what each number on screen means.
+
+You don't need any prior experience with digital advertising. You just need access to Nevent with at least one ad account already connected.
+
+Estimated time: 10 minutes.
+
+## Before you start
+
+The Paid Media panel shows data that comes from your Meta, TikTok or Google accounts. If you haven't connected any account yet, the data will show up empty. Contact your team or Nevent support to complete the connection before continuing.
+
+---
+
+<Steps>
+
+1. **Open the Paid Media module**
+
+   In the side menu, find the **Campaigns** section and click **Paid Ads**.
+
+   The main **Advertising** screen opens. It's the only screen in the module: everything you need to see is right here.
+
+2. **Look at the header indicators**
+
+   At the top of the panel you'll see four figures for whichever period and platform are currently selected:
+
+   - **Spend**: the total money invested in ads during the period.
+   - **Results**: the total number of results obtained (clicks, visits or conversions, depending on each campaign's objective).
+   - **Cost/result**: the average cost of each result. A lower number is better.
+   - **ROAS**: Return on Ad Spend, i.e. how many euros of revenue you get for every euro spent. If you see dashes in this field, it means that data isn't available for your account in the current period.
+
+   Each indicator also shows the percentage change versus the previous period. A negative percentage in Spend can be good if Results also drop, or it can mean your campaigns were paused. Always read the four indicators together, never in isolation.
+
+3. **Use the filters to narrow the view**
+
+   Right below the indicators you have three filters:
+
+   - **Period**: choose between the last 7 days (the default), 14 days, 30 days, the maximum available history, or a custom date range. The indicators and the table update instantly every time you change the period.
+   - **Platform**: select Meta, TikTok or Google to see only that network's campaigns. Meta is selected by default.
+   - **Status**: filter between All campaigns, only Active or only Paused. Use "Active" when you only want to see what's running right now.
+
+   There's also a name search field to find a specific campaign when you have many in the table.
+
+4. **Read the campaign table**
+
+   The table shows every campaign synced for the active filter. Each row is one campaign.
+
+   The columns you'll see by default are:
+
+   | Column | What it shows |
+   |---|---|
+   | PLAT. | Platform icon (Meta, TikTok or Google) |
+   | CAMPAIGN | Campaign name |
+   | STATUS | Active, Paused or Archived |
+   | OBJECTIVE | What it was designed for: Awareness, Traffic, Lead generation or Sales |
+   | SPEND | Money invested in the period |
+   | IMPR. | Impressions: number of times an ad from the campaign was shown |
+   | REACH | Unique people who saw the ad at least once |
+   | CLICKS | Total clicks on the ads |
+   | CTR | Click-through rate: percentage of people who clicked out of those who saw the ad |
+   | RESULTS | Total results obtained, according to the campaign's objective |
+   | COST/RESULT | Average cost per result |
+   | ROAS | Return on Ad Spend |
+
+   The columns are configurable: you can show or hide the ones you don't need using the **Visible columns** button.
+
+5. **Identify which campaigns have data and which don't**
+
+   The table's subtitle tells you at a glance how many campaigns are visible and how many have real data in the selected period. For example: "25 campaigns · 2 with insights · click for detail".
+
+   Campaigns with active data show figures in every column. Paused or archived campaigns, or ones with no activity in the period, show dashes in the metric columns. This is normal and doesn't indicate a problem.
+
+6. **Check when the data was last updated**
+
+   At the bottom of the panel you'll see a text indicator like "19 min ago". That text tells you when the last sync with the ad platforms happened. If the data you're looking for seems out of date, wait a few minutes and reload the page.
+
+</Steps>
+
+---
+
+## What you've learned
+
+You've walked through the main screen of the Paid Media module. You now know:
+
+- Where the four global KPIs are and what each one means.
+- How to use the period, platform and status filters to narrow the view.
+- What columns the campaign table has and how to interpret campaigns with and without data.
+- How to tell whether the data you're seeing is up to date.
+
+---
+
+## Next step
+
+Once you're comfortable with the overview, you can go deeper into the analysis:
+
+- [Paid Media: connect your accounts and understand the panel](/en/paid-media/connect-your-accounts/) for a more complete walkthrough of the module.

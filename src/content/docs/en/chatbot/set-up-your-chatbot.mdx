@@ -1,0 +1,133 @@
+---
+title: "Set up your chatbot"
+description: "A practical guide to activating the Nevent chatbot: write basic instructions, upload a reference document and check that the bot answers well."
+diataxis: tutorial
+faqs:
+  - q: "Do I need to know how to code to set up the chatbot?"
+    a: "No. Instructions are free-form natural language text, just like explaining something to a person. The only step that touches code is pasting the installation snippet on your website, and anyone with access to the page editor can do that."
+  - q: "Do test conversations reach my fans?"
+    a: "No. The 'Test chatbot' tab is an isolated environment. Messages you write there don't appear in the inbox and your attendees never see them."
+  - q: "How many characters can I write in the instructions?"
+    a: "Up to 5000 characters. The field itself shows a counter so you can see how much space you have left."
+  - q: "What document formats does the chatbot support?"
+    a: "PDF, TXT, MD and DOCX. The maximum size per file is 10 MB."
+  - q: "Does the chatbot only answer in Spanish?"
+    a: "No. The chatbot answers in the language each attendee writes in. On the Demo Fest tenant, conversations have been observed in Spanish, Dutch, Japanese and Romanian."
+---
+
+In this tutorial you'll get the Nevent chatbot ready to answer your attendees' questions for the first time. By the end you'll have written the bot's basic instructions, checked that it answers well, and understood how to publish it on your website.
+
+No prior experience needed. The tutorial takes about fifteen minutes.
+
+## Before you start
+
+Make sure you have on hand:
+
+- Access to your Nevent account with administrator permissions.
+- A rough idea of the tone you want the bot to use: formal, friendly, playful, etc.
+- Optionally, a document with event information (a PDF, a Word file or a text file with schedules, access rules, FAQ, etc.) to upload in step 3.
+
+---
+
+## Step 1: Open the chatbot configuration
+
+In the Nevent side menu, find the **Chatbot** section and click **Configuration**.
+
+The main chatbot screen opens. On the left there are six tabs. On the right there's a panel called **Assistant status** that shows you, at a glance, whether the bot is active and what it has configured.
+
+Look at that panel. You'll see something like:
+
+- **Status:** Active
+- **Instructions:** Not defined
+- **Documents ready:** 1 of 1 (or 0 if there's no document yet)
+- **Active sources:** 7 of 8
+- **Model:** gemini-3.5-flash-lite
+
+The "Active" status means the bot is already running. What we'll do in this tutorial is give it instructions so it knows how to handle your fans.
+
+---
+
+## Step 2: Write the bot's instructions
+
+The **Custom instructions** tab is the most important one. Here you tell the chatbot who it is, what tone it should use and what it needs to prioritize when someone writes to it.
+
+1. Click the **Custom instructions** tab (it opens by default when you enter Configuration).
+2. You'll see a large text field with the text "Not defined" or empty. Click inside the field.
+3. Write the instructions. If you're not sure where to start, copy and adapt this example:
+
+   > You are the official assistant of [your event's name]. Always answer in a friendly, approachable tone. Prioritize information about access, schedules and the lineup. If you don't know the answer to a question, tell the user to contact the support team at [support email].
+
+   The field accepts up to 5000 characters. The counter in the bottom corner shows how much you've used.
+
+4. Once you're happy with the text, click the **Save** button.
+
+That's it for the instructions. You can edit them again whenever you want: the change applies immediately.
+
+---
+
+## Step 3: Upload a reference document
+
+The chatbot can consult documents you provide: the venue guide, the event FAQ, access rules, the stage map, and so on. The more information it has, the better its answers will be.
+
+1. Click the **Reference documents** tab.
+2. Click the **Upload** button.
+3. Select the file on your computer. Supported formats: PDF, TXT, MD and DOCX. Maximum size: 10 MB.
+4. Wait for the document to appear in the list with **Ready** status. That status means the bot can now consult it.
+
+If you don't have a document for now, you can skip this step and come back later. The chatbot will keep working with the instructions and Nevent's data sources.
+
+---
+
+## Step 4: Review the active data sources
+
+Nevent automatically connects the chatbot with your event's information: event name, location, schedules, artist lineup, each attendee's ticket data, etc. This is called data sources.
+
+1. Click the **Data sources** tab.
+2. You'll see a list of eight sources grouped into three blocks: event information, user information and additional information.
+3. Check that the sources you want active are checked. By default, seven of the eight are active.
+
+You don't need to change anything in this step if you're just getting started. The default sources cover the most common needs: event name, venue, artists, attendee profile, their ticket and the venue maps.
+
+The only source that comes unchecked by default is **Sponsors**. Turn it on if you want the bot to be able to mention your event's sponsor brands.
+
+---
+
+## Step 5: Test the chatbot
+
+Before publishing the chatbot on your website, check that it answers as you expect.
+
+1. Click the **Test chatbot** tab.
+2. You'll see the notice: "Test environment: this conversation doesn't affect your users' real conversations." That means whatever you write here is completely private.
+3. Type a typical question from your fans into the text field. For example:
+   - "What time do doors open?"
+   - "How do I get to the venue?"
+   - "What does my ticket include?"
+4. Click **Send** (or press Enter) and read the bot's answer.
+
+Check whether the tone matches what you wrote in the instructions and whether the information is correct. If something doesn't convince you, go back to the **Custom instructions** tab and adjust the text.
+
+Repeat with two or three more questions until you feel comfortable with the answers.
+
+---
+
+## What you've accomplished
+
+You've completed the basic setup of the chatbot:
+
+- The bot has clear instructions on how to behave.
+- It has access to your event's information through the data sources.
+- You've confirmed in the test environment that it answers consistently.
+
+The **Assistant status** panel should now show that the instructions are no longer "Not defined".
+
+---
+
+## The next step: publish the chatbot on your website
+
+The chatbot is now configured, but it still isn't visible to your fans. For that you need to install a small piece of code on your website.
+
+Go to the side menu and click **Web channel**. You'll see the installation code ready to copy. Paste it right before the `</body>` tag on your website or landing page.
+
+If you use Google Tag Manager, WordPress or Shopify, the Web channel screen itself has specific guides for each platform.
+
+Once installed, your chatbot will start automatically answering your attendees' questions. You'll be able to see every conversation from **Inbox** in the side menu.
