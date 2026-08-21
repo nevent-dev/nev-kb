@@ -13,6 +13,8 @@ faqs:
     a: "Muestra el total acumulado de clics registrados sobre ese enlace corto desde su creación, sin filtro de fechas."
   - q: "¿Qué significa el campo «Usado en»?"
     a: "Indica cuántas campañas de Nevent referencian ese enlace. Si ninguna lo usa, aparece un guion."
+  - q: "¿Puedo ver cuánto ha vendido un Magic Link?"
+    a: "No directamente. Un Magic Link mide clics, no ventas: quien abre un enlace que has repartido por tu cuenta es un visitante anónimo. La atribución de ingresos existe para los enlaces que viajan dentro de una campaña de Nevent, donde la plataforma sabe a qué fan envió el mensaje."
 ---
 
 import { Aside } from '@astrojs/starlight/components';
@@ -114,6 +116,19 @@ La tabla principal muestra dos métricas de uso de cada enlace de forma directa:
 - **Último clic**: marca de tiempo del clic más reciente. Si el enlace no ha recibido ningún clic, este campo aparece vacío.
 
 El campo **Usado en** no es una métrica de clics, sino de alcance: indica en cuántas campañas está presente ese enlace.
+
+### Alcance de la medición
+
+Un Magic Link mide **clics, no ventas**. Es una consecuencia de cómo funciona: cuando repartes un enlace por tu cuenta —un código QR en un cartel, una publicación en redes, un enlace que le pasas a tu equipo de calle— quien lo abre es un visitante anónimo, y la compra que haga después no queda unida a ese clic.
+
+Esto no es un defecto del enlace, es la diferencia entre dos situaciones distintas:
+
+| Situación | Qué se mide |
+|---|---|
+| Enlace **dentro de una campaña** de Nevent | Clics por fan, conversión post-clic e ingreso atribuido. Nevent sabe a quién envió el mensaje |
+| Enlace **que repartes tú** | Número de clics, con procedencia, dispositivo, navegador y momento. Sin datos de venta |
+
+Los enlaces que repartes por tu cuenta siguen siendo la mejor herramienta que tienes para comparar canales que de otro modo no dejan ningún rastro, como la cartelería o la radio. Lo que obtienes de esa comparación es un reparto de tráfico por canal, y conviene leerlo como tal.
 
 <Aside type="note">
 El panel **Expandir detalle** de cada fila puede contener estadísticas adicionales por periodo u otros desgloses. El contenido exacto de ese panel no está recogido en esta referencia.

@@ -244,6 +244,10 @@ export default defineConfig({
 						{ label: 'Explora tu audiencia', slug: 'audiencia/explora-tu-audiencia', badge: { text: 'Nuevo', variant: 'tip' } },
 						{ label: 'Referencia de fans y segmentos', slug: 'audiencia/referencia', badge: { text: 'Nuevo', variant: 'tip' } },
 						{ label: 'Cómo entiende Nevent tu audiencia', slug: 'audiencia/como-entiende-nevent-tu-audiencia', badge: { text: 'Nuevo', variant: 'tip' } },
+						{ label: 'Conecta tu ticketera', slug: 'audiencia/conecta-tu-ticketera', badge: { text: 'Nuevo', variant: 'tip' } },
+						{ label: 'Por qué conectar tu ticketera', slug: 'audiencia/por-que-conectar-tu-ticketera', badge: { text: 'Nuevo', variant: 'tip' } },
+						{ label: 'Si tu ticketera no está integrada', slug: 'audiencia/mi-ticketera-no-esta-integrada', badge: { text: 'Nuevo', variant: 'tip' } },
+						{ label: 'Referencia de integraciones', slug: 'audiencia/referencia-integraciones', badge: { text: 'Nuevo', variant: 'tip' } },
 					],
 				},
 				{
@@ -329,8 +333,11 @@ export default defineConfig({
 					items: [
 						{ label: 'Conecta tus cuentas y entiende el panel', slug: 'paid-media/introduccion', badge: { text: 'Nuevo', variant: 'tip' } },
 						{ label: 'Tu primer vistazo a Paid Media', slug: 'paid-media/primer-vistazo', badge: { text: 'Nuevo', variant: 'tip' } },
+						{ label: 'Sincroniza un segmento como audiencia', slug: 'paid-media/sincroniza-un-segmento-como-audiencia', badge: { text: 'Nuevo', variant: 'tip' } },
 						{ label: 'Referencia de Paid Media', slug: 'paid-media/referencia', badge: { text: 'Nuevo', variant: 'tip' } },
+						{ label: 'Referencia de audiencias personalizadas', slug: 'paid-media/referencia-audiencias', badge: { text: 'Nuevo', variant: 'tip' } },
 						{ label: 'Qué es Paid Media', slug: 'paid-media/que-es', badge: { text: 'Nuevo', variant: 'tip' } },
+						{ label: 'Qué es una audiencia personalizada', slug: 'paid-media/que-es-una-audiencia-personalizada', badge: { text: 'Nuevo', variant: 'tip' } },
 					],
 				},
 				{
@@ -378,6 +385,7 @@ export default defineConfig({
 					items: [
 						{ label: 'Magic Links', slug: 'herramientas/magic-links', badge: { text: 'Nuevo', variant: 'tip' } },
 						{ label: 'Crea tu primer magic link', slug: 'herramientas/tu-primer-magic-link', badge: { text: 'Nuevo', variant: 'tip' } },
+						{ label: 'Un enlace por canal', slug: 'herramientas/un-enlace-por-canal', badge: { text: 'Nuevo', variant: 'tip' } },
 						{ label: 'Referencia de magic links', slug: 'herramientas/referencia-magic-links', badge: { text: 'Nuevo', variant: 'tip' } },
 						{ label: 'Qué son los magic links', slug: 'herramientas/que-son-los-magic-links', badge: { text: 'Nuevo', variant: 'tip' } },
 					],
@@ -385,8 +393,9 @@ export default defineConfig({
 				{
 					label: 'Chatbot',
 					items: [
-						{ label: 'Configura tu chatbot', slug: 'chatbot/configuracion', badge: { text: 'Nuevo', variant: 'tip' } },
 						{ label: 'Pon en marcha tu chatbot', slug: 'chatbot/pon-en-marcha-tu-chatbot', badge: { text: 'Nuevo', variant: 'tip' } },
+						{ label: 'Configura tu chatbot', slug: 'chatbot/configuracion', badge: { text: 'Nuevo', variant: 'tip' } },
+						{ label: 'Gestiona la bandeja de entrada', slug: 'chatbot/bandeja-de-entrada', badge: { text: 'Nuevo', variant: 'tip' } },
 						{ label: 'Referencia del chatbot', slug: 'chatbot/referencia', badge: { text: 'Nuevo', variant: 'tip' } },
 						{ label: 'Cómo funciona el chatbot', slug: 'chatbot/como-funciona', badge: { text: 'Nuevo', variant: 'tip' } },
 					],

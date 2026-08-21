@@ -28,11 +28,19 @@ import { Aside, CardGrid, LinkCard } from '@astrojs/starlight/components';
 }`}</Schema>
 
 :::tip[Definición rápida]
-**Tracking de enlaces** es la capacidad de Nevent para rastrear cada clic en los enlaces que compartes en emails, SMS, WhatsApp o redes sociales. Cada enlace tiene un identificador único que permite saber cuántas personas lo clicaron, cuántas compraron después y cuánto revenue generó ese clic específico.
+**Tracking de enlaces** es la capacidad de Nevent para rastrear cada clic en los enlaces que envías dentro de tus campañas de email, SMS o WhatsApp. Cada enlace tiene un identificador único que permite saber cuántos fans lo clicaron, cuántos compraron después y cuánto revenue generó.
 :::
 
 
 Cuando envías una campaña con un enlace para comprar entradas, ¿sabes cuántos fans clicaron ese enlace y cuántos acabaron comprando? El tracking de enlaces de Nevent responde a esas preguntas con precisión, asignando el revenue de cada venta al enlace que la originó.
+
+:::caution[Esta página trata de los enlaces de tus campañas]
+Todo lo que se explica aquí aplica a los enlaces que viajan **dentro de una campaña de Nevent**. Funciona porque en ese caso Nevent sabe a quién le envió el mensaje, y puede unir ese fan con la compra que hace después.
+
+Un enlace que creas a mano y repartes por tu cuenta —un código QR en un cartel, un enlace en una publicación, uno que le pasas a tu equipo de relaciones públicas— funciona de otra manera: quien lo abre es un visitante anónimo. De esos enlaces se mide **cuánta gente hace clic**, con su procedencia, dispositivo y momento, pero no las ventas que generan.
+
+Consulta [Referencia de Magic Links](/herramientas/referencia-magic-links) para ver exactamente qué métricas ofrece cada caso.
+:::
 
 ## ¿Qué métricas de tracking puedes medir?
 
@@ -88,7 +96,9 @@ Un valor saludable de conversión post-clic para campañas de venta de entradas 
 
 Cuando Nevent detecta que un fan clicó en un enlace específico y luego completó una compra, asigna ese ingreso al enlace. Esto te permite comparar dos enlaces de la misma campaña (por ejemplo, un enlace en la parte superior del email y otro al final) y ver cuál generó más revenue.
 
-También puedes usar esta información para comparar canales: un mismo enlace de compra compartido por email, SMS y WhatsApp. Nevent distingue cuál canal generó más revenue atribuido.
+También puedes usar esta información para comparar los canales de tus campañas entre sí: el mismo enlace de compra enviado por email, por SMS y por WhatsApp. Nevent distingue cuál de los tres generó más revenue atribuido, porque en los tres casos sabe a qué fan le envió el mensaje.
+
+Esta comparación no se extiende a canales externos. Para saber qué tráfico te trae un cartel, una publicación en redes o tu equipo de calle, la herramienta son los [Magic Links](/herramientas/que-son-los-magic-links), y lo que obtienes de ellos es un reparto de clics por canal, no un reparto de ventas.
 
 ## Ejemplo práctico
 

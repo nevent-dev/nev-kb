@@ -152,7 +152,19 @@ Las conversaciones realizadas aquí no aparecen en la bandeja de entrada ni son 
 
 ## Bandeja de entrada
 
-Accesible desde **Chatbot > Bandeja de entrada**. Muestra todas las conversaciones que el chatbot mantiene con los asistentes al evento.
+Accesible desde **Chatbot > Bandeja de entrada**. Muestra todas las conversaciones que el chatbot mantiene con los asistentes al evento. Guía paso a paso: [cómo gestionar la bandeja de entrada](/chatbot/bandeja-de-entrada).
+
+### Contadores de estado
+
+En la parte superior de la bandeja hay cuatro contadores: **Bot en curso**, **En curso**, **Escalada** y **Resuelta**. Son un resumen visual, no filtros: no se puede hacer clic en ellos para acotar la lista. Para filtrar, usa las vistas o los canales de la columna izquierda.
+
+### Canales que llegan a la bandeja
+
+| Canal | Cómo se conecta |
+|---|---|
+| **Chat web** | Se instala en tu web o landing desde **Chatbot > Canal web**, con el snippet de instalación y la lista de dominios permitidos. |
+| **App** | Las conversaciones que tus fans inician desde la app llegan a esta misma bandeja. No requiere instalación aparte. |
+| **WhatsApp** | Reutiliza la cuenta de WhatsApp Business conectada en [Entregabilidad y canales](/entregabilidad/activar-canales). No tiene una pantalla de conexión propia dentro del módulo de chatbot. |
 
 ### Filtros de vista
 
@@ -225,20 +237,26 @@ Para instalaciones en Google Tag Manager, WordPress o Shopify, hay guías espec�
 
 ## Métricas: Empuje a venta
 
-Accesible desde **Chatbot > Rendimiento**. Muestra el impacto comercial de los enlaces que el asistente incluye en las conversaciones.
+Accesible desde **Chatbot > Rendimiento**. Muestra qué generan los enlaces que el asistente incluye en las conversaciones. Guía de lectura: [¿Qué ha resuelto tu chatbot?](/chatbot/que-ha-resuelto-tu-bot)
 
-| Métrica | Descripción |
-|---|---|
-| **Recomendaciones con enlace** | Número de veces que el asistente incluyó un enlace de venta en una respuesta. |
-| **Clics desde el chat** | Total de clics realizados por personas en esos enlaces (excluye clics automatizados). |
-| **Conversaciones que hicieron clic** | Porcentaje de conversaciones que recibieron una recomendación y en las que al menos un usuario hizo clic. |
-| **Otros clics** | Clics en enlaces compartidos o antiguos que no cuentan en las métricas principales. |
+| Métrica | Descripción | Fórmula o desglose |
+|---|---|---|
+| **Recomendaciones con enlace** | Número de veces que el asistente ofreció un enlace de evento en una respuesta. | — |
+| **Clics desde el chat** | Total de clics realizados por personas en esos enlaces. | Se muestra como «X de personas · Y automatizados»; los automatizados (previsualizaciones, bots) se cuentan aparte. |
+| **Conversaciones que hicieron clic** | Porcentaje de conversaciones con al menos un clic de persona. | Conversaciones con al menos un clic de persona ÷ conversaciones con al menos una recomendación con enlace en el periodo. Si el periodo no tiene recomendaciones, se muestra un guion (—) en vez de un porcentaje. |
+| **Otros clics** | Clics en enlaces compartidos o antiguos que no cuentan en las métricas principales. | Desglose: sin confirmar · posibles fabricaciones · expirados. |
 
 **Periodos disponibles:** 7 días, 30 días, 90 días.
+
+**Ventana de atribución:** 7 días. Un icono de información junto al bloque indica la cobertura de atribución real del periodo seleccionado (por ejemplo, «Cobertura de atribución del periodo: 60%»), porque no todos los clics llegan con un código identificable.
 
 La tabla de detalle muestra por cada destino: nombre del evento, tipo, enlace corto, número de recomendaciones, número de clics y fecha del último clic.
 
 Nota visible en la plataforma: «Los clics recientes aún se están registrando y una parte de los enlaces no se puede rastrear con exactitud: tómalo como una aproximación que irá creciendo.»
+
+:::caution[Importante]
+Estas métricas no son ventas atribuidas. Las conversaciones del chatbot son anónimas: Nevent puede contar el clic en el enlace, pero no puede unirlo a una compra posterior. Un clic indica que la conversación terminó en una acción, no una venta generada por el bot.
+:::
 
 ---
 

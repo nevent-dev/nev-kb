@@ -1,0 +1,86 @@
+---
+title: "Cómo sincronizar un segmento como audiencia en Meta, Google o TikTok"
+diataxis: how-to
+description: "Aprende a convertir un segmento de Nevent en una audiencia personalizada para tus campañas de Meta Ads, Google Ads o TikTok Ads en pocos minutos."
+sidebar:
+  order: 11
+faqs:
+  - q: "¿Necesito tener la cuenta de anuncios conectada antes de hacer esto?"
+    a: "Sí. Solo puedes sincronizar un segmento con una plataforma cuya cuenta de anuncios ya esté conectada en Configuración → Paid Ads. Si no lo está, la tarjeta de esa plataforma te lo indica y te lleva directamente a conectarla."
+  - q: "¿Puedo sincronizar el mismo segmento con Meta, Google y TikTok a la vez?"
+    a: "Sí. Cada plataforma tiene su propia tarjeta y su propio botón de sincronización, así que puedes activar el segmento en las tres a la vez, o solo en las que uses."
+  - q: "¿Qué pasa si la sincronización falla?"
+    a: "La tarjeta de esa plataforma muestra el estado Error con un mensaje breve y un botón Reintentar. No afecta a los datos de tu segmento en Nevent: solo indica que el envío a esa plataforma concreta no se completó."
+  - q: "¿Esto crea la campaña de anuncios por mí?"
+    a: "No. Sincronizar un segmento solo sube la audiencia a la plataforma. Crear la campaña y elegir esa audiencia como público sigue haciéndose en Meta Ads Manager, Google Ads o TikTok Ads Manager."
+  - q: "¿Puedo ver el coste real de adquisición de estos compradores gracias a esto?"
+    a: "No todavía. Nevent no envía de vuelta a las plataformas las ventas que ocurren en tu ticketera, así que esta función sirve para segmentar y generar públicos similares, no para medir tu ROAS real dentro de la plataforma de anuncios."
+---
+
+Cuando conviertes un segmento de Nevent en una audiencia personalizada, tus anuncios de Meta, Google o TikTok dejan de dirigirse a desconocidos: se los muestras a personas que ya conocen tu evento porque ya compraron o interactuaron contigo antes.
+
+En esta guía activas esa sincronización para un segmento que ya tienes creado. Te llevará unos 5 minutos.
+
+## Antes de empezar
+
+Necesitas dos cosas:
+
+- **Un segmento ya creado.** Si todavía no tienes ninguno, sigue primero la guía [crea tu primer segmento](/segmentacion/tu-primer-segmento).
+- **La cuenta de anuncios conectada** de la plataforma con la que quieras sincronizar (Meta Ads, Google Ads o TikTok Ads). Lo compruebas y lo conectas en el paso 1.
+
+## Paso 1: Comprueba qué plataformas de anuncios tienes conectadas
+
+En el menú lateral, entra en **Configuración** y haz clic en **Paid Ads**.
+
+Verás una tarjeta por cada plataforma. La que ya tenga tu cuenta vinculada muestra el estado **Conectado**, con el nombre de la cuenta y la fecha de la última sincronización. Las que todavía no están vinculadas muestran **No conectado** y un botón **Conectar**.
+
+![Pantalla de Configuración Paid Ads de Nevent mostrando Meta Ads con estado Conectado y la cuenta "Nevent - Ad account", junto a TikTok Ads y Google Ads con estado No conectado y un botón Conectar en cada una](/images/guias/paid-media/sincroniza-un-segmento-como-audiencia/paso-1-ajustes-paid-ads.png)
+
+Si la plataforma que quieres usar ya aparece como Conectado, pasa directamente al paso 2. Si no, haz clic en **Conectar** y sigue el proceso de autorización de esa plataforma antes de continuar.
+
+## Paso 2: Abre el segmento que quieres convertir en audiencia
+
+En el menú lateral, entra en **Audiencia → Segmentos** y haz clic en el segmento que quieres usar para tus anuncios.
+
+En la parte superior de la pantalla del segmento verás un bloque llamado **Activar como audiencia publicitaria**, con una breve descripción de qué hace.
+
+![Detalle de un segmento en Nevent con el bloque "Activar como audiencia publicitaria" visible justo debajo del título, antes de desplegarlo](/images/guias/paid-media/sincroniza-un-segmento-como-audiencia/paso-2-detalle-segmento.png)
+
+## Paso 3: Despliega el bloque y elige la plataforma
+
+Haz clic en el bloque **Activar como audiencia publicitaria** para desplegarlo. Se abren tres tarjetas, una por plataforma: Meta Ads, TikTok Ads y Google Ads.
+
+![Bloque desplegado "Activar como audiencia publicitaria" con tres tarjetas: Meta Ads en estado Error con botón Reintentar, TikTok Ads en estado No conectado con botón Conectar en Ajustes, y Google Ads en estado No conectado con botón Conectar en Ajustes](/images/guias/paid-media/sincroniza-un-segmento-como-audiencia/paso-3-panel-plataformas.png)
+
+Cada tarjeta indica su propio nombre técnico para esta función: Meta y TikTok la llaman **Custom Audience**; Google la llama **Customer Match**. Es la misma idea en las tres, con el nombre que usa cada plataforma.
+
+Según el estado de esa tarjeta, verás un botón distinto:
+
+- Si la plataforma está conectada, verás el botón **Sincronizar**. Púlsalo para enviar tu segmento como audiencia.
+- Si la plataforma no está conectada, verás **Conectar en Ajustes**, que te lleva de vuelta a la pantalla del paso 1.
+
+:::note[Nota]
+Justo debajo del título del bloque, Nevent indica que los datos de contacto se cifran antes de enviarse a la plataforma.
+:::
+
+## Resultado
+
+Después de pulsar **Sincronizar**, la tarjeta de esa plataforma refleja el resultado del envío. Puede mostrar **Conectado** si todo fue bien, o **Error** con un botón **Reintentar** si algo falló, como en el ejemplo de esta captura tomada en un tenant de demostración.
+
+![Tarjeta de Meta Ads con el estado Error y el mensaje "No se pudo completar la sincronización con Meta Ads", junto al botón Reintentar](/images/guias/paid-media/sincroniza-un-segmento-como-audiencia/resultado.png)
+
+Ya sabes cómo activar un segmento como audiencia personalizada. Ahora puedes entrar en Meta Ads Manager, Google Ads o TikTok Ads Manager, crear una campaña y elegir esa audiencia como público, o pedirle a la plataforma que genere un público similar a partir de ella.
+
+:::caution[Importante]
+Nevent no envía todavía a estas plataformas las ventas que ocurren en tu ticketera. Esta función sirve para segmentar tus anuncios y generar públicos similares, no para ver tu coste de adquisición real dentro de Meta, Google o TikTok.
+:::
+
+:::tip[Consejo]
+Si cambias las condiciones de un segmento después de sincronizarlo, vuelve a entrar y pulsa **Sincronizar** de nuevo para que la audiencia de la plataforma se actualice con los cambios.
+:::
+
+## Siguiente paso
+
+- [Qué es una audiencia personalizada y por qué mejora tus anuncios](/paid-media/que-es-una-audiencia-personalizada)
+- [Referencia de audiencias personalizadas](/paid-media/referencia-audiencias)
+- [Conecta tus cuentas y entiende el panel de Paid Media](/paid-media/introduccion)
