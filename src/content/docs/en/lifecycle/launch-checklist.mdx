@@ -1,0 +1,287 @@
+---
+title: "Checklist for launching your event"
+description: "Everything you need to have ready in Nevent before opening sales: channels, domain, audience, form, first campaign and measurement."
+diataxis: how-to
+faqs:
+  - q: "Can I skip the dedicated domain setup and start sending directly?"
+    a: "Yes. Email is active from day one with Nevent's shared domain, and sends go out with no extra setup. A dedicated domain (with SPF, DKIM and DMARC on your own domain) is optional but recommended: it improves inbox placement and lets your fans see your brand as the sender. You can set it up before your first send or at any point afterward."
+  - q: "Is it mandatory to create a subscription form before launching a campaign?"
+    a: "It's not mandatory, but it's strongly recommended. Without an active form on your website, you lose the chance to capture fans who visit your page before you open sales. With the form running from the moment you announce the event, you reach opening day with a list of people who've already raised their hand and want to hear from you."
+  - q: "What's the point of segmenting if I still have a small database?"
+    a: "Even with a small base, segmenting lets you distinguish between fans who bought before (whether from previous editions or imported from another platform) and people who just subscribed. That basic criterion already improves message relevance. Building good segmentation habits from the start also makes things easier as your base grows."
+  - q: "What metrics should I check after the first campaign?"
+    a: "The four basic metrics are: delivery rate (healthy above 95%), open rate (healthy above 25%), click rate (healthy above 5%) and unsubscribe rate (warning sign above 1%). If opens are below 15%, review the subject line and send timing. If the unsubscribe rate exceeds 1%, the message or the segment weren't aligned."
+  - q: "What if I don't have SMS or WhatsApp activated for the first launch?"
+    a: "Email is the main channel and works very well as the only channel for a first launch. SMS and WhatsApp extend your reach and boost open rate at moments of urgency, but they aren't essential to get started. You can activate them from Settings, Channels whenever you want to add those channels to your strategy."
+---
+
+This guide walks through, in order, everything you need to have set up in Nevent before opening sales for an event. It's built for promoters preparing a launch who want to make sure they don't skip any critical step. Each point links to the corresponding detailed guide.
+
+The goal isn't to explain every screen in detail, but to give you the right order and the context for why each step matters.
+
+---
+
+## Phase 1: Sending infrastructure
+
+This phase makes sure your emails arrive properly and that your fans recognize you as the sender. It's the technical work you do once, and it shapes every future send.
+
+### 1.1. Activate your communication channels
+
+Before sending anything, check that the channels you want to use are active and configured. Email is active by default, but SMS and WhatsApp require extra steps.
+
+Go to **Settings, Brand and Content, Channels** and review the four tabs:
+
+- **Email:** active by default. Fill in the sender name, reply-to address and email signature. The signature includes the legal information and the unsubscribe link that Nevent automatically adds to every campaign.
+- **SMS:** requires turning on the switch and setting up at least one Sender ID (up to 11 characters, for example your festival's name). Starting September 15, 2026, carriers will block SMS whose sender isn't registered with the CNMC. Nevent handles that registration — contact support as soon as possible if you want to use SMS.
+- **WhatsApp:** requires connecting a WhatsApp Business account through Meta's authentication flow. Once connected, you can create message templates, though every template needs Meta's approval before it can be used.
+- **Analytics:** connect your Meta Pixel (numeric ID) and your Google Analytics 4 property (format G-XXXXXXXXXX) so Nevent automatically sends conversion events to those platforms.
+
+Detailed guide: [Activate your communication channels](/en/deliverability/activate-your-channels/)
+
+### 1.2. Set up your dedicated domain
+
+With Nevent's shared domain your emails go out from day one, but if you want your fans to see your own domain as the sender (for example `email.yourfestival.com`) and improve inbox placement, set up a dedicated domain.
+
+The guided setup wizard takes about 3 minutes. Afterward you'll need to create five to six DNS records (DKIM, SPF, MAIL FROM and DMARC) in your domain provider's panel. Propagation can take anywhere from a few hours to 72 hours.
+
+Go to **Settings, Workspace, Dedicated domain** and click **Start setup**.
+
+Detailed guide: [Set up your dedicated domain](/en/deliverability/custom-sending-domain/)
+
+To understand the sending infrastructure as a whole (automatic subdomain, configuration sets and SES Tenant): [Set up your email delivery](/en/deliverability/set-up-your-email-delivery/)
+
+---
+
+## Phase 2: Audience
+
+This phase prepares the contact base that will receive your campaigns. The better structured your audience is before launch, the more relevant and profitable your sends will be.
+
+### 2.1. Import or review your contact base
+
+If you have fans from previous editions in another tool or ticketing platform, import them into Nevent before you start building segments. Import is the entry point for anyone already in your base who doesn't yet have history in Nevent.
+
+Once imported, make sure every contact has a valid email address and that attendance and purchase data are synced with Nevent. That data is what feeds the segmentation engine.
+
+### 2.2. Build segments for the launch
+
+Segments are groupings of fans based on behavior, attributes or purchase history. Building them before launching your first campaign avoids improvising on send day and lets you review each audience's size in advance.
+
+For a first launch, the most useful segments are:
+
+**Early Bird fans or early buyers.** Fans who, at previous events, bought during the first phase, in presale or in the first hours. They're the first ones you activate because they're already primed to buy ahead of time. Nevent criterion: Early Bird or presale ticket type at previous events, within a two-to-three-year window.
+
+Use case: [Early Bird fans for exclusive presale](/en/segmentation/use-cases/early-buyers/)
+
+**Champions and Loyal Customers (RFM).** Nevent's RFM model automatically classifies your fans into 11 profiles based on recency, frequency and spend. Champions and Loyal Customers are your highest-value fans: the ones who buy often, spend more and bought most recently. For early-access communications or high-ticket products (VIP, meet and greet, season passes), they're the first segment.
+
+Full reference: [Automatic RFM: 11 fan profiles](/en/segmentation/capabilities/rfm/)
+Use case: [VIP segment with RFM Champions](/en/segmentation/use-cases/top-rfm-vip/)
+
+**Geolocated audience.** Fans who live within a reasonable radius of the venue, or who've attended one of your events in that city. Especially useful if the event is regional or has a clear reference city. Nevent lets you filter by the fan's city of residence or by the city of the event they attended.
+
+Use case: [Geolocated audience for regional events](/en/segmentation/use-cases/geolocated-audience/)
+
+**General active base.** All fans with a valid email who haven't unsubscribed. It's the broadest segment and is used for the general-public opening campaign, after early access has already gone out to the segments above.
+
+Step-by-step guide to building any segment: [Creating a segment](/en/segmentation/segmentation-engine/creating-a-segment/)
+
+Before saving a segment, use the segmentation engine's **preview** to see how many fans meet the criteria. A segment with fewer than 20 fans may signal criteria that are too restrictive; one with 100% of your base probably needs more filters.
+
+---
+
+## Phase 3: Subscription form
+
+An active subscription form on your website from the moment you announce the event lets you build a list of interested people before you open sales. When it's time to launch, you already have an audience waiting for that email.
+
+### 3.1. Fill in your legal information
+
+Nevent won't let you activate any subscription form until your organization has filled in its legal business name and privacy policy URL. This is the information the law requires you to show anyone you ask to subscribe (GDPR).
+
+If you see the red "Missing tenant legal information" notice when entering Subscriptions, click **Complete legal information** before continuing.
+
+Reference: [What subscriptions are for (and why consent matters)](/en/subscriptions/what-subscriptions-are-for/)
+
+### 3.2. Create the form
+
+Go to **Audience, Subscriptions** and click **+ Create subscription**. The wizard has three steps:
+
+1. **Basic information:** the form's internal name (fans don't see it) and, optionally, a description and folders.
+2. **Form fields:** email is the only mandatory field and can't be removed. You can add first name, last name and your organization's custom fields. The fewer fields you ask for, the easier it is to subscribe and the higher your conversion rate.
+3. **Visual styling:** colors, typography and spacing. You can adjust it now or later from the form's Appearance section.
+
+Once created, go to the form's **Automations** section to automatically assign a folder to each new subscriber. This lets you know where they came from (for example, "2026 event announcement website") and build segments specific to that captured audience.
+
+### 3.3. Install the form on your website
+
+Go to the form's **Installation** section and copy the HTML code shown there. Paste it into your website: in a WordPress custom HTML block, a Webflow Embed component, or your web editor's code section. The form appears immediately.
+
+Full guide: [Create a subscription form](/en/subscriptions/create-a-subscription-form/)
+
+---
+
+## Phase 4: First campaign
+
+With channels active, your audience segmented and the form running, you have everything you need to create your first launch campaign.
+
+### 4.1. Prepare the template before creating the campaign
+
+The campaign wizard needs the email template to already exist before you reach the content step. If you don't have one, go to **Campaigns, Templates** and create one before you start.
+
+If you're going to use WhatsApp, templates for that channel need Meta's approval before they can be sent. Create it and submit it for review at least 24 to 48 hours ahead of the planned send.
+
+Email template guide: [Design email templates](/en/campaigns/email-templates/)
+WhatsApp template guide: [Create WhatsApp templates](/en/campaigns/whatsapp-templates/)
+
+### 4.2. Create the campaign with the 8-step wizard
+
+Go to **Campaigns, My campaigns** and click **+ Create campaign**. The wizard walks through these eight steps:
+
+1. **Name:** use a descriptive name that includes the event and the goal, for example "Festival 2026, Early Bird early access." It'll help you identify the campaign once you have several.
+2. **Channel:** select the sending channel. Email and push are usually active by default; SMS and WhatsApp need prior activation.
+3. **Content:** choose the email template you've prepared. The right-hand panel shows a full preview.
+4. **Campaign type:** Nevent detects it automatically based on the template. Marketing campaigns include the unsubscribe link and respect user preferences; transactional ones are for confirmations or important notices.
+5. **Audience:** choose the segment or segments that will receive the campaign. Each segment shows the estimated recipients (total users minus unsubscribes and invalid emails). You can combine several segments in the same send.
+6. **Subject line and UTMs:** write the subject line (mandatory) and the preview text. The wizard shows a simulation of how it'll look in the inbox. Use the **Personalize** button to insert the fan's name in the subject line.
+7. **Scheduling:** choose to send now or schedule a date and time. For a coordinated launch, schedule the send ahead of time so you don't have to be online at the exact moment.
+8. **Review:** a full summary with the estimated cost in credits, your available balance, and a **Save draft** button if you want to come back later. When everything looks right, click **Launch campaign**.
+
+Full guide: [How to create your first campaign](/en/campaigns/create-your-first-campaign/)
+
+### 4.3. Recommended send order
+
+Don't send your first campaign to your entire base at once. The recommended order for launch is:
+
+| Timing | Segment | Channel | What you communicate |
+|---|---|---|---|
+| 36-48 hours before public launch | Champions, Loyal Customers, Early Bird fans | Email | Exclusive early access, without revealing every detail |
+| At launch time (hour 0) | Same group as above | Email | Tickets are now available, direct link |
+| 2-4 hours later | Extended base (high temperature) or general active base | Email | Launch to the general public |
+
+This order creates a real sense of exclusivity: your highest-value fans know before everyone else and have room to act. The first sales create the early sold-out effect that drives the sales that follow.
+
+Full playbook with timings and segments: [72-hour launch strategy](/en/goal-guides/72-hour-launch/)
+
+### 4.4. Basic best practices
+
+Before launching any campaign, check these four things:
+
+- **Send it to yourself first.** The template editor and the campaign wizard have a test-send button. Check that the subject line makes sense, images load, links work, and it looks good on mobile.
+- **Review the subject line.** About 40 characters show on mobile, so put the important part first. Specific subject lines ("[Festival]'s Early Bird, only 48 hours") work better than generic ones ("Updates").
+- **Don't oversaturate.** If you notice your unsubscribe rate rising after several sends in a row, slow down. One relevant email always beats several irrelevant ones.
+- **Schedule at the best moment for your audience.** Check your event's analytics for the day and time slot when your fans buy the most, and schedule the send right before that.
+
+Reference: [Best practices for your campaigns](/en/campaigns/best-practices/)
+
+---
+
+## Phase 5: Measurement
+
+Sending the campaign is only half the work. Reviewing the metrics after each send closes the loop and gives you the data you need to improve the next one.
+
+### 5.1. Read the results report
+
+In **Campaigns, My campaigns**, click the name of the sent campaign to open its report. The report has five sections: Summary, Deliverability, Unsubscribes, Segments and Engagement.
+
+In the **Summary** section you'll find the four basic metrics:
+
+- **Sent:** the total emails Nevent attempted to deliver.
+- **Delivered:** the ones the recipient's server accepted (the percentage over sent is the delivery rate).
+- **Opened:** recipients who opened the email at least once (open rate).
+- **Clicks:** the number of times someone clicked a link (click rate).
+
+The reference ranges for live-event campaigns are:
+
+| Metric | Healthy result | Warning sign |
+|---|---|---|
+| Delivery rate | Above 95% | Below 90% |
+| Open rate | Above 25% | Below 15% |
+| Click rate | Above 5% | Below 2% |
+| Unsubscribe rate | Below 0.5% | Above 1% |
+
+Guide to reading metrics: [How to interpret your campaign's results](/en/campaigns/report/results/)
+
+### 5.2. Review opens, clicks and unsubscribes in detail
+
+Beyond the summary, the report has three detail views worth checking before your next send:
+
+- **Engagement (opens and clicks):** shows who opened and who clicked. That list is the basis for building an "opened but didn't buy" segment for your next campaign.
+- **Unsubscribes:** shows who unsubscribed and when. If the rate exceeds 1%, the message or the segment weren't aligned.
+- **Bounces:** distinguishes between hard bounces (address doesn't exist, permanently damages sending reputation) and soft bounces (temporary, Nevent retries them automatically). Clean up hard-bounced addresses before your next important send.
+
+Detail guides:
+- [Who opened and clicked your campaign](/en/campaigns/report/opens-and-clicks/)
+- [Unsubscribes from your campaigns](/en/campaigns/report/unsubscribes/)
+- [Bounces from your campaigns](/en/campaigns/report/bounces/)
+
+### 5.3. Understand attributed revenue and ROAS
+
+Beyond open and click metrics, Nevent calculates the **attributed revenue** for each campaign: how much money came from sales Nevent can link to a click on that specific campaign. **ROAS** (Return On Ad Spend) divides that revenue by the campaign's cost and tells you how many euros in sales you generate for every euro invested.
+
+These two metrics let you compare real efficiency between campaigns and channels, not just engagement. A campaign to your Champions segment with 500 recipients can have a much higher ROAS than a mass send to 50,000 fans, even with fewer opens.
+
+Metrics reference: [Email, SMS and WhatsApp campaign metrics](/en/analytics/campaigns/)
+
+### 5.4. Connect with audience analytics
+
+Beyond campaign metrics, Nevent's audience analytics gives you a long-term view of your fan base. **LTV** (Lifetime Value) shows how much revenue a fan generates over time, letting you decide how much to invest in acquisition with real grounding. **Nevent Temperature** classifies each fan into six levels (from Very Hot to Frozen) based on recent activity, making it easier to prioritize who to communicate with at each moment.
+
+Interpretation guide: [Understanding Nevent analytics](/en/analytics/understanding-analytics/)
+
+---
+
+## Checklist summary
+
+Before opening sales for your event, verify you've completed these points:
+
+**Sending infrastructure**
+- [ ] Email channel active with sender name, reply-to address and signature configured
+- [ ] SMS active with a registered Sender ID (if you're going to use SMS)
+- [ ] WhatsApp Business connected (if you're going to use WhatsApp)
+- [ ] Meta Pixel and GA4 connected in the Analytics tab (if you run paid advertising)
+- [ ] Dedicated domain set up with verified DNS records (recommended)
+
+**Audience**
+- [ ] Contacts imported or synced from your ticketing platform
+- [ ] Early Bird or early-buyer fan segment created and size reviewed
+- [ ] Champions and Loyal Customers RFM segment identified
+- [ ] Geolocated audience segment created (if the event is regional)
+
+**Subscription form**
+- [ ] Legal information completed (business name and privacy policy URL)
+- [ ] Form created with the necessary fields
+- [ ] Folder automation set up to track where subscribers came from
+- [ ] Form installed on the event's website
+
+**First campaign**
+- [ ] Email template created (and WhatsApp template submitted for review 48 hours ahead, if applicable)
+- [ ] Segments assigned to each launch campaign
+- [ ] Subject line reviewed and tested with a test send
+- [ ] Campaigns scheduled per the recommended send-order timings
+
+**Measurement**
+- [ ] Reference metric ranges reviewed before the first send
+- [ ] Results report checked after each campaign
+
+---
+
+## Related guides
+
+- [Activate your communication channels](/en/deliverability/activate-your-channels/)
+- [Set up your dedicated domain](/en/deliverability/custom-sending-domain/)
+- [Set up your email delivery](/en/deliverability/set-up-your-email-delivery/)
+- [What subscriptions are for](/en/subscriptions/what-subscriptions-are-for/)
+- [Create a subscription form](/en/subscriptions/create-a-subscription-form/)
+- [Creating a segment](/en/segmentation/segmentation-engine/creating-a-segment/)
+- [Early Bird fans for exclusive presale](/en/segmentation/use-cases/early-buyers/)
+- [VIP segment with RFM Champions](/en/segmentation/use-cases/top-rfm-vip/)
+- [Geolocated audience for regional events](/en/segmentation/use-cases/geolocated-audience/)
+- [How to create your first campaign](/en/campaigns/create-your-first-campaign/)
+- [Design email templates](/en/campaigns/email-templates/)
+- [Create WhatsApp templates](/en/campaigns/whatsapp-templates/)
+- [Best practices for your campaigns](/en/campaigns/best-practices/)
+- [How to interpret your campaign's results](/en/campaigns/report/results/)
+- [Who opened and clicked your campaign](/en/campaigns/report/opens-and-clicks/)
+- [Email, SMS and WhatsApp campaign metrics](/en/analytics/campaigns/)
+- [Understanding Nevent analytics](/en/analytics/understanding-analytics/)
+- [72-hour launch strategy](/en/goal-guides/72-hour-launch/)
+- [How to fill your event](/en/goal-guides/fill-your-event/)

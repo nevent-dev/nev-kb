@@ -1,0 +1,78 @@
+---
+title: "How to sync a segment as an audience on Meta, Google or TikTok"
+diataxis: how-to
+description: "Learn to turn a Nevent segment into a custom audience for your Meta Ads, Google Ads or TikTok Ads campaigns in just a few minutes."
+sidebar:
+  order: 11
+faqs:
+  - q: "Do I need to have the ad account connected before doing this?"
+    a: "Yes. You can only sync a segment with a platform whose ad account is already connected under Settings → Paid Ads. If it isn't, that platform's card will tell you and take you straight to connect it."
+  - q: "Can I sync the same segment with Meta, Google and TikTok at once?"
+    a: "Yes. Each platform has its own card and its own sync button, so you can activate the segment on all three at once, or only on the ones you use."
+  - q: "What happens if the sync fails?"
+    a: "That platform's card shows the Error state with a short message and a Retry button. It doesn't affect your segment's data in Nevent: it only means the send to that particular platform didn't complete."
+  - q: "Does this create the ad campaign for me?"
+    a: "No. Syncing a segment only uploads the audience to the platform. Creating the campaign and choosing that audience as its target still happens in Meta Ads Manager, Google Ads or TikTok Ads Manager."
+  - q: "Can I see the real acquisition cost of these buyers thanks to this?"
+    a: "Not yet. Nevent doesn't send the sales that happen in your ticketing system back to the platforms, so this feature is for targeting and generating lookalike audiences, not for measuring your real ROAS inside the ad platform."
+---
+
+When you turn a Nevent segment into a custom audience, your Meta, Google or TikTok ads stop targeting strangers: you show them to people who already know your event because they already bought or interacted with you before.
+
+In this guide you'll activate that sync for a segment you've already created. It will take about 5 minutes.
+
+## Before you start
+
+You need two things:
+
+- **A segment already created.** If you don't have one yet, first follow the guide [create your first segment](/en/segmentation/segmentation-engine/creating-a-segment/).
+- **The ad account connected** for the platform you want to sync with (Meta Ads, Google Ads or TikTok Ads). You'll check and connect it in step 1.
+
+## Step 1: Check which ad platforms you have connected
+
+In the side menu, go to **Settings** and click **Paid Ads**.
+
+You'll see one card per platform. The one that already has your account linked shows the **Connected** state, with the account name and the date of the last sync. The ones not yet linked show **Not connected** and a **Connect** button.
+
+If the platform you want to use already shows as Connected, skip straight to step 2. If not, click **Connect** and follow that platform's authorization process before continuing.
+
+## Step 2: Open the segment you want to turn into an audience
+
+In the side menu, go to **Audience → Segments** and click the segment you want to use for your ads.
+
+At the top of the segment screen you'll see a block called **Activate as an advertising audience**, with a short description of what it does.
+
+## Step 3: Expand the block and choose the platform
+
+Click the **Activate as an advertising audience** block to expand it. Three cards open, one per platform: Meta Ads, TikTok Ads and Google Ads.
+
+Each card shows its own technical name for this feature: Meta and TikTok call it **Custom Audience**; Google calls it **Customer Match**. It's the same idea across all three, under the name each platform uses.
+
+Depending on that card's state, you'll see a different button:
+
+- If the platform is connected, you'll see the **Sync** button. Click it to send your segment as an audience.
+- If the platform isn't connected, you'll see **Connect in Settings**, which takes you back to the step 1 screen.
+
+:::note[Note]
+Right below the block's title, Nevent states that contact data is encrypted before being sent to the platform.
+:::
+
+## Result
+
+After clicking **Sync**, that platform's card reflects the result of the send. It can show **Connected** if everything went well, or **Error** with a **Retry** button if something failed, as in this example captured on a demo tenant.
+
+You now know how to activate a segment as a custom audience. You can now go into Meta Ads Manager, Google Ads or TikTok Ads Manager, create a campaign and choose that audience as its target, or ask the platform to generate a lookalike audience from it.
+
+:::caution[Important]
+Nevent doesn't yet send the sales that happen in your ticketing system to these platforms. This feature is for targeting your ads and generating lookalike audiences, not for seeing your real acquisition cost inside Meta, Google or TikTok.
+:::
+
+:::tip[Tip]
+If you change a segment's conditions after syncing it, go back in and click **Sync** again so the platform's audience updates with the changes.
+:::
+
+## Next step
+
+- [What is a custom audience and why it improves your ads](/en/paid-media/what-is-a-custom-audience/)
+- [Custom audiences reference](/en/paid-media/custom-audiences-reference/)
+- [Connect your accounts and understand the Paid Media panel](/en/paid-media/connect-your-accounts/)

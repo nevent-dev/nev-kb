@@ -1,0 +1,216 @@
+---
+title: "What to do the week of your event"
+description: "The final-stretch guide: reminders to buyers, a last-minute campaign to your active base, abandoned cart recovery and Superapp messaging for ticket holders."
+diataxis: how-to
+faqs:
+  - q: "How many email campaigns should I send during the event week?"
+    a: "A reasonable structure is three or four email campaigns spread across the week: a reminder to confirmed buyers (Monday or Tuesday), a last-minute campaign to the active base (Wednesday or Thursday), abandoned cart recovery running in parallel, and a final-48-hours push if tickets remain. Don't send the same message to the same segment twice within less than 48 hours."
+  - q: "Does the Superapp push notification reach all my attendees?"
+    a: "It only reaches people who have the app installed with notifications enabled. Before sending, the Send push panel shows you how many people will receive the message via the reach indicator. If that number is low, complement it with email or SMS."
+  - q: "Can I schedule the week's campaigns in advance?"
+    a: "Yes. The campaign wizard has a Schedule send option in step 7, where you set the date and time. Prepare the drafts the weekend before and schedule them all at once. The Superapp push is the only exception: it's immediate and doesn't support scheduling from that screen."
+  - q: "How much time do I have to send the cart recovery email before it loses effect?"
+    a: "The effective window is 6 to 12 hours from the abandonment. After 72 hours, purchase intent fades and the message stops being a reminder and becomes advertising. If the event no longer has tickets available in the abandoned category, don't send the email."
+  - q: "What do I do if I still have a lot of capacity left three days before the event?"
+    a: "Activate all three last-minute levers at once: a campaign to the active base with real urgency based on available tickets, recovery of carts abandoned in the last 48 hours, and, if you have SMS or WhatsApp activated, a reminder over that channel in the last 24 hours. SMS has an open rate of 85-95% and is the most effective channel for urgency."
+---
+
+The week of your event concentrates the most important communication decisions: some fans already have a ticket and need practical information, some fans came close to buying and didn't, and some active fans can still be converted with a genuinely urgent argument. This guide gives you the exact sequence of what to do each day, which segment to use, and how to execute it in Nevent.
+
+By the end of this week you'll have sent the right messages to each group, recovered part of your abandoned carts, and reached your Superapp audience at the moment they use the app most.
+
+## Before you start
+
+You need the following ready before the Monday of event week:
+
+- At least one **email template** created in **Campaigns, Templates** for each type of message (buyer reminder, last-minute campaign, cart recovery). If you need to create them, follow the [How to design email templates](/en/campaigns/email-templates/) guide.
+- If you use WhatsApp, a **Meta-approved template** with the Marketing category. WhatsApp templates can take up to 24 hours to be approved: submit the review request with at least two days' margin. See [How to create WhatsApp templates](/en/campaigns/whatsapp-templates/).
+- The **segments** you'll need this week created or prepared in **Audience, Segments**. You can create segments days in advance and save them without launching any campaign. The audience size shown in the preview updates the moment you create the campaign.
+- The **Superapp configured** with your event on the Home screen and the correct festival start and end dates. If you haven't done this yet, follow step 2 of the [Getting started with the Superapp](/en/superapp/getting-started/) tutorial.
+
+---
+
+## Monday or Tuesday: reminder to those who already have a ticket
+
+The week's first message isn't aimed at selling more tickets — it's about reinforcing the experience for fans who already bought. This group needs practical information: final schedules, access, how to download the ticket, what to bring.
+
+A well-informed fan arrives at the event with less friction, uses the app better, and generates fewer support inquiries.
+
+### Segment
+
+Fans who have a ticket purchased for the event. In Nevent's segmentation engine, build this segment using the **confirmed attendance** criterion for that specific event. See the available criteria in [Attendance segmentation capabilities](/en/segmentation/capabilities/event-attendance/).
+
+### Channel
+
+Email. This message has no real-time urgency: the fan will read it whenever they want and keep it as reference.
+
+If you have the Superapp configured and the event has an app, you can also send a complementary **push notification** (not instead of the email, but in addition) the day before the event reminding fans that the app is available and that they'll find the schedule, the map and their cashless balance there. Go to [SUPERAPP, Send push](/en/superapp/what-is-the-superapp/) and prepare the text in advance.
+
+### What the message should say
+
+- Date, time and location of the event (even if the fan already knows, confirming it reduces anxiety).
+- How to get in: main gate, VIP access if applicable, whether the ticket needs to be printed or the phone is enough.
+- A link to download or view the ticket, if your system supports it.
+- If the event has the Superapp active: an invitation to download it, explaining what they'll find inside (artist schedule, venue map, cashless balance).
+- Practical venue information: transport, parking, prohibited items if any.
+
+### How to build it in Nevent
+
+1. Go to **Campaigns, + Create campaign**.
+2. Step 1: give it a descriptive name, for example "Demo Fest 2026 - Buyer reminder - Monday."
+3. Step 2: select the **Email** channel.
+4. Step 3: choose the reminder template you prepared.
+5. Step 4: the campaign type is detected automatically (transactional if the content is informational, marketing if it includes a commercial call to action).
+6. Step 5: select the confirmed-buyers segment.
+7. Step 6: write the subject line. Something concrete like "All set for Demo Fest — here's what you need" works well. Use the **Personalize** field to insert the first name if you have it.
+8. Step 7: schedule the send for Monday or Tuesday mid-morning (between 10:00 and 12:00, when the open rate is highest for this type of message).
+9. Step 8: review the summary and click **Launch campaign** or **Save draft** to review it later.
+
+---
+
+## Wednesday or Thursday: last-minute campaign to the active base
+
+Midweek, you launch the main urgency campaign to fans who still don't have a ticket. The argument is real: the event is days away and tickets are running out, or online sales close before the box office does.
+
+This campaign goes to the extended base, not everyone. Sending to inactive fans or fans with low likelihood of attending burns credits and raises the unsubscribe rate.
+
+### Segment
+
+Fans with **Very Hot or Hot temperature** in Nevent (those with the highest purchase likelihood) who don't have a confirmed ticket for this event. You can build this segment by combining the Nevent Temperature criterion with an exclusion of confirmed buyers. See [Nevent Score and Temperature: predictive fan segmentation](/en/segmentation/capabilities/score-and-temperature/).
+
+If you don't have enough history for the Score to be calculated, use as an alternative all fans with a valid email, no active unsubscribe and no hard bounce, excluding confirmed buyers.
+
+### Channel
+
+Email as the main channel. If you have **SMS** or **WhatsApp** activated in **Settings, Channels**, use one of those channels as reinforcement the same day or the next: SMS has an open rate of 85-95% and WhatsApp 70-90%, compared to the typical 25-35% for email at events. For an urgent message with little text and a direct purchase link, SMS or WhatsApp are more effective. To activate SMS or WhatsApp, check with your Nevent team for instructions.
+
+### What the message should say
+
+- Real urgency: how many tickets remain (if that data is public), when online sales close, or when the last day at the current price is.
+- Don't fabricate scarcity. If the event isn't nearly sold out, the message should be about online sales closing before the event, not "last tickets." The credibility of your future campaigns depends on fans perceiving your messages as honest.
+- A direct call to action: a visible button with the purchase link. One button, one message, one goal.
+- An image of the event or the poster to trigger visual recall.
+
+### How to build it in Nevent
+
+Follow the same 8-step wizard process ([How to create your first campaign](/en/campaigns/create-your-first-campaign/)). In step 5, select the high-temperature-without-confirmed-ticket segment. In step 7, schedule the send for Wednesday or Thursday between 18:00 and 21:00, when ticket-purchase activity usually peaks for the day.
+
+:::note[Tip]
+If you want to know at what time of day your audience buys the most, check the temporal patterns section in your event's analytics before setting the send time.
+:::
+
+---
+
+## In parallel all week: abandoned cart recovery
+
+Throughout the week, and especially in the final days of sales, some fans start the purchase process and don't finish it. This segment has the highest potential conversion of your entire base because purchase intent already exists.
+
+It's not a one-off campaign: it's a process worth keeping active all week, launched as soon as new abandonments accumulate.
+
+### Segment
+
+Fans who started a purchase (selected tickets or reached checkout) in the **last 24-48 hours** and didn't complete the transaction. Exclude fans with an active unsubscribe or a hard bounce. See the full use case: [Recovering abandoned ticket carts](/en/segmentation/use-cases/abandoned-cart/).
+
+:::note[Availability]
+Availability of the abandoned-cart criterion can vary depending on your account's configuration. If you don't see it in the Engagement category of the segmentation engine, check with your Nevent team to verify that the integration with your ticketing system is active.
+:::
+
+### Channel
+
+Email in the first **6 to 12 hours** since the abandonment. If you have SMS activated, a second reminder over that channel between 12 and 24 hours later can reinforce the first impact.
+
+### What the message should say
+
+- A direct, recognizable subject line: "You were one step away" or "Your tickets for [event name] are still available" performs better than a generic subject line.
+- An event image in the top block to trigger visual recall.
+- A single call-to-action button that leads directly to the purchase page.
+- Short copy: three or four lines. You don't need a long email; the fan already knows what event this is about.
+- If few tickets remain in the abandoned category, mention it: it adds real urgency.
+- A discount isn't always necessary. Many abandonments are due to distraction, not price objections. Save the incentive for a second touch if the first one doesn't convert.
+
+### Detailed playbook
+
+The full step-by-step process, including how to build the segment, prepare the template and measure the result, is in [Playbook: recover abandoned carts](/en/goal-guides/recover-abandoned-carts/).
+
+---
+
+## Friday and Saturday: reaching attendees through the Superapp
+
+In the two days before the event (or during the event itself if it spans several days), the Superapp is the most effective channel for reaching people who already have a ticket. The attendee has their phone in hand and the app installed.
+
+From the **SUPERAPP, Send push** panel you can send a notification that appears directly on the attendee's phone screen, even if they don't have the app open. They don't need to check email or messages: the notification appears on its own. Before sending, the panel shows you how many people will receive it (the reach indicator).
+
+### When and what to send
+
+| Timing | Message | Destination screen on tap |
+|---|---|---|
+| Two days before the event | "[Event name] is almost here. Download the app if you haven't yet, and have everything at hand." | Event home |
+| Day of the event, morning | "Today's the day. Doors open at [time]. Check the map and your artist schedule in the app." | Venue map |
+| During the event (if multi-day) | Operational notices: stage changes, a new area opening, a last-minute artist announcement. | Artist or map screen |
+
+Each notification's title has a limit of **65 characters** and the body **500 characters**. An on-screen counter shows you how many you've used as you type. Sending is **immediate** and can't be undone. Prepare the text in advance, copy it into a reference document, and send it only when the right moment arrives.
+
+:::caution[Careful]
+The Superapp push doesn't support scheduling or undoing. Once you press send, the message goes out instantly. If you need to schedule a push notification for a specific time, use the push campaigns in the Campaigns module, which do support scheduling.
+:::
+
+Nevent also generates **automatic** push notifications without you having to write them: the system sends an alert to every attendee who saved an artist to their personal schedule about **30 minutes before** that artist performs. You don't have to configure anything for this to happen; just make sure the artists are set up in the festival's content.
+
+To learn how the Superapp works in detail, see [What the Superapp is and what it's for](/en/superapp/what-is-the-superapp/) and [Superapp reference](/en/superapp/reference/).
+
+---
+
+## Sunday: review results before closing out the week
+
+Once the event has finished, or earlier if sales already closed, review the reports for this week's campaigns from **Campaigns, My campaigns**.
+
+The key metrics for this week are:
+
+| Metric | Healthy reference | Where to see it |
+|---|---|---|
+| Open rate | Above 25% | Each campaign's report, summary block |
+| Click rate | Above 5% | Each campaign's report, summary block |
+| Unsubscribe rate | Below 0.5% | [Unsubscribes report](/en/campaigns/report/unsubscribes/) |
+| Delivery rate | Above 95% | [Bounces report](/en/campaigns/report/bounces/) |
+| Attributed revenue | Varies by ticket price | Revenue column in the campaigns list |
+
+If a campaign's open rate is below 15%, review the subject line and the sender name. If the click rate is low but opens are high, the call-to-action button wasn't visible or the link was wrong. If the unsubscribe rate exceeds 1%, the segment or the send timing wasn't right.
+
+For the cart recovery campaign, the reference conversion range is 15% to 30% of abandonments. If you have 100 people in the segment and the email delivers well, expect between 15 and 30 additional purchases.
+
+The full guide to interpreting each metric is in [How to interpret your campaign's results](/en/campaigns/report/results/).
+
+---
+
+## Week summary
+
+| Day | Action | Segment | Channel |
+|---|---|---|---|
+| Monday or Tuesday | Reminder to confirmed buyers | Fans with a purchased ticket | Email (+ optional push) |
+| Wednesday or Thursday | Last-minute campaign | High temperature without confirmed ticket | Email, SMS or WhatsApp |
+| All week | Abandoned cart recovery | Purchase started but not completed within 24-48h | Email (+ SMS as reinforcement) |
+| Friday and Saturday | Informational and operational push | Attendees with the app installed | Push (Superapp) |
+| Sunday | Results review | - | Campaign reports |
+
+---
+
+## Related guides
+
+- [Playbook: recover abandoned carts](/en/goal-guides/recover-abandoned-carts/)
+- [72-hour launch strategy](/en/goal-guides/72-hour-launch/)
+- [How to fill your event](/en/goal-guides/fill-your-event/)
+- [What the Superapp is and what it's for](/en/superapp/what-is-the-superapp/)
+- [Getting started with the Superapp](/en/superapp/getting-started/)
+- [Superapp reference](/en/superapp/reference/)
+- [Recovering abandoned ticket carts: how to segment](/en/segmentation/use-cases/abandoned-cart/)
+- [Digital engagement: segmenting fans by email behavior](/en/segmentation/capabilities/digital-engagement/)
+- [Nevent Score and Temperature: predictive fan segmentation](/en/segmentation/capabilities/score-and-temperature/)
+- [Attendance segmentation capabilities](/en/segmentation/capabilities/event-attendance/)
+- [How to create your first campaign](/en/campaigns/create-your-first-campaign/)
+- [How to design email templates](/en/campaigns/email-templates/)
+- [How to create WhatsApp templates](/en/campaigns/whatsapp-templates/)
+- [Manage your campaigns](/en/campaigns/manage-your-campaigns/)
+- [How to interpret your campaign's results](/en/campaigns/report/results/)
+- [Who opened and clicked your campaign](/en/campaigns/report/opens-and-clicks/)
+- [Unsubscribes report](/en/campaigns/report/unsubscribes/)
+- [Bounces report](/en/campaigns/report/bounces/)

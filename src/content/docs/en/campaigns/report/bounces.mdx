@@ -1,0 +1,53 @@
+---
+title: How to check the bounces on your campaigns
+diataxis: how-to
+description: Learn to read the Deliverability section in Nevent, what an email bounce is and what to do to protect your sender reputation.
+---
+
+This guide explains what a bounce is, how to see them in the report of a sent campaign, and why it's worth reviewing them. About 3 minutes.
+
+## Before you start
+
+You need at least one campaign in **Sent** status. Follow [How to create your first campaign](/en/campaigns/create-your-first-campaign/) first if you haven't launched one yet.
+
+## Step 1: Open the Deliverability section
+
+In the side menu, click **My campaigns**, then the name of a sent campaign.
+
+Inside the report, click **Deliverability** in the left-hand menu.
+
+## Step 2: Read the deliverability data
+
+This section shows five cards with the send's delivery data.
+
+The data you'll see is:
+
+- **Sent:** emails Nevent attempted to deliver.
+- **Delivered:** the ones the recipient's server accepted. A "delivered" email is not a guarantee it reached the inbox: it may have ended up in the spam folder.
+- **Delivery rate:** the percentage of sent emails that arrived correctly.
+- **Soft bounces:** failed deliveries due to a temporary problem, such as a full inbox or a server momentarily down. Nevent may retry the send.
+- **Hard bounces:** failed deliveries due to a permanent problem, such as an email address that doesn't exist. Nevent automatically flags these addresses so it doesn't send to them again.
+
+## Why bounces matter
+
+Every hard bounce you accumulate damages your reputation as a sender. If your hard bounce percentage rises above 2%, email servers start treating you as an unreliable source, making it harder for your future campaigns to get through, even to valid contacts.
+
+The best way to keep bounces low is to keep your list clean: regularly remove contacts who've had several undelivered sends in a row.
+
+## What to do if you have hard bounces
+
+If you spot hard bounces in the report:
+
+1. Click **View** next to "Hard bounces" to see the list of addresses.
+2. Check whether they're incorrect addresses or domains that no longer exist.
+3. Nevent already excludes them automatically from future sends, but it's good practice to also clean up your contact database.
+
+:::tip[Tip]
+A delivery rate above 95% is healthy. If it drops below 90%, review the quality of your contact list.
+:::
+
+## Next step
+
+- [Check the overall results of your campaign](/en/campaigns/report/results/)
+- [See who unsubscribed after your campaign](/en/campaigns/report/unsubscribes/)
+- [Manage your campaigns](/en/campaigns/manage-your-campaigns/)

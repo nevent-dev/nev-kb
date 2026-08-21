@@ -1,0 +1,134 @@
+---
+title: How to create WhatsApp templates
+diataxis: how-to
+description: Learn to create WhatsApp templates in Nevent step by step. In under 10 minutes you'll have your message ready to send to your fans.
+sidebar:
+  order: 2
+---
+
+In this guide you'll learn to create a WhatsApp template from scratch in Nevent. You don't need any prior experience. In about 10 minutes you'll have the template ready to use in your campaigns.
+
+## Before you start
+
+WhatsApp templates are predefined messages that you must submit to Meta (the company behind WhatsApp) for review and approval before you can use them. This is a WhatsApp Business requirement: without approval, the message can't be sent.
+
+Unlike email, here you don't design with visual blocks. You write the message text, add personalisation variables and decide whether to include buttons. Nevent then sends all of that to Meta for review.
+
+If you haven't created any campaign yet, you can first see how it works in [create your first campaign](/en/campaigns/create-your-first-campaign/).
+
+## Step 1: Go to Templates
+
+In the left-hand side menu, inside the Campaigns section, click **Templates**.
+
+The template library opens with two tabs: "Email templates" and "WhatsApp templates".
+
+## Step 2: Open the WhatsApp tab
+
+Click the **WhatsApp templates** tab.
+
+The list of your WhatsApp templates is shown. If you've just started, it will be empty.
+
+:::note[Note]
+The list has filters by Status, Quality, Message type and Language. Once you have several templates, use them to find the one you need.
+:::
+
+## Step 3: Create a new template
+
+Click the **Design** button (top-right corner) and choose **WhatsApp** from the menu that appears.
+
+A new-template wizard opens with two steps.
+
+## Step 4: Set the basic details (step 1 of 2)
+
+The first step asks for three pieces of information that Meta requires to identify the template. Once saved, you won't be able to change them.
+
+**Template name:** type a name in lowercase, using only letters, numbers and underscores. For example: `early_bird_demo_fest_2026`. The name must be unique for that language.
+
+**Category:** choose between two options:
+
+| Category | When to use it |
+|-----------|---------------|
+| Marketing | Promotions, offers, line-up announcements, early birds |
+| Utility | Purchase confirmations, account updates, access notices |
+
+**Language:** select the language you'll write the message in. You can create the same template in several languages, each as an independent entry.
+
+Once all three fields are filled in, the **Continue** button becomes active. Click it.
+
+## Step 5: Write the message content (step 2 of 2)
+
+The content editor opens. On the left you have the message sections; on the right, a real-time preview of how it will look on mobile.
+
+### Message type
+
+Choose between **Standard message** (the most common: text with a header and optional buttons) or **Carousel of cards** (several cards the user can swipe through).
+
+### Header
+
+The header is optional. You can choose between:
+
+- **None:** the message starts directly with the body text.
+- **Text:** a highlighted line of text above the body.
+- **Image:** your event's poster or photo.
+- **Video:** a short clip.
+- **PDF:** an attached document.
+
+### Body
+
+This is the main text of the message. You can apply bold (**B**), italics (*I*) and strikethrough (S) using the controls at the top of the text area. The limit is 1,024 characters.
+
+To personalise the message with the fan's name or other data, use variables. A variable is a placeholder that Nevent replaces with each contact's real data at send time. They're written like this: `{{1}}` for the first variable, `{{2}}` for the second, and so on.
+
+Example body with a variable:
+
+```
+Hi {{1}}, Early Bird tickets for Demo Fest 2026 are now available.
+```
+
+As you type the message in the editor, the mobile preview updates the text instantly.
+
+### Variable examples (required by Meta)
+
+If you've used variables, this required section appears. Meta asks you to provide a realistic example value for each variable. This helps them review the message in context. Write a representative name or value, such as `Maria` for `{{1}}`.
+
+### Footer
+
+Optional short text that appears at the end of the message. Maximum 60 characters. Useful for adding contact information or a short legal notice.
+
+### Buttons
+
+You can add up to 10 buttons in total, of two types:
+
+**Quick replies:** buttons with predefined text that the user can tap to respond. For example: "I want more info" or "Yes, count me in".
+
+**Calls to action:** buttons that lead to an external URL or dial a phone number directly.
+
+### Preview with user data
+
+At the bottom of the left panel you can search for a real contact from your database. Once selected, the mobile preview replaces the variables with their real data, so you see exactly how they'll receive the message.
+
+## Step 6: Save and submit for review
+
+When you're happy with the content, you have two options in the top bar:
+
+- **Save:** saves the template as a draft without sending it to Meta yet. You can keep editing it.
+- **Submit for review:** sends the template to Meta for approval. From that point you can't edit the main fields until Meta returns a response.
+
+:::caution[Important]
+Once submitted for review, Meta can take anywhere from a few minutes to 24 hours to approve or reject it. If it's rejected, you'll be told the reason and can create a new, corrected version. Approved templates appear in the list with the status "Active".
+:::
+
+## Result
+
+The template is saved in the "WhatsApp templates" list with its status visible (Draft, In review, Active or Rejected).
+
+Once the template is approved, you can select it when creating a WhatsApp campaign or use it in an automation flow.
+
+:::tip[Tip]
+Start with a short message and no buttons for your first approval. Simple messages pass Meta's review faster. Once you're comfortable with the process, add image headers and call-to-action buttons.
+:::
+
+## Next step
+
+- [Create your first campaign](/en/campaigns/create-your-first-campaign/) and select this template as its content.
+- [How to design email templates](/en/campaigns/email-templates/) if you also send email campaigns.

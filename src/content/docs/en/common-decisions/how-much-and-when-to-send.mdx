@@ -1,0 +1,119 @@
+---
+title: "How much and when to send without burning out your list"
+description: "Decide your campaign frequency and timing with confidence, read the signs of list fatigue, and protect your sender reputation."
+diataxis: explanation
+faqs:
+  - q: "How often should I email my fans?"
+    a: "There's no universal number. The key is keeping your unsubscribe rate below 0.5% and spam complaints below 0.1%. If either figure rises after consecutive sends, slow down. For most promoters, one or two emails a week during active promotion is a reasonable starting point."
+  - q: "When is the best time to send a campaign?"
+    a: "It depends on your specific audience. Nevent records your audience's purchase pattern in the event's analytics. Scheduling a send right before your audience's activity peak tends to improve opens and clicks. As a general reference, weekday mornings work well for many events, but your own data is what matters."
+  - q: "What counts as a healthy unsubscribe rate?"
+    a: "An unsubscribe rate below 0.5% of delivered emails is considered healthy by the thresholds Nevent shows you. Above 1%, it's worth reviewing your frequency, segmentation and content relevance."
+  - q: "What happens if I don't respect unsubscribes?"
+    a: "Nevent automatically flags unsubscribed contacts and excludes them from all future sends. Emailing someone who opted out generates direct spam complaints, the most damaging signal for your sender reputation. It's also a legal requirement."
+  - q: "Why do my emails land in spam even though I send very few?"
+    a: "Frequency is only one factor. Sender reputation also depends on hard bounces, accumulated spam complaints, domain authentication (SPF, DKIM, DMARC) and list quality. Check the sending reputation guide for a full diagnosis."
+---
+
+Knowing how many emails to send, and when, is one of the decisions that most affects your results as a promoter. Send too much and you burn out your audience, risking your ability to reach the inbox at all. Send too little and they forget about you. This guide walks through the mechanics behind that decision so you can make it with judgment, not guesswork.
+
+## Why frequency affects your domain's technical reputation
+
+When you send a campaign, mail servers (Gmail, Outlook and the rest) don't just receive the message — they take note of your sender's behavior. If your sends generate spam complaints, lots of bounces or little engagement, your sender score drops and your next emails start landing in the junk folder, even for people who genuinely enjoy reading them.
+
+Reputation isn't built send by send: it's cumulative. A spike in complaints after a run of aggressive sends can take weeks to recover from. That's why frequency isn't just a matter of user annoyance — it's infrastructure.
+
+If you haven't set up a dedicated domain in Nevent yet, the problem gets worse, because you share reputation with other senders on the platform. With your own domain, your reputation is exclusively yours, for better or worse. You can check the technical status of your sending infrastructure in [Email sending settings](/en/deliverability/email-sending-settings/) and set up your domain in [Set up your dedicated domain](/en/deliverability/custom-sending-domain/).
+
+## The three metrics that tell you if you're sending too much
+
+You don't need to guess whether your frequency is right. Your campaign data tells you. There are three metrics to watch after every send:
+
+**Unsubscribe rate.** The percentage of people who clicked the unsubscribe link out of delivered emails. Nevent shows it in the [Unsubscribes section of the campaign report](/en/campaigns/report/unsubscribes/). A value below 0.5% is healthy. Above 1%, something is off: either you're sending too often, the content doesn't match what that audience expects, or both.
+
+**Spam complaint rate.** The percentage of people who marked your email as junk in their mail client. You'll also find it in the Unsubscribes section. Keeping it below 0.1% is critical. Spam complaints are the most damaging signal for your reputation, because they show the recipient didn't just not want your email — they actively reported it. A spike in complaints can put your entire account's deliverability at risk.
+
+**Open rate.** If you notice each campaign opening less than the last one, without changing the subject line or the timing, that's a sign of accumulated fatigue. Your audience is still there, but they've stopped caring. You can track how opens evolve in the [campaign report summary](/en/campaigns/report/results/).
+
+Together, these three metrics form the dashboard for your list's health. Looking at just one isn't enough.
+
+## What list fatigue is and how it shows up
+
+List fatigue doesn't happen overnight. It's a gradual process where your contacts lose interest because they're getting too many messages, or messages that don't give them anything. It shows up as a pattern:
+
+- Open rates decline progressively across campaigns.
+- Click rates drop even while opens hold steady.
+- Unsubscribes rise after each send, especially if several are sent close together.
+- Complaints climb slightly but steadily.
+
+Once you reach this point, sending more doesn't fix the problem — it makes it worse. The audience that's already tired will keep ignoring your messages, and the ones still reading will start to tire too.
+
+The fix isn't to stop sending, but to adjust. Two concrete actions help more than anything else: reduce frequency for the whole list, and increase segmentation so you send more relevant messages to smaller groups.
+
+## Frequency and an event's lifecycle
+
+One of the most common traps is applying the same frequency throughout an event's entire life. An event's natural cycle has very different moments, and frequency should adapt to them.
+
+**Announcement and ticket launch.** This is the moment with the most legitimacy to send. Your audience expects news. One email on announcement day and another a few days later for those who didn't open the first is reasonable.
+
+**Active promotion phase.** Interest is high but it's no longer news. One or two emails a week is a pace most audiences tolerate well if the content delivers something concrete: newly confirmed artists, lineup changes, limited-time offers.
+
+**Final stretch before the event.** Interest picks up again. People who haven't bought yet may be waiting for a nudge. Those who already bought need logistical information, not more sales arguments. This is where segmentation becomes essential: don't send the same message to buyers and non-buyers.
+
+**After the event.** This is the time to gather feedback, say thank you and keep the relationship alive for the next event. It's not the time to sell tickets for your next event the day after: let the recent experience settle first.
+
+## Why segmentation reduces the risk of burning out your list
+
+Sending to your entire database every time you have something to say is the most direct path to fatigue. The problem isn't just frequency — it's that the same message isn't equally relevant to everyone.
+
+Someone who bought tickets on day one of the early bird has a very different level of involvement than someone who only opened an email three months ago without buying anything. Sending them the same message at the same pace treats very different audiences the same way, and the result is that the less engaged accumulate unsubscribes and complaints while your most loyal fans barely notice the extra volume.
+
+Nevent lets you build behavior-based segments: fans who bought for a specific event, fans who opened your last campaigns, fans who've never clicked. With those segments you can send more often to the people who respond most, and less often (or with different messages) to those showing signs of disengagement. You can learn to build those segments in [How to create a segment](/en/segmentation/segmentation-engine/creating-a-segment/).
+
+The Engagement view in the campaign report ([Who opened and clicked your campaign?](/en/campaigns/report/opens-and-clicks/)) gives you the exact list of contacts who engaged with each send. That list is your starting point for building active-audience segments.
+
+## Send timing: when it matters and when it doesn't matter as much
+
+Send timing mostly influences your initial open rate. An email sent when your audience isn't active will get fewer opens in the first hours, which can slightly penalize sender reputation (mail servers value early engagement).
+
+What works in general (weekday mornings, for example) doesn't necessarily work for your specific audience. If your crowd is mostly young and attends late-night festivals, their email-checking habits probably don't match the time slots from general studies.
+
+Nevent records your audience's purchase patterns. Checking when they buy most and scheduling the send right before that moment is more effective than following any generic recommendation. You can see those patterns in [your event's analytics](/en/experiences/analytics).
+
+## New lists and new domains: start slow
+
+If you've just imported a large list or just set up your dedicated domain, sending to your entire database at once is a real risk. Mail servers are wary of a new sender suddenly blasting out thousands of emails. This process is called domain warm-up, and it means starting with your most active contacts (the ones who open and click the most) and gradually ramping up volume.
+
+This applies even if you've been sending from Nevent's shared domain for years: when you move to your own domain, that domain has no history. Start with your best contacts and scale up over weeks, not days.
+
+## What not to do when your metrics drop
+
+When open rate falls, many promoters' instinctive reaction is to send more to compensate for each individual send's reduced impact. That's exactly the opposite of what works.
+
+More sends to a list that's already showing fatigue accelerates the buildup of unsubscribes and complaints, which worsens sender reputation, which makes the next emails land worse, which reduces opens even further. It's a self-reinforcing cycle.
+
+The alternative is to slow down, review your segmentation to make sure each message reaches people it can interest, and take care with content so every email delivers something concrete. One fewer, better-targeted email has more impact and less reputational cost than three generic ones.
+
+## An unsubscribe is a signal, not a failure
+
+When someone unsubscribes, Nevent flags them automatically and excludes them from all future sends from your organization. You don't have to do anything manually, and you shouldn't try to work around that opt-out: re-sending to someone who asked not to receive more emails generates direct spam complaints, which is the most damaging thing for your reputation.
+
+An unsubscribe doesn't always mean you did something wrong. Sometimes it simply means that person already bought their tickets and doesn't need more communications about that event, or that their interests changed. What it does tell you is that this contact is no longer your active audience, and treating them as such (sending less, or stopping altogether) is better for you and for them.
+
+What should worry you is the rate, not the absolute number. One or two unsubscribes in a send to a thousand people is normal. A 2% rate on a send is a clear sign something isn't working.
+
+## Summary: the principles behind a good frequency strategy
+
+- The right frequency isn't a fixed number: it's whatever keeps your unsubscribe and complaint metrics within healthy thresholds (unsubscribes below 0.5%, complaints below 0.1%).
+- Adapt your pace to the event's lifecycle stage: more frequency at launch and in the final stretch, less in the middle phase.
+- Segment before increasing frequency. Sending more often to a more relevant group beats sending more often to the whole list.
+- When metrics drop, slow down and improve relevance. Don't increase volume.
+- Take care of your technical infrastructure: an authenticated domain with its own reputation gives you room to recover from a mistake without affecting other senders on the platform.
+
+## Next steps
+
+- [Best practices for your campaigns](/en/campaigns/best-practices/): frequency, subject lines, segmentation and measurement at a glance.
+- [Sending reputation: how to avoid spam](/en/deliverability/sender-reputation-and-spam/): the technical fundamentals of deliverability.
+- [Who unsubscribed after your campaign?](/en/campaigns/report/unsubscribes/): how to read unsubscribe and complaint metrics in the report.
+- [How to interpret your campaign's results?](/en/campaigns/report/results/): healthy ranges for delivery, opens and clicks.
+- [Set up your dedicated domain](/en/deliverability/custom-sending-domain/): isolate your reputation from the shared domain.

@@ -1,0 +1,165 @@
+---
+title: "Your emails are going to spam: how to diagnose and fix it"
+description: "A step-by-step guide to identify why your Nevent campaigns end up in the spam folder and how to fix it by working on the domain, reputation, content and list hygiene."
+diataxis: how-to
+faqs:
+  - q: "I already have a dedicated domain set up. Why are my emails still going to spam?"
+    a: "A dedicated domain is a necessary but not sufficient condition. Also check hard bounces (should be below 2%), spam complaints (below 0.1%) and the email content. A subject line with a lot of capitalization, too many images, or typical spam words can trigger filters even if the domain is properly authenticated."
+  - q: "What's a hard bounce and how does it affect my reputation?"
+    a: "A hard bounce happens when the recipient's server permanently rejects the email, for example because the address doesn't exist. Nevent automatically excludes that address from future sends, but if you've accumulated a lot of hard bounces, mail servers start treating your messages as untrustworthy. Keeping hard bounces below 2% is key to protecting your deliverability."
+  - q: "What's the difference between a spam complaint and an unsubscribe?"
+    a: "An unsubscribe happens when the contact clicks the unsubscribe link in the email. A spam complaint happens when they mark it as unwanted directly in their email client (Gmail, Outlook, etc). Complaints damage sender reputation much more because they're a direct signal to the filters. Keeping complaints below 0.1% is essential."
+  - q: "How long does it take for the dedicated domain to verify once the DNS records are created?"
+    a: "Depending on the domain provider, DNS record propagation can take from a few minutes to 72 hours. If after 72 hours a record is still Pending, check in your provider's panel that you copied the name and value exactly as Nevent shows them."
+  - q: "If I don't have a dedicated domain, do my emails always go to spam?"
+    a: "Not necessarily. With Nevent's shared domain, emails are sent from day one and can land in the inbox. The risk is that you share reputation with other senders on the platform. If another user has reputation problems, it can affect you. Setting up a dedicated domain fully isolates your reputation."
+---
+
+This guide helps you diagnose why a Nevent email campaign ends up in the spam folder and apply the necessary fixes, step by step and in order of priority. By the end you'll know exactly where the problem is and how to fix it.
+
+## Before you start
+
+You need at least one sent campaign to review the data. If you haven't launched one yet, first follow the guide [How to create your first campaign](/en/campaigns/create-your-first-campaign/).
+
+For the domain configuration steps you'll need access to Nevent's admin panel with an administrator role.
+
+---
+
+## Step 1: check the campaign's bounces
+
+The first thing to do is review the delivery data for the campaign you suspect is landing in spam.
+
+1. In the side menu, click **My campaigns** and open the sent campaign.
+2. Inside the report, click **Deliverability** in the left-hand menu.
+
+This section shows five cards: Sent, Delivered, Delivery rate, Soft bounces and Hard bounces.
+
+Pay attention to these values:
+
+- **Delivery rate.** Above 95% is healthy. If it drops below 90%, your list quality is the main problem.
+- **Hard bounces.** If they exceed 2%, mail servers start treating your messages as untrustworthy. Nevent automatically excludes those addresses from future sends, but the damage to your reputation is already done.
+- **Soft bounces.** These are temporary (full inbox, server down). They're not urgent, but if they repeat on the same address, it's worth cleaning it up.
+
+If you have hard bounces, click **View** next to "Hard bounces" to see the list of affected addresses. Remove them from your contact database to avoid accumulating more damage.
+
+See the full details in [How to check the bounces on your campaigns](/en/campaigns/report/bounces/).
+
+---
+
+## Step 2: review spam complaints and unsubscribes
+
+In the same campaign report, click **Unsubscribes** in the left-hand menu.
+
+This section shows four cards: Unsubscribes, Unsubscribe rate, Spam complaints and Complaint rate.
+
+These are the thresholds to watch:
+
+- **Unsubscribe rate.** Below 0.5% is healthy. If it exceeds 1%, review your segmentation and send frequency.
+- **Complaint rate.** Keeping it below 0.1% is essential. Spam complaints are the most direct signal your contacts can send to mail filters: every complaint tells the provider (Gmail, Outlook) that your email isn't welcome.
+
+If the complaint rate is high, the problem is usually that you're sending to people who didn't give you explicit consent or don't remember giving you permission. The fix is to clean the list (step 5) and adjust segmentation.
+
+See the detail in [Who unsubscribed after your campaign](/en/campaigns/report/unsubscribes/).
+
+---
+
+## Step 3: verify your sending domain's status
+
+A domain without proper authentication is one of the most frequent causes of emails ending up in spam. Nevent lets you check this from the settings screen.
+
+1. In the side menu, scroll to the bottom and open **Settings**.
+2. Inside the **Advanced** group, click **Email sending**.
+
+This screen shows three blocks of information.
+
+**Domain type.** This field can show two values:
+
+- **Shared domain.** Your emails go out from a Nevent subdomain shared by every account on the platform. It works, but you share reputation with other senders.
+- **Dedicated domain.** Your emails go out from a subdomain of your own domain, with reputation entirely your own.
+
+**Component status.** Here you see three elements: Automatic subdomain, Configuration Sets and SES Tenant. If all three show as "Not configured" or "Not created," your account is still using Nevent's shared infrastructure.
+
+If you want to isolate your reputation, click the **Provision domain and create SES Tenant** button. Nevent will create the three components automatically. The process can take several minutes: don't click the button more than once.
+
+See what each component means in [Email sending settings](/en/deliverability/email-sending-settings/).
+
+---
+
+## Step 4: set up or verify your dedicated domain
+
+If the domain type is "Shared domain" and you want to fix the root cause, the most important step is setting up your own dedicated domain with SPF, DKIM and DMARC authentication.
+
+1. In the side menu, open **Settings** and find the **Workspace** group.
+2. Click **Dedicated domain** and then **Start setup**.
+3. The wizard guides you through three steps: enter your root domain (for example, `yourfestival.com`), choose the sending subdomain (default `email`), and confirm the configuration.
+4. Nevent generates the DNS records you need to create in your domain provider's panel: DKIM (CNAME type), SPF (TXT type), MAIL FROM (MX type) and DMARC (TXT type).
+5. Create each record at your provider, copying the values exactly as Nevent shows them. Don't type the DKIM values by hand: they're long strings and a single wrong character prevents verification.
+6. Go back to Nevent and click **Check status**. Propagation can take from a few minutes to 72 hours.
+
+Once all records are verified, your next campaigns will go out from `email.yourfestival.com` with full authentication, which significantly reduces the chance of landing in spam.
+
+Follow the complete process in [Set up your dedicated domain](/en/deliverability/custom-sending-domain/).
+
+---
+
+## Step 5: clean up your contact list
+
+A list with invalid, inactive, or non-consented addresses is a continuous source of hard bounces and spam complaints. Cleaning it up is one of the highest-impact actions on deliverability.
+
+Here are the concrete actions:
+
+- **Remove addresses with hard bounces.** Nevent automatically excludes them from future sends, but it's good practice to also delete them from your fan database to avoid confusion.
+- **Don't send to people who unsubscribed.** Nevent handles this automatically: when someone clicks the unsubscribe link, they're excluded from all future sends for your organization. Never try to bypass that unsubscribe.
+- **Avoid purchased or imported lists without consent.** Sending to people who didn't give you explicit permission is the fastest way to accumulate spam complaints and ruin your reputation, on top of violating GDPR.
+- **Review inactive contacts.** If part of your list has gone several sends without opening a single email, consider whether it still makes sense to keep sending to them or whether you'd rather segment them separately and send less often.
+
+---
+
+## Step 6: review the email content
+
+Spam filters don't just analyze domain and reputation: they also read the email content. Certain patterns trigger filters even if the domain is properly authenticated.
+
+Check these points before sending your next campaign:
+
+- **Subject line.** Avoid writing in all caps or with excessive exclamation marks. A subject like "BUY NOW!!! INCREDIBLE OFFER!!!" triggers spam filters. Use clear, specific language.
+- **Text-image balance.** An email that's a single large image with no text performs poorly with filters. Make sure there's enough text for the message to make sense even with images disabled.
+- **Number of links.** Too many links, especially if shortened or pointing to different domains, raises suspicion. Use only the necessary links.
+- **Risky words.** Repeated terms like "free," "urgent," "make money" or "no cost" can act as spam signals. Don't remove them if they're relevant, but don't overuse them, and avoid them in the subject line.
+- **Visible unsubscribe link.** The unsubscribe link must always be present and easy to find. Nevent includes it automatically in the email signature configured under Settings > Channels > Email.
+
+Review more best practices in [Best practices for your campaigns](/en/campaigns/best-practices/) and [Sender reputation: how to avoid spam](/en/deliverability/sender-reputation-and-spam/).
+
+---
+
+## Step 7: start slow if the list is new or large
+
+If you just set up your dedicated domain or are sending to a large list for the first time, don't send it all at once. Starting with a very high volume from a new domain raises suspicion with mail servers.
+
+The recommended strategy is to send first to your most active contacts (those who've opened recent emails or bought tickets in the last few months) and expand reach progressively. That way, servers see a sender that generates good engagement from the start and build a positive reputation.
+
+---
+
+## Checklist
+
+Before sending your next campaign, go through these points:
+
+- [ ] Hard bounces from the last campaign below 2%.
+- [ ] Complaint rate below 0.1%.
+- [ ] Unsubscribe rate below 0.5% (or reviewed and actioned if above 1%).
+- [ ] Domain type: Dedicated domain (or Shared domain with components provisioned).
+- [ ] SPF, DKIM and DMARC records verified in Nevent.
+- [ ] List cleaned up: no accumulated hard bounces, no unsubscribed contacts.
+- [ ] Subject line without excessive capitalization or repeated exclamation marks.
+- [ ] Email with a balance of text and images.
+- [ ] Unsubscribe link visible in the email footer.
+
+---
+
+## Related guides
+
+- [Sender reputation: how to avoid spam](/en/deliverability/sender-reputation-and-spam/): explains in detail what sender reputation is and the habits that protect it.
+- [Set up your dedicated domain](/en/deliverability/custom-sending-domain/): step-by-step instructions to set up SPF, DKIM and DMARC from Nevent's wizard.
+- [Email sending settings](/en/deliverability/email-sending-settings/): what each component of the sending screen means and how to provision them.
+- [How to check the bounces on your campaigns](/en/campaigns/report/bounces/): how to read the deliverability data of a sent campaign.
+- [Who unsubscribed after your campaign](/en/campaigns/report/unsubscribes/): how to interpret unsubscribes and spam complaints for a campaign.
+- [Best practices for your campaigns](/en/campaigns/best-practices/): segmentation, subject lines, frequency and measurement to improve results.

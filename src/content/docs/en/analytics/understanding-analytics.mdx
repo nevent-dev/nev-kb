@@ -1,0 +1,155 @@
+---
+title: "Understanding Nevent analytics"
+description: "What each analytics area in Nevent measures, how to interpret the data, and what attribution really means — explained for non-technical promoters."
+diataxis: explanation
+faqs:
+  - q: "What's the difference between a campaign's attributed revenue and the event's total revenue?"
+    a: "The event's total revenue adds up every ticket sold, no matter where the buyer came from. A campaign's attributed revenue only counts the sales Nevent can link to a click or interaction on that specific campaign. The gap between the two is usually direct, organic or untracked-channel sales."
+  - q: "Why does my email open rate look high while sales stay low?"
+    a: "Open rate and sales measure different things. A fan can open the email, read it and still not buy. The metric that connects the two is conversion rate: the percentage of fans who clicked and then purchased. If the open rate is high but the conversion rate is low, the problem sits at the link's destination (the sales page or the price), not in the subject line."
+  - q: "What does it mean when a fan is 'Lukewarm' or 'Frozen' in Nevent Temperature?"
+    a: "Nevent Temperature classifies each fan by recent activity and historical value. A Lukewarm fan has purchased before but hasn't interacted with you in a while. A Frozen fan has had no activity for a long time. Both are signals that the fan could be lost for good without a reactivation campaign."
+  - q: "Why does deliverability affect my campaign results?"
+    a: "If your emails land in spam instead of the inbox, your fans never see them. That drags the open rate down even if the content and subject line are good. Deliverability is the precondition that every other campaign metric depends on."
+  - q: "What is ROAS, and why is it different for email campaigns versus paid advertising?"
+    a: "ROAS measures how many euros in sales you generate for every euro invested. In email, the cost is low (the price of the tool), so ROAS tends to be very high. In paid advertising (Meta Ads, Google Ads), the cost is the direct ad spend, which can be significant. Comparing the two without accounting for that difference in scale leads to the wrong conclusions."
+sidebar:
+  order: 9
+---
+
+import { Aside } from '@astrojs/starlight/components';
+
+Nevent Analytics brings together more than 80 indicators about your events, your audience, your campaigns and your advertising. Having access to a lot of data doesn't guarantee it's useful: what matters is knowing what each number measures, when a figure is good or bad, and above all, why the data behaves the way it does.
+
+This page explains the purpose of each metrics area and the key concepts behind it, without walking through interface clicks.
+
+## Why there are seven distinct areas
+
+Nevent organizes its metrics into seven groups because each group answers a different type of question. Mixing them without understanding their purpose leads to the wrong conclusions.
+
+The seven areas are: events and tickets, audience, campaigns, paid media, tracking and attribution, deliverability, and grouping and filtering. The first six measure distinct realities of your business. The seventh isn't really a metrics area on its own — it's the layer that lets you cross any metric with dimensions like date, channel, city or fan segment.
+
+## What events and tickets measure
+
+Events and tickets metrics answer the most direct questions: how many tickets you sold, at what price, at what margin, and how fast.
+
+Sales velocity is one of the most useful indicators in this group. It doesn't just tell you how much you've sold so far — it tells you whether the pace is enough to sell out before the event. If you have a 2,000-capacity venue and you've sold 600 tickets with three weeks to go, sales velocity tells you whether that pace is normal or whether you need to trigger urgent communication.
+
+Average ticket value is the average value of each transaction. If a buyer purchases two general-admission tickets and one premium ticket, the average ticket includes that full sum. A low average ticket combined with high occupancy can signal that demand exists and the price could rise. A high average ticket combined with low occupancy suggests the opposite.
+
+Margin per event relates revenue to the cost of selling each ticket. This metric lets you compare profitability across different events, even when they're all sold out.
+
+## What audience metrics measure, and why it's the long-term view
+
+Audience metrics go beyond what happens at a single event. They measure the value and behaviour of your fans over time.
+
+### LTV: how much a fan is worth long-term
+
+LTV (Lifetime Value) is the total revenue a fan generates from their first purchase until they stop buying from you. It's the most strategic metric in the whole analytics suite because it connects the cost of acquiring fans with the return they generate.
+
+If your average LTV is €180 over two years, you can decide, with real grounding, how much to invest in advertising to acquire a new fan. Without that figure, any ad budget decision is a guess.
+
+### Churn: how many fans you're losing
+
+Churn is the percentage of fans who stop buying from you within a given period. High churn indicates your events aren't generating enough loyalty to bring fans back.
+
+Churn analysis becomes especially useful when combined with cohorts. A cohort is a group of fans who made their first purchase in the same month or at the same event. Comparing churn across cohorts lets you spot which events produce more loyal fans and which produce one-time buyers.
+
+### Nevent Temperature: how to prioritize who you talk to
+
+Nevent Temperature classifies each fan into six levels (Very Hot, Hot, Lukewarm, Cold, Very Cold, Frozen) based on their recent activity and historical value. This classification answers a practical question: who does it make the most sense to reach out to right now?
+
+A Very Hot fan buys frequently and has high value. A Frozen fan has had no activity in a long time. Knowing how many fans you have in each category lets you decide what type of campaign to launch before you spend a single euro of budget.
+
+RFM distribution (Recency, Frequency, Monetary value) works on similar logic, but with named segments like Champions or At Risk that describe each fan's historical behaviour in more granular detail.
+
+## What campaign metrics measure, and how to read the funnel
+
+Campaign metrics describe what happens when you send a communication to your fans: how many receive it, how many open it, how many take action, and how many end up buying.
+
+This set of metrics forms a funnel with three steps:
+
+1. Open rate measures what percentage of recipients opened the message. It evaluates whether the subject line and sender generate curiosity.
+2. Click rate measures what percentage clicked a link. It evaluates whether the content generates enough interest to act on.
+3. Conversion rate measures what percentage completed a purchase. It evaluates whether the landing page and price convert.
+
+Each step can have a different problem. A low open rate points to an issue with the subject line or sender reputation. A low click rate with a good open rate points to content that doesn't hook readers. A low conversion rate with a good click rate points to a problem on the checkout page or with the price.
+
+Attributed revenue goes one step further: it doesn't just count how many people bought, it counts how much money that campaign generated. Two campaigns with the same conversion rate can generate very different revenue if their average ticket differs.
+
+A campaign's ROAS (Return On Ad Spend) divides attributed revenue by the campaign's cost. For channels like email and SMS, cost includes the price of the tool plus the time spent producing the content. This metric lets you compare economic efficiency across campaigns and across channels.
+
+Unsubscribe rate and bounce rate (the percentage of undelivered emails) are warning signs. A high unsubscribe rate suggests you're sending too often, or to people who don't want to hear from you. A high bounce rate suggests your list contains a lot of invalid addresses.
+
+## What paid media measures, and how it differs from email
+
+Paid media metrics cover paid advertising: Meta Ads (Facebook and Instagram) and Google Ads. Even though some metrics share a name with campaign metrics (ROAS, conversion), the logic behind them is different because the cost structure is different.
+
+In paid advertising, the cost is the direct ad spend. ROAS here measures how many euros of tickets you sell for every euro you spend on ads. For live events, a ROAS of 2-3 covers costs, a ROAS of 5-10 is healthy, and values above 10 are possible with highly qualified remarketing audiences.
+
+CPA (Cost Per Acquisition) is the cost of getting one sale through ads. If you spend €1,000 on Meta Ads and sell 50 tickets, your CPA is €20 per ticket. CPA and ROAS complement each other: CPA tells you whether the sale is profitable in absolute terms, ROAS tells you how many times you're multiplying your investment.
+
+CTR (Click-Through Rate) measures what percentage of people who see the ad click on it. A low CTR indicates the creative or the message isn't connecting with the audience you're showing it to.
+
+### What multi-touch attribution is, and why it matters
+
+A fan doesn't always buy the first time they see an ad. It's common for them to see several ads at different moments before deciding. Multi-touch attribution assigns part of the credit for a sale to each touchpoint the fan had before buying.
+
+Without multi-touch attribution, the entire sale gets assigned to the last click (or the first, depending on the model). That can make remarketing ads look very profitable (because they're the last thing the fan sees before buying), while prospecting ads — the ones that actually introduced them to the event — look like they generate nothing.
+
+Understanding how each touchpoint contributes lets you allocate budget better across the stages of the buying journey.
+
+## What link tracking measures
+
+Link tracking is the most granular layer of attribution. While campaign metrics tell you how many fans bought after receiving an email, link tracking tells you which specific link inside that email actually drove the purchase.
+
+A link has four main metrics:
+
+- Total clicks: every time that link was clicked, including multiple clicks from the same fan.
+- Unique clicks: how many distinct fans clicked at least once.
+- Post-click conversion: what percentage of fans who clicked ended up buying.
+- Attributed revenue: how much money the purchases originating from that specific link generated.
+
+Unique clicks are the right denominator for calculating real conversion. If a link has 500 total clicks but only 200 unique ones, a subset of fans is clicking multiple times, probably comparing options. Conversion over unique clicks better reflects how many distinct fans actually decided to buy.
+
+This information lets you compare variants within the same campaign: if the link at the top of the email converts at 22% and the one at the bottom converts at 14%, future campaigns can build on that lesson.
+
+## What deliverability measures, and why it's the precondition
+
+Deliverability measures something more basic than your campaign performance: whether your emails actually reach your fans' inboxes.
+
+You can have the perfect subject line, relevant content and a well-segmented audience, and still generate no sales if your emails go to the spam folder. In that case, the open rate will look low for a technical reason, not because the content failed.
+
+The five key metrics in this area are:
+
+- Sender reputation: the score Gmail, Outlook and other providers assign to your domain based on your sending history. A low reputation sends your emails to spam even when the content is fine.
+- Inbox placement rate: the percentage of emails that reach the primary inbox. Below 85% starts to be a concern.
+- Bounce rate: the percentage of undelivered emails. A hard bounce (an address that doesn't exist) damages your reputation immediately. A soft bounce (full mailbox, server down) is temporary, and Nevent retries it automatically.
+- Spam complaint rate: the percentage of fans who marked your email as spam. Above 0.1% significantly damages your reputation.
+- Suppression list: the set of fans Nevent won't send emails to, because they unsubscribed, because their address generates bounces, or because they filed spam complaints. If it exceeds 10% of your list, it can signal a problem with how you're capturing contacts.
+
+Sender reputation is fragile: it can deteriorate within a few weeks and take weeks to recover. That's why it's the one analytics area where the alert threshold is stricter than everywhere else.
+
+## How all the areas connect to each other
+
+The seven areas aren't isolated compartments. They connect in ways that matter to understand.
+
+Deliverability is the precondition. If emails don't arrive, campaign metrics don't reflect reality.
+
+Campaign metrics and paid media metrics are two different ways of measuring the same thing: how much revenue your marketing actions generate. The difference is the type of channel. Owned channels (email, SMS, WhatsApp) have low fixed cost and reach limited to your current base. Paid channels have variable cost but can reach new audiences.
+
+Link tracking adds granularity within campaigns. Instead of only knowing that a campaign generated X euros, you know exactly which link, in which position, with which text, was responsible.
+
+Audience connects past sales with future decisions. Knowing your LTV tells you how much you can invest in acquisition. Knowing your churn tells you whether your events are building loyalty or just producing one-time buyers.
+
+Event metrics are the foundation of everything: without tickets sold, there's nothing to attribute and no fan to retain.
+
+## What Nevent analytics doesn't measure (currently)
+
+Knowing a tool's limits is as important as knowing its capabilities. According to Nevent's official documentation, demand forecasting for future events and automated dynamic pricing recommendations are on the roadmap but not available in the current version.
+
+This means Nevent analytics describes what has happened and what's happening now, not what will happen. Forward-looking decisions (what price to set, how much capacity to release) require the promoter's judgment combined with the available historical data.
+
+## How to access these metrics
+
+Data is accessible through three different channels: Nevent's admin web (a no-code visual interface), conversation with an AI assistant in natural language, and a direct API for technical integrations. The same underlying data is available through all three channels, with different latencies: purchase data has a latency under 5 minutes, aggregated metrics update daily, and campaign and attribution metrics update several times a day.

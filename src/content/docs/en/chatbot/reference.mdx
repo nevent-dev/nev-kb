@@ -1,0 +1,274 @@
+---
+title: "Chatbot reference"
+description: "Reference tables for the Nevent chatbot: configuration tabs, fields, limits, data sources, conversation states and AI model."
+diataxis: reference
+faqs:
+  - q: "How many characters can I write in the instructions?"
+    a: "The instructions field accepts up to 5,000 characters."
+  - q: "What document formats does the chatbot support?"
+    a: "PDF, TXT, MD and DOCX. The maximum file size is 10 MB."
+  - q: "What artificial intelligence model does the chatbot use?"
+    a: "The chatbot uses the Gemini 3.5 Flash Lite model, visible in the assistant status panel."
+  - q: "How many links can the chatbot generate in a day?"
+    a: "The limit is 200 new links per day per venue. Once exceeded, responses include the original, un-shortened URL."
+  - q: "Do conversations in the test environment affect my fans?"
+    a: "No. The test environment is isolated: those conversations don't reach fans or appear in the real inbox."
+---
+
+This page describes the fields, options and limits of each section of the Nevent chatbot. It's a reference to consult at any time, not a step-by-step guide.
+
+The configuration screen opens from the side menu, under **Chatbot > Configuration**.
+
+---
+
+## Assistant status panel
+
+The right-hand panel on the configuration screen shows the chatbot's current status at a glance.
+
+| Indicator | Description |
+|---|---|
+| **Assistant status** | Shows whether the assistant is **Active** (responding to users) or inactive. |
+| **Instructions** | Indicates whether custom instructions are defined or still «Not defined». |
+| **Documents ready** | Number of documents processed correctly out of the total uploaded (for example, «1 of 1»). |
+| **Active sources** | Number of data sources turned on out of the total available (for example, «7 of 8»). |
+| **Model** | AI model in use. At the time of writing: **gemini-3.5-flash-lite**. |
+
+---
+
+## Configuration tabs
+
+The configuration screen has six tabs visible to the promoter.
+
+### Custom instructions
+
+Defines the chatbot's behavior and personality through free-form natural language text.
+
+| Field or element | Detail |
+|---|---|
+| **Instructions** | Multi-line text field. **Required** for the chatbot to respond with custom behavior. |
+| **Character limit** | 5,000 characters (visible counter: «0 / 5000 characters»). |
+| **Initial state** | «Not defined» until the promoter writes and saves instructions. |
+| **Save button** | Stays disabled if there are no pending changes. |
+| **Close button** | Discards unsaved changes and closes the editing panel. |
+
+Note: writing style (tone, vocabulary) is configured in the **Assistant voice** tab, not here.
+
+---
+
+### Assistant voice
+
+Generates or writes a voice manual that determines how the assistant sounds when it writes.
+
+| Element | Detail |
+|---|---|
+| **Initial state** | «Your assistant is still writing with the default voice» until a manual is generated or written. |
+| **Conversation samples** | Recommended guidance: at least 500 words total; 2 to 6 conversations from the same team, varied (incidents, questions, complaints). Very long threads are discouraged because they dilute the style. |
+| **Add sample button** | Lets you paste or write a conversation as a style sample. |
+| **Import from my conversations button** | Imports conversations already recorded in the platform. |
+| **Generate voice manual button** | Analyzes the added samples and automatically produces the voice manual. |
+| **Or write the manual yourself button** | Lets you write the voice manual manually, without using samples. |
+
+---
+
+### Reference documents
+
+Lets you upload files the chatbot can consult to give more precise answers.
+
+| Element | Detail |
+|---|---|
+| **Supported formats** | PDF, TXT, MD, DOCX. |
+| **Maximum file size** | 10 MB. |
+| **Upload button** | Opens the operating system's file selector. |
+| **Table columns** | Name, Type, Size, Status, Upload date, Actions. |
+| **Possible document states** | **Ready** (processed correctly and available to the chatbot). Other states not confirmed in the observed source. |
+| **Actions per document** | Download, Delete. |
+
+Limit on the number of simultaneous documents: not determined in the observed source.
+
+---
+
+### Data sources
+
+Controls which information from the Nevent account the chatbot can consult automatically. There are a total of 8 sources grouped into three blocks.
+
+**Global indicator:** shows the number of sources selected out of the total (for example, «SOURCES SELECTED: 7 of 8»).
+
+#### Block: Event information
+
+| Source | Information it provides |
+|---|---|
+| **Basic event information** | Event name, general description and main image. |
+| **Venue information** | Physical location, event dates and gate opening times. |
+| **Artist lineup** | Full lineup, set times, stages and featured artists. |
+
+#### Block: User information
+
+| Source | Information it provides |
+|---|---|
+| **User profile** | Attendee name, assigned folders and current location. |
+| **Loyalty program** | Points earned, current tier and available benefits. |
+| **Ticket details** | Ticket type, included experiences and purchased add-ons. |
+
+#### Block: Additional information
+
+| Source | Information it provides |
+|---|---|
+| **Venue maps** | Points of interest, service locations and event areas. |
+| **Sponsors** | List of the event's sponsor brands and their links. |
+
+Each source is turned on or off with a checkbox. Turning off unnecessary sources reduces the model's resource usage.
+
+---
+
+### Tracked links
+
+Configures whether the chatbot shortens and measures the links it includes in its responses.
+
+| Switch | Description | Dependency |
+|---|---|---|
+| **Sales links** | Event recommendations use a stable short link per event with the chatbot's campaign parameters. Allows counting clicks per event. | None. |
+| **Per-conversation attribution** | Adds an identifier for the conversation that generated it to each link. Enables conversational CTR and the "Push to sale" block in metrics. | Requires **Sales links** to be active. Without it, this setting has no effect. |
+| **Documentation links** | Also wraps links coming from the knowledge base (schedules, rules, FAQs), with the same attribution. | None. |
+
+**Daily limit:** 200 new links per day per venue. Once exceeded, responses use the original, un-shortened URL.
+
+---
+
+### Test chatbot
+
+Isolated environment to check how the chatbot responds before publishing it.
+
+| Element | Detail |
+|---|---|
+| **Visible notice** | «Test environment: this conversation doesn't affect your users' real conversations.» |
+| **Text field** | Multi-line. Enter sends the message; Shift+Enter inserts a line break. |
+| **Send button** | Sends the message to the chatbot. |
+| **Delete button** | Clears the current test conversation. |
+| **State when there are no instructions** | The field and buttons appear disabled. Instructions must be saved before testing is possible. |
+
+Conversations held here don't appear in the inbox and aren't visible to fans.
+
+---
+
+## Inbox
+
+Accessible from **Chatbot > Inbox**. Shows every conversation the chatbot has with event attendees. Step-by-step guide: [how to manage the inbox](/en/chatbot/inbox/).
+
+### State counters
+
+At the top of the inbox there are four counters: **Bot in progress**, **In progress**, **Escalated** and **Resolved**. They're a visual summary, not filters: you can't click them to narrow the list. To filter, use the views or channels in the left column.
+
+### Channels reaching the inbox
+
+| Channel | How it connects |
+|---|---|
+| **Web chat** | Installed on your website or landing page from **Chatbot > Web channel**, with the installation snippet and the list of allowed domains. |
+| **App** | Conversations your fans start from the app reach this same inbox. No separate installation needed. |
+| **WhatsApp** | Reuses the WhatsApp Business account connected under [Deliverability and channels](/en/deliverability/activate-your-channels/). It has no connection screen of its own within the chatbot module. |
+
+### View filters
+
+| Filter | Description |
+|---|---|
+| **All** | Shows every conversation, regardless of state. |
+| **Mine** | Conversations assigned to the logged-in agent. |
+| **Unassigned** | Conversations with no agent assigned. |
+| **In progress** | Active conversations where a human agent is intervening. |
+| **Resolved** | Conversations marked as resolved. |
+
+### Channel filters
+
+| Channel | Description |
+|---|---|
+| **All** | Shows conversations from any channel. |
+| **Web chat** | Conversations started from the web channel embedded on the promoter's website. |
+| **Widget** | Conversations from the floating widget. |
+| **WhatsApp** | Conversations started from WhatsApp. |
+
+### Conversation states
+
+| State | Meaning |
+|---|---|
+| **Bot in progress** | The chatbot is responding automatically. |
+| **In progress** | A human agent has taken control of the conversation. |
+| **Escalated** | The chatbot couldn't resolve the query and is pending human attention. |
+| **Resolved** | The conversation has been closed as resolved. |
+
+**Languages:** the chatbot detects the user's message language and answers in that same language.
+
+---
+
+## Web channel
+
+Accessible from **Chatbot > Web channel**. Contains the installation code and the widget's appearance options.
+
+### Installation
+
+| Element | Detail |
+|---|---|
+| **Code snippet** | JavaScript ready to copy. Must be pasted right before the website's `</body>` tag. |
+| **Script loading** | From `https://neventapps.com/widget/v1/loader.js`. |
+| **Cookies** | The script doesn't load cookies until the visitor opens the chat. |
+| **Channel status** | Can be **In production** or another status depending on deployment. |
+
+For installations in Google Tag Manager, WordPress or Shopify, specific guides are available from the same screen.
+
+### Appearance
+
+| Field | Options or detail |
+|---|---|
+| **Assistant logo** | Supported formats: PNG, JPG, WebP. Maximum size: 2 MB. A square image with a transparent background is recommended. If none is uploaded, the default logo is used. |
+| **Main color** | Hex text field plus a visual color picker. |
+| **Launcher position** | Left or Right. |
+| **Theme** | Automatic (follows the visitor's system preference), Light or Dark. |
+| **Assistant language** | Spanish, English, Catalan, Portuguese. If the page where it's embedded declares another supported language, the widget adopts it automatically. |
+| **Welcome message** | Free-text field. |
+| **Welcome message subtitle** | Free-text field. |
+| **Quick replies** | Configurable list of suggestions the visitor can tap to start the conversation. |
+
+### Allowed domains
+
+| Element | Detail |
+|---|---|
+| **Purpose** | Only the listed websites can load the chatbot. If a domain isn't on the list, the widget doesn't appear even if the snippet is installed. |
+| **Wildcard** | `*.domain.com` is supported to cover all subdomains of a domain. |
+
+---
+
+## Metrics: Push to sale
+
+Accessible from **Chatbot > Performance**. Shows what the links the assistant includes in conversations generate. Reading guide: [Link tracking and chatbot performance](/en/chatbot/link-tracking-and-performance/)
+
+| Metric | Description | Formula or breakdown |
+|---|---|---|
+| **Recommendations with link** | Number of times the assistant offered an event link in a reply. | — |
+| **Clicks from chat** | Total clicks people made on those links. | Shown as «X from people · Y automated»; automated ones (previews, bots) are counted separately. |
+| **Conversations that clicked** | Percentage of conversations with at least one human click. | Conversations with at least one human click ÷ conversations with at least one link recommendation in the period. If the period has no recommendations, a dash (—) is shown instead of a percentage. |
+| **Other clicks** | Clicks on shared or old links that don't count toward the main metrics. | Breakdown: unconfirmed · possible fabrications · expired. |
+
+**Available periods:** 7 days, 30 days, 90 days.
+
+**Attribution window:** 7 days. An info icon next to the block indicates the real attribution coverage for the selected period (for example, «Attribution coverage for the period: 60%»), because not every click arrives with an identifiable code.
+
+The detail table shows, for each destination: event name, type, short link, number of recommendations, number of clicks and date of the last click.
+
+Note visible on the platform: «Recent clicks are still being recorded and some links can't be tracked exactly: treat this as an approximation that will keep growing.»
+
+:::caution[Important]
+These metrics aren't attributed sales. Chatbot conversations are anonymous: Nevent can count the click on the link, but it can't join it to a later purchase. A click indicates the conversation ended in an action, not a sale generated by the bot.
+:::
+
+---
+
+## Consolidated limits and restrictions
+
+| Element | Limit |
+|---|---|
+| Custom instructions | 5,000 characters |
+| Maximum size per document | 10 MB |
+| Supported document formats | PDF, TXT, MD, DOCX |
+| Maximum widget logo size | 2 MB |
+| Widget logo formats | PNG, JPG, WebP |
+| Available data sources | 8 sources in 3 blocks |
+| Tracked link limit | 200 new links per day per venue |
+| AI model | gemini-3.5-flash-lite |

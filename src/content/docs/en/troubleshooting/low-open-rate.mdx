@@ -1,0 +1,142 @@
+---
+title: "Low open rate: what to check"
+description: "A diagnostic guide for promoters seeing an open rate below 15% on their Nevent campaigns, with the six most likely causes ranked by impact."
+diataxis: how-to
+faqs:
+  - q: "What's the minimum open rate my campaign should have?"
+    a: "For live event campaigns, an open rate above 25% is considered healthy. If it drops below 15%, that's a warning sign worth investigating with the steps in this guide."
+  - q: "Why can the open rate look low even though a lot of emails were actually sent?"
+    a: "The open percentage is calculated over total sent, not over delivered. If you have a lot of bounces, the denominator is high and the percentage drops even if the absolute number of opens is reasonable. Check the Deliverability section of the report first to rule out a bounce problem."
+  - q: "Does Nevent automatically exclude bounced addresses from future sends?"
+    a: "Yes. Addresses with a hard (permanent) bounce are automatically excluded from all subsequent sends for your organization. You don't have to do anything manually."
+  - q: "Can I see exactly which contacts didn't open the email?"
+    a: "Yes. In the campaign report, go to the Engagement section and use the dropdown to filter by Delivered. The difference between that number and Opened are the contacts who didn't open it."
+  - q: "Does changing the subject line require resending the campaign?"
+    a: "Yes, the subject line is part of the original send and can't be modified once sent. To test a different subject line you need to create a new campaign. You can send it only to the contacts who didn't open the previous one."
+---
+
+This guide helps you diagnose why a campaign's open rate is low and take concrete action for each case. Open rate measures the percentage of contacts who opened your email out of the total sent. For live event campaigns, a rate above **25%** is healthy; below **15%** is a warning sign worth investigating.
+
+Before making changes, identify the cause. The most common causes are the subject line, the sender name, a deliverability problem, a poorly matched segment, and send timing. This guide reviews them in that order, from highest to lowest typical impact.
+
+## Before you start
+
+You need a campaign in **Sent** status with at least a few hours since it went out, because opens are recorded during the first hours and days after sending.
+
+If you haven't launched any campaign yet, first follow [How to create your first campaign](/en/campaigns/create-your-first-campaign/).
+
+## Step 1: confirm the problem is opens, not delivery
+
+Before touching the subject line or the sender name, rule out that the problem is a high bounce rate artificially dragging down the open rate.
+
+Open your campaign's report. In the left-hand menu of the report, click **Deliverability**.
+
+Check the **Delivery rate** card:
+
+- If it's **above 95%**, delivery is fine and the real problem is opens. Continue with Step 2.
+- If it's **below 90%**, you have a bounce problem you need to solve first. Read [How to check the bounces on your campaigns](/en/campaigns/report/bounces/).
+
+Also check the **Hard bounces** card. If the hard bounce percentage exceeds **2%**, your list needs urgent cleanup. Accumulated hard bounces damage your sender reputation and make your future emails land with more difficulty, even for valid contacts. See [Sender reputation: how to avoid spam](/en/deliverability/sender-reputation-and-spam/) to understand how it affects your future sends.
+
+## Step 2: review the subject line
+
+The subject line is the factor with the biggest influence on open rate. It's the first thing the recipient reads and what decides whether they open the email or not.
+
+Open the campaign report and look at the subject line you used. Ask yourself:
+
+**Is it clear and specific?** A subject like "Early Bird for Demo Fest, 48 hours only" works better than "News" or "We have something special for you."
+
+**Is it too long for mobile?** On most phones only about **40 characters** of the subject are visible. If the important text is at the end, it may never get read. Put the key information first.
+
+**Does it look like spam?** Subjects in ALL CAPS, with excessive exclamation marks, or with words like "free" or "urgent" used to excess trigger email providers' spam filters and create distrust in the recipient. Write it the way you'd write to a fan, not like an ad.
+
+**Does it include the recipient's name?** Personalized subjects with the first name tend to get opened more. In the campaign creation wizard, in the subject step, there's a **Personalize** button that lets you insert the recipient's name as a variable.
+
+If the subject has any of these problems, the fastest improvement for your next campaign is to write one that's more direct, shorter, or more personalized. You can't change the subject line of a campaign that's already been sent.
+
+## Step 3: review the sender name
+
+The recipient doesn't just read the subject: they also see who's sending the email. If the sender name doesn't mean anything to them or they don't recognize it, they probably won't open it.
+
+The sender name is configured in two places:
+
+- **Global setting:** in the side menu, go to **Settings**, then **Brand & Content** and open **Channels**. On the **Email** tab you have the **Sender** field with the name applied to all campaigns by default.
+- **Per campaign:** in step 6 of the campaign wizard ("Subject and UTMs"), you can override the sender for that particular send.
+
+Check that the sender name your campaign used is recognizable to your audience: it should be the name of your event, venue or brand, not a generic alias.
+
+If your emails go out with the text "via Nevent" next to your organization's name, it means they're using Nevent's shared domain. This doesn't stop them from arriving, but it can reduce recipients' trust. Setting up a dedicated domain makes the sender show your own domain. You can check it in [Email sending settings](/en/deliverability/email-sending-settings/) and set it up in [Set up your dedicated domain](/en/deliverability/custom-sending-domain/).
+
+## Step 4: check whether your emails are landing in the inbox or in spam
+
+A high delivery rate doesn't guarantee the email lands in the main inbox. It may have landed in the spam or promotions folder without counting as a bounce.
+
+The main causes of an email ending up in spam are:
+
+- **No domain authentication:** if you don't have SPF, DKIM and DMARC configured for your domain, email providers (Gmail, Outlook) treat your emails with less trust. See [Set up your dedicated domain](/en/deliverability/custom-sending-domain/) to configure them.
+- **Content with a spam pattern:** subject lines or email bodies with excessive capitalization, exclamation marks, too many links, or words filters associate with spam. Reviewing the email content can help.
+- **List with low-quality contacts:** if you sent to a purchased list or to contacts who never gave you permission, it's very likely they'll mark the email as spam. Spam complaints damage your reputation quickly. Keep the complaint rate below **0.1%** to protect your sending capacity.
+
+To confirm whether spam is the problem, run this test: send the campaign to yourself (or to an account you control on Gmail and Outlook) and see which folder it lands in.
+
+The underlying fix is improving authentication and list quality. Read [Sender reputation: how to avoid spam](/en/deliverability/sender-reputation-and-spam/) for the complete guidelines.
+
+## Step 5: review the segment you sent to
+
+A low open rate can indicate the message wasn't relevant to that audience, even if the subject was good.
+
+Open the campaign report and click **Segments** in the left-hand menu. You'll see which segments the campaign was sent to and the criteria that defined them.
+
+Ask yourself: did it make sense to send this message to that audience? For example, if you sent a ticket offer for an electronic music festival to your entire database (including fans of other genres or attendees of past editions who are no longer active), the open rate will be lower than if you'd sent it only to people who bought or showed interest in that type of event.
+
+If the segment was too broad or not very relevant, the improvement for the next campaign is to build a more focused segment before sending. See [Best practices for your campaigns](/en/campaigns/best-practices/) for guidance on segmentation.
+
+You can also use the **Engagement** section of the report to see exactly who opened the email. Filter by **Opened** and compare the profile of those contacts against total recipients. If the same profiles always open, you have information to sharpen your segment next time.
+
+## Step 6: review the send timing
+
+Timing has a significant effect on open rate. Sending in the middle of the night or at a time when your audience isn't active lowers the percentage even if the rest of the campaign is fine.
+
+From the campaign report you can see the date and time of the send in the Summary configuration block.
+
+To know when your audience is active, check your event's analytics in **Analytics**. The time patterns show you the day of the week and time slot when your audience buys and engages the most. Schedule the send just before that moment.
+
+If you don't have enough data yet, as a general rule weekday morning sends tend to get better results than weekends or nighttime slots, although this varies by audience profile.
+
+:::tip[Tip]
+Don't send on several consecutive days if you already have a low open rate. High frequency saturates your audience and raises unsubscribes. An unsubscribe rate above **1%** is a sign you're sending too often, or to an audience that doesn't want that type of content.
+:::
+
+## After the diagnosis: what to do with this campaign
+
+If you've identified the cause or causes, you have two options:
+
+**Send a follow-up campaign to those who didn't open.** This is the most effective short-term option. To do it:
+
+1. Open the campaign report and go to **Engagement**.
+2. Filter by **Opened** to see who did open the email.
+3. The contacts not on that list are the ones who didn't open: create a segment with that group and send them a new campaign with a different subject line and at a different time.
+
+**Apply the changes to your next campaign.** The subject line, sender and segmentation can't be changed on a send that's already gone out. Note what you've found and apply the improvements to your next send.
+
+:::tip[Tip]
+If you send a follow-up to those who didn't open, wait at least 48 hours from the original send before resending. Many contacts open emails one or two days after receiving them.
+:::
+
+## Quick summary
+
+1. **Check the delivery rate** (healthy signal: above 95%; warning sign: below 90%). If hard bounces exceed 2%, clean the list first.
+2. **Review the subject line:** clear, concise (about 40 characters visible on mobile), doesn't look like spam, personalized if possible.
+3. **Check the sender:** it should be a name your audience recognizes.
+4. **Rule out landing in spam:** send the campaign to yourself and see which folder it lands in. If you don't have a dedicated domain with SPF, DKIM and DMARC configured, that could be contributing.
+5. **Evaluate the segment:** the audience needs to be relevant to the message you sent.
+6. **Review the timing:** send when your audience is active, not when it's convenient for you.
+
+## Next step
+
+- [How to check the bounces on your campaigns](/en/campaigns/report/bounces/)
+- [Who opened and clicked your campaign?](/en/campaigns/report/opens-and-clicks/)
+- [How to interpret your campaign results?](/en/campaigns/report/results/)
+- [Sender reputation: how to avoid spam](/en/deliverability/sender-reputation-and-spam/)
+- [Set up your dedicated domain](/en/deliverability/custom-sending-domain/)
+- [Best practices for your campaigns](/en/campaigns/best-practices/)

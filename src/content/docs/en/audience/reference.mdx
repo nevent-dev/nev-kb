@@ -1,0 +1,154 @@
+---
+title: "Fan profile and list reference"
+description: "Full description of the Fans list columns, a fan profile's tabs, consent statuses per channel, email hygiene status and the Segments list columns."
+diataxis: reference
+sidebar:
+  order: 3
+faqs:
+  - q: "What does it mean when a fan's email shows as invalid?"
+    a: "It means that email has recorded at least one hard bounce, meaning a message couldn't be delivered permanently. Nevent automatically marks it as invalid and excludes that fan from all marketing email campaigns until the address is updated."
+  - q: "What's the difference between 'No unsubscribe' and 'Active' in consent statuses?"
+    a: "They're different status labels for each channel. 'Active' appears for transactional email and indicates the channel is operational. 'No unsubscribe' appears for marketing email, SMS and push, and indicates the fan hasn't unsubscribed from that channel, but not necessarily that they gave a positive opt-in."
+  - q: "What does the contactability percentage show in the Segments list?"
+    a: "It shows the percentage of fans in the segment who have a valid email with no marketing unsubscribe, over the segment's estimated total. A low percentage can indicate many invalid emails, many unsubscribes, or that the segment contains contacts imported without consent."
+  - q: "What is the Nevent Score?"
+    a: "It's an automatic score Nevent calculates to classify a fan's level of engagement with your organisation. It appears in the header metrics block of the profile's Summary tab."
+---
+
+import { Aside } from '@astrojs/starlight/components';
+
+This page describes all the fields, columns and statuses that appear in the Audience area of Nevent: the Fans list, an individual fan's profile and the Segments list.
+
+Use it as a quick reference whenever you need to know what a particular value means or what information each section contains.
+
+---
+
+## Fans list
+
+The Fans list (`/users`) shows every contact registered in your organisation in a paginated table.
+
+### Fans list columns
+
+| Column | Description |
+|---|---|
+| Name | The contact's full name. Shows a dash (`-`) if the fan has no name recorded. |
+| Email | The contact's email address. |
+| Phone | Phone number. Shows a dash (`-`) if the fan has no phone recorded. |
+| Status | The contact's status within the organisation. The observed value is "Invited". |
+| Organisation | The name of the organisation the contact belongs to. |
+| Experiences | Number of experiences linked to the contact. |
+| Value | Accumulated economic value of the contact, in euros. |
+
+### Contact status
+
+The only status observed in the list is the following.
+
+| Status | Description |
+|---|---|
+| Invited | The contact is registered in the organisation. |
+
+---
+
+## A fan's profile
+
+Clicking any row in the Fans list opens that fan's individual profile. The profile has a side menu with nine tabs.
+
+### Profile tabs
+
+| Tab | Relative URL |
+|---|---|
+| Summary | `/summary` |
+| Personal details | `/profile` |
+| Public profile | `/public` |
+| Interests | `/interests` |
+| Tickets | `/tokens` |
+| Purchases | `/purchases` |
+| Subscriptions | `/newsletters` |
+| Conversations | `/conversations` |
+| Interaction | `/interaction` |
+
+The Summary tab is the default view. To learn how to use each tab, see the guide [Managing fans](/en/audience/manage-a-fan-profile/).
+
+---
+
+## Summary tab: header metrics
+
+The top of the Summary tab shows four metrics for the fan.
+
+| Metric | Description |
+|---|---|
+| Total spend | Accumulated sum of all the fan's purchases, in euros. |
+| Number of purchases | Total transactions completed by the fan. |
+| Events attended | Number of events the fan has attended. |
+| Nevent Score | Automatic score of the fan's engagement with the organisation. Includes a level label, for example "Low engagement". |
+
+---
+
+## Summary tab: Communications block
+
+The Communications block shows the fan's consent status for each marketing channel. The system includes a help text stating: "Consent is per organisation. Source: user preferences and delivery events."
+
+### Consent statuses by channel
+
+| Channel | Observed status | Note visible in the interface |
+|---|---|---|
+| Marketing email | No unsubscribe | No additional note. |
+| Transactional email | Active | "Tickets and account notices: doesn't require marketing acceptance, but does require a valid email." |
+| Marketing SMS | No unsubscribe | "No decision recorded: allowed by default." |
+| Marketing push | No unsubscribe | No additional note. |
+| WhatsApp | No opt-in | "Requires explicit opt-in: not recorded." |
+
+<Aside type="note">
+WhatsApp consent can only be given by the user themselves from the Nevent app. It can't be activated from the admin panel.
+</Aside>
+
+---
+
+## Summary tab: Email status block
+
+The Email status block shows information about the hygiene of the fan's email address and its effect on deliverability.
+
+The system's help text states: "A hard bounce marks the email as invalid and automatically unsubscribes it from marketing; a complaint unsubscribes it from marketing. Both statuses are reflected here and in all contactable counters."
+
+### Email status block fields
+
+| Field | Description |
+|---|---|
+| Email address | Shows the fan's email address. |
+| Hard bounces | Indicates whether the email has hard bounces recorded. |
+| Validity status | Indicates whether the address is marked as invalid. |
+
+### Consequences of hygiene status
+
+| Event | Automatic consequence |
+|---|---|
+| Hard bounce | The email is marked as invalid and the fan is automatically unsubscribed from marketing. |
+| Complaint | The fan is automatically unsubscribed from marketing. |
+
+Both statuses affect all the organisation's contactable counters, including those shown in the Segments list.
+
+---
+
+## Segments list
+
+The Segments list (`/lists`) shows all of the organisation's audience segments with contactability information per channel.
+
+### Segments list columns
+
+| Column | Description |
+|---|---|
+| Name | The segment's name. |
+| Est. attendees | Estimated number of fans that make up the segment. |
+| Estimated marketing audience (email, SMS, push) | Breakdown of the number of contactable fans per channel, with the email contactability percentage. |
+| Last modified | Date and time of the segment's last edit. |
+| Actions | Menu of options available for that segment. |
+
+### Estimated marketing audience column
+
+This column breaks down into three sub-columns: email, SMS and push. For the email channel it also shows the contactability percentage, calculated over the segment's estimated total.
+
+The percentage reflects how many fans in the segment have a valid email with no marketing unsubscribe. Excluded fans are those whose email is marked invalid, who have a hard bounce recorded, or who have filed a complaint.
+
+<Aside type="note">
+A fan can be part of a segment's estimated total and still not be contactable by email if their address has bounced or they've unsubscribed. The contactability percentage tells you the real fraction that will receive your campaign through that channel.
+</Aside>

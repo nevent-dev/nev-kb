@@ -1,0 +1,136 @@
+---
+title: "Delivery and domain configuration reference"
+description: "Reference for the Email sending and Custom domain screens: what each field, technical component and authentication protocol is, and its possible states."
+diataxis: reference
+sidebar:
+  order: 5
+faqs:
+  - q: "What's the difference between a shared domain and a custom domain?"
+    a: "With the shared domain, your emails go out from a Nevent subdomain shared by every account on the platform. With a custom domain, your emails go out from a subdomain of your own domain, and the reputation of your sends is entirely yours."
+  - q: "What is the SES Tenant and why does it matter?"
+    a: "It's a dedicated sending account inside AWS SES, the email infrastructure service Nevent uses. Once created, your emails go out from isolated infrastructure: if another Nevent user has a reputation issue, it doesn't affect you."
+  - q: "What are the SPF, DKIM and DMARC records for?"
+    a: "They're three email authentication protocols. SPF states which servers are allowed to send on behalf of your domain. DKIM adds a digital signature to each message to certify it hasn't been altered. DMARC sets the policy mail servers follow when a message fails SPF or DKIM."
+  - q: "What does it mean when a component shows as 'Not configured'?"
+    a: "It means your account is still using Nevent's standard shared domain. Your emails send normally, but they share reputation with the platform's other senders. To isolate your reputation, you need to provision the components from the Email sending screen."
+  - q: "What address will my contacts see as the sender if I don't have a custom domain?"
+    a: "They'll see the effective sending address shown on the Email sending screen, next to your organization's name followed by 'via Nevent'. This indicates the send is using Nevent's shared infrastructure."
+---
+
+import { Aside } from '@astrojs/starlight/components';
+
+This page describes every field, option and state on the two email delivery configuration screens in Nevent: **Email sending** (`/settings/email-sending`) and **Custom domain** (`/settings/custom-domains`).
+
+Use it as a quick reference whenever you need to know what a particular value means, what each component does, or which authentication protocols Nevent uses.
+
+---
+
+## Email sending screen
+
+**Path:** Settings > Advanced > Email sending (`/settings/email-sending`)
+
+This screen shows the technical status of your account's email sending infrastructure and lets you provision the components needed to have your own sender reputation.
+
+### Block: effective sending configuration
+
+This block shows the active values your emails currently send with.
+
+| Field | Description |
+|---|---|
+| Effective sending address | The email address your contacts receive campaigns from. If you don't have a custom domain configured, it corresponds to a Nevent subdomain. |
+| Sender display name | The name shown in the "From" field of the recipient's inbox. It's made up of your organization's name followed by "via Nevent" when using the shared infrastructure. |
+| Domain type | Indicates whether you're using Nevent's shared domain or your own custom domain. The two possible values are **Shared domain** and **Custom domain**. |
+
+#### Domain type: possible values
+
+| Value | Description |
+|---|---|
+| Shared domain | Sending goes out from a Nevent subdomain shared across every account on the platform. This is the default value when no custom domain has been configured. Reputation is shared with Nevent's other senders. |
+| Custom domain | Sending goes out from a subdomain of your own domain. Reputation is exclusively yours. This value appears once you have a domain configured on the Custom domain screen and the technical components provisioned. |
+
+---
+
+### Block: component status
+
+This block shows the status of the three technical elements that manage your account's reputation isolation in AWS SES, the email infrastructure service Nevent uses.
+
+| Component | Description |
+|---|---|
+| Automatic subdomain | A unique, verified subdomain in AWS assigned to your account. When active, mail providers like Gmail or Outlook associate the reputation of your sends only with your account, not with Nevent's overall pool of senders. |
+| Configuration Sets | AWS SES configuration for tracking marketing and transactional sends. Controls which events get logged: opens, clicks, bounces and complaints. |
+| SES Tenant | A dedicated sending account inside AWS SES. Once created, your emails go out from completely isolated infrastructure. A reputation issue on another Nevent account doesn't affect you. |
+
+#### Component states
+
+| State | Meaning |
+|---|---|
+| Not configured | The component hasn't been created. Your account uses the standard shared domain. |
+| Not configured (plural) | Variant of the above state applied to the Configuration Sets component. |
+| Not created | Variant of the above state applied to the SES Tenant component. |
+
+<Aside type="note">
+All three components are created at the same time via the "Provision domain and create SES Tenant" button. They can't be activated individually from the interface.
+</Aside>
+
+---
+
+### Action: Provision domain and create SES Tenant
+
+| Element | Description |
+|---|---|
+| Button | "Provision domain and create SES Tenant" |
+| Effect | Creates the three components simultaneously: the automatic subdomain, the configuration sets and the SES Tenant. |
+| Duration | The process can take several minutes from clicking the button until the components appear as active. |
+
+---
+
+## Custom domain screen
+
+**Path:** Settings > Workspace > Custom domain (`/settings/custom-domains`)
+
+This screen lets you configure a custom domain so your email campaigns go out from a subdomain of your own domain instead of Nevent's shared domain.
+
+### Benefits described on screen
+
+The welcome screen of this module describes three benefits of setting up a custom domain.
+
+| Benefit | Description shown in the interface |
+|---|---|
+| Increase your delivery rate | Prevents your emails from ending up in spam by using your own domain. |
+| Improve your brand identity | Strengthens your professional image with a custom domain. |
+| Protect your reputation | Secures your email authentication with SPF, DKIM and DMARC records. |
+
+---
+
+### Email authentication protocols
+
+Setting up a custom domain requires implementing three standard email authentication protocols.
+
+| Protocol | Description |
+|---|---|
+| SPF (Sender Policy Framework) | Lists the mail servers allowed to send emails on behalf of your domain. Mail providers check this record to decide whether the message is legitimate. |
+| DKIM (DomainKeys Identified Mail) | Adds a digital signature to each email certifying it was sent by you and hasn't been modified in transit. |
+| DMARC (Domain-based Message Authentication, Reporting and Conformance) | Defines the policy mail servers must apply when a message fails SPF or DKIM verification. For example, rejecting it or sending it to spam. |
+
+<Aside type="note">
+The three protocols work together. SPF and DKIM verify the message's origin and integrity; DMARC states what to do when either one fails. Configuring all three improves inbox placement and protects your domain against unauthorized use.
+</Aside>
+
+---
+
+## Relationship between the two screens
+
+The Email sending and Custom domain screens are complementary: one manages the sending infrastructure in AWS, and the other manages domain authentication via DNS.
+
+| Screen | What it configures | Where the result shows up |
+|---|---|---|
+| Email sending (`/settings/email-sending`) | Sending infrastructure: subdomain in AWS, configuration sets and your own SES account. | Domain type and effective sending address in the same block. |
+| Custom domain (`/settings/custom-domains`) | Domain authentication via DNS records: SPF, DKIM and DMARC. | Record status on the wizard screen. |
+
+---
+
+## Related documents
+
+- [Email sending settings](/en/deliverability/email-sending-settings/): a step-by-step walkthrough of the Email sending screen.
+- [Configure your custom sending domain](/en/deliverability/custom-sending-domain/): instructions to complete the custom domain wizard and create the DNS records.
+- [Sender reputation: how to avoid spam](/en/deliverability/sender-reputation-and-spam/): an explanation of what sender reputation is and how to protect it.

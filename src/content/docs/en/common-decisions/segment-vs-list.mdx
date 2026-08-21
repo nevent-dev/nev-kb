@@ -1,0 +1,145 @@
+---
+title: "Dynamic segment or list: which one to use"
+description: "Understand the difference between a dynamic segment and a static list in Nevent, and when each one makes sense depending on your goal."
+diataxis: explanation
+faqs:
+  - q: "Can a dynamic segment end up empty if my fans' data changes?"
+    a: "Yes. The segment recalculates its members every time you use it. If fans who used to meet the criteria no longer do (for example, because their temperature dropped or because they already bought), the segment will reflect that change. That's precisely what makes it useful: it always works with up-to-date data."
+  - q: "When I import fans, can I add them directly to a segment?"
+    a: "Yes, but the segment created at that moment is a static tag list. Nevent offers three options when importing: don't add them anywhere, add them to an existing segment, or create a new segment. In the last two cases, the fans in the file are permanently assigned to that group, regardless of the segmentation engine's criteria."
+  - q: "Can I combine a static list with the segmentation engine?"
+    a: "You can use the folder tag as one more criterion inside the engine. For example, you can build a dynamic segment that says: 'fans who belong to the May_2025_Import folder AND have Hot or Very Hot temperature.' That way you filter an imported list using behavioral criteria."
+  - q: "Does a dynamic segment affect how many fans actually receive my campaign?"
+    a: "The segment defines who qualifies based on the criteria. But Nevent applies a second filter before sending: only fans with active marketing consent and a valid address actually receive the campaign. The contactability column on the segments screen shows you what percentage of the segment's fans are truly reachable."
+  - q: "When does it make sense to use a static list instead of a dynamic segment?"
+    a: "When group membership depends on something that happened in the past and shouldn't change over time. For example: sweepstakes entrants, attendees of a press event, contacts brought in from an external tool with a different consent basis. In those cases you need to fix the group at the exact moment of the import or the action."
+---
+
+import { Aside } from '@astrojs/starlight/components';
+
+## What this page covers
+
+Nevent gives you two ways to organize your fans into groups: dynamic segments, which you build with the segmentation engine, and static lists or audiences, which are formed when you import contacts or manually assign them to a folder. They look the same because in both cases the result is a set of people you can target with a campaign. But they work very differently, and understanding that difference saves you from mistakes and helps you choose correctly in each situation.
+
+This page explains what each one is, how it works under the hood, and what signals tell you when you should use one or the other.
+
+---
+
+## What a dynamic segment is
+
+A dynamic segment is a question you ask Nevent's segmentation engine: "give me every fan who meets these conditions right now." Nevent evaluates that question against your fan base at the moment you run it, and returns the group of people who match.
+
+The key is in two words: "who meets" and "right now." The segment doesn't store a fixed list of people. It stores the rule. Every time you use it, the rule is applied again against current data.
+
+That means if yesterday a fan was "Very Cold" on the Nevent Score and today they've bought a ticket and opened two emails, tomorrow they can show up in your "Hot" fans segment without you touching anything. The engine recalculates it on its own.
+
+Nevent's segmentation engine organizes the available criteria into six categories: Attendance (events the fan has been to, ticket type, artist, music genre), Fan attributes (city of residence, age, language), Spend (total spend, number of purchases, cashless top-ups), Engagement (emails opened, clicks, response speed), Channels (app downloaded, phone verified, social accounts connected) and Nevent Score (the temperature and the numeric engagement score). You can combine criteria from different categories with AND and OR logical operators, and add recency and frequency modifiers to filter not just by what a fan has done, but by how many times and within what time period.
+
+<Aside type="tip">
+The [segmentation engine guide](/en/segmentation/segmentation-engine/) explains each criteria category and how to combine them. If you want to see how a segment is built step by step, the [Creating your first segment](/en/segmentation/your-first-segment/) guide walks you through it with a concrete example.
+</Aside>
+
+---
+
+## What a static list is
+
+A static list (or static audience) is a fixed group of people. It's created the moment you add them to the group, and it doesn't change on its own.
+
+In Nevent, static lists mostly appear when you import contacts. At the end of the import process, Nevent asks whether you want to add those contacts to a segment. If you say yes, you can add them to an existing segment or create a new one. The contacts from the file get assigned to that group at that instant. The list doesn't evaluate conditions: it simply records that those people were added.
+
+The resulting group doesn't update itself. If a contact on that list changes their behavior, their temperature or their purchase history, that doesn't add them to or remove them from the list. Only a manual action or a new import would.
+
+<Aside type="note">
+The [Import your contacts](/en/audience/import-your-contacts/) guide describes the add-to-segment step in detail, including the three available options: don't add them anywhere, add to an existing segment, and create a new segment.
+</Aside>
+
+---
+
+## The difference that matters: rule vs. snapshot
+
+The clearest way to understand the difference is with this image:
+
+A dynamic segment is a **standing rule**. It's evaluated every time. The group it produces changes because your fans' data changes.
+
+A static list is a **snapshot in time**. It reflects who was in that group at the moment it was formed. It doesn't evolve unless you step in.
+
+That has very direct practical consequences:
+
+If you send a presale campaign to a dynamic segment of "fans with Hot or Very Hot temperature," on the day of the send Nevent calculates who has that temperature level at that moment. A fan who cooled off in recent weeks won't get the message. One who became active recently will, even if they weren't in the group last week. The segment adapts to your audience's current reality.
+
+If instead you send that campaign to a static list you imported three months ago, the group is exactly the same as when you created it. Fans who cooled off are still in it. New ones who became active since then aren't. You're reaching a slice of the past, not the present.
+
+---
+
+## Why the segmentation engine is the main tool
+
+The engine's logic is designed for event promoters, where fan activity changes over time in a very pronounced way. A fan who bought tickets two months ago has a different behavior and engagement level than they'll have during the early-bird sale week for your next festival. If your group doesn't update, you're sending messages based on a reality that no longer exists.
+
+What's more, the Nevent Score (which includes temperature and the numeric engagement score) is automatically recalculated for every fan. Nevent factors in things like how often someone attends events, how recent their purchases are, total historical spend, email engagement and buying speed. That recalculation only affects your campaigns if you use dynamic segments that include those criteria. With a static list, your fans' updated Nevent Score is invisible to the group.
+
+The [segmentation engine's practical use cases](/en/segmentation/segmentation-engine/use-cases/) show concrete examples of where this dynamic makes a real difference in results: at-risk fan segments that update themselves when someone buys again, early-bird audiences that only include people who bought in advance in recent seasons, or win-back groups that shift as reactivation campaigns progress.
+
+---
+
+## When a static list makes sense
+
+Static lists aren't an inferior option: they're the right tool when you need exactly what they offer — a group frozen in time.
+
+**You have contacts from outside Nevent with a history that isn't in the system.** When you import a list of fans from another platform, those people don't yet have any activity recorded in Nevent. They have no temperature, no purchase history in your system, no engagement with your emails. A dynamic segment with behavioral criteria wouldn't include them because there's no data to evaluate. The static list is the only way to work with them while the system builds up information.
+
+**Group membership depends on something that happened in the past and shouldn't change.** Entrants of a sweepstakes held at an event, attendees of a press session, contest winners, contacts tied to a specific sponsor. In all these cases, what defines the group is a one-time historical fact, not a current state. Whether a sweepstakes entrant opens your emails from that point on shouldn't remove them from the group.
+
+**You're managing an external database with its own consent conditions.** If you import fans who gave their consent on a different platform under different conditions, you may need to treat that group separately and under control, without the engine mixing them into the rest of your audience based on behavioral criteria.
+
+---
+
+## When to use each one: a quick guide
+
+| Situation | Use... |
+|---|---|
+| Send an early-bird campaign to your most active fans right now | Dynamic segment (Hot or Very Hot temperature) |
+| Reach fans who attended your festival last year | Dynamic segment (attendance criterion, specific event) |
+| Reactivate fans who haven't bought in more than six months | Dynamic segment (recency modifier on spend) |
+| Contact fans imported from another tool who don't yet have activity in Nevent | Static list (added on import) |
+| Manage a one-off group of press, sponsors or special guests | Static list (manual assignment or import) |
+| Follow up with participants of a specific past action | Static list (reflects that historical moment) |
+
+---
+
+## Contactability applies to both cases
+
+Regardless of whether you use a dynamic segment or a static list, Nevent always applies the same filter before sending a campaign: only fans with active marketing consent and an email address marked as valid receive the message.
+
+The segments screen in Nevent shows, for each segment, the estimated marketing audience broken down by channel (email, SMS, push) and the email contactability percentage. A segment of fifty fans might have only thirty-five reachable if the remaining fifteen have consent turned off or an address marked invalid due to a bounce.
+
+This means a group's size (dynamic or static) is never the actual send size. It's the starting point. The [How Nevent understands your audience](/en/audience/how-nevent-understands-your-audience/) guide explains in detail what contactability is and why it varies.
+
+---
+
+## You can combine both tools
+
+Static lists and dynamic segments aren't mutually exclusive. You can use a list's folder or tag as one more criterion inside the segmentation engine.
+
+For example: you have an imported list of fans who attended another promoter's festival two years ago (data that isn't in Nevent's history). You imported them with their corresponding tag. You can build a dynamic segment that says: "fans in the FestivalX_Import folder who also have Hot or Very Hot temperature in Nevent." The result is a group that combines the external origin (static list) with current behavior (dynamic segment).
+
+This combination is especially useful when you want to qualify an imported base with engagement criteria before sending them a campaign, instead of sending it to every contact on the list without distinction.
+
+---
+
+## Summary
+
+Nevent's segmentation engine is designed to be your everyday working tool for campaigns. It evaluates data in real time, reflects each fan's current state, and benefits from everything the system knows about your audience's behavior, including the Nevent Score and its recency and frequency modifiers.
+
+Static lists have their place when you're working with contacts that have no history in Nevent, when you need to preserve a one-off historical group, or when the membership logic isn't behavioral but administrative.
+
+Understanding when to use each isn't a technical question: it's understanding whether your goal is to talk to the people who are relevant *right now* (dynamic segment) or to a specific group you defined *at a particular moment* (static list).
+
+---
+
+## Next steps
+
+- [Segmentation engine: what it is and how it works](/en/segmentation/segmentation-engine/) to fully understand the six criteria categories.
+- [Creating your first segment](/en/segmentation/your-first-segment/) if you want to build your first dynamic segment step by step.
+- [The 6 criteria categories](/en/segmentation/segmentation-engine/categories/) to see every available filter with examples.
+- [Import your contacts](/en/audience/import-your-contacts/) to understand the add-to-list process when uploading a file.
+- [How Nevent understands your audience](/en/audience/how-nevent-understands-your-audience/) to dig deeper into consent, contactability and data cleanup.

@@ -1,0 +1,75 @@
+---
+title: "Email sending settings"
+diataxis: how-to
+description: "Understand Nevent's Email sending screen and what each technical component means for the health and reputation of your sends."
+sidebar:
+  order: 3
+---
+
+In this guide you'll walk through the **Email sending** section inside Settings. You'll see which address your campaigns send from, what type of domain you're using, and the status of the technical components that protect your reputation as a sender. About 5 minutes.
+
+## Before you start
+
+You don't need to configure anything to access this screen. Any Nevent account with an administrator role can view it.
+
+If you haven't set up your own domain yet, check the guide [Configure your custom sending domain](/en/deliverability/custom-sending-domain/) after reading this one.
+
+## Step 1: Access Settings and open Email sending
+
+In the side menu, scroll down to the bottom, to the **Advanced** section. Click **Email sending**.
+
+The "Email sending" screen opens with three blocks of information: the effective sending address, the domain type, and the status of the technical components.
+
+## Step 2: Review your effective sending address
+
+The first block shows the **Effective sending address**: the address your contacts receive your email campaigns from.
+
+Below the address you'll see your organization's name and the note "via Nevent", which is the technical signature carried by emails sent from Nevent's shared infrastructure.
+
+The **Domain type** right below it shows whether you're using Nevent's shared domain or your own custom domain. In the example, it shows "Shared domain", which is the default value when you haven't yet set up your own domain.
+
+:::note[What "shared domain" means]
+With the shared domain, your emails go out from a Nevent subdomain shared by every account on the platform. This works fine to get started, but if you want your contacts to see your own domain as the sender and isolate your reputation, you need to set up a custom domain.
+:::
+
+## Step 3: Understand the component status
+
+The **Component status** block shows three technical elements that work together to make sure your emails arrive well and don't end up in spam.
+
+Here are the three components and what each one is for:
+
+**Automatic subdomain**
+A unique, verified subdomain in AWS (Nevent's sending provider) so your account has its own reputation, separate from the rest of the platform's users. When active, email providers like Gmail or Outlook associate the reputation of your sends with only you.
+
+**Configuration Sets**
+These are the tracking settings inside AWS SES (the email sending service Nevent uses). They control which events from your campaigns get logged: opens, clicks, bounces, complaints. Nevent creates them automatically together with the subdomain.
+
+**SES Tenant**
+A dedicated sending account inside AWS SES. When this component is created, your emails go out from completely isolated infrastructure. That way, if another Nevent user has a reputation issue, it doesn't affect you.
+
+:::note[Initial state]
+If all three components show "Not configured", "Not configured" or "Not created", it means your account is still using the standard shared domain. Your emails keep sending normally: you just share reputation with other Nevent senders.
+:::
+
+## Step 4: Provision your domain and components
+
+If you want to move to your own sending infrastructure, the **Provision domain and create SES Tenant** button starts the process automatically.
+
+When you click it, Nevent creates the three components above in your account: the subdomain, the configuration sets and the SES Tenant. The process can take several minutes.
+
+:::caution[Important]
+Don't click the button several times. A single click is enough. If after several minutes the components still don't show as configured, contact the Nevent support team.
+:::
+
+## Result
+
+You now know Nevent's email sending settings: where to see your current sender address, what type of domain you're using, and what the three technical components that manage your sending reputation mean.
+
+:::tip[Tip]
+If your goal is to improve deliverability, the recommended order is: first set up your custom domain, then provision the components from this screen. The two processes complement each other.
+:::
+
+## Next step
+
+- [Activate your communication channels](/en/deliverability/activate-your-channels/) to review your sender, email signature, SMS, WhatsApp and Analytics.
+- [Configure your custom sending domain](/en/deliverability/custom-sending-domain/) to send from your own domain and improve inbox placement.

@@ -1,0 +1,58 @@
+---
+title: "Custom audiences reference"
+diataxis: reference
+description: "Reference table of the platforms where you can sync a segment as an audience, each one's technical name, and the possible sync states."
+sidebar:
+  order: 12
+faqs:
+  - q: "Which platforms can I sync a segment to as an audience?"
+    a: "Meta Ads, TikTok Ads and Google Ads. You need that platform's account connected under Settings → Paid Ads before you can sync."
+  - q: "Why do Meta and Google use different names for the same thing?"
+    a: "Each platform names its own imported-audience feature its own way. Meta and TikTok call it Custom Audience; Google calls it Customer Match. Nevent uses each platform's own name on its card."
+  - q: "What does the Error state mean on a platform card?"
+    a: "It means the last attempt to send the segment as an audience to that platform didn't complete. The card shows a Retry button so you can try again."
+  - q: "Does Nevent send my ticketing system's sales to these platforms?"
+    a: "No. This feature only sends the segment as an audience. Sales that happen in your ticketing system aren't sent back today to Meta, Google or TikTok as conversions."
+---
+
+This page lists, in a table, the ad platforms where you can sync a Nevent segment as an audience, the technical name each one uses, and the states the sync card can show.
+
+This isn't a step-by-step guide; for that, see [how to sync a segment as an audience](/en/paid-media/sync-a-segment-as-an-audience/).
+
+## Available platforms
+
+The **Activate as an advertising audience** block, inside any segment's detail, shows one card for each of these platforms.
+
+| Platform | Technical name of the feature | Requirement to sync |
+|---|---|---|
+| Meta Ads | Custom Audience | Meta Ads account connected under Settings → Paid Ads |
+| TikTok Ads | Custom Audience | TikTok Ads account connected under Settings → Paid Ads |
+| Google Ads | Customer Match | Google Ads account connected under Settings → Paid Ads |
+
+## Sync card states
+
+Each platform card, inside the **Activate as an advertising audience** block, shows one of these three states.
+
+| State | What it means | What you can do |
+|---|---|---|
+| Connected | That platform's account is linked to your organization and ready to receive the segment. | Click **Sync** to send the segment as an audience. |
+| Not connected | You haven't linked that platform's account yet. | Click **Connect in Settings**, which takes you to Settings → Paid Ads. |
+| Error | Nevent tried to send the segment and didn't succeed. | Click **Retry**. |
+
+## What gets sent to the platform
+
+The sync block itself states, in its subtitle, that the segment's contact data is encrypted before being sent to the chosen platform.
+
+## How the audience updates
+
+The sync is triggered with the **Sync** button: it's an action you run, not something that happens in the background without you asking. If you change a segment's conditions or want to add new buyers, go back into the segment and click **Sync** again.
+
+:::caution[Important]
+Nevent doesn't yet send the sales that happen in your ticketing system to these platforms. The synced audience is useful for targeting your ads and for the platform to generate lookalike audiences, not for measuring your real acquisition cost inside Meta, Google or TikTok.
+:::
+
+## Next step
+
+- [How to sync a segment as an audience](/en/paid-media/sync-a-segment-as-an-audience/)
+- [What is a custom audience and why it improves your ads](/en/paid-media/what-is-a-custom-audience/)
+- [Paid Media reference](/en/paid-media/reference/)

@@ -1,0 +1,125 @@
+---
+title: "Configure your custom sending domain"
+diataxis: how-to
+description: "Learn to send your marketing emails from your own domain in Nevent. Improve deliverability and your contacts' trust in under 5 minutes."
+sidebar:
+  order: 2
+---
+
+In this guide you'll set up a custom domain in Nevent so your campaign emails arrive from your own domain, for example `email.yourfestival.com`, instead of Nevent's shared domain.
+
+This improves deliverability (more emails reach the inbox instead of spam) and reinforces your brand's image with your contacts.
+
+The wizard takes about 3 minutes. DNS verification can take anywhere from a few hours to 72 hours, depending on your domain provider.
+
+## Before you start
+
+You need two things:
+
+- To know your root domain, for example `yourfestival.com`. It's the same one you use for your website.
+- Access to your domain provider's DNS panel (GoDaddy, Namecheap, Cloudflare, your hosting provider's...). That's where you'll create the records Nevent gives you at the end of the wizard. If you don't have that access, ask whoever manages your website to do it for you.
+
+:::note[Quick glossary]
+- **Domain**: your website's address, like `yourfestival.com`.
+- **Subdomain**: a prefix in front of your domain, like `email.yourfestival.com`. You'll use it exclusively for Nevent's sends.
+- **DNS record**: an instruction that tells the internet how to handle your domain. You'll create these in your domain provider's panel.
+:::
+
+## Step 1: Access Settings and open Custom domain
+
+In the side menu, scroll down to the bottom and click **Settings** (the last item in the menu, with the gear icon).
+
+Inside Settings, find the **Workspace** group in the left-hand secondary menu. Click **Custom domain**.
+
+The custom domain module's welcome screen opens. Read the three benefits if you want more context, then click **Start setup**.
+
+## Step 2: Enter your root domain
+
+The wizard opens the first step. Here you enter your organization's main domain.
+
+Type your root domain in the field, without `www` or `https://`. For example: `yourfestival.com`.
+
+Once the field has a valid value, the **Next** button activates. Click it to continue.
+
+:::tip[Tip]
+Use exactly the same domain that appears on your website. If your website is `www.myvenue.com`, your root domain is `myvenue.com`.
+:::
+
+## Step 3: Choose your sending subdomain
+
+In the second step, you define the subdomain Nevent will use to send your emails.
+
+By default, the field already suggests `email`. This is what we recommend: your campaigns' sender will be `email.yourfestival.com`. You can change it to `marketing`, `news` or another prefix you prefer, though `email` is the most common choice.
+
+To the right of the field you can see how the full subdomain will look: `email.demofest.com` in the example.
+
+Click **Next** once you're happy with it.
+
+## Step 4: Confirm the configuration
+
+The third step shows a summary of what you're about to configure:
+
+- **Root domain:** the domain you entered in step 2.
+- **Sending subdomain:** the full subdomain your campaigns will use.
+
+Review that both values are correct. If you spot an error, click **Back** to go back and fix it.
+
+Once everything looks right, click **Set up domain** so Nevent generates the DNS records.
+
+:::caution[Important]
+Clicking "Set up domain" makes Nevent generate the DNS records for your account. Don't click that button several times: once is enough.
+:::
+
+## Step 5: Create the DNS records with your provider
+
+After confirming, Nevent shows the DNS records screen. Here you have all the values you need to copy and paste into your domain provider's panel.
+
+You'll see between five and six records grouped into four sections:
+
+| Record type | What it's for |
+|---|---|
+| **DKIM** (one, two or three CNAME-type records) | A digital signature that proves the email was sent by you and not a third party |
+| **SPF** (a TXT-type record) | A list of servers authorized to send on behalf of your domain |
+| **MAIL FROM** (an MX-type record) | The technical bounce address; improves domain reputation |
+| **DMARC** (a TXT-type record) | A policy telling email providers what to do if an email fails SPF or DKIM |
+
+:::note[Record glossary]
+- **CNAME**: an alias that points to another domain.
+- **TXT**: free text that mail servers read to verify permissions.
+- **MX**: indicates which servers handle a domain's mail.
+:::
+
+For each record, copy the **Name**, **Type** and **Value** fields using the copy icon next to each one. Then go to your domain provider's DNS panel and create each record with those values.
+
+:::tip[Tip]
+Open your provider's panel in a new window and keep this Nevent screen open in another. Copy and paste each record one at a time to avoid mistakes.
+:::
+
+:::caution[Important]
+DKIM values are long strings of text. Don't transcribe them by hand: always use the copy button to avoid errors.
+:::
+
+## Step 6: Verify the record status
+
+Once you've created every record with your domain provider, go back to Nevent and click the **Verify status** button.
+
+Nevent checks whether the records are already visible on the internet. Depending on your provider, propagation can take anywhere from a few minutes to 72 hours. If any record shows as "Pending" when you check, wait a few hours and try again.
+
+Once every record is verified, your custom domain will become active and your next email campaigns will send from `email.yourfestival.com`.
+
+:::note[Note]
+You don't have to wait for everything to be verified before closing the screen. You can leave and come back later to check the status.
+:::
+
+## Result
+
+Your custom domain is now set up in Nevent. From now on, your contacts will see your own domain as the sender in their inboxes, which improves the delivery rate and reinforces trust in your communications.
+
+:::tip[Tip]
+If, after 72 hours, a record is still "Pending", check in your provider's panel that you copied the name and value exactly as Nevent shows them. An extra space or an incorrect character can prevent verification.
+:::
+
+## Next step
+
+- [Activate your communication channels](/en/deliverability/activate-your-channels/) to review the other available channels: SMS, WhatsApp and analytics.
+- [Create your first campaign](/en/campaigns/create-your-first-campaign/) to start sending from your newly configured domain.

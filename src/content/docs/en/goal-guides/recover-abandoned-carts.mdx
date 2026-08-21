@@ -1,0 +1,229 @@
+---
+title: "Playbook: recover abandoned carts"
+description: "How to identify the abandoned-cart segment in Nevent and launch it a recovery email campaign that can convert 15% to 30% of those abandonments."
+diataxis: how-to
+faqs:
+  - q: "How much time do I have to send the recovery email?"
+    a: "The effective window is 6 to 12 hours from the abandonment. After 72 hours, purchase intent fades and the reminder can feel intrusive rather than timely."
+  - q: "Do I need to offer a discount to recover the cart?"
+    a: "Not always. Many abandonments come from distraction, not price objections. A friendly reminder with the right subject line is usually enough. Save the incentive (limited-time discount, upgrade) for cases where the first campaign doesn't convert."
+  - q: "Can I use WhatsApp instead of email for this playbook?"
+    a: "Yes, as long as you have WhatsApp enabled in Settings > Channels and a Meta-approved template in the Marketing category. The campaign creation process is the same — only the channel changes in step 2 of the wizard."
+  - q: "What happens if the event already sold out before I send the email?"
+    a: "Don't send the email. A reminder to someone whose ticket is no longer available creates frustration. Check available stock before launching the campaign and cancel it if there are no more tickets of the type they abandoned."
+  - q: "How do I know if the campaign recovered sales?"
+    a: "Check the campaign report in My campaigns. The Revenue column in the campaigns list shows the revenue attributed to the send. Also check the click rate: if it's above 5% and there's recorded revenue, the campaign is working."
+---
+
+import { Aside, CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+This playbook walks you step by step through identifying fans who left a purchase unfinished and sending them a recovery email campaign before they lose interest. The whole process takes less than 20 minutes the first time.
+
+## Who this playbook is for
+
+For event promoters who use Nevent and have purchase-intent data integrated from their ticketing system. If abandoned-cart data is already flowing into Nevent, you can follow this playbook without technical help.
+
+If you're not sure whether that data is available, check with your Nevent team before starting.
+
+## When to use it
+
+Run this playbook whenever you have open sales and want to maximize the conversion of your active traffic. The moments with the biggest impact are:
+
+- **The first days of sale**, when there's excitement and the event is new.
+- **The close of a pricing phase** (for example, when Early Bird runs out), because the time pressure lowers friction.
+- **When you're down to a few tickets** in a category: scarcity adds real motivation.
+
+Don't use it if the event has no tickets left, or if the abandonment happened more than 72 hours ago. Past that window, purchase intent has faded and the context has changed.
+
+---
+
+## Phase 1: create the abandoned-cart segment
+
+The starting point of this playbook is a segment that captures exactly the people with unfinished purchase intent. Nevent includes the **Abandoned cart** criterion within the digital engagement category.
+
+### What the segment should include
+
+Per the [documented use case for abandoned cart](/en/segmentation/use-cases/abandoned-cart/), the segment should gather fans who meet all of these conditions at once:
+
+- Started the purchase process (selecting tickets or reaching checkout) in the **last 24-48 hours**.
+- **Didn't complete** the transaction (no confirmed purchase).
+- **Aren't on the suppression list** (no active unsubscribe, no hard bounce).
+
+For a more precise approach, you can add a filter by ticket type (for example, only VIP or Early Bird abandonments) to focus the effort on the categories you most want to recover.
+
+### How to build it in Nevent
+
+Follow the guide [How to create a segment](/en/segmentation/segmentation-engine/creating-a-segment/) and set up the filters like this:
+
+1. Go to **Audience > Segments** and click **New segment**.
+2. Give it a descriptive name, for example: "Abandoned cart - Demo Fest 2026 - 24h."
+3. In the **Engagement** category, select the **Abandoned cart** criterion with the **Within the last** operator and the value **48 hours** (or 24 hours for a tighter window).
+4. Add a second filter with the condition that they **don't have a completed purchase** for that event.
+5. Add a third filter to **exclude anyone with an active unsubscribe or hard bounce**. You can do this with the **Unsubscribe** and **Bounce** criteria from the same engagement category, using AND/NOT logic. See the full reference of engagement criteria in [Digital engagement and behavior](/en/segmentation/capabilities/digital-engagement/).
+6. Use the segment **preview** before saving: it shows how many fans meet the criteria and some sample profiles. If the result is zero, check that abandoned-cart data is available for your account.
+
+<Aside type="note">
+Availability of the abandoned-cart criterion may vary depending on your account setup. If you don't see it in the Engagement category, check with your Nevent team to verify that the integration with your ticketing system is active.
+</Aside>
+
+Once the segment has fans, save it. The expected size is small (dozens or a few hundred people depending on your traffic), but it's the segment with the highest conversion ratio in your entire base.
+
+---
+
+## Phase 2: prepare the recovery email template
+
+Before creating the campaign, you need an email template specifically for this message. If you already have one, skip ahead to phase 3.
+
+If you need to create it, follow the guide [How to design email templates](/en/campaigns/email-templates/). For a cart-recovery email, the structure that works best is:
+
+- **A direct, recognizable subject line**: something like "You were one step away" or "Your tickets for [event name] are still available." The subject line is the biggest factor in whether the email gets opened. Keep it under 40 characters so it reads in full on mobile.
+- **Preview text**: use this field to reinforce the subject with a second message, for example "Only X tickets left." This shows up next to the subject line in the inbox.
+- **Event image** (Hero or Image block): the poster or venue photo triggers the visual memory of why the fan was about to buy.
+- **A single call-to-action button** (Button block): links directly to the purchase page. A clear, visible button is the biggest factor in click rate.
+- **A short, friendly message**: no need for long copy. Three or four lines reminding the fan which event it is, when it is, and that tickets are still available.
+
+<Aside type="tip">
+Clone a template you already have working and only change the subject line, the copy and the button. That way you keep the event's visual identity and save design time.
+</Aside>
+
+Once the template is ready, send yourself a test from the editor (the **Test** button) to check that the design looks good on mobile and that the button's link is correct.
+
+---
+
+## Phase 3: create and schedule the campaign
+
+With the segment saved and the template ready, create the campaign following Nevent's 8-step wizard. The full guide is at [How to create your first campaign](/en/campaigns/create-your-first-campaign/).
+
+Here are the key steps for this specific playbook:
+
+### Step 1: campaign name
+
+Use a name that includes the event, the campaign type and the date. For example: "Demo Fest 2026 - Cart recovery - Aug 16." It'll help you find it in the list and interpret the results afterward.
+
+### Step 2: channel
+
+Select **Email**. It's the default available channel and the one that works best for this type of recovery. The wizard shows you the channel options available on your account.
+
+If you have WhatsApp enabled in **Settings > Channels** and want to use it as a second touch (not instead of email, but in addition), you can create a second campaign with the same segment and the WhatsApp channel a few hours after the email.
+
+### Step 3: template
+
+Choose the recovery template you prepared in phase 2. The right-hand panel shows a full preview before you confirm.
+
+### Step 5: audience
+
+Select the abandoned-cart segment you created in phase 1. The wizard shows you the segment's user count and the estimated recipients (the difference is people who already have an invalid email or are unsubscribed, which Nevent excludes automatically).
+
+### Step 6: subject and UTMs
+
+Write the subject line you prepared in the template. Use the **Personalize** field to insert the recipient's first name if you have it — personalized subject lines usually get a higher open rate.
+
+Also add the **preview text** to make use of that second visible space in the inbox.
+
+### Step 7: scheduling
+
+This is one of the most important decisions in the playbook.
+
+**The optimal send time is 6 to 12 hours after the abandonment.** In that window, the fan's context is still active: they remember having been browsing for tickets, and the email arrives as a natural reminder, not intrusive advertising.
+
+Use the **Schedule send** option to set the exact time. For example, if abandonments are mostly logged between 7pm and 10pm on a given day, schedule the send for 9am-11am the next day.
+
+<Aside type="tip">
+Avoid scheduling the send overnight (between 11pm and 7am). The email will arrive during the lowest-activity window and will get buried under other messages by the time the fan checks their phone in the morning.
+</Aside>
+
+### Step 8: review and launch
+
+Review the full summary before launching: segment, subject line, template, channel and scheduling. Every field has a pencil icon to fix it without leaving the step. Once everything is correct, click **Launch campaign** (or **Save draft** if you want to review it later).
+
+---
+
+## Phase 4: measure the result
+
+Once the campaign is sent, the results show up in the report. Access it from **Campaigns > My campaigns**, click the campaign's name, and check the report sections.
+
+### Which metrics to look at
+
+The detailed guide for interpreting metrics is at [How to interpret your campaign results](/en/campaigns/report/results/). For this playbook, the key metrics are:
+
+| Metric | What it tells you for this playbook | Healthy benchmark |
+|---|---|---|
+| Open rate | Whether the subject line and send time were right | Above 25% |
+| Click rate | Whether the email generated real purchase intent | Above 5% |
+| Attributed revenue | Sales directly recovered by the campaign | Variable; depends on ticket price |
+
+If you want to see exactly which contacts opened or clicked the email, go to the **Engagement** section of the report and use the dropdown filter. The guide is at [Who opened and clicked your campaign](/en/campaigns/report/opens-and-clicks/).
+
+### How to interpret attributed revenue
+
+The **Revenue** column in the campaigns list shows the revenue Nevent attributes to this campaign. For a well-executed abandoned-cart segment, benchmark recovery ranges are 15% to 30% of recorded abandonments: if you have 100 people in the segment and the email lands well, expect between 15 and 30 additional purchases.
+
+### If the open rate is low
+
+Check the subject line and the sender name. Recipients need to recognize who's writing to them. If the sender isn't set up with your promoter's or event's name, fix it in **Settings** before the next send.
+
+### If the click rate is low but the open rate is high
+
+The email gets opened but doesn't convert. Check that the call-to-action button is clear, visible without scrolling, and links to the correct purchase URL.
+
+---
+
+## Common mistakes to avoid
+
+**Sending the email too late.** Past 72 hours from the abandonment, the context has changed: the fan already made another decision, or simply doesn't remember being about to buy. The email arrives as advertising, not as a reminder.
+
+**Not checking stock before sending.** If the event no longer has tickets in the category the fan abandoned, the email will only create frustration. Check available stock before launching the campaign.
+
+**Using a generic subject line.** "Complete your purchase" is less effective than "Your tickets for Demo Fest are still here." The more specific and recognizable the subject line, the higher the open rate.
+
+**Cramming too many messages into the same email.** A recovery email has a single goal: getting the fan to finish the purchase. Don't add lineup news, other event dates or cross-promotions. One button, one message, one goal.
+
+**Overloading with too many touches.** One recovery email is enough as the first touch. If you launch a second one (for example, over WhatsApp a few hours later), make sure to exclude from the second send anyone who already bought after the first, so you don't bother someone who already converted.
+
+---
+
+## Process summary
+
+| Phase | What you do | Tool in Nevent | Estimated time |
+|---|---|---|---|
+| 1 | Create the abandoned-cart segment | Audience > Segments | 5 minutes |
+| 2 | Prepare the recovery email template | Campaigns > Templates | 10 minutes |
+| 3 | Create and schedule the campaign | Campaigns > New campaign | 5 minutes |
+| 4 | Review the results | Campaigns > My campaigns | 5 minutes |
+
+---
+
+## Related guides
+
+<CardGrid>
+  <LinkCard
+    title="Use case: abandoned cart"
+    href="/en/segmentation/use-cases/abandoned-cart/"
+    description="Every detail of the segment: criteria, variations, when not to use it, and expected results."
+  />
+  <LinkCard
+    title="Digital engagement and behavior"
+    href="/en/segmentation/capabilities/digital-engagement/"
+    description="The open, click, conversion and cart criteria available in the segmentation engine."
+  />
+  <LinkCard
+    title="How to create a segment"
+    href="/en/segmentation/segmentation-engine/creating-a-segment/"
+    description="A step-by-step tutorial for building any segment in Nevent."
+  />
+  <LinkCard
+    title="How to create your first campaign"
+    href="/en/campaigns/crear-primera-campana/"
+    description="The campaign wizard's 8 steps, with a full walkthrough of each screen."
+  />
+  <LinkCard
+    title="How to interpret your results"
+    href="/en/campaigns/informe/resultados/"
+    description="What the open, click and revenue metrics mean and how to act on them."
+  />
+  <LinkCard
+    title="Who opened and clicked your campaign"
+    href="/en/campaigns/informe/aperturas-y-clics/"
+    description="How to see the individual list of contacts who engaged with the email."
+  />
+</CardGrid>
