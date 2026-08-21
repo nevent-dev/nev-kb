@@ -1,0 +1,238 @@
+---
+title: "Build loyalty with your attendees after the event"
+description: "Post-event playbook to thank your fans, identify your best ones with RFM and VIP segments, and kick off your next sales cycle from your strongest relationship."
+diataxis: how-to
+faqs:
+  - q: "When should I send the post-event thank-you email?"
+    a: "Within 24 to 48 hours after the event. The fan's experience is still fresh and their receptiveness is much higher than if you wait a week. From the third day onward, the impact drops noticeably."
+  - q: "What is the Champions profile in the RFM model, and why should I contact them first?"
+    a: "Champions is the highest-value profile in Nevent's automatic RFM model: fans with high recency, high attendance frequency and high historical spend. They represent between 1% and 3% of your base but account for a disproportionate share of revenue. They come first because they're the most likely to buy again and to respond to an exclusive message."
+  - q: "Can I run this playbook if I don't have the Superapp activated?"
+    a: "Yes. Phases 1, 2 and 3 of this playbook rely on email and the segmentation engine, neither of which requires the Superapp. The Superapp adds the push channel during and right after the festival, but its absence doesn't block the rest of the flow."
+  - q: "Which segment should I use if my database is less than six months old and RFM isn't calibrated yet?"
+    a: "On new databases, the RFM model isn't reliable yet. In that case, use total historical spend combined with number of events attended to build your high-value audience manually, without relying on automatic RFM profiles."
+  - q: "How often can I send post-event campaigns before I start fatiguing my fans?"
+    a: "An immediate thank-you email, a VIP message at 7-14 days and the presale for your next event at 3-6 weeks is a cadence that typically doesn't trigger unsubscribes. Always check the unsubscribe rate after each send: if it goes above 0.5%, reduce the frequency or revisit your segmentation."
+---
+
+import { Aside, CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+You've just closed out an event. The box office is shut, the venue is cleared, and your database holds the record of thousands of attendees who just experienced your event first-hand. Most of them won't think about you again until your next message lands. A minority — your best fans — are waiting for you to tell them there's more.
+
+This playbook helps you turn that moment, when the memory is fresh and the relationship is at its peak, into the foundation for your next sales cycle.
+
+## Who this playbook is for
+
+Live event promoters who already have their fan base in Nevent and want to use the period right after an event to strengthen the relationship with their best attendees, identify their highest-value fans with the RFM model, and prepare the communication for their next event from a position of strength.
+
+You don't need advanced technical knowledge. You need to have sent campaigns before, have at least one event in your history, and have access to Nevent's segmentation engine.
+
+## When to use this playbook
+
+- In the 24 to 72 hours after any event or festival wraps up.
+- When you want to know who your highest-value fans are so you can tell them about your next event first.
+- When you're about to launch a presale or early access and want to maximize the first sales wave without spending on advertising.
+
+---
+
+## Phase 1: Say thank you while it's fresh (first 48 hours)
+
+A fan's peak receptiveness happens right after they've lived the experience. A thank-you email sent within 48 hours can see open rates that double those of a standard promotional message.
+
+### What to include in the thank-you email
+
+- A direct thank-you message, with the fan's name if you use personalization.
+- An image or visual element that evokes the event (venue photo, poster, artist).
+- Optionally, an exclusive extra for attendees: access to photos, a recap video, the setlist, or any content that only makes sense if you were there.
+- A closing line that hints without committing: "See you soon" or "This isn't over" sets the stage for the next message without selling yet.
+
+What shouldn't appear in this email: any call to action to buy. This message is about the relationship, not the sale. A thank-you email with a purchase button dilutes the tone and reduces trust.
+
+### How to run this in Nevent
+
+1. Create or reuse an email template with Nevent's visual editor. To build the template from scratch, follow the guide [How to design email templates](/en/campaigns/plantillas-email/).
+2. The audience segment for this send is every confirmed attendee of the event. You can build it using the attendance-at-this-event criterion in the segmentation engine. See [Creating fan segments](/en/segmentation/segmentation-engine/creating-a-segment/) for the step-by-step process.
+3. Create the campaign from **Campaigns → New campaign** and follow the wizard's 8 steps. The main channel for this message is email. If you have WhatsApp enabled and a Meta-approved template, it can complement the email, though it shouldn't replace it. Full guide: [How to create your first campaign](/en/campaigns/crear-primera-campana/).
+4. Schedule the send within the first 48 hours.
+
+:::tip[If you have the Superapp active]
+Right as the festival wraps up, before attendees leave the venue, you can send a push notification from **Superapp → Send push** with a brief closing message. That push only reaches fans who have the app installed with notifications enabled, but it's the most immediate channel available. The Superapp guide explains the send form in [Getting started with the Superapp](/en/superapp/primeros-pasos/).
+:::
+
+---
+
+## Phase 2: Identify your best fans (days 3 to 7)
+
+With the event closed, your database has fresh data. This is the moment to identify your highest-value fans so you can treat them differently for your next event.
+
+### The Champions profile: your 1-3% that drives revenue
+
+Nevent's RFM model automatically classifies every fan into one of 11 profiles, calculated from when they last bought (Recency), how often they buy (Frequency) and how much they've spent (Monetary). The top profile is **Champions**: fans with high recency, high frequency and high spend.
+
+Champions make up between 1% and 3% of your total base, but they account for a disproportionate share of your historical revenue. In a base of 50,000 fans, that 2% is 1,000 people capable of generating more revenue from a single well-executed campaign than three mass sends to the entire list.
+
+For a detailed breakdown of what each profile means, see [Automatic RFM: 11 fan profiles](/en/segmentation/capabilities/rfm/).
+
+### How to build the Champions segment after the event
+
+The process is the same as for any RFM segment. From **Audience → Segments → New segment**:
+
+- Criterion: RFM profile = Champions.
+- Optional: add the attendance filter for the event that just wrapped up, to keep only the Champions who were actually present (not just the ones in your overall base).
+- Optional: exclude anyone who already has a ticket for your next event if you've started selling.
+
+The use-case guide covers building this segment in detail, along with the results you can expect: [VIP segment with RFM Champions: reaching your top 10%](/en/segmentation/use-cases/top-rfm-vip/).
+
+### High-spend fans without a consolidated Champions profile
+
+If your database is less than six months old, or the RFM model isn't yet calibrated enough to give you a reliable Champions profile, you can build your high-value segment manually by combining:
+
+- Total historical spend above the 60th-70th percentile of your distribution (Total historical spend criterion).
+- Number of events attended equal to or above 2 or 3.
+
+The available monetary criteria are explained in [Spend and consumption: segmenting fans by economic value](/en/segmentation/capabilities/spend-and-consumption/).
+
+You can also use **Nevent Temperature** as a shortcut: fans with Very Hot or Hot temperature are your highest aggregate-value audience without needing to set up manual criteria. See [Nevent Score and Temperature](/en/segmentation/capabilities/score-and-temperature/) to understand what's behind each level.
+
+---
+
+## Phase 3: Give your VIPs something exclusive (days 7 to 14)
+
+Once you've identified your Champions and high-value fans, the next message isn't a mass sales pitch — it's a message that makes them feel recognized.
+
+### What works with this segment
+
+What drives Champions isn't the discount — it's recognition and exclusivity. Messages like "You're one of us" or "Before we announce it to anyone else" typically see open rates above 45-55% in this segment, compared to 25% for a general campaign.
+
+Some concrete ideas for this message:
+
+- Early access to the presale for your next event, 24 or 48 hours before the general public.
+- Sharing the lineup before the official announcement, for this group only.
+- An invitation to a limited-access experience: VIP area, meet and greet, pre-show dinner, backstage access. If your next event includes a product like this, Champions are the first audience to tell about it.
+
+For the specific case of launching a VIP or high-value product to this segment, the documented use case gives you benchmark metrics and the most useful variations: [VIP segment with RFM Champions: reaching your top 10%](/en/segmentation/use-cases/top-rfm-vip/).
+
+### How to run this in Nevent
+
+1. Design a separate template for this message. Even if you reuse the structure, the tone and content should differ from the general thank-you email. See [How to design email templates](/en/campaigns/plantillas-email/).
+2. Select the Champions segment (or the high-spend equivalent) you built in the previous phase.
+3. In the subject line step of the campaign wizard, personalize with the fan's name and use a subject that conveys exclusivity without sounding generic. Remember the subject field lets you insert personalization variables like the first name.
+4. If your setup allows it and you have a Meta-approved WhatsApp template, a WhatsApp message alongside the email can extend reach to fans who prefer that channel. The approval process is covered in [How to create WhatsApp templates](/en/campaigns/plantillas-whatsapp/).
+
+---
+
+## Phase 4: Win back fans at risk (weeks 3 to 6)
+
+While you're messaging your Champions, another group in your database deserves attention: fans who had excellent behavior in the past but haven't attended in a while. These are fans the RFM model classifies as **At Risk** or **Can't Lose Them**: previously active, now at risk of being lost for good.
+
+### Why they matter in the post-event period
+
+The moment right after an event is one of the best times to relaunch a reactivation campaign. Your brand is part of the conversation, you have fresh content to share (the event that just wrapped), and you can use that moment as an excuse to reconnect: "You were at the first edition of X. It's been two years. This year we're back."
+
+The detailed use case for this type of segment, with spend ranges and time windows, is in [Reactivating high-value inactive fans](/en/segmentation/use-cases/reactivating-inactive-fans/).
+
+### How to build the post-event At Risk segment
+
+From the segmentation engine:
+
+- Criterion 1: RFM profile = At Risk or Can't Lose Them.
+- Criterion 2: last attendance more than 180 or 365 days ago (Days since last attendance criterion).
+- Optional: filter by event city for geographically relevant reactivation campaigns.
+- Always exclude anyone who already has a ticket for the next event.
+
+The available attendance criteria are described in [Event attendance: segmenting by purchase history](/en/segmentation/capabilities/event-attendance/).
+
+---
+
+## Phase 5: Prepare the presale for your next event
+
+With the previous work done, you have three audiences ready for the first sales wave of your next event:
+
+1. **Champions and high-value fans**: the first to get early access.
+2. **Early fans (early adopters)**: fans who bought within the first hours of sale for previous events. This segment is built from Early Bird ticket-type history. The full use case is in [Early Bird fans: segmenting early buyers](/en/segmentation/use-cases/early-buyers/).
+3. **Reactivated fans**: the ones who responded to your Phase 4 campaign. They have a higher purchase propensity than the average of your general base.
+
+### Recommended timing
+
+- Exclusive message to Champions: 24-48 hours before the general launch.
+- Message to Early Bird fans: simultaneous with, or 12 hours after, the Champions message.
+- General launch to the whole base: once the first phase starts selling out, or on the planned date.
+
+This staggered approach has two advantages: it creates real urgency for the general public once they see the first phase is partially sold out, and it rewards your best fans with a tangible advantage that justifies their loyalty.
+
+---
+
+## How to measure the result
+
+After each send in this playbook, open the campaign report from **Campaigns → My campaigns** and check the following metrics:
+
+| What to measure | Where it is | What it tells you |
+|---|---|---|
+| Open rate | Report → Summary | Relevance of the subject line and sender for that audience |
+| Click rate | Report → Summary | Real interest in the content or offer |
+| Individual engagement | Report → Engagement | Who opened, clicked or unsubscribed |
+| Segments reached | Report → Segments | Whether the configured segment reached the intended audience |
+| Unsubscribe rate | Report → Unsubscribes | Whether frequency or tone are fatiguing the audience |
+
+For the campaigns in this playbook, the benchmark ranges are:
+
+- Thank-you email (entire attendee base): an open rate above 30-35% is a good result. Below 15%, review the subject line and send time.
+- Champions message: expected open rate above 45-55%. Below 30% in this segment, review the personalization and the exclusivity tone.
+- Reactivation campaign: an open rate of 20-30% is normal for inactive fans. Conversion to purchase depends on the incentive, but 8% to 20% of opens is a reasonable result.
+
+Guides with benchmark ranges for event campaigns are at [How to interpret your campaign results](/en/campaigns/informe/resultados/) and [Who opened and clicked your campaign](/en/campaigns/informe/aperturas-y-clics/).
+
+Also check the unsubscribe rate after each send. Below 0.5% is healthy; above 1%, adjust your segmentation or frequency. The full guide is at [Who unsubscribed after your campaign](/en/campaigns/informe/desuscripciones/).
+
+---
+
+## Common mistakes to avoid
+
+**Selling in the thank-you email.** The email sent in the first 48 hours is about the relationship, not the sale. Including a purchase button at that point reduces trust and can trigger unsubscribes.
+
+**Sending the Champions message to your entire base.** If the exclusive message reaches your whole list, it stops being exclusive. The Champions segment needs to be small and well defined.
+
+**Waiting too long to say thank you.** From the third day onward, the impact of the thank-you email drops noticeably. If the event ended on Friday, the thank-you email should go out before Sunday.
+
+**Not reviewing the previous campaign's report before the next one.** Every send leaves you data about what works with your specific audience. A low click rate on the thank-you email is a signal the content didn't land, and that's useful information before designing the Champions message.
+
+**Not excluding people who already have a ticket.** In the presale phase, it's essential to exclude fans who've already bought from the sales send. The future-attendance criterion in the segmentation engine does exactly that. Sending it to someone who already has a ticket creates confusion and can trigger unnecessary unsubscribes.
+
+**Using WhatsApp without an approved template.** WhatsApp templates require prior approval from Meta. If you want to use this channel for post-event messages, prepare and submit the template for review at least 24-48 hours in advance. The process is covered in [How to create WhatsApp templates](/en/campaigns/plantillas-whatsapp/).
+
+---
+
+## Related guides
+
+<CardGrid>
+  <LinkCard
+    title="VIP segment with RFM Champions"
+    href="/en/segmentation/use-cases/top-rfm-vip/"
+    description="The full use case for identifying your top 1-3% of fans and offering them premium experiences."
+  />
+  <LinkCard
+    title="Automatic RFM: 11 fan profiles"
+    href="/en/segmentation/capabilities/rfm/"
+    description="Understand every profile in Nevent's RFM model and how to use them in your campaigns."
+  />
+  <LinkCard
+    title="Reactivating high-value inactive fans"
+    href="/en/segmentation/use-cases/reactivating-inactive-fans/"
+    description="How to segment and win back fans who spent heavily in the past but have been inactive for a while."
+  />
+  <LinkCard
+    title="Early Bird fans: segmenting early buyers"
+    href="/en/segmentation/use-cases/early-buyers/"
+    description="How to activate your fastest buyers in the first sales phase of your next event."
+  />
+  <LinkCard
+    title="How to create your first campaign"
+    href="/en/campaigns/crear-primera-campana/"
+    description="The full campaign creation process in 8 steps, from naming it to launch."
+  />
+  <LinkCard
+    title="How to interpret your campaign results"
+    href="/en/campaigns/informe/resultados/"
+    description="What open rate, click rate and delivery mean, and how to tell if your campaign is working well."
+  />
+</CardGrid>

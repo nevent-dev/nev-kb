@@ -1,0 +1,210 @@
+---
+title: "Reactivate your inactive fans"
+description: "How to build the high-value inactive fans segment and launch a reactivation campaign to them from Nevent, step by step."
+diataxis: how-to
+faqs:
+  - q: "How many fans do I need in my base for this playbook to make sense?"
+    a: "At least twelve months of purchase history, and a base with enough volume that the resulting segment has more than fifty contacts. If your base is very new or small, the segment may come back empty because there isn't enough past spend and attendance data yet."
+  - q: "What spend threshold should I use to define 'high value'?"
+    a: "It depends on your spend distribution. A common starting point is the 60th or 70th percentile of your base: the 30-40 percent of fans who have historically spent the most. If you're not sure, start with a concrete euro threshold, check how many fans fall into the segment, and adjust it until you have between 50 and 500 contacts for a first send."
+  - q: "Can I combine this segment with Nevent's automatic RFM profile?"
+    a: "Yes. The 'At Risk' and 'Can't Lose Them' profiles in the RFM model are, in practice, the automatic definitions of high-value inactive fans. You can use those profiles directly as a segmentation criterion, or build the manual segment with historical spend plus days since last attendance if you want more control over the exact thresholds."
+  - q: "How often can I repeat this campaign?"
+    a: "No more than once every two or three months to the same segment. If you repeat it too soon, you fatigue the same audience and reduce the effectiveness of each send. Let at least one event pass between campaigns aimed at these fans."
+  - q: "Which channel works best for reactivating inactive fans?"
+    a: "Email is the main channel for this type of campaign: it allows a longer message, with an event image and a purchase button, and it gets good open rates with audiences that already know your brand. If you have WhatsApp enabled, you can use it as a second touch a few days later for those who didn't open the email, but it requires an approved template and very concise copy."
+---
+
+import { Aside, CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+This playbook walks you through, step by step, identifying the fans who spent the most at your events but haven't come back in over twelve months, and launching a personalized campaign to bring them back.
+
+## Who this playbook is for
+
+For live event promoters who already have a consolidated fan base with at least a year of purchase history. If you have fans who used to come regularly and now don't show up, this playbook helps you win them back before you lose them for good.
+
+You don't need technical knowledge. You just need access to Nevent with the segmentation and campaigns module active.
+
+## When to use it
+
+Use this playbook when you're about to launch an event that connects with your historical programming and want a first wave of win-back before opening up to new audiences. It's especially useful if:
+
+- You haven't run reactivation campaigns in several months.
+- Your base has grown a lot and you have "buried" fans with high potential value.
+- You want to maximize launch revenue before investing in acquiring new fans.
+
+Don't use it if the event you're launching is very different from your historical lineup, if you already ran a reactivation campaign in the last two or three months, or if your base is less than six months old.
+
+---
+
+## Phase 1: Build the high-value inactive fans segment
+
+The segment combines two conditions that must both be true at once: high past spend and recent inactivity. It's the same logic Nevent applies automatically in the "At Risk" and "Can't Lose Them" RFM profiles, but you can build it manually if you want precise control over the thresholds.
+
+### Step 1.1: Open the segment builder
+
+Go to **Audience > Segments** and click **New segment**. Give it a descriptive name you'll recognize later, for example: `Reactivation_HighValue_[month][year]`.
+
+To learn the basics of the builder before continuing, see the guide [How to create a segment](/en/segmentation/segmentation-engine/creating-a-segment/).
+
+### Step 1.2: Add the high historical spend criterion
+
+The first filter identifies fans who have historically spent above average.
+
+1. Select the **Spend and consumption** category.
+2. Choose the **Total historical spend** criterion.
+3. Set the operator to **Greater than** and enter the euro threshold that matches your distribution. A common starting point is the 60th-70th percentile of your base — the 30-40 percent of fans who have spent the most.
+
+If you're not sure of the exact value, start with a concrete number (for example, €150), check how many fans fall into the preview, and adjust until you have an audience of between 50 and 500 contacts.
+
+To fully understand what total spend represents and how to combine it with other criteria, see the reference [Spend and consumption: segmenting fans by economic value](/en/segmentation/capabilities/spend-and-consumption/).
+
+<Aside type="tip">
+If you'd rather not set the threshold manually, you can use the RFM profile criterion directly and select "At Risk" or "Can't Lose Them." These are the profiles Nevent automatically calculates for high-value fans who are drifting away. See the reference [Automatic RFM: 11 fan profiles](/en/segmentation/capabilities/rfm/) to understand what each profile means.
+</Aside>
+
+### Step 1.3: Add the inactivity criterion
+
+The second filter identifies fans who haven't attended any of your events in over twelve months.
+
+1. Keep the **AND** logic active so both conditions must be true at once.
+2. Select the **Event attendance** category.
+3. Choose the **Days since last attendance** criterion.
+4. Set the operator to **Greater than** and enter `365`.
+
+You can adjust the time window depending on your goal. A six-month window catches more recently at-risk fans; an eighteen- or twenty-four-month window sweeps in deeply dormant fans. To fully understand this criterion and its variants, see the reference [Event attendance: segmenting by purchase history](/en/segmentation/capabilities/event-attendance/).
+
+### Step 1.4: Add the exclusion filter (optional but recommended)
+
+Exclude fans who already have a ticket bought for your next event. There's no point sending a "come back and buy" message to someone who already bought.
+
+1. Add a new criterion with **AND NOT** logic.
+2. Select the **Event attendance** category.
+3. Choose the **Future attendance** criterion.
+4. Mark that the fan doesn't have a ticket bought for the event you're about to launch.
+
+### Step 1.5: Preview and save the segment
+
+Before saving, check the preview. A healthy segment for this case usually represents between 3 and 8 percent of your total base: a compact, high-value audience. If the segment has fewer than 50 fans, widen the spend threshold or the time window. If it's more than 15 percent of your base, the spend threshold is probably too low and the audience has lost precision.
+
+Save the segment with the descriptive name you chose in step 1.1.
+
+---
+
+## Phase 2: Prepare the reactivation email
+
+Before creating the campaign, you need an email template designed for this context. Don't use the same template as a generic sales campaign — the tone here is different.
+
+### Step 2.1: Design the template
+
+Go to **Campaigns > Templates** and create a new template, or clone an existing one you have.
+
+The reactivation message has three key elements that need to come across clearly:
+
+- **Recognition**: mention that the fan already knows your programming. Don't introduce yourself as if it were the first time. A headline like "We've missed you at [your festival or concert series name]" works better than generic sales copy.
+- **The specific event**: image, name, date and venue. Don't assume the fan will go look up the information — give it to them in the email.
+- **A reason to act**: an early-access price, preferred access to purchase before the general sale, or simply the real urgency of limited capacity. Don't invent scarcity if it doesn't exist, but if there's a real ticket limit, say so.
+
+To learn how to use the visual editor and add image, text and call-to-action button blocks, see the guide [How to design email templates](/en/campaigns/plantillas-email/).
+
+<Aside type="note">
+The subject line is what decides whether you get opened. For a reactivation campaign, a subject line combining the event name with a personal or time-based reference usually works well: "Demo Fest is back in October, and so can you" or "It's been a while since we've seen you." Watch the length: on mobile, only about 40 characters show, so put the important part first.
+</Aside>
+
+---
+
+## Phase 3: Create and launch the campaign
+
+With the segment saved and the template ready, the campaign creation process is straightforward.
+
+### Step 3.1: Create the campaign
+
+From the home screen, click **+ Create campaign**. The wizard has eight steps. To go through all of them, see the guide [How to create your first campaign](/en/campaigns/crear-primera-campana/).
+
+The most important steps for this playbook are:
+
+- **Channel**: select **Email only**. It's the main channel for this type of campaign.
+- **Content**: choose the template you created in the previous phase.
+- **Audience**: select the high-value inactive fans segment you saved in phase 1.
+- **Subject**: write the subject line you prepared. Use the "Personalize" button to insert the recipient's first name if you have it available.
+- **Scheduling**: choose the send date and time. Tuesday, Wednesday and Thursday mornings, between 9am and 12pm, tend to be when live-event audiences open the most emails. Check your event analytics to see the specific pattern for your base.
+
+### Step 3.2: Review before launching
+
+In the review step, check:
+
+- That the selected segment is the right one and the estimated recipient count makes sense.
+- That the subject line and sender are the ones you prepared.
+- That the estimated credit cost is affordable with your available balance.
+
+If something isn't right, use the pencil icons to go back to the relevant step without losing what you've already configured.
+
+Once everything is correct, click **Launch campaign**.
+
+---
+
+## Phase 4: Measure the results
+
+A few hours after the send, open the campaign report from **Campaigns > My campaigns** and click the name of the sent campaign.
+
+### Key metrics to check
+
+See the guide [How to interpret your campaign results](/en/campaigns/informe/resultados/) to read the metrics block. The benchmark ranges for a reactivation campaign are:
+
+| Metric | Healthy result | Warning sign |
+|---|---|---|
+| Delivery rate | Above 95% | Below 90% |
+| Open rate | Above 25% | Below 15% |
+| Click rate | Above 5% | Below 2% |
+
+For reactivation campaigns to fans who already know your brand, the open rate tends to be above your base's general average, precisely because the fan recognizes the sender even after a long stretch without interacting.
+
+### Who opened and who didn't
+
+In the **Engagement** section of the report, you can filter by "Opened" to see exactly which fans responded. See the guide [Who opened and clicked your campaign](/en/campaigns/informe/aperturas-y-clics/) to learn how to use that filter.
+
+With that list, you can do two useful things:
+
+- Create a segment with those who opened but didn't buy, to send them a second touch with a different subject line or an extra incentive.
+- Create a segment with those who didn't open, to try again with a different subject line a few days later.
+
+---
+
+## Common mistakes
+
+**Sending to your entire base instead of the inactive segment.** The reactivation message doesn't make sense for active fans or new contacts. Make sure you've selected the right segment before launching.
+
+**Using a spend threshold that's too low.** If you include almost all your fans in the segment, you lose the personalization that makes this type of campaign effective. The segment should be compact and high-value, not a mass send in disguise.
+
+**Not excluding people who already have a ticket.** Sending a "come back and buy from us" email to someone who already bought creates confusion and can trigger unnecessary unsubscribes.
+
+**Repeating the campaign too soon.** If you send to the same segment again before two or three months have passed, or before there's a new relevant event, effectiveness drops and the risk of unsubscribes rises.
+
+**Not reviewing the subject line.** The subject line is the biggest factor in whether you get opened. Spend time writing several and pick the clearest, most direct one. See [Best practices for your campaigns](/en/campaigns/mejores-practicas/) for more guidance on subject lines, frequency and send timing.
+
+---
+
+## Next steps
+
+<CardGrid>
+  <LinkCard
+    title="Use case: reactivating high-value inactive fans"
+    href="/en/segmentation/use-cases/reactivating-inactive-fans/"
+    description="Read the full segmentation use case with real ranges, variations and conversion estimates."
+  />
+  <LinkCard
+    title="Automatic RFM: 11 fan profiles"
+    href="/en/segmentation/capabilities/rfm/"
+    description="Understand the At Risk and Can't Lose Them profiles that Nevent calculates automatically."
+  />
+  <LinkCard
+    title="Best practices for your campaigns"
+    href="/en/campaigns/mejores-practicas/"
+    description="Subject lines, frequency, send timing and how to clean up your list."
+  />
+  <LinkCard
+    title="How to interpret your results"
+    href="/en/campaigns/informe/resultados/"
+    description="Read your campaign's metrics and know what to do if the rates are low."
+  />
+</CardGrid>

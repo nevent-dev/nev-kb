@@ -1,0 +1,136 @@
+---
+title: "Your first analysis in Nevent"
+description: "Take your first walkthrough of Nevent analytics: from seeing how many tickets you've sold to understanding which channel converts best, step by step."
+diataxis: tutorial
+faqs:
+  - q: "What do I need set up before running my first analysis?"
+    a: "At least one published event with recorded sales in Nevent. Purchase data appears with a latency under 5 minutes, so you don't need to wait days to see results."
+  - q: "Can I export what I see on screen to Excel or CSV?"
+    a: "Yes. Every results table is exportable with one click. The export respects the filters and dimensions you've applied, so you download exactly the view you have on screen."
+  - q: "Is my data visible to other promoters on Nevent?"
+    a: "No. Nevent has full account-level isolation: no other promoter can see your fans, events or campaigns."
+  - q: "How often does the data update?"
+    a: "Purchase data has a latency under 5 minutes. Metrics aggregated by event or period update daily. Campaign and attribution metrics update several times a day."
+  - q: "Can I compare this month's performance with last month's?"
+    a: "Yes. Time filters include a comparison option against the previous period. The result appears in the same table with the percentage change."
+sidebar:
+  order: 5
+---
+
+import { Aside, Steps } from '@astrojs/starlight/components';
+
+In this tutorial you'll take your first walkthrough of Nevent analytics. By the end, you'll know where to find your sales data, how to check a campaign's performance, and what the indicators you'll see most often actually mean.
+
+You don't need any prior technical knowledge. You only need at least one event with sales in your account.
+
+## What you'll learn
+
+By the end of this tutorial you'll have done three concrete things:
+
+1. Seen how many tickets you've sold and at what pace.
+2. Reviewed an email campaign's performance.
+3. Filtered the data by a specific period and compared it with the previous one.
+
+Each step is short. Don't skip ahead — the order is designed so the ideas build on each other.
+
+---
+
+## Step 1: Get your bearings in Nevent analytics
+
+Nevent organizes data into several sections: ticket sales, email and SMS campaigns, audience, and more. In this tutorial you'll only work with ticket sales, campaigns and time filters. These are the three most useful areas to start with, and they're enough to make concrete decisions.
+
+---
+
+## Step 2: Check how many tickets you've sold
+
+This is the most natural starting point. Before looking at campaigns or advertising, it helps to have a clear picture of your event's sales volume.
+
+<Steps>
+
+1. **Go to the events and tickets section** inside Nevent's analytics area.
+
+2. **Find the event you want to review.** If you have several active events, start with the most recent one.
+
+3. **Look at two figures first:**
+
+   - **Occupancy**: what percentage of total capacity is already sold. 60% occupancy three weeks before the event is a very different situation than the same occupancy three days before.
+   - **Sales velocity**: how many tickets sell per day or week. This figure tells you whether sales are speeding up or slowing down. If you're selling 30 tickets a day with three weeks left but still need 600 more, sales velocity tells you that you have time to react with a campaign before it's too late.
+
+4. **Also check the average ticket value.** This is the average value of each transaction. If a buyer purchases two general-admission tickets and a cashless top-up, their ticket is the sum of everything. A low average ticket with high occupancy can indicate demand exists but the price could rise. A high average ticket with low occupancy suggests the opposite.
+
+</Steps>
+
+You don't need to analyze every ticket metric right now. With occupancy, sales velocity and average ticket, you already have a clear picture of how the event is going.
+
+---
+
+## Step 3: Review a campaign's performance
+
+If you've sent at least one email or SMS to promote your event, you can now see exactly what effect it had.
+
+<Steps>
+
+1. **Go to the campaigns section** in Nevent analytics.
+
+2. **Select the campaign you want to review.** If you sent a launch or early-bird campaign for your event, start with that one.
+
+3. **Read the funnel from left to right:**
+
+   - **Sent**: how many fans received the campaign.
+   - **Open rate**: what percentage opened it. For segmented lists on live events, an open rate between 30% and 50% is a healthy result.
+   - **Click rate**: what percentage of recipients clicked a link.
+   - **Conversion rate**: what percentage of recipients ended up buying a ticket.
+
+4. **Look at the attributed revenue.** This figure answers the question that matters most: how much money did that campaign generate? Not how many opened it, but how much you sold because of it.
+
+</Steps>
+
+<Aside type="tip">
+If the open rate is low but attributed revenue is high, your list may be small but highly qualified. If the open rate is high but revenue is low, the problem might be the ticket price, the purchase link, or the timing of the send.
+</Aside>
+
+The unsubscribe rate (percentage of fans who opted out after the send) and the bounce rate (emails that didn't arrive) also appear in this view. If either one is above normal, it's a sign that the list has quality problems or that the send frequency is too high for that segment.
+
+---
+
+## Step 4: Filter by the period you care about
+
+Raw, unfiltered data doesn't say much. The value comes from viewing the period you need and comparing it against another.
+
+<Steps>
+
+1. **Find the time filter selector.** It's available in every analytics section.
+
+2. **Apply the "This month" filter** to see only the data for the current month. That gives you a clean picture without previous months' data skewing the read.
+
+3. **Turn on the comparison with the previous period.** Nevent can show the same period from last month, the previous quarter, or last year in the same table, along with the percentage change. That comparison turns a standalone number into context: knowing you sold 1,200 tickets this month only means something if you sold 800 — or 1,500 — in the previous period.
+
+4. **Try the "Last 30 days" filter.** Unlike "This month", this filter is a rolling window: it always shows the 30 days before today, regardless of where you are in the calendar month. It's useful for weekly tracking without the data getting cut in half when the month changes.
+
+</Steps>
+
+You can export any filtered view to CSV or Excel with one click. The export respects the applied filters, so you download exactly what you see on screen.
+
+---
+
+## Summary of what you've learned
+
+You've completed your first walkthrough of Nevent analytics. Now you know:
+
+- Where to find the sales data for a specific event, and what occupancy, sales velocity and average ticket mean.
+- How to read an email campaign's funnel: from sent to attributed revenue.
+- How to filter by specific periods and turn on the comparison with the previous one.
+
+When you want to bring this analysis into your regular routine, the [Grouping and filtering](/en/analytics/grouping-and-filtering/) section explains every dimension and filter available for going deeper into the data.
+
+---
+
+## What's next
+
+Once you're comfortable with these three areas, you can extend your analysis to:
+
+- **Audience and fans**: understand who your most valuable fans are, how much they're worth long-term (LTV), and how many are at risk of not coming back (churn). This information is the foundation for deciding how much you can invest in acquiring new fans.
+- **Paid media**: if you use Meta or Google advertising to sell tickets, check each campaign's ROAS (return on ad spend) to know whether you're making or losing money on every euro invested.
+- **Tracking and attribution**: once you have several campaigns running at the same time, link tracking tells you exactly which link, on which channel, generated the most sales. That information lets you optimize without guessing.
+
+If you'd rather explore the data with plain-language questions instead of navigating menus, you can use Nevent's AI assistant to get any of these metrics with a direct question, without applying filters manually.
