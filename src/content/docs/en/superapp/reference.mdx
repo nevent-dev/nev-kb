@@ -1,0 +1,258 @@
+---
+title: "Superapp Reference"
+description: "Description of every Superapp screen in Nevent, the available fields, the live activity panel blocks, and the technical limits for sending push notifications."
+diataxis: reference
+faqs:
+  - q: "How many characters can a push notification's title have?"
+    a: "A maximum of 65 characters."
+  - q: "What's the maximum image size for a push?"
+    a: "1 MB, with a 2:1 ratio (for example, 1200x600 px)."
+  - q: "Can I schedule a push for later?"
+    a: "No. The Send push form sends immediately. For scheduled sends, use push campaigns in the Campaigns module."
+  - q: "What does 'active people' count on the live panel?"
+    a: "Fans who have had the app open during the period shown (day or whole festival)."
+  - q: "What happens if I leave the date fields blank in the Home configuration?"
+    a: "The countdown isn't shown and the app's live mode isn't activated."
+---
+
+The Superapp is the mobile app festival fans download to their phone. From Nevent's admin panel, the **SUPERAPP** area groups four screens: **Home**, **App Activity**, **Send push**, and **Onboarding**. This document describes the fields, data blocks, and technical limits of each one.
+
+---
+
+## Home screen (Home configuration)
+
+**Path:** `/superapp/home`
+
+Determines which event appears on the app's home screen and controls the countdown to the festival.
+
+| Field | Type | Description |
+|---|---|---|
+| Main event | Dropdown selector | The event shown on the home screen and in the app's Lineup. Only one can be active. |
+| Festival start | Date and time | The moment the festival kicks off, in the venue's local time (Europe/Madrid). Activates the app's countdown and live mode. |
+| Festival end | Date and time | The moment the festival ends. Once it's passed, the app exits live mode. |
+
+**Behaviour when dates are left blank:** if both date fields are left blank, the countdown isn't shown and live mode isn't activated.
+
+**Available action:** **Save** button.
+
+---
+
+## App Activity screen
+
+**Path:** `/superapp/live-activity`
+
+Metrics panel on app usage. Requires no configuration: data is generated automatically from fan activity.
+
+### Day filters
+
+Let you narrow down the period for the data shown in most blocks:
+
+| Filter | Scope |
+|---|---|
+| Single day (e.g. "Sept 18") | Data for that day only. |
+| Live (e.g. "live Sept 19") | Real-time data for the current day. |
+| Whole festival | Accumulated data from festival start to end. |
+
+**Quick access:** **Send push** button linking directly to `/superapp/send-push`.
+
+---
+
+### LIVE block
+
+Appears while the festival is underway. Data updates automatically; the panel shows the time elapsed since the last update (for example, "checked less than 1 min ago").
+
+| Metric | What it measures |
+|---|---|
+| Active people | Fans with activity in the app during the current day. |
+| Sessions | Number of times the app has been opened during the day. |
+| Saved artists | Artists added to fans' personal agendas. |
+| Chatbot clicks | Times the app's support chat has been opened. |
+| Interactions | Total actions logged inside the app. |
+| Right now (last 30 min) | Interactions in the last thirty minutes. |
+
+---
+
+### VIEWING block
+
+Shows accumulated data according to the selected day filter.
+
+| Metric | What it measures |
+|---|---|
+| Active people | CRM-identified fans who have used the app in the period. |
+| Sessions | Total number of sessions in the period. |
+| Interactions | Total actions logged in the period. |
+| Saved artists | Total artists added to agendas in the period. |
+| Chatbot clicks | Total chat openings in the period. |
+
+**Note:** this block's active-people count only includes fans identified in the CRM. The total (including unidentified fans) appears in the Adoption block.
+
+---
+
+### Festival Pace block
+
+A chart of interactions per hour for the latest day. Lets you see at what time slot the app has the most activity. Includes an hour-by-hour table (from 6:00 AM to 5:00 AM the next day).
+
+---
+
+### Adoption block
+
+| Metric | What it measures |
+|---|---|
+| Total people | Fans who have used the app in the period, including those unidentified in the CRM. |
+| iOS | Number of identified users accessing from an iPhone. |
+| Android | Number of identified users accessing from an Android device. |
+| Total sessions | Total sessions in the period. |
+| Logins | Times a fan has logged in with their account. |
+
+---
+
+### BRANDS block
+
+Shows the performance of sponsorship spaces inside the app.
+
+| Metric | What it measures |
+|---|---|
+| Impressions | Times the brand's space has been shown in the app. |
+| Reach | Number of distinct fans who have seen the space. |
+| Minutes of attention | Total accumulated time fans have spent on that space. |
+
+Data is broken down by sponsor and by the name of the space they occupy within the app (for example, "Mainframe," "Neon Grid").
+
+---
+
+### ARTISTS block
+
+| Metric | What it measures |
+|---|---|
+| In agendas | Number of fans who have saved that artist to their personal agenda. |
+| Profile visits | Times the artist's profile has been opened in the app. |
+| Preview listens | Total plays of musical previews in the app. |
+| People who listened to a preview | Distinct fans who have played at least one preview. |
+
+Artists are ranked from most to least by the number of fans who have them in their agenda.
+
+**Related automatic behaviour:** when a fan saves an artist, the app sends them an automatic push notification thirty minutes before the performance.
+
+---
+
+### VENUE block
+
+Shows the points of interest on the map that have received the most taps.
+
+Points are grouped into two categories:
+
+| Category | Example points |
+|---|---|
+| Operations | Restrooms, Emergency exit, Cashless, Medical services, Bar. |
+| Brands and experiences | Sponsor stages and experience zones. |
+
+---
+
+### CASHLESS block
+
+Shows fan behaviour within the balance top-up flow.
+
+**"From checking balance to topping up" funnel:**
+
+| Funnel step | What it measures |
+|---|---|
+| Check their balance | Fans who have checked their balance in the app, and the number of times it was checked. |
+| Open top-up | Fans who have tapped the top-up button, and the number of clicks. |
+
+The conversion percentage between steps is calculated over the number of fans in the first step.
+
+Outside the funnel, two global festival figures are shown (all top-up channels, not just the app):
+
+| Metric | What it measures |
+|---|---|
+| Euros topped up | Total amount loaded onto cashless cards during the festival. |
+| Euros spent | Total amount spent at bars and on products during the festival. |
+
+---
+
+### COMMUNICATION block
+
+| Metric | What it measures |
+|---|---|
+| Push received on device | Push notifications delivered to fans' phones in the period. Includes the automatic alerts sent thirty minutes before each performance. |
+| Push tapped | Fans who have tapped a push notification to open it. |
+| WhatsApp support | Total clicks on the WhatsApp support link, broken down by hour. |
+
+**Note:** the total send count for each push campaign is in the Campaigns module, not in this block. Here you only see what happens on the fan's device.
+
+---
+
+## Send push screen
+
+**Path:** `/superapp/send-push`
+
+Lets you send an immediate push notification to every fan who has the app installed with push enabled. Doesn't support segmentation or scheduling.
+
+### Form
+
+| Field | Limit | Description |
+|---|---|---|
+| Title | 65 characters | Bold text that appears in the notification. On-screen counter visible. |
+| Message | 500 characters | Body of the notification. On-screen counter visible. |
+| Image | 1 MB, 2:1 ratio | Optional image accompanying the notification. Selected from the device. |
+| On tapping the notification | Dropdown selector | The app screen that opens when the fan taps the alert. |
+
+### On-screen indicators
+
+| Indicator | What it shows |
+|---|---|
+| Estimated reach | Approximate number of fans with the app installed and push enabled at that moment. Shown as "approx. N users." |
+| App identifier | The app's technical identifier (`com.nevent.app`). Indicates the send goes to the installed app with push enabled. |
+| Android preview | Simulation of how the notification will look on an Android device, with the event's name and time. |
+
+### Send behaviour
+
+- The send is **immediate** when the **Send to approx. N users** button is pressed.
+- It can't be undone or scheduled from this screen.
+- Sending automatically creates a push campaign in the Campaigns module to log the send.
+- The button stays disabled while the form is empty.
+
+---
+
+## App Onboarding screen
+
+**Path:** `/superapp/onboarding`
+
+Lets you configure the screens fans see the first time they open the app. Each screen is called a "slide."
+
+### No-slides state
+
+If no slide has been created, the screen shows the message "No slides configured. Create the first slide to get started" and the **Create slide** button.
+
+### Available actions
+
+| Action | How to access it |
+|---|---|
+| Create slide | **+ New slide** button in the header, or **Create slide** button in the empty state. |
+
+### Slide fields (creation form)
+
+The fields available in DEMO FEST are as follows. Required fields are marked as such.
+
+| Field | Required | Description |
+|---|---|---|
+| Order | Yes | Whole number that determines the slide's position. The slide with order 1 is the first the fan sees. |
+| Title | Yes | Main text of the welcome screen. |
+| Subtitle | No | Supporting text that appears below the title. |
+| Image URL | No | Web address of the slide's background image. |
+| Permissions to request | No | Selector for the system permissions requested on this slide: **Notifications** and **Location** are the available options. |
+| Request tracking transparency | No | Toggle that activates the iOS tracking notice (App Tracking Transparency). Only affects Apple devices. |
+| Status | No | Activates or deactivates the slide without needing to delete it. |
+
+---
+
+## Summary of technical limits
+
+| Parameter | Limit |
+|---|---|
+| Characters in a push title | 65 |
+| Characters in a push message | 500 |
+| Maximum image size in a push | 1 MB |
+| Image ratio in a push | 2:1 |
+| Segmentation on this screen's send | Not available (universal send) |
+| Scheduling on this screen's send | Not available (immediate send) |

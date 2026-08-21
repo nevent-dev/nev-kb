@@ -1,0 +1,103 @@
+---
+title: Subscriptions Reference
+description: Definition, legal prerequisites, table columns, and statuses for subscriptions in Nevent.
+diataxis: reference
+faqs:
+  - q: What is a subscription in Nevent?
+    a: A subscription is a voluntary opt-in list that fans join explicitly. Each subscription has an internal name, a status (active or inactive), and a subscriber count.
+  - q: What legal details do I need before creating a subscription?
+    a: You need two fields filled in under your organization's legal settings, your legal business name and your privacy policy URL. Without them, the create subscription button stays disabled.
+  - q: Where do I fill in the legal business name and privacy policy?
+    a: In Settings, under the Legal section. You can go there directly from the notice at the top of the Subscriptions section by clicking "Complete legal details."
+  - q: How many statuses can a subscription have?
+    a: Two, active and inactive. An active subscription accepts new sign-ups and can be used in campaigns. An inactive subscription stops collecting subscribers.
+  - q: What columns does the subscriptions table show?
+    a: The table shows five columns, Name, Status, Subscribers, Date, and Actions.
+---
+
+## What a subscription is
+
+A subscription in Nevent is a voluntary opt-in list. Fans join explicitly, for example through a form embedded on your website, to receive communications from your organization.
+
+Each subscription is independent: it has its own name, its own subscriber count, and its own status. You can have several active subscriptions at the same time, for example one per festival or communication channel.
+
+Subscriptions are managed under **Audience > Subscriptions**.
+
+---
+
+## Prerequisites for creating a subscription
+
+Before you can create any subscription, your organization must have two pieces of data filled in under the legal section of the settings:
+
+| Required data | Description |
+|---|---|
+| Legal business name | The legal name of the entity responsible for data processing. Appears on the subscription form and in the emails fans receive. |
+| Privacy policy URL | The web address of your privacy policy. Nevent links it in the form so the fan can consult it before subscribing. |
+
+While either of these two details is missing, Nevent shows a notice at the top of the Subscriptions section and disables the create button. The notice includes the **Complete legal details** link, which takes you directly to the legal settings screen (`/settings/legal`).
+
+These requirements are a matter of legal compliance: they identify who's responsible for the data processing and ensure the fan knows the privacy policy before giving their consent.
+
+---
+
+## Subscriptions table
+
+The main Subscriptions screen shows all of your organization's subscriptions in a table. The search box at the top filters by name.
+
+### Columns
+
+| Column | Content |
+|---|---|
+| Name | The subscription's internal name. Seen only by the organization's team, not the fan. |
+| Status | The subscription's current status. Possible values: **Active** or **Inactive**. |
+| Subscribers | Total number of people signed up to that subscription. |
+| Date | Date and time the subscription was created, in DD/MM/YYYY HH:MM format. |
+| Actions | Button that lets you change the subscription's status (activate or deactivate). |
+
+### Pagination
+
+The table paginates results. The selector at the bottom lets you choose how many records are shown per page. The default value is 20.
+
+---
+
+## Subscription statuses
+
+A subscription can be in one of these two statuses:
+
+| Status | Meaning |
+|---|---|
+| Active | The subscription is operational. The form accepts new sign-ups and the subscription can be used in marketing campaigns. |
+| Inactive | The subscription doesn't accept new sign-ups. Existing subscribers are kept but the list is paused. |
+
+The status is changed from the **Actions** column of the main table, with the activate or deactivate button.
+
+---
+
+## Fields of a subscription's panel
+
+Opening a specific subscription, the left side menu gives access to that form's management sections. The available sections are:
+
+| Section | What it contains |
+|---|---|
+| Summary | Form metrics: total views, subscribers captured, and conversion rate. |
+| General | The form's name, description, and folders. |
+| Fields | Fields the form asks the visitor for (email always present, the rest optional). |
+| Appearance | Colors, typography, spacing, title, subtitle, and button text. |
+| Automations | Automatic assignment of folders and custom fields to each new subscriber. |
+| Subscribers | List of people signed up: email, name, subscription status, and registration date. |
+| Installation | HTML code to embed the form on an external website. |
+
+---
+
+## Fields of the subscribers list
+
+Inside the **Subscribers** section of each subscription, each row in the list shows:
+
+| Field | Description |
+|---|---|
+| Email | The subscriber's email address. |
+| Name | The subscriber's name, if it was collected on the form. |
+| Status | The subscriber's status on that list. Can be **Confirmed** or **Unsubscribed**. |
+| Subscription date | Date and time the person registered. |
+
+A person moves to **Unsubscribed** status when they click the unsubscribe link included in any campaign. Nevent honours that unsubscribe automatically.

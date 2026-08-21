@@ -1,0 +1,137 @@
+---
+title: Experiences, Sales, and Add-ons Reference
+description: Reference tables with the columns, filters, statuses, and categories of the Experiences (/events), Sales (/sales), and Add-ons (/products) screens in Nevent.
+diataxis: reference
+faqs:
+  - q: "What statuses can an event have on the Experiences screen?"
+    a: "The only documented status on the platform is Scheduled, which indicates the event is active and has a future start date."
+  - q: "What filters are available on the Sales screen?"
+    a: "You can filter by event, by date range, by minimum amount, by maximum amount, and by buyer name or code. There's also a button to clear all filters at once."
+  - q: "What add-on categories exist in Nevent?"
+    a: "The available categories are Merch, Food, Drinks, Transport, Accommodation, and Activities. The All view shows add-ons from any category."
+  - q: "What does it mean that an add-on is Out of stock?"
+    a: "It means the product has no units available for sale at this time."
+  - q: "How many records per page does the Sales screen show?"
+    a: "The default pagination is 25 records per page."
+---
+
+This page collects reference information in tables for the three screens in the experiences area: the event list, the sales history, and the add-ons catalog. It isn't a step-by-step guide; see the area's how-to guides for that.
+
+## Experiences screen (/events)
+
+### Overview
+
+The Experiences screen shows the list of events and experiences created in your account. From here you can see each event's status, capacity sold, and access each one's management.
+
+The header shows the title "Experiences" with the subtitle "Manage your events and experiences to connect with your audience." The available actions are Create, Sync, and an expandable menu with additional options.
+
+### Filters on the Experiences screen
+
+| Filter | Available values | Description |
+|--------|---------------------|-------------|
+| Date view | Current / Past / All | Shows events depending on whether their start date is future, past, or without distinction. |
+| Text search | Free field | Filters by event name. The field shows the placeholder "Search by event..." |
+
+### Columns of the experiences list
+
+| Column | Description |
+|---------|-------------|
+| Channel | Icon identifying the event's channel or platform. |
+| Name | The event's name. |
+| Location | The place where the event takes place. |
+| Date | The event's start date and time. |
+| Tickets | Tickets sold against total capacity, in "sold / total" format. |
+| Status | The event's current status (see the status table). |
+| Promoter | Name of the promoting organization. |
+| Actions | Actions available for that event (see the actions table). |
+
+### Row actions in the experiences list
+
+| Action | Description |
+|--------|-------------|
+| View attendees | Opens the event's attendee list. Appears as an inline button on the row. |
+| Copy link | Copies the event's public link to the clipboard. |
+| Clone experience | Creates a copy of the event with the same configuration. |
+
+### Event statuses
+
+| Status | Description |
+|--------|-------------|
+| Scheduled | The event is active and has a future start date. |
+
+---
+
+## Sales screen (/sales)
+
+### Overview
+
+The Sales screen shows the full history of purchases made in the tenant. It's a read-only view with filters to locate specific sales. Default pagination is 25 records per page.
+
+### Filters on the Sales screen
+
+| Filter | Type | Description |
+|--------|------|-------------|
+| Event | Dropdown | Filters sales by event. The default value is All. |
+| Date range | Calendar selector | Shows only sales made within the chosen interval. |
+| Minimum amount | Numeric field | Excludes sales below the amount entered, in EUR. |
+| Maximum amount | Numeric field | Excludes sales above the amount entered, in EUR. |
+| Search by name or code | Text field | Filters by buyer name or by the transaction's reference code. |
+| Clear | Button | Removes all active filters and returns the view to its initial state. |
+
+### Columns of the sales list
+
+| Column | Description |
+|---------|-------------|
+| Date | Date and time the purchase was made. |
+| Channel | Icon of the channel through which the sale was processed. |
+| Reference | Transaction identifier, in hexadecimal string format. |
+| Buyer (name) | Buyer's full name. |
+| Buyer (email) | Buyer's email address. |
+| Amount | Sale amount in EUR. |
+| Status | The sale's status (see the status table). |
+
+### Sale statuses
+
+| Status | Description |
+|--------|-------------|
+| Completed | The purchase was processed and paid successfully. |
+
+---
+
+## Add-ons screen (/products)
+
+### Overview
+
+The Add-ons screen shows the catalog of extra products that can be sold alongside tickets, such as merchandise, accommodation, transport, food, drinks, and activities.
+
+The header shows the title "Add-ons" with the subtitle "Add-ons list." The available actions are Create, Sync, and an expandable menu with additional options.
+
+### Add-on categories (tab filters)
+
+| Category | Description |
+|-----------|-------------|
+| All | Shows the full catalog without filtering by type. It's the tab active by default. |
+| Merch | Merchandise products, such as T-shirts or other branded event items. |
+| Food | Food products linked to the event or venue. |
+| Drinks | Drinks available as an add-on to the experience. |
+| Transport | Transfer or travel services to the event. |
+| Accommodation | Lodging options related to the event. |
+| Activities | Extra experiences related to the event, such as workshops or equipment rental. |
+
+### Columns of the add-ons list
+
+| Column | Description |
+|---------|-------------|
+| Channel | Icon of the channel or platform associated with the add-on. |
+| Name | The add-on's name. |
+| Price | Unit price in EUR. Can be €0.00 for free add-ons. |
+| Sales | Number of units sold. |
+| Status | The add-on's current status (see the status table). |
+| Creation date | The date the add-on was created. |
+
+### Add-on statuses
+
+| Status | Description |
+|--------|-------------|
+| Available | The add-on is active and for sale. |
+| Out of stock | The add-on has no units available. |

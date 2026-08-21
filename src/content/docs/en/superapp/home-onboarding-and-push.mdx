@@ -1,0 +1,118 @@
+---
+title: "The Superapp: Home, Onboarding and Push Notifications"
+diataxis: how-to
+description: "Learn to configure Nevent's mobile app for your fans: the home screen, welcome slides, and instant push notifications."
+sidebar:
+  order: 1
+---
+
+The Superapp is Nevent's mobile app that your fans download to experience the festival from their phone. From the admin panel you can configure what they see the moment they open the app, customize the welcome process, and send them notifications directly to their phone screen.
+
+You have four sections inside **SUPERAPP** in the side menu: **Home**, **App Activity**, **Send push**, and **Onboarding**. This guide walks you through each one.
+
+## Home section: the app's main event
+
+The **Home** section determines which event appears on the app's home screen and activates the countdown to the festival.
+
+In the side menu, inside **SUPERAPP**, click **Home**.
+
+You'll see a form with three fields:
+
+- **Select event**: the event you want to feature on the app's home screen. Only one appears at a time.
+- **Festival start (date and time)**: the moment the festival kicks off, in the venue's local time. The app uses this to show the countdown and activate "live mode" during the event.
+- **Festival end (date and time)**: when it ends. Once this date passes, the app exits live mode.
+
+If you leave both dates blank, the countdown isn't shown.
+
+Once you've selected the event and the dates, click **Save configuration**.
+
+:::tip[Tip]
+Set the start time about 30 minutes before doors open. That way the countdown hits zero right as fans are already coming in.
+:::
+
+## App Activity section: what your audience is doing in real time
+
+The **App Activity** screen is a live metrics panel. It requires no configuration: it automatically shows what's happening in the app during the festival.
+
+In the side menu, inside **SUPERAPP**, click **App Activity**.
+
+You'll see two views depending on the moment:
+
+- **Live**: while the festival is underway, a dark-colored block appears with data updated every few minutes: active people, sessions, saved artists, chatbot clicks, and total interactions.
+- **By day or whole festival**: the rest of the metrics can be filtered by day (Sept 18, Sept 19...) or viewed together (Whole festival).
+
+The main metrics you'll see:
+
+| Metric | What it measures |
+|---|---|
+| Active people | Fans with the app open in that period |
+| Sessions | Number of times the app was opened |
+| Interactions | Actions within the app (saves, clicks, etc.) |
+| Saved artists | How many artists fans have added to their agenda |
+| Chatbot clicks | Times someone opened the app's chat |
+| Adoption | Total people who have used the app during the festival |
+
+The **Festival pace** chart shows interactions per hour for the latest day. It helps you see at what point in the day the app has the most activity.
+
+At the bottom you'll find the **Brands** and **Artists** sections: how much attention sponsors are getting and which artists interest your audience most.
+
+:::note[Note]
+Activity data is only generated when fans are using the app. If you've just launched the Superapp and there are no downloads yet, this panel will appear empty until festival day.
+:::
+
+## Send push section: instant notifications to the app
+
+A push notification is a message that appears directly on the fan's phone screen, even if they don't have the app open. It's used to warn of last-minute changes, open ticket sales, or communicate any urgent news.
+
+In the side menu, inside **SUPERAPP**, click **Send push**.
+
+The form has these fields:
+
+- **Title**: the bold text that appears in the notification. Maximum 65 characters.
+- **Message**: the body of the notification. Maximum 500 characters. Be concise: fans read it in seconds.
+- **Image** (optional): an image accompanying the notification. 2:1 ratio, maximum 1 MB.
+- **On tapping the notification**: the app screen that opens when the fan taps the alert. You can choose from Home, My tickets, My wallet, Cashless, Agenda, Venue map, Chat, Discover, My profile, or a specific event.
+
+On the right you'll see two helper elements:
+
+- The **users with app and push active** counter: how many people will receive the notification right now.
+- The **Android preview**: how the notification will look on an Android phone.
+
+:::caution[Important]
+The **Send to ≈ N users** button sends the notification immediately to every fan who has the app installed with push enabled. There's no option to schedule or undo it. Make sure you review the title and message before pressing it.
+:::
+
+## Onboarding section: the welcome screens
+
+Onboarding is the set of screens a fan sees the first time they open the app. You can create several slides in order, each with its own image, title, and subtitle. They're your first opportunity to present the festival and ask for the permissions you need (like notifications).
+
+In the side menu, inside **SUPERAPP**, click **Onboarding**.
+
+If you haven't created any slides yet, you'll see the empty screen with the **Create slide** button.
+
+Click **+ New slide** (top right corner) or **Create slide** to open the creation form.
+
+Each slide has these fields:
+
+- **Order** (required): the number that determines this screen's position. The slide with order 1 is the first the fan sees.
+- **Title** (required): the main text of the welcome screen.
+- **Subtitle**: an optional supporting text below the title.
+- **Image URL**: the URL of the slide's background image. The recommended format is 1080x1920 px (vertical), WebP or PNG, maximum 500 KB.
+- **Permissions to request**: if you want to ask for notification or location permission on this slide, select it here. You can only request "Notifications" and "Location."
+- **Request tracking transparency**: a toggle that activates the tracking notice on Apple devices (iOS). It's the pop-up iOS shows to ask the user whether they allow the app to track them.
+- **Status**: activates or deactivates this slide without needing to delete it.
+
+Once you've filled in the fields, click **Create** to save the slide.
+
+:::tip[Tip]
+Create between 3 and 5 slides: one welcome slide with the festival image, one asking for notification permission, and one explaining what they'll find in the app. That order works well because the fan is already excited before you ask for the permission.
+:::
+
+## Result
+
+You now know what each SUPERAPP section configures. With Home you point at the right event, with Activity you monitor live how your audience responds, with Send push you reach your fans' phones instantly, and with Onboarding you give them a tailored welcome.
+
+## Next step
+
+- [Create your first email campaign](/en/campaigns/create-your-first-campaign) to combine email marketing with push notifications and reach your fans through two channels at once.
+- [Check your campaign analytics](/en/analytics/campaigns) to cross-reference push performance with the rest of your marketing metrics.
