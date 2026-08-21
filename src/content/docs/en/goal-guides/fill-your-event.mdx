@@ -1,0 +1,279 @@
+---
+title: "How to fill your event"
+description: "End-to-end marketing playbook to sell out your capacity: from presale to last-minute, with segments, multichannel campaigns and measurement in Nevent."
+diataxis: how-to
+faqs:
+  - q: "Where do I start if I've never sent a campaign in Nevent?"
+    a: "Start by checking that you have your channels active in Settings > Brand and Content > Channels and at least one template created in Campaigns > Templates. With that ready, follow Phase 1 of this playbook: fans with an early-purchase history first, then the rest of the base."
+  - q: "How many campaigns should I send for an event?"
+    a: "A reasonable outline for an event with 6-8 weeks of sales is: 1 exclusive presale campaign (Phase 1), 1-2 general-opening campaigns (Phase 2), 1 mid-sale urgency campaign (Phase 3), and 1-2 last-minute campaigns in the final week (Phase 4). The key isn't the number but that each one reaches the right segment with the right message."
+  - q: "Which channel converts best for ticket sales?"
+    a: "Email converts well in early phases because it lets you convey the event's proposition in detail. SMS has an 85-95% open rate and is very effective for urgency and last-minute. WhatsApp, if enabled, is the most personal channel and works very well for VIP or RFM Champion fans. Ideally, combine them depending on the phase and segment."
+  - q: "What do I do if, two weeks out, I still have a lot of capacity left?"
+    a: "Activate the three Phase 4 levers: abandoned-cart campaigns to people who started checkout and didn't finish, a reactivation campaign to high-value inactive fans (At Risk and Can't Lose Them in RFM), and a last-minute campaign to the entire active base with real urgency based on available tickets. If you have SMS or WhatsApp enabled, use them in this phase: the open rate is much higher than email."
+  - q: "How do I know if my campaigns are performing well?"
+    a: "For event campaigns, healthy ranges are: delivery rate above 95%, open rate above 25%, and click rate above 5%. If opens are below 15%, review the subject line and send time. If clicks are low, check that the email has a clear, visible purchase button. Each campaign's report in Nevent gives you these metrics as soon as the send finishes."
+---
+
+import { Aside, CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+This playbook describes, step by step and phase by phase, how to organize your marketing campaigns in Nevent to sell out an event's capacity. It isn't a technical guide to the platform: each step links to the relevant detailed guide. The focus here is strategy and sequencing.
+
+## Who this playbook is for
+
+For event promoters who already have their event published in Nevent and want to fill their tickets systematically, without improvising last-minute communication. It works whether you've been on the platform for months or you're just getting started.
+
+## When to use it
+
+Use it as soon as you have a confirmed on-sale date, before launching your first campaign. The sooner you define the phases, the better you can leverage early-purchase segments and avoid wasting credits sending irrelevant messages to your entire base.
+
+---
+
+## Before you start: check you have everything ready
+
+Before launching your first campaign, check three things:
+
+**1. Your channels are active.**
+Email is active by default. If you want to use SMS or WhatsApp, enable them from [Settings > Brand and Content > Channels](/en/deliverability/activar-canales/). WhatsApp requires connecting a WhatsApp Business account. For SMS, Nevent manages the Sender ID registration with the Spanish regulator (CNMC): contact support to start that process.
+
+**2. You have at least one email template created.**
+Without a template, you can't launch an email campaign. Go to Campaigns > Templates and create one before continuing. If you use WhatsApp, keep in mind templates for that channel need Meta approval before they can be sent: [how to create WhatsApp templates](/en/campaigns/plantillas-whatsapp/).
+
+**3. Your domain is authenticated.**
+A dedicated domain configured with SPF, DKIM and DMARC improves deliverability and protects your sender reputation. If you haven't set it up yet, see the [sending reputation guide](/en/deliverability/reputacion-y-spam/).
+
+---
+
+## Phase 1: Exclusive presale (weeks -8 to -6 before the event)
+
+The goal of this phase is to fill the first ticket phase or sell out the presale without spending on advertising, by activating the fans most likely to buy immediately.
+
+### Segment 1: Early Bird fans
+
+The first segment you activate are fans who, at previous events, bought during the first phase, in presale, or in the first hours of sale. These fans are trained to buy fast and don't need convincing — they need a heads-up.
+
+How to build it: fans who bought Early Bird, presale or first-phase ticket types at previous events (a two-to-three-year window). You can refine the segment by filtering by city if the event is regional, or by adding the RFM Champions profile to give your best fans even earlier access.
+
+See the full use case: [Early Bird fans, segmenting early buyers](/en/segmentation/use-cases/early-buyers/).
+
+**Channel:** email. At this stage, the message can be detailed: the fan wants to know the lineup, the date, the venue and the price before deciding.
+
+**Message:** early access 24-48 hours before the public launch. The subject line should be direct and specific: something like "Exclusive access: tickets for [event name] available from today" works better than generic headlines. The subject field in the campaign wizard supports personalization variables, such as the fan's name.
+
+**Timing:** send this campaign the evening before the public launch, so it's in the inbox when the fan wakes up.
+
+### Segment 2: RFM Champions and Loyal Customers
+
+If you have sales history, Nevent's RFM model automatically classifies your fans into 11 profiles. Champions (high recency, high frequency, high spend) and Loyal Customers are your best fans.
+
+For an exclusive presale or a high-ticket product (VIP area, meet and greet, season pass), these are the first people you tell. They don't need a discount — they respond to exclusivity and recognition.
+
+See the use case: [VIP segment with RFM Champions](/en/segmentation/use-cases/top-rfm-vip/).
+
+To understand all the available profiles: [Automatic RFM, 11 fan profiles](/en/segmentation/capabilities/rfm/).
+
+**Channel:** email or WhatsApp if you have it enabled. WhatsApp has a 70-90% open rate and is the most personal channel for this kind of exclusive message.
+
+**What to measure at the end of this phase:**
+- Presale email open rate (healthy benchmark: above 35% for this segment).
+- Percentage of tickets sold out of the total for the first phase.
+- If you sold out the presale, you don't need Phase 1 for your next event: the segment is validated.
+
+---
+
+## Phase 2: General opening (weeks -6 to -4)
+
+With the presale closed or underway, you open the sale to the general public. Here you widen the audience, but not to the whole base at once — you prioritize by relevance.
+
+### Segment 3: Geolocated audience
+
+Messaging fans who live 500 km away is inefficient. Build a segment with fans within a reasonable radius of the venue (say, 75 km), or who have attended one of your events in that same city before.
+
+If your base is nationwide, this filter usually narrows the segment to 15-25% of the total, but that subset has a much higher purchase conversion than a mass send, because you're talking to people who can physically attend.
+
+See the use case: [Geolocated audience for regional events](/en/segmentation/use-cases/geolocated-audience/).
+
+**Channel:** email. This is the main opening campaign: detail the lineup, the price, the available ticket types, and link directly to the purchase page.
+
+**Message:** the official launch. The subject line should include the event name, the city, and a soft urgency signal ("Now available," "Buy now before the first tickets sell out"). Use the wizard's preview text to add a second hook.
+
+### Segment 4: Audience with declared preference
+
+If you've collected your fans' preferred music genre through registration forms or surveys, this segment combines declared preference with recent activity. It's the segment with the highest relative conversion because it combines explicit interest with active behavior.
+
+Use it especially if the event is a specific genre (jazz, electronic, reggae, hip-hop): in that case, excluding fans of other genres raises message relevance and improves your metrics.
+
+See the use case: [Segmenting by declared music preference](/en/segmentation/use-cases/audience-with-preference/).
+
+**Channel:** email.
+
+**Message:** personalized to the genre. A fan who declared a preference for electronic music should get an email about that genre's lineup, not a generic email about the whole festival.
+
+### Creating the campaigns in Nevent
+
+For each segment in this phase, create a campaign from the wizard: [How to create your first campaign](/en/campaigns/crear-primera-campana/).
+
+The wizard has 8 steps: name, channel, template, campaign type (detected automatically), audience (this is where you select the segment), subject, scheduling and review. In the audience step, you can combine several segments if you want a single send to reach multiple groups.
+
+**What to measure at the end of this phase:**
+- Open rate of the general-opening campaigns (benchmark: above 25%).
+- Click rate (benchmark: above 5%).
+- Revenue attributed to these campaigns in the report: [How to interpret your campaign results](/en/campaigns/informe/resultados/).
+
+---
+
+## Phase 3: Sustaining sales (weeks -4 to -2)
+
+Between the opening and last-minute, sales usually settle down and the pace slows. This phase is about sustaining demand without fatiguing the audience that already received the previous campaigns.
+
+### Segment 5: Fans who opened but didn't buy
+
+Fans who opened the opening campaign but haven't bought a ticket are a high-value audience: they've already shown interest, but something held them back. A second touch, with a different message (more information about the event, a testimonial from previous editions, remaining ticket availability), can resolve that hesitation.
+
+Build this segment by filtering for fans who opened the opening campaign (email-open criterion) and who don't have a confirmed transaction for the event. See the available criteria: [Digital engagement, segmenting fans by email behavior](/en/segmentation/capabilities/digital-engagement/).
+
+**Channel:** email. Don't repeat the same message from the first campaign — change the subject line and the angle.
+
+**Timing:** 7 to 10 days after the opening campaign.
+
+### Segment 6: High-value inactive fans
+
+If it's been a while since you activated fans who used to attend regularly, this is the moment to try. The At Risk and Can't Lose Them profiles in the RFM model group fans who were Champions or Loyal Customers in the past but haven't bought in months. Winning back one of these fans costs much less than acquiring a new one.
+
+Build the segment with fans who have historical spend above a threshold (the 60th-70th percentile of your distribution) and haven't attended any of your events in over twelve months.
+
+See the use case: [Reactivating high-value inactive fans](/en/segmentation/use-cases/reactivating-inactive-fans/).
+
+**Channel:** email. The tone should be one of recognition and win-back, not aggressive selling. Reference previous events if you can personalize the message.
+
+**What to measure at the end of this phase:**
+- Additional sales generated by this phase's campaigns (revenue attributed in the campaign report).
+- Unsubscribe rate: if it goes above 1% on any send, you're fatiguing that audience. Reduce frequency or review message relevance.
+
+---
+
+## Phase 4: Last-minute (final week and last 48 hours)
+
+In the final week, urgency is real, and you need to turn it into a sales argument. Send frequency can be higher here, but segmentation still matters.
+
+### Segment 7: Abandoned cart
+
+Throughout the sale, some fans have started the purchase process without finishing it. This intent signal is the most valuable one there is: the fan reached checkout and, at some point, left without paying.
+
+Build the segment with fans who started a purchase in the last 24-48 hours and don't have a confirmed transaction. Well-executed recovery campaigns convert between 15% and 30% of those abandonments.
+
+See the use case: [Recovering abandoned ticket carts](/en/segmentation/use-cases/abandoned-cart/).
+
+**Channel:** email in the first 6-12 hours after the abandonment. If you have SMS enabled, a reminder SMS in the following 12-24 hours reinforces the impact. SMS has an 85-95% open rate and is especially effective when the message is short with a direct call to action.
+
+**Message:** the subject line should explicitly reference that the fan left a purchase unfinished. Something like "You were one step away" or "Your ticket is still available, but not for long" is more effective than a generic message. A discount isn't always needed: many abandonments come from distraction, not price objections.
+
+### Segment 8: The entire active base with real urgency
+
+For the last 48 hours, launch a campaign to the entire active base (fans with a valid email, no unsubscribes, no hard bounces) with an urgency argument based on real data: remaining available tickets, or the online sale closing.
+
+Don't invent scarcity: if the event isn't nearly sold out, the message should be about the online sale closing, not "last tickets." The credibility of future campaigns depends on fans perceiving your messages as honest.
+
+**Channel:** email for the main send. If you have SMS or WhatsApp enabled, use them for a final reminder in the last hours: the open rate on these channels is much higher than email and they're ideal for short, urgent messages.
+
+To enable SMS, see: [Activate your communication channels](/en/deliverability/activar-canales/).
+
+**Message:** short, direct, with the purchase button in the first third of the email. In the subject line, include the event date and the urgency signal.
+
+**What to measure at the end of this phase:**
+- Percentage of total capacity sold.
+- Revenue attributed to last-minute campaigns (per-campaign report).
+- ROAS comparison across channels if you used email, SMS and WhatsApp in parallel: which one generated the most revenue per credit spent.
+
+---
+
+## How to measure the result of the whole playbook
+
+Once the sale is finished, check these metrics in Nevent to evaluate what worked:
+
+**Per individual campaign:**
+Each campaign has its own report with four main metrics (sent, delivered, opened, clicked) and attributed revenue. Compare the open rate and click rate for each phase to see which segments responded best. Metrics reference: [Email, SMS and WhatsApp campaign metrics](/en/analytics/campaigns/).
+
+**Benchmark ranges for event campaigns:**
+
+| Metric | Healthy result | Warning sign |
+|---|---|---|
+| Delivery rate | Above 95% | Below 90% |
+| Open rate | Above 25% | Below 15% |
+| Click rate | Above 5% | Below 2% |
+
+**Revenue attributed by segment:**
+Compare how much the Early Bird campaign sold versus the general-opening one. In most cases, campaigns to small but relevant segments have a much higher ROAS (return on the campaign's investment) than mass sends.
+
+**Deliverability report:**
+If the delivery rate drops or bounces rise on any campaign, review the [sending reputation guide](/en/deliverability/reputacion-y-spam/) before launching more campaigns. A list with many hard bounces damages your sender reputation and affects future sends.
+
+---
+
+## Mistakes to avoid
+
+**Sending everything to the entire base from the start.**
+The most common mistake is launching the first campaign to 50,000 fans without segmenting. Besides being inefficient (you pay credits for irrelevant sends), it burns out the audience too early: by the time you reach last-minute with the urgency campaign, the base will already be fatigued and the unsubscribe rate will have risen.
+
+**Using the same subject line across different campaigns of the same sale.**
+If a fan gets two emails with the same subject line, or very similar ones, the second one doesn't get opened. Always change the subject line's angle between campaigns of the same phase.
+
+**Ignoring deliverability until there's a problem.**
+If you don't have a dedicated domain configured, or haven't checked bounces in a while, part of your sends may be landing in spam without you knowing. Check your deliverability status before launching the playbook for an important event.
+
+**Fatiguing VIP fans with the same campaigns as everyone else.**
+Champions and Loyal Customers deserve different treatment. If you send them the same mass campaign as everyone else, you lose the chance to activate their higher purchasing power and you damage the relationship. Always segment them separately in at least one campaign of the cycle.
+
+**Launching WhatsApp templates without time for Meta approval.**
+WhatsApp templates can take up to 24 hours to be approved. If you create them the day of the send, you may not be able to use them in time. Create and submit templates for review at least 48 hours ahead of the planned send.
+
+**Not reviewing the report after each campaign.**
+Every send leaves you data. If you don't read it, you repeat the same mistakes in the next phase. Spend 5 minutes reviewing each campaign's report before launching the next one.
+
+---
+
+## Playbook summary by phase
+
+| Phase | When | Main segment | Channel | Goal |
+|---|---|---|---|---|
+| 1. Presale | 8-6 weeks before | Early Bird + RFM Champions | Email (WhatsApp optional) | Sell out the presale without advertising |
+| 2. Opening | 6-4 weeks before | Geolocated + Declared preference | Email | Activate general sales |
+| 3. Sustaining | 4-2 weeks before | Opened but didn't buy + High-value inactive | Email | Sustain demand |
+| 4. Last-minute | Final week | Abandoned cart + Active base | Email + SMS or WhatsApp | Convert the undecided and final urgency |
+
+---
+
+## Related guides
+
+<CardGrid>
+  <LinkCard
+    title="How to create your first campaign"
+    href="/en/campaigns/crear-primera-campana/"
+    description="The 8-step wizard to launch any campaign in Nevent."
+  />
+  <LinkCard
+    title="How to create a segment"
+    href="/en/segmentation/segmentation-engine/creating-a-segment/"
+    description="Step-by-step process to build the segments for each phase."
+  />
+  <LinkCard
+    title="Automatic RFM: 11 fan profiles"
+    href="/en/segmentation/capabilities/rfm/"
+    description="Understand the Champions, At Risk and Can't Lose Them profiles to segment with precision."
+  />
+  <LinkCard
+    title="Best practices for your campaigns"
+    href="/en/campaigns/mejores-practicas/"
+    description="Subject lines, frequency, list cleaning and measurement."
+  />
+  <LinkCard
+    title="Campaign metrics"
+    href="/en/analytics/campaigns/"
+    description="Open rate, click rate, attributed revenue and ROAS by channel."
+  />
+  <LinkCard
+    title="Sending reputation"
+    href="/en/deliverability/reputacion-y-spam/"
+    description="How to protect deliverability before launching the playbook."
+  />
+</CardGrid>

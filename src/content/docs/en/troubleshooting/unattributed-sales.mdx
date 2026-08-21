@@ -1,0 +1,175 @@
+---
+title: "I don't see sales attributed to my campaigns"
+description: "Why a campaign can show up with no revenue attributed in Nevent, how attribution actually works and what to check step by step to diagnose the problem."
+diataxis: how-to
+faqs:
+  - q: "The campaign has clicks but attributed revenue shows zero. Why?"
+    a: "Clicks and attributed revenue are different metrics. Someone clicking doesn't guarantee they bought. Check whether the email's link led to the correct sales page, whether the sale actually completed, and whether the report's date filter covers the period after the send. It can also happen that the sale went through another channel (direct, organic) and Nevent attributes it to that channel instead of your campaign."
+  - q: "How long does it take for attributed revenue to show up after a send?"
+    a: "Campaign and attribution metrics update several times a day. If the send was less than an hour ago, wait a little and reload the report. If several hours have passed and it's still zero, follow the diagnostic guide."
+  - q: "Is it possible the sale exists but doesn't show as attributed to any campaign?"
+    a: "Yes. Sales that come through direct traffic, organic traffic, or untracked channels aren't assigned to any specific campaign. In the attribution-by-channel view you can see the revenue for the 'Organic' and 'Direct' channels, which groups those sales with no assigned campaign."
+  - q: "What's the difference between a campaign's attributed revenue and the event's total revenue?"
+    a: "The event's total revenue adds up every ticket sold, no matter where it came from. A campaign's attributed revenue only counts sales Nevent can link to a click or interaction within that specific campaign. The difference is direct sales, organic sales, or sales from untracked channels."
+---
+
+import { Aside, CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+This guide helps you identify why a campaign sent from Nevent shows no attributed sales, how attribution works internally, and what to check step by step to diagnose the problem.
+
+## Before you start
+
+You need at least one campaign in **Sent** status and access to that campaign's report from **Campaigns > My campaigns**. If you haven't sent any campaign yet, first follow [How to create your first campaign](/en/campaigns/create-your-first-campaign/).
+
+---
+
+## How attribution works in Nevent
+
+Before diagnosing, it helps to understand exactly what the "attributed revenue" field is measuring.
+
+When you send a campaign, Nevent automatically instruments every link it contains. When a fan clicks that link and later completes a purchase, Nevent assigns the revenue from that sale to the link, and therefore to the campaign that contained it.
+
+This means attribution requires three simultaneous conditions:
+
+1. The fan received and opened the email (or SMS, or WhatsApp).
+2. The fan clicked a tracked link inside that message.
+3. The fan completed the purchase within the time window after the click.
+
+If any of those three conditions fails, the sale doesn't get attributed to the campaign.
+
+The **clicks** metric and the **attributed revenue** metric are independent: a campaign having a lot of clicks doesn't guarantee it generated attributed revenue. The indicator that connects the two is **post-click conversion**, which measures what percentage of fans who clicked went on to buy.
+
+To understand in depth how each attribution metric works, see [Link tracking and attribution](/en/analytics/tracking-and-attribution/).
+
+---
+
+## Diagnosis: steps to follow
+
+### Step 1: Check the campaign's status and date
+
+Open the campaign report from **Campaigns > My campaigns**. Check that:
+
+- The campaign's status is **Sent**, not "Scheduled" or "Draft."
+- The send date is the one you expected. If you scheduled the campaign for a future date and it hasn't arrived yet, attributed revenue will be zero because the send hasn't happened yet.
+
+If the campaign is scheduled for the future, there's simply nothing to diagnose yet: wait for it to send.
+
+### Step 2: Review the report's metrics block
+
+In the **Summary** section of the campaign report you'll see four cards: Sent, Delivered, Opened and Clicked.
+
+Look for these signals:
+
+- If **Sent** is zero or very low: the send didn't happen or was aborted. Check the campaign configuration.
+- If **Delivered** is much lower than **Sent**: bounces are high. See [How to check the bounces on your campaigns](/en/campaigns/report/bounces/) to diagnose the problem.
+- If **Opened** is low (below 15% is a warning sign): few people saw the email. Without opens, there's no possible click, and therefore no attribution. Review the subject line and sender.
+- If **Clicked** is low or zero: nobody clicked the purchase link. Without a tracked click, there's no attribution. Check that the email included a clear, visible purchase link.
+
+Check the reference ranges in [How to interpret your campaign results](/en/campaigns/report/results/) to know whether your values are normal.
+
+### Step 3: Verify the email included a tracked link to the sales page
+
+Attribution only works if the email contained a link that:
+
+- Led to your event's ticket sales page (not a generic homepage or social media).
+- Was a link instrumented by Nevent, meaning a link inserted from the template editor or the campaign wizard, not plain text written manually without a hyperlink.
+
+If you copied and pasted the URL directly as text without creating a hyperlink in the editor, Nevent can't track that click and attribution doesn't happen.
+
+Review the template used in the campaign from **Campaigns > Templates** to confirm the purchase button or link is set up correctly.
+
+### Step 4: Check that there were actual sales in that period
+
+Before concluding the problem is attribution, verify that tickets were actually sold in the period after the send.
+
+Go to the **Events and tickets** section in Nevent's analytics and filter by the event and the relevant dates. If there are no sales in that period, the campaign may have worked correctly but simply didn't convert.
+
+If there were sales but they don't appear attributed to the campaign, continue to the next step.
+
+### Step 5: Review the send's deliverability
+
+A frequent cause of low attributed revenue is that emails didn't reach fans' inboxes, landing in the spam or promotions folder instead. In that case, fans never saw the campaign even though it was technically "sent" and "delivered."
+
+Go to the **Deliverability** section of the campaign report and check:
+
+- **Delivery rate**: should be above 95%. If it's below 90%, there's a bounce problem.
+- **Hard bounces**: addresses that don't exist. Nevent excludes them from future sends, but if the percentage is high on this send, your list may be deteriorated.
+- **Soft bounces**: temporary failures. Nevent retries automatically, but if there are many, they may have affected real reach.
+
+To understand how deliverability affects your results, see [Deliverability: sender reputation and inbox placement](/en/analytics/deliverability/). If the inbox placement rate is below 80%, a significant share of your fans didn't see the campaign. A value above 90% is considered healthy.
+
+<Aside type="tip">
+If you suspect your emails are landing in spam, you can monitor your domain reputation in [Google Postmaster Tools](https://postmaster.google.com). A low sender reputation explains open rates that look low but are actually a delivery problem, not a content problem.
+</Aside>
+
+### Step 6: Check the date filter in the attribution view
+
+When you check attributed revenue from the general analytics (not from the campaign report), make sure the date filter covers the correct period.
+
+If you sent the campaign on the 10th and your filter is set to "This week" but the week has already changed, that campaign's data can fall outside the visible range. Use a custom range that includes the send date and several days after it to capture the campaign's effect.
+
+To learn how to set up date filters, see [How to group and filter analytics data](/en/analytics/grouping-and-filtering/).
+
+### Step 7: Compare against the attribution-by-channel view
+
+If you've completed the previous steps and still can't find the revenue, go to the **attribution by channel** view in Nevent's analytics.
+
+That view shows total revenue grouped by channel: Email, SMS, WhatsApp, Meta Ads, Google Ads, Organic and Direct. If you see revenue in "Organic" or "Direct" but not in "Email," it means sales happened, but the fan reached the purchase page without going through your campaign's link (for example, by searching directly on Google or typing the URL).
+
+That doesn't mean the campaign had no influence: it may have generated interest that the fan acted on at a different moment. But in that case, direct attribution isn't recorded for the campaign.
+
+See the use case [Revenue attribution by marketing channel](/en/analytics/use-cases/attribution-by-channel/) to compare performance across channels and understand the weight of each one.
+
+---
+
+## Quick diagnosis table
+
+Use this table to identify the most likely cause based on what you see in the report:
+
+| What you see in the report | Most likely cause | Where to check |
+|---|---|---|
+| Sent = 0 | The campaign wasn't sent | Campaign status in My campaigns |
+| Delivered much lower than Sent | High bounces, dirty list | Deliverability section of the report |
+| Opened below 15% | Weak subject line or deliverability problems | Summary section and deliverability metrics |
+| Clicked = 0 or very low | The email had no clear purchase link | Template used in the campaign |
+| There are clicks but revenue = 0 | The link doesn't lead to the sales page, or the sale wasn't completed | Link destination in the template |
+| Revenue in "Direct" or "Organic" but not in the campaign | Fans bought without going through the tracked link | Attribution-by-channel view |
+| Correct data but not showing up | Wrong date filter in the analytics view | Date filters in analytics |
+
+---
+
+## What Nevent's attribution doesn't do
+
+Nevent's attribution is last-click: it assigns the sale to the last tracked link the fan clicked before completing the purchase. This means:
+
+- If the fan received your email, closed it without buying, and came back three days later to buy from a Google search, the sale will be attributed to the organic channel, not the email campaign.
+- If the fan clicked the link from the email but then closed the page and came back to it directly by typing the URL, attribution may not be recorded for the campaign.
+
+These situations are normal and don't indicate an error. They mean the campaign contributed to generating interest even though direct attribution wasn't captured.
+
+---
+
+## Next step
+
+<CardGrid>
+  <LinkCard
+    title="Link tracking and attribution"
+    href="/en/analytics/tracking-and-attribution/"
+    description="Unique clicks, post-click conversion and revenue attributed per link, explained."
+  />
+  <LinkCard
+    title="How to interpret your campaign results"
+    href="/en/campaigns/report/results/"
+    description="What each metric in the report summary means and what to do if they're low."
+  />
+  <LinkCard
+    title="Deliverability: sender reputation and inbox placement"
+    href="/en/analytics/deliverability/"
+    description="Why your emails may not reach the inbox and how to detect it."
+  />
+  <LinkCard
+    title="Revenue attribution by channel"
+    href="/en/analytics/use-cases/attribution-by-channel/"
+    description="Compare the revenue attributed to each channel in a single table."
+  />
+</CardGrid>

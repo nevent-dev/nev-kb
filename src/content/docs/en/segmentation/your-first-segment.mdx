@@ -1,0 +1,191 @@
+---
+title: "Create your first segment"
+description: "Guided tutorial to create your first segment in Nevent from scratch, understand what you're doing at each step, and build confidence with the engine."
+diataxis: tutorial
+faqs:
+  - q: "What is a segment used for in Nevent?"
+    a: "A segment is a group of fans from your database who meet a set of conditions you define. For example, you can create a segment with every fan who lives in Madrid and has attended two or more of your events. You then use that group to send a relevant campaign to only them."
+  - q: "Do I need to know a lot about marketing to create a segment?"
+    a: "No. This tutorial walks you through it step by step with a concrete, simple example. A single condition is already a functional segment. Complexity is optional, and you can add it gradually."
+  - q: "How many fans should my segment have to be useful?"
+    a: "It depends on the goal. For a general mass email campaign, a minimum of 1,000 fans is recommended. For a segmented promotion (a specific offer to a specific group), the usual floor is 300 fans. For very exclusive offers (VIP, presale), 50-300 fans can be enough. A segment with fewer than 50 fans usually signals the criteria are too restrictive."
+  - q: "Does the segment update on its own when my fans' data changes?"
+    a: "Yes. By default, segments in Nevent are dynamic: every time you launch a campaign, the system recalculates who meets the criteria at that moment. If a fan bought yesterday, they'll be in the segment tomorrow without you having to do anything."
+  - q: "Can I save the segment and reuse it in another campaign?"
+    a: "Yes. Once saved, the segment stays available to use as many times as you want. It's a good idea to give it a descriptive name, for example 'Madrid_RepeatAttendees', so you can find it easily later."
+---
+
+import { Aside } from '@astrojs/starlight/components';
+
+This tutorial walks you through creating your first fan segment in Nevent. By the end, you'll have built a real segment, you'll understand what each part does, and you'll know how to expand it whenever you want.
+
+You don't need any prior experience with marketing tools. You only need access to Nevent and fans in your database.
+
+## What you'll learn
+
+By completing this tutorial you'll know:
+
+- What a segment is and what it's used for in practice.
+- How to choose a criteria category.
+- How to configure a simple condition.
+- How to preview the result before saving.
+- How to save the segment with a name that helps you find it later.
+
+## What a segment is, explained without jargon
+
+Imagine you have a list of every attendee who has ever bought a ticket to your events. That's thousands of different people: some live nearby, others travel from far away; some buy months in advance, others at the last minute; some have been with you for three editions, others just met you.
+
+A segment is, simply, a subgroup of that list. You define one or more conditions, and Nevent shows you who meets them.
+
+The reason this matters is straightforward: when you send the same message to everyone, most people ignore it because it's not relevant to them. When you send a message built for a specific group, more people open it and act on it.
+
+## The example you'll build
+
+Over the course of this tutorial you'll create this segment:
+
+**Name:** Experienced Madrid fans
+
+**Conditions:**
+- City of residence: Madrid
+- Number of events attended: two or more
+
+This is a beginner-level segment. It has only two criteria, results in a reasonably sized audience, and its purpose is clear: local fans with an attendance history, suited to presale campaigns or communications about events in their city.
+
+Once you're done, we'll explain how to expand it if you want.
+
+## Step 1. Open the segmentation engine
+
+Log into Nevent and go to the segmentation section. You'll see the list of segments that already exist (if any) and a button to create a new one.
+
+Click **New segment**.
+
+The segment editor will open. At this point you'll see a blank form with space to name the segment and a section to add criteria.
+
+<Aside type="tip">
+If this is your first time in, the editor might show you a help message or a pre-configured example. You can close it and start from scratch.
+</Aside>
+
+## Step 2. Name your segment
+
+Type a descriptive name in the name field. For this tutorial, use:
+
+```
+Madrid_RepeatAttendees
+```
+
+A good name answers two questions: who's in it, and why you're grouping them. Avoid names like "Segment 1" or "Test", which tell you nothing when you look for them weeks later.
+
+## Step 3. Choose the first criterion's category
+
+In the editor you'll see that criteria are organized into categories. Nevent groups the available filters into six main categories:
+
+- **Attendance**: data about the events your fans have gone to (event name, ticket type, number of times attended, artist, music genre...).
+- **Fan attributes**: personal information such as city of residence, age or language.
+- **Spend and consumption**: purchase data such as total spend or the date of the last transaction.
+- **Interaction**: how they respond to your emails (whether they open them, whether they click).
+- **Channels**: whether they have the app installed, a verified phone number, connected social media.
+- **Nevent Score**: the automatic engagement score Nevent calculates for each fan (explained below).
+
+For the first criterion in this tutorial, select the **Fan attributes** category.
+
+## Step 4. Configure the first criterion: city of residence
+
+Inside the Fan attributes category, select the **City of residence** criterion.
+
+You'll then see two more fields:
+
+- **Operator**: defines how the value is compared. Select **Is equal to**.
+- **Value**: type or select **Madrid**.
+
+This tells Nevent: "I want fans whose city of residence is exactly Madrid."
+
+<Aside type="note">
+When you type "Madrid" in the value field, Nevent will show suggestions based on the real data in your database. Select the correct option from that list to avoid typos.
+</Aside>
+
+## Step 5. Add the second criterion: number of events attended
+
+Now add a second condition. Click **Add criterion** (or the equivalent button in the interface).
+
+Select the **Attendance** category and the **Number of events attended** criterion.
+
+Configure it like this:
+
+- **Operator**: **Greater than or equal to**
+- **Value**: **2**
+
+This adds the condition: "the fan must have attended at least two of your events."
+
+The two criteria are joined with the **AND** operator, which means the fan must meet both at once: living in Madrid and having attended two or more times. If they meet only one of the two, they don't enter the segment.
+
+<Aside type="tip">
+The AND operator narrows the segment but increases its precision. If you wanted to reach more fans, you could use just one of the two criteria. For this tutorial, having both together makes sense: we're looking for local fans with prior attendance history.
+</Aside>
+
+## Step 6. Preview the result
+
+Before saving, use the **preview** function.
+
+Nevent will calculate how many fans meet the criteria at that moment and show you:
+
+- The estimated number of fans in the segment.
+- A sample of 10 to 20 real profiles so you can check the result makes sense.
+- The breakdown by Nevent Temperature: each fan appears classified into one of six levels (Very Hot, Hot, Lukewarm, Cold, Very Cold or Frozen); see [Nevent Score and Temperature](/en/segmentation/capabilities/score-and-temperature/) if you want to understand what each level means.
+
+Look at the total number. If you see something like this, here's how to read it:
+
+| Result | What it means | What you can do |
+|---|---|---|
+| Fewer than 50 fans | The criteria are too restrictive | Lower the attendance threshold to 1, or widen the city |
+| Between 200 and 2,000 fans | Right size for most campaigns | Continue and save |
+| More than 5,000 fans | A broad segment | Fine for general campaigns; add a third criterion if you want more precision |
+
+If the number looks off, review the criteria. A typo in "Madrid" or an incorrect operator are common causes.
+
+## Step 7. Save the segment
+
+If the preview looks right, save the segment.
+
+Confirm the name is `Madrid_RepeatAttendees` and click **Save** (or **Create segment**, depending on the interface version).
+
+The segment will be saved and available to use in your campaigns.
+
+<Aside type="note">
+By default, the segment is saved as **dynamic**: every time you use it in a campaign, Nevent recalculates who meets the criteria at that moment. If a fan moves away from Madrid, or if someone who lived in Madrid attended their second event yesterday, the segment will reflect that automatically.
+</Aside>
+
+## What you just learned
+
+You've created a segment with two criteria, previewed the result, and saved it. Along the way you learned:
+
+- The six criteria categories (Attendance, Attributes, Spend, Interaction, Channels, Nevent Score).
+- The **Greater than or equal to** operator for numeric criteria.
+- The **Is equal to** operator for text.
+- The **AND** logical operator, which requires every condition to be met.
+- The preview function and how to interpret segment size.
+- Nevent Temperature as a quick engagement indicator.
+
+## What to try now
+
+The natural next step is to add a third criterion to refine the segment further, or to create a new one with different logic. Here are three concrete ideas:
+
+**Idea 1. Add temperature as a third filter**
+
+Inside the segment you just created, add the **Nevent Temperature** criterion and select **Hot** or **Very Hot**. That leaves you with only the experienced Madrid fans who are also active right now.
+
+**Idea 2. Change the city**
+
+Duplicate or create a new segment with the same logic but a different city. If you run events in several cities, having one segment per city lets you communicate with each group independently.
+
+**Idea 3. Try a single criterion**
+
+Create a segment with just one criterion: Temperature **Very Hot**. This is the simplest possible segment and one of the most useful: your most engaged fans, regardless of where they live or how many times they've attended.
+
+## Related documents
+
+To keep learning about segmentation in Nevent:
+
+- [The 6 criteria categories](/en/segmentation/segmentation-engine/categories/) - a full reference of every available filter.
+- [Operators and AND/OR logic](/en/segmentation/segmentation-engine/operators-and-logic/) - how to combine criteria with AND and OR to build more complex segments.
+- [Nevent Score and Temperature](/en/segmentation/capabilities/score-and-temperature/) - an explanation of how the automatic engagement score is calculated.
+- [Segmentation best practices](/en/segmentation/segmentation-engine/best-practices/) - common rules on segment size, send frequency and naming.
