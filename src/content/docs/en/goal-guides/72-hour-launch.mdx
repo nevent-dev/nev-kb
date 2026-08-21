@@ -27,7 +27,7 @@ You need at least:
 - Email templates (and WhatsApp templates if you have that channel enabled) prepared before you start.
 - The Superapp set up with the event on the home screen, if your event uses the Nevent app.
 
-If you haven't created segments yet, start with [How to create a segment](/en/segmentation/segmentation-engine/creating-a-segment/). If you don't have templates yet, go to [Campaigns, Templates](/en/campaigns/plantillas-email/) before continuing.
+If you haven't created segments yet, start with [How to create a segment](/en/segmentation/segmentation-engine/creating-a-segment/). If you don't have templates yet, go to [Campaigns, Templates](/en/campaigns/email-templates/) before continuing.
 
 ## When to use this playbook
 
@@ -62,7 +62,7 @@ This phase is exclusive to your highest-intent fans. The sale isn't announced ye
 
 **How to set this up in Nevent:**
 1. Create the segment combining RFM Champions OR early fans from [Audience, Segments](/en/segmentation/segmentation-engine/creating-a-segment/).
-2. Open the wizard with [+ Create campaign](/en/campaigns/crear-primera-campana/) and select the Email channel.
+2. Open the wizard with [+ Create campaign](/en/campaigns/create-your-first-campaign/) and select the Email channel.
 3. In the subject line step, personalize with the recipient's name: the subject field supports personalization variables.
 4. In the scheduling step, choose "Schedule send" and set the date and time.
 
@@ -80,7 +80,7 @@ Early fans have a proven history of buying early. Messaging this group before ev
 
 **Timing:** 24 hours before launch.
 
-**How to set this up in Nevent:** from the [SUPERAPP, Send push](/en/superapp/que-es/) section, the panel shows how many attendees will receive the notification before you send it. The send is immediate and can't be scheduled, so time it precisely.
+**How to set this up in Nevent:** from the [SUPERAPP, Send push](/en/superapp/what-is-the-superapp/) section, the panel shows how many attendees will receive the notification before you send it. The send is immediate and can't be scheduled, so time it precisely.
 
 :::caution[Heads up]
 The Superapp push is immediate and can't be undone. Prepare the copy in advance and only send it once you've hit the right moment in your timing.
@@ -114,7 +114,7 @@ The Superapp push is immediate and can't be undone. Prepare the copy in advance 
 
 **Timing:** 2-4 hours after Step 2A. Leaving that gap gives early fans time to act before the announcement reaches everyone.
 
-**How to set this up in Nevent:** create a second campaign with the same 8-step wizard, using this different segment. If the template content is the same, you can [clone the Step 2A campaign](/en/campaigns/gestionar-campanas/) and only change the segment and send time.
+**How to set this up in Nevent:** create a second campaign with the same 8-step wizard, using this different segment. If the template content is the same, you can [clone the Step 2A campaign](/en/campaigns/manage-your-campaigns/) and only change the segment and send time.
 
 #### Step 2C: Opening WhatsApp message (if the channel is enabled)
 
@@ -126,7 +126,7 @@ The Superapp push is immediate and can't be undone. Prepare the copy in advance 
 
 **Timing:** in parallel with Step 2B, or up to 1 hour after.
 
-**How to set this up in Nevent:** you need a [Meta-approved WhatsApp template](/en/campaigns/plantillas-whatsapp/) in the Marketing category. Keep in mind Meta can take up to 24 hours to approve a new template, so create it with enough lead time. Once approved, select it in the campaign wizard by choosing the WhatsApp channel.
+**How to set this up in Nevent:** you need a [Meta-approved WhatsApp template](/en/campaigns/whatsapp-templates/) in the Marketing category. Keep in mind Meta can take up to 24 hours to approve a new template, so create it with enough lead time. Once approved, select it in the campaign wizard by choosing the WhatsApp channel.
 
 :::note[Prior preparation needed]
 WhatsApp templates require Meta approval before they can be sent. Create them at least 24-48 hours before launch to make sure they're in Active status when you need them.
@@ -204,15 +204,15 @@ Availability of abandoned cart as a segmentation criterion may vary depending on
 
 ## How to measure the result
 
-Once the campaigns are sent, check the reports from [My campaigns](/en/campaigns/gestionar-campanas/). The key metrics for this playbook are:
+Once the campaigns are sent, check the reports from [My campaigns](/en/campaigns/manage-your-campaigns/). The key metrics for this playbook are:
 
-**Opens and clicks:** open the [results report for each campaign](/en/campaigns/informe/resultados/) and compare the open rate against the benchmark ranges for live events (healthy above 25%; warning sign below 15%). Campaigns to the Champions and early-fans segment should clearly beat those averages.
+**Opens and clicks:** open the [results report for each campaign](/en/campaigns/report/results/) and compare the open rate against the benchmark ranges for live events (healthy above 25%; warning sign below 15%). Campaigns to the Champions and early-fans segment should clearly beat those averages.
 
-**Individual engagement:** in the [Engagement](/en/campaigns/informe/aperturas-y-clics/) section of each report, you can filter by who opened and who clicked. That list is useful for building the Step 3B segment: people who opened but didn't buy.
+**Individual engagement:** in the [Engagement](/en/campaigns/report/opens-and-clicks/) section of each report, you can filter by who opened and who clicked. That list is useful for building the Step 3B segment: people who opened but didn't buy.
 
-**Unsubscribes:** check the unsubscribe rate for each send in the [unsubscribes report](/en/campaigns/informe/desuscripciones/). A rate below 0.5% is normal; above 1%, the message or segment wasn't well aligned.
+**Unsubscribes:** check the unsubscribe rate for each send in the [unsubscribes report](/en/campaigns/report/unsubscribes/). A rate below 0.5% is normal; above 1%, the message or segment wasn't well aligned.
 
-**App activity:** if you sent push notifications, the [Superapp activity screen](/en/superapp/que-es/) shows how many notifications reached the device and how many were tapped. Use it to calibrate push effectiveness for future launches.
+**App activity:** if you sent push notifications, the [Superapp activity screen](/en/superapp/what-is-the-superapp/) shows how many notifications reached the device and how many were tapped. Use it to calibrate push effectiveness for future launches.
 
 ---
 
@@ -226,7 +226,7 @@ Once the campaigns are sent, check the reports from [My campaigns](/en/campaigns
 
 **Sending the Superapp push at the wrong moment.** The push is immediate and can't be undone. Draft it in advance, keep it in a reference document, and only send it when the right moment arrives. There's no option to schedule it.
 
-**Not checking bounces before launch.** If your list has many hard-bounced addresses from previous campaigns, the delivery rate of the launch campaign can suffer. Before important sends, check the [bounce report](/en/campaigns/informe/rebotes/) of your latest campaigns and clean up problematic addresses.
+**Not checking bounces before launch.** If your list has many hard-bounced addresses from previous campaigns, the delivery rate of the launch campaign can suffer. Before important sends, check the [bounce report](/en/campaigns/report/bounces/) of your latest campaigns and clean up problematic addresses.
 
 **Fatiguing the same audience with too many sends in 72 hours.** The playbook has between four and six touchpoints, but they don't all go to the same segment. The Champions segment gets the teaser email and the early-access email: two emails in 48 hours is reasonable for an engaged audience. The general base gets the launch email and, if they don't open it, may get the second touch 24-36 hours later. More than that in such a short window starts to trigger unsubscribes.
 
@@ -239,11 +239,11 @@ Once the campaigns are sent, check the reports from [My campaigns](/en/campaigns
 - [VIP segment with RFM Champions](/en/segmentation/use-cases/top-rfm-vip/)
 - [Recovering abandoned carts](/en/segmentation/use-cases/abandoned-cart/)
 - [Reactivating high-value inactive fans](/en/segmentation/use-cases/reactivating-inactive-fans/)
-- [How to create your first campaign](/en/campaigns/crear-primera-campana/)
-- [How to create WhatsApp templates](/en/campaigns/plantillas-whatsapp/)
-- [Managing your campaigns](/en/campaigns/gestionar-campanas/)
-- [How to interpret your campaign results](/en/campaigns/informe/resultados/)
-- [Who opened and clicked your campaign](/en/campaigns/informe/aperturas-y-clics/)
+- [How to create your first campaign](/en/campaigns/create-your-first-campaign/)
+- [How to create WhatsApp templates](/en/campaigns/whatsapp-templates/)
+- [Managing your campaigns](/en/campaigns/manage-your-campaigns/)
+- [How to interpret your campaign results](/en/campaigns/report/results/)
+- [Who opened and clicked your campaign](/en/campaigns/report/opens-and-clicks/)
 - [Nevent Score and Temperature](/en/segmentation/capabilities/score-and-temperature/)
 - [Digital engagement: behavioral criteria for email](/en/segmentation/capabilities/digital-engagement/)
-- [What the Superapp is and what it's for](/en/superapp/que-es/)
+- [What the Superapp is and what it's for](/en/superapp/what-is-the-superapp/)

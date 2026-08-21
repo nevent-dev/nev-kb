@@ -36,7 +36,7 @@ Go to **Settings, Brand and Content, Channels** and review the four tabs:
 - **WhatsApp:** requires connecting a WhatsApp Business account through Meta's authentication flow. Once connected, you can create message templates, though every template needs Meta's approval before it can be used.
 - **Analytics:** connect your Meta Pixel (numeric ID) and your Google Analytics 4 property (format G-XXXXXXXXXX) so Nevent automatically sends conversion events to those platforms.
 
-Detailed guide: [Activate your communication channels](/en/deliverability/activar-canales/)
+Detailed guide: [Activate your communication channels](/en/deliverability/activate-your-channels/)
 
 ### 1.2. Set up your dedicated domain
 
@@ -46,9 +46,9 @@ The guided setup wizard takes about 3 minutes. Afterward you'll need to create f
 
 Go to **Settings, Workspace, Dedicated domain** and click **Start setup**.
 
-Detailed guide: [Set up your dedicated domain](/en/deliverability/dominio-dedicado/)
+Detailed guide: [Set up your dedicated domain](/en/deliverability/custom-sending-domain/)
 
-To understand the sending infrastructure as a whole (automatic subdomain, configuration sets and SES Tenant): [Set up your email delivery](/en/deliverability/configura-tu-entrega/)
+To understand the sending infrastructure as a whole (automatic subdomain, configuration sets and SES Tenant): [Set up your email delivery](/en/deliverability/set-up-your-email-delivery/)
 
 ---
 
@@ -99,7 +99,7 @@ Nevent won't let you activate any subscription form until your organization has 
 
 If you see the red "Missing tenant legal information" notice when entering Subscriptions, click **Complete legal information** before continuing.
 
-Reference: [What subscriptions are for (and why consent matters)](/en/subscriptions/para-que-sirven/)
+Reference: [What subscriptions are for (and why consent matters)](/en/subscriptions/what-subscriptions-are-for/)
 
 ### 3.2. Create the form
 
@@ -115,7 +115,7 @@ Once created, go to the form's **Automations** section to automatically assign a
 
 Go to the form's **Installation** section and copy the HTML code shown there. Paste it into your website: in a WordPress custom HTML block, a Webflow Embed component, or your web editor's code section. The form appears immediately.
 
-Full guide: [Create a subscription form](/en/subscriptions/crear-formulario/)
+Full guide: [Create a subscription form](/en/subscriptions/create-a-subscription-form/)
 
 ---
 
@@ -129,8 +129,8 @@ The campaign wizard needs the email template to already exist before you reach t
 
 If you're going to use WhatsApp, templates for that channel need Meta's approval before they can be sent. Create it and submit it for review at least 24 to 48 hours ahead of the planned send.
 
-Email template guide: [Design email templates](/en/campaigns/plantillas-email/)
-WhatsApp template guide: [Create WhatsApp templates](/en/campaigns/plantillas-whatsapp/)
+Email template guide: [Design email templates](/en/campaigns/email-templates/)
+WhatsApp template guide: [Create WhatsApp templates](/en/campaigns/whatsapp-templates/)
 
 ### 4.2. Create the campaign with the 8-step wizard
 
@@ -145,7 +145,7 @@ Go to **Campaigns, My campaigns** and click **+ Create campaign**. The wizard wa
 7. **Scheduling:** choose to send now or schedule a date and time. For a coordinated launch, schedule the send ahead of time so you don't have to be online at the exact moment.
 8. **Review:** a full summary with the estimated cost in credits, your available balance, and a **Save draft** button if you want to come back later. When everything looks right, click **Launch campaign**.
 
-Full guide: [How to create your first campaign](/en/campaigns/crear-primera-campana/)
+Full guide: [How to create your first campaign](/en/campaigns/create-your-first-campaign/)
 
 ### 4.3. Recommended send order
 
@@ -170,7 +170,7 @@ Before launching any campaign, check these four things:
 - **Don't oversaturate.** If you notice your unsubscribe rate rising after several sends in a row, slow down. One relevant email always beats several irrelevant ones.
 - **Schedule at the best moment for your audience.** Check your event's analytics for the day and time slot when your fans buy the most, and schedule the send right before that.
 
-Reference: [Best practices for your campaigns](/en/campaigns/mejores-practicas/)
+Reference: [Best practices for your campaigns](/en/campaigns/best-practices/)
 
 ---
 
@@ -198,7 +198,7 @@ The reference ranges for live-event campaigns are:
 | Click rate | Above 5% | Below 2% |
 | Unsubscribe rate | Below 0.5% | Above 1% |
 
-Guide to reading metrics: [How to interpret your campaign's results](/en/campaigns/informe/resultados/)
+Guide to reading metrics: [How to interpret your campaign's results](/en/campaigns/report/results/)
 
 ### 5.2. Review opens, clicks and unsubscribes in detail
 
@@ -209,9 +209,9 @@ Beyond the summary, the report has three detail views worth checking before your
 - **Bounces:** distinguishes between hard bounces (address doesn't exist, permanently damages sending reputation) and soft bounces (temporary, Nevent retries them automatically). Clean up hard-bounced addresses before your next important send.
 
 Detail guides:
-- [Who opened and clicked your campaign](/en/campaigns/informe/aperturas-y-clics/)
-- [Unsubscribes from your campaigns](/en/campaigns/informe/desuscripciones/)
-- [Bounces from your campaigns](/en/campaigns/informe/rebotes/)
+- [Who opened and clicked your campaign](/en/campaigns/report/opens-and-clicks/)
+- [Unsubscribes from your campaigns](/en/campaigns/report/unsubscribes/)
+- [Bounces from your campaigns](/en/campaigns/report/bounces/)
 
 ### 5.3. Understand attributed revenue and ROAS
 
@@ -266,21 +266,21 @@ Before opening sales for your event, verify you've completed these points:
 
 ## Related guides
 
-- [Activate your communication channels](/en/deliverability/activar-canales/)
-- [Set up your dedicated domain](/en/deliverability/dominio-dedicado/)
-- [Set up your email delivery](/en/deliverability/configura-tu-entrega/)
-- [What subscriptions are for](/en/subscriptions/para-que-sirven/)
-- [Create a subscription form](/en/subscriptions/crear-formulario/)
+- [Activate your communication channels](/en/deliverability/activate-your-channels/)
+- [Set up your dedicated domain](/en/deliverability/custom-sending-domain/)
+- [Set up your email delivery](/en/deliverability/set-up-your-email-delivery/)
+- [What subscriptions are for](/en/subscriptions/what-subscriptions-are-for/)
+- [Create a subscription form](/en/subscriptions/create-a-subscription-form/)
 - [Creating a segment](/en/segmentation/segmentation-engine/creating-a-segment/)
 - [Early Bird fans for exclusive presale](/en/segmentation/use-cases/early-buyers/)
 - [VIP segment with RFM Champions](/en/segmentation/use-cases/top-rfm-vip/)
 - [Geolocated audience for regional events](/en/segmentation/use-cases/geolocated-audience/)
-- [How to create your first campaign](/en/campaigns/crear-primera-campana/)
-- [Design email templates](/en/campaigns/plantillas-email/)
-- [Create WhatsApp templates](/en/campaigns/plantillas-whatsapp/)
-- [Best practices for your campaigns](/en/campaigns/mejores-practicas/)
-- [How to interpret your campaign's results](/en/campaigns/informe/resultados/)
-- [Who opened and clicked your campaign](/en/campaigns/informe/aperturas-y-clics/)
+- [How to create your first campaign](/en/campaigns/create-your-first-campaign/)
+- [Design email templates](/en/campaigns/email-templates/)
+- [Create WhatsApp templates](/en/campaigns/whatsapp-templates/)
+- [Best practices for your campaigns](/en/campaigns/best-practices/)
+- [How to interpret your campaign's results](/en/campaigns/report/results/)
+- [Who opened and clicked your campaign](/en/campaigns/report/opens-and-clicks/)
 - [Email, SMS and WhatsApp campaign metrics](/en/analytics/campaigns/)
 - [Understanding Nevent analytics](/en/analytics/understanding-analytics/)
 - [72-hour launch strategy](/en/goal-guides/72-hour-launch/)

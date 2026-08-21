@@ -36,7 +36,7 @@ Check the **Delivery rate** card:
 - If it's **above 95%**, delivery is fine and the real problem is opens. Continue with Step 2.
 - If it's **below 90%**, you have a bounce problem you need to solve first. Read [How to check the bounces on your campaigns](/en/campaigns/report/bounces/).
 
-Also check the **Hard bounces** card. If the hard bounce percentage exceeds **2%**, your list needs urgent cleanup. Accumulated hard bounces damage your sender reputation and make your future emails land with more difficulty, even for valid contacts. See [Sender reputation: how to avoid spam](/en/deliverability/reputation-and-spam/) to understand how it affects your future sends.
+Also check the **Hard bounces** card. If the hard bounce percentage exceeds **2%**, your list needs urgent cleanup. Accumulated hard bounces damage your sender reputation and make your future emails land with more difficulty, even for valid contacts. See [Sender reputation: how to avoid spam](/en/deliverability/sender-reputation-and-spam/) to understand how it affects your future sends.
 
 ## Step 2: review the subject line
 
@@ -65,7 +65,7 @@ The sender name is configured in two places:
 
 Check that the sender name your campaign used is recognizable to your audience: it should be the name of your event, venue or brand, not a generic alias.
 
-If your emails go out with the text "via Nevent" next to your organization's name, it means they're using Nevent's shared domain. This doesn't stop them from arriving, but it can reduce recipients' trust. Setting up a dedicated domain makes the sender show your own domain. You can check it in [Email sending settings](/en/deliverability/email-sending/) and set it up in [Set up your dedicated domain](/en/deliverability/dedicated-domain/).
+If your emails go out with the text "via Nevent" next to your organization's name, it means they're using Nevent's shared domain. This doesn't stop them from arriving, but it can reduce recipients' trust. Setting up a dedicated domain makes the sender show your own domain. You can check it in [Email sending settings](/en/deliverability/email-sending-settings/) and set it up in [Set up your dedicated domain](/en/deliverability/custom-sending-domain/).
 
 ## Step 4: check whether your emails are landing in the inbox or in spam
 
@@ -73,13 +73,13 @@ A high delivery rate doesn't guarantee the email lands in the main inbox. It may
 
 The main causes of an email ending up in spam are:
 
-- **No domain authentication:** if you don't have SPF, DKIM and DMARC configured for your domain, email providers (Gmail, Outlook) treat your emails with less trust. See [Set up your dedicated domain](/en/deliverability/dedicated-domain/) to configure them.
+- **No domain authentication:** if you don't have SPF, DKIM and DMARC configured for your domain, email providers (Gmail, Outlook) treat your emails with less trust. See [Set up your dedicated domain](/en/deliverability/custom-sending-domain/) to configure them.
 - **Content with a spam pattern:** subject lines or email bodies with excessive capitalization, exclamation marks, too many links, or words filters associate with spam. Reviewing the email content can help.
 - **List with low-quality contacts:** if you sent to a purchased list or to contacts who never gave you permission, it's very likely they'll mark the email as spam. Spam complaints damage your reputation quickly. Keep the complaint rate below **0.1%** to protect your sending capacity.
 
 To confirm whether spam is the problem, run this test: send the campaign to yourself (or to an account you control on Gmail and Outlook) and see which folder it lands in.
 
-The underlying fix is improving authentication and list quality. Read [Sender reputation: how to avoid spam](/en/deliverability/reputation-and-spam/) for the complete guidelines.
+The underlying fix is improving authentication and list quality. Read [Sender reputation: how to avoid spam](/en/deliverability/sender-reputation-and-spam/) for the complete guidelines.
 
 ## Step 5: review the segment you sent to
 
@@ -137,6 +137,6 @@ If you send a follow-up to those who didn't open, wait at least 48 hours from th
 - [How to check the bounces on your campaigns](/en/campaigns/report/bounces/)
 - [Who opened and clicked your campaign?](/en/campaigns/report/opens-and-clicks/)
 - [How to interpret your campaign results?](/en/campaigns/report/results/)
-- [Sender reputation: how to avoid spam](/en/deliverability/reputation-and-spam/)
-- [Set up your dedicated domain](/en/deliverability/dedicated-domain/)
+- [Sender reputation: how to avoid spam](/en/deliverability/sender-reputation-and-spam/)
+- [Set up your dedicated domain](/en/deliverability/custom-sending-domain/)
 - [Best practices for your campaigns](/en/campaigns/best-practices/)

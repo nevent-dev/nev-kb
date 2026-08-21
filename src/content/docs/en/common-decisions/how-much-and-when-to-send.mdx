@@ -23,17 +23,17 @@ When you send a campaign, mail servers (Gmail, Outlook and the rest) don't just 
 
 Reputation isn't built send by send: it's cumulative. A spike in complaints after a run of aggressive sends can take weeks to recover from. That's why frequency isn't just a matter of user annoyance — it's infrastructure.
 
-If you haven't set up a dedicated domain in Nevent yet, the problem gets worse, because you share reputation with other senders on the platform. With your own domain, your reputation is exclusively yours, for better or worse. You can check the technical status of your sending infrastructure in [Email sending settings](/en/deliverability/envio-de-emails) and set up your domain in [Set up your dedicated domain](/en/deliverability/dominio-dedicado).
+If you haven't set up a dedicated domain in Nevent yet, the problem gets worse, because you share reputation with other senders on the platform. With your own domain, your reputation is exclusively yours, for better or worse. You can check the technical status of your sending infrastructure in [Email sending settings](/en/deliverability/email-sending-settings/) and set up your domain in [Set up your dedicated domain](/en/deliverability/custom-sending-domain/).
 
 ## The three metrics that tell you if you're sending too much
 
 You don't need to guess whether your frequency is right. Your campaign data tells you. There are three metrics to watch after every send:
 
-**Unsubscribe rate.** The percentage of people who clicked the unsubscribe link out of delivered emails. Nevent shows it in the [Unsubscribes section of the campaign report](/en/campaigns/informe/desuscripciones). A value below 0.5% is healthy. Above 1%, something is off: either you're sending too often, the content doesn't match what that audience expects, or both.
+**Unsubscribe rate.** The percentage of people who clicked the unsubscribe link out of delivered emails. Nevent shows it in the [Unsubscribes section of the campaign report](/en/campaigns/report/unsubscribes/). A value below 0.5% is healthy. Above 1%, something is off: either you're sending too often, the content doesn't match what that audience expects, or both.
 
 **Spam complaint rate.** The percentage of people who marked your email as junk in their mail client. You'll also find it in the Unsubscribes section. Keeping it below 0.1% is critical. Spam complaints are the most damaging signal for your reputation, because they show the recipient didn't just not want your email — they actively reported it. A spike in complaints can put your entire account's deliverability at risk.
 
-**Open rate.** If you notice each campaign opening less than the last one, without changing the subject line or the timing, that's a sign of accumulated fatigue. Your audience is still there, but they've stopped caring. You can track how opens evolve in the [campaign report summary](/en/campaigns/informe/resultados).
+**Open rate.** If you notice each campaign opening less than the last one, without changing the subject line or the timing, that's a sign of accumulated fatigue. Your audience is still there, but they've stopped caring. You can track how opens evolve in the [campaign report summary](/en/campaigns/report/results/).
 
 Together, these three metrics form the dashboard for your list's health. Looking at just one isn't enough.
 
@@ -68,9 +68,9 @@ Sending to your entire database every time you have something to say is the most
 
 Someone who bought tickets on day one of the early bird has a very different level of involvement than someone who only opened an email three months ago without buying anything. Sending them the same message at the same pace treats very different audiences the same way, and the result is that the less engaged accumulate unsubscribes and complaints while your most loyal fans barely notice the extra volume.
 
-Nevent lets you build behavior-based segments: fans who bought for a specific event, fans who opened your last campaigns, fans who've never clicked. With those segments you can send more often to the people who respond most, and less often (or with different messages) to those showing signs of disengagement. You can learn to build those segments in [How to create a segment](/en/segmentation/motor-segmentacion/crear-segmento).
+Nevent lets you build behavior-based segments: fans who bought for a specific event, fans who opened your last campaigns, fans who've never clicked. With those segments you can send more often to the people who respond most, and less often (or with different messages) to those showing signs of disengagement. You can learn to build those segments in [How to create a segment](/en/segmentation/segmentation-engine/creating-a-segment/).
 
-The Engagement view in the campaign report ([Who opened and clicked your campaign?](/en/campaigns/informe/aperturas-y-clics)) gives you the exact list of contacts who engaged with each send. That list is your starting point for building active-audience segments.
+The Engagement view in the campaign report ([Who opened and clicked your campaign?](/en/campaigns/report/opens-and-clicks/)) gives you the exact list of contacts who engaged with each send. That list is your starting point for building active-audience segments.
 
 ## Send timing: when it matters and when it doesn't matter as much
 
@@ -112,8 +112,8 @@ What should worry you is the rate, not the absolute number. One or two unsubscri
 
 ## Next steps
 
-- [Best practices for your campaigns](/en/campaigns/mejores-practicas): frequency, subject lines, segmentation and measurement at a glance.
-- [Sending reputation: how to avoid spam](/en/deliverability/reputacion-y-spam): the technical fundamentals of deliverability.
-- [Who unsubscribed after your campaign?](/en/campaigns/informe/desuscripciones): how to read unsubscribe and complaint metrics in the report.
-- [How to interpret your campaign's results?](/en/campaigns/informe/resultados): healthy ranges for delivery, opens and clicks.
-- [Set up your dedicated domain](/en/deliverability/dominio-dedicado): isolate your reputation from the shared domain.
+- [Best practices for your campaigns](/en/campaigns/best-practices/): frequency, subject lines, segmentation and measurement at a glance.
+- [Sending reputation: how to avoid spam](/en/deliverability/sender-reputation-and-spam/): the technical fundamentals of deliverability.
+- [Who unsubscribed after your campaign?](/en/campaigns/report/unsubscribes/): how to read unsubscribe and complaint metrics in the report.
+- [How to interpret your campaign's results?](/en/campaigns/report/results/): healthy ranges for delivery, opens and clicks.
+- [Set up your dedicated domain](/en/deliverability/custom-sending-domain/): isolate your reputation from the shared domain.
