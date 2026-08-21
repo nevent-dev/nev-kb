@@ -1,0 +1,96 @@
+---
+title: "How Nevent understands your audience"
+description: "Understand what a fan is in Nevent, what consent means on each channel, what contactability is and why data hygiene protects your sends."
+diataxis: explanation
+faqs:
+  - q: "Why don't some fans receive my email campaigns even though they're in my database?"
+    a: "Because Nevent only sends marketing campaigns to fans who have marketing email consent active and whose address is marked as valid. A fan can be in your database but have their email marked invalid due to a hard bounce, or not have given marketing consent. In that case they won't receive your campaigns even though they appear in the fans list."
+  - q: "What's a hard bounce and why does it matter to me?"
+    a: "A hard bounce happens when the destination server permanently rejects an email because the address doesn't exist or is incorrect. Nevent automatically marks that email as invalid and unsubscribes the fan from the marketing channel. This protects your organisation's sender reputation: sending to bad addresses hurts the deliverability of all your emails."
+  - q: "Can I activate a fan's WhatsApp consent from the panel?"
+    a: "No. WhatsApp consent requires the user themselves to give explicit opt-in. That step can only be done by the fan from the Nevent app. From the admin panel you can see whether that consent is recorded, but you can't grant it yourself."
+  - q: "What's the difference between marketing consent and transactional consent?"
+    a: "Transactional email covers communications such as purchase confirmation or ticket delivery. It doesn't require the fan to have accepted marketing, but it does require a valid email address. Marketing email, on the other hand, only reaches those who've agreed to receive commercial communications. You can send transactional messages to nearly your entire base; marketing campaigns only reach the part that gave consent."
+  - q: "What does the Nevent Score indicate?"
+    a: "The Nevent Score is an automatic score that classifies each fan's level of engagement with your organisation. Nevent shows it with a descriptive label, for example 'Low engagement'. It works as a quick signal of which fans are more or less connected to your brand. You'll find a detailed explanation in the Nevent Score and temperature guide."
+sidebar:
+  order: 0
+---
+
+## What we mean by audience in Nevent
+
+In Nevent, your audience is the set of people who have some kind of relationship with your organisation: they bought a ticket, subscribed to your newsletter, attended an event, or you simply imported their data from another tool. Nevent calls them **fans**.
+
+A fan is more than just a name and an email address. It's a profile that accumulates information over time: how much they've spent, how many events they've attended, which communication channels they have active and what status each one is in. That information is what Nevent uses to decide who you can send a campaign to and through which channel.
+
+Your organisation's audience lives in the **Fans** section of the admin panel. Each fan has an individual profile with different tabs: Summary, Personal details, Public profile, Interests, Tickets, Purchases, Subscriptions, Conversations and Interaction.
+
+## What a fan is and what their profile stores
+
+A fan's profile in Nevent has two layers. The first is basic identity: name, email and phone. The second is everything built up from the fan's activity: their purchase history, the tickets they hold, the events they've attended and the economic value they've generated for your organisation.
+
+Beyond that behavioural data, the profile includes two blocks that determine how you can communicate with that fan: the status of their consents and the hygiene status of their email address. These two blocks have the biggest impact on your campaigns, which is why it's worth understanding them well.
+
+Each profile's Summary also shows the **Nevent Score**, an automatic score that classifies the fan's level of engagement with your organisation. Nevent pairs it with a descriptive label, such as "Low engagement". It's a quick signal for identifying your most active fans without having to review every piece of data separately.
+
+## What consent is and why Nevent manages it per channel
+
+Consent is the authorisation a fan gives to receive communications from you. In Nevent, consent isn't a single global checkbox: it exists channel by channel. You can send a marketing email only to those who specifically authorised that channel. The same applies to marketing SMS, push notifications and WhatsApp.
+
+This reflects both a legal and a practical reality. Data protection regulation requires that commercial communications only go to those who accepted them. On top of that, sending messages to people who don't want them generates complaints, unsubscribes and damage to your sending account's reputation.
+
+The **Communications** block in each fan's Summary shows the consent status for each channel. The help text shown on the profile sums it up like this: consent is per organisation, and the source is user preferences and delivery events.
+
+The channels Nevent distinguishes are:
+
+**Marketing email.** Covers the promotional campaigns you send from Nevent. It only reaches fans who agreed to receive this type of communication. If a fan has no marketing consent recorded, they won't receive your campaigns even if they have a valid email.
+
+**Transactional email.** Covers communications such as purchase confirmation or ticket delivery. It doesn't require the fan to have accepted marketing, but it does require a valid email address. It's the channel that's always active for anyone who buys.
+
+**Marketing SMS.** For campaign sends by text message. Nevent indicates when there's no decision recorded that, by default, it's allowed. Even so, regulation requires you to have a legal basis for sending it.
+
+**Marketing push.** Push notifications through the Nevent app. Requires the fan to have the app installed and notifications enabled.
+
+**WhatsApp.** This is the most restrictive channel. It requires an explicit opt-in from the user, and that step can only be taken by the fan themselves from the Nevent app. From the admin panel you can see whether that consent is recorded, but you can't grant it yourself.
+
+## What contactability is
+
+Contactability is the actual number of fans you can message on a given channel. It isn't the same as the total size of your database.
+
+When you look at the **Segments** screen in Nevent, the table shows, for each segment, the estimated marketing audience broken down by channel: email, SMS and push. It also shows the email contactability percentage, which indicates what proportion of the segment has marketing email active and a valid address.
+
+For example, a segment of 24 fans might have only 17 with a contactable email, which represents 71% contactability. The rest wouldn't receive the campaign even though they're part of the segment.
+
+Contactability drops for two main reasons: lack of marketing consent, and email hygiene issues. The first was explained above. The second is covered in the next section.
+
+## What data hygiene is and why it protects your sends
+
+Data hygiene is the process by which Nevent keeps the quality of email addresses in your contact base clean. A list with many incorrect or non-existent addresses hurts the deliverability of all your sends: mail servers like Gmail or Outlook penalise senders who generate a lot of bounces.
+
+The central hygiene mechanism in Nevent is the **hard bounce**. When you send an email and the destination server permanently rejects it, because the address doesn't exist or is incorrect, Nevent logs that event as a hard bounce. From that point on, it marks the address as invalid and automatically unsubscribes the fan from the marketing email channel.
+
+The **Email status** block in each fan's Summary shows whether the address has hard bounces recorded and whether it's marked as invalid. The help text shown on the profile explains it precisely: a hard bounce marks the email as invalid and automatically unsubscribes it from marketing; a complaint also unsubscribes it from marketing. Both statuses are reflected across all contactable counters.
+
+This means the real contactability of your base isn't something you need to calculate yourself. Nevent updates it automatically as delivery signals come in: bounces and complaints shrink the contactable audience; sign-ups and consents grow it.
+
+A clean list has a concrete effect on your results: mail servers see that you're sending to people who exist and don't complain, which improves the odds that your campaigns land in the inbox instead of the spam folder.
+
+## Why it matters to understand these concepts before you send
+
+When you launch a campaign in Nevent, the platform doesn't send to every fan in a segment without distinction. It filters first: it only delivers the message to fans who have the consent for the channel you're using active, and whose address or number is marked as valid.
+
+That has a direct consequence for your metrics. If you import 1,000 contacts and only 600 have marketing consent with a valid email, your campaign will reach 600 people. The other 400 are in your database, but they aren't contactable through that channel at that time.
+
+Understanding the difference between total fans, contactable fans and active fans helps you:
+
+- Correctly interpret the real reach of your campaigns before you send them.
+- Understand why a large segment doesn't always translate into a large send.
+- Make decisions about how to capture consent in your future imports.
+- Protect your organisation's sender reputation, which affects every email that goes out from Nevent.
+
+Your audience isn't a static list. It's an asset that changes with every purchase, every campaign and every interaction. Nevent reflects it in real time so you always work with up-to-date data.
+
+## Next step
+
+- [Import your contacts](/en/audience/import-your-contacts/) to add fans to your database with the right consent from the very start.
+- [View and manage a fan's profile](/en/audience/manage-a-fan-profile/) to see a specific contact's communication status in detail.

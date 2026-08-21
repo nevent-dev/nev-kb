@@ -1,0 +1,138 @@
+---
+title: Import your contacts
+diataxis: how-to
+description: Learn to upload your fan list to Nevent with a CSV or Excel file. In a few minutes all your contacts will be ready for campaigns.
+sidebar:
+  order: 1
+---
+
+In this guide you'll learn to import a contact list into Nevent: from where to find the import button to how to review the result before confirming. About 5 minutes.
+
+## Before you start
+
+You need a file with your contacts' data. Nevent accepts two formats:
+
+- **CSV (.csv):** a text file where each row is a contact and the data is separated by commas. You can export it from Excel, Google Sheets or any other spreadsheet program.
+- **Excel (.xlsx):** Microsoft Excel's native format.
+
+The file must include at least one column with each contact's email address. The maximum file size is 50 MB.
+
+:::tip[Tip]
+If your list comes from another tool, export it as CSV before you start. It's the most compatible format and the one that causes the fewest problems.
+:::
+
+## Step 1: Go to the fans section
+
+In the side menu, click **Fans**, inside the Audience block.
+
+The list of all your organisation's contacts opens. In the top-right corner you'll see two buttons: "Create user" and "Import users".
+
+## Step 2: Open the import wizard
+
+Click **Import users**.
+
+The import screen opens. You'll see two sections:
+
+- A banner at the top that lets you **generate a CSV template** with the fields you want to include (recommended if you don't have the file ready yet).
+- An upload area where you drag your file or select it from your file explorer.
+
+## Step 3: (Optional) Download a template with the fields you need
+
+If you don't have the file ready yet, Nevent can generate an empty template with exactly the columns you want.
+
+Click the **Generate import template** banner. A dialog opens where you can check the fields you want to include:
+
+| Field | Type |
+|-------|------|
+| Email address | Required (can't be unchecked) |
+| Name | Optional |
+| Phone | Optional |
+| Date of birth | Optional |
+| Gender | Optional |
+| Tax ID | Optional |
+| Address | Optional |
+| Folders | Optional |
+| Marketing consent | Optional |
+| Custom fields | Optional |
+
+Check the ones you need and click **Download**. The downloaded CSV file will already have the column headers in place, ready for you to fill in the data.
+
+## Step 4: Upload your file
+
+In the upload area, drag your CSV or Excel file directly, or click **Select file** to browse for it on your computer.
+
+Once the file is processed successfully, Nevent automatically moves you to the next step: field mapping.
+
+## Step 5: Map the columns of your file
+
+In this step you assign each column of your file to the corresponding field in Nevent.
+
+The screen shows a table with three main columns:
+
+- **CSV column:** the header name as it appears in your file, with an example of the first row's data.
+- **Nevent field:** the dropdown where you choose which Nevent field that column corresponds to.
+- **Mapped and Valid sample:** indicators confirming whether the mapping is correct.
+
+Nevent tries to automatically map the most common columns. For example, if your column is called "email" or "correo", it detects it on its own and assigns it to "Email address".
+
+For columns Nevent doesn't recognise automatically, click the **Select field** dropdown and choose the correct option. Available fields include: First surname, Second surname, Phone, Date of birth, Gender, Country, Address, Postcode and several others, including any custom fields you've created in your organisation.
+
+Once all the fields you want to import show a **Yes** in the "Mapped" column, click **Next: Consent**.
+
+:::note[Note]
+Only the "Email address" field is required. You can leave the rest of the columns unmapped if you don't want to import that data. Rows you leave unchecked in the "Import" checkbox will be ignored.
+:::
+
+## Step 6: Indicate whether the contacts have given consent
+
+Nevent asks whether these people have agreed to receive marketing communications from you.
+
+You have two options:
+
+- **Yes, they've consented:** the contacts will be able to receive your email campaigns and be included in segments for promotional campaigns.
+- **No, they haven't consented:** the contacts are imported but won't receive marketing campaigns. They'll only receive transactional communications, such as purchase confirmations or tickets.
+
+:::caution[Important]
+Only mark "Yes" if you're certain that every contact in the file has given explicit consent to receive commercial communications. Importing contacts without consent and then sending them campaigns breaches GDPR.
+:::
+
+Further down on this same screen you can also decide whether you want to **add the contacts to a segment** when importing them:
+
+- **Don't add:** the contacts are imported and that's it. You can organise them afterwards.
+- **Existing segment:** adds the contacts to a list segment you already have.
+- **New segment:** automatically creates a new segment with all the contacts from this import.
+
+Choose whichever option fits best and click **Next: Review**.
+
+## Step 7: Review the summary and confirm
+
+Before launching the import, Nevent shows you a summary of everything you're about to import:
+
+- The uploaded file and its size.
+- The number of contacts and columns in the file.
+- The consent option you chose.
+- The destination segment, if you chose one.
+- The fields to be imported with their mapping.
+
+Check that everything is correct. If something isn't right, use the **Back** button to go back and fix it.
+
+Once everything is correct, click **Confirm and import**. Nevent will process the file in the background. A notice on screen will let you know you can follow the progress in the history.
+
+## The import history
+
+You can check the status of all your imports at any time. Click the **History** button in the top-right corner of the import screen.
+
+The history shows each import with its status (in progress, completed, with errors), the date and the number of contacts imported.
+
+## Result
+
+Your contacts are now imported into Nevent. From now on they appear in the Fans section and you can send them campaigns, include them in segments or look them up one by one.
+
+:::tip[Tip]
+If you imported contacts without assigning them to a segment and now want to organise them, you can create a segment based on criteria such as the import date or any field you brought in with the file.
+:::
+
+## Next step
+
+- [Create your first segment](/en/segmentation/segmentation-engine/creating-a-segment/) to group your fans by criteria and have them ready for campaigns.
+- [Create your first campaign](/en/campaigns/create-your-first-campaign/) to send an email to the contacts you just imported.

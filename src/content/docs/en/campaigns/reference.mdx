@@ -1,0 +1,228 @@
+---
+title: Campaign reference
+description: Reference tables with campaign types, statuses, channels, wizard fields and metric definitions for all Nevent campaign reports.
+diataxis: reference
+faqs:
+  - q: "What campaign types exist in Nevent?"
+    a: "There are two types: marketing campaign (for promotions, newsletters and commercial communications) and transactional campaign (for confirmations, reminders and important notifications). Nevent detects the type automatically based on the content of the chosen template."
+  - q: "What does the 'Queued' status mean for a campaign?"
+    a: "It means the send process has started but the campaign is waiting to be processed. It's a transitional status between Scheduled and Sending."
+  - q: "How is the open rate calculated?"
+    a: "The open rate is the percentage of opened emails over the total number of emails sent, not over the number delivered."
+  - q: "What's the difference between a soft bounce and a hard bounce?"
+    a: "A soft bounce is a temporary failure (full inbox, server down). A hard bounce is a permanent failure (an address that doesn't exist). Nevent automatically flags hard-bounced addresses to exclude them from future sends."
+  - q: "What statuses can a WhatsApp template have?"
+    a: "A WhatsApp template can be in one of these statuses: Draft, In review, Active or Rejected. Only Active templates can be used in campaigns."
+---
+
+This page gathers, in tables, all the reference information for the campaigns area: campaign types, available channels, statuses, creation-wizard fields and report metric definitions. It isn't a step-by-step guide; for that, check the how-tos in this area.
+
+## Campaign types
+
+| Type | Description | Includes unsubscribe link | Respects user preferences |
+|------|-------------|------------------------|----------------------------------|
+| Marketing | Promotions, newsletters and commercial communications | Yes, automatically | Yes |
+| Transactional | Confirmations, reminders and important notifications | Not required | No |
+
+The type is detected automatically based on the content of the selected template.
+
+## Available channels
+
+| Channel | Available by default | Activation required |
+|-------|---------------------------|---------------------|
+| Email | Yes | No |
+| Push | Yes | No |
+| SMS | No | Yes, from Settings > Channels |
+| WhatsApp | No | Yes, from Settings > Channels |
+
+## Campaign statuses
+
+| Status | Description | Available actions |
+|--------|-------------|---------------------|
+| Draft | The campaign is incomplete and hasn't been launched. | Edit draft, Copy ID, Archive |
+| Scheduled | The campaign has a fixed send date and time and is ready. | View details, Reschedule, Edit, Pause, Cancel, Clone, Copy ID, Archive |
+| Queued | The send process has started; the campaign is waiting to be processed. | No documented actions |
+| Sending | The send is currently in progress. | No documented actions |
+| Sent | The send has finished. Metrics are available. | View details, Clone, Copy ID, Archive |
+| Paused | An ongoing campaign has been paused manually. | No documented actions |
+| Stopped | The send was interrupted before completing. | No documented actions |
+| Failed | The send couldn't complete due to an error. | No documented actions |
+
+Cancelling a scheduled campaign is irreversible. The platform asks for confirmation before running it.
+
+## Creation wizard fields (8 steps)
+
+| Step | Name | Fields or data | Required |
+|------|--------|----------------|-------------|
+| 1 | Basic information | Campaign name | Yes |
+| 2 | Channel | Send channel (Email, Push, SMS, WhatsApp) | Yes |
+| 3 | Content | Template to use | Yes |
+| 4 | Send type | Campaign type (detected automatically) | No action required |
+| 5 | Audience | Recipient segment or segments | Yes |
+| 6 | Subject and UTMs | Sender, Subject, Preview text | Subject required; sender and preview text optional |
+| 7 | Send scheduling | Send now / Schedule (date and time) | Yes |
+| 8 | Review | Full summary, estimated cost in credits | Read-only; no input required |
+
+You can use several segments at once in the audience step. The draft is saved automatically when you exit the wizard.
+
+## Creation wizard fields: Subject and UTMs step (detail)
+
+| Field | Description | Required |
+|-------|-------------|-------------|
+| Sender | Sender name and email. Can use the account's global settings or be customised for the campaign. | No (uses the global setting by default) |
+| Subject | Text the recipient sees in the inbox. | Yes |
+| Preview text | Secondary text visible next to the subject in many email clients. | No |
+
+The subject field supports personalisation variables (for example, the recipient's first name).
+
+## Campaign list columns
+
+| Column | Description |
+|---------|-------------|
+| Channel | Icon of the send channel (email, push, SMS, WhatsApp) |
+| Name | Campaign name |
+| Goal | Campaign's goal type |
+| Status | Current status (see status table) |
+| Date | Send or scheduling date |
+| Audience | Number of recipients in the selected segment |
+| Sent | Emails that went out |
+| Opens | Emails opened by recipients |
+| Clicks | Clicks on links in the email |
+| Revenue | Revenue attributed to the campaign |
+
+You can sort by any column by clicking its header.
+
+## Report metrics: summary block
+
+| Metric | Definition | Calculation base |
+|---------|------------|-----------------|
+| Sent | Total emails Nevent attempted to deliver. | - |
+| Delivered | Emails the recipient's server accepted. | Over sent |
+| Opened | Recipients who opened the email at least once. | Over sent |
+| Clicks | Number of times someone clicked a link in the email. | Over sent |
+
+A "delivered" email is not a guarantee it reached the inbox: it may have ended up in the spam folder.
+
+## Report metrics: Deliverability section
+
+| Metric | Definition |
+|---------|------------|
+| Sent | Emails Nevent attempted to deliver. |
+| Delivered | Emails the recipient's server accepted. |
+| Delivery rate | Percentage of sent emails that were delivered successfully. |
+| Soft bounces | Temporary failures: full inbox, server momentarily down. Nevent may retry the send. |
+| Hard bounces | Permanent failures: an address that doesn't exist. Nevent automatically flags these addresses to exclude them from future sends. |
+
+## Report metrics: Unsubscribes section
+
+| Metric | Definition | Calculation base |
+|---------|------------|-----------------|
+| Unsubscribes | Number of contacts who clicked the unsubscribe link. | - |
+| Unsubscribe rate | Percentage of unsubscribes. | Over delivered emails |
+| Spam complaints | Contacts who marked the email as unwanted in their email client. | - |
+| Complaint rate | Percentage of spam complaints. | Over delivered emails |
+
+When a contact unsubscribes, Nevent automatically excludes them from all future sends across the organisation. No manual action is needed.
+
+The unsubscribe reasons table gathers the reasons contacts gave when unsubscribing, if they provided any.
+
+## Interaction filters by recipient
+
+The Interaction section of the report lets you filter the list of recipients by the following statuses:
+
+| Filter | Description |
+|--------|-------------|
+| All | Shows all recipients of the send. |
+| Queued | Those left in queue but not yet processed. |
+| Delivered | Those who received the email correctly. |
+| Opened | Those who opened the email at least once. |
+| Clicked | Those who clicked a link in the email. |
+| Bounced | Those who didn't receive the email due to a delivery error. |
+| Unsubscribed | Those who unsubscribed as a result of this send. |
+
+## Rough benchmark ranges
+
+The following values are benchmarks for live event campaigns. They aren't guaranteed thresholds or platform commitments.
+
+| Metric | Healthy result | Warning sign |
+|---------|---------------------|-----------------|
+| Delivery rate | Above 95% | Below 90% |
+| Open rate | Above 25% | Below 15% |
+| Click rate | Above 5% | Below 2% |
+| Unsubscribe rate | Below 0.5% | Above 1% |
+| Spam complaint rate | Below 0.1% | Above 0.1% |
+| Hard bounce rate | Below 2% | Above 2% |
+
+## Campaign report sections
+
+| Section | What it contains |
+|---------|-------------|
+| Summary | An overview of the campaign, its configuration data and the four-metric summary block. |
+| Deliverability | Sent, delivered, delivery rate, soft bounces and hard bounces. |
+| Unsubscribes | Number of unsubscribes, unsubscribe rate, spam complaints, complaint rate and the unsubscribe reasons table. |
+| Segments | Segments the campaign was sent to, with their filter criteria and current status. |
+| Interaction | List of recipients with their individual status, filterable by interaction type. |
+
+## Email templates: available content blocks
+
+| Block | What it's for |
+|--------|---------------|
+| Text | Editable paragraph of text. |
+| Button | Button with a link (for tickets, bookings, etc.). |
+| Image | Photo or image of the poster, artist or venue. |
+| Divider | Separator line between sections. |
+| Social | Social media icons. |
+| Spacer | Empty space to separate blocks. |
+| Hero | Large image block with text on top. |
+| Navbar | Navigation menu. |
+| HTML block | Custom HTML code. |
+
+Layout blocks let you organise content into columns (1 column, 2 columns 50/50, 2 columns 25/75, etc.).
+
+## WhatsApp templates: categories
+
+| Category | When to use it |
+|-----------|---------------|
+| Marketing | Promotions, offers, line-up announcements, early birds. |
+| Utility | Purchase confirmations, account updates, access notices. |
+
+## WhatsApp templates: header types
+
+| Type | Description |
+|------|-------------|
+| None | The message starts directly with the body text. |
+| Text | A highlighted line of text above the body. |
+| Image | The event's photo or poster. |
+| Video | A short clip. |
+| PDF | An attached document. |
+
+## WhatsApp templates: button types
+
+| Type | Description |
+|------|-------------|
+| Quick replies | Button with predefined text the user taps to respond. |
+| Call to action (URL) | Button that leads to an external URL. |
+| Call to action (Phone) | Button that dials a phone number directly. |
+
+You can add up to 10 buttons in total per template.
+
+## WhatsApp templates: statuses
+
+| Status | Description |
+|--------|-------------|
+| Draft | Template saved but not yet submitted to Meta. Can still be edited. |
+| In review | Submitted to Meta for approval. The main fields can't be edited. |
+| Active | Approved by Meta. Available to use in campaigns. |
+| Rejected | Rejected by Meta. A new, corrected version must be created. |
+
+Meta's review time can range from a few minutes to 24 hours.
+
+## WhatsApp template limits and restrictions
+
+| Field | Limit |
+|-------|--------|
+| Message body | 1,024 characters |
+| Footer | 60 characters |
+| Template name | Lowercase letters, numbers and underscores only; must be unique per language |
+| Number of buttons | Up to 10 in total |
+| Variables | Format: `{{1}}`, `{{2}}`, etc. Each one requires an example for Meta |
