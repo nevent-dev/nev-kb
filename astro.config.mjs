@@ -200,7 +200,40 @@ export default defineConfig({
 			// Sidebar — ES (raíz) y EN (/en/)
 			// Starlight selecciona automáticamente los items del locale activo
 			sidebar: [
-				{ label: 'Empieza aquí', slug: 'empieza-aqui', badge: { text: 'Empieza aquí', variant: 'tip' } },
+				{
+					label: 'Empieza aquí',
+					badge: { text: 'Empieza aquí', variant: 'tip' },
+					items: [
+						{ label: 'Cómo funciona el onboarding', slug: 'empieza-aqui' },
+						{ label: 'Paso 1 · Conecta tu ticketera', slug: 'audiencia/conecta-tu-ticketera' },
+						{
+							label: 'Vende por tus canales',
+							items: [
+								{ label: '1 · Crea tu primer segmento', slug: 'segmentacion/tu-primer-segmento' },
+								{ label: '2 · Crea y envía tu campaña', slug: 'campanas/crear-primera-campana' },
+							],
+						},
+						{
+							label: 'Anuncios más rentables',
+							items: [
+								{ label: '1 · Conecta Meta, Google y TikTok', slug: 'paid-media/introduccion' },
+								{ label: '2 · Sincroniza un segmento como audiencia', slug: 'paid-media/sincroniza-un-segmento-como-audiencia' },
+							],
+						},
+						{
+							label: 'Atención automática',
+							items: [
+								{ label: 'Configura tu chatbot', slug: 'chatbot/configuracion' },
+							],
+						},
+						{
+							label: 'Mide qué canal te trae gente',
+							items: [
+								{ label: 'Monta tu primer Magic Link', slug: 'herramientas/tu-primer-magic-link' },
+							],
+						},
+					],
+				},
 				{
 					label: 'Ciclo de vida del evento',
 					items: [
