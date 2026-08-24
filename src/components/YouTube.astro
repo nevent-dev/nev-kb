@@ -1,0 +1,52 @@
+---
+/**
+ * YouTube — vídeo de YouTube embebido, responsive y ligero.
+ *
+ * - Relación 16:9 fluida (aspect-ratio), sin desbordes.
+ * - Carga diferida (loading="lazy") para no penalizar el LCP del artículo.
+ * - Dominio privacy-enhanced (youtube-nocookie.com): no cookies hasta reproducir.
+ * - `title` obligatorio para accesibilidad.
+ *
+ * Uso en MDX:
+ *   import YouTube from '../../../components/YouTube.astro';
+ *   <YouTube id="ZXiLcGUfsuE" title="Cómo conectar tu ticketera a Nevent" />
+ */
+interface Props {
+  /** ID del vídeo de YouTube (lo que va tras youtu.be/ o watch?v=) */
+  id: string;
+  /** Título accesible del reproductor */
+  title: string;
+}
+const { id, title } = Astro.props as Props;
+---
+
+<div class="yt-embed">
+  <iframe
+    src={`https://www.youtube-nocookie.com/embed/${id}`}
+    title={title}
+    loading="lazy"
+    referrerpolicy="strict-origin-when-cross-origin"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen
+  ></iframe>
+</div>
+
+<style>
+  .yt-embed {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    margin: 0 0 1.75rem;
+    border-radius: 12px;
+    overflow: hidden;
+    background: var(--sl-color-black);
+    border: 1px solid var(--sl-color-gray-5);
+  }
+  .yt-embed iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+</style>
