@@ -8,7 +8,9 @@ faqs:
   - q: "What's the difference between Experiences, Sales, and Add-ons?"
     a: "Experiences is the catalog of your events. Sales is the history of every purchase made on those events. Add-ons are the extra products (merch, transport, accommodation, etc.) sold alongside the ticket."
   - q: "Can I see only past events?"
-    a: "Yes. In the Experiences list there's a view filter with three options: Current, Past, and All. Click Past to see only events that have already ended."
+    a: "Yes. In the Experiences list there's a view filter with four options: Current, Past, All, and Waitlists. Click Past to see only events that have already ended."
+  - q: "What does the Waitlists view show?"
+    a: "Only the experiences where your audience signs up instead of buying a ticket. If you don't have any, the view appears empty."
   - q: "What does the Scheduled status mean on an event?"
     a: "Scheduled is the status shown by your active experiences in the list. It indicates the experience is created and published in the system."
   - q: "How do I look up a specific sale in the history?"
@@ -35,9 +37,13 @@ This is the screen you start from to manage everything related to your events. T
 
 Above the table there are two filtering tools.
 
-The first is the **date view filter**, with three options: **Current**, **Past**, and **All**. The default active view is Current, which shows events with a future or ongoing date.
+The first is the **view filter**, with four options: **Current**, **Past**, **All**, and **Waitlists**. The default active view is Current, which shows events with a future or ongoing date.
 
-The second is the **search field** "Search by event...", which filters by event name as you type.
+The first three filter by date. The fourth, **Waitlists**, filters by type: it shows only the experiences where your audience signs up instead of buying a ticket. If you don't have any yet, the view appears empty.
+
+![Demo Fest Experiences list with the four-option view filter (Current, Past, All and Waitlists), the event search field, and three scheduled events with their channel, date, tickets, status and promoter columns](/images/guias/experiencias/recorre-tus-experiencias/paso-2-filtros-de-vista.png)
+
+The second tool is the **search field** "Search by event...", which filters by event name as you type.
 
 Practice switching views: click **Past** and watch how the table updates. Go back to **Current** to continue with the tutorial.
 
@@ -47,7 +53,7 @@ Each row in the list corresponds to an event and contains seven columns. Let's s
 
 | Column | What it tells you |
 |---|---|
-| Channel | The icon identifies the platform or channel through which the event is sold. |
+| Channel | The channel through which the event is sold, with its name and logo. If Nevent cannot identify it, it shows "Unknown". |
 | Name | The event's name as it appears on the sales page. |
 | Location | The place or city where the event takes place. |
 | Date | The event's start date and time. |
@@ -56,6 +62,10 @@ Each row in the list corresponds to an event and contains seven columns. Let's s
 | Promoter | The name of the organization managing the event. |
 
 The **Tickets** column is the most useful for a quick glance: it tells you immediately how much you've sold and how much you have left to sell. If you see "0 / 4,284," the event exists but no sales have been recorded yet.
+
+When capacity is not set, the cell cannot show a fraction, so it displays only the tickets sold. A bare "0" means the event has no sales yet and its capacity is not configured, not that the figure is missing.
+
+In waitlist experiences, this column counts people signed up rather than sales, and it is labelled accordingly.
 
 In the column on the right, outside the numbered table, there are two actions per row: **Copy link** and **Clone experience**. The first gives you the event's sales URL directly to share it. The second creates a copy of the event with its configuration.
 
@@ -78,12 +88,14 @@ The table has seven columns:
 | Column | What it tells you |
 |---|---|
 | Date | The exact date and time the purchase was made. |
-| Channel | The icon for the channel through which the sale was made. |
+| Channel | The name of the channel through which the sale was made, with its logo when it has one. Direct sales on your own page appear as **Nevent**. |
 | Reference | The transaction's unique identifier (a character string). |
 | Buyer (name) | The full name of the person who bought. |
 | Buyer (email) | The buyer's email address. |
 | Amount | That sale's amount in euros. |
 | Status | The transaction's status (for example, Completed). |
+
+![Demo Fest Sales history with the Channel column showing the Nevent tag on every row, next to the date, reference, buyer with their email, amount and Completed status](/images/guias/experiencias/recorre-tus-experiencias/paso-5-ventas-canal.png)
 
 Above the table there's a set of filters to narrow down results:
 
