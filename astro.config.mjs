@@ -355,6 +355,7 @@ export default defineConfig({
 					label: 'Analítica',
 					items: [
 						{ label: 'Tu primer análisis', slug: 'analitica/tu-primer-analisis', badge: { text: 'Nuevo', variant: 'tip' } },
+						{ label: 'Qué mide el panel de Inicio', slug: 'analitica/tu-panel-de-inicio', badge: { text: 'Nuevo', variant: 'tip' } },
 						{ label: 'Catálogo', slug: 'analitica' },
 						{ label: 'Eventos y entradas', slug: 'analitica/eventos-y-entradas' },
 						{ label: 'Audiencia y fans', slug: 'analitica/audiencia' },
@@ -688,6 +689,7 @@ export default defineConfig({
 					items: [
 						{ label: 'Understanding analytics', link: '/en/analytics/understanding-analytics/' },
 						{ label: 'Your first analysis', link: '/en/analytics/your-first-analysis/' },
+						{ label: 'What the Home dashboard measures', link: '/en/analytics/your-home-dashboard/' },
 						{ label: 'Catalog', link: '/en/analytics/' },
 						{ label: 'Events and tickets', link: '/en/analytics/events-and-tickets/' },
 						{ label: 'Audience', link: '/en/analytics/audience/' },
