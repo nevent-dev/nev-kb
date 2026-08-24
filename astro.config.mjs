@@ -200,6 +200,7 @@ export default defineConfig({
 			// Sidebar — ES (raíz) y EN (/en/)
 			// Starlight selecciona automáticamente los items del locale activo
 			sidebar: [
+				{ label: 'Empieza aquí', slug: 'empieza-aqui', badge: { text: 'Empieza aquí', variant: 'tip' } },
 				{
 					label: 'Ciclo de vida del evento',
 					items: [
