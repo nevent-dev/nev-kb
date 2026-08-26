@@ -16,18 +16,17 @@
 
 @layer nevent-brand {
 	:root {
-		/* Colores primarios de Nevent */
-		--sl-color-accent-low: 44, 29, 208;
-		--sl-color-accent: 44, 29, 208;
-		--sl-color-accent-high: 35, 23, 166;
-
-		/* Color secundario para acentos */
-		--nevent-secondary: 151, 92, 248;
+		/* El acento se define en nevent-theme.css, con los colores de nevent.ai.
+		   Aquí había un azul (#2c1dd0) que ni era de marca ni llegaba a
+		   aplicarse: iba como tripleta RGB, un formato que Starlight dejó de
+		   entender, así que el tema caía a su gris por defecto. */
+		--nevent-secondary: var(--color-purple-400);
 	}
 
 	/* Gradiente solo para el texto "Nevent" en hero */
 	.text-gradient {
-		background: linear-gradient(to right, rgb(44, 29, 208), rgb(151, 92, 248));
+		/* El gradiente de marca: orquídea a magenta, como en nevent.ai. */
+		background: var(--gradient-hero);
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
 		background-clip: text;

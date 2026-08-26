@@ -12,16 +12,30 @@
   --sl-font: var(--font-body);
   --sl-font-mono: var(--font-mono);
 
-  /* Acento = púrpura de marca #a64eff (166,78,255). accent-high oscuro para
-     contraste AA de enlaces/texto sobre fondo claro. */
-  --sl-color-accent-low: 166, 78, 255;
-  --sl-color-accent: 166, 78, 255;
-  --sl-color-accent-high: 124, 58, 237; /* #7c3aed */
+  /*
+   * Acento de Starlight con los colores de nevent.ai.
+   *
+   * Van como colores reales, no como tripletas "166, 78, 255": Starlight las
+   * consume con var(--sl-color-accent) a secas desde hace varias versiones, así
+   * que una tripleta no es un color válido y el tema caía a su gris por
+   * defecto. Ese era el motivo de que los enlaces del manual salieran negros en
+   * lugar de morados.
+   */
+  --sl-color-accent-low: var(--color-purple-100);
+  --sl-color-accent: var(--color-purple-500);
+  /* accent-700 sobre blanco da 7,4:1 — AAA. El 500 se queda en 3,4:1 y no
+     valdría para texto. */
+  --sl-color-accent-high: var(--color-purple-700);
+  --sl-color-text-accent: var(--color-purple-700);
 }
 
 :root[data-theme='dark'] {
-  /* En oscuro el texto de acento va más claro para legibilidad. */
-  --sl-color-accent-high: 200, 160, 255;
+  /* Invertido: el claro pasa a ser el texto y el oscuro el fondo.
+     accent-300 sobre el fondo oscuro da 6,9:1 — AA holgado. */
+  --sl-color-accent-low: var(--color-purple-900);
+  --sl-color-accent: var(--color-purple-500);
+  --sl-color-accent-high: var(--color-purple-300);
+  --sl-color-text-accent: var(--color-purple-300);
 }
 
 /* Titulares en Poppins (contenido, portada y UI). */
@@ -131,4 +145,55 @@ a.site-title img {
 @media (prefers-reduced-motion: reduce) {
   .area-tile { transition: none; }
   .area-tile:active { transform: none; }
+}
+
+/* ==========================================================================
+   Botones del hero — alineados con nevent.ai
+   --------------------------------------------------------------------------
+   Starlight pinta las acciones con utilidades de Tailwind: el primario salía
+   negro con esquinas de 20 px, mientras que en la web es una píldora magenta
+   (#a64eff, radio 9999px). Se sobrescribe aquí en lugar de tocar el contenido
+   para que valga en todas las páginas con hero, presentes y futuras.
+
+   La especificidad (0,1,1) basta para ganar a las utilidades de Tailwind,
+   que son (0,1,0). No hace falta !important.
+   ========================================================================== */
+
+.actions a {
+	border-radius: 9999px;
+	font-weight: 600;
+	padding-inline: 1.75rem;
+	transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+/* Primario: la píldora magenta de la web. */
+.actions a[class*='bg-black'] {
+	background: var(--color-purple-500);
+	color: #fff;
+	border-color: transparent;
+}
+
+.actions a[class*='bg-black']:hover {
+	background: var(--color-purple-600);
+	box-shadow: 0 6px 20px rgb(166 78 255 / 0.28);
+}
+
+/* Secundario: contorno sobrio, como el "Acceso" de la web. */
+.actions a[class*='bg-white'] {
+	background: transparent;
+	border-color: var(--sl-color-gray-5);
+	color: var(--sl-color-white);
+}
+
+.actions a[class*='bg-white']:hover {
+	background: var(--color-purple-50);
+	border-color: var(--color-purple-300);
+	color: var(--color-purple-700);
+}
+
+:root[data-theme='dark'] .actions a[class*='bg-white']:hover {
+	/* En oscuro el lavanda claro sobre fondo oscuro deja el texto ilegible. */
+	background: rgb(166 78 255 / 0.14);
+	border-color: var(--color-purple-500);
+	color: var(--sl-color-white);
 }
