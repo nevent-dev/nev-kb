@@ -16,18 +16,17 @@
 
 @layer nevent-brand {
 	:root {
-		/* Colores primarios de Nevent */
-		--sl-color-accent-low: 44, 29, 208;
-		--sl-color-accent: 44, 29, 208;
-		--sl-color-accent-high: 35, 23, 166;
-
-		/* Color secundario para acentos */
-		--nevent-secondary: 151, 92, 248;
+		/* El acento se define en nevent-theme.css, con los colores de nevent.ai.
+		   Aquí había un azul que ni era de marca ni llegaba a aplicarse: iba
+		   como tripleta RGB, un formato que Starlight dejó de entender, así que
+		   el tema caía a su gris por defecto. */
+		--nevent-secondary: var(--color-purple-400);
 	}
 
 	/* Gradiente solo para el texto "Nevent" en hero */
 	.text-gradient {
-		background: linear-gradient(to right, rgb(44, 29, 208), rgb(151, 92, 248));
+		/* El gradiente de marca: orquídea a magenta, como en nevent.ai. */
+		background: var(--gradient-hero);
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
 		background-clip: text;
@@ -39,8 +38,8 @@
 	.hero {
 		background: linear-gradient(
 			135deg,
-			rgb(var(--sl-color-accent) / 0.05) 0%,
-			rgb(151 92 248 / 0.05) 100%
+			color-mix(in srgb, var(--sl-color-accent) 5%, transparent) 0%,
+			color-mix(in srgb, var(--color-purple-400) 5%, transparent) 100%
 		);
 		border-radius: 1rem;
 		padding: 3rem 2rem;
@@ -152,9 +151,7 @@
 	.sl-markdown-content img:not(.starlight-aside img):not(.no-frame) {
 		border-radius: 0.5rem;
 		border: 1px solid var(--sl-color-hairline);
-		box-shadow:
-			0 2px 8px rgb(0 0 0 / 6%),
-			0 1px 2px rgb(0 0 0 / 4%);
+		box-shadow: var(--shadow-md), var(--shadow-sm);
 		margin: 2rem auto;
 		display: block;
 		max-width: 100%;
@@ -162,9 +159,8 @@
 
 	/* Modo oscuro: sombra más profunda sobre fondos oscuros */
 	:root[data-theme='dark'] .sl-markdown-content img:not(.starlight-aside img):not(.no-frame) {
-		box-shadow:
-			0 2px 8px rgb(0 0 0 / 30%),
-			0 1px 2px rgb(0 0 0 / 20%);
+		/* Sobre fondo oscuro la sombra tiene que pesar más para verse. */
+		box-shadow: var(--shadow-xl), var(--shadow-lg);
 	}
 
 	/* ── FRENTE 5: TABLAS PULIDAS ───────────────────────────────────────── */
@@ -180,12 +176,12 @@
 		border: 1px solid var(--sl-color-hairline);
 		border-radius: 0.5rem;
 		background: var(--sl-color-bg);
-		box-shadow: 0 1px 2px rgb(0 0 0 / 4%);
+		box-shadow: var(--shadow-sm);
 	}
 
 	/* Cabecera con tinte de color de marca */
 	.sl-markdown-content thead {
-		background: rgb(var(--sl-color-accent) / 0.08);
+		background: color-mix(in srgb, var(--sl-color-accent) 8%, transparent);
 	}
 
 	/* Celdas de cabecera */
@@ -213,12 +209,13 @@
 
 	/* Zebra striping: filas pares con tinte muy sutil */
 	.sl-markdown-content tbody tr:nth-child(even) {
-		background: rgb(var(--sl-color-accent) / 0.025);
+		background: color-mix(in srgb, var(--sl-color-accent) 3%, transparent);
 	}
 
-	/* Hover: feedback visual suave */
-	.sl-markdown-content tbody tr:hover {
-		background: rgb(var(--sl-color-accent) / 0.05);
+	/* Resalta la fila que tiene el foco dentro, en vez de la que está bajo el
+	   puntero: funciona igual con teclado y no deja rastro en táctil. */
+	.sl-markdown-content tbody tr:focus-within {
+		background: color-mix(in srgb, var(--sl-color-accent) 5%, transparent);
 		transition: background 0.15s ease;
 	}
 
@@ -234,8 +231,8 @@
    aspecto multicolor e incoherente. Los unificamos al violeta de marca.
    Fuera de @layer y con !important para ganar a las variables de Starlight. */
 .sl-markdown-content .card {
-	--sl-card-border: rgb(var(--nevent-secondary)) !important;
-	--sl-card-bg: rgb(var(--nevent-secondary) / 0.1) !important;
+	--sl-card-border: var(--nevent-secondary) !important;
+	--sl-card-bg: color-mix(in srgb, var(--nevent-secondary) 10%, transparent) !important;
 	transition:
 		border-color 0.15s ease,
 		box-shadow 0.15s ease,
@@ -243,12 +240,13 @@
 }
 
 .sl-markdown-content .card .title .icon {
-	color: rgb(var(--nevent-secondary)) !important;
+	color: var(--nevent-secondary) !important;
 }
 
-/* Hover sutil en las tarjetas para dar sensación de interactividad */
-.sl-markdown-content .card:hover {
-	border-color: rgb(var(--nevent-secondary) / 0.5);
-	box-shadow: 0 4px 16px rgb(var(--nevent-secondary) / 0.12);
+/* Relieve al enfocar la tarjeta, para dar sensación de interactividad sin
+   depender del puntero. */
+.sl-markdown-content .card:focus-within {
+	border-color: color-mix(in srgb, var(--nevent-secondary) 50%, transparent);
+	box-shadow: 0 4px 16px color-mix(in srgb, var(--nevent-secondary) 12%, transparent);
 	transform: translateY(-2px);
 }

@@ -1,0 +1,19 @@
+---
+/**
+ * Envuelve el pie de Starlight en lugar de sustituirlo.
+ *
+ * El pie por defecto lleva la paginación entre páginas, el enlace de edición y
+ * la fecha de última actualización. Reemplazarlo por el de la web dejaría el
+ * manual sin navegación entre artículos, que es justo lo que más se usa.
+ *
+ * Así que se conserva y debajo se añade el pie de nevent.ai, que es lo que
+ * hace que las dos propiedades se cierren igual.
+ */
+import Default from '@astrojs/starlight/components/Footer.astro';
+import SiteFooter from './web/SiteFooter.astro';
+
+const lang = Astro.url.pathname.startsWith('/en/') ? 'en' : 'es';
+---
+
+<Default><slot /></Default>
+<SiteFooter lang={lang} currentPath={Astro.url.pathname} />

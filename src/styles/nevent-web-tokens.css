@@ -1,0 +1,71 @@
+/*
+ * Tokens de nevent.ai reutilizados por los componentes portados.
+ *
+ * FUENTE DE VERDAD: nev-landing-nevent/nevent-web/src/styles/tokens.css.
+ * Copiados literalmente para que los componentes compartidos (CtaSection,
+ * CallToActionSection, AccordionFAQ, FeatureGrid) se rendericen igual en los
+ * dos sitios. Si cambian en la web, hay que copiarlos aquí.
+ *
+ * Sólo se traen los que esos componentes consumen y que no existían ya. NO se
+ * tocan los --sl-* de Starlight: esta hoja añade, no sobrescribe.
+ */
+:root {
+
+	/* Tipografía: familias y tamaños */
+	--font-headings: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, system-ui, sans-serif;
+	--font-size-body: 1.125rem;
+	--font-size-body-lg: 1.125rem;
+	--font-size-body-sm: 0.9375rem;
+	--font-size-button: var(--font-size-body-lg);
+	--font-size-display-md: 11.25rem;
+	--font-size-display-sm: 10.625rem;
+	--font-size-h1: 3.75rem;
+	--font-size-h2: 3.25rem;
+	--font-size-h6: 1.75rem;
+	--font-size-hero-lg: 5.5rem;
+	--font-size-paragraph-lg: 1.25rem;
+	--line-height-body: 1.5;
+	--line-height-body-lg: 1.4;
+	--line-height-display-sm: 1.0;
+	--line-height-h1: 1.1;
+	--line-height-h2: 1.2;
+	--line-height-h6: 2rem;
+	--line-height-paragraph-lg: 1.5;
+
+	/* Móvil: la web reduce la escala por debajo de 768px */
+	--mobile-body-lg: 1rem;
+	--mobile-h2: 1.75rem;
+	--mobile-h2-lh: 1.2;
+	--mobile-hero-lg: 2.5rem;
+	--mobile-hero-lg-lh: 1.2;
+	--mobile-paragraph-lg: 1.25rem;
+	--mobile-paragraph-lg-lh: 1.4;
+
+	/* Espaciado y contenedores */
+	--container-lg: 1024px;
+	--container-xl: 1200px;
+	--space-32: 8rem;
+	--spacing-1: 0.5rem;
+	--spacing-10: 5rem;
+	--spacing-12: 6rem;
+	--spacing-2: 1rem;
+	--spacing-3: 1.5rem;
+	--spacing-4: 2rem;
+	--spacing-6: 3rem;
+	--spacing-8: 4rem;
+
+	/* Color de marca */
+	--color-text-white: var(--white, #ffffff);
+	--nevent-black: #1a1e2a;
+	--nevent-dark-gradient-end: #141821;
+	--nevent-dark-gradient-start: #1a1e2a;
+	--nevent-magenta: #a64eff;
+	--nevent-medium-orchid: #ba55d3;
+	--nevent-medium-slate-purple: #8b5cf6;
+	--nevent-off-white: #f8fafc;
+	--nevent-primary-gradient: linear-gradient(270deg, var(--nevent-medium-orchid), var(--nevent-magenta));
+
+	/* Movimiento */
+	--motion-ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+	--motion-ease-out: cubic-bezier(0, 0, 0.2, 1);
+}

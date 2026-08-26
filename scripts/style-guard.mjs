@@ -9,7 +9,7 @@ import { readFileSync } from 'node:fs';
 import { basename } from 'node:path';
 
 // Ficheros donde SÍ se permiten literales de color (fuente de tokens / puentes de tema).
-const COLOR_ALLOWLIST = /(^|[./])(tokens\.json|css-vars\.css|tokens\.ts|primeng-theme\.scss|nevent-tokens\.css|nevent-theme\.css)$/;
+const COLOR_ALLOWLIST = /(^|[./])(tokens\.json|css-vars\.css|tokens\.ts|primeng-theme\.scss|nevent-tokens\.css|nevent-theme\.css|nevent-web-tokens\.css)$/;
 
 const HEX = /#[0-9a-fA-F]{3,8}\b/;
 const FUNC_COLOR = /\b(rgba?|hsla?)\s*\(/;
