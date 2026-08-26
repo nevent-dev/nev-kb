@@ -1,0 +1,307 @@
+---
+export interface Props {
+  counter?: string;
+  title: string;
+  subtitle?: string;
+  buttonText?: string;
+  buttonHref?: string;
+  buttonTarget?: string;
+  variant?: 'default' | 'campaign';
+  backgroundColor?: string;
+  textColor?: string;
+  showNoise?: boolean;
+  className?: string;
+}
+
+const {
+  counter,
+  title,
+  subtitle,
+  buttonText = "Book a demo",
+  buttonHref = "https://api.whatsapp.com/send/?phone=34611585915&text&type=phone_number&app_absent=0",
+  buttonTarget = "_blank",
+  variant = 'default',
+  backgroundColor,
+  textColor,
+  showNoise = true,
+  className = ''
+} = Astro.props as Props;
+
+const getSectionClass = () => {
+  let classes = 'sections cta';
+  if (variant === 'campaign') classes += ' ct';
+  if (className) classes += ` ${className}`;
+  return classes;
+};
+
+const getContainerClass = () => {
+  return variant === 'campaign' ? 'cta-container ct' : 'cta-container';
+};
+
+const getTitleClass = () => {
+  return 'h1-size';
+};
+
+const getCounterClass = () => {
+  return 'counter h1-size';
+};
+---
+
+<!--
+	Portado literalmente de nevent-web/src/components/CallToActionSection.astro.
+
+	FUENTE DE VERDAD: ese fichero. Si cambia allí, hay que traer el cambio aquí
+	para que los dos sitios sigan viéndose igual.
+
+	Único cambio respecto al original: el feedback de interacción pasa de
+	puntero encima a :focus-visible / :active, que es lo que exige el guardián
+	de estilo de este repositorio (scripts/style-guard.mjs). El aspecto en
+	reposo es idéntico.
+-->
+<section class={getSectionClass()} style={backgroundColor ? `background-color: ${backgroundColor}` : undefined}>
+  {showNoise && <div class="noise-overlay"></div>}
+  
+  <div class={getContainerClass()}>
+    {counter && (
+      <div class={getCounterClass()} style={textColor ? `color: ${textColor}` : undefined}>
+        {counter}
+      </div>
+    )}
+    
+    <h2 class={getTitleClass()} style={textColor ? `color: ${textColor}` : undefined}>
+      {title}
+    </h2>
+    
+    {subtitle && (
+      <div class="cta-sub-wrapper">
+        <p class="large-paragraph" style={textColor ? `color: ${textColor}` : undefined}>
+          {subtitle}
+        </p>
+      </div>
+    )}
+    
+    {variant === 'campaign' ? (
+      <div class="mt40">
+        <a href={buttonHref} target={buttonTarget} class="button black w-button clarity-demo-cta">
+          {buttonText}
+        </a>
+      </div>
+    ) : (
+      <a href={buttonHref} target={buttonTarget} class="button black w-button clarity-demo-cta">
+        {buttonText}
+      </a>
+    )}
+  </div>
+  
+  <slot name="additional-content" />
+</section>
+
+<style>
+  /* Use design tokens for consistent styling */
+  .sections.cta {
+    position: relative;
+    padding: var(--spacing-10) 0;
+    background: linear-gradient(135deg, var(--nevent-dark-gradient-start) 0%, var(--nevent-dark-gradient-end) 100%);
+    text-align: center;
+  }
+
+  .noise-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0.03;
+    background-image: url('/assets/img/noise.png');
+    pointer-events: none;
+  }
+
+  .cta-container {
+    position: relative;
+    z-index: 2;
+    max-width: var(--container-lg);
+    margin: 0 auto;
+    padding: 0 var(--spacing-3);
+  }
+
+  .counter {
+    font-size: var(--font-size-display-sm);
+    line-height: var(--line-height-display-sm);
+    font-weight: var(--font-weight-bold);
+    font-family: var(--font-headings);
+    color: var(--color-text-white);
+    margin-bottom: var(--spacing-2);
+    background: var(--nevent-primary-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .h1-size {
+    font-size: var(--font-size-h1);
+    line-height: var(--line-height-h1);
+    font-weight: var(--font-weight-bold);
+    font-family: var(--font-headings);
+    color: var(--color-text-white);
+    margin: 0 0 var(--spacing-4);
+  }
+
+  .cta-sub-wrapper {
+    margin-bottom: var(--spacing-4);
+  }
+
+  .large-paragraph {
+    font-size: var(--font-size-paragraph-lg);
+    line-height: var(--line-height-paragraph-lg);
+    color: var(--color-text-white);
+    opacity: 0.9;
+    margin: 0;
+  }
+
+  .button {
+    font-size: var(--font-size-button);
+    line-height: var(--line-height-body-lg);
+    font-weight: var(--font-weight-medium);
+    padding: var(--spacing-2) var(--spacing-4);
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    display: inline-block;
+    transition: all var(--motion-duration-base) var(--motion-ease-in-out);
+    background-color: var(--color-text-white);
+    color: var(--nevent-black);
+    border: 2px solid var(--color-text-white);
+  }
+
+  .button.black {
+    background-color: var(--nevent-black);
+    color: var(--color-text-white);
+    border-color: var(--nevent-black);
+  }
+
+  .button:focus-visible, .button:active {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .button:focus {
+    outline: 2px solid var(--nevent-magenta);
+    outline-offset: 2px;
+  }
+
+  .mt40 {
+    margin-top: var(--spacing-6);
+  }
+
+  /* Responsive design */
+  @media (max-width: 1200px) {
+    .counter {
+      font-size: var(--font-size-display-md);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .sections.cta {
+      padding: var(--spacing-8) 0;
+    }
+
+    .counter {
+      font-size: var(--font-size-hero-lg);
+    }
+
+    .h1-size {
+      font-size: var(--mobile-hero-lg);
+      line-height: var(--mobile-hero-lg-lh);
+    }
+
+    .large-paragraph {
+      font-size: var(--mobile-paragraph-lg);
+      line-height: var(--mobile-paragraph-lg-lh);
+    }
+
+    .button {
+      font-size: var(--mobile-body-lg);
+      padding: var(--spacing-2) var(--spacing-3);
+    }
+  }
+
+  /* Counter animation */
+  .counter {
+    opacity: 0;
+    animation: countUp 2s ease-out forwards;
+  }
+
+  @keyframes countUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Accessibility improvements */
+  @media (prefers-reduced-motion: reduce) {
+    .counter,
+    .button {
+      animation: none;
+      transition: none;
+    }
+
+    .button:focus-visible, .button:active {
+      transform: none;
+    }
+  }
+</style>
+
+<script>
+  // Counter animation functionality
+  function animateCounter() {
+    const counters = document.querySelectorAll('.counter');
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const counter = entry.target;
+          const targetText = counter.textContent?.replace(/,/g, '') || '0';
+          const target = parseInt(targetText);
+          
+          if (!isNaN(target)) {
+            animateValue(counter, 0, target, 2000);
+          }
+          
+          observer.unobserve(counter);
+        }
+      });
+    });
+    
+    counters.forEach((counter) => {
+      observer.observe(counter);
+    });
+  }
+
+  function animateValue(element, start, end, duration) {
+    let startTimestamp = null;
+    
+    function step(timestamp) {
+      if (!startTimestamp) startTimestamp = timestamp;
+      const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+      const currentValue = Math.floor(progress * (end - start) + start);
+      
+      element.textContent = currentValue.toLocaleString();
+      
+      if (progress < 1) {
+        window.requestAnimationFrame(step);
+      }
+    }
+    
+    window.requestAnimationFrame(step);
+  }
+
+  // Initialize on page load
+  document.addEventListener('DOMContentLoaded', animateCounter);
+  
+  // Re-initialize if content is dynamically loaded
+  document.addEventListener('astro:page-load', animateCounter);
+</script>

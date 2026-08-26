@@ -102,7 +102,11 @@
   --color-scrim: rgba(20, 24, 33, 0.55);
   --gradient-hero: linear-gradient(270deg, #ba55d3, #a64eff);
   --gradient-dark-bg: linear-gradient(135deg, #1a1e2a 0%, #141821 100%);
-  --font-display: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  /* Manuka es la tipografía de display de nevent.ai; el resto de la pila
+
+     queda como respaldo mientras carga o si no está disponible. */
+
+  --font-display: 'Manuka', 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
   --font-body: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
   --font-mono: 'JetBrains Mono', 'SF Mono', Monaco, Consolas, 'Courier New', monospace;
   --font-weight-regular: 400;

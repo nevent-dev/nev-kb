@@ -810,11 +810,16 @@ export default defineConfig({
 				// GitHub apuntaba a un repositorio inexistente (404) y no le sirve
 				// de nada a un cliente.
 				SocialIcons: './src/components/SocialIcons.astro',
+				// Conserva el pie de Starlight (paginación, edición, fecha) y
+				// añade debajo el de nevent.ai.
+				Footer: './src/components/Footer.astro',
 			},
 
 			// Customización de UI
 			customCss: [
 				'./src/styles/nevent-tokens.css',
+				// Tokens de nevent.ai que consumen los componentes portados.
+				'./src/styles/nevent-web-tokens.css',
 				'./src/styles/custom.css',
 				'./src/styles/nevent-theme.css',
 			],

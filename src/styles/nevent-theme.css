@@ -7,6 +7,30 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
 
+/*
+ * Manuka Bold — la tipografía de display de nevent.ai.
+ *
+ * Se sirve desde nuestro propio dominio, NO desde el CDN de Webflow que usa la
+ * web (cdn.prod.website-files.com). Enlazar allí ataría el centro de ayuda a la
+ * infraestructura de una plataforma ya abandonada, que puede dejar de servirla
+ * sin avisar.
+ *
+ * Va subconjuntada a latino: 15 KB frente a los 147 KB del OTF completo que
+ * carga la web.
+ *
+ * Licencia: Klim Type Foundry, pedido Nº 23080390. Las licencias web de Klim se
+ * otorgan por dominio; conviene confirmar que ese pedido cubre help.nevent.ai
+ * además de nevent.ai (klim.co.nz/licences).
+ */
+@font-face {
+	font-family: 'Manuka';
+	src: url('/fonts/manuka-bold.woff2') format('woff2');
+	font-weight: 700;
+	font-style: normal;
+	/* swap: el titular se lee antes en la fuente de respaldo que en blanco. */
+	font-display: swap;
+}
+
 :root {
   /* Tipografía de marca */
   --sl-font: var(--font-body);
@@ -200,3 +224,16 @@ a.site-title img {
 	border-color: var(--color-purple-500);
 	color: var(--sl-color-text-accent);
 }
+
+/* ==========================================================================
+   Tipografía de display — Manuka, como en nevent.ai
+   --------------------------------------------------------------------------
+   No hace falta ninguna regla aquí: --font-display ya lleva Manuka delante y
+   es el token que consumen los titulares de portada. Añadir un .hero h1 propio
+   sólo habría creado una pelea de especificidad con la regla que ya existía.
+
+   El cuerpo y los encabezados del manual siguen en Poppins, que es más legible
+   en textos largos y también es de marca, igual que hace la web: allí Manuka
+   se reserva a los titulares grandes.
+   ========================================================================== */
+
