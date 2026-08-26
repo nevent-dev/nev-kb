@@ -102,13 +102,15 @@
   --color-scrim: rgba(20, 24, 33, 0.55);
   --gradient-hero: linear-gradient(270deg, #ba55d3, #a64eff);
   --gradient-dark-bg: linear-gradient(135deg, #1a1e2a 0%, #141821 100%);
-  /* Manuka es la tipografía de display de nevent.ai; el resto de la pila
-
-     queda como respaldo mientras carga o si no está disponible. */
-
-  --font-display: 'Manuka', 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
-  --font-body: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
-  --font-mono: 'JetBrains Mono', 'SF Mono', Monaco, Consolas, 'Courier New', monospace;
+  
+  /* Pila tipográfica idéntica a la de nevent.ai (su tokens.css).
+     La web resuelve todo el texto en la fuente del sistema; sólo los titulares
+     de display van en Manuka. Aquí se hace lo mismo, así que Poppins, Inter y
+     JetBrains Mono dejan de hacer falta y con ellas la petición a Google
+     Fonts. */
+  --font-display: 'Manuka', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, system-ui, sans-serif;
+  --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, system-ui, sans-serif;
+  --font-mono: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
   --font-weight-regular: 400;
   --font-weight-medium: 500;
   --font-weight-semibold: 600;
