@@ -5,7 +5,6 @@
  * Carga este fichero DESPUÉS de nevent-tokens.css y custom.css.
  */
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
 
 /*
  * Manuka Bold — la tipografía de display de nevent.ai.
@@ -62,14 +61,8 @@
   --sl-color-text-accent: var(--color-purple-300);
 }
 
-/* Titulares en Poppins (contenido, portada y UI). */
-:is(h1, h2, h3, h4, h5, h6),
-.sl-markdown-content :is(h1, h2, h3, h4, h5, h6),
-.site-title,
-.hero h1 {
-  font-family: var(--font-display);
-  letter-spacing: var(--letter-spacing-tight);
-}
+/* Los titulares heredan la pila del sistema, como en nevent.ai. Antes iban en
+   Poppins, que la web no usa para texto: sólo para su logotipo. */
 
 /* Labels/eyebrows de la navegación con el mono de marca. */
 .sidebar-content summary,
@@ -232,8 +225,8 @@ a.site-title img {
    es el token que consumen los titulares de portada. Añadir un .hero h1 propio
    sólo habría creado una pelea de especificidad con la regla que ya existía.
 
-   El cuerpo y los encabezados del manual siguen en Poppins, que es más legible
-   en textos largos y también es de marca, igual que hace la web: allí Manuka
-   se reserva a los titulares grandes.
+   El cuerpo y los encabezados van en la fuente del sistema, igual que en
+   nevent.ai: allí Manuka se reserva a los titulares grandes y todo lo demás
+   resuelve en la pila nativa.
    ========================================================================== */
 
