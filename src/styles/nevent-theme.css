@@ -157,6 +157,10 @@ a.site-title img {
 
    La especificidad (0,1,1) basta para ganar a las utilidades de Tailwind,
    que son (0,1,0). No hace falta !important.
+
+   El feedback va por :focus-visible y :active, que es la regla del design
+   system (scripts/style-guard.mjs): el puntero por encima no existe en táctil
+   y deja estados enganchados tras el toque.
    ========================================================================== */
 
 .actions a {
@@ -173,9 +177,14 @@ a.site-title img {
 	border-color: transparent;
 }
 
-.actions a[class*='bg-black']:hover {
+.actions a[class*='bg-black']:focus-visible {
 	background: var(--color-purple-600);
-	box-shadow: 0 6px 20px rgb(166 78 255 / 0.28);
+	outline: 2px solid var(--color-purple-700);
+	outline-offset: 2px;
+}
+
+.actions a[class*='bg-black']:active {
+	background: var(--color-purple-700);
 }
 
 /* Secundario: contorno sobrio, como el "Acceso" de la web. */
@@ -185,15 +194,9 @@ a.site-title img {
 	color: var(--sl-color-white);
 }
 
-.actions a[class*='bg-white']:hover {
-	background: var(--color-purple-50);
-	border-color: var(--color-purple-300);
-	color: var(--color-purple-700);
-}
-
-:root[data-theme='dark'] .actions a[class*='bg-white']:hover {
-	/* En oscuro el lavanda claro sobre fondo oscuro deja el texto ilegible. */
-	background: rgb(166 78 255 / 0.14);
+.actions a[class*='bg-white']:focus-visible,
+.actions a[class*='bg-white']:active {
+	background: color-mix(in srgb, var(--color-purple-500) 8%, transparent);
 	border-color: var(--color-purple-500);
-	color: var(--sl-color-white);
+	color: var(--sl-color-text-accent);
 }

@@ -44,15 +44,23 @@ const etiqueta = esIngles ? 'Go to nevent.ai' : 'Ir a nevent.ai';
 		transition: border-color 0.2s ease, color 0.2s ease, background-color 0.2s ease;
 	}
 
-	.volver-al-sitio:hover {
-		border-color: var(--color-purple-500);
-		color: var(--color-purple-600);
-		background: var(--color-purple-50);
+	@media (prefers-reduced-motion: reduce) {
+		.volver-al-sitio {
+			transition: none;
 	}
 
-	:root[data-theme='dark'] .volver-al-sitio:hover {
-		background: rgb(166 78 255 / 0.14);
-		color: var(--sl-color-white);
+	/* El feedback va por foco y toque, que es la regla del design system:
+	   el puntero por encima no existe en táctil y deja estados enganchados. */
+	.volver-al-sitio:focus-visible,
+	.volver-al-sitio:active {
+		border-color: var(--color-purple-500);
+		color: var(--sl-color-text-accent);
+		background: color-mix(in srgb, var(--color-purple-500) 8%, transparent);
+	}
+
+	.volver-al-sitio:focus-visible {
+		outline: 2px solid var(--color-purple-500);
+		outline-offset: 2px;
 	}
 
 	/* En móvil la cabecera va justa: el icono basta para no comerse el buscador. */
