@@ -188,14 +188,16 @@ const footerData = {
         gtmLabel: 'Footer - Calculadora de Ingresos'
       },
       {
-        // Directorio ES-only: enlace absoluto sin prefijo de locale
-        href: '/es/agencias-marketing-eventos-ocio/',
+        // Directorio ES-only: enlace a nevent.ai sin prefijo de locale
+        href: `${SITIO}/es/agencias-marketing-eventos-ocio/`,
         text: lang === 'es' ? 'Directorio de agencias' : lang === 'fr' ? 'Annuaire des agences' : 'Agency Directory',
         gtmLabel: 'Footer - Directorio de agencias'
       },
       {
-        // Directorio ES + FR: enlace absoluto por idioma (EN cae a la versión ES)
-        href: lang === 'fr' ? '/fr/logiciels-billetterie/' : '/es/plataformas-venta-entradas/',
+        // Directorio ES + FR: enlace a nevent.ai por idioma (EN cae a la versión ES)
+        href: lang === 'fr'
+          ? `${SITIO}/fr/logiciels-billetterie/`
+          : `${SITIO}/es/plataformas-venta-entradas/`,
         text: lang === 'es' ? 'Directorio de ticketeras' : lang === 'fr' ? 'Annuaire des billetteries' : 'Ticketing Directory',
         gtmLabel: 'Footer - Directorio de ticketeras'
       },
