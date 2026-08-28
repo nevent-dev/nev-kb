@@ -266,3 +266,31 @@ a.site-title img {
 	background: var(--color-surface-base);
 	border-color: var(--color-border-subtle);
 }
+
+/* ==========================================================================
+   Pie de página a ancho completo
+   --------------------------------------------------------------------------
+   El footer de nevent.ai es una banda de borde a borde con su contenido
+   centrado a 1320px. Aquí colgaba de .sl-container (1080px), así que la banda
+   oscura quedaba flotando con márgenes a los lados y su contenedor interno no
+   llegaba a aplicarse nunca.
+
+   Se saca del contenedor con el desbordamiento simétrico habitual. El clip del
+   eje horizontal evita la barra de scroll que aparecería por los pocos píxeles
+   que 100vw cuenta de más (100vw incluye el ancho de la propia barra); se usa
+   clip y no hidden para no crear un contexto de scroll que rompería los
+   elementos pegajosos de la navegación.
+   ========================================================================== */
+html {
+	overflow-x: clip;
+}
+
+/* Solo donde no hay barra lateral, es decir, en la portada. En las páginas de
+   guía el panel de contenido está flanqueado por la navegación y el índice, y
+   un footer a ancho de ventana se les metía por debajo: las columnas quedaban
+   tapadas por ambos lados. Starlight marca el caso en <html>. */
+html:not([data-has-sidebar]) footer.footer {
+	width: 100vw;
+	max-width: 100vw;
+	margin-inline: calc(50% - 50vw);
+}
