@@ -211,6 +211,7 @@ export default defineConfig({
 								{ label: '1 · Conecta tu ticketera', slug: 'audiencia/conecta-tu-ticketera' },
 								{ label: '2 · Conecta Meta, Google y TikTok', slug: 'paid-media/introduccion' },
 								{ label: '3 · Sincroniza un segmento como audiencia', slug: 'paid-media/sincroniza-un-segmento-como-audiencia' },
+								{ label: '4 · Comprueba que tus ventas llegan a Meta', slug: 'paid-media/conversiones-de-meta' },
 							],
 						},
 						{
@@ -364,6 +365,8 @@ export default defineConfig({
 						{ label: 'Conecta tus cuentas y entiende el panel', slug: 'paid-media/introduccion', badge: { text: 'Nuevo', variant: 'tip' } },
 						{ label: 'Tu primer vistazo a Paid Media', slug: 'paid-media/primer-vistazo', badge: { text: 'Nuevo', variant: 'tip' } },
 						{ label: 'Sincroniza un segmento como audiencia', slug: 'paid-media/sincroniza-un-segmento-como-audiencia', badge: { text: 'Nuevo', variant: 'tip' } },
+						{ label: 'Comprueba que tus ventas llegan a Meta', slug: 'paid-media/conversiones-de-meta', badge: { text: 'Nuevo', variant: 'tip' } },
+						{ label: 'Por qué tu CPA real no es el que ves en Meta', slug: 'paid-media/por-que-tu-cpa-real-no-es-el-que-ves-en-meta', badge: { text: 'Nuevo', variant: 'tip' } },
 						{ label: 'Referencia de Paid Media', slug: 'paid-media/referencia', badge: { text: 'Nuevo', variant: 'tip' } },
 						{ label: 'Referencia de audiencias personalizadas', slug: 'paid-media/referencia-audiencias', badge: { text: 'Nuevo', variant: 'tip' } },
 						{ label: 'Qué es Paid Media', slug: 'paid-media/que-es', badge: { text: 'Nuevo', variant: 'tip' } },

@@ -21,11 +21,13 @@ Esta página recoge en tablas toda la información de referencia del área de Pa
 
 Nevent centraliza campañas de las tres plataformas siguientes. Los datos llegan desde las cuentas de anuncios conectadas a tu organización.
 
-| Plataforma | Descripción |
-|------------|-------------|
-| Meta | Campañas de Facebook e Instagram Ads gestionadas desde Meta Ads Manager. |
-| TikTok | Campañas de TikTok Ads gestionadas desde TikTok Ads Manager. |
-| Google | Campañas de Google Ads gestionadas desde Google Ads. |
+| Plataforma | Descripción | Envío de ventas |
+|------------|-------------|-----------------|
+| Meta | Campañas de Facebook e Instagram Ads gestionadas desde Meta Ads Manager. | Disponible |
+| TikTok | Campañas de TikTok Ads gestionadas desde TikTok Ads Manager. | No disponible |
+| Google | Campañas de Google Ads gestionadas desde Google Ads. | No disponible |
+
+La columna **Envío de ventas** indica si Nevent puede devolver a esa plataforma las compras que ocurren en tu ticketera, para que atribuya las ventas a sus campañas. Hoy solo Meta lo recibe. Con TikTok y Google puedes conectar la cuenta, ver sus campañas y sincronizar audiencias.
 
 Nevent no crea anuncios. La creación y edición de los anuncios se hace siempre en la plataforma de origen correspondiente.
 
@@ -96,3 +98,47 @@ Las campañas pausadas o archivadas muestran guiones (--) en todas las columnas 
 ## Indicador de actualización de datos
 
 El panel incluye un indicador que muestra cuánto tiempo hace que se sincronizaron los datos desde las plataformas de origen (por ejemplo, "Hace 19 min").
+
+## Envío de ventas a Meta
+
+Con la cuenta de Meta Ads conectada, Nevent envía cada venta elegible a Meta sin que haya nada que activar. El resultado se consulta en la pantalla **Paid Ads → Conversiones**.
+
+### Métricas de la pantalla de Conversiones
+
+| Métrica | Qué mide |
+|---------|----------|
+| Inversión publicitaria | Gasto en anuncios del periodo, con el número de campañas incluidas. |
+| Ventas atribuidas | Importe en entradas que Meta atribuye a tus anuncios, con el número de entradas. |
+| Retorno (ROAS) | Euros en entradas obtenidos por cada euro invertido. |
+
+El periodo por defecto de la pantalla son los **últimos 7 días**. La tabla inferior desglosa gasto, entradas, ventas atribuidas y retorno por campaña, ordenada por retorno.
+
+### Reglas de lectura
+
+| Regla | Valor |
+|-------|-------|
+| Ventana de actualización | Hasta 7 días después del clic. Meta Ads Manager puede tardar más en reflejar la atribución completa. |
+| Mínimo para comparar una campaña con tu media | 5 ventas por campaña. |
+
+### Datos de coincidencia enviados por venta
+
+Se envían hasta **13 datos por venta**, según los que estén disponibles de cada comprador. Cuantos más haya, más ventas puede reconocer Meta.
+
+| Grupo | Datos |
+|-------|-------|
+| Identidad | email, teléfono, nombre, apellido, nacimiento, género |
+| Ubicación | ciudad, provincia, código postal, país |
+| Identificadores | id externo, clic (fbc), navegador (fbp) |
+
+Los datos personales viajan con **hash irreversible (SHA-256)**. Los identificadores de clic viajan sin hash, como exige Meta. El identificador de clic (fbc) solo existe si la venta llegó con datos de campaña: las ventas de marketplaces no suelen traerlo.
+
+### Detalle de envíos
+
+La sección **Ver detalle de envíos** registra cada venta enviada con cuatro columnas: fecha, identificador de la compra, estado y motivo. Incluye un botón **Enviar evento de prueba**, que verifica la conexión y muestra la aceptación y la referencia de Meta sin salir de Nevent.
+
+| Estado | Significado |
+|--------|-------------|
+| Aceptada | Meta ha recibido y entendido la venta. No implica que la atribuya a una campaña. |
+| Rechazada | Meta no ha admitido el envío. La columna Motivo indica la causa. |
+
+Una venta aceptada que no aparece como atribuida es un caso normal: significa que Meta no ha podido relacionarla con ninguno de sus anuncios, bien porque la compra no vino de uno, bien porque no ha reconocido a esa persona.
