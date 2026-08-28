@@ -424,7 +424,9 @@ export default defineConfig({
 					items: [
 						{ label: 'Pon en marcha tu chatbot', slug: 'chatbot/pon-en-marcha-tu-chatbot' },
 						{ label: 'Configura tu chatbot', slug: 'chatbot/configuracion' },
+						{ label: 'Configura la voz de tu asistente', slug: 'chatbot/voz-del-asistente' },
 						{ label: 'Gestiona la bandeja de entrada', slug: 'chatbot/bandeja-de-entrada' },
+						{ label: 'Trazabilidad de enlaces y rendimiento', slug: 'chatbot/trazabilidad-de-enlaces' },
 						{ label: 'Referencia del chatbot', slug: 'chatbot/referencia' },
 						{ label: 'Cómo funciona el chatbot', slug: 'chatbot/como-funciona' },
 					],
