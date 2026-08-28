@@ -444,6 +444,14 @@ export default defineConfig({
 					],
 				},
 				{
+					label: 'Organización',
+					items: [
+						{ label: 'Consulta y crea la estructura de tu organización', slug: 'organizacion/estructura-de-tu-organizacion', badge: { text: 'Nuevo', variant: 'tip' } },
+						{ label: 'Los tres niveles de una organización', slug: 'organizacion/que-son-los-tres-niveles', badge: { text: 'Nuevo', variant: 'tip' } },
+						{ label: 'Añade usuarios a tu organización', slug: 'organizacion/invita-a-tu-equipo', badge: { text: 'Nuevo', variant: 'tip' } },
+					],
+				},
+				{
 					label: 'Consumo',
 					items: [
 						{ label: 'Tu plan de uso', slug: 'consumo/plan-de-uso', badge: { text: 'Nuevo', variant: 'tip' } },
