@@ -294,3 +294,28 @@ html:not([data-has-sidebar]) footer.footer {
 	max-width: 100vw;
 	margin-inline: calc(50% - 50vw);
 }
+
+/* El footer va completo en todo el sitio, pero en las guías dispone de la
+   mitad de ancho que en la portada, porque comparte fila con la navegación y
+   el índice. Sus cinco columnas son fijas y sus puntos de ruptura miran el
+   ancho de la VENTANA, así que a 1440px seguía pintando cinco columnas dentro
+   de un panel de 777px y los enlaces se partían en tres líneas.
+
+   Se resuelve midiendo el contenedor y no la ventana. Solo se aplica donde hay
+   barra lateral: en la portada el footer tiene sus 1320px y se queda en cinco.
+   ========================================================================== */
+html[data-has-sidebar] .footer-container {
+	container-type: inline-size;
+}
+
+@container (max-width: 1000px) {
+	html[data-has-sidebar] .footer-nav {
+		grid-template-columns: repeat(3, 1fr);
+	}
+}
+
+@container (max-width: 620px) {
+	html[data-has-sidebar] .footer-nav {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
