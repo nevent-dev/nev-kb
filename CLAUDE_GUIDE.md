@@ -4,6 +4,17 @@
 
 ---
 
+## 🎨 Estilo: no inventes
+
+Este sitio usa el sistema de diseño de nevent.ai, no uno propio. Antes de tocar
+cualquier CSS, lee **DESIGN-SYSTEM.md**.
+
+Cinco reglas que el CI bloquea: nada de colores literales, `font-family` con
+nombre de fuente, `@font-face`, `!important` ni `:hover`. Y doce tokens de marca
+más las dos familias tipográficas que no se pueden cambiar desde este repo.
+
+Compruébalo antes de subir: `npm run guard:style <ficheros>`
+
 ## 🎯 Quick Start para Claude
 
 ### Crear un Nuevo Artículo (Método Directo - Recomendado)

@@ -6,30 +6,6 @@
  */
 
 
-/*
- * Manuka Bold — la tipografía de display de nevent.ai.
- *
- * Se sirve desde nuestro propio dominio, NO desde el CDN de Webflow que usa la
- * web (cdn.prod.website-files.com). Enlazar allí ataría el centro de ayuda a la
- * infraestructura de una plataforma ya abandonada, que puede dejar de servirla
- * sin avisar.
- *
- * Va subconjuntada a latino: 15 KB frente a los 147 KB del OTF completo que
- * carga la web.
- *
- * Licencia: Klim Type Foundry, pedido Nº 23080390. Las licencias web de Klim se
- * otorgan por dominio; conviene confirmar que ese pedido cubre help.nevent.ai
- * además de nevent.ai (klim.co.nz/licences).
- */
-@font-face {
-	font-family: 'Manuka';
-	src: url('/fonts/manuka-bold.woff2') format('woff2');
-	font-weight: 700;
-	font-style: normal;
-	/* swap: el titular se lee antes en la fuente de respaldo que en blanco. */
-	font-display: swap;
-}
-
 :root {
   /* Tipografía de marca */
   --sl-font: var(--font-body);
@@ -219,14 +195,127 @@ a.site-title img {
 }
 
 /* ==========================================================================
-   Tipografía de display — Manuka, como en nevent.ai
+   Tipografía de display — la pila del sistema, como en nevent.ai
    --------------------------------------------------------------------------
-   No hace falta ninguna regla aquí: --font-display ya lleva Manuka delante y
-   es el token que consumen los titulares de portada. Añadir un .hero h1 propio
-   sólo habría creado una pelea de especificidad con la regla que ya existía.
+   No hace falta declarar familias aquí: --font-display y --font-body resuelven
+   ambos a la pila nativa, que es lo que sirve nevent.ai en sus titulares
+   (system-ui 700 con tracking negativo).
 
-   El cuerpo y los encabezados van en la fuente del sistema, igual que en
-   nevent.ai: allí Manuka se reserva a los titulares grandes y todo lo demás
-   resuelve en la pila nativa.
+   Manuka se retiró el 2026-08-28. En la web solo existe dentro de la hoja
+   legacy de Webflow, siempre en mayúsculas y en secciones concretas; el centro
+   de ayuda la estaba usando en minúsculas para todos los H2, un uso que la
+   marca no hace en ninguna parte y que rompía la lectura en tamaños pequeños.
    ========================================================================== */
 
+/* Peso y tracking de los titulares, calcados de nevent.ai: 700 y -0.03em
+   (equivale a los -2px sobre 64px que sirve la web en su H1). */
+.sl-markdown-content :is(h1, h2, h3),
+.hero h1 {
+	font-weight: var(--font-weight-bold);
+}
+
+.sl-markdown-content h1,
+.hero h1 {
+	letter-spacing: var(--letter-spacing-tighter);
+}
+
+/* ==========================================================================
+   Secciones portadas de nevent.ai dentro del contenido de Starlight
+   --------------------------------------------------------------------------
+   Starlight limita los hijos directos de .sl-markdown-content al ancho de
+   lectura (~45rem). Está bien para párrafos, pero estrangulaba las bandas de
+   sección traídas de la web: la rejilla de áreas de la portada quedaba en dos
+   columnas ocupando media página, con su propio max-width de 1200px sin poder
+   aplicarse nunca. Estas secciones son bandas, no texto: ocupan el contenedor.
+   ========================================================================== */
+.sl-markdown-content > :is(.feature-grid, .cta-section, .call-to-action-section) {
+	max-width: none;
+	width: 100%;
+}
+
+/* La banda CTA es oscura: su texto va en blanco. Starlight pinta los h2 del
+   contenido con el color de texto normal y ganaba por especificidad, así que el
+   titular salía casi negro sobre el degradado morado (contraste ~2:1). */
+.sl-markdown-content .cta-section :is(h1, h2, h3, p, li) {
+	color: var(--color-text-white);
+}
+
+/* Hero de portada sin imagen: Starlight reserva igualmente la segunda columna
+   de la rejilla y dejaba media banda vacía a la derecha. Con una sola columna
+   el bloque se lee como una unidad y el texto conserva su medida. */
+.hero:not(:has(img)):not(:has(svg)) {
+	grid-template-columns: 1fr;
+}
+.hero:not(:has(img)):not(:has(svg)) .stack {
+	max-width: 46rem;
+}
+
+/* La banda de áreas viene de la web con un fondo blanco fijo
+   (background: var(--color-text-white)). En la web no molesta porque su página
+   es siempre clara; aquí, en modo oscuro, dejaba un rectángulo blanco con el
+   título casi blanco encima: ilegible. Transparente hereda el fondo del tema y
+   funciona en los dos. */
+.sl-markdown-content .feature-grid {
+	background: transparent;
+}
+
+/* Y sus tarjetas traen el mismo blanco fijo, con el texto heredando el color
+   del tema: en oscuro quedaban tarjetas blancas con texto casi blanco dentro.
+   --color-surface-base sí responde al tema (#ffffff / #232735). */
+.sl-markdown-content .feature-grid :is(.feature-grid__link, .feature-grid__content) {
+	background: var(--color-surface-base);
+	border-color: var(--color-border-subtle);
+}
+
+/* ==========================================================================
+   Pie de página a ancho completo
+   --------------------------------------------------------------------------
+   El footer de nevent.ai es una banda de borde a borde con su contenido
+   centrado a 1320px. Aquí colgaba de .sl-container (1080px), así que la banda
+   oscura quedaba flotando con márgenes a los lados y su contenedor interno no
+   llegaba a aplicarse nunca.
+
+   Se saca del contenedor con el desbordamiento simétrico habitual. El clip del
+   eje horizontal evita la barra de scroll que aparecería por los pocos píxeles
+   que 100vw cuenta de más (100vw incluye el ancho de la propia barra); se usa
+   clip y no hidden para no crear un contexto de scroll que rompería los
+   elementos pegajosos de la navegación.
+   ========================================================================== */
+html {
+	overflow-x: clip;
+}
+
+/* Solo donde no hay barra lateral, es decir, en la portada. En las páginas de
+   guía el panel de contenido está flanqueado por la navegación y el índice, y
+   un footer a ancho de ventana se les metía por debajo: las columnas quedaban
+   tapadas por ambos lados. Starlight marca el caso en <html>. */
+html:not([data-has-sidebar]) footer.footer {
+	width: 100vw;
+	max-width: 100vw;
+	margin-inline: calc(50% - 50vw);
+}
+
+/* El footer va completo en todo el sitio, pero en las guías dispone de la
+   mitad de ancho que en la portada, porque comparte fila con la navegación y
+   el índice. Sus cinco columnas son fijas y sus puntos de ruptura miran el
+   ancho de la VENTANA, así que a 1440px seguía pintando cinco columnas dentro
+   de un panel de 777px y los enlaces se partían en tres líneas.
+
+   Se resuelve midiendo el contenedor y no la ventana. Solo se aplica donde hay
+   barra lateral: en la portada el footer tiene sus 1320px y se queda en cinco.
+   ========================================================================== */
+html[data-has-sidebar] .footer-container {
+	container-type: inline-size;
+}
+
+@container (max-width: 1000px) {
+	html[data-has-sidebar] .footer-nav {
+		grid-template-columns: repeat(3, 1fr);
+	}
+}
+
+@container (max-width: 620px) {
+	html[data-has-sidebar] .footer-nav {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}

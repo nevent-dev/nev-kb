@@ -103,12 +103,14 @@
   --gradient-hero: linear-gradient(270deg, #ba55d3, #a64eff);
   --gradient-dark-bg: linear-gradient(135deg, #1a1e2a 0%, #141821 100%);
   
-  /* Pila tipográfica idéntica a la de nevent.ai (su tokens.css).
-     La web resuelve todo el texto en la fuente del sistema; sólo los titulares
-     de display van en Manuka. Aquí se hace lo mismo, así que Poppins, Inter y
-     JetBrains Mono dejan de hacer falta y con ellas la petición a Google
-     Fonts. */
-  --font-display: 'Manuka', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, system-ui, sans-serif;
+  /* Pila tipográfica idéntica a la de nevent.ai: allí todo el texto resuelve
+     en la fuente del sistema. Por eso Poppins, Inter y JetBrains Mono no hacen
+     falta, y con ellas se evita la petición a Google Fonts. */
+  /* Display = la misma pila que el cuerpo, como en nevent.ai: sus titulares
+     resuelven a system-ui 700 con tracking negativo. Manuka se retiró el
+     2026-08-28: en la web solo vive en la hoja legacy de Webflow y siempre
+     en mayúsculas, nunca como fuente de titulares en minúsculas. */
+  --font-display: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, system-ui, sans-serif;
   --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, system-ui, sans-serif;
   --font-mono: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
   --font-weight-regular: 400;

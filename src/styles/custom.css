@@ -229,10 +229,13 @@
    Starlight asigna colores rotativos (naranja, verde, rojo, azul) a los
    recuadros de los iconos de las Card mediante :nth-child, lo que da un
    aspecto multicolor e incoherente. Los unificamos al violeta de marca.
-   Fuera de @layer y con !important para ganar a las variables de Starlight. */
+
+   Esta hoja va fuera de @layer, así que ya gana a las reglas de Starlight, que
+   sí están en capa: el !important que había aquí era redundante y competía con
+   los tokens en vez de apoyarse en ellos. */
 .sl-markdown-content .card {
-	--sl-card-border: var(--nevent-secondary) !important;
-	--sl-card-bg: color-mix(in srgb, var(--nevent-secondary) 10%, transparent) !important;
+	--sl-card-border: var(--nevent-secondary);
+	--sl-card-bg: color-mix(in srgb, var(--nevent-secondary) 10%, transparent);
 	transition:
 		border-color 0.15s ease,
 		box-shadow 0.15s ease,
@@ -240,7 +243,7 @@
 }
 
 .sl-markdown-content .card .title .icon {
-	color: var(--nevent-secondary) !important;
+	color: var(--nevent-secondary);
 }
 
 /* Relieve al enfocar la tarjeta, para dar sensación de interactividad sin
