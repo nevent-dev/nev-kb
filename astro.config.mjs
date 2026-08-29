@@ -8,6 +8,7 @@ import starlightPageActions from 'starlight-page-actions';
 import remarkGfm from 'remark-gfm';
 import fixI18nLinks from './scripts/fix-i18n-links.mjs';
 import llmsEn from './scripts/llms-en.mjs';
+import kbIndex from './scripts/kb-index.mjs';
 
 // https://astro.build/config
 export default defineConfig({
@@ -166,7 +167,7 @@ export default defineConfig({
 					tag: 'meta',
 					attrs: {
 						name: 'theme-color',
-						content: '#8B5CF6', // Violet-500
+						content: '#a64eff', // Magenta Nevent, el mismo que nevent.ai
 					},
 				},
 				// Google Analytics 4
@@ -188,82 +189,107 @@ export default defineConfig({
 				},
 			],
 
-			// Social links (aparecen en header)
-			social: [
-				{
-					icon: 'github',
-					label: 'GitHub',
-					href: 'https://github.com/nevent/nev-kb',
-				},
-			],
-
 			// Sidebar — ES (raíz) y EN (/en/)
 			// Starlight selecciona automáticamente los items del locale activo
 			sidebar: [
 				{
+					label: 'Empieza aquí',
+					items: [
+						{ label: 'Cómo funciona el onboarding', slug: 'empieza-aqui' },
+						{ label: 'Antes de nada · Conecta tu ticketera', slug: 'audiencia/conecta-tu-ticketera' },
+						{
+							label: 'Vende por tus canales',
+							items: [
+								{ label: '1 · Crea tu primer segmento', slug: 'segmentacion/tu-primer-segmento' },
+								{ label: '2 · Crea y envía tu campaña', slug: 'campanas/crear-primera-campana' },
+							],
+						},
+						{
+							label: 'Anuncios más rentables',
+							items: [
+								{ label: '1 · Conecta Meta, Google y TikTok', slug: 'paid-media/introduccion' },
+								{ label: '2 · Sincroniza un segmento como audiencia', slug: 'paid-media/sincroniza-un-segmento-como-audiencia' },
+								{ label: '3 · Comprueba que tus ventas llegan a Meta', slug: 'paid-media/conversiones-de-meta' },
+							],
+						},
+						{
+							label: 'Atención automática',
+							items: [
+								{ label: '1 · Configura tu chatbot', slug: 'chatbot/configuracion' },
+							],
+						},
+						{
+							label: 'Mide qué canal te trae gente',
+							items: [
+								{ label: '1 · Monta tu primer Magic Link', slug: 'herramientas/tu-primer-magic-link' },
+							],
+						},
+					],
+				},
+				{
 					label: 'Ciclo de vida del evento',
 					items: [
-					{ label: 'Checklist de lanzamiento', slug: 'ciclo-de-vida/checklist-de-lanzamiento', badge: { text: 'Nuevo', variant: 'tip' } },
-					{ label: 'La semana de tu evento', slug: 'ciclo-de-vida/semana-del-evento', badge: { text: 'Nuevo', variant: 'tip' } },
-					{ label: 'Post-mortem del evento', slug: 'ciclo-de-vida/post-mortem-del-evento', badge: { text: 'Nuevo', variant: 'tip' } },
+					{ label: 'Checklist de lanzamiento', slug: 'ciclo-de-vida/checklist-de-lanzamiento' },
+					{ label: 'La semana de tu evento', slug: 'ciclo-de-vida/semana-del-evento' },
+					{ label: 'Post-mortem del evento', slug: 'ciclo-de-vida/post-mortem-del-evento' },
 					],
 				},
 				{
 					label: 'Solución de problemas',
 					items: [
-					{ label: 'Mis emails van a spam', slug: 'solucion-de-problemas/emails-a-spam', badge: { text: 'Nuevo', variant: 'tip' } },
-					{ label: 'Baja tasa de apertura', slug: 'solucion-de-problemas/baja-tasa-de-apertura', badge: { text: 'Nuevo', variant: 'tip' } },
-					{ label: 'No veo ventas atribuidas', slug: 'solucion-de-problemas/ventas-no-atribuidas', badge: { text: 'Nuevo', variant: 'tip' } },
-					{ label: 'Mi dominio no verifica', slug: 'solucion-de-problemas/dominio-no-verifica', badge: { text: 'Nuevo', variant: 'tip' } },
+					{ label: 'Mis emails van a spam', slug: 'solucion-de-problemas/emails-a-spam' },
+					{ label: 'Baja tasa de apertura', slug: 'solucion-de-problemas/baja-tasa-de-apertura' },
+					{ label: 'No veo ventas atribuidas', slug: 'solucion-de-problemas/ventas-no-atribuidas' },
+					{ label: 'Mi dominio no verifica', slug: 'solucion-de-problemas/dominio-no-verifica' },
 					],
 				},
 				{
 					label: 'Decisiones frecuentes',
 					items: [
-					{ label: 'Email, SMS o WhatsApp', slug: 'decisiones-frecuentes/email-sms-o-whatsapp', badge: { text: 'Nuevo', variant: 'tip' } },
-					{ label: 'Segmento o lista', slug: 'decisiones-frecuentes/segmento-vs-lista', badge: { text: 'Nuevo', variant: 'tip' } },
-					{ label: 'Cuánto y cuándo enviar', slug: 'decisiones-frecuentes/cuanto-y-cuando-enviar', badge: { text: 'Nuevo', variant: 'tip' } },
+					{ label: 'Email, SMS o WhatsApp', slug: 'decisiones-frecuentes/email-sms-o-whatsapp' },
+					{ label: 'Segmento o lista', slug: 'decisiones-frecuentes/segmento-vs-lista' },
+					{ label: 'Cuánto y cuándo enviar', slug: 'decisiones-frecuentes/cuanto-y-cuando-enviar' },
 					],
 				},
 				{
 					label: 'Guías por objetivo',
 					items: [
-					{ label: 'Cómo llenar tu evento', slug: 'guias-por-objetivo/llenar-tu-evento', badge: { text: 'Nuevo', variant: 'tip' } },
-					{ label: 'Lanzamiento en 72 horas', slug: 'guias-por-objetivo/lanzamiento-72h', badge: { text: 'Nuevo', variant: 'tip' } },
-					{ label: 'Recupera carritos abandonados', slug: 'guias-por-objetivo/recuperar-carritos-abandonados', badge: { text: 'Nuevo', variant: 'tip' } },
-					{ label: 'Reactiva fans inactivos', slug: 'guias-por-objetivo/reactivar-fans-inactivos', badge: { text: 'Nuevo', variant: 'tip' } },
-					{ label: 'Vende más en la preventa', slug: 'guias-por-objetivo/vender-en-preventa', badge: { text: 'Nuevo', variant: 'tip' } },
-					{ label: 'Fideliza tras el evento', slug: 'guias-por-objetivo/fidelizar-post-evento', badge: { text: 'Nuevo', variant: 'tip' } },
+					{ label: 'Cómo llenar tu evento', slug: 'guias-por-objetivo/llenar-tu-evento' },
+					{ label: 'Lanzamiento en 72 horas', slug: 'guias-por-objetivo/lanzamiento-72h' },
+					{ label: 'Recupera carritos abandonados', slug: 'guias-por-objetivo/recuperar-carritos-abandonados' },
+					{ label: 'Reactiva fans inactivos', slug: 'guias-por-objetivo/reactivar-fans-inactivos' },
+					{ label: 'Vende más en la preventa', slug: 'guias-por-objetivo/vender-en-preventa' },
+					{ label: 'Fideliza tras el evento', slug: 'guias-por-objetivo/fidelizar-post-evento' },
 					],
 				},
 				// ─── Audiencia — ES ──────────────────────────────────────────
 				{
 					label: 'Audiencia',
 					items: [
-						{ label: 'Importa tus contactos', slug: 'audiencia/importar-fans', badge: { text: 'Nuevo', variant: 'tip' } },
-						{ label: 'El perfil de un fan', slug: 'audiencia/gestion-de-fans', badge: { text: 'Nuevo', variant: 'tip' } },
-						{ label: 'Explora tu audiencia', slug: 'audiencia/explora-tu-audiencia', badge: { text: 'Nuevo', variant: 'tip' } },
-						{ label: 'Referencia de fans y segmentos', slug: 'audiencia/referencia', badge: { text: 'Nuevo', variant: 'tip' } },
-						{ label: 'Cómo entiende Nevent tu audiencia', slug: 'audiencia/como-entiende-nevent-tu-audiencia', badge: { text: 'Nuevo', variant: 'tip' } },
-						{ label: 'Conecta tu ticketera', slug: 'audiencia/conecta-tu-ticketera', badge: { text: 'Nuevo', variant: 'tip' } },
-						{ label: 'Por qué conectar tu ticketera', slug: 'audiencia/por-que-conectar-tu-ticketera', badge: { text: 'Nuevo', variant: 'tip' } },
-						{ label: 'Si tu ticketera no está integrada', slug: 'audiencia/mi-ticketera-no-esta-integrada', badge: { text: 'Nuevo', variant: 'tip' } },
-						{ label: 'Referencia de integraciones', slug: 'audiencia/referencia-integraciones', badge: { text: 'Nuevo', variant: 'tip' } },
+						{ label: 'Importa tus contactos', slug: 'audiencia/importar-fans' },
+						{ label: 'El perfil de un fan', slug: 'audiencia/gestion-de-fans' },
+						{ label: 'Explora tu audiencia', slug: 'audiencia/explora-tu-audiencia' },
+						{ label: 'Referencia de fans y segmentos', slug: 'audiencia/referencia' },
+						{ label: 'Cómo entiende Nevent tu audiencia', slug: 'audiencia/como-entiende-nevent-tu-audiencia' },
+						{ label: 'Conecta tu ticketera', slug: 'audiencia/conecta-tu-ticketera' },
+						{ label: 'Por qué conectar tu ticketera', slug: 'audiencia/por-que-conectar-tu-ticketera' },
+						{ label: 'Si tu ticketera no está integrada', slug: 'audiencia/mi-ticketera-no-esta-integrada' },
+						{ label: 'Referencia de integraciones', slug: 'audiencia/referencia-integraciones' },
 					],
 				},
 				{
 					label: 'Suscripciones',
 					items: [
-						{ label: 'Crea un formulario de suscripción', slug: 'suscripciones/crear-formulario', badge: { text: 'Nuevo', variant: 'tip' } },
-						{ label: 'Crea tu primera suscripción', slug: 'suscripciones/tu-primera-suscripcion', badge: { text: 'Nuevo', variant: 'tip' } },
-						{ label: 'Referencia de suscripciones', slug: 'suscripciones/referencia', badge: { text: 'Nuevo', variant: 'tip' } },
-						{ label: 'Para qué sirven las suscripciones', slug: 'suscripciones/para-que-sirven', badge: { text: 'Nuevo', variant: 'tip' } },
+						{ label: 'Crea un formulario de suscripción', slug: 'suscripciones/crear-formulario' },
+						{ label: 'Crea tu primera suscripción', slug: 'suscripciones/tu-primera-suscripcion' },
+						{ label: 'Referencia de suscripciones', slug: 'suscripciones/referencia' },
+						{ label: 'Para qué sirven las suscripciones', slug: 'suscripciones/para-que-sirven' },
 					],
 				},
 				{
 					label: 'Segmentación',
 					items: [
-						{ label: 'Crea tu primer segmento', slug: 'segmentacion/tu-primer-segmento', badge: { text: 'Nuevo', variant: 'tip' } },
+						{ label: 'Crea tu primer segmento', slug: 'segmentacion/tu-primer-segmento' },
 						{
 							label: 'Motor de Segmentación',
 							items: [
@@ -310,13 +336,12 @@ export default defineConfig({
 				{
 					label: 'Campañas',
 					items: [
-						{ label: 'Crear tu primera campaña', slug: 'campanas/crear-primera-campana', badge: { text: 'Nuevo', variant: 'tip' } },
-						{ label: 'Diseña plantillas de email', slug: 'campanas/plantillas-email', badge: { text: 'Nuevo', variant: 'tip' } },
-						{ label: 'Crea plantillas de WhatsApp', slug: 'campanas/plantillas-whatsapp', badge: { text: 'Nuevo', variant: 'tip' } },
-						{ label: 'Gestiona tus campañas', slug: 'campanas/gestionar-campanas', badge: { text: 'Nuevo', variant: 'tip' } },
+						{ label: 'Crear tu primera campaña', slug: 'campanas/crear-primera-campana' },
+						{ label: 'Diseña plantillas de email', slug: 'campanas/plantillas-email' },
+						{ label: 'Crea plantillas de WhatsApp', slug: 'campanas/plantillas-whatsapp' },
+						{ label: 'Gestiona tus campañas', slug: 'campanas/gestionar-campanas' },
 						{
 							label: 'Informe de campaña',
-							badge: { text: 'Nuevo', variant: 'tip' },
 							items: [
 								{ label: 'Interpretar los resultados', slug: 'campanas/informe/resultados' },
 								{ label: 'Consultar los rebotes', slug: 'campanas/informe/rebotes' },
@@ -325,37 +350,40 @@ export default defineConfig({
 								{ label: 'Quién abrió y clicó', slug: 'campanas/informe/aperturas-y-clics' },
 							],
 						},
-						{ label: 'Buenas prácticas para tus campañas', slug: 'campanas/mejores-practicas', badge: { text: 'Nuevo', variant: 'tip' } },
-						{ label: 'Referencia de campañas', slug: 'campanas/referencia', badge: { text: 'Nuevo', variant: 'tip' } },
+						{ label: 'Buenas prácticas para tus campañas', slug: 'campanas/mejores-practicas' },
+						{ label: 'Referencia de campañas', slug: 'campanas/referencia' },
 					],
 				},
 				{
 					label: 'Paid Media',
 					items: [
-						{ label: 'Conecta tus cuentas y entiende el panel', slug: 'paid-media/introduccion', badge: { text: 'Nuevo', variant: 'tip' } },
-						{ label: 'Tu primer vistazo a Paid Media', slug: 'paid-media/primer-vistazo', badge: { text: 'Nuevo', variant: 'tip' } },
-						{ label: 'Sincroniza un segmento como audiencia', slug: 'paid-media/sincroniza-un-segmento-como-audiencia', badge: { text: 'Nuevo', variant: 'tip' } },
-						{ label: 'Referencia de Paid Media', slug: 'paid-media/referencia', badge: { text: 'Nuevo', variant: 'tip' } },
-						{ label: 'Referencia de audiencias personalizadas', slug: 'paid-media/referencia-audiencias', badge: { text: 'Nuevo', variant: 'tip' } },
-						{ label: 'Qué es Paid Media', slug: 'paid-media/que-es', badge: { text: 'Nuevo', variant: 'tip' } },
-						{ label: 'Qué es una audiencia personalizada', slug: 'paid-media/que-es-una-audiencia-personalizada', badge: { text: 'Nuevo', variant: 'tip' } },
+						{ label: 'Conecta tus cuentas y entiende el panel', slug: 'paid-media/introduccion' },
+						{ label: 'Tu primer vistazo a Paid Media', slug: 'paid-media/primer-vistazo' },
+						{ label: 'Sincroniza un segmento como audiencia', slug: 'paid-media/sincroniza-un-segmento-como-audiencia' },
+						{ label: 'Comprueba que tus ventas llegan a Meta', slug: 'paid-media/conversiones-de-meta' , badge: { text: 'Nuevo', variant: 'tip' } },
+						{ label: 'Por qué tu CPA real no es el que ves en Meta', slug: 'paid-media/por-que-tu-cpa-real-no-es-el-que-ves-en-meta' , badge: { text: 'Nuevo', variant: 'tip' } },
+						{ label: 'Referencia de Paid Media', slug: 'paid-media/referencia' },
+						{ label: 'Referencia de audiencias personalizadas', slug: 'paid-media/referencia-audiencias' },
+						{ label: 'Qué es Paid Media', slug: 'paid-media/que-es' },
+						{ label: 'Qué es una audiencia personalizada', slug: 'paid-media/que-es-una-audiencia-personalizada' },
 					],
 				},
 				{
 					label: 'Experiencias',
 					items: [
-						{ label: 'Analytics de tu evento', slug: 'experiencias/analytics', badge: { text: 'Nuevo', variant: 'tip' } },
-						{ label: 'El perfil musical de tu evento', slug: 'experiencias/perfil-musical', badge: { text: 'Nuevo', variant: 'tip' } },
-						{ label: 'Recorre tus experiencias', slug: 'experiencias/recorre-tus-experiencias', badge: { text: 'Nuevo', variant: 'tip' } },
+						{ label: 'Analytics de tu evento', slug: 'experiencias/analytics' },
+						{ label: 'El perfil musical de tu evento', slug: 'experiencias/perfil-musical' },
+						{ label: 'Recorre tus experiencias', slug: 'experiencias/recorre-tus-experiencias' },
 						{ label: 'Listas de espera', slug: 'experiencias/listas-de-espera', badge: { text: 'Nuevo', variant: 'tip' } },
-						{ label: 'Referencia de experiencias', slug: 'experiencias/referencia', badge: { text: 'Nuevo', variant: 'tip' } },
-						{ label: 'Qué son las experiencias', slug: 'experiencias/que-son-las-experiencias', badge: { text: 'Nuevo', variant: 'tip' } },
+						{ label: 'Referencia de experiencias', slug: 'experiencias/referencia' },
+						{ label: 'Qué son las experiencias', slug: 'experiencias/que-son-las-experiencias' },
 					],
 				},
 				{
 					label: 'Analítica',
 					items: [
-						{ label: 'Tu primer análisis', slug: 'analitica/tu-primer-analisis', badge: { text: 'Nuevo', variant: 'tip' } },
+						{ label: 'Tu primer análisis', slug: 'analitica/tu-primer-analisis' },
+						{ label: 'Qué mide el panel de Inicio', slug: 'analitica/tu-panel-de-inicio' },
 						{ label: 'Catálogo', slug: 'analitica' },
 						{ label: 'Eventos y entradas', slug: 'analitica/eventos-y-entradas' },
 						{ label: 'Audiencia y fans', slug: 'analitica/audiencia' },
@@ -365,7 +393,7 @@ export default defineConfig({
 						{ label: 'Deliverability', slug: 'analitica/deliverability' },
 						{ label: 'Cómo agrupar y filtrar', slug: 'analitica/agrupar-y-filtrar' },
 						{ label: 'FAQ', slug: 'analitica/faq' },
-						{ label: 'Cómo entender la analítica', slug: 'analitica/como-entender-la-analitica', badge: { text: 'Nuevo', variant: 'tip' } },
+						{ label: 'Cómo entender la analítica', slug: 'analitica/como-entender-la-analitica' },
 						{
 							label: 'Casos prácticos',
 							collapsed: false,
@@ -385,57 +413,67 @@ export default defineConfig({
 				{
 					label: 'Herramientas',
 					items: [
-						{ label: 'Magic Links', slug: 'herramientas/magic-links', badge: { text: 'Nuevo', variant: 'tip' } },
-						{ label: 'Crea tu primer magic link', slug: 'herramientas/tu-primer-magic-link', badge: { text: 'Nuevo', variant: 'tip' } },
-						{ label: 'Un enlace por canal', slug: 'herramientas/un-enlace-por-canal', badge: { text: 'Nuevo', variant: 'tip' } },
-						{ label: 'Referencia de magic links', slug: 'herramientas/referencia-magic-links', badge: { text: 'Nuevo', variant: 'tip' } },
-						{ label: 'Qué son los magic links', slug: 'herramientas/que-son-los-magic-links', badge: { text: 'Nuevo', variant: 'tip' } },
+						{ label: 'Magic Links', slug: 'herramientas/magic-links' },
+						{ label: 'Crea tu primer magic link', slug: 'herramientas/tu-primer-magic-link' },
+						{ label: 'Un enlace por canal', slug: 'herramientas/un-enlace-por-canal' },
+						{ label: 'Referencia de magic links', slug: 'herramientas/referencia-magic-links' },
+						{ label: 'Qué son los magic links', slug: 'herramientas/que-son-los-magic-links' },
 					],
 				},
 				{
 					label: 'Chatbot',
 					items: [
-						{ label: 'Pon en marcha tu chatbot', slug: 'chatbot/pon-en-marcha-tu-chatbot', badge: { text: 'Nuevo', variant: 'tip' } },
-						{ label: 'Configura tu chatbot', slug: 'chatbot/configuracion', badge: { text: 'Nuevo', variant: 'tip' } },
-						{ label: 'Gestiona la bandeja de entrada', slug: 'chatbot/bandeja-de-entrada', badge: { text: 'Nuevo', variant: 'tip' } },
-						{ label: 'Referencia del chatbot', slug: 'chatbot/referencia', badge: { text: 'Nuevo', variant: 'tip' } },
-						{ label: 'Cómo funciona el chatbot', slug: 'chatbot/como-funciona', badge: { text: 'Nuevo', variant: 'tip' } },
+						{ label: 'Pon en marcha tu chatbot', slug: 'chatbot/pon-en-marcha-tu-chatbot' },
+						{ label: 'Configura tu chatbot', slug: 'chatbot/configuracion' },
+						{ label: 'Configura la voz de tu asistente', slug: 'chatbot/voz-del-asistente' },
+						{ label: 'Gestiona la bandeja de entrada', slug: 'chatbot/bandeja-de-entrada' },
+						{ label: 'Trazabilidad de enlaces y rendimiento', slug: 'chatbot/trazabilidad-de-enlaces' },
+						{ label: 'Referencia del chatbot', slug: 'chatbot/referencia' },
+						{ label: 'Cómo funciona el chatbot', slug: 'chatbot/como-funciona' },
 					],
 				},
 				{
 					label: 'Superapp',
 					items: [
-						{ label: 'La Superapp', slug: 'superapp/introduccion', badge: { text: 'Nuevo', variant: 'tip' } },
-						{ label: 'Primeros pasos con la Superapp', slug: 'superapp/primeros-pasos', badge: { text: 'Nuevo', variant: 'tip' } },
-						{ label: 'Referencia de la Superapp', slug: 'superapp/referencia', badge: { text: 'Nuevo', variant: 'tip' } },
-						{ label: 'Qué es la Superapp', slug: 'superapp/que-es', badge: { text: 'Nuevo', variant: 'tip' } },
+						{ label: 'La Superapp', slug: 'superapp/introduccion' },
+						{ label: 'Primeros pasos con la Superapp', slug: 'superapp/primeros-pasos' },
+						{ label: 'Referencia de la Superapp', slug: 'superapp/referencia' },
+						{ label: 'Qué es la Superapp', slug: 'superapp/que-es' },
+					],
+				},
+				{
+					label: 'Organización',
+					items: [
+						{ label: 'Consulta y crea la estructura de tu organización', slug: 'organizacion/estructura-de-tu-organizacion' , badge: { text: 'Nuevo', variant: 'tip' } },
+						{ label: 'Los tres niveles de una organización', slug: 'organizacion/que-son-los-tres-niveles' , badge: { text: 'Nuevo', variant: 'tip' } },
+						{ label: 'Añade usuarios a tu organización', slug: 'organizacion/invita-a-tu-equipo' , badge: { text: 'Nuevo', variant: 'tip' } },
 					],
 				},
 				{
 					label: 'Consumo',
 					items: [
-						{ label: 'Tu plan de uso', slug: 'consumo/plan-de-uso', badge: { text: 'Nuevo', variant: 'tip' } },
-						{ label: 'Consulta tu plan y consumo', slug: 'consumo/consulta-tu-plan', badge: { text: 'Nuevo', variant: 'tip' } },
-						{ label: 'Referencia de plan y facturación', slug: 'consumo/referencia', badge: { text: 'Nuevo', variant: 'tip' } },
-						{ label: 'Cómo funcionan los créditos', slug: 'consumo/como-funcionan-los-creditos', badge: { text: 'Nuevo', variant: 'tip' } },
+						{ label: 'Tu plan de uso', slug: 'consumo/plan-de-uso' },
+						{ label: 'Consulta tu plan y consumo', slug: 'consumo/consulta-tu-plan' },
+						{ label: 'Referencia de plan y facturación', slug: 'consumo/referencia' },
+						{ label: 'Cómo funcionan los créditos', slug: 'consumo/como-funcionan-los-creditos' },
 					],
 				},
 				{
 					label: 'Entregabilidad y canales',
 					items: [
-						{ label: 'Activa tus canales', slug: 'entregabilidad/activar-canales', badge: { text: 'Nuevo', variant: 'tip' } },
-						{ label: 'Configura tu dominio dedicado', slug: 'entregabilidad/dominio-dedicado', badge: { text: 'Nuevo', variant: 'tip' } },
-						{ label: 'Ajustes de envío de emails', slug: 'entregabilidad/envio-de-emails', badge: { text: 'Nuevo', variant: 'tip' } },
-						{ label: 'Reputación de envío y spam', slug: 'entregabilidad/reputacion-y-spam', badge: { text: 'Nuevo', variant: 'tip' } },
-						{ label: 'Configura tu entrega de emails', slug: 'entregabilidad/configura-tu-entrega', badge: { text: 'Nuevo', variant: 'tip' } },
-						{ label: 'Referencia de entrega y dominio', slug: 'entregabilidad/referencia', badge: { text: 'Nuevo', variant: 'tip' } },
+						{ label: 'Activa tus canales', slug: 'entregabilidad/activar-canales' },
+						{ label: 'Configura tu dominio dedicado', slug: 'entregabilidad/dominio-dedicado' },
+						{ label: 'Ajustes de envío de emails', slug: 'entregabilidad/envio-de-emails' },
+						{ label: 'Reputación de envío y spam', slug: 'entregabilidad/reputacion-y-spam' },
+						{ label: 'Configura tu entrega de emails', slug: 'entregabilidad/configura-tu-entrega' },
+						{ label: 'Referencia de entrega y dominio', slug: 'entregabilidad/referencia' },
 					],
 				},
 				{
 					label: 'Nevent AI',
 					items: [
-						{ label: 'Qué es Nevent IA', slug: 'nevent-ai', badge: { text: 'Nuevo', variant: 'tip' } },
-						{ label: 'Primeros pasos', slug: 'nevent-ai/primeros-pasos', badge: { text: 'Nuevo', variant: 'tip' } },
+						{ label: 'Qué es Nevent IA', slug: 'nevent-ai' },
+						{ label: 'Primeros pasos', slug: 'nevent-ai/primeros-pasos' },
 						{ label: 'Conectar con Claude', slug: 'nevent-ai/conectar-claude' },
 						{ label: 'Conectar con ChatGPT', slug: 'nevent-ai/conectar-chatgpt' },
 						{
@@ -690,6 +728,7 @@ export default defineConfig({
 					items: [
 						{ label: 'Understanding analytics', link: '/en/analytics/understanding-analytics/' },
 						{ label: 'Your first analysis', link: '/en/analytics/your-first-analysis/' },
+						{ label: 'What the Home dashboard measures', link: '/en/analytics/your-home-dashboard/' },
 						{ label: 'Catalog', link: '/en/analytics/' },
 						{ label: 'Events and tickets', link: '/en/analytics/events-and-tickets/' },
 						{ label: 'Audience', link: '/en/analytics/audience/' },
@@ -777,11 +816,21 @@ export default defineConfig({
 				// Custom Head injects JSON-LD structured data (Organization, TechArticle,
 				// FAQPage, BreadcrumbList) and og:image meta tags on every page.
 				Head: './src/components/Head.astro',
+				// Sustituye los iconos sociales por la vuelta a nevent.ai. El de
+				// GitHub apuntaba a un repositorio inexistente (404) y no le sirve
+				// de nada a un cliente.
+				SocialIcons: './src/components/SocialIcons.astro',
+				// Conserva el pie de Starlight (paginación, edición, fecha) y
+				// añade debajo el de nevent.ai.
+				Footer: './src/components/Footer.astro',
 			},
 
 			// Customización de UI
 			customCss: [
 				'./src/styles/nevent-tokens.css',
+				// Tokens de nevent.ai que consumen los componentes portados.
+				'./src/styles/nevent-web-tokens.css',
+				'./src/styles/nevent-ds-theme.css',
 				'./src/styles/custom.css',
 				'./src/styles/nevent-theme.css',
 			],
@@ -804,6 +853,6 @@ export default defineConfig({
 		// fallback-page "Copy Markdown" links and /en/en/ double prefixes so that
 		// no internal URL relies on Starlight's naive /en/ prefix swap (ES and EN
 		// trees use different slugs). See scripts/fix-i18n-links.mjs.
-		fixI18nLinks(), llmsEn(),
+		fixI18nLinks(), llmsEn(), kbIndex(),
 	],
 });

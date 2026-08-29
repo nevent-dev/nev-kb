@@ -1,0 +1,696 @@
+---
+/**
+ * Pie de nevent.ai, portado a la documentación.
+ *
+ * FUENTE DE VERDAD: nevent-web/src/components/Footer.astro.
+ *
+ * Tres adaptaciones respecto al original, no es copia literal:
+ *  - Los enlaces se absolutizan a nevent.ai. En el original son relativos y
+ *    aquí apuntarían a páginas que no existen en help.nevent.ai.
+ *  - Se quita el selector de idioma: la documentación ya tiene el suyo en la
+ *    cabecera y dos selectores en la misma página se contradicen.
+ *  - El feedback pasa de puntero encima a :focus-visible / :active, que es lo
+ *    que exige el guardián de estilo de este repositorio.
+ */
+const SITIO = 'https://nevent.ai';
+/**
+ * Footer Component
+ * 100% Astro native - zero Webflow CSS dependencies
+ * Uses 8px spacing system and CSS variables
+ */
+
+interface Props {
+  lang?: 'es' | 'en' | 'fr';
+  currentPath?: string;
+}
+
+const { lang = 'en', currentPath = '/' } = Astro.props;
+const currentYear = new Date().getFullYear();
+
+// Footer links data structure
+const footerData = {
+  solutions: {
+    title: lang === 'es' ? 'Soluciones' : lang === 'fr' ? 'Solutions' : 'Solutions',
+    links: [
+      {
+        href: `${SITIO}/${lang}${lang === 'es' ? '/soluciones/monetizar-base-datos-festivales' : '/solutions/monetize-festival-database'}`,
+        text: lang === 'es' ? 'Monetizar base de datos' : lang === 'fr' ? 'Monétiser la base de données' : 'Monetize database',
+        gtmLabel: 'Footer - Monetizar base de datos'
+      },
+      {
+        href: `${SITIO}/${lang}${lang === 'es' ? '/soluciones/segmentar-audiencia-eventos' : '/solutions/segment-event-audience'}`,
+        text: lang === 'es' ? 'Segmentar audiencia' : lang === 'fr' ? 'Segmenter l\'audience' : 'Segment audience',
+        gtmLabel: 'Footer - Segmentar audiencia'
+      },
+      {
+        href: `${SITIO}/${lang}${lang === 'es' ? '/soluciones/fidelizar-asistentes-eventos' : '/solutions/retain-event-attendees'}`,
+        text: lang === 'es' ? 'Fidelizar asistentes' : lang === 'fr' ? 'Fidéliser les participants' : 'Retain attendees',
+        gtmLabel: 'Footer - Fidelizar asistentes'
+      },
+      {
+        href: `${SITIO}/${lang}${lang === 'es' ? '/soluciones/comunicacion-omnicanal-eventos' : '/solutions/omnichannel-event-communication'}`,
+        text: lang === 'es' ? 'Comunicación omnicanal' : lang === 'fr' ? 'Communication omnicanale' : 'Omnichannel communication',
+        gtmLabel: 'Footer - Comunicación omnicanal'
+      },
+      {
+        href: `${SITIO}/${lang}${lang === 'es' ? '/soluciones/aumentar-asistencia-eventos' : '/solutions/increase-event-attendance'}`,
+        text: lang === 'es' ? 'Aumentar asistencia' : lang === 'fr' ? 'Augmenter la fréquentation' : 'Increase attendance',
+        gtmLabel: 'Footer - Aumentar asistencia'
+      },
+      {
+        href: `${SITIO}/${lang}${lang === 'es' ? '/soluciones/ganar-alcance' : '/solutions/gain-reach'}`,
+        text: lang === 'es' ? 'Ganar alcance específico' : lang === 'fr' ? 'Gagner en portée ciblée' : 'Gain specific reach',
+        gtmLabel: 'Footer - Ganar alcance'
+      },
+      {
+        href: `${SITIO}/${lang}${lang === 'es' ? '/soluciones/gestionar-multiples-eventos' : '/solutions/manage-multiple-events'}`,
+        text: lang === 'es' ? 'Gestionar múltiples eventos' : lang === 'fr' ? 'Gérer plusieurs événements' : 'Manage multiple events',
+        gtmLabel: 'Footer - Gestionar múltiples eventos'
+      }
+    ]
+  },
+  features: {
+    title: 'Features',
+    links: [
+      {
+        href: `${SITIO}/${lang}/features/nevent-ai`,
+        text: 'Nevent AI',
+        gtmLabel: 'Footer - Nevent AI'
+      },
+      {
+        href: `${SITIO}/${lang}${lang === 'es' ? '/crm-para-eventos' : '/crm-for-events'}`,
+        text: lang === 'es' ? 'CRM para eventos' : lang === 'fr' ? 'CRM pour événements' : 'CRM for events',
+        gtmLabel: 'Footer - CRM para eventos'
+      },
+      {
+        href: `${SITIO}/${lang}/features/email-marketing`,
+        text: 'Email Marketing',
+        gtmLabel: 'Footer - Email Marketing'
+      },
+      {
+        href: `${SITIO}/${lang}/features/sms-marketing`,
+        text: 'SMS Marketing',
+        gtmLabel: 'Footer - SMS Marketing'
+      },
+      {
+        href: `${SITIO}/${lang}/features/whatsapp-marketing`,
+        text: 'WhatsApp Marketing',
+        gtmLabel: 'Footer - WhatsApp Marketing'
+      },
+      {
+        href: `${SITIO}/${lang}/features/push-marketing`,
+        text: 'Push Marketing',
+        gtmLabel: 'Footer - Push Marketing'
+      },
+      {
+        href: `${SITIO}/${lang}/features/ai-chatbot`,
+        text: lang === 'es' ? 'Chatbot IA' : lang === 'fr' ? 'Chatbot IA' : 'AI Chatbot',
+        gtmLabel: 'Footer - Chatbot IA'
+      },
+      {
+        href: `${SITIO}/${lang}/features/event-analytics`,
+        text: 'Analytics',
+        gtmLabel: 'Footer - Analytics'
+      },
+      {
+        href: `${SITIO}/${lang}/features/marketing-attribution`,
+        text: lang === 'es' ? 'Atribución de marketing' : lang === 'fr' ? 'Attribution marketing' : 'Marketing Attribution',
+        gtmLabel: 'Footer - Marketing Attribution'
+      },
+      {
+        href: `${SITIO}/${lang}/features/paid-media`,
+        text: 'Paid Media',
+        gtmLabel: 'Footer - Paid Media'
+      },
+      {
+        href: `${SITIO}/${lang}/features/superapp`,
+        text: 'Superapp',
+        gtmLabel: 'Footer - Superapp'
+      },
+      {
+        href: `${SITIO}/${lang}${lang === 'es' ? '/integraciones' : '/integrations'}`,
+        text: lang === 'es' ? 'Integraciones' : lang === 'fr' ? 'Intégrations' : 'Integrations',
+        gtmLabel: 'Footer - Integraciones'
+      }
+    ]
+  },
+  industries: {
+    title: lang === 'es' ? 'Nevent para' : lang === 'fr' ? 'Nevent pour' : 'Nevent for',
+    links: [
+      {
+        href: `${SITIO}/${lang}/industries/festivales`,
+        text: lang === 'es' ? 'Festivales' : lang === 'fr' ? 'Festivals' : 'Festivals',
+        gtmLabel: 'Footer - Festivales'
+      },
+      {
+        href: `${SITIO}/${lang}/industries/salas-clubs`,
+        text: lang === 'es' ? 'Salas y clubs' : lang === 'fr' ? 'Salles et clubs' : 'Venues & Clubs',
+        gtmLabel: 'Footer - Salas y Clubs'
+      },
+      {
+        href: `${SITIO}/${lang}/industries/promotores`,
+        text: lang === 'es' ? 'Promotores' : lang === 'fr' ? 'Promoteurs' : 'Promoters',
+        gtmLabel: 'Footer - Promotores'
+      },
+      {
+        href: `${SITIO}/${lang}/industries/deportes`,
+        text: lang === 'es' ? 'Deportes' : lang === 'fr' ? 'Sport' : 'Sports',
+        gtmLabel: 'Footer - Deportes'
+      },
+      {
+        href: `${SITIO}/${lang}/industries/espectaculos`,
+        text: lang === 'es' ? 'Espectáculos' : lang === 'fr' ? 'Spectacles' : 'Shows',
+        gtmLabel: 'Footer - Espectaculos'
+      },
+      {
+        href: `${SITIO}/${lang}/industries/ferias-conferencias`,
+        text: lang === 'es' ? 'Conferencias' : lang === 'fr' ? 'Conférences' : 'Conferences',
+        gtmLabel: 'Footer - Conferencias'
+      }
+    ]
+  },
+  resources: {
+    title: lang === 'es' ? 'Recursos' : lang === 'fr' ? 'Ressources' : 'Resources',
+    links: [
+      {
+        href: `${SITIO}/${lang}/resources/blog`,
+        text: 'Blog',
+        gtmLabel: 'Footer - Blog'
+      },
+      {
+        href: `${SITIO}/${lang}/resources/product-updates`,
+        text: lang === 'es' ? 'Novedades de Producto' : lang === 'fr' ? 'Actualités produit' : 'Product Updates',
+        gtmLabel: 'Footer - Product Updates'
+      },
+      {
+        href: `${SITIO}/${lang}${lang === 'es' ? '/simulador-ingresos-festivales' : '/revenue-simulator-festivals'}`,
+        text: lang === 'es' ? 'Calculadora de ingresos' : lang === 'fr' ? 'Calculateur de revenus' : 'Revenue Calculator',
+        gtmLabel: 'Footer - Calculadora de Ingresos'
+      },
+      {
+        // Directorio ES-only: enlace a nevent.ai sin prefijo de locale
+        href: `${SITIO}/es/agencias-marketing-eventos-ocio/`,
+        text: lang === 'es' ? 'Directorio de agencias' : lang === 'fr' ? 'Annuaire des agences' : 'Agency Directory',
+        gtmLabel: 'Footer - Directorio de agencias'
+      },
+      {
+        // Directorio ES + FR: enlace a nevent.ai por idioma (EN cae a la versión ES)
+        href: lang === 'fr'
+          ? `${SITIO}/fr/logiciels-billetterie/`
+          : `${SITIO}/es/plataformas-venta-entradas/`,
+        text: lang === 'es' ? 'Directorio de ticketeras' : lang === 'fr' ? 'Annuaire des billetteries' : 'Ticketing Directory',
+        gtmLabel: 'Footer - Directorio de ticketeras'
+      },
+      {
+        href: `${SITIO}/${lang}/partners`,
+        text: lang === 'es' ? 'Programa de partners' : lang === 'fr' ? 'Programme partenaires' : 'Partner Program',
+        gtmLabel: 'Footer - Programa de partners'
+      },
+      {
+        href: 'https://help.nevent.ai',
+        text: 'Help Center',
+        gtmLabel: 'Footer - Help Center',
+        external: true
+      },
+      {
+        href: `${SITIO}/${lang}/api/connect`,
+        text: 'Connect API',
+        gtmLabel: 'Footer - Connect API'
+      },
+      {
+        href: `${SITIO}/${lang}/api/audience`,
+        text: 'Audience API',
+        gtmLabel: 'Footer - Audience API'
+      },
+      {
+        href: 'mailto:support@nevent.ai',
+        text: lang === 'es' ? 'Contacta' : lang === 'fr' ? 'Contact' : 'Contact',
+        gtmLabel: 'Footer - Contacta'
+      },
+      {
+        href: `${SITIO}/${lang}/company/press-media`,
+        text: lang === 'es' ? 'Prensa y medios' : lang === 'fr' ? 'Presse et médias' : 'Press & Media',
+        gtmLabel: 'Footer - Press Media'
+      }
+    ]
+  },
+  comparisons: {
+    title: lang === 'es' ? 'Comparativa' : lang === 'fr' ? 'Comparatif' : 'Comparisons',
+    links: [
+      { href: `${SITIO}/${lang}/vs/mailchimp`, text: 'Nevent vs Mailchimp', gtmLabel: 'Footer - Nevent vs Mailchimp' },
+      { href: `${SITIO}/${lang}/vs/brevo`, text: 'Nevent vs Brevo', gtmLabel: 'Footer - Nevent vs Brevo' },
+      { href: `${SITIO}/${lang}/vs/accumbamail`, text: 'Nevent vs Accumbamail', gtmLabel: 'Footer - Nevent vs Accumbamail' },
+      { href: `${SITIO}/${lang}/vs/mailerlite`, text: 'Nevent vs MailerLite', gtmLabel: 'Footer - Nevent vs MailerLite' },
+      { href: `${SITIO}/${lang}/vs/hubspot`, text: 'Nevent vs HubSpot', gtmLabel: 'Footer - Nevent vs HubSpot' },
+      { href: `${SITIO}/${lang}/vs/salesforce`, text: 'Nevent vs Salesforce', gtmLabel: 'Footer - Nevent vs Salesforce' },
+      { href: `${SITIO}/${lang}/vs/cvent`, text: 'Nevent vs Cvent', gtmLabel: 'Footer - Nevent vs Cvent' }
+    ]
+  }
+};
+
+const socialLinks = [
+  { href: 'https://www.instagram.com/nevent.ai/', icon: 'instagram', label: 'Instagram' },
+  { href: 'https://www.linkedin.com/company/nevent/', icon: 'linkedin', label: 'LinkedIn' },
+  { href: 'https://x.com/nevent_es', icon: 'twitter', label: 'X (Twitter)' },
+  { href: 'https://www.crunchbase.com/organization/nevent', icon: 'square-xing', label: 'Crunchbase' }
+];
+
+const legalLinks = [
+  { href: `${SITIO}/${lang}/terms`, text: lang === 'es' ? 'Términos' : lang === 'fr' ? 'Conditions d\'utilisation' : 'Terms' },
+  { href: `${SITIO}/${lang}/privacy`, text: lang === 'es' ? 'Privacidad' : lang === 'fr' ? 'Confidentialité' : 'Privacy' },
+  { href: `${SITIO}/${lang}/dpa`, text: 'Data Processing Agreement (DPA)' },
+  { href: `${SITIO}/${lang}/cookies`, text: 'Cookies' },
+  { href: `${SITIO}/${lang}/legal-notice`, text: lang === 'es' ? 'Aviso Legal' : lang === 'fr' ? 'Mentions légales' : 'Legal Notice' }
+];
+---
+
+<footer class="footer">
+  <div class="footer-container">
+    <!-- Main Footer Content -->
+    <div class="footer-main">
+      <!-- Logo Column -->
+      <div class="footer-logo-col">
+        <a href={`${SITIO}/${lang}`} class="footer-logo-link" aria-label="Nevent Home">
+          <img
+            src="/assets/img/simbolo_blanco.svg"
+            alt="Nevent Logo"
+            width="32"
+            height="32"
+            loading="lazy"
+          />
+        </a>
+      </div>
+
+      <!-- Navigation Columns -->
+      <nav class="footer-nav" aria-label="Footer Navigation">
+        <!-- Solutions -->
+        <div class="footer-col">
+          <h3 class="footer-heading">{footerData.solutions.title}</h3>
+          <ul class="footer-list" role="list">
+            {footerData.solutions.links.map(link => (
+              <li>
+                <a
+                  href={link.href}
+                  class="footer-link"
+                  data-gtm-category="Navigation"
+                  data-gtm-action="click"
+                  data-gtm-label={link.gtmLabel}
+                >
+                  {link.text}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Features -->
+        <div class="footer-col">
+          <h3 class="footer-heading">{footerData.features.title}</h3>
+          <ul class="footer-list" role="list">
+            {footerData.features.links.map(link => (
+              <li>
+                <a
+                  href={link.href}
+                  class="footer-link"
+                  data-gtm-category="Navigation"
+                  data-gtm-action="click"
+                  data-gtm-label={link.gtmLabel}
+                >
+                  {link.text}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Industries -->
+        <div class="footer-col">
+          <h3 class="footer-heading">{footerData.industries.title}</h3>
+          <ul class="footer-list" role="list">
+            {footerData.industries.links.map(link => (
+              <li>
+                <a
+                  href={link.href}
+                  class="footer-link"
+                  data-gtm-category="Navigation"
+                  data-gtm-action="click"
+                  data-gtm-label={link.gtmLabel}
+                >
+                  {link.text}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Resources -->
+        <div class="footer-col">
+          <h3 class="footer-heading">{footerData.resources.title}</h3>
+          <ul class="footer-list" role="list">
+            {footerData.resources.links.map(link => (
+              <li>
+                <a
+                  href={link.href}
+                  class="footer-link"
+                  {...(link.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                  data-gtm-category="Navigation"
+                  data-gtm-action="click"
+                  data-gtm-label={link.gtmLabel}
+                >
+                  {link.text}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Comparisons -->
+        <div class="footer-col">
+          <h3 class="footer-heading">{footerData.comparisons.title}</h3>
+          <ul class="footer-list" role="list">
+            {footerData.comparisons.links.map(link => (
+              <li>
+                <a
+                  href={link.href}
+                  class="footer-link"
+                  data-gtm-category="Navigation"
+                  data-gtm-action="click"
+                  data-gtm-label={link.gtmLabel}
+                >
+                  {link.text}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+    <!-- Legal Links & Social Icons Row -->
+    <div class="footer-bottom-row">
+      <!-- Left Side: Language Switcher + Legal Links -->
+      <div class="footer-legal-wrapper">
+        <div class="footer-legal">
+          {legalLinks.map(link => (
+            <a
+              href={link.href}
+              class={`footer-legal-link ${link.className || ''}`}
+            >
+              {link.text}
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <!-- Right Side: Social Links -->
+      <div class="footer-social-wrapper">
+        {socialLinks.map(social => (
+          <a
+            href={social.href}
+            class="footer-social-link"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={social.label}
+          >
+            <i class={`fa-brands fa-${social.icon}`} aria-hidden="true"></i>
+          </a>
+        ))}
+      </div>
+    </div>
+
+    <!-- Copyright -->
+    <div class="footer-copyright">
+      © {currentYear} Nevent. {lang === 'es' ? 'Todos los derechos reservados.' : lang === 'fr' ? 'Tous droits réservés.' : 'All rights reserved.'}
+    </div>
+
+    <!-- Cookie Settings Button -->
+    <div class="footer-cookie-settings">
+      <button
+        type="button"
+        id="hs_show_banner_button"
+        class="cookie-settings-btn"
+        onclick="(function(){ var _hsp = window._hsp = window._hsp || []; _hsp.push(['showBanner']); })()"
+      >
+        Cookie Settings
+      </button>
+    </div>
+  </div>
+</footer>
+
+<style>
+  /* ========================================
+     FOOTER - 100% NATIVE ASTRO STYLES
+     Zero Webflow dependencies
+     ======================================== */
+
+  .footer {
+    background: var(--nevent-black, var(--nevent-black));
+    color: white;
+    padding: var(--spacing-10) 0 var(--spacing-6) 0; /* 80px top, 48px bottom */
+  }
+
+  .footer-container {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding-left: var(--spacing-3); /* 24px */
+    padding-right: var(--spacing-3); /* 24px */
+  }
+
+  @media (max-width: 767px) {
+    .footer-container {
+      padding-left: var(--spacing-2); /* 16px */
+      padding-right: var(--spacing-2); /* 16px */
+    }
+  }
+
+  /* Main Footer Grid */
+  .footer-main {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: var(--spacing-8); /* 64px */
+    margin-bottom: var(--spacing-8); /* 64px */
+  }
+
+  @media (max-width: 991px) {
+    .footer-main {
+      grid-template-columns: 1fr;
+      gap: var(--spacing-6); /* 48px */
+    }
+  }
+
+  /* Logo Column */
+  .footer-logo-col {
+    display: flex;
+    align-items: flex-start;
+  }
+
+  .footer-logo-link {
+    display: inline-block;
+    transition: opacity var(--motion-duration-base) ease;
+  }
+
+  .footer-logo-link:focus-visible, .footer-logo-link:active {
+    opacity: 0.8;
+  }
+
+  .footer-logo-link img {
+    display: block;
+  }
+
+  /* Navigation Grid */
+  .footer-nav {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: var(--spacing-6); /* 48px */
+  }
+
+  @media (max-width: 991px) {
+    .footer-nav {
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--spacing-5); /* 40px */
+    }
+  }
+
+  @media (max-width: 479px) {
+    .footer-nav {
+      grid-template-columns: 1fr;
+      gap: var(--spacing-4); /* 32px */
+    }
+  }
+
+  .footer-col {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .footer-heading {
+    color: var(--nevent-magenta);
+    background: color-mix(in srgb, var(--nevent-magenta) 10%, transparent);
+    font-size: 0.75rem; /* 12px */
+    font-weight: 600;
+    padding: var(--spacing-1) var(--spacing-2); /* 8px 16px */
+    border-radius: var(--spacing-3); /* 24px */
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: var(--spacing-3); /* 24px */
+    display: inline-block;
+    width: fit-content;
+  }
+
+  .footer-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-2); /* 16px */
+  }
+
+  .footer-link {
+    color: color-mix(in srgb, var(--color-text-white) 80%, transparent);
+    font-size: 0.9375rem; /* 15px */
+    text-decoration: none;
+    transition: color var(--motion-duration-base) ease;
+    display: inline-block;
+  }
+
+  .footer-link:focus-visible, .footer-link:active {
+    color: white;
+  }
+
+  /* Bottom Row - Legal Links & Social Icons */
+  .footer-bottom-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--spacing-4); /* 32px */
+    padding-top: var(--spacing-4); /* 32px */
+    padding-bottom: var(--spacing-4); /* 32px */
+    border-top: 1px solid color-mix(in srgb, var(--color-text-white) 10%, transparent);
+    border-bottom: 1px solid color-mix(in srgb, var(--color-text-white) 10%, transparent);
+    margin-bottom: var(--spacing-4); /* 32px */
+  }
+
+  @media (max-width: 767px) {
+    .footer-bottom-row {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--spacing-3); /* 24px */
+    }
+  }
+
+  /* Legal Wrapper - Language Switcher + Legal Links */
+  .footer-legal-wrapper {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-4); /* 32px */
+    flex-wrap: wrap;
+  }
+
+  @media (max-width: 767px) {
+    .footer-legal-wrapper {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--spacing-3); /* 24px */
+      width: 100%;
+    }
+  }
+
+  /* Legal Links */
+  .footer-legal {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-2) var(--spacing-4); /* 16px vertical, 32px horizontal */
+    align-items: center;
+  }
+
+  @media (max-width: 479px) {
+    .footer-legal {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--spacing-2); /* 16px */
+    }
+  }
+
+  /* Social Links */
+  .footer-social-wrapper {
+    display: flex;
+    gap: var(--spacing-2); /* 16px */
+    align-items: center;
+  }
+
+  .footer-social-link {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: color-mix(in srgb, var(--color-text-white) 10%, transparent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.125rem;
+    transition: all var(--motion-duration-base) ease;
+    text-decoration: none;
+  }
+
+  .footer-social-link:focus-visible, .footer-social-link:active {
+    background: var(--nevent-magenta, var(--nevent-magenta));
+    transform: translateY(-2px);
+  }
+
+  .footer-legal-link {
+    color: color-mix(in srgb, var(--color-text-white) 60%, transparent);
+    font-size: 0.875rem; /* 14px */
+    text-decoration: none;
+    transition: color var(--motion-duration-base) ease;
+  }
+
+  .footer-legal-link:focus-visible, .footer-legal-link:active {
+    color: white;
+  }
+
+  .footer-legal-link.country {
+    color: color-mix(in srgb, var(--color-text-white) 80%, transparent);
+    font-weight: 600;
+  }
+
+  /* Copyright */
+  .footer-copyright {
+    color: color-mix(in srgb, var(--color-text-white) 60%, transparent);
+    font-size: 0.875rem; /* 14px */
+    margin-bottom: var(--spacing-3); /* 24px */
+    text-align: left;
+  }
+
+  @media (max-width: 479px) {
+    .footer-copyright {
+      font-size: 0.8125rem; /* 13px */
+    }
+  }
+
+  /* Cookie Settings */
+  .footer-cookie-settings {
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  .cookie-settings-btn {
+    background-color: var(--nevent-magenta);
+    border: 1px solid var(--nevent-magenta);
+    border-radius: 3px;
+    padding: 10px 16px;
+    color: var(--color-text-white);
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: normal;
+    line-height: inherit;
+    text-align: center;
+    cursor: pointer;
+    transition: all var(--motion-duration-base) ease;
+  }
+
+  .cookie-settings-btn:focus-visible, .cookie-settings-btn:active {
+    background-color: var(--nevent-medium-orchid, var(--nevent-medium-orchid));
+    border-color: var(--nevent-medium-orchid, var(--nevent-medium-orchid));
+  }
+</style>

@@ -1,0 +1,98 @@
+---
+title: "Comprueba que tus ventas llegan a Meta"
+diataxis: how-to
+description: "Revisa en Nevent qué campañas de Meta te venden entradas de verdad, comprueba que tus ventas se están enviando y entiende qué hacer si algo no cuadra."
+sidebar:
+  order: 12
+faqs:
+  - q: "¿Tengo que activar algo para que mis ventas se envíen a Meta?"
+    a: "No. En cuanto tu cuenta de Meta Ads está conectada en Configuración → Paid Ads, Nevent empieza a enviar las ventas elegibles por su cuenta. La pantalla de Conversiones es para comprobarlo y leer el resultado, no para encenderlo."
+  - q: "¿Esto funciona también con TikTok y Google Ads?"
+    a: "Todavía no. El envío de ventas solo está disponible para Meta. Con TikTok Ads y Google Ads puedes conectar la cuenta y sincronizar audiencias, pero sus campañas no reciben de vuelta tus ventas."
+  - q: "El envío aparece como correcto pero las ventas atribuidas están a cero. ¿Está roto?"
+    a: "No necesariamente. Que Meta acepte una venta significa que la ha recibido bien; para atribuirla a una campaña necesita además poder relacionarla con alguien que vio o pulsó tu anuncio. Al principio es normal ver envíos aceptados y atribución todavía a cero."
+  - q: "¿Se envían también las entradas que no vende el anuncio?"
+    a: "Sí. Se envía cada venta elegible, venda quien venda la entrada. Es precisamente lo que permite que Meta compare y se quede con las que sí puede atribuir a una campaña suya."
+  - q: "¿Qué datos personales de mis compradores salen de Nevent?"
+    a: "Los datos que sirven para que Meta reconozca a la persona viajan con hash irreversible (SHA-256), es decir, convertidos en una huella que no se puede deshacer. Solo los identificadores de clic viajan tal cual, porque Meta lo exige así."
+---
+
+import YouTube from '../../../components/YouTube.astro';
+
+<YouTube id="-NjMBPBDaPc" title="API de conversiones de Meta en Nevent: mide el ROAS real de tus anuncios" />
+
+Cuando tu cuenta de Meta está conectada, Nevent le devuelve tus ventas de entradas para que Meta pueda decirte qué campañas venden de verdad y no solo cuáles consiguen clics.
+
+En esta guía compruebas que ese envío está funcionando y aprendes a leer la pantalla que lo resume. Unos 5 minutos.
+
+## Antes de empezar
+
+Necesitas la cuenta de **Meta Ads conectada**. Lo compruebas en el paso 1.
+
+No hay nada que activar: si Meta está conectado, el envío ya está en marcha.
+
+## Paso 1: Comprueba que Meta está conectado
+
+En el menú lateral, entra en **Configuración** y haz clic en **Paid Ads**.
+
+Verás una tarjeta por plataforma. La de **Meta Ads** debe mostrar el estado **Conectado**, con el nombre de la cuenta y cuándo fue la última sincronización.
+
+![Pantalla de Configuración Paid Ads en Nevent con Meta Ads en estado Conectado, la cuenta "Nevent - Ad account" y la última sincronización hace 14 minutos, junto a TikTok Ads y Google Ads en estado No conectado](/images/guias/paid-media/conversiones-de-meta/paso-0-ajustes-paid-ads-meta-conectado.png)
+
+TikTok Ads y Google Ads aparecen aquí también, pero **el envío de ventas hoy solo funciona con Meta**. Conectarlas te sirve para sincronizar audiencias y ver sus campañas, no para recibir de vuelta tus ventas.
+
+## Paso 2: Abre la pantalla de Conversiones
+
+En el menú lateral, entra en **Paid Ads** y desde ahí en **Conversiones**. También puedes ir directamente a `/paid-ads/conversions`.
+
+Arriba verás el estado de la conexión. Si pone **Conexión activa**, tus ventas se están enviando.
+
+![Pantalla de Conversiones de Nevent con el estado Conexión activa, los indicadores de Inversión publicitaria (282,62 euros), Ventas atribuidas (0,00 euros) y Retorno ROAS (0,00), y la tabla de rendimiento por campaña debajo](/images/guias/paid-media/conversiones-de-meta/paso-1-pantalla-conversiones.png)
+
+## Paso 3: Lee los tres indicadores
+
+La pantalla resume los **últimos 7 días** en tres números:
+
+- **Inversión publicitaria**: lo que te has gastado en anuncios en el periodo.
+- **Ventas atribuidas**: cuánto dinero en entradas ha generado esa inversión, según Meta.
+- **Retorno (ROAS)**: cuántos euros en entradas obtienes por cada euro invertido.
+
+Debajo tienes el desglose por campaña, con el gasto, las entradas vendidas y las ventas atribuidas de cada una, ordenado por retorno.
+
+Dos avisos que verás en la propia pantalla y conviene tomarse en serio:
+
+- Nevent necesita un **mínimo de 5 ventas por campaña** para comparar esa campaña con tu media.
+- Los datos pueden moverse hasta **7 días después del clic**, y Meta Ads Manager suele tardar todavía un poco más en reflejar la atribución completa.
+
+Es decir: no juzgues una campaña el primer día.
+
+## Paso 4: Comprueba el estado del envío
+
+Al pie de la pantalla aparece un resumen del tipo **"Envío correcto · 1 de 1 ventas aceptadas por Meta en las últimas 24 horas"**. Ese es el dato que te dice si la tubería funciona.
+
+Si quieres ver el detalle, pulsa **Ver detalle de envíos**. Solo necesitas esta vista si algo no cuadra.
+
+![Detalle de envíos a Meta desplegado en Nevent, con la lista de los 13 datos de coincidencia que se pueden enviar por venta, el aviso de hash SHA-256 y la tabla de registro con una compra aceptada el 27 de agosto](/images/guias/paid-media/conversiones-de-meta/paso-2-detalle-envios.png)
+
+Ahí encuentras:
+
+- **Los datos de coincidencia** que se envían por venta, hasta 13, según lo que sepas de cada comprador. Cuantos más tengas, más ventas podrá reconocer Meta.
+- **El registro venta a venta**, con su fecha, un identificador de la compra, el estado y el motivo si algo falló.
+- **Enviar evento de prueba**, que verifica la conexión ahí mismo sin que tengas que salir a Meta.
+
+## Si el envío es correcto pero las ventas atribuidas están a cero
+
+Es el caso más habitual al principio, y casi nunca es un fallo.
+
+Que Meta **acepte** una venta significa solo que la ha recibido y la entiende. Para **atribuirla** a una campaña necesita además reconocer a esa persona y relacionarla con un anuncio que vio o pulsó. Eso falla cuando:
+
+- **Faltan datos del comprador.** Con solo un email, Meta reconoce a menos gente que si además tiene teléfono, nombre o ciudad. Aquí ayuda tener la ticketera conectada en lugar de subir CSV.
+- **La venta no traía datos de campaña.** El identificador de clic solo existe si la compra llegó desde el anuncio. Las ventas de marketplaces no suelen traerlo.
+- **Todavía es pronto.** Recuerda la ventana de 7 días.
+- **La venta no la generó ningún anuncio.** Si esa entrada la vendiste por email o en taquilla, Meta la recibe, comprueba que no es suya y no la atribuye. Funciona como debe.
+
+Si el registro muestra ventas **rechazadas** con un motivo, ahí sí hay algo que corregir: escríbenos con ese motivo delante.
+
+## Qué hacer con esto
+
+Cuando lleves un par de semanas con datos, compara el retorno por campaña de esta pantalla con el que te da Meta Ads Manager. La diferencia entre ambos es justo lo que Meta no veía antes, y es la que te dice dónde estabas invirtiendo a ciegas. Lo explicamos en [por qué tu CPA real no es el que ves en Meta](/paid-media/por-que-tu-cpa-real-no-es-el-que-ves-en-meta).

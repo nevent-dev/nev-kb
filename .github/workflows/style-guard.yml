@@ -15,7 +15,17 @@ jobs:
           BASE="${{ github.event.pull_request.base.sha }}"; [ -z "$BASE" ] && BASE="${{ github.event.before }}"; [ -z "$BASE" ] && BASE=$(git rev-parse HEAD~1 2>/dev/null || echo "")
           if [ -n "$BASE" ]; then LIST=$(git diff --name-only --diff-filter=ACMR "$BASE"...HEAD | grep -E '\.(astro|css|scss|sass)$' | tr '\n' ' ' || true); else LIST=$(git ls-files | grep -E '\.(astro|css|scss|sass)$' | tr '\n' ' ' || true); fi
           echo "list=$LIST" >> "$GITHUB_OUTPUT"
-      - env: { FILE_LIST: "${{ steps.files.outputs.list }}" }
+      # Se ejecuta SIEMPRE, haya o no ficheros de estilo en el diff: la capa de
+      # integridad de marca no depende de lo que hayas tocado. Sin ficheros,
+      # el guard comprueba solo que los tokens de nevent.ai siguen intactos.
+      - name: guard
+        env: { FILE_LIST: "${{ steps.files.outputs.list }}" }
         run: |
-          IFS=' ' read -ra FILES <<< "$FILE_LIST"; [ ${#FILES[@]} -eq 0 ] && exit 0
+          IFS=' ' read -ra FILES <<< "$FILE_LIST"
           node scripts/style-guard.mjs "${FILES[@]}"
+      # Las propias reglas están cubiertas por tests: debilitar el guard para
+      # colar una violación también rompe el CI.
+      - name: tests del guard
+        run: |
+          npm ci --prefer-offline --no-audit --no-fund
+          npx vitest run scripts/style-guard.test.mjs

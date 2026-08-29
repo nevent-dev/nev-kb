@@ -1,0 +1,93 @@
+/*
+ * nevent-ds-theme.css — capa de tema del design system de nevent.ai.
+ *
+ * FUENTE DE VERDAD: nev-landing-nevent/nevent-web/src/styles/tokens.css,
+ * bloque "THEMING SEMÁNTICO". Copiado literalmente.
+ *
+ * Es la capa que consumen los componentes del sistema (DsFeatureTiles,
+ * DsFeatureCard y los mockups DsMock*): todos usan --t-* y ninguno declara
+ * colores propios. Al conmutar [data-theme] en <html> cambia el sistema entero
+ * sin tocar una sola regla de componente.
+ *
+ * Encaja tal cual con Starlight, que usa el mismo [data-theme='dark'].
+ *
+ * Si estos valores cambian en la web, se copian aquí. Nunca al revés.
+ */
+
+:root,
+:root[data-theme='light'] {
+	/* Primitivas de las que dependen los --t-* */
+	--surface-warm: #f6f6f3;
+	--surface-warm-2: #faf9f7;
+	--ink-900: #18181b;
+	--ink-700: #3f3f46;
+	--ink-500: #666666;
+	--ink-400: #8a8a90;
+	--hairline: #ebeae6;
+	--chip-lavender-bg: #efeafe;
+	--chip-lavender-fg: #7c3aed;
+
+	/* Alias que consumen los componentes del sistema. Las familias apuntan a la
+	   pila del sistema, que es lo que sirve nevent.ai (ver DESIGN-SYSTEM.md);
+	   los radios y la pastilla vienen de su tokens.css. */
+	--ds-font-heading: var(--font-display);
+	--ds-font-body: var(--font-body);
+	--radius-panel: 24px;
+	--radius-pill: 9999px;
+
+	/* Capa semántica */
+	--t-bg: var(--surface-warm-2);
+	--t-surface: #ffffff;
+	--t-surface-2: var(--surface-warm);
+	--t-heading: var(--ink-900);
+	--t-text: var(--ink-500);
+	--t-text-strong: var(--ink-700);
+	--t-muted: var(--ink-400);
+	--t-border: var(--hairline);
+	--t-border-strong: #dcdbd6;
+	--t-accent: var(--color-purple-500);
+	--t-accent-hover: var(--color-purple-600);
+	--t-on-accent: #ffffff;
+	--t-chip-bg: var(--chip-lavender-bg);
+	--t-field-bg: #ffffff;
+	--t-positive: #059669;
+	--t-positive-bg: #e7f6ef;
+
+	/* Elevación (6 niveles) */
+	--elevation-0: none;
+	--elevation-1: 0 1px 2px rgba(24, 24, 27, 0.06), 0 1px 3px rgba(24, 24, 27, 0.1);
+	--elevation-2: 0 4px 8px -2px rgba(24, 24, 27, 0.08), 0 2px 4px -1px rgba(24, 24, 27, 0.06);
+	--elevation-3: 0 12px 20px -6px rgba(24, 24, 27, 0.12), 0 4px 8px -3px rgba(24, 24, 27, 0.07);
+	--elevation-4: 0 20px 32px -8px rgba(24, 24, 27, 0.16), 0 8px 16px -6px rgba(24, 24, 27, 0.08);
+	--elevation-5: 0 32px 64px -12px rgba(24, 24, 27, 0.24);
+	--t-shadow: var(--elevation-1);
+	--t-shadow-lg: var(--elevation-3);
+}
+
+:root[data-theme='dark'] {
+	--t-bg: #141821;
+	--t-surface: #1f2431;
+	--t-surface-2: #1a1e2a;
+	--t-heading: #ffffff;
+	--t-text: rgba(255, 255, 255, 0.66);
+	--t-text-strong: rgba(255, 255, 255, 0.88);
+	--t-muted: rgba(255, 255, 255, 0.44);
+	--t-border: rgba(255, 255, 255, 0.12);
+	--t-border-strong: rgba(255, 255, 255, 0.22);
+	--t-accent: var(--color-purple-400);
+	--t-accent-hover: var(--color-purple-300);
+	--t-on-accent: #ffffff;
+	--t-chip-bg: rgba(166, 78, 255, 0.18);
+	--t-field-bg: rgba(255, 255, 255, 0.05);
+	--t-positive: #34d399;
+	--t-positive-bg: rgba(52, 211, 153, 0.16);
+
+	--elevation-0: none;
+	--elevation-1: 0 1px 2px rgba(0, 0, 0, 0.4);
+	--elevation-2: 0 4px 10px rgba(0, 0, 0, 0.45);
+	--elevation-3: 0 12px 24px rgba(0, 0, 0, 0.5);
+	--elevation-4: 0 20px 40px rgba(0, 0, 0, 0.6);
+	--elevation-5: 0 32px 64px rgba(0, 0, 0, 0.7);
+	--t-shadow: var(--elevation-1);
+	--t-shadow-lg: var(--elevation-3);
+}

@@ -1,0 +1,77 @@
+---
+/**
+ * DsMockData — mockup "tu audiencia es tuya, no de la ticketera ni de Meta".
+ * Fuentes dispersas (con logos reales) → base unificada en tu poder.
+ * KPI en verde. Decorativo (aria-hidden). Props: lang ('es' | 'en' | 'fr').
+ */
+import '../../styles/ds-mock.css';
+interface Props { lang?: 'es' | 'en' | 'fr'; }
+const { lang = 'es' } = Astro.props as Props;
+
+const T = {
+  es: {
+    sources: 'Todo conectado', email: 'Email', cashless: 'Cashless',
+    base: 'Tu base de fans', baseFig: '12.480', baseKicker: 'Tuya, exportable, siempre',
+    unified: 'Ficha unificada', unifiedNote: '1 fan · 5 fuentes en un solo perfil',
+  },
+  en: {
+    sources: 'All connected', email: 'Email', cashless: 'Cashless',
+    base: 'Your fan base', baseFig: '12,480', baseKicker: 'Yours, exportable, always',
+    unified: 'Unified profile', unifiedNote: '1 fan · 5 sources in one profile',
+  },
+  fr: {
+    sources: 'Tout connecté', email: 'Email', cashless: 'Cashless',
+    base: 'Votre base de fans', baseFig: '12 480', baseKicker: 'À vous, exportable, toujours',
+    unified: 'Profil unifié', unifiedNote: '1 fan · 5 sources dans un profil',
+  },
+};
+const t = T[lang] ?? T.es;
+const mailIcon = `<svg viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="2"/><path d="M4 7l8 6 8-6" stroke="currentColor" stroke-width="2"/></svg>`;
+const cashIcon = `<svg viewBox="0 0 24 24" fill="none"><rect x="2" y="6" width="20" height="12" rx="2" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="2.5" stroke="currentColor" stroke-width="2"/></svg>`;
+---
+
+<div class="dsm-grid" aria-hidden="true">
+  <div class="dsm-col">
+    <div class="dsm-card">
+      <h4 class="dsm-card__title">{t.sources}</h4>
+      <div class="dsm-src"><img class="dsm-src-logo" src="/assets/img/meta-square.webp" alt="" width="22" height="22" /><span>Meta</span></div>
+      <div class="dsm-src"><img class="dsm-src-logo" src="/assets/img/tiktok-ads-square.webp" alt="" width="22" height="22" /><span>TikTok</span></div>
+      <div class="dsm-src"><img class="dsm-src-logo" src="/assets/img/fever-square.webp" alt="" width="22" height="22" /><span>Fever</span></div>
+      <div class="dsm-src"><img class="dsm-src-logo" src="/assets/img/fourvenues-square.webp" alt="" width="22" height="22" /><span>Fourvenues</span></div>
+      <div class="dsm-src"><span class="dsm-ico" set:html={mailIcon}></span><span>{t.email}</span></div>
+      <div class="dsm-src"><span class="dsm-ico" set:html={cashIcon}></span><span>{t.cashless}</span></div>
+    </div>
+  </div>
+
+  <div class="dsm-col">
+    <div class="dsm-card">
+      <h4 class="dsm-card__title">{t.base}</h4>
+      <div class="dsm-figure dsm-figure--good">{t.baseFig}</div>
+      <div class="dsm-kicker">{t.baseKicker}</div>
+      <svg class="dsm-spark" viewBox="0 0 120 44" preserveAspectRatio="none">
+        <path class="area area--good" d="M2,42 L22,38 L42,32 L62,30 L82,20 L102,14 L118,8 L118,44 L2,44 Z" />
+        <path class="line line--good" d="M2,42 L22,38 L42,32 L62,30 L82,20 L102,14 L118,8" />
+      </svg>
+    </div>
+
+    <div class="dsm-card">
+      <h4 class="dsm-card__title">{t.unified}</h4>
+      <div style="display:flex; align-items:center; gap:10px;">
+        <span class="dsm-avatar-sm">MG</span>
+        <span style="color:var(--t-text); font-size:0.82rem; line-height:1.35;">{t.unifiedNote}</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .dsm-src { display:flex; align-items:center; gap:10px; margin-bottom:12px; color:var(--t-text); font-size:0.85rem; }
+  .dsm-src:last-child { margin-bottom:0; }
+  .dsm-src-logo { width:22px; height:22px; object-fit:contain; border-radius:5px; display:block; flex-shrink:0; }
+  .dsm-avatar-sm {
+    flex-shrink:0; width:40px; height:40px; border-radius:50%;
+    display:grid; place-items:center;
+    background:var(--t-chip-bg); color:var(--t-accent);
+    font-family:var(--ds-font-heading); font-weight:700; font-size:0.85rem;
+  }
+</style>

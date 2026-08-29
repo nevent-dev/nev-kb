@@ -8,7 +8,9 @@ faqs:
   - q: "¿Qué diferencia hay entre Experiencias, Ventas y Complementos?"
     a: "Experiencias es el catálogo de tus eventos. Ventas es el historial de todas las compras realizadas en esos eventos. Complementos son los productos adicionales (merch, transporte, alojamiento, etc.) que se venden junto a la entrada."
   - q: "¿Puedo ver solo los eventos pasados?"
-    a: "Sí. En la lista de Experiencias hay un filtro de vista con tres opciones: Actuales, Pasadas y Todas. Haz clic en Pasadas para ver únicamente los eventos que ya han terminado."
+    a: "Sí. En la lista de Experiencias hay un filtro de vista con cuatro opciones: Actuales, Pasadas, Todas y Listas de espera. Haz clic en Pasadas para ver únicamente los eventos que ya han terminado."
+  - q: "¿Qué muestra la vista Listas de espera?"
+    a: "Solo las experiencias en las que tu público se apunta en lugar de comprar una entrada. Si no tienes ninguna, la vista aparece vacía."
   - q: "¿Qué significa el estado Programado en un evento?"
     a: "Programado es el estado que muestran tus experiencias activas en el listado. Indica que la experiencia está creada y publicada en el sistema."
   - q: "¿Cómo busco una venta concreta en el historial?"
@@ -35,9 +37,13 @@ Esta es la pantalla desde la que se parte para gestionar todo lo relacionado con
 
 Encima de la tabla hay dos herramientas de filtro.
 
-La primera es el **filtro de vista por fecha**, con tres opciones: **Actuales**, **Pasadas** y **Todas**. La vista activa por defecto es Actuales, que muestra los eventos con fecha futura o en curso.
+La primera es el **filtro de vista**, con cuatro opciones: **Actuales**, **Pasadas**, **Todas** y **Listas de espera**. La vista activa por defecto es Actuales, que muestra los eventos con fecha futura o en curso.
 
-La segunda es el **campo de búsqueda** "Buscar por evento...", que filtra por nombre del evento mientras escribes.
+Las tres primeras filtran por fecha. La cuarta, **Listas de espera**, filtra por tipo: muestra únicamente las experiencias en las que tu público se apunta en lugar de comprar una entrada. Si todavía no tienes ninguna, la vista aparece vacía.
+
+![Lista de Experiencias de Demo Fest con el filtro de vista de cuatro opciones (Actuales, Pasadas, Todas y Listas de espera), el buscador por evento y tres eventos programados con sus columnas de canal, fecha, entradas, estado y promotor](/images/guias/experiencias/recorre-tus-experiencias/paso-2-filtros-de-vista.png)
+
+La segunda herramienta es el **campo de búsqueda** "Buscar por evento...", que filtra por nombre del evento mientras escribes.
 
 Practica el cambio de vista: haz clic en **Pasadas** y observa cómo la tabla se actualiza. Vuelve a **Actuales** para continuar con el tutorial.
 
@@ -47,7 +53,7 @@ Cada fila de la lista corresponde a un evento y contiene siete columnas. Veamos 
 
 | Columna | Qué te dice |
 |---|---|
-| Canal | El icono identifica la plataforma o canal por el que se vende el evento. |
+| Canal | El canal por el que se vende el evento, con su nombre y su logotipo. Si Nevent no puede identificarlo, muestra "Desconocido". |
 | Nombre | El nombre del evento tal como aparece en la ficha de venta. |
 | Localización | El lugar o ciudad donde se celebra el evento. |
 | Fecha | La fecha y hora de inicio del evento. |
@@ -56,6 +62,10 @@ Cada fila de la lista corresponde a un evento y contiene siete columnas. Veamos 
 | Promotor | El nombre de la organización que gestiona el evento. |
 
 La columna **Entradas** es la más útil para un vistazo rápido: te dice de inmediato cuánto has vendido y cuánto te queda por vender. Si ves "0 / 4.284", el evento existe pero todavía no hay ninguna venta registrada.
+
+Cuando el aforo no está definido, la celda no puede mostrar una fracción, así que enseña solo las entradas vendidas. Un "0" a secas significa que el evento aún no tiene ventas y que su aforo no está configurado, no que falte el dato.
+
+En las experiencias de tipo lista de espera, esta columna no cuenta ventas sino personas apuntadas, y así queda rotulado.
 
 En la columna de la derecha, fuera de la tabla numerada, hay dos acciones por fila: **Copiar enlace** y **Clonar experiencia**. La primera te da directamente la URL de venta del evento para compartirla. La segunda crea una copia del evento con su configuración.
 
@@ -78,12 +88,14 @@ La tabla tiene siete columnas:
 | Columna | Qué te dice |
 |---|---|
 | Fecha | La fecha y hora exacta en que se realizó la compra. |
-| Canal | El icono del canal por el que se realizó la venta. |
+| Canal | El nombre del canal por el que se realizó la venta, con su logotipo cuando lo tiene. Las ventas directas en tu propia página aparecen como **Nevent**. |
 | Referencia | El identificador único de la transacción (cadena de caracteres). |
 | Comprador (nombre) | El nombre completo de la persona que compró. |
 | Comprador (email) | La dirección de correo del comprador. |
 | Importe | El importe de esa venta en euros. |
 | Estado | El estado de la transacción (por ejemplo, Completado). |
+
+![Historial de Ventas de Demo Fest con la columna Canal mostrando la etiqueta Nevent en cada fila, junto a la fecha, la referencia, el comprador con su correo, el importe y el estado Completado](/images/guias/experiencias/recorre-tus-experiencias/paso-5-ventas-canal.png)
 
 Encima de la tabla hay un conjunto de filtros para acotar los resultados:
 

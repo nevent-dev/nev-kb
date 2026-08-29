@@ -8,8 +8,8 @@ hero:
   tagline: |
     Todo lo que necesitas para manejar tu plataforma de eventos, en guías rápidas. Elige un área y empieza.
   actions:
-    - text: Crea tu primera campaña
-      link: /campanas/crear-primera-campana/
+    - text: Empieza aquí
+      link: /empieza-aqui/
       icon: right-arrow
       variant: primary
     - text: Nevent AI
@@ -18,30 +18,88 @@ hero:
       variant: secondary
 ---
 
-import { Icon, Card, CardGrid, LinkCard } from '@astrojs/starlight/components';
+import { Card, CardGrid, LinkCard } from '@astrojs/starlight/components';
+import DsFeatureTiles from '../../components/ds/DsFeatureTiles.astro';
+import DsFeatureCard from '../../components/ds/DsFeatureCard.astro';
+import DsMockData from '../../components/ds/DsMockData.astro';
+import DsMockEmail from '../../components/ds/DsMockEmail.astro';
+import DsMockPaid from '../../components/ds/DsMockPaid.astro';
+import DsMockChat from '../../components/ds/DsMockChat.astro';
+import CtaSection from '../../components/web/CtaSection.astro';
 
-<div class="area-tiles">
-  <a class="area-tile" href="/campanas/crear-primera-campana/"><span class="area-tile__ic"><Icon name="email" /></span>Campañas</a>
-  <a class="area-tile" href="/audiencia/importar-fans/"><span class="area-tile__ic"><Icon name="heart" /></span>Audiencia</a>
-  <a class="area-tile" href="/segmentacion/motor-segmentacion/"><span class="area-tile__ic"><Icon name="puzzle" /></span>Segmentación</a>
-  <a class="area-tile" href="/analitica/"><span class="area-tile__ic"><Icon name="list-format" /></span>Analítica</a>
-  <a class="area-tile" href="/paid-media/introduccion/"><span class="area-tile__ic"><Icon name="bars" /></span>Paid Media</a>
-  <a class="area-tile" href="/entregabilidad/activar-canales/"><span class="area-tile__ic"><Icon name="approve-check" /></span>Entregabilidad</a>
-  <a class="area-tile" href="/experiencias/analytics/"><span class="area-tile__ic"><Icon name="star" /></span>Experiencias</a>
-  <a class="area-tile" href="/suscripciones/crear-formulario/"><span class="area-tile__ic"><Icon name="add-document" /></span>Suscripciones</a>
-  <a class="area-tile" href="/herramientas/magic-links/"><span class="area-tile__ic"><Icon name="external" /></span>Herramientas</a>
-  <a class="area-tile" href="/chatbot/configuracion/"><span class="area-tile__ic"><Icon name="comment" /></span>Chatbot</a>
-  <a class="area-tile" href="/superapp/introduccion/"><span class="area-tile__ic"><Icon name="rocket" /></span>Superapp</a>
-  <a class="area-tile" href="/nevent-ai/"><span class="area-tile__ic"><Icon name="open-book" /></span>Nevent AI</a>
-</div>
+## Elige un área
+
+Cada una con sus guías paso a paso.
+
+<DsFeatureTiles
+  withSection={false}
+  features={[
+    { icon: `<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19 4H5a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3Zm-.41 2-5.88 5.88a1 1 0 0 1-1.42 0L5.41 6ZM20 17a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7.41l5.88 5.88a3 3 0 0 0 4.24 0L20 7.41Z"/></svg>`, name: 'Campañas', description: 'Email, SMS, WhatsApp y push desde un mismo sitio.', href: '/campanas/crear-primera-campana/' },
+    { icon: `<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.16 5A6.29 6.29 0 0 0 12 4.36a6.27 6.27 0 0 0-8.16 9.48l6.21 6.22a2.78 2.78 0 0 0 3.9 0l6.21-6.22a6.27 6.27 0 0 0 0-8.84m-1.41 7.46-6.21 6.21a.76.76 0 0 1-1.08 0l-6.21-6.24a4.29 4.29 0 0 1 0-6 4.27 4.27 0 0 1 6 0 1 1 0 0 0 1.42 0 4.27 4.27 0 0 1 6 0 4.29 4.29 0 0 1 .08 6Z"/></svg>`, name: 'Audiencia', description: 'Tus fans, unificados y listos para segmentar.', href: '/audiencia/importar-fans/' },
+    { icon: `<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17 22H5a3 3 0 0 1-3-3V9a3 3 0 0 1 3-3h1a4 4 0 0 1 7.3-2.18c.448.64.692 1.4.7 2.18h3a1 1 0 0 1 1 1v3a4 4 0 0 1 2.18 7.3A3.86 3.86 0 0 1 18 18v3a1 1 0 0 1-1 1ZM5 8a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h11v-3.18a1 1 0 0 1 1.33-.95 1.77 1.77 0 0 0 1.74-.23 2 2 0 0 0 .93-1.37 2 2 0 0 0-.48-1.59 1.89 1.89 0 0 0-2.17-.55 1 1 0 0 1-1.33-.95V8h-3.2a1 1 0 0 1-1-1.33 1.77 1.77 0 0 0-.23-1.74 1.939 1.939 0 0 0-3-.43A2 2 0 0 0 8 6c.002.23.046.456.13.67A1 1 0 0 1 7.18 8H5Z"/></svg>`, name: 'Segmentación', description: 'Construye audiencias con cualquier combinación de criterios.', href: '/segmentacion/motor-segmentacion/' },
+    { icon: `<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.71 16.29a1 1 0 0 0-.33-.21 1 1 0 0 0-.76 0 1 1 0 0 0-.33.21 1 1 0 0 0-.21.33 1 1 0 0 0 .21 1.09c.097.088.209.16.33.21a.94.94 0 0 0 .76 0 1.15 1.15 0 0 0 .33-.21 1 1 0 0 0 .21-1.09 1 1 0 0 0-.21-.33ZM7 8h14a1 1 0 1 0 0-2H7a1 1 0 0 0 0 2Zm-3.29 3.29a1 1 0 0 0-1.09-.21 1.15 1.15 0 0 0-.33.21 1 1 0 0 0-.21.33.94.94 0 0 0 0 .76c.05.121.122.233.21.33.097.088.209.16.33.21a.94.94 0 0 0 .76 0 1.15 1.15 0 0 0 .33-.21 1.15 1.15 0 0 0 .21-.33.94.94 0 0 0 0-.76 1 1 0 0 0-.21-.33ZM21 11H7a1 1 0 0 0 0 2h14a1 1 0 0 0 0-2ZM3.71 6.29a1 1 0 0 0-.33-.21 1 1 0 0 0-1.09.21 1.15 1.15 0 0 0-.21.33.94.94 0 0 0 0 .76c.05.121.122.233.21.33.097.088.209.16.33.21a1 1 0 0 0 1.09-.21 1.15 1.15 0 0 0 .21-.33.94.94 0 0 0 0-.76 1.15 1.15 0 0 0-.21-.33ZM21 16H7a1 1 0 0 0 0 2h14a1 1 0 0 0 0-2Z"/></svg>`, name: 'Analítica', description: 'Más de 80 métricas sin escribir una línea de SQL.', href: '/analitica/' },
+    { icon: `<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 8h18a1 1 0 1 0 0-2H3a1 1 0 0 0 0 2Zm18 8H3a1 1 0 0 0 0 2h18a1 1 0 0 0 0-2Zm0-5H3a1 1 0 0 0 0 2h18a1 1 0 0 0 0-2Z"/></svg>`, name: 'Paid Media', description: 'Sincroniza audiencias con Meta, Google y TikTok.', href: '/paid-media/introduccion/' },
+    { icon: `<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.71 7.21a1 1 0 0 0-1.42 0l-7.45 7.46-3.13-3.14A1.02 1.02 0 1 0 5.29 13l3.84 3.84a1.001 1.001 0 0 0 1.42 0l8.16-8.16a1 1 0 0 0 0-1.47Z"/></svg>`, name: 'Entregabilidad', description: 'Que tus mensajes lleguen a la bandeja de entrada.', href: '/entregabilidad/activar-canales/' },
+    { icon: `<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22 9.67a1 1 0 0 0-.86-.67l-5.69-.83L12.9 3a1 1 0 0 0-1.8 0L8.55 8.16 2.86 9a1 1 0 0 0-.81.68 1 1 0 0 0 .25 1l4.13 4-1 5.68a1 1 0 0 0 1.45 1.07L12 18.76l5.1 2.68c.14.08.3.12.46.12a1 1 0 0 0 .99-1.19l-1-5.68 4.13-4A1 1 0 0 0 22 9.67Zm-6.15 4a1 1 0 0 0-.29.89l.72 4.19-3.76-2a1 1 0 0 0-.94 0l-3.76 2 .72-4.19a1 1 0 0 0-.29-.89l-3-3 4.21-.61a1 1 0 0 0 .76-.55L12 5.7l1.88 3.82a1 1 0 0 0 .76.55l4.21.61-3 2.99Z"/></svg>`, name: 'Experiencias', description: 'Mide y gestiona lo que pasa dentro del evento.', href: '/experiencias/analytics/' },
+    { icon: `<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 8.94a1.3 1.3 0 0 0-.06-.27v-.09c-.05-.1-.11-.2-.19-.28l-6-6a1.07 1.07 0 0 0-.28-.19h-.09a.88.88 0 0 0-.33-.11H7a3 3 0 0 0-3 3v14a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V8.94Zm-6-3.53L16.59 8H15a1 1 0 0 1-1-1V5.41ZM18 19a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h5v3a3 3 0 0 0 3 3h3v9Zm-4-5h-1v-1a1 1 0 0 0-2 0v1h-1a1 1 0 0 0 0 2h1v1a1 1 0 0 0 2 0v-1h1a1 1 0 0 0 0-2Z"/></svg>`, name: 'Suscripciones', description: 'Capta datos con formularios propios.', href: '/suscripciones/crear-formulario/' },
+    { icon: `<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.33 10.18a1 1 0 0 1-.77 0 1 1 0 0 1-.62-.93l.01-1.83-8.2 8.2a1 1 0 0 1-1.41-1.42l8.2-8.2H14.7a1 1 0 0 1 0-2h4.25a1 1 0 0 1 1 1v4.25a1 1 0 0 1-.62.93Z"/><path d="M11 4a1 1 0 1 1 0 2H7a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1v-4a1 1 0 1 1 2 0v4a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3h4Z"/></svg>`, name: 'Herramientas', description: 'Magic links, URLs cortas y utilidades del día a día.', href: '/herramientas/magic-links/' },
+    { icon: `<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2A10 10 0 0 0 2 12a9.9 9.9 0 0 0 2.3 6.3l-2 2a1 1 0 0 0-.3 1.1 1 1 0 0 0 1 .6h9a10 10 0 0 0 0-20m0 18H5.4l1-1a1 1 0 0 0 0-1.3A8 8 0 1 1 12 20"/></svg>`, name: 'Chatbot', description: 'Atiende a tus fans automáticamente.', href: '/chatbot/configuracion/' },
+    { icon: `<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M1.44 8.855v-.001l3.527-3.516c.34-.344.802-.541 1.285-.548h6.649l.947-.947c3.07-3.07 6.207-3.072 7.62-2.868a1.821 1.821 0 0 1 1.557 1.557c.204 1.413.203 4.55-2.868 7.62l-.946.946v6.649a1.845 1.845 0 0 1-.549 1.286l-3.516 3.528a1.844 1.844 0 0 1-3.11-.944l-.858-4.275-4.52-4.52-2.31-.463-1.964-.394A1.847 1.847 0 0 1 .98 10.693a1.843 1.843 0 0 1 .46-1.838Zm5.379 2.017-3.873-.776L6.32 6.733h4.638l-4.14 4.14Zm8.403-5.655c2.459-2.46 4.856-2.463 5.89-2.33.134 1.035.13 3.432-2.329 5.891l-6.71 6.71-3.561-3.56 6.71-6.711Zm-1.318 15.837-.776-3.873 4.14-4.14v4.639l-3.364 3.374Z" clip-rule="evenodd"/><path d="M9.318 18.345a.972.972 0 0 0-1.86-.561c-.482 1.435-1.687 2.204-2.934 2.619a8.22 8.22 0 0 1-1.23.302c.062-.365.157-.79.303-1.229.415-1.247 1.184-2.452 2.62-2.935a.971.971 0 1 0-.62-1.842c-.12.04-.236.084-.35.13-2.02.828-3.012 2.588-3.493 4.033a10.383 10.383 0 0 0-.51 2.845l-.001.016v.063c0 .536.434.972.97.972H2.24a7.21 7.21 0 0 0 .878-.065c.527-.063 1.248-.19 2.02-.447 1.445-.48 3.205-1.472 4.033-3.494a5.828 5.828 0 0 0 .147-.407Z"/></svg>`, name: 'Superapp', description: 'La app de tu evento, sin desarrollarla.', href: '/superapp/introduccion/' },
+    { icon: `<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.17 2.06A13.1 13.1 0 0 0 19 1.87a12.94 12.94 0 0 0-7 2.05 12.94 12.94 0 0 0-7-2 13.1 13.1 0 0 0-2.17.19 1 1 0 0 0-.83 1v12a1 1 0 0 0 1.17 1 10.9 10.9 0 0 1 8.25 1.91l.12.07h.11a.91.91 0 0 0 .7 0h.11l.12-.07A10.899 10.899 0 0 1 20.83 16 1 1 0 0 0 22 15V3a1 1 0 0 0-.83-.94ZM11 15.35a12.87 12.87 0 0 0-6-1.48H4v-10c.333-.02.667-.02 1 0a10.86 10.86 0 0 1 6 1.8v9.68Zm9-1.44h-1a12.87 12.87 0 0 0-6 1.48V5.67a10.86 10.86 0 0 1 6-1.8c.333-.02.667-.02 1 0v10.04Zm1.17 4.15a13.098 13.098 0 0 0-2.17-.19 12.94 12.94 0 0 0-7 2.05 12.94 12.94 0 0 0-7-2.05c-.727.003-1.453.066-2.17.19A1 1 0 0 0 2 19.21a1 1 0 0 0 1.17.79 10.9 10.9 0 0 1 8.25 1.91 1 1 0 0 0 1.16 0A10.9 10.9 0 0 1 20.83 20a1 1 0 0 0 1.17-.79 1 1 0 0 0-.83-1.15Z"/></svg>`, name: 'Nevent AI', description: 'Pregunta por tus datos en lenguaje natural.', href: '/nevent-ai/' },
+  ]}
+/>
+
+<DsFeatureCard
+  title="Todos tus fans, en una sola ficha"
+  description="Cada compra y cada canal acaban en la misma persona, sin duplicados. Es lo primero que se monta y de ello depende todo lo demás: sin datos dentro no hay segmentos vivos, ni audiencias, ni ventas trazables."
+  as="h3"
+>
+  <svg slot="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.16 5A6.29 6.29 0 0 0 12 4.36a6.27 6.27 0 0 0-8.16 9.48l6.21 6.22a2.78 2.78 0 0 0 3.9 0l6.21-6.22a6.27 6.27 0 0 0 0-8.84m-1.41 7.46-6.21 6.21a.76.76 0 0 1-1.08 0l-6.21-6.24a4.29 4.29 0 0 1 0-6 4.27 4.27 0 0 1 6 0 1 1 0 0 0 1.42 0 4.27 4.27 0 0 1 6 0 4.29 4.29 0 0 1 .08 6Z"/></svg>
+  <DsMockData slot="mockup" />
+  <a slot="cta" href="/audiencia/conecta-tu-ticketera/">Conecta tu ticketera →</a>
+</DsFeatureCard>
+
+<DsFeatureCard
+  title="Escribe una vez, llega por donde toque"
+  description="Email, SMS, WhatsApp y push desde el mismo sitio, con el mismo segmento detrás. Las guías te llevan de crear el segmento a leer qué vendió el envío."
+  as="h3"
+  reverse
+>
+  <svg slot="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19 4H5a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3Zm-.41 2-5.88 5.88a1 1 0 0 1-1.42 0L5.41 6ZM20 17a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7.41l5.88 5.88a3 3 0 0 0 4.24 0L20 7.41Z"/></svg>
+  <DsMockEmail slot="mockup" />
+  <a slot="cta" href="/campanas/crear-primera-campana/">Crea tu primera campaña →</a>
+</DsFeatureCard>
+
+<DsFeatureCard
+  title="Deja de anunciarte a desconocidos"
+  description="Sincroniza tus compradores reales como audiencia en Meta, Google y TikTok. Y con Meta, además, tus ventas vuelven a la plataforma para que sepas qué campaña vende de verdad."
+  as="h3"
+>
+  <svg slot="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 8h18a1 1 0 1 0 0-2H3a1 1 0 0 0 0 2Zm18 8H3a1 1 0 0 0 0 2h18a1 1 0 0 0 0-2Zm0-5H3a1 1 0 0 0 0 2h18a1 1 0 0 0 0-2Z"/></svg>
+  <DsMockPaid slot="mockup" />
+  <a slot="cta" href="/paid-media/conversiones-de-meta/">Mide tu retorno real →</a>
+</DsFeatureCard>
+
+<DsFeatureCard
+  title="Que el bot conteste lo de siempre"
+  description="Las mismas veinte preguntas antes de cada evento, respondidas solas y en tu tono. Tu equipo entra únicamente cuando hace falta una persona."
+  as="h3"
+  reverse
+>
+  <svg slot="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2A10 10 0 0 0 2 12a9.9 9.9 0 0 0 2.3 6.3l-2 2a1 1 0 0 0-.3 1.1 1 1 0 0 0 1 .6h9a10 10 0 0 0 0-20m0 18H5.4l1-1a1 1 0 0 0 0-1.3A8 8 0 1 1 12 20"/></svg>
+  <DsMockChat slot="mockup" />
+  <a slot="cta" href="/chatbot/pon-en-marcha-tu-chatbot/">Pon en marcha tu chatbot →</a>
+</DsFeatureCard>
 
 ## Empieza aquí
 
+¿Nuevo en Nevent? Sigue el camino guiado: primero conectas tu ticketera y luego eliges tu objetivo. Así llegas a tu primer resultado sin perderte.
+
 <CardGrid>
-  <LinkCard title="Crea tu primera campaña" href="/campanas/crear-primera-campana/" />
-  <LinkCard title="Importa tus contactos" href="/audiencia/importar-fans/" />
-  <LinkCard title="Crea tu primer segmento" href="/segmentacion/motor-segmentacion/crear-segmento/" />
-  <LinkCard title="Activa tus canales" href="/entregabilidad/activar-canales/" />
+  <LinkCard title="Ver el camino de inicio" description="De cero a tu primer resultado, paso a paso." href="/empieza-aqui/" />
+  <LinkCard title="1 · Conecta tu ticketera" description="El paso que lo desbloquea todo: tus fans entran solos." href="/audiencia/conecta-tu-ticketera/" />
+  <LinkCard title="Vender por tus canales" description="Crea un segmento y envía tu primera campaña." href="/segmentacion/tu-primer-segmento/" />
+  <LinkCard title="Anuncios más rentables" description="Conecta tus cuentas y sincroniza audiencias." href="/paid-media/introduccion/" />
 </CardGrid>
 
 ## Pregúntale a tu CRM
@@ -51,3 +109,10 @@ import { Icon, Card, CardGrid, LinkCard } from '@astrojs/starlight/components';
 
   [Conéctalo en 2 minutos →](/nevent-ai/conectar-claude/)
 </Card>
+
+<CtaSection
+  title="¿No encuentras lo que buscas?"
+  subtitle="El asistente del chat responde con estas mismas guías, y si no sabe te pasa con una persona del equipo."
+  primaryCta={{ text: 'Empieza aquí', href: '/empieza-aqui/' }}
+  secondaryCta={{ text: 'Preguntar a Nevent AI', href: '/nevent-ai/', variant: 'outline' }}
+/>

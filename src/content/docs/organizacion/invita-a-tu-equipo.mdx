@@ -1,0 +1,82 @@
+---
+title: "Añade usuarios a tu organización"
+diataxis: how-to
+description: "Da acceso a tu equipo en Nevent: invita administradores, crea usuarios de staff para escanear en puerta y gestiona sus permisos desde Configuración → Usuarios."
+sidebar:
+  order: 3
+faqs:
+  - q: "¿Qué diferencia hay entre un administrador y un usuario de staff?"
+    a: "El administrador entra al panel y trabaja con tus datos: campañas, audiencia, eventos. El staff está pensado para el día del evento: se le crea una cuenta para escanear en puerta y solo puede escanear lo que le autorices."
+  - q: "¿Puedo hacer propietario a otra persona?"
+    a: "No desde esta pantalla. Al añadir un usuario solo puedes elegir entre administrador y staff. El propietario es quien creó la cuenta y aparece marcado como tal en el listado."
+  - q: "He creado un usuario de staff y he cerrado la ventana sin copiar la contraseña. ¿Puedo volver a verla?"
+    a: "No. La contraseña temporal se muestra una sola vez. Si la has perdido, elimina ese usuario y vuelve a crearlo para generar una nueva."
+  - q: "¿Por qué la columna Permisos aparece vacía en algunos usuarios?"
+    a: "Porque los permisos de escaneo solo se aplican al staff. En propietarios y administradores esa columna siempre sale vacía: no es un error ni algo pendiente de configurar."
+  - q: "He invitado a alguien y me dice que el email ya está registrado."
+    a: "Esa persona ya pertenece a tu organización. Búscala en el listado: probablemente ya está con otro rol."
+  - q: "¿Puedo cambiar los permisos de escaneo después de crear el usuario?"
+    a: "Sí. En el menú de tres puntos de su fila tienes la opción de editar permisos."
+---
+
+En Configuración → Usuarios das acceso a tu equipo y decides qué puede hacer cada persona. Hay dos casos muy distintos: alguien que va a trabajar en el panel y alguien que solo va a escanear en la puerta el día del evento.
+
+En esta guía añades ambos. Unos 5 minutos.
+
+## Antes de empezar
+
+Necesitas ser **propietario o administrador** de la organización. Si no lo eres, el panel no te dejará añadir ni eliminar usuarios.
+
+## Paso 1: Abre el listado de usuarios
+
+En el menú lateral, entra en **Configuración** y, dentro del bloque **Espacio de trabajo**, haz clic en **Usuarios**.
+
+Verás la lista de quién tiene acceso hoy, con seis columnas: correo electrónico, nombre, rol, permisos, última actividad y acciones.
+
+![Listado de usuarios de la organización DEMO FEST en Nevent, con dos filas: un usuario con rol Propietario que nunca ha entrado y otro con rol Administrador con actividad de hoy](/images/guias/organizacion/invita-a-tu-equipo/paso-1-listado-usuarios.png)
+
+La columna **Última actividad** es la más útil para revisar accesos: te dice si alguien no ha entrado nunca, o cuándo lo hizo por última vez.
+
+## Los tres roles
+
+| Rol | Para quién | Qué implica |
+|---|---|---|
+| **Propietario** | Quien creó la cuenta | Es el rol de origen. No se puede asignar desde esta pantalla |
+| **Administrador** | Tu equipo de marketing y operaciones | Entra al panel y trabaja con campañas, audiencia y eventos |
+| **Staff** | Personal de puerta el día del evento | Cuenta para escanear, limitada a lo que le autorices |
+
+Al añadir un usuario solo puedes elegir entre **administrador** y **staff**.
+
+## Paso 2: Añade un administrador
+
+Pulsa **Añadir usuario**, arriba a la derecha. Se abre la ventana **Añadir nuevo usuario**.
+
+Escribe su **correo electrónico** y deja el rol en **Administrador**, que viene seleccionado por defecto. Confirma con **Añadir usuario**.
+
+Nevent le manda una **invitación por email** a esa dirección. La persona aparece en el listado y su última actividad será "Nunca" hasta que entre por primera vez.
+
+Si el panel responde que ese email ya está registrado, es que esa persona ya pertenece a tu organización.
+
+## Paso 3: Crea un usuario de staff
+
+El flujo es el mismo hasta que cambias el rol a **Staff**. En ese momento aparecen dos campos más:
+
+- **Nombre**, opcional, pero conviene rellenarlo para identificar a cada persona en la puerta.
+- **Permisos de escaneo**, donde eliges qué puede validar: **Tickets**, **Complementos** y **Personalizaciones**. Tienes que marcar al menos uno.
+
+![Ventana Añadir nuevo usuario con el rol Staff seleccionado, mostrando los campos adicionales de Nombre y Permisos de escaneo con las opciones Tickets, Complementos y Personalizaciones](/images/guias/organizacion/invita-a-tu-equipo/paso-2-anadir-usuario-staff.png)
+
+Marca solo lo que esa persona vaya a escanear. Si alguien está en la puerta principal validando entradas, no necesita poder escanear complementos.
+
+:::caution[La contraseña se muestra una sola vez]
+Al staff no se le envía invitación por email: Nevent genera una **contraseña temporal** y te la muestra en pantalla al terminar. Cópiala y pásasela tú, porque al cerrar esa ventana no vuelve a estar disponible. La persona tendrá que cambiarla la primera vez que entre.
+:::
+
+## Paso 4: Cambia permisos o quita a alguien
+
+En el menú de tres puntos de cada fila tienes dos opciones:
+
+- **Editar permisos**, para cambiar qué puede escanear un usuario de staff sin tener que recrearlo.
+- **Eliminar usuario**, que pide confirmación antes de sacar a esa persona de la organización.
+
+Revisa este listado después de cada evento: el staff de puerta suele ser temporal y no tiene sentido que conserve el acceso hasta el siguiente.

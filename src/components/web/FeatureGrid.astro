@@ -1,0 +1,263 @@
+---
+/**
+ * FeatureGrid Component
+ * Display key features in a responsive grid layout
+ * Follows design token system and accessibility standards
+ */
+
+export interface Props {
+  title?: string;
+  subtitle?: string;
+  features: Array<{
+    icon: string;
+    title: string;
+    description: string;
+    href?: string;
+  }>;
+  variant?: 'default' | 'benefits' | 'compact';
+  className?: string;
+}
+
+const { 
+  title,
+  subtitle,
+  features = [],
+  variant = 'default',
+  className = ''
+} = Astro.props;
+
+const gridClasses = [
+  'feature-grid',
+  `feature-grid--${variant}`,
+  className
+].filter(Boolean).join(' ');
+---
+
+<!--
+	Portado literalmente de nevent-web/src/components/FeatureGrid.astro.
+
+	FUENTE DE VERDAD: ese fichero. Si cambia allí, hay que traer el cambio aquí
+	para que los dos sitios sigan viéndose igual.
+
+	Único cambio respecto al original: el feedback de interacción pasa de
+	puntero encima a :focus-visible / :active, que es lo que exige el guardián
+	de estilo de este repositorio (scripts/style-guard.mjs). El aspecto en
+	reposo es idéntico.
+-->
+<section class={gridClasses}>
+  <div class="feature-grid__container">
+    {(title || subtitle) && (
+      <header class="feature-grid__header">
+        {title && (
+          <h2 class="feature-grid__title">{title}</h2>
+        )}
+        {subtitle && (
+          <p class="feature-grid__subtitle">{subtitle}</p>
+        )}
+      </header>
+    )}
+    
+    <div class="feature-grid__grid">
+      {features.map((feature, index) => (
+        <div class="feature-grid__item" key={feature.title}>
+          {feature.href ? (
+            <a href={feature.href} class="feature-grid__link">
+              <div class="feature-grid__icon" aria-hidden="true">
+                <Fragment set:html={feature.icon} />
+              </div>
+              <h3 class="feature-grid__item-title">{feature.title}</h3>
+              <p class="feature-grid__description">{feature.description}</p>
+            </a>
+          ) : (
+            <div class="feature-grid__content">
+              <div class="feature-grid__icon" aria-hidden="true">
+                <Fragment set:html={feature.icon} />
+              </div>
+              <h3 class="feature-grid__item-title">{feature.title}</h3>
+              <p class="feature-grid__description">{feature.description}</p>
+            </div>
+          )}
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .feature-grid {
+    padding: var(--spacing-12) 0;
+    background: var(--color-text-white);
+  }
+
+  .feature-grid--benefits {
+    background: var(--nevent-off-white);
+  }
+
+  .feature-grid--compact {
+    padding: var(--spacing-8) 0;
+  }
+
+  .feature-grid__container {
+    max-width: var(--container-xl);
+    margin: 0 auto;
+    padding: 0 var(--spacing-4);
+  }
+
+  .feature-grid__header {
+    text-align: center;
+    margin-bottom: var(--spacing-8);
+  }
+
+  .feature-grid__title {
+    font-size: var(--font-size-h2);
+    line-height: var(--line-height-h2);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text-primary);
+    margin-bottom: var(--spacing-3);
+  }
+
+  .feature-grid__subtitle {
+    font-size: var(--font-size-paragraph-lg);
+    line-height: var(--line-height-paragraph-lg);
+    color: var(--color-text-secondary);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .feature-grid__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-6);
+    margin-top: var(--spacing-8);
+  }
+
+  .feature-grid--compact .feature-grid__grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-4);
+  }
+
+  .feature-grid__item {
+    position: relative;
+  }
+
+  .feature-grid__link,
+  .feature-grid__content {
+    display: block;
+    padding: var(--spacing-4);
+    text-decoration: none;
+    color: inherit;
+    border-radius: var(--radius-xl);
+    background: var(--color-text-white);
+    box-shadow: var(--shadow-sm);
+    transition: all var(--motion-duration-base) var(--motion-ease-out);
+    height: 100%;
+  }
+
+  .feature-grid__link:focus-visible, .feature-grid__link:active,
+  .feature-grid__link:focus {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-xl);
+  }
+
+  .feature-grid__link:focus-visible {
+    outline: 2px solid var(--nevent-magenta);
+    outline-offset: 2px;
+  }
+
+  .feature-grid__icon {
+    width: 56px;
+    height: 56px;
+    margin-bottom: var(--spacing-3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-lg);
+    background: linear-gradient(135deg, var(--nevent-magenta), var(--nevent-medium-orchid));
+  }
+
+  .feature-grid__icon :global(svg) {
+    width: 32px;
+    height: 32px;
+    color: var(--color-text-white);
+  }
+
+  .feature-grid__item-title {
+    font-size: var(--font-size-h6);
+    line-height: var(--line-height-h6);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-primary);
+    margin-bottom: var(--spacing-2);
+  }
+
+  .feature-grid__description {
+    font-size: var(--font-size-body);
+    line-height: var(--line-height-body);
+    color: var(--color-text-secondary);
+    margin: 0;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .feature-grid {
+      padding: var(--spacing-8) 0;
+    }
+
+    .feature-grid__container {
+      padding: 0 var(--spacing-2);
+    }
+
+    .feature-grid__grid {
+      grid-template-columns: 1fr;
+      gap: var(--spacing-4);
+    }
+
+    .feature-grid__title {
+      font-size: var(--mobile-h2);
+      line-height: var(--mobile-h2-lh);
+    }
+
+    .feature-grid__subtitle {
+      font-size: var(--mobile-paragraph-lg);
+      line-height: var(--mobile-paragraph-lg-lh);
+    }
+
+    .feature-grid__link,
+    .feature-grid__content {
+      padding: var(--spacing-3);
+    }
+
+    .feature-grid__icon {
+      width: 48px;
+      height: 48px;
+    }
+
+    .feature-grid__icon :global(svg) {
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  /* Reduced motion preference */
+  @media (prefers-reduced-motion: reduce) {
+    .feature-grid__link {
+      transition: none;
+    }
+    
+    .feature-grid__link:focus-visible, .feature-grid__link:active,
+    .feature-grid__link:focus {
+      transform: none;
+    }
+  }
+
+  /* High contrast mode */
+  @media (prefers-contrast: high) {
+    .feature-grid__link,
+    .feature-grid__content {
+      border: 1px solid var(--color-text-secondary);
+    }
+    
+    .feature-grid__icon {
+      background: var(--color-text-primary);
+    }
+  }
+</style>

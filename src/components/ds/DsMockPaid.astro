@@ -1,0 +1,70 @@
+---
+/**
+ * DsMockPaid — mockup "deja de anunciarte a ciegas".
+ * Audiencias con datos reales + gente parecida (Meta/TikTok/Google Ads) + coste por venta.
+ * Logos reales de partners, microchart y KPI en verde. Decorativo (aria-hidden).
+ * Props: lang ('es' | 'en' | 'fr').
+ */
+import '../../styles/ds-mock.css';
+interface Props { lang?: 'es' | 'en' | 'fr'; }
+const { lang = 'es' } = Astro.props as Props;
+
+const T = {
+  es: {
+    custom: 'Tu audiencia', customFig: '8.400', customKicker: 'Tus compradores reales',
+    connected: 'Conectado con',
+    similar: 'Gente parecida', similarFig: '+52.000', similarKicker: 'Como tus mejores fans',
+    cps: 'Coste por venta', cpsFig: '−38%', cpsKicker: 'vs anuncios a ciegas',
+  },
+  en: {
+    custom: 'Your audience', customFig: '8,400', customKicker: 'Your real buyers',
+    connected: 'Connected to',
+    similar: 'People like them', similarFig: '+52,000', similarKicker: 'Like your best fans',
+    cps: 'Cost per sale', cpsFig: '−38%', cpsKicker: 'vs blind ads',
+  },
+  fr: {
+    custom: 'Votre audience', customFig: '8 400', customKicker: 'Vos vrais acheteurs',
+    connected: 'Connecté à',
+    similar: 'Profils similaires', similarFig: '+52 000', similarKicker: 'Comme vos meilleurs fans',
+    cps: 'Coût par vente', cpsFig: '−38%', cpsKicker: "vs pub à l'aveugle",
+  },
+};
+const t = T[lang] ?? T.es;
+---
+
+<div class="dsm-grid" aria-hidden="true">
+  <div class="dsm-col">
+    <div class="dsm-card">
+      <h4 class="dsm-card__title">{t.custom}</h4>
+      <div class="dsm-figure">{t.customFig}</div>
+      <div class="dsm-kicker">{t.customKicker}</div>
+    </div>
+
+    <div class="dsm-card">
+      <h4 class="dsm-card__title">{t.connected}</h4>
+      <div class="dsm-logos">
+        <span class="dsm-logo"><img src="/assets/img/meta-square.webp" alt="" width="18" height="18" />Meta</span>
+        <span class="dsm-logo"><img src="/assets/img/tiktok-ads-square.webp" alt="" width="18" height="18" />TikTok</span>
+        <span class="dsm-logo"><img src="/assets/img/google-ads-square.webp" alt="" width="18" height="18" />Google Ads</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="dsm-col">
+    <div class="dsm-card">
+      <h4 class="dsm-card__title">{t.similar}</h4>
+      <div class="dsm-figure dsm-figure--good">{t.similarFig}</div>
+      <div class="dsm-kicker">{t.similarKicker}</div>
+      <svg class="dsm-spark" viewBox="0 0 120 44" preserveAspectRatio="none">
+        <path class="area area--good" d="M2,40 L22,34 L42,36 L62,24 L82,26 L102,12 L118,6 L118,44 L2,44 Z" />
+        <path class="line line--good" d="M2,40 L22,34 L42,36 L62,24 L82,26 L102,12 L118,6" />
+      </svg>
+    </div>
+
+    <div class="dsm-card">
+      <h4 class="dsm-card__title">{t.cps}</h4>
+      <div class="dsm-figure dsm-figure--good">{t.cpsFig}</div>
+      <div class="dsm-kicker" style="margin-bottom:0;">{t.cpsKicker}</div>
+    </div>
+  </div>
+</div>
