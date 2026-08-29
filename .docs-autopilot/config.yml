@@ -3,7 +3,9 @@
 project: nevent
 source:
   repo: nevent-dev/nev-admin-web
-  branch: main
+  # Rama por defecto real del repo. Con 'main' el detector no veía ningún PR
+  # y el pipeline reportaba 'sin novedades' indefinidamente (2026-08-24).
+  branch: master
   lookback_days: 7
 docs:
   repo: nevent-dev/nev-kb
