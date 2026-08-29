@@ -374,6 +374,7 @@ export default defineConfig({
 						{ label: 'Analytics de tu evento', slug: 'experiencias/analytics' },
 						{ label: 'El perfil musical de tu evento', slug: 'experiencias/perfil-musical' },
 						{ label: 'Recorre tus experiencias', slug: 'experiencias/recorre-tus-experiencias' },
+						{ label: 'Listas de espera', slug: 'experiencias/listas-de-espera', badge: { text: 'Nuevo', variant: 'tip' } },
 						{ label: 'Referencia de experiencias', slug: 'experiencias/referencia' },
 						{ label: 'Qué son las experiencias', slug: 'experiencias/que-son-las-experiencias' },
 					],
@@ -618,6 +619,7 @@ export default defineConfig({
 					items: [
 						{ label: 'What are experiences', link: '/en/experiences/what-are-experiences/' },
 						{ label: 'Tour your experiences', link: '/en/experiences/tour-your-experiences/' },
+						{ label: 'Waitlists', link: '/en/experiences/waitlists/' },
 						{ label: 'Your event\'s music profile', link: '/en/experiences/music-profile/' },
 						{ label: 'Analytics for your event', link: '/en/experiences/analytics/' },
 						{ label: 'Experiences reference', link: '/en/experiences/reference/' },
