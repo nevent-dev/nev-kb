@@ -1,0 +1,82 @@
+---
+/**
+ * DsMockChat — mockup de conversación de canal directo. Decorativo (aria-hidden).
+ * channel: 'chatbot' | 'whatsapp' | 'sms'. Datos ficticios (Aurora Fest).
+ * Props: lang ('es'|'en'|'fr'), channel.
+ */
+import '../../styles/ds-mock.css';
+interface Props { lang?: 'es' | 'en' | 'fr'; channel?: 'chatbot' | 'whatsapp' | 'sms'; }
+const { lang = 'es', channel = 'chatbot' } = Astro.props as Props;
+
+const LABEL = {
+  chatbot: { es: 'Asistente · Aurora Fest', en: 'Assistant · Aurora Fest', fr: 'Assistant · Aurora Fest' },
+  whatsapp: { es: 'WhatsApp · Aurora Fest', en: 'WhatsApp · Aurora Fest', fr: 'WhatsApp · Aurora Fest' },
+  sms: { es: 'SMS · Aurora Fest', en: 'SMS · Aurora Fest', fr: 'SMS · Aurora Fest' },
+};
+
+const COPY = {
+  chatbot: {
+    es: { q: '¿Quedan entradas para el sábado?', a: 'Sí, quedan de General y VIP. Te dejo el enlace para comprar.', cta: 'Comprar entrada', foot: 'Respuestas al instante · 24/7' },
+    en: { q: 'Any tickets left for Saturday?', a: 'Yes, General and VIP are available. Here is the link to buy.', cta: 'Get ticket', foot: 'Instant answers · 24/7' },
+    fr: { q: 'Reste-t-il des billets pour samedi ?', a: 'Oui, General et VIP sont dispo. Voici le lien pour acheter.', cta: 'Prendre un billet', foot: 'Réponses instantanées · 24/7' },
+  },
+  whatsapp: {
+    es: { q: '¿A qué hora abren puertas?', a: 'Puertas a las 20:00. ¿Te aviso 1 h antes?', cta: 'Sí, avísame', foot: '98% de apertura en WhatsApp' },
+    en: { q: 'What time do doors open?', a: 'Doors at 8:00 PM. Want a reminder 1 h before?', cta: 'Yes, remind me', foot: '98% open rate on WhatsApp' },
+    fr: { q: 'À quelle heure ouvrent les portes ?', a: 'Portes à 20h00. Je te préviens 1 h avant ?', cta: 'Oui, préviens-moi', foot: '98% d’ouverture sur WhatsApp' },
+  },
+  sms: {
+    es: { q: '', a: 'Aurora Fest: tu early bird acaba en 24 h. Entradas: nev.to/aurora', cta: '', foot: 'Entrega directa · sin app' },
+    en: { q: '', a: 'Aurora Fest: your early bird ends in 24 h. Tickets: nev.to/aurora', cta: '', foot: 'Direct delivery · no app' },
+    fr: { q: '', a: 'Aurora Fest : ton early bird finit dans 24 h. Billets : nev.to/aurora', cta: '', foot: 'Livraison directe · sans app' },
+  },
+};
+
+const label = (LABEL[channel] ?? LABEL.chatbot)[lang] ?? (LABEL[channel] ?? LABEL.chatbot).es;
+const c = (COPY[channel] ?? COPY.chatbot)[lang] ?? (COPY[channel] ?? COPY.chatbot).es;
+
+const icons: Record<string, string> = {
+  chatbot: 'M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2Z',
+  whatsapp: 'M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2Z',
+  sms: 'M4 4h16v12H8l-4 4z',
+};
+---
+
+<div class="dsm-grid" aria-hidden="true">
+  <div class="dsm-col" style="grid-column: 1 / -1;">
+    <div class="dsm-card">
+      <div class="ch-head">
+        <span class="ch-ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d={icons[channel]}/></svg>
+        </span>
+        <span class="ch-name">{label}</span>
+      </div>
+
+      <div class="ch-thread">
+        {c.q && <div class="ch-bubble ch-bubble--in">{c.q}</div>}
+        <div class="ch-bubble ch-bubble--out">
+          {c.a}
+          {c.cta && <span class="ch-cta">{c.cta}</span>}
+        </div>
+      </div>
+
+      <div class="ch-foot"><span class="ch-foot-dot" aria-hidden="true"></span>{c.foot}</div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .ch-head { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; padding-bottom: 14px; border-bottom: 1px solid var(--t-border); }
+  .ch-ico { width: 34px; height: 34px; border-radius: 10px; display: grid; place-items: center; background: var(--t-chip-bg); color: var(--t-accent); flex-shrink: 0; }
+  .ch-ico svg { width: 18px; height: 18px; }
+  .ch-name { font-weight: 600; color: var(--t-heading); font-size: 0.9rem; }
+
+  .ch-thread { display: flex; flex-direction: column; gap: 10px; }
+  .ch-bubble { max-width: 86%; font-size: 0.86rem; line-height: 1.5; padding: 11px 14px; border-radius: 16px; }
+  .ch-bubble--in { align-self: flex-start; background: color-mix(in srgb, var(--t-muted) 14%, transparent); color: var(--t-text); border-bottom-left-radius: 5px; }
+  .ch-bubble--out { align-self: flex-end; background: var(--t-accent); color: var(--t-on-accent); border-bottom-right-radius: 5px; }
+  .ch-cta { display: inline-block; margin-top: 10px; background: var(--t-on-accent); color: var(--t-accent); font-weight: 600; font-size: 0.78rem; padding: 6px 13px; border-radius: var(--radius-pill); }
+
+  .ch-foot { display: flex; align-items: center; gap: 8px; margin-top: 16px; font-size: 0.78rem; color: var(--t-muted); }
+  .ch-foot-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--t-positive); flex-shrink: 0; }
+</style>
