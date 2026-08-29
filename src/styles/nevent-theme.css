@@ -40,13 +40,36 @@
 /* Los titulares heredan la pila del sistema, como en nevent.ai. Antes iban en
    Poppins, que la web no usa para texto: sólo para su logotipo. */
 
-/* Labels/eyebrows de la navegación con el mono de marca. */
+/* ==========================================================================
+   Jerarquía de la navegación lateral
+   --------------------------------------------------------------------------
+   Antes todos los grupos se pintaban igual —mono, 12px, mayúsculas, peso 600—
+   daba igual que fueran un área del manual o un recorrido anidado dentro de
+   otra. El resultado es que no se distinguía qué colgaba de qué: "VENDE POR
+   TUS CANALES", que vive dentro de "EMPIEZA AQUÍ", se leía como si fuera otra
+   sección al mismo nivel que "AUDIENCIA".
+
+   Ahora hay dos niveles claros, y ninguno usa la monoespaciada, que no existe
+   en nevent.ai:
+
+     · Área (primer nivel): rótulo en mayúsculas, pequeño y apagado.
+     · Recorrido (anidado): se lee como un título normal, no como sección.
+   ========================================================================== */
 .sidebar-content summary,
 nav.sidebar .group-label span {
-  font-family: var(--font-mono);
-  letter-spacing: var(--letter-spacing-wide);
-  text-transform: uppercase;
-  font-size: var(--font-size-xs);
+	font-family: var(--font-body);
+	letter-spacing: var(--letter-spacing-wide);
+	text-transform: uppercase;
+	font-size: var(--font-size-xs);
+	color: var(--sl-color-gray-3);
+}
+
+/* Grupos anidados: son pasos dentro de un área, no áreas nuevas. */
+nav.sidebar details details > summary .group-label span {
+	text-transform: none;
+	letter-spacing: var(--letter-spacing-normal);
+	font-size: var(--sl-text-sm);
+	color: var(--sl-color-white);
 }
 
 /* Gradiente de marca real (orchid -> magenta) para el wordmark del hero. */
@@ -333,4 +356,34 @@ html[data-has-sidebar] .footer-container {
 .ds-feature__icon svg {
 	width: 22px;
 	height: 22px;
+}
+
+/* ==========================================================================
+   Ancho del sitio — el mismo que nevent.ai
+   --------------------------------------------------------------------------
+   La web fija 1320px en global.css, bajo un comentario explícito de
+   "Container width consistency", y es el ancho que ya traía el pie de página
+   portado. El centro de ayuda venía con los 1080px por defecto de Starlight
+   (--sl-content-width: 67.5rem), así que las dos webs no cuadraban.
+
+   Al ensanchar el contenedor hay que proteger la lectura: 1320px de texto
+   corrido son unos 200 caracteres por línea, muy por encima de los 65-75 que
+   pide el propio ADR del sistema. Por eso el texto de las guías conserva su
+   medida y solo las piezas anchas —tablas, imágenes, vídeos y las bandas del
+   sistema— aprovechan todo el contenedor.
+   ========================================================================== */
+:root {
+	--sl-content-width: 82.5rem; /* 1320px, como .container en nevent.ai */
+}
+
+/* El tema fija 67.5rem (1080px) para las páginas sin barra lateral, que es
+   justo la portada. Su hoja se carga después de la nuestra, así que repetir su
+   selector no basta: se le añade :root para ganar por especificidad (0,2,1
+   frente a 0,1,1) sin recurrir a !important, que aquí está prohibido. */
+html:root:not([data-has-sidebar]) {
+	--sl-content-width: 82.5rem;
+}
+
+html[data-has-sidebar] .sl-markdown-content > :is(p, ul, ol, dl, blockquote, h2, h3, h4, h5, h6) {
+	max-width: 78ch;
 }
