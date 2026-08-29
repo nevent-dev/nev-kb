@@ -1,0 +1,175 @@
+---
+/**
+ * DsFeatureTiles — rejilla de mini-cards del design system (la misma de la home).
+ * Tarjeta compacta: caja de icono pastel + nombre + descripción + enlace opcional.
+ * Afordancia por foco/activo (sin hover, norma del DS). Tokens --t-*.
+ *
+ * ADAPTADO PARA EL CENTRO DE AYUDA (2026-08-29): el original renderizaba
+ * siempre <i class="fa-..."> aunque su interfaz ya declaraba `useFontAwesome`.
+ * Aquí esa prop se respeta de verdad: sin ella, `icon` se pinta como SVG
+ * inline. El centro de ayuda no carga FontAwesome (100 KB por doce iconos) y
+ * ya tenía los SVG. Si la web implementa la prop, este fichero se puede
+ * volver a igualar.
+ *
+ * Props:
+ *  - tag, title: cabecera opcional de la sección.
+ *  - features: [{ icon, name, description, href?, useFontAwesome? }]
+ *  - learnMore: etiqueta del enlace (solo se muestra en tarjetas con href).
+ *  - className: clases extra para la <section>.
+ *  - withSection: envuelve en <section class="sections white-bg">. Por defecto true.
+ */
+export interface Feature {
+  icon: string;
+  name: string;
+  description: string;
+  useFontAwesome?: boolean;
+  href?: string;
+}
+export interface Props {
+  tag?: string;
+  title?: string;
+  features: Feature[];
+  learnMore?: string;
+  className?: string;
+  withSection?: boolean;
+}
+const { tag, title, features, learnMore = 'Saber más', className = '', withSection = true } = Astro.props as Props;
+
+const sectionClasses = ['sections', 'white-bg', className].filter(Boolean).join(' ');
+---
+
+{withSection ? (
+  <section class={sectionClasses}>
+    <div class="container">
+      {(tag || title) && (
+        <div class="feature-list-header-box">
+          {tag && <div class="tag">{tag}</div>}
+          {title && <h2>{title}</h2>}
+        </div>
+      )}
+      <div class="ds-tiles">
+        {features.map((feature) => {
+          const Tag = feature.href ? 'a' : 'div';
+          const linkProps = feature.href ? { href: feature.href } : {};
+          return (
+            <Tag {...linkProps} class="ds-tile" data-gtm-category="Features" data-gtm-action="click" data-gtm-label={`Feature - ${feature.name}`}>
+              <span class="ds-tile__ico-box">{feature.useFontAwesome ? <i class={`${feature.icon} ds-tile__ico`}></i> : <span class="ds-tile__ico" set:html={feature.icon} />}</span>
+              <div class="ds-tile__name">{feature.name}</div>
+              <div class="ds-tile__desc">{feature.description}</div>
+              {feature.href && (
+                <div class="ds-tile__more">{learnMore} <span class="ds-tile__arrow" aria-hidden="true">→</span></div>
+              )}
+            </Tag>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+) : (
+  <div class="ds-tiles">
+    {features.map((feature) => {
+      const Tag = feature.href ? 'a' : 'div';
+      const linkProps = feature.href ? { href: feature.href } : {};
+      return (
+        <Tag {...linkProps} class="ds-tile" data-gtm-category="Features" data-gtm-action="click" data-gtm-label={`Feature - ${feature.name}`}>
+          <span class="ds-tile__ico-box">{feature.useFontAwesome ? <i class={`${feature.icon} ds-tile__ico`}></i> : <span class="ds-tile__ico" set:html={feature.icon} />}</span>
+          <div class="ds-tile__name">{feature.name}</div>
+          <div class="ds-tile__desc">{feature.description}</div>
+          {feature.href && (
+            <div class="ds-tile__more">{learnMore} <span class="ds-tile__arrow" aria-hidden="true">→</span></div>
+          )}
+        </Tag>
+      );
+    })}
+  </div>
+)}
+
+<style>
+  .ds-tiles {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 16px;
+    margin-top: 40px;
+  }
+  .ds-tile {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    padding: 24px;
+    background: var(--t-surface);
+    border: 1px solid var(--t-border);
+    border-radius: 16px;
+    text-decoration: none;
+    color: inherit;
+    transition: border-color var(--motion-duration-base) ease,
+      box-shadow var(--motion-duration-base) ease,
+      transform var(--motion-duration-base) ease;
+  }
+  a.ds-tile { text-decoration: none; color: inherit; }
+
+  /* Afordancia por foco/activo (sin hover) */
+  a.ds-tile:focus-visible,
+  a.ds-tile:active {
+    outline: none;
+    border-color: var(--t-accent);
+    box-shadow: var(--t-shadow-lg);
+    transform: translateY(-2px);
+  }
+
+  .ds-tile__ico-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: var(--t-chip-bg);
+    margin-bottom: 16px;
+    flex-shrink: 0;
+  }
+  .ds-tile__ico {
+    color: var(--t-accent);
+    font-size: 22px;
+    line-height: 1;
+    max-width: none;
+    width: auto;
+    height: auto;
+    margin: 0;
+  }
+
+  .ds-tile__name {
+    font-family: var(--ds-font-heading);
+    font-weight: 600;
+    font-size: 1.05rem;
+    color: var(--t-heading);
+    margin-bottom: 6px;
+  }
+  .ds-tile__desc {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: var(--t-text);
+  }
+
+  .ds-tile__more {
+    margin-top: auto;
+    padding-top: 16px;
+    color: var(--t-accent);
+    font-size: 0.85rem;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .ds-tile__arrow { transition: transform var(--motion-duration-base) ease; }
+  a.ds-tile:focus-visible .ds-tile__arrow,
+  a.ds-tile:active .ds-tile__arrow { transform: translateX(3px); }
+
+  @media (max-width: 767px) {
+    .ds-tiles { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    .ds-tile { padding: 18px; }
+  }
+  @media (max-width: 420px) {
+    .ds-tiles { grid-template-columns: 1fr; }
+  }
+</style>

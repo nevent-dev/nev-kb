@@ -1,0 +1,114 @@
+---
+/**
+ * DsFeatureCard — bloque de feature del design system.
+ *
+ * Estructura: contenedor cálido redondeado con dos columnas.
+ *  - Texto: icono pastel + título + descripción (+ CTA opcional vía slot "cta").
+ *  - Mockup: panel ilustrativo a la derecha (slot "mockup").
+ *
+ * Se usa en home, soluciones, verticales y plataforma.
+ *
+ * Props:
+ *  - title, description
+ *  - reverse: coloca el mockup a la izquierda (para alternar filas)
+ *  - as: etiqueta del título (h2/h3), por defecto h3
+ * Slots:
+ *  - icon:   SVG del icono (dentro del cuadrado pastel)
+ *  - mockup: panel ilustrativo
+ *  - cta:    llamada a la acción opcional bajo la descripción
+ */
+interface Props {
+  title: string;
+  description?: string;
+  reverse?: boolean;
+  as?: 'h2' | 'h3';
+  class?: string;
+}
+const { title, description, reverse = false, as = 'h3', class: extra = '' } = Astro.props as Props;
+const Title = as;
+---
+
+<div class:list={['ds-feature', reverse && 'ds-feature--reverse', extra]}>
+  <div class="ds-feature__text">
+    {Astro.slots.has('icon') && (
+      <span class="ds-feature__icon" aria-hidden="true"><slot name="icon" /></span>
+    )}
+    <Title class="ds-feature__title">{title}</Title>
+    {description && <p class="ds-feature__desc">{description}</p>}
+    {Astro.slots.has('cta') && (
+      <div class="ds-feature__cta"><slot name="cta" /></div>
+    )}
+  </div>
+  <div class="ds-feature__mockup"><slot name="mockup" /></div>
+</div>
+
+<style>
+  .ds-feature {
+    display: grid;
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+    align-items: center;
+    gap: clamp(32px, 5vw, 80px);
+    background: var(--t-surface-2);
+    border: 1px solid var(--t-border);
+    border-radius: var(--radius-panel);
+    padding: clamp(28px, 4vw, 56px);
+    box-sizing: border-box;
+  }
+  .ds-feature * { box-sizing: border-box; }
+
+  /* Alterna el lado del mockup sin cambiar el orden del DOM.
+     Importante: al invertir hay que ESPEJAR también los anchos de columna,
+     porque en grid el `order` recoloca los items pero no cambia los tracks. */
+  .ds-feature--reverse {
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  }
+  .ds-feature--reverse .ds-feature__text { order: 2; }
+  .ds-feature--reverse .ds-feature__mockup { order: 1; }
+
+  .ds-feature__text { min-width: 0; }
+
+  .ds-feature__icon {
+    display: inline-grid;
+    place-items: center;
+    width: 56px;
+    height: 56px;
+    border-radius: 16px;
+    background: var(--t-chip-bg);
+    color: var(--t-accent);
+    margin-bottom: 24px;
+  }
+  .ds-feature__icon :global(svg) { width: 26px; height: 26px; display: block; }
+
+  .ds-feature__title {
+    font-family: var(--ds-font-heading);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: var(--t-heading);
+    font-size: clamp(1.6rem, 2.6vw, 2.1rem);
+    margin: 0;
+  }
+
+  .ds-feature__desc {
+    font-family: var(--ds-font-body);
+    color: var(--t-text);
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin: 16px 0 0;
+    max-width: 46ch;
+  }
+
+  .ds-feature__cta { margin-top: 28px; }
+
+  .ds-feature__mockup { min-width: 0; }
+
+  @media (max-width: 900px) {
+    .ds-feature {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+    /* En móvil, el texto siempre primero aunque la fila sea inversa */
+    .ds-feature--reverse .ds-feature__text { order: 1; }
+    .ds-feature--reverse .ds-feature__mockup { order: 2; }
+  }
+</style>

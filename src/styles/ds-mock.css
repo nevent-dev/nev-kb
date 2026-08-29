@@ -1,0 +1,117 @@
+/* ============================================================
+   Primitivas compartidas de los mockups del design system (DsMock*).
+   Prefijo .dsm-* para no colisionar con el resto del sitio.
+   Todo con tokens --t-*; sin hover ni emojis. Decorativos (aria-hidden).
+   ============================================================ */
+.dsm-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items: start; box-sizing: border-box; }
+.dsm-grid *, .dsm-col * { box-sizing: border-box; }
+.dsm-col { display: flex; flex-direction: column; gap: 16px; min-width: 0; }
+
+.dsm-card {
+  background: var(--t-surface);
+  border: 1px solid var(--t-border);
+  border-radius: 16px;
+  box-shadow: var(--elevation-2);
+  padding: 18px 20px;
+  min-width: 0;
+}
+.dsm-card__title {
+  font-family: var(--ds-font-heading);
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: var(--t-heading);
+  margin: 0 0 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--t-border);
+}
+
+.dsm-figure {
+  font-family: var(--ds-font-heading);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--t-heading);
+  font-size: 2rem;
+  line-height: 1.1;
+}
+/* KPI positivo destacado en verde (retorno, ahorro, base propia) */
+.dsm-figure--good { color: var(--t-positive); }
+
+/* Logos de partners (Meta, TikTok, Google Ads, Fever, Fourvenues) */
+.dsm-logos { display: flex; flex-wrap: wrap; gap: 8px; }
+.dsm-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--t-surface);
+  border: 1px solid var(--t-border);
+  border-radius: var(--radius-pill);
+  padding: 5px 12px 5px 6px;
+  font-size: 0.78rem;
+  color: var(--t-text);
+  font-weight: 600;
+}
+.dsm-logo img { width: 18px; height: 18px; object-fit: contain; border-radius: 4px; display: block; }
+
+/* Microchart (sparkline) */
+.dsm-spark { width: 100%; height: 44px; display: block; margin-top: 4px; }
+.dsm-spark path.line { fill: none; stroke: var(--t-accent); stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+.dsm-spark path.area { fill: var(--t-chip-bg); stroke: none; }
+.dsm-spark path.line--good { stroke: var(--t-positive); }
+.dsm-spark path.area--good { fill: var(--t-positive-bg); }
+.dsm-kicker {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.68rem;
+  color: var(--t-muted);
+  margin: 10px 0 16px;
+}
+
+.dsm-bars { display: flex; flex-direction: column; gap: 10px; }
+.dsm-bar { height: 8px; border-radius: var(--radius-pill); background: color-mix(in srgb, var(--t-muted) 26%, transparent); }
+.dsm-bar--accent { background: var(--t-accent); }
+
+.dsm-chips { display: inline-flex; gap: 6px; flex-wrap: wrap; }
+.dsm-chip {
+  display: inline-block;
+  background: var(--chip-lavender-bg);
+  color: var(--chip-lavender-fg);
+  font-weight: 600;
+  font-size: 0.72rem;
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  white-space: nowrap;
+}
+
+.dsm-ico {
+  flex-shrink: 0;
+  width: 26px; height: 26px;
+  border-radius: 8px;
+  display: grid; place-items: center;
+  background: var(--t-chip-bg);
+  color: var(--t-accent);
+}
+.dsm-ico svg { width: 15px; height: 15px; display: block; }
+
+/* fila etiqueta / valor (embudos, desgloses) */
+.dsm-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 12px; }
+.dsm-row:last-child { margin-bottom: 0; }
+.dsm-row__label { color: var(--t-muted); font-size: 0.8rem; }
+.dsm-row__value { color: var(--t-heading); font-weight: 600; font-size: 0.85rem; }
+
+/* pista con relleno proporcional (mini barras de progreso) */
+.dsm-track { height: 8px; border-radius: var(--radius-pill); background: color-mix(in srgb, var(--t-muted) 16%, transparent); overflow: hidden; }
+.dsm-track > span { display: block; height: 100%; border-radius: var(--radius-pill); background: var(--t-accent); }
+
+/* toggle ilustrativo (canales activos/inactivos) */
+.dsm-toggle-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 12px; }
+.dsm-toggle-row:last-child { margin-bottom: 0; }
+.dsm-toggle-row span { font-size: 0.85rem; color: var(--t-text); }
+.dsm-toggle { width: 34px; height: 20px; border-radius: var(--radius-pill); background: color-mix(in srgb, var(--t-muted) 22%, transparent); position: relative; flex-shrink: 0; }
+.dsm-toggle::after { content: ''; position: absolute; top: 3px; left: 3px; width: 14px; height: 14px; border-radius: 50%; background: var(--t-surface); box-shadow: var(--elevation-1); }
+.dsm-toggle--on { background: var(--t-accent); }
+.dsm-toggle--on::after { left: auto; right: 3px; }
+
+@media (max-width: 520px) {
+  .dsm-grid { grid-template-columns: 1fr; }
+  .dsm-figure { font-size: 1.7rem; }
+}

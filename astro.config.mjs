@@ -828,6 +828,7 @@ export default defineConfig({
 				'./src/styles/nevent-tokens.css',
 				// Tokens de nevent.ai que consumen los componentes portados.
 				'./src/styles/nevent-web-tokens.css',
+				'./src/styles/nevent-ds-theme.css',
 				'./src/styles/custom.css',
 				'./src/styles/nevent-theme.css',
 			],

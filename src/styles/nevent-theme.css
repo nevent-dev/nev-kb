@@ -228,7 +228,7 @@ a.site-title img {
    columnas ocupando media página, con su propio max-width de 1200px sin poder
    aplicarse nunca. Estas secciones son bandas, no texto: ocupan el contenedor.
    ========================================================================== */
-.sl-markdown-content > :is(.feature-grid, .cta-section, .call-to-action-section) {
+.sl-markdown-content > :is(.feature-grid, .cta-section, .call-to-action-section, .ds-tiles, .ds-feature) {
 	max-width: none;
 	width: 100%;
 }
@@ -318,4 +318,19 @@ html[data-has-sidebar] .footer-container {
 	html[data-has-sidebar] .footer-nav {
 		grid-template-columns: repeat(2, 1fr);
 	}
+}
+
+/* El icono de las tiles y de los bloques del sistema viene como SVG inline
+   (el original usaba FontAwesome, que aquí no se carga). Las cajas pastel
+   están dimensionadas para una fuente de iconos, así que hay que darle
+   tamaño al SVG. */
+.ds-tile__ico svg,
+.ds-feature__icon svg {
+	width: 1em;
+	height: 1em;
+	display: block;
+}
+.ds-feature__icon svg {
+	width: 22px;
+	height: 22px;
 }

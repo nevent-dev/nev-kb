@@ -22,7 +22,7 @@ import { basename } from 'node:path';
 
 // Ficheros donde SÍ se permiten literales de color y familias tipográficas:
 // son la capa de tokens y los puentes de tema.
-const TOKEN_LAYER = /(^|[./])(tokens\.json|css-vars\.css|tokens\.ts|primeng-theme\.scss|nevent-tokens\.css|nevent-theme\.css|nevent-web-tokens\.css)$/;
+const TOKEN_LAYER = /(^|[./])(tokens\.json|css-vars\.css|tokens\.ts|primeng-theme\.scss|nevent-tokens\.css|nevent-theme\.css|nevent-web-tokens\.css|nevent-ds-theme\.css)$/;
 
 const HEX = /#[0-9a-fA-F]{3,8}\b/;
 const FUNC_COLOR = /\b(rgba?|hsla?)\s*\(/;
