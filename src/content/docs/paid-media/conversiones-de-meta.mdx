@@ -1,12 +1,17 @@
 ---
 title: "Comprueba que tus ventas llegan a Meta"
 diataxis: how-to
-description: "Revisa en Nevent qué campañas de Meta te venden entradas de verdad, comprueba que tus ventas se están enviando y entiende qué hacer si algo no cuadra."
+description: "Activa el envío de tus ventas a Meta, revisa qué campañas te venden entradas de verdad y entiende qué hacer si algo no cuadra."
 sidebar:
   order: 12
+needs_screenshots: true
 faqs:
   - q: "¿Tengo que activar algo para que mis ventas se envíen a Meta?"
-    a: "No. En cuanto tu cuenta de Meta Ads está conectada en Configuración → Paid Ads, Nevent empieza a enviar las ventas elegibles por su cuenta. La pantalla de Conversiones es para comprobarlo y leer el resultado, no para encenderlo."
+    a: "Depende de tu cuenta. Si al abrir Publicidad → Conversiones ves la tarjeta «Activa las conversiones en tres pasos», elige el destino en Meta y pulsa «Activar el envío». Si en cambio ves la etiqueta «Conexión activa», ya está funcionando y no tienes que hacer nada."
+  - q: "¿Qué es el destino que me pide elegir el paso 2?"
+    a: "Es el píxel o dataset de tu cuenta publicitaria donde Meta recibirá las ventas. Nevent los lista desde tu propia cuenta de Meta, así que no tienes que buscar ningún código: solo elegir uno de la lista."
+  - q: "¿Puedo dejar de enviar mis ventas a Meta?"
+    a: "Sí. Con el envío activo, al pie de la pantalla de Conversiones aparece «Desactivar envío». Puedes volver a activarlo cuando quieras."
   - q: "¿Esto funciona también con TikTok y Google Ads?"
     a: "Todavía no. El envío de ventas solo está disponible para Meta. Con TikTok Ads y Google Ads puedes conectar la cuenta y sincronizar audiencias, pero sus campañas no reciben de vuelta tus ventas."
   - q: "El envío aparece como correcto pero las ventas atribuidas están a cero. ¿Está roto?"
@@ -23,13 +28,13 @@ import YouTube from '../../../components/YouTube.astro';
 
 Cuando tu cuenta de Meta está conectada, Nevent le devuelve tus ventas de entradas para que Meta pueda decirte qué campañas venden de verdad y no solo cuáles consiguen clics.
 
-En esta guía compruebas que ese envío está funcionando y aprendes a leer la pantalla que lo resume. Unos 5 minutos.
+En esta guía activas ese envío, compruebas que está funcionando y aprendes a leer la pantalla que lo resume. Unos 5 minutos.
 
 ## Antes de empezar
 
 Necesitas la cuenta de **Meta Ads conectada**. Lo compruebas en el paso 1.
 
-No hay nada que activar: si Meta está conectado, el envío ya está en marcha.
+No hace falta pegar tokens ni tocar código: Nevent usa la conexión de Meta que ya tienes.
 
 ## Paso 1: Comprueba que Meta está conectado
 
@@ -45,13 +50,30 @@ TikTok Ads y Google Ads aparecen aquí también, pero **el envío de ventas hoy 
 
 En el menú lateral, entra en **Paid Ads** y desde ahí en **Conversiones**. También puedes ir directamente a `/paid-ads/conversions`.
 
-Arriba verás el estado de la conexión. Si pone **Conexión activa**, tus ventas se están enviando.
+Lo que encuentres aquí depende de si el envío ya está en marcha:
+
+- Si ves la etiqueta **Conexión activa**, tus ventas ya se están enviando. Salta al paso 4.
+- Si ves la tarjeta **Activa las conversiones en tres pasos**, continúa con el paso 3.
 
 ![Pantalla de Conversiones de Nevent con el estado Conexión activa, los indicadores de Inversión publicitaria (282,62 euros), Ventas atribuidas (0,00 euros) y Retorno ROAS (0,00), y la tabla de rendimiento por campaña debajo](/images/guias/paid-media/conversiones-de-meta/paso-1-pantalla-conversiones.png)
 
-## Paso 3: Lee los tres indicadores
+## Paso 3: Activa el envío
 
-La pantalla resume los **últimos 7 días** en tres números:
+La tarjeta de activación resume los tres pasos y te dice en cuál estás:
+
+1. **Conecta tu cuenta de Meta.** Si el paso 1 te salió bien, aparece ya como **Conectada**.
+2. **Elige el destino en Meta.** Nevent lista los píxeles de tu propia cuenta publicitaria, cada uno con su nombre y su última actividad, para que no tengas que buscar códigos en ningún sitio. Elige el que uses para tus campañas.
+3. **Activa el envío.** Pulsa **Activar el envío**. Desde ese momento, cada venta elegible llega a Meta en menos de un minuto y la pantalla pasa a mostrarte el retorno por campaña.
+
+Está incluido en tu plan y puedes desactivarlo cuando quieras (paso 5).
+
+:::note[Si no aparece ningún píxel]
+Si Nevent no consigue listar los píxeles de tu cuenta, verás un aviso con un botón **Reintentar**. Si sigue sin aparecer ninguno, es que tu cuenta publicitaria aún no tiene uno: créalo en el Administrador de eventos de Meta y vuelve a esta pantalla.
+:::
+
+## Paso 4: Lee los tres indicadores
+
+Con el envío activo, la pantalla resume los **últimos 7 días** en tres números:
 
 - **Inversión publicitaria**: lo que te has gastado en anuncios en el periodo.
 - **Ventas atribuidas**: cuánto dinero en entradas ha generado esa inversión, según Meta.
@@ -66,11 +88,11 @@ Dos avisos que verás en la propia pantalla y conviene tomarse en serio:
 
 Es decir: no juzgues una campaña el primer día.
 
-## Paso 4: Comprueba el estado del envío
+## Paso 5: Comprueba el estado del envío
 
 Al pie de la pantalla aparece un resumen del tipo **"Envío correcto · 1 de 1 ventas aceptadas por Meta en las últimas 24 horas"**. Ese es el dato que te dice si la tubería funciona.
 
-Si quieres ver el detalle, pulsa **Ver detalle de envíos**. Solo necesitas esta vista si algo no cuadra.
+Si quieres ver el detalle, pulsa **Ver detalle de envíos**. Solo necesitas esta vista si algo no cuadra. Junto a ese enlace está también **Desactivar envío**, por si en algún momento quieres dejar de mandar tus ventas a Meta.
 
 ![Detalle de envíos a Meta desplegado en Nevent, con la lista de los 13 datos de coincidencia que se pueden enviar por venta, el aviso de hash SHA-256 y la tabla de registro con una compra aceptada el 27 de agosto](/images/guias/paid-media/conversiones-de-meta/paso-2-detalle-envios.png)
 
@@ -96,3 +118,9 @@ Si el registro muestra ventas **rechazadas** con un motivo, ahí sí hay algo qu
 ## Qué hacer con esto
 
 Cuando lleves un par de semanas con datos, compara el retorno por campaña de esta pantalla con el que te da Meta Ads Manager. La diferencia entre ambos es justo lo que Meta no veía antes, y es la que te dice dónde estabas invirtiendo a ciegas. Lo explicamos en [por qué tu CPA real no es el que ves en Meta](/paid-media/por-que-tu-cpa-real-no-es-el-que-ves-en-meta).
+
+## Siguiente paso
+
+- [Por qué tu CPA real no es el que ves en Meta](/paid-media/por-que-tu-cpa-real-no-es-el-que-ves-en-meta)
+- [Conecta tus cuentas de Paid Media](/paid-media/introduccion)
+- [Referencia de Paid Media](/paid-media/referencia)
