@@ -186,6 +186,31 @@ function walk(dir) {
 }
 
 /**
+ * Full-route ES → EN overrides for pages moved during the Diátaxis
+ * restructure (Ola 0) whose new ES path no longer has the same segment
+ * count/top-segment as its EN counterpart, so the per-segment translator
+ * below (SEGMENT_ES_TO_EN) cannot reconstruct the right target on its own.
+ * Checked before the per-segment fallback in buildRouteMaps().
+ */
+const ROUTE_ES_TO_EN_OVERRIDE = {
+	'playbooks/checklist-de-lanzamiento': 'lifecycle/launch-checklist',
+	'playbooks/post-mortem-del-evento': 'lifecycle/event-post-mortem',
+	'playbooks/semana-del-evento': 'lifecycle/event-week',
+	'playbooks/fidelizar-post-evento': 'goal-guides/post-event-loyalty',
+	'playbooks/lanzamiento-72h': 'goal-guides/72-hour-launch',
+	'playbooks/llenar-tu-evento': 'goal-guides/fill-your-event',
+	'playbooks/reactivar-fans-inactivos': 'goal-guides/reactivate-inactive-fans',
+	'playbooks/recuperar-carritos-abandonados': 'goal-guides/recover-abandoned-carts',
+	'playbooks/vender-en-preventa': 'goal-guides/sell-more-in-presale',
+	'segmentacion/grupos-ab-testing': 'segmentation/segmentation-engine/groups',
+	'segmentacion/preguntas-frecuentes': 'segmentation/segmentation-engine/faq',
+	'segmentacion/buenas-practicas': 'segmentation/segmentation-engine/best-practices',
+	'segmentacion/segmento-vs-lista': 'common-decisions/segment-vs-list',
+	'campanas/email-sms-o-whatsapp': 'common-decisions/email-sms-or-whatsapp',
+	'campanas/cuanto-y-cuando-enviar': 'common-decisions/how-much-and-when-to-send',
+};
+
+/**
  * Builds the ES↔EN route maps by scanning dist/ for emitted pages.
  *
  * @param {string} distDir - Absolute path to the build output directory.
@@ -207,10 +232,12 @@ function buildRouteMaps(distDir) {
 	const enStrippedToEs = new Map();
 	for (const route of routes) {
 		if (route.startsWith('en/') || route === 'en' || route === '404' || route === '') continue;
-		const translated = route
-			.split('/')
-			.map((seg) => SEGMENT_ES_TO_EN[seg] ?? seg)
-			.join('/');
+		const translated =
+			ROUTE_ES_TO_EN_OVERRIDE[route] ??
+			route
+				.split('/')
+				.map((seg) => SEGMENT_ES_TO_EN[seg] ?? seg)
+				.join('/');
 		const enRoute = `en/${translated}`;
 		// Only map when the EN target really exists in this build.
 		if (routes.has(enRoute)) {

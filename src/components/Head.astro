@@ -83,7 +83,7 @@ const dateModified = rawLastUpdated
 const isFaqPage =
   slug === 'nevent-ai/preguntas-frecuentes' ||
   slug === 'en/nevent-ai/faq' ||
-  slug === 'segmentacion/motor-segmentacion/faq' ||
+  slug === 'segmentacion/preguntas-frecuentes' ||
   slug === 'en/segmentation/segmentation-engine/faq' ||
   slug === 'analitica/faq' ||
   slug === 'en/analytics/faq';
@@ -594,7 +594,7 @@ const definedTermSetSchema = isSegmentationPage
               ? 'Group of segmentation criteria. Criteria within a stanza use OR logic; stanzas between them use AND logic.'
               : 'Grupo de criterios de segmentación. Los criterios dentro de un stanza usan lógica OR; los stanzas entre sí usan lógica AND.',
           termCode: 'stanza',
-          inDefinedTermSet: `${SITE}/segmentacion/motor-segmentacion/operadores-logica/`,
+          inDefinedTermSet: `${SITE}/segmentacion/capacidades/combinaciones/`,
         },
       ],
     }
