@@ -1,0 +1,96 @@
+---
+title: "Cómo crear una marca con su propio dominio de envío"
+diataxis: how-to
+modulo: plataforma
+sinonimos:
+  - "subcuenta"
+  - "submarca"
+  - "etiquetas por marca"
+  - "varias marcas"
+description: "Aprende a separar tus submarcas en Nevent creando una marca con su propia audiencia, plantillas y dominio de email dedicado."
+sidebar:
+  label: "Crea una marca con dominio propio"
+  order: 4
+faqs:
+  - q: "Tengo varias submarcas de la misma sala, ¿las separo con etiquetas?"
+    a: "No. Una etiqueta solo clasifica fans dentro de la misma marca; no separa audiencia, plantillas ni remitente. Para eso necesitas crear una marca."
+  - q: "¿Crear una marca tiene coste adicional?"
+    a: "La primera marca va incluida en tu plan. Cada marca adicional tiene un coste sobre la cuota de tus módulos. Consulta el importe exacto en el Centro de facturación o con el equipo comercial."
+  - q: "¿Tengo que configurar un dominio para cada marca?"
+    a: "Solo si vas a enviar email de campaña con remitente propio desde esa marca. Si no configuras un dominio dedicado, la marca envía desde el dominio compartido de Nevent."
+---
+
+Una agencia que gestiona varias salas, o varias submarcas de una misma sala, necesita a menudo separar sus comunicaciones: plantillas distintas, remitente distinto y audiencia que no se mezcle entre marcas.
+
+La tentación habitual es resolverlo con etiquetas, pero una etiqueta no separa nada: solo clasifica fans dentro de la misma base. Lo que separa audiencia, plantillas y remitente es crear una **marca**, el nivel más bajo de la estructura de tu organización en Nevent.
+
+En esta guía creas una marca, invitas usuarios a ella y le configuras un dominio de envío propio.
+
+## Antes de empezar
+
+Necesitas:
+
+- **Rol de administrador, propietario o superadministrador** en tu organización. Con otros roles no puedes ver ni crear la estructura.
+- **Estar en una organización de nivel 1 (grupo) o nivel 2 (empresa).** Una marca es el último nivel: solo se crea colgando de una empresa. Repasa [los tres niveles de una organización](/organizacion/que-son-los-tres-niveles) si no tienes claro en qué nivel estás.
+- Si vas a configurar un dominio propio, ten a mano el acceso al panel DNS de esa submarca (o de quien gestione su web).
+
+## Cuándo te conviene una marca y cuándo no
+
+- **Marca**: úsala cuando necesitas audiencia, plantillas y remitente de email separados. Es la respuesta correcta cuando dos submarcas no deben compartir fans ni comunicaciones.
+- **Etiqueta**: úsala solo para clasificar fans dentro de la misma marca (por ejemplo, "VIP" o "grupo de WhatsApp"). No separa audiencia ni remitente.
+
+Si tu duda es "¿esto necesita su propia base de fans y su propio remitente?", la respuesta afirmativa apunta a una marca, no a una etiqueta.
+
+## Paso 1: crea la marca desde la estructura de tu organización
+
+1. En el menú lateral, entra en **Configuración** y, dentro del bloque **Espacio de trabajo**, haz clic en **Organización**.
+2. En el mapa de tu estructura, haz clic en la **empresa** (nivel 2) de la que quieres que cuelgue la nueva marca.
+3. Pulsa el botón de crear, arriba a la derecha del mapa. Al estar dentro de una empresa, el texto del botón indica que vas a crear una marca.
+
+Al crear una marca (tercer nivel) la ventana pide el nombre; si tu cuenta muestra campos adicionales, complétalos según tu caso. El flujo es el mismo que crear una empresa, documentado en [consulta y crea la estructura de tu organización](/organizacion/estructura-de-tu-organizacion).
+
+{/* VÍDEO: crear una marca, pendiente de grabar */}
+
+:::note[Coste de marcas adicionales]
+La primera marca va incluida en tu plan. Cada marca adicional tiene un coste sobre la cuota de tus módulos contratados. Consulta el importe en el Centro de facturación o con el equipo comercial de Nevent.
+:::
+
+## Paso 2: invita usuarios a la nueva marca
+
+Cada marca tiene su propio listado de usuarios. Si tu equipo de esa submarca solo debe ver sus datos, invítalos directamente dentro de la marca, no en la empresa o el grupo.
+
+1. Entra en la marca recién creada.
+2. Ve a **Configuración → Usuarios**.
+3. Añade a cada persona con el rol que corresponda: administrador para quien trabaja en el panel, staff para quien solo escanea en puerta.
+
+El detalle completo de este paso está en [añade usuarios a tu organización](/organizacion/invita-a-tu-equipo).
+
+## Paso 3: configura el dominio dedicado de la marca
+
+Si esta marca va a enviar campañas de email con remitente propio (por ejemplo, `email.submarca.com` en lugar del dominio compartido de Nevent), configúrale su propio dominio dedicado.
+
+Entra en la marca, ve a **Configuración → Dominio dedicado** y sigue el asistente paso a paso en [configura tu dominio dedicado](/entregabilidad/dominio-dedicado).
+
+Cada marca necesita su propia configuración de dominio: no se hereda automáticamente de la empresa ni del grupo.
+
+## Paso 4: comprueba el remitente en una campaña de prueba
+
+Antes de lanzar una campaña real desde la nueva marca, confirma que el remitente es el esperado:
+
+1. Dentro de la marca, crea una campaña de prueba con un solo destinatario (tú mismo).
+2. Envíala y revisa la dirección de remitente en el email recibido.
+3. Confirma que aparece el dominio dedicado de la marca, no el compartido de Nevent.
+
+Si el remitente sigue mostrando el dominio compartido, revisa que todos los registros DNS aparezcan como verificados en la pantalla de dominio dedicado de esa marca.
+
+## Qué comprobar
+
+- La marca aparece en el mapa de tu estructura, colgando de la empresa correcta.
+- Los usuarios que invitaste ven solo los datos de esa marca, no los del resto de la organización.
+- El remitente de la campaña de prueba muestra el dominio dedicado de la marca.
+
+## Contenido relacionado
+
+- [Los tres niveles de una organización](/organizacion/que-son-los-tres-niveles)
+- [Consulta y crea la estructura de tu organización](/organizacion/estructura-de-tu-organizacion)
+- [Configura tu dominio dedicado](/entregabilidad/dominio-dedicado)
