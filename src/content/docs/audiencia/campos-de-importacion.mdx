@@ -12,15 +12,11 @@ sinonimos:
 sidebar:
   label: "Campos de importación"
 faqs:
-  - q: "¿Qué pasa si mi archivo tiene una columna con datos, pero algunas filas de esa columna están vacías?"
-    a: "Pendiente de confirmar con el equipo de producto: hoy el validador de la importación trata una celda vacía como un valor no admitido para ese campo."
   - q: "¿Puedo importar más de tres campos personalizados si estoy en el plan Basic?"
     a: "No. El límite de campos personalizados es de 3 en el plan Basic y de 25 en el plan Pro. Si necesitas más, tu opción es pasar a Pro."
   - q: "¿El correo electrónico es siempre obligatorio para importar un contacto?"
     a: "Sí. Es el único campo de sistema que no se puede desmarcar al generar la plantilla de importación, y sin él no se puede crear el registro del contacto."
 ---
-import { Aside } from '@astrojs/starlight/components';
-
 Esta página reúne los campos que admite la importación de contactos en Nevent: los campos de sistema que ya trae la plataforma, el límite de campos personalizados según tu plan y qué pasa con las columnas que dejas vacías.
 
 Úsala como consulta antes de preparar tu archivo, para no tener que corregirlo después de subirlo.
@@ -59,14 +55,6 @@ Además de los campos de sistema, puedes mapear columnas de tu archivo a campos 
 Todavía no tenemos confirmada la lista exacta de valores que Nevent admite para el campo Género (por ejemplo, si acepta "Hombre", "Mujer", "Otro" u otras etiquetas) ni para el campo Consentimiento de marketing en el archivo de importación (por ejemplo, si espera "Sí"/"No", "true"/"false" u otro formato).
 
 Este dato está pendiente de confirmar con el equipo de producto.
-
-## Qué pasa con una columna presente pero vacía
-
-<Aside type="caution" title="Pendiente de confirmar">
-Este comportamiento está pendiente de confirmar con el equipo de producto.
-</Aside>
-
-Si tu archivo incluye una columna de cabecera (por ejemplo, `telefono`) pero algunas de sus filas están vacías, hoy el validador de la importación trata esa celda vacía como un valor no admitido para ese campo.
 
 ## Tamaño y formatos de archivo
 

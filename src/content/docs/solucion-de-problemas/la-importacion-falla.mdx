@@ -15,10 +15,8 @@ faqs:
   - q: "¿Por qué el número de filas de mi archivo no coincide con el número de entradas vendidas?"
     a: "Porque un mismo comprador puede tener varias entradas en una sola compra, y porque puede haber ventas realizadas por otras vías que no pasan por el mismo archivo. El número de filas de contactos y el número de entradas vendidas no tienen por qué coincidir."
   - q: "¿Por qué veo 'Consentimiento de marketing' en el desplegable de campos personalizados al mapear mi archivo?"
-    a: "Pendiente de confirmar con el equipo de Nevent. Búscalo primero en el desplegable de campos de sistema; si no aparece ahí, anótalo como algo que confirmar antes de asumir un mapeo incorrecto."
+    a: "Porque tu cuenta tiene un campo personalizado con ese mismo nombre. Mapea la columna al campo de consentimiento de sistema, que aparece en el otro grupo del desplegable, no al personalizado."
 ---
-import { Aside } from '@astrojs/starlight/components';
-
 Si tu importación de contactos no avanza, marca errores en columnas concretas o el número final no cuadra con lo que esperabas, aquí tienes cómo diagnosticar cada síntoma y corregirlo.
 
 ## Antes de empezar
@@ -41,29 +39,21 @@ Esto resuelve la mayoría de los casos en los que el navegador tiene guardada un
 
 ## Paso 2: aparecen avisos de error en columnas que van vacías
 
-<Aside type="caution" title="Pendiente de confirmar">
-Que el validador trate una columna presente pero vacía como un valor no admitido es un comportamiento pendiente de confirmar con el equipo de producto.
-</Aside>
-
-Si el mapeo de campos marca error en una columna concreta, revisa si esa columna tiene celdas vacías en algunas filas.
+Si te salen avisos en columnas que no has rellenado en todas las filas, quita esas columnas del archivo y vuelve a subirlo.
 
 1. Abre tu archivo y localiza la columna señalada con el aviso.
 2. Comprueba si todas las filas tienen un valor en esa columna.
 3. Si hay filas vacías, quita esa columna completa del archivo y vuelve a subirlo. Puedes importar ese dato más adelante, en otra importación, cuando tengas la columna completa.
 
-Consulta [Campos de importación](/audiencia/campos-de-importacion) para ver el detalle de por qué una columna con celdas vacías da error.
+Consulta [Campos de importación](/audiencia/campos-de-importacion) para ver el detalle de qué campos admite la importación.
 
 ## Paso 3: ves "Consentimiento de marketing" entre los campos personalizados
 
-<Aside type="caution" title="Pendiente de confirmar">
-Que "Consentimiento de marketing" pueda aparecer entre los campos personalizados en lugar de entre los campos de sistema es un caso pendiente de confirmar con el equipo de Nevent.
-</Aside>
-
-Si ves "Consentimiento de marketing" entre los campos personalizados al mapear tu archivo, en lugar de entre los campos de sistema, revisa el desplegable completo.
+Si "Consentimiento de marketing" te aparece entre los campos personalizados es porque en tu cuenta existe un campo personalizado con ese nombre. Mapea la columna al campo de consentimiento de sistema, no al personalizado.
 
 1. Haz clic en el desplegable **Seleccionar campo** de esa columna.
-2. Busca "Consentimiento de marketing" entre los campos de sistema y selecciónalo si aparece ahí.
-3. Si no lo encuentras entre los campos de sistema, no fuerces el mapeo a un campo personalizado. Anota el caso y coméntalo con el equipo de soporte de Nevent antes de confirmar la importación.
+2. Busca "Consentimiento de marketing" entre los campos de sistema y selecciónalo ahí, no en el grupo de campos personalizados.
+3. Si tu cuenta tiene un campo personalizado con el mismo nombre, revisa con cuidado cuál de los dos estás seleccionando antes de confirmar el mapeo.
 
 ## Paso 4: el total de filas no cuadra con las entradas vendidas
 

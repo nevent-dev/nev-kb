@@ -19,8 +19,6 @@ faqs:
   - q: "¿Esta tabla incluye todos los proveedores que existen en el mercado?"
     a: "No. Solo incluye los proveedores que hoy aparecen en el catálogo de integraciones de Nevent. Si tu ticketera no está aquí, consulta qué hacer si tu ticketera no está integrada."
 ---
-import { Aside } from '@astrojs/starlight/components';
-
 Esta página resume, proveedor por proveedor, qué información llega a tu audiencia de Nevent cuando conectas una ticketera o una integración cashless.
 
 Úsala para saber de antemano qué vas a poder segmentar y qué todavía no, según con quién vendas tus entradas.
@@ -34,21 +32,17 @@ Esta página resume, proveedor por proveedor, qué información llega a tu audie
 | Enterticket | Ticketing | Sí | Sin confirmar | Sin confirmar | Sin confirmar | Sin confirmar | No |
 | Covermanager | Ticketing | Sí | Sin confirmar | Sin confirmar | Sin confirmar | Sin confirmar | No |
 | DICE | Ticketing | Sí | Sin confirmar | Sin confirmar | Sin confirmar | Sin confirmar | No |
-| XCEED | Ticketing | Sí | Sin confirmar | Sin confirmar | Sin confirmar | Sin confirmar | No |
-| Fever | Ticketing | Sí | Sin confirmar | Sin confirmar | Pendiente de confirmar | Sin confirmar | No |
+| XCEED | Ticketing | Sí | Sin confirmar | Sin confirmar | No | Sin confirmar | No |
+| Fever | Ticketing | Sí | Sin confirmar | Sin confirmar | Sí | Sin confirmar | No |
 | CASFID | Cashless | No | Sin confirmar | Sin confirmar | No aplica | No aplica | Sí |
 
 :::note[Cómo leer "Sí" y "No"]
 Un "Sí" o un "No" solo aparece cuando podemos fundamentarlo en la documentación de Nevent. La categoría de cada proveedor (Ticketing o Cashless) determina si trae compra de entradas o consumo cashless: un proveedor de Ticketing te trae ventas y asistentes, no consumo dentro del recinto, y viceversa con CASFID.
 :::
 
-## Sobre el carrito abandonado
+## Lo único confirmado sobre carrito abandonado
 
-<Aside type="caution" title="Pendiente de confirmar">
-Que Fever envíe el evento de carrito abandonado a Nevent está pendiente de confirmar con el equipo de producto.
-</Aside>
-
-Según información interna todavía sin confirmar, de los proveedores de esta tabla solo Fever enviaría el evento de carrito abandonado a Nevent. Para el resto de proveedores, tampoco tenemos confirmación de si lo envían: aparece como "Sin confirmar" hasta que se verifique caso por caso.
+Hoy, de los proveedores de esta tabla, solo Fever envía el evento de carrito abandonado a Nevent. XCEED no lo envía. Para el resto de proveedores, todavía no tenemos confirmación de si lo envían: aparece como "Sin confirmar" hasta que se verifique caso por caso.
 
 ## Si tu ticketera no está en la lista
 
