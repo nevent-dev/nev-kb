@@ -15,14 +15,19 @@ faqs:
   - q: "¿Por qué el número de filas de mi archivo no coincide con el número de entradas vendidas?"
     a: "Porque un mismo comprador puede tener varias entradas en una sola compra, y porque puede haber ventas realizadas por otras vías que no pasan por el mismo archivo. El número de filas de contactos y el número de entradas vendidas no tienen por qué coincidir."
   - q: "¿Por qué veo 'Consentimiento de marketing' en el desplegable de campos personalizados al mapear mi archivo?"
-    a: "Puede ocurrir si esa columna no se ha reconocido como el campo de sistema correspondiente. Búscalo en el desplegable de campos de sistema; si no aparece ahí, anótalo como algo que confirmar con el equipo de Nevent antes de asumir un mapeo incorrecto."
+    a: "Pendiente de confirmar con el equipo de Nevent. Búscalo primero en el desplegable de campos de sistema; si no aparece ahí, anótalo como algo que confirmar antes de asumir un mapeo incorrecto."
 ---
+import { Aside } from '@astrojs/starlight/components';
 
 Si tu importación de contactos no avanza, marca errores en columnas concretas o el número final no cuadra con lo que esperabas, aquí tienes cómo diagnosticar cada síntoma y corregirlo.
 
 ## Antes de empezar
 
 Necesitas tener el archivo que estabas intentando subir a mano, para poder revisarlo y corregirlo. Si todavía no has empezado la importación, sigue primero la guía [Importa tus contactos](/audiencia/importar-fans).
+
+Si vas a importar los campos Género o Consentimiento de marketing, te recomendamos generar primero la plantilla de importación desde Nevent y comprobar en pantalla qué valores acepta, antes de rellenar tu archivo.
+
+Es más seguro no incluir en tu archivo las columnas que no vas a poder rellenar en todas las filas, en lugar de dejarlas a medias.
 
 ## Paso 1: la pantalla se queda en blanco al subir el archivo
 
@@ -36,6 +41,10 @@ Esto resuelve la mayoría de los casos en los que el navegador tiene guardada un
 
 ## Paso 2: aparecen avisos de error en columnas que van vacías
 
+<Aside type="caution" title="Pendiente de confirmar">
+Que el validador trate una columna presente pero vacía como un valor no admitido es un comportamiento pendiente de confirmar con el equipo de producto.
+</Aside>
+
 Si el mapeo de campos marca error en una columna concreta, revisa si esa columna tiene celdas vacías en algunas filas.
 
 1. Abre tu archivo y localiza la columna señalada con el aviso.
@@ -44,9 +53,13 @@ Si el mapeo de campos marca error en una columna concreta, revisa si esa columna
 
 Consulta [Campos de importación](/audiencia/campos-de-importacion) para ver el detalle de por qué una columna con celdas vacías da error.
 
-## Paso 3: "Consentimiento de marketing" aparece como campo personalizado en el mapeo
+## Paso 3: ves "Consentimiento de marketing" entre los campos personalizados
 
-Si al mapear tu archivo ves que la columna de consentimiento aparece dentro de los campos personalizados en lugar de entre los campos de sistema, revisa el desplegable completo.
+<Aside type="caution" title="Pendiente de confirmar">
+Que "Consentimiento de marketing" pueda aparecer entre los campos personalizados en lugar de entre los campos de sistema es un caso pendiente de confirmar con el equipo de Nevent.
+</Aside>
+
+Si ves "Consentimiento de marketing" entre los campos personalizados al mapear tu archivo, en lugar de entre los campos de sistema, revisa el desplegable completo.
 
 1. Haz clic en el desplegable **Seleccionar campo** de esa columna.
 2. Busca "Consentimiento de marketing" entre los campos de sistema y selecciónalo si aparece ahí.
