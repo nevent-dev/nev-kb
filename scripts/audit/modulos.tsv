@@ -1,0 +1,154 @@
+analitica/agrupar-y-filtrar	revenue	unico
+analitica/audiencia	revenue	unico
+analitica/campanas	revenue	unico
+analitica/casos/atribucion-por-canal	revenue	unico
+analitica/casos/cohortes-primera-compra	revenue	unico
+analitica/casos/email-por-tier	revenue	unico
+analitica/casos/index	revenue	unico
+analitica/casos/open-rate-diario	revenue	unico
+analitica/casos/roas-ultimos-30-dias	revenue	unico
+analitica/casos/top-eventos-revenue	revenue	unico
+analitica/como-entender-la-analitica	revenue	unico
+analitica/deliverability	revenue	unico
+analitica/eventos-y-entradas	revenue	unico
+analitica/faq	revenue	unico
+analitica/index	revenue	unico
+analitica/paid-media	revenue	unico
+analitica/tracking-y-atribucion	revenue	unico
+analitica/tu-panel-de-inicio	plataforma	
+analitica/tu-primer-analisis	plataforma	
+audiencia/como-entiende-nevent-tu-audiencia	marketing	basic
+audiencia/conecta-tu-ticketera	marketing	basic
+audiencia/explora-tu-audiencia	marketing	basic
+audiencia/gestion-de-fans	marketing	basic
+audiencia/importar-fans	marketing	basic
+audiencia/mi-ticketera-no-esta-integrada	marketing	basic
+audiencia/por-que-conectar-tu-ticketera	marketing	basic
+audiencia/referencia	marketing	basic
+audiencia/referencia-integraciones	marketing	basic
+campanas/crear-primera-campana	marketing	basic
+campanas/cuanto-y-cuando-enviar	marketing	basic
+campanas/email-sms-o-whatsapp	marketing	basic
+campanas/gestionar-campanas	marketing	basic
+campanas/informe/aperturas-y-clics	marketing	basic
+campanas/informe/audiencia	marketing	basic
+campanas/informe/desuscripciones	marketing	basic
+campanas/informe/rebotes	marketing	basic
+campanas/informe/resultados	marketing	basic
+campanas/mejores-practicas	marketing	basic
+campanas/plantillas-email	marketing	basic
+campanas/plantillas-whatsapp	marketing	basic
+campanas/referencia	marketing	basic
+chatbot/bandeja-de-entrada	experience	basic
+chatbot/como-funciona	experience	basic
+chatbot/configuracion	experience	basic
+chatbot/pon-en-marcha-tu-chatbot	experience	basic
+chatbot/referencia	experience	basic
+chatbot/trazabilidad-de-enlaces	experience	basic
+chatbot/voz-del-asistente	experience	basic
+consumo/como-funcionan-los-creditos	plataforma	
+consumo/consulta-tu-plan	plataforma	
+consumo/plan-de-uso	plataforma	
+consumo/referencia	plataforma	
+empieza-aqui/index	plataforma	
+entregabilidad/activar-canales	marketing	basic
+entregabilidad/configura-tu-entrega	marketing	basic
+entregabilidad/dominio-dedicado	marketing	basic
+entregabilidad/envio-de-emails	marketing	basic
+entregabilidad/referencia	marketing	basic
+entregabilidad/reputacion-y-spam	marketing	basic
+experiencias/analytics	plataforma	
+experiencias/listas-de-espera	plataforma	
+experiencias/perfil-musical	plataforma	
+experiencias/que-son-las-experiencias	plataforma	
+experiencias/recorre-tus-experiencias	plataforma	
+experiencias/referencia	plataforma	
+herramientas/magic-links	marketing	basic
+herramientas/que-son-los-magic-links	marketing	basic
+herramientas/referencia-magic-links	marketing	basic
+herramientas/tu-primer-magic-link	marketing	basic
+herramientas/un-enlace-por-canal	marketing	basic
+nevent-ai/casos-practicos/cierre-de-mes-y-reporting	plataforma	
+nevent-ai/casos-practicos/diagnosticar-campana-floja	plataforma	
+nevent-ai/casos-practicos/index	plataforma	
+nevent-ai/casos-practicos/lanzar-un-evento	plataforma	
+nevent-ai/casos-practicos/optimizar-inversion-publicitaria	plataforma	
+nevent-ai/casos-practicos/recuperar-audiencia-dormida	plataforma	
+nevent-ai/conectar-chatgpt	plataforma	
+nevent-ai/conectar-claude	plataforma	
+nevent-ai/developers/claude-code	plataforma	
+nevent-ai/developers/claude-desktop	plataforma	
+nevent-ai/developers/cursor-cline-continue	plataforma	
+nevent-ai/developers/herramientas	plataforma	
+nevent-ai/developers/index	plataforma	
+nevent-ai/developers/instalacion-local	plataforma	
+nevent-ai/developers/multi-tenant	plataforma	
+nevent-ai/developers/troubleshooting	plataforma	
+nevent-ai/frases-listas-para-usar	plataforma	
+nevent-ai/index	plataforma	
+nevent-ai/permisos-y-seguridad	plataforma	
+nevent-ai/preguntas-frecuentes	plataforma	
+nevent-ai/primeros-pasos	plataforma	
+nevent-ai/que-puedes-hacer/analitica	plataforma	
+nevent-ai/que-puedes-hacer/audiencia	plataforma	
+nevent-ai/que-puedes-hacer/campanas	plataforma	
+nevent-ai/que-puedes-hacer/deliverability	plataforma	
+nevent-ai/que-puedes-hacer/index	plataforma	
+nevent-ai/que-puedes-hacer/multi-cuenta	plataforma	
+nevent-ai/que-puedes-hacer/paid-media	plataforma	
+nevent-ai/que-puedes-hacer/plantillas	plataforma	
+nevent-ai/que-puedes-hacer/short-urls	plataforma	
+organizacion/estructura-de-tu-organizacion	plataforma	
+organizacion/invita-a-tu-equipo	plataforma	
+organizacion/que-son-los-tres-niveles	plataforma	
+paid-media/conversiones-de-meta	marketing	pro
+paid-media/introduccion	marketing	basic
+paid-media/por-que-tu-cpa-real-no-es-el-que-ves-en-meta	marketing	pro
+paid-media/primer-vistazo	marketing	basic
+paid-media/que-es	marketing	basic
+paid-media/que-es-una-audiencia-personalizada	marketing	basic
+paid-media/referencia	marketing	basic
+paid-media/referencia-audiencias	marketing	basic
+paid-media/sincroniza-un-segmento-como-audiencia	marketing	basic
+playbooks/checklist-de-lanzamiento	plataforma	
+playbooks/fidelizar-post-evento	plataforma	
+playbooks/lanzamiento-72h	plataforma	
+playbooks/llenar-tu-evento	plataforma	
+playbooks/post-mortem-del-evento	plataforma	
+playbooks/reactivar-fans-inactivos	plataforma	
+playbooks/recuperar-carritos-abandonados	plataforma	
+playbooks/semana-del-evento	plataforma	
+playbooks/vender-en-preventa	plataforma	
+segmentacion/buenas-practicas	marketing	basic
+segmentacion/capacidades/asistencia	marketing	basic
+segmentacion/capacidades/atributos-del-fan	marketing	basic
+segmentacion/capacidades/combinaciones	marketing	basic
+segmentacion/capacidades/engagement	marketing	basic
+segmentacion/capacidades/gasto-y-consumo	marketing	pro
+segmentacion/capacidades/index	marketing	basic
+segmentacion/capacidades/rfm	marketing	pro
+segmentacion/capacidades/score-y-temperatura	marketing	pro
+segmentacion/casos/audiencia-con-preferencia	marketing	pro
+segmentacion/casos/audiencia-geolocalizada	marketing	basic
+segmentacion/casos/carrito-abandonado	marketing	basic
+segmentacion/casos/fans-tempranos	marketing	basic
+segmentacion/casos/index	marketing	basic
+segmentacion/casos/reactivar-fans-inactivos	marketing	pro
+segmentacion/casos/top-rfm-vip	marketing	pro
+segmentacion/grupos-ab-testing	marketing	pro
+segmentacion/preguntas-frecuentes	marketing	basic
+segmentacion/segmento-vs-lista	marketing	basic
+segmentacion/tu-primer-segmento	marketing	basic
+solucion-de-problemas/baja-tasa-de-apertura	plataforma	
+solucion-de-problemas/dominio-no-verifica	plataforma	
+solucion-de-problemas/emails-a-spam	plataforma	
+solucion-de-problemas/ventas-no-atribuidas	plataforma	
+superapp/introduccion	experience	pro
+superapp/primeros-pasos	experience	pro
+superapp/que-es	experience	pro
+superapp/referencia	experience	pro
+suscripciones/consulta-tus-suscriptores	marketing	basic
+suscripciones/crear-formulario	marketing	basic
+suscripciones/para-que-sirven	marketing	basic
+suscripciones/referencia	marketing	basic
+suscripciones/tu-primera-suscripcion	marketing	basic
