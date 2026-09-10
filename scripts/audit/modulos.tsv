@@ -9,6 +9,7 @@ analitica/casos/open-rate-diario	revenue	unico
 analitica/casos/roas-ultimos-30-dias	revenue	unico
 analitica/casos/top-eventos-revenue	revenue	unico
 analitica/como-entender-la-analitica	revenue	unico
+analitica/como-se-cuenta-un-fan-y-una-venta	revenue	unico
 analitica/deliverability	revenue	unico
 analitica/eventos-y-entradas	revenue	unico
 analitica/faq	revenue	unico
@@ -16,17 +17,16 @@ analitica/index	revenue	unico
 analitica/paid-media	revenue	unico
 analitica/tracking-y-atribucion	revenue	unico
 analitica/tu-panel-de-inicio	plataforma	
-analitica/como-se-cuenta-un-fan-y-una-venta	revenue	unico
 analitica/tu-primer-analisis	revenue	unico
+audiencia/campos-de-importacion	marketing	basic
 audiencia/como-entiende-nevent-tu-audiencia	marketing	basic
 audiencia/conecta-tu-ticketera	marketing	basic
 audiencia/explora-tu-audiencia	marketing	basic
 audiencia/gestion-de-fans	marketing	basic
 audiencia/importar-fans	marketing	basic
-audiencia/campos-de-importacion	marketing	basic
-audiencia/que-datos-envia-cada-ticketera	marketing	basic
 audiencia/mi-ticketera-no-esta-integrada	marketing	basic
 audiencia/por-que-conectar-tu-ticketera	marketing	basic
+audiencia/que-datos-envia-cada-ticketera	marketing	basic
 audiencia/referencia	marketing	basic
 audiencia/referencia-integraciones	marketing	basic
 campanas/crear-primera-campana	marketing	basic
@@ -153,6 +153,7 @@ segmentacion/tu-primer-segmento	marketing	basic
 solucion-de-problemas/baja-tasa-de-apertura	plataforma	
 solucion-de-problemas/dominio-no-verifica	plataforma	
 solucion-de-problemas/emails-a-spam	plataforma	
+solucion-de-problemas/la-importacion-falla	marketing	basic
 solucion-de-problemas/mi-numero-de-whatsapp-no-es-elegible	marketing	basic
 solucion-de-problemas/ventas-no-atribuidas	plataforma	
 superapp/introduccion	experience	pro
@@ -164,4 +165,3 @@ suscripciones/crear-formulario	marketing	basic
 suscripciones/para-que-sirven	marketing	basic
 suscripciones/referencia	marketing	basic
 suscripciones/tu-primera-suscripcion	marketing	basic
-solucion-de-problemas/la-importacion-falla	marketing	basic

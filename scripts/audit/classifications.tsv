@@ -8,16 +8,16 @@ analitica/casos/index	reference
 analitica/casos/open-rate-diario	how-to
 analitica/casos/roas-ultimos-30-dias	how-to
 analitica/casos/top-eventos-revenue	how-to
+analitica/como-se-cuenta-un-fan-y-una-venta	explanation
 analitica/deliverability	reference
 analitica/eventos-y-entradas	reference
 analitica/faq	reference
 analitica/index	reference
 analitica/paid-media	reference
 analitica/tracking-y-atribucion	reference
-analitica/como-se-cuenta-un-fan-y-una-venta	explanation
+audiencia/campos-de-importacion	reference
 audiencia/gestion-de-fans	how-to
 audiencia/importar-fans	how-to
-audiencia/campos-de-importacion	reference
 audiencia/que-datos-envia-cada-ticketera	reference
 campanas/crear-primera-campana	tutorial
 campanas/gestionar-campanas	how-to
@@ -100,7 +100,7 @@ segmentacion/motor-segmentacion/index	explanation
 segmentacion/motor-segmentacion/mejores-practicas	explanation
 segmentacion/motor-segmentacion/modificadores-rfm	how-to
 segmentacion/motor-segmentacion/operadores-logica	reference
+solucion-de-problemas/la-importacion-falla	how-to
 solucion-de-problemas/mi-numero-de-whatsapp-no-es-elegible	how-to
 superapp/introduccion	how-to
 suscripciones/crear-formulario	how-to
-solucion-de-problemas/la-importacion-falla	how-to
