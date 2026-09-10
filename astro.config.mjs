@@ -282,6 +282,7 @@ export default defineConfig({
 					items: [
 						{ label: 'Crea un formulario de suscripción', slug: 'suscripciones/crear-formulario' },
 						{ label: 'Crea tu primera suscripción', slug: 'suscripciones/tu-primera-suscripcion' },
+						{ label: 'Consulta quién está suscrito a tu newsletter', slug: 'suscripciones/consulta-tus-suscriptores', badge: { text: 'Nuevo', variant: 'tip' } },
 						{ label: 'Referencia de suscripciones', slug: 'suscripciones/referencia' },
 						{ label: 'Para qué sirven las suscripciones', slug: 'suscripciones/para-que-sirven' },
 					],
