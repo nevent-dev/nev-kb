@@ -109,10 +109,6 @@ const ANALITICA_METRICAS = new Set([
 
 const GROUP_DEFS = [
   {
-    label: 'Empieza aquí',
-    match: (slug) => slug === 'empieza-aqui',
-  },
-  {
     label: 'Playbooks',
     match: (slug) => isUnder(slug, 'playbooks'),
   },
@@ -189,10 +185,54 @@ const GROUP_DEFS = [
   },
 ];
 
+// --- "Empieza aquí" — rutas de activación (onboarding) -------------------
+// Grupo ESTÁTICO (no se genera desde el frontmatter): es el camino de
+// activación del producto y su orden/anidación es intencional y fijo. Va
+// en primera posición y expandido (collapsed: false) porque es el punto de
+// entrada del onboarding. Sus slugs SÍ pueden repetirse en otros grupos
+// dinámicos (p. ej. 'segmentacion/tu-primer-segmento' vive también en
+// Segmentación): es una selección curada de "aha moments", no una carpeta.
+export const EMPIEZA_AQUI_GROUP = {
+  label: 'Empieza aquí',
+  collapsed: false,
+  items: [
+    { label: 'Cómo funciona el onboarding', slug: 'empieza-aqui' },
+    { label: 'Antes de nada · Conecta tu ticketera', slug: 'audiencia/conecta-tu-ticketera' },
+    {
+      label: 'Vende por tus canales',
+      items: [
+        { label: '1 · Crea tu primer segmento', slug: 'segmentacion/tu-primer-segmento' },
+        { label: '2 · Crea y envía tu campaña', slug: 'campanas/crear-primera-campana' },
+      ],
+    },
+    {
+      label: 'Anuncios más rentables',
+      items: [
+        { label: '1 · Conecta Meta, Google y TikTok', slug: 'paid-media/introduccion' },
+        { label: '2 · Sincroniza un segmento como audiencia', slug: 'paid-media/sincroniza-un-segmento-como-audiencia' },
+        { label: '3 · Comprueba que tus ventas llegan a Meta', slug: 'paid-media/conversiones-de-meta' },
+      ],
+    },
+    {
+      label: 'Atención automática',
+      items: [
+        { label: '1 · Configura tu chatbot', slug: 'chatbot/configuracion' },
+      ],
+    },
+    {
+      label: 'Mide qué canal te trae gente',
+      items: [
+        { label: '1 · Monta tu primer Magic Link', slug: 'herramientas/tu-primer-magic-link' },
+      ],
+    },
+  ],
+};
+
 /**
  * records -> bloque de sidebar ES de Starlight (array de grupos con
  * collapsed: true, cada uno con `items` ordenados; los grupos con
- * subgrupos anidan sub-arrays también collapsed: true).
+ * subgrupos anidan sub-arrays también collapsed: true). El primer grupo,
+ * "Empieza aquí", es estático (ver EMPIEZA_AQUI_GROUP) y va expandido.
  */
 export function buildGroups(records) {
   const remaining = new Set(records.map((r) => r.slug));
@@ -235,7 +275,7 @@ export function buildGroups(records) {
     groups.push({ label: def.label, collapsed: true, items });
   }
 
-  return groups;
+  return [EMPIEZA_AQUI_GROUP, ...groups];
 }
 
 /** Slugs que ningún grupo reclamó (debería quedar vacío). */
@@ -243,8 +283,13 @@ export function findUnassigned(records) {
   return records.map((r) => r.slug).filter((slug) => groupLabelForSlug(slug) === null);
 }
 
-/** Etiqueta del grupo de sidebar de nivel superior al que pertenece un slug (o null). */
+/**
+ * Etiqueta del grupo de sidebar de nivel superior al que pertenece un slug
+ * (o null). 'empieza-aqui' es un caso especial: vive en el grupo estático
+ * "Empieza aquí" (ver EMPIEZA_AQUI_GROUP), no en GROUP_DEFS.
+ */
 export function groupLabelForSlug(slug) {
+  if (slug === 'empieza-aqui') return EMPIEZA_AQUI_GROUP.label;
   for (const def of GROUP_DEFS) {
     if (def.match(slug)) return def.label;
   }
@@ -252,7 +297,7 @@ export function groupLabelForSlug(slug) {
 }
 
 /** Lista de las etiquetas de los 16 grupos de sidebar, en orden. */
-export const SIDEBAR_GROUP_LABELS = GROUP_DEFS.map((d) => d.label);
+export const SIDEBAR_GROUP_LABELS = [EMPIEZA_AQUI_GROUP.label, ...GROUP_DEFS.map((d) => d.label)];
 
 /** Todos los slugs presentes en un bloque de sidebar ya construido. */
 export function collectSlugs(groups) {

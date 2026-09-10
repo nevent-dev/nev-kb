@@ -65,9 +65,13 @@ async function main() {
 
   // Sin slugs duplicados en el sidebar generado (defensivo: buildGroups ya
   // asigna cada slug a un único grupo, pero un fallo aquí señalaría un bug
-  // real en scripts/sidebar.mjs, no solo en el contenido).
+  // real en scripts/sidebar.mjs, no solo en el contenido). El grupo estático
+  // "Empieza aquí" está EXENTO: es una selección curada de rutas de
+  // activación del onboarding cuyos slugs viven también en sus módulos
+  // naturales (ver scripts/sidebar.mjs, EMPIEZA_AQUI_GROUP).
   const records = readEsRecords(CONTENT);
-  const slugs = collectSlugs(buildGroups(records));
+  const dynamicGroups = buildGroups(records).filter((g) => g.label !== 'Empieza aquí');
+  const slugs = collectSlugs(dynamicGroups);
   const seen = new Set();
   for (const slug of slugs) {
     if (seen.has(slug)) {

@@ -6,6 +6,7 @@ import {
   findUnassigned,
   readEsRecords,
   DIATAXIS_SIDEBAR_ORDER,
+  EMPIEZA_AQUI_GROUP,
 } from './sidebar.mjs';
 
 function rec(overrides) {
@@ -60,9 +61,9 @@ describe('buildGroups', () => {
       rec({ slug: 'campanas/c', title: 'C', diataxis: 'reference' }),
     ];
     const groups = buildGroups(records);
-    const slugs = collectSlugs(groups);
-    expect(slugs.sort()).toEqual(['audiencia/a', 'campanas/c', 'suscripciones/b']);
-    expect(new Set(slugs).size).toBe(slugs.length);
+    const dynamicSlugs = collectSlugs(groups.filter((g) => g.label !== 'Empieza aquí'));
+    expect(dynamicSlugs.sort()).toEqual(['audiencia/a', 'campanas/c', 'suscripciones/b']);
+    expect(new Set(dynamicSlugs).size).toBe(dynamicSlugs.length);
   });
 
   it('todos los grupos y subgrupos van collapsed: true', () => {
@@ -127,14 +128,61 @@ describe('buildGroups', () => {
     expect(item.badge).toEqual({ text: 'Nuevo', variant: 'tip' });
   });
 
-  it('Empieza aquí solo incluye la página índice, no duplica rutas de otros módulos', () => {
+  it('Empieza aquí es un grupo estático en primera posición, expandido', () => {
     const records = [
       rec({ slug: 'empieza-aqui', title: 'Empieza', diataxis: 'tutorial' }),
       rec({ slug: 'campanas/crear-primera-campana', title: 'Crea tu campaña', diataxis: 'tutorial' }),
     ];
     const groups = buildGroups(records);
+    expect(groups[0].label).toBe('Empieza aquí');
+    expect(groups[0].collapsed).toBe(false);
+  });
+
+  it('Empieza aquí contiene las 9 rutas de activación del onboarding, con sus labels y anidación exactos', () => {
+    // Fuente de verdad: astro.config.mjs previo al commit dd10734 (PR #92),
+    // donde este grupo se mantenía a mano. Son los "aha moments" del
+    // onboarding: sus slugs viven también en sus módulos naturales
+    // (Segmentación, Campañas, Publicidad de pago, Chatbot, Magic Links),
+    // así que aquí se permite que se repitan.
+    const flat = [];
+    function walk(items) {
+      for (const item of items) {
+        if (item.slug) flat.push({ label: item.label, slug: item.slug });
+        if (item.items) walk(item.items);
+      }
+    }
+    walk(EMPIEZA_AQUI_GROUP.items);
+
+    expect(EMPIEZA_AQUI_GROUP.collapsed).toBe(false);
+    expect(flat).toEqual([
+      { label: 'Cómo funciona el onboarding', slug: 'empieza-aqui' },
+      { label: 'Antes de nada · Conecta tu ticketera', slug: 'audiencia/conecta-tu-ticketera' },
+      { label: '1 · Crea tu primer segmento', slug: 'segmentacion/tu-primer-segmento' },
+      { label: '2 · Crea y envía tu campaña', slug: 'campanas/crear-primera-campana' },
+      { label: '1 · Conecta Meta, Google y TikTok', slug: 'paid-media/introduccion' },
+      { label: '2 · Sincroniza un segmento como audiencia', slug: 'paid-media/sincroniza-un-segmento-como-audiencia' },
+      { label: '3 · Comprueba que tus ventas llegan a Meta', slug: 'paid-media/conversiones-de-meta' },
+      { label: '1 · Configura tu chatbot', slug: 'chatbot/configuracion' },
+      { label: '1 · Monta tu primer Magic Link', slug: 'herramientas/tu-primer-magic-link' },
+    ]);
+
+    const groups = buildGroups([rec({ slug: 'empieza-aqui', title: 'Empieza' })]);
     const empieza = groups.find((g) => g.label === 'Empieza aquí');
-    expect(collectSlugs([empieza])).toEqual(['empieza-aqui']);
+    expect(empieza.items.find((i) => i.label === 'Vende por tus canales').items.map((i) => i.slug)).toEqual([
+      'segmentacion/tu-primer-segmento',
+      'campanas/crear-primera-campana',
+    ]);
+    expect(empieza.items.find((i) => i.label === 'Anuncios más rentables').items.map((i) => i.slug)).toEqual([
+      'paid-media/introduccion',
+      'paid-media/sincroniza-un-segmento-como-audiencia',
+      'paid-media/conversiones-de-meta',
+    ]);
+    expect(empieza.items.find((i) => i.label === 'Atención automática').items.map((i) => i.slug)).toEqual([
+      'chatbot/configuracion',
+    ]);
+    expect(empieza.items.find((i) => i.label === 'Mide qué canal te trae gente').items.map((i) => i.slug)).toEqual([
+      'herramientas/tu-primer-magic-link',
+    ]);
   });
 
   it('separa Nevent IA de Nevent IA para desarrolladores', () => {
@@ -162,14 +210,30 @@ describe('findUnassigned', () => {
 });
 
 describe('integración con el contenido real', () => {
-  it('todos los docs ES (salvo index/404) aparecen en algún grupo, sin duplicados', () => {
+  it('todos los docs ES (salvo index/404) aparecen en algún grupo, sin duplicados (excepto Empieza aquí)', () => {
+    // "Empieza aquí" es una selección curada y estática de rutas de
+    // activación (ver EMPIEZA_AQUI_GROUP): sus slugs viven también en sus
+    // módulos naturales, así que queda EXENTA de la regla de duplicados.
+    // El resto de grupos dinámicos sigue sin poder duplicar slugs.
     const records = readEsRecords();
     expect(records.length).toBeGreaterThan(100);
     const groups = buildGroups(records);
-    const slugs = collectSlugs(groups);
-    expect(new Set(slugs).size).toBe(slugs.length);
-    const expected = new Set(records.map((r) => r.slug));
-    expect(new Set(slugs)).toEqual(expected);
+    const dynamicGroups = groups.filter((g) => g.label !== 'Empieza aquí');
+    const dynamicSlugs = collectSlugs(dynamicGroups);
+    expect(new Set(dynamicSlugs).size).toBe(dynamicSlugs.length);
+    // 'empieza-aqui' (la página índice del onboarding) vive únicamente en el
+    // grupo estático "Empieza aquí": no se le asigna ningún grupo dinámico.
+    const expected = new Set(records.map((r) => r.slug).filter((slug) => slug !== 'empieza-aqui'));
+    expect(new Set(dynamicSlugs)).toEqual(expected);
+
+    // El grupo estático aparece una vez, en primera posición, y todos sus
+    // slugs corresponden a contenido real existente.
+    expect(groups[0].label).toBe('Empieza aquí');
+    const allRealSlugs = new Set(records.map((r) => r.slug));
+    const empiezaSlugs = collectSlugs([groups[0]]);
+    for (const slug of empiezaSlugs) {
+      expect(allRealSlugs.has(slug)).toBe(true);
+    }
   });
 
   it('respeta el orden T→H→E→R dentro de cada grupo plano', () => {
