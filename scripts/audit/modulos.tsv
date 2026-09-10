@@ -54,11 +54,14 @@ consumo/referencia	plataforma
 consumo/soporte-segun-tu-plan	plataforma	
 empieza-aqui/index	plataforma	
 entregabilidad/activar-canales	marketing	basic
+entregabilidad/como-calentar-un-numero-nuevo-de-whatsapp	marketing	basic
 entregabilidad/configura-tu-entrega	marketing	basic
 entregabilidad/dominio-dedicado	marketing	basic
 entregabilidad/envio-de-emails	marketing	basic
+entregabilidad/limites-de-mensajeria-de-whatsapp	marketing	basic
 entregabilidad/referencia	marketing	basic
 entregabilidad/reputacion-y-spam	marketing	basic
+entregabilidad/requisitos-del-numero-de-whatsapp	marketing	basic
 experiencias/analytics	plataforma	
 experiencias/listas-de-espera	plataforma	
 experiencias/perfil-musical	plataforma	
@@ -104,7 +107,9 @@ organizacion/crea-una-marca-con-su-propio-dominio	plataforma
 organizacion/estructura-de-tu-organizacion	plataforma	
 organizacion/invita-a-tu-equipo	plataforma	
 organizacion/que-son-los-tres-niveles	plataforma	
+paid-media/como-leer-el-detalle-de-una-campana	marketing	basic
 paid-media/conversiones-de-meta	marketing	pro
+paid-media/crea-una-audiencia-similar-y-excluye-a-tus-contactos	marketing	basic
 paid-media/introduccion	marketing	basic
 paid-media/por-que-tu-cpa-real-no-es-el-que-ves-en-meta	marketing	pro
 paid-media/primer-vistazo	marketing	basic
@@ -145,6 +150,7 @@ segmentacion/tu-primer-segmento	marketing	basic
 solucion-de-problemas/baja-tasa-de-apertura	plataforma	
 solucion-de-problemas/dominio-no-verifica	plataforma	
 solucion-de-problemas/emails-a-spam	plataforma	
+solucion-de-problemas/mi-numero-de-whatsapp-no-es-elegible	marketing	basic
 solucion-de-problemas/ventas-no-atribuidas	plataforma	
 superapp/introduccion	experience	pro
 superapp/primeros-pasos	experience	pro
@@ -155,7 +161,3 @@ suscripciones/crear-formulario	marketing	basic
 suscripciones/para-que-sirven	marketing	basic
 suscripciones/referencia	marketing	basic
 suscripciones/tu-primera-suscripcion	marketing	basic
-solucion-de-problemas/mi-numero-de-whatsapp-no-es-elegible	marketing	basic
-entregabilidad/requisitos-del-numero-de-whatsapp	marketing	basic
-entregabilidad/limites-de-mensajeria-de-whatsapp	marketing	basic
-entregabilidad/como-calentar-un-numero-nuevo-de-whatsapp	marketing	basic

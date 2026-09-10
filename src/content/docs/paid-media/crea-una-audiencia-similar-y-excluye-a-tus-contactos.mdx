@@ -1,0 +1,101 @@
+---
+title: "Cómo crear una audiencia similar y excluir a tus contactos"
+diataxis: how-to
+modulo: marketing
+nivel: basic
+sinonimos:
+  - "look alike"
+  - "lucalike"
+  - "público similar"
+  - "excluir audiencia"
+description: "Crea en Meta una audiencia similar a tus compradores y exclúyelos de la campaña para captar gente nueva sin repetir anuncios a quien ya te conoce."
+sidebar:
+  label: "Crea una audiencia similar"
+  order: 14
+faqs:
+  - q: "¿La audiencia similar incluye también a mis compradores reales?"
+    a: "No. Meta indica expresamente que las personas de tu audiencia origen quedan excluidas de la audiencia similar. La audiencia similar está formada solo por gente nueva que se parece a tus compradores, no por tus compradores."
+  - q: "¿Por qué tengo que excluir la audiencia origen si ya no está incluida en la similar?"
+    a: "Porque la exclusión no es sobre la audiencia similar en sí, sino sobre el conjunto de anuncios. Si no excluyes tu audiencia origen del conjunto de anuncios, Meta puede seguir mostrando ese anuncio de captación a personas que ya están en otras audiencias tuyas, como quien vio un retargeting."
+  - q: "¿Qué porcentaje elijo?"
+    a: "Cuanto más bajo, más se parece la audiencia similar a tu audiencia origen pero más pequeña es. Cuanto más alto, más alcance tienes pero el parecido baja. Para eventos, empezar por un porcentaje bajo y subir si necesitas más alcance suele ser lo más seguro."
+  - q: "¿Esto se hace en Nevent o en Meta?"
+    a: "Se hace en Meta Ads Manager. Nevent no crea audiencias similares: su papel es mantener actualizada la audiencia origen que sincronizas desde un segmento. La creación y gestión de la audiencia similar, y su uso en campañas, ocurre siempre en Meta."
+---
+
+Una audiencia similar (lookalike) te deja anunciarte a gente nueva que se parece a tus compradores reales, en lugar de adivinar quién puede interesarse. Si además excluyes a esos mismos compradores de la campaña, tu presupuesto de captación no se malgasta en gente que ya te conoce.
+
+Esta guía la haces en el **Administrador de anuncios de Meta**, partiendo de una audiencia personalizada que ya sincronizaste desde Nevent. Unos 10 minutos.
+
+## Antes de empezar
+
+- **Un segmento ya sincronizado como audiencia personalizada en Meta.** Si todavía no lo tienes, sigue primero [cómo sincronizar un segmento como audiencia](/paid-media/sincroniza-un-segmento-como-audiencia).
+- **Rol de administrador o anunciante** sobre la cuenta publicitaria de Meta, necesario para crear una audiencia similar a partir de una audiencia personalizada. *Fuente: Meta Business Help Center, "Create a Lookalike Audience".*
+- **Un tamaño mínimo en tu audiencia origen.** Meta exige al menos 100 personas en la fuente y recomienda entre 1.000 y 5.000 para un buen resultado. *Fuente: Meta Business Help Center, "Create a Lookalike Audience".*
+
+## Paso 1: entra en Audiencias en el Administrador de anuncios de Meta
+
+Dentro de **Meta Ads Manager**, abre el menú de herramientas y entra en **Audiencias**.
+
+Localiza en la lista la audiencia personalizada que sincronizaste desde Nevent. La reconoces por el nombre del segmento que le diste en Nevent.
+
+{/* SCREENSHOT: Pantalla de Audiencias en Meta Ads Manager, con la lista de audiencias personalizadas y la audiencia sincronizada desde Nevent visible */}
+
+## Paso 2: crea una audiencia similar a partir de esa audiencia
+
+Haz clic en **Crear audiencia** y elige **Audiencia similar (Lookalike audience)**.
+
+Como origen (source), selecciona la audiencia personalizada sincronizada desde Nevent que localizaste en el paso anterior.
+
+{/* SCREENSHOT: Ventana de creación de audiencia similar en Meta con la audiencia personalizada de Nevent seleccionada como origen */}
+
+## Paso 3: elige el país y el porcentaje
+
+Selecciona el país o la zona donde quieres que Meta busque a esas personas nuevas.
+
+A continuación, mueve el deslizador de porcentaje, entre el 1 % y el 10 %. Este valor decide cuánto se parece la audiencia nueva a tu audiencia origen:
+
+- Cuanto **más bajo** el porcentaje, más se parece la audiencia nueva a tu audiencia origen, pero más pequeña es.
+- Cuanto **más alto** el porcentaje, más alcance tienes, pero el parecido con tu audiencia origen baja.
+
+Para eventos, empezar por un porcentaje bajo y subir después si necesitas más alcance suele ser lo más seguro.
+
+{/* SCREENSHOT: Selector de país y deslizador de porcentaje al crear una audiencia similar en Meta */}
+
+Confirma con **Crear audiencia**. Meta tarda hasta tres días en terminar de construirla, aunque puedes usarla en una campaña desde el primer momento.
+
+## Paso 4: usa la audiencia similar en tu conjunto de anuncios y excluye la audiencia origen
+
+Al crear o editar un conjunto de anuncios, en la sección de **Audiencia**:
+
+1. Añade la audiencia similar que acabas de crear como público del conjunto de anuncios.
+2. En el apartado de **Exclusiones**, añade la audiencia personalizada origen (la que sincronizaste desde Nevent).
+
+{/* SCREENSHOT: Configuración de audiencia de un conjunto de anuncios en Meta, con la audiencia similar incluida y la audiencia personalizada origen añadida en Exclusiones */}
+
+Con esto, el anuncio de captación se muestra a gente nueva parecida a tus compradores, sin repetírselo a quienes ya están en tu audiencia origen.
+
+## Qué comprobar
+
+- **Tamaño estimado de la audiencia similar.** Si aparece muy por debajo de lo esperado para tu país, espera a que termine de poblarse o revisa que la audiencia origen tenga suficiente volumen.
+- **Que la audiencia origen sigue sincronizada.** Compruébalo en el segmento de Nevent: el bloque **Activar como audiencia publicitaria** debe seguir mostrando el estado **Conectado** para Meta.
+- **Los límites de tu plan.** El número de audiencias similares y de audiencias sincronizadas que puedes tener depende de tu nivel:
+
+| Concepto | Basic | Pro |
+|---|---|---|
+| Audiencias similares (lookalike) | 1 | 10 |
+| Audiencias sincronizadas en Meta | 3 | 25 |
+
+:::note[Nota]
+La audiencia similar se crea y se gestiona siempre en Meta, no en Nevent. El papel de Nevent es mantener actualizada la audiencia origen: si cambias las condiciones del segmento o entran compradores nuevos, vuelve a sincronizarlo para que la audiencia similar se construya sobre datos al día.
+:::
+
+## Fuentes
+
+- [Create a Lookalike Audience](https://www.facebook.com/business/help/465262276878947), Meta Business Help Center.
+
+## Siguiente paso
+
+- [Qué es una audiencia personalizada y por qué mejora tus anuncios](/paid-media/que-es-una-audiencia-personalizada)
+- [Cómo sincronizar un segmento como audiencia](/paid-media/sincroniza-un-segmento-como-audiencia)
+- [Referencia de audiencias personalizadas](/paid-media/referencia-audiencias)
