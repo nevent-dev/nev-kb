@@ -240,14 +240,19 @@ export function buildGroups(records) {
 
 /** Slugs que ningún grupo reclamó (debería quedar vacío). */
 export function findUnassigned(records) {
-  const assigned = new Set();
-  for (const def of GROUP_DEFS) {
-    for (const r of records) {
-      if (def.match(r.slug)) assigned.add(r.slug);
-    }
-  }
-  return records.map((r) => r.slug).filter((slug) => !assigned.has(slug));
+  return records.map((r) => r.slug).filter((slug) => groupLabelForSlug(slug) === null);
 }
+
+/** Etiqueta del grupo de sidebar de nivel superior al que pertenece un slug (o null). */
+export function groupLabelForSlug(slug) {
+  for (const def of GROUP_DEFS) {
+    if (def.match(slug)) return def.label;
+  }
+  return null;
+}
+
+/** Lista de las etiquetas de los 16 grupos de sidebar, en orden. */
+export const SIDEBAR_GROUP_LABELS = GROUP_DEFS.map((d) => d.label);
 
 /** Todos los slugs presentes en un bloque de sidebar ya construido. */
 export function collectSlugs(groups) {
