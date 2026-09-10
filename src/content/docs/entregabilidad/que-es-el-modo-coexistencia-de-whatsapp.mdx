@@ -1,0 +1,61 @@
+---
+title: "Qué es el modo coexistencia de WhatsApp y cuándo te conviene"
+description: "Entiende qué es la coexistencia de WhatsApp, qué se conserva del historial, sus límites y cuándo te conviene frente a migrar del todo a la API."
+diataxis: explanation
+modulo: marketing
+nivel: basic
+sinonimos:
+  - "coexistencia"
+  - "mismo número en la app y en Nevent"
+  - "WhatsApp Business App"
+  - "compartir número"
+sidebar:
+  label: "Qué es la coexistencia de WhatsApp"
+---
+
+La coexistencia es la función de Meta que te permite usar el mismo número de teléfono a la vez en la aplicación de WhatsApp Business (la app del móvil, para escribir a mano) y en la API que usa Nevent para enviar campañas y automatizaciones. No tienes que elegir entre una cosa y la otra: el mismo número sirve para las dos.
+
+## Para quién es
+
+Esta función está pensada para ti si atiendes WhatsApp a mano desde la app en el móvil del equipo (respondiendo dudas, confirmando reservas, hablando con proveedores) y además quieres lanzar campañas de WhatsApp desde Nevent, sin perder esa forma de trabajar ni cambiar de número. Es el camino recomendado cuando el número que quieres conectar a Nevent ya está en uso en la app de WhatsApp Business y no quieres eliminar esa cuenta para liberarlo.
+
+## Qué se conserva y qué no
+
+Al activar la coexistencia, Meta sincroniza una parte de lo que ya tenías en la app y desactiva algunas funciones que dejan de tener sentido cuando el número también se gestiona por API:
+
+- **Contactos:** se sincronizan todos los contactos que tengan un número de WhatsApp.
+- **Chats individuales (uno a uno):** se sincronizan los mensajes de los últimos seis meses. A partir de la activación, los mensajes enviados y recibidos se replican entre la app y la API, así que ves la misma conversación en los dos sitios.
+- **Chats en grupo:** no se sincronizan. Siguen funcionando igual en la app, pero la API no tiene visibilidad sobre ellos.
+- **Listas de difusión:** se desactivan. No podrás crear listas nuevas y las que ya tenías pasan a ser de solo lectura.
+- **Mensajes temporales, mensajes para ver una vez y ubicación en tiempo real:** se desactivan en los chats individuales.
+- **Llamadas de voz y videollamadas, catálogo, pedidos, estado, perfil de empresa:** siguen funcionando igual, sin cambios.
+
+## Requisitos
+
+Para activar la coexistencia necesitas:
+
+- La app de WhatsApp Business en la versión 2.24.17 o posterior.
+- Un número que ya esté registrado y en uso en la app de WhatsApp Business (si el número todavía no ha usado nunca esa app, no hace falta coexistencia: puedes conectarlo directamente a Nevent).
+- Tu empresa dada de alta en el Business Manager de Meta, con acceso a la cuenta de WhatsApp Business que quieres conectar.
+
+## Límites
+
+El límite técnico más importante es que un número en coexistencia tiene un rendimiento de envío fijo de 20 mensajes por segundo. Es un tope que Meta impone para mantener la compatibilidad con la app, y no depende de tu plan de Nevent ni se puede ampliar. Para una campaña grande, esto significa que el envío tarda más en completarse que en un número que solo trabaja por API: si tienes que llegar a decenas de miles de contactos en una ventana corta de tiempo (por ejemplo, el día de apertura de venta), ese tope puede notarse.
+
+Sobre el coste: los mensajes que envías a mano desde la app de WhatsApp Business siguen siendo gratuitos, igual que siempre. Los mensajes que salen de tus campañas de Nevent pasan por la API y se facturan según la tarifa de conversaciones de Meta, la misma que se aplica a cualquier número conectado a la API, esté o no en coexistencia.
+
+## Qué cambia en el día a día
+
+Tus campañas de WhatsApp se siguen creando y enviando desde Nevent, con las mismas plantillas aprobadas por Meta que usarías en cualquier número. La diferencia es que, en paralelo, puedes seguir escribiendo a mano desde la app del móvil, con el histórico de chat visible en los dos lados.
+
+Si además tienes activo el chatbot de Nevent (módulo Experience), las conversaciones de ese número también llegan a la [bandeja de entrada del chatbot](/chatbot/bandeja-de-entrada), junto con las de tu web y tu app, igual que con cualquier otro número de WhatsApp conectado.
+
+## Cuándo no te conviene
+
+La coexistencia no es la mejor opción si tu volumen de campañas necesita superar los 20 mensajes por segundo de forma habitual: ese tope es fijo y no se libera mientras el número siga compartido con la app. Tampoco tiene sentido si lo que quieres es migrar del todo a la API y dejar de usar la app de WhatsApp Business en ese número: en ese caso te interesa una conexión estándar, sin coexistencia, y puedes eliminar antes la cuenta de la app.
+
+## Hazlo ahora
+
+Si tu número ya está en uso en la app de WhatsApp Business y quieres conectar la coexistencia en Nevent, empieza por [Mi número de WhatsApp no es elegible](/solucion-de-problemas/mi-numero-de-whatsapp-no-es-elegible), que explica cómo detectar este caso y qué hacer. Si el número es nuevo, sigue en cambio [Cómo calentar un número nuevo de WhatsApp](/entregabilidad/como-calentar-un-numero-nuevo-de-whatsapp) para no agotar tu margen de envío desde el primer día.
+
+Fuente: documentación oficial de Meta, "Onboard WhatsApp Business app users" (developers.facebook.com/documentation/business-messaging/whatsapp/embedded-signup/onboarding-business-app-users), secciones "Requirements", "Limitations", "Pricing" y "Feature comparison".
