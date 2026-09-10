@@ -1,0 +1,61 @@
+---
+title: "Cómo se cuenta un fan, una venta y qué periodo muestra cada gráfico"
+description: "Entiende cómo Nevent identifica a un fan, qué pasa con las compras cashless sin correo y qué periodo cubre cada bloque del panel de Inicio."
+diataxis: explanation
+modulo: revenue
+nivel: unico
+sinonimos:
+  - "no cuadra"
+  - "duplicados"
+  - "facturación total"
+sidebar:
+  label: "Cómo se cuenta un fan y una venta"
+faqs:
+  - q: "Si un fan está en tres de mis listas, ¿cuenta tres veces en el total de fans?"
+    a: "No. Nevent identifica a un fan por su correo electrónico. Si la misma persona aparece en tres listas distintas con el mismo email, es un único fan en tu base de datos, no tres."
+  - q: "¿Qué pasa si un comprador de cashless no tiene correo electrónico?"
+    a: "Hoy Nevent genera un correo interno para poder crear la ficha del fan. En cuanto aparece el correo real de esa persona, por ejemplo en una compra posterior, Nevent reconcilia ambos registros en una sola ficha."
+  - q: "¿Por qué el número de experiencias es mayor que el número de eventos que he organizado?"
+    a: "Porque tu ticketera puede enviar como productos separados cosas como extras, lanzaderas, camping o listas de espera, y cada uno de esos productos puede contarse como una experiencia adicional junto al evento principal."
+---
+
+Cuando revisas los números de tu panel, es fácil asumir que "un fan" o "una venta" se cuentan de una forma obvia. En Nevent hay reglas concretas detrás de esos conteos, y entenderlas te evita sustos al comparar cifras.
+
+## El correo electrónico identifica a un fan
+
+Nevent usa el correo electrónico como identificador de un fan. Si una misma persona aparece en varias listas, varias importaciones o varias compras, pero siempre con el mismo email, Nevent la trata como un único fan, no como varios registros distintos.
+
+Esto es lo que permite que, por ejemplo, conectar tu ticketera no duplique a los fans que ya habías importado antes por CSV: si el email coincide, Nevent los reconoce como la misma persona.
+
+## Qué pasa con los compradores de cashless que no tienen correo
+
+El consumo cashless (recargas de saldo, pagos con pulsera o tarjeta dentro del recinto) a veces no incluye un correo electrónico del comprador, porque el propio sistema cashless no siempre lo recoge.
+
+Hoy, cuando esto ocurre, Nevent genera un correo interno para poder crear la ficha de ese fan y no perder el registro de su actividad. Si más adelante aparece el correo real de esa misma persona, por ejemplo porque compra una entrada con su email, Nevent reconcilia los dos registros en una sola ficha.
+
+Esto también significa que varias pulseras cashless que compartan el mismo correo electrónico se agrupan en la misma ficha de fan, en lugar de crear una ficha por pulsera.
+
+## Por qué el total de experiencias puede ser mayor que el de eventos
+
+Si cuentas a mano cuántos eventos has organizado y comparas esa cifra con el número de experiencias que ves en Nevent, es posible que la segunda sea mayor.
+
+Esto pasa porque tu ticketera puede enviar a Nevent, como productos independientes, cosas que no son el evento principal: extras, lanzaderas de transporte, plazas de camping o listas de espera. Cada uno de esos productos puede llegar a Nevent como una experiencia propia, separada del evento al que están asociados.
+
+No es un error de conteo: es un reflejo de cómo tu ticketera organiza internamente sus productos. La guía [Qué son las experiencias en Nevent](/experiencias/que-son-las-experiencias) explica con más detalle cómo se relacionan las experiencias, las ventas y los complementos dentro de la plataforma.
+
+## Qué periodo muestra cada bloque del panel de Inicio
+
+El panel de Inicio no usa el mismo periodo de tiempo en todos sus bloques. Cada uno responde a una pregunta distinta, y por eso cubre una ventana distinta:
+
+| Bloque | Periodo |
+|---|---|
+| Titular de venta de entradas | Total histórico |
+| Gráfica de evolución mensual | Últimos 12 meses |
+| Indicadores de fans y ticket medio | Últimos 30 días |
+| Generado por tus campañas | Últimos 90 días |
+
+Comparar dos bloques sin tener en cuenta su periodo es la causa más habitual de que "los números no cuadren" a simple vista. Un titular histórico y una banda de últimos 90 días miden cosas distintas en ventanas de tiempo distintas, así que no deberían coincidir.
+
+## Hazlo ahora
+
+Si quieres ver estos bloques en tu propio panel y entender cada cifra con su periodo exacto, sigue la guía [Cómo leer el panel de Inicio](/analitica/tu-panel-de-inicio).
