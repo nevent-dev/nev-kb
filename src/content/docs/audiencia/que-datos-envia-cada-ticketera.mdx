@@ -1,0 +1,55 @@
+---
+title: "Qué datos envía cada ticketera integrada"
+description: "Consulta qué datos de venta, comprador y consumo cashless envía cada ticketera conectada a Nevent, y qué falta todavía por confirmar de cada una."
+diataxis: reference
+modulo: marketing
+nivel: basic
+sinonimos:
+  - "etiquetera"
+  - "tiquetera"
+  - "link de la API"
+  - "integración"
+sidebar:
+  label: "Qué envía cada ticketera"
+faqs:
+  - q: "¿Por qué algunas casillas de esta tabla dicen 'Sin confirmar'?"
+    a: "Porque todavía no tenemos una fuente verificada (documentación interna o comprobación en el panel) que confirme ese dato para ese proveedor en concreto. En cuanto se confirme, esta página se actualiza."
+  - q: "¿'Sin confirmar' significa que la ticketera no envía ese dato?"
+    a: "No necesariamente. Significa que no podemos garantizarte todavía si lo envía o no. Antes de dar por hecho que un dato te va a llegar, confirma con el equipo de Nevent el caso concreto de tu evento."
+  - q: "¿Esta tabla incluye todos los proveedores que existen en el mercado?"
+    a: "No. Solo incluye los proveedores que hoy aparecen en el catálogo de integraciones de Nevent. Si tu ticketera no está aquí, consulta qué hacer si tu ticketera no está integrada."
+---
+Esta página resume, proveedor por proveedor, qué información llega a tu audiencia de Nevent cuando conectas una ticketera o una integración cashless.
+
+Úsala para saber de antemano qué vas a poder segmentar y qué todavía no, según con quién vendas tus entradas.
+
+## Qué envía cada proveedor
+
+| Proveedor | Categoría | Compra de entradas | Datos del comprador | Evento y tipo de entrada | Carrito abandonado | UTMs de la compra | Consumo cashless |
+|---|---|---|---|---|---|---|---|
+| Onebox | Ticketing | Sí | Sin confirmar | Sin confirmar | Sin confirmar | Sin confirmar | No |
+| Fourvenues | Ticketing | Sí | Sin confirmar | Sin confirmar | Sin confirmar | Sin confirmar | No |
+| Enterticket | Ticketing | Sí | Sin confirmar | Sin confirmar | Sin confirmar | Sin confirmar | No |
+| Covermanager | Ticketing | Sí | Sin confirmar | Sin confirmar | Sin confirmar | Sin confirmar | No |
+| DICE | Ticketing | Sí | Sin confirmar | Sin confirmar | Sin confirmar | Sin confirmar | No |
+| XCEED | Ticketing | Sí | Sin confirmar | Sin confirmar | No | Sin confirmar | No |
+| Fever | Ticketing | Sí | Sin confirmar | Sin confirmar | Sí | Sin confirmar | No |
+| CASFID | Cashless | No | Sin confirmar | Sin confirmar | No aplica | No aplica | Sí |
+
+:::note[Cómo leer "Sí" y "No"]
+Un "Sí" o un "No" solo aparece cuando podemos fundamentarlo en la documentación de Nevent. La categoría de cada proveedor (Ticketing o Cashless) determina si trae compra de entradas o consumo cashless: un proveedor de Ticketing te trae ventas y asistentes, no consumo dentro del recinto, y viceversa con CASFID.
+:::
+
+## Lo único confirmado sobre carrito abandonado
+
+Hoy, de los proveedores de esta tabla, solo Fever envía el evento de carrito abandonado a Nevent. XCEED no lo envía. Para el resto de proveedores, todavía no tenemos confirmación de si lo envían: aparece como "Sin confirmar" hasta que se verifique caso por caso.
+
+## Si tu ticketera no está en la lista
+
+Si tu proveedor de ticketing no aparece en la tabla anterior, no significa que no puedas usar Nevent. Consulta la guía [Cómo seguir adelante si tu ticketera no está integrada](/audiencia/mi-ticketera-no-esta-integrada) para ver cómo importar tus contactos mientras tanto y cómo pedir la integración que te falta.
+
+## Siguiente paso
+
+- [Referencia de integraciones de ticketing y cashless](/audiencia/referencia-integraciones) para ver qué credencial necesita cada proveedor.
+- [Conecta tu ticketera](/audiencia/conecta-tu-ticketera) para activar la conexión paso a paso.
+- [Cómo entiende Nevent tu audiencia](/audiencia/como-entiende-nevent-tu-audiencia) para entender qué hace Nevent con los datos que le llegan.

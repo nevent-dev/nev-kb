@@ -1,0 +1,73 @@
+---
+title: "Campos de importación: sistema, personalizados y valores admitidos"
+description: "Consulta los campos de sistema y personalizados que admite la importación de contactos en Nevent, sus límites por plan y qué formatos de archivo aceptan."
+diataxis: reference
+modulo: marketing
+nivel: basic
+sinonimos:
+  - "subir Excel"
+  - "cargar base de datos"
+  - "CSV"
+  - "consentimiento"
+sidebar:
+  label: "Campos de importación"
+faqs:
+  - q: "¿Puedo importar más de tres campos personalizados si estoy en el plan Basic?"
+    a: "No. El límite de campos personalizados es de 3 en el plan Basic y de 25 en el plan Pro. Si necesitas más, tu opción es pasar a Pro."
+  - q: "¿El correo electrónico es siempre obligatorio para importar un contacto?"
+    a: "Sí. Es el único campo de sistema que no se puede desmarcar al generar la plantilla de importación, y sin él no se puede crear el registro del contacto."
+---
+Esta página reúne los campos que admite la importación de contactos en Nevent: los campos de sistema que ya trae la plataforma, el límite de campos personalizados según tu plan y qué pasa con las columnas que dejas vacías.
+
+Úsala como consulta antes de preparar tu archivo, para no tener que corregirlo después de subirlo.
+
+## Campos de sistema
+
+Estos son los campos que Nevent reconoce de forma nativa al generar la plantilla de importación o al mapear las columnas de tu archivo.
+
+| Campo | Obligatorio u opcional | Formato | Ejemplo |
+|---|---|---|---|
+| Correo electrónico | Obligatorio | Dirección de email válida | `ana@ejemplo.com` |
+| Nombre | Opcional | Texto libre | `Ana García` |
+| Teléfono | Opcional | Sin confirmar (formato exacto pendiente de verificar) | Sin confirmar |
+| Fecha de nacimiento | Opcional | Sin confirmar (formato exacto de fecha pendiente de verificar) | Sin confirmar |
+| Género | Opcional | Valores admitidos: sin confirmar (ver más abajo) | Sin confirmar |
+| Identificación fiscal | Opcional | Texto libre | `12345678A` |
+| Dirección | Opcional | Texto libre | `Calle Mayor 1, Madrid` |
+| Carpetas | Opcional | Nombre de un segmento de etiqueta existente, o uno nuevo | `Importacion_Mayo_2025` |
+| Consentimiento de marketing | Opcional | Valores admitidos: sin confirmar (ver más abajo) | Sin confirmar |
+
+:::note[Nota]
+Solo "Correo electrónico" es obligatorio. Puedes dejar sin mapear cualquier otra columna si no quieres importar ese dato.
+:::
+
+## Campos personalizados
+
+Además de los campos de sistema, puedes mapear columnas de tu archivo a campos personalizados que hayas creado en tu organización. El número máximo de campos personalizados depende de tu plan.
+
+| Plan | Campos personalizados |
+|---|---|
+| Basic | 3 |
+| Pro | 25 |
+
+## Valores admitidos en género y consentimiento de marketing
+
+Todavía no tenemos confirmada la lista exacta de valores que Nevent admite para el campo Género (por ejemplo, si acepta "Hombre", "Mujer", "Otro" u otras etiquetas) ni para el campo Consentimiento de marketing en el archivo de importación (por ejemplo, si espera "Sí"/"No", "true"/"false" u otro formato).
+
+Este dato está pendiente de confirmar con el equipo de producto.
+
+## Tamaño y formatos de archivo
+
+Nevent acepta dos formatos de archivo para importar contactos:
+
+| Formato | Extensión |
+|---|---|
+| CSV | `.csv` |
+| Excel | `.xlsx` |
+
+El tamaño máximo del archivo es de 50 MB.
+
+## Siguiente paso
+
+- [Importa tus contactos](/audiencia/importar-fans) para seguir el paso a paso completo de la importación.
+- [La importación falla o se queda en blanco](/solucion-de-problemas/la-importacion-falla) si tienes problemas al subir o mapear tu archivo.
