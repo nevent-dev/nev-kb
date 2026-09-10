@@ -13,27 +13,27 @@ sidebar:
   label: "Conecta tus cuentas de anuncios"
   order: 1
 faqs:
-  - q: "Al terminar de autorizar Meta, me aparece un selector de cuenta de Google Ads. ¿Es un error?"
-    a: "No. El asistente de conexión encadena las tres plataformas una detrás de otra. Después de autorizar Meta, sigue directamente con Google Ads. Elige tu cuenta de Google Ads en ese paso o ciérralo si por ahora solo querías conectar Meta."
   - q: "Tengo varias cuentas publicitarias, una por perfil de Instagram. ¿Cuál elijo?"
-    a: "Elige la cuenta de anuncios (ad account) que gestiona los anuncios del evento que quieres analizar en Nevent, no el perfil de Instagram en sí. Si más adelante necesitas cambiarla, repite el proceso de conexión desde Configuración → Paid Ads y selecciona la otra cuenta."
+    a: "Elige la cuenta de anuncios (ad account) que gestiona los anuncios del evento que quieres analizar en Nevent, no el perfil de Instagram en sí."
   - q: "Al abrir el Administrador de anuncios se me abre Instagram pidiendo mi login personal. ¿Qué significa?"
     a: "Eso ocurre al entrar directamente en Meta Ads Manager desde tu navegador, no es parte del proceso de conexión con Nevent. Meta te pide identificarte con tu cuenta personal porque el acceso a la publicidad de una empresa pasa por tu perfil individual dentro del Business Manager."
   - q: "Autoricé Meta pero en Nevent sigue sin aparecer como conectada. ¿Qué reviso?"
     a: "Comprueba tres cosas: que tu usuario tiene rol de administrador o anunciante sobre esa cuenta publicitaria en el Business Manager, que durante la autorización seleccionaste la cuenta correcta y no otra de tu Business Manager, y por último vuelve a Configuración → Paid Ads y pulsa Conectar de nuevo para repetir la autorización."
 ---
 
+import { Aside } from '@astrojs/starlight/components';
+
 Conectar tus cuentas de Meta, Google y TikTok es lo primero que necesitas hacer para que el módulo Paid Media de Nevent muestre el gasto y el rendimiento de tus anuncios en un solo panel. El proceso es una autorización estándar (OAuth): tú apruebas el acceso desde tu propia cuenta, sin instalar nada.
 
-En esta guía conectas las tres plataformas. Cuenta con unos 10 minutos si vas a conectar las tres, o unos 3 minutos por cada una si las vas conectando por separado.
+En esta guía conectas las tres plataformas. Cada una tiene su propia tarjeta y su propio botón, así que puedes conectarlas todas seguidas o solo la que uses. Cuenta con unos 10 minutos si vas a conectar las tres, o unos 3 minutos por cada una si las vas conectando por separado.
 
 ## Antes de empezar
 
 Necesitas tener, en cada plataforma, permisos suficientes para autorizar el acceso. Compruébalos antes de empezar:
 
-- **Meta (Facebook e Instagram Ads):** necesitas rol de **administrador** o **anunciante** sobre la cuenta publicitaria (ad account) dentro de tu Business Manager. Si además quieres anunciarte con un perfil profesional de Instagram, ese perfil debe estar conectado a una página de Facebook con acceso de anuncios. *Fuente: Meta Business Help Center, "What are the ad account permission roles in Meta Ads Manager?".*
+- **Meta (Facebook e Instagram Ads):** necesitas rol de **administrador** o **anunciante** sobre la cuenta publicitaria (ad account) dentro de tu Business Manager. *Fuente: Meta Business Help Center, "What are the ad account permission roles in Meta Ads Manager?".*
 - **Google Ads:** necesitas nivel de acceso **Estándar** o **Administrador** en la cuenta de Google Ads. El nivel de solo lectura no permite completar la autorización. *Fuente: Google Ads Help, "About access levels in your Google Ads account".*
-- **TikTok Ads:** necesitas rol de **administrador** en el Business Center de TikTok, o ser miembro estándar con la cuenta publicitaria asignada. *Fuente: TikTok Ads Help Center, "About Business Center roles and permissions".*
+- **TikTok Ads:** necesitas un rol que permita gestionar anuncios en el Business Center de TikTok.
 
 Si no tienes ninguno de estos permisos, pídeselos a quien administra esa cuenta en tu empresa antes de continuar.
 
@@ -41,7 +41,7 @@ Si no tienes ninguno de estos permisos, pídeselos a quien administra esa cuenta
 
 En el menú lateral de Nevent, entra en **Configuración** y haz clic en **Paid Ads**.
 
-Verás una tarjeta por cada plataforma: Meta Ads, TikTok Ads y Google Ads. Las que todavía no están vinculadas muestran el estado **No conectado** y un botón **Conectar**.
+Verás una tarjeta por cada plataforma: Meta Ads, TikTok Ads y Google Ads. Cada tarjeta es independiente, con su propio botón y su propio estado: **No conectado** con un botón **Conectar**, **Conectado** con el nombre de la cuenta, o **Error** con un botón **Reintentar**.
 
 {/* SCREENSHOT: Pantalla de Configuración → Paid Ads en Nevent con las tres tarjetas (Meta Ads, TikTok Ads, Google Ads) en estado "No conectado" y su botón "Conectar" */}
 
@@ -51,7 +51,7 @@ Haz clic en **Conectar** en la tarjeta de **Meta Ads**. Nevent te lleva a la pan
 
 {/* SCREENSHOT: Pantalla de autorización de Meta pidiendo iniciar sesión y elegir el Business Manager y la cuenta publicitaria a compartir con Nevent */}
 
-Al aceptar, es normal que el asistente continúe directamente con el selector de cuenta de **Google Ads**: es el siguiente paso de la conexión encadenada, no un error de la autorización de Meta.
+Al aceptar, vuelves a **Configuración → Paid Ads** y la tarjeta de **Meta Ads** pasa a mostrar el estado **Conectado**.
 
 :::note[Nota]
 Si en algún momento del proceso se te abre el **Administrador de anuncios** de Meta en otra pestaña y te pide iniciar sesión en Instagram con tu cuenta personal, es un comportamiento normal de Meta al entrar directamente en su plataforma. No forma parte de la autorización con Nevent y no afecta a la conexión.
@@ -59,7 +59,7 @@ Si en algún momento del proceso se te abre el **Administrador de anuncios** de 
 
 ## Paso 3: conecta tu cuenta de Google Ads
 
-Si el asistente ya te mostró el selector de Google Ads al terminar el paso anterior, elige ahí tu cuenta. Si prefieres conectarla en otro momento, vuelve a **Configuración → Paid Ads** y haz clic en **Conectar** en la tarjeta de **Google Ads**.
+En **Configuración → Paid Ads**, haz clic en **Conectar** en la tarjeta de **Google Ads**.
 
 Inicia sesión con tu cuenta de Google y selecciona la cuenta de Google Ads que quieres compartir con Nevent.
 
@@ -74,12 +74,23 @@ En **Configuración → Paid Ads**, haz clic en **Conectar** en la tarjeta de **
 ## Qué comprobar
 
 - La tarjeta de cada plataforma debe mostrar el estado **Conectado**, con el nombre de la cuenta publicitaria y la fecha de la última sincronización.
-- Si tienes varias cuentas publicitarias, una por perfil o marca, confirma que la que aparece conectada es la que gestiona el evento que quieres analizar. Si elegiste la equivocada, repite el proceso de conexión y selecciona la correcta.
+- Si tienes varias cuentas publicitarias, una por perfil o marca, confirma que la que aparece conectada es la que gestiona el evento que quieres analizar.
 - Si Meta no aparece como conectada después de autorizar, revisa tu rol en el Business Manager, comprueba que seleccionaste la cuenta publicitaria correcta durante la autorización, y vuelve a pulsar **Conectar** para repetir el proceso.
+- Para ver el detalle de tus campañas una vez conectadas, sigue [cómo leer el detalle de una campaña, un conjunto y un anuncio](/paid-media/como-leer-el-detalle-de-una-campana).
+
+<Aside type="caution" title="Pendiente de confirmar">
+Si tienes varias cuentas publicitarias y la que aparece conectada no es la correcta, todavía estamos confirmando cuál es la forma admitida de cambiarla. Si te encuentras en este caso, escríbenos antes de intentarlo por tu cuenta.
+</Aside>
+
+## Fuentes
+
+- [What are the ad account permission roles in Meta Ads Manager?](https://www.facebook.com/business/help/155909647811305), Meta Business Help Center.
+- [About access levels in your Google Ads account](https://support.google.com/google-ads/answer/9978556), Google Ads Help.
 
 ## Siguiente paso
 
 - [Qué es Paid Media en Nevent](/paid-media/que-es)
 - [Tu primer vistazo a Paid Media](/paid-media/primer-vistazo)
+- [Cómo leer el detalle de una campaña, un conjunto y un anuncio](/paid-media/como-leer-el-detalle-de-una-campana)
 - [Cómo sincronizar un segmento como audiencia](/paid-media/sincroniza-un-segmento-como-audiencia)
 - [Referencia de Paid Media](/paid-media/referencia)
