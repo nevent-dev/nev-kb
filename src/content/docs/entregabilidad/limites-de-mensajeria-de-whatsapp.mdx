@@ -28,9 +28,11 @@ Además del nivel de mensajería, cada número tiene una calidad, que Meta repre
 
 - **Verde:** el número recibe pocas o ninguna señal negativa (bloqueos, quejas, mensajes ignorados). Es el estado saludable.
 - **Amarillo:** el número ha recibido señales negativas de varios usuarios o tiene una tasa de lectura baja. Está en zona de riesgo.
-- **Rojo:** el número acumula señales negativas de forma continuada. Meta puede pausarlo o restringirlo en cualquier momento.
+- **Rojo:** el número acumula señales negativas de forma continuada. Meta puede reducir tu límite de mensajería en cualquier momento.
 
-La calidad se calcula con datos reales: si la gente que recibe tus mensajes los bloquea, los marca como spam o simplemente no los abre nunca, la calidad baja. Si la gente los abre, responde o interactúa, la calidad sube o se mantiene.
+La calidad se calcula con datos reales de los últimos siete días: si la gente que recibe tus mensajes los bloquea, los reporta, los silencia o los archiva, la calidad baja. Si la gente los abre, responde o interactúa, la calidad sube o se mantiene. Puedes consultar el estado, la calidad y el límite de mensajería de cada número en WhatsApp Manager, dentro de Herramientas de la cuenta > Números de teléfono.
+
+Esta calidad es la del número en conjunto, no la de cada plantilla: Meta también califica cada plantilla por separado antes de aprobarla, pero esa calidad de plantilla es un dato distinto del que se describe en esta página.
 
 ## Por qué enviar a muchos contactos nuevos de golpe baja la calidad
 
@@ -60,4 +62,4 @@ La API no te libra de los límites de Meta, pero te da un camino más previsible
 
 Si acabas de conectar un número nuevo o ya te has topado con un bloqueo, sigue el plan por fases de [Cómo calentar un número nuevo de WhatsApp](/entregabilidad/como-calentar-un-numero-nuevo-de-whatsapp) para ir ampliando el envío sin poner en riesgo la calidad del número.
 
-Fuentes: documentación oficial de Meta, "Messaging Limits" (developers.facebook.com/documentation/business-messaging/whatsapp/messaging-limits) y "Template quality rating" (developers.facebook.com/documentation/business-messaging/whatsapp/templates/template-quality).
+Fuentes: documentación oficial de Meta, "Messaging Limits" (developers.facebook.com/documentation/business-messaging/whatsapp/messaging-limits) y "Service messages" (developers.facebook.com/documentation/business-messaging/whatsapp/messages/send-messages), sección "Message quality".
