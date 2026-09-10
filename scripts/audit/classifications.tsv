@@ -54,7 +54,7 @@ nevent-ai/developers/troubleshooting	reference
 nevent-ai/frases-listas-para-usar	reference
 nevent-ai/index	explanation
 nevent-ai/permisos-y-seguridad	explanation
-nevent-ai/preguntas-frecuentes	explanation
+nevent-ai/preguntas-frecuentes	reference
 nevent-ai/que-puedes-hacer/analitica	explanation
 nevent-ai/que-puedes-hacer/audiencia	explanation
 nevent-ai/que-puedes-hacer/campanas	explanation
@@ -77,7 +77,7 @@ segmentacion/casos/audiencia-con-preferencia	how-to
 segmentacion/casos/audiencia-geolocalizada	how-to
 segmentacion/casos/carrito-abandonado	how-to
 segmentacion/casos/fans-tempranos	how-to
-segmentacion/casos/index	how-to
+segmentacion/casos/index	reference
 segmentacion/casos/reactivar-fans-inactivos	how-to
 segmentacion/casos/top-rfm-vip	how-to
 segmentacion/motor-segmentacion/casos-uso	how-to
