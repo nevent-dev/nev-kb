@@ -1,18 +1,18 @@
 ---
-title: Permisos y seguridad de Nevent MCP
+title: Permisos y seguridad de Nevent IA
 diataxis: explanation
 modulo: plataforma
-description: Entiende qué puede y no puede hacer la IA en cada modo de acceso de Nevent MCP. OAuth 2.1, aislamiento de sesiones y privacidad de datos explicados sin tecnicismos.
+description: Entiende qué puede y no puede hacer la IA en cada modo de acceso de Nevent IA. OAuth 2.1, aislamiento de sesiones y privacidad de datos explicados sin tecnicismos.
 sidebar:
   label: "Permisos y seguridad"
   order: 5
 ---
 
-Antes de conectar Nevent MCP a tu asistente de IA, es útil entender qué nivel de acceso tiene la IA sobre tus datos. Nevent te da control sobre esto con tres modos de operación.
+Antes de conectar Nevent IA a tu asistente de IA, es útil entender qué nivel de acceso tiene la IA sobre tus datos. Nevent te da control sobre esto con tres modos de operación.
 
 ## Los tres modos de acceso
 
-Cuando conectas Nevent MCP, el acceso de la IA a tus datos está controlado por un modo de operación. El modo determina qué puede consultar la IA y qué acciones puede ejecutar.
+Cuando conectas Nevent IA, el acceso de la IA a tus datos está controlado por un modo de operación. El modo determina qué puede consultar la IA y qué acciones puede ejecutar.
 
 ### Modo solo lectura (READ_ONLY)
 
@@ -36,7 +36,7 @@ La IA puede ver y analizar datos, pero no puede modificar nada.
 Este es el modo más conservador. Perfecto para análisis y consultas del día a día cuando quieres asegurarte de que la IA nunca cambia nada.
 
 :::tip[Consejo]
-Si compartes acceso a Nevent MCP con tu equipo o con un proveedor externo, el modo READ_ONLY es la opción más segura.
+Si compartes acceso a Nevent IA con tu equipo o con un proveedor externo, el modo READ_ONLY es la opción más segura.
 :::
 
 ### Modo estándar (STANDARD)
@@ -71,17 +71,17 @@ El modo FULL da a la IA capacidad de ejecutar todas las acciones disponibles. Ú
 
 ## Cómo funciona la autorización
 
-Cuando conectas Nevent MCP a Claude o ChatGPT, el proceso de autorización usa **OAuth 2.1** — el mismo estándar que usa "Iniciar sesión con Google" o "Continuar con Facebook".
+Cuando conectas Nevent IA a Claude o ChatGPT, el proceso de autorización usa **OAuth 2.1**, el mismo estándar que usa "Iniciar sesión con Google" o "Continuar con Facebook".
 
 Esto significa:
 
-1. **Tu contraseña nunca llega a Claude ni a ChatGPT.** Introduces tus credenciales directamente en la pantalla de Nevent, no en el asistente de IA.
-2. **Nevent emite un token de sesión temporal.** Este token es lo que usa la IA para consultar tus datos. Caduca automáticamente.
-3. **Puedes revocar el acceso en cualquier momento.** Desde la configuración de tu cuenta de Nevent puedes desactivar los tokens activos.
+- **Tu contraseña nunca llega a Claude ni a ChatGPT.** Introduces tus credenciales directamente en la pantalla de Nevent, no en el asistente de IA.
+- **Nevent emite un token de sesión temporal.** Este token es lo que usa la IA para consultar tus datos. Caduca automáticamente.
+- **Puedes revocar el acceso en cualquier momento.** Desde la configuración de tu cuenta de Nevent puedes desactivar los tokens activos.
 
 ## Aislamiento de sesiones
 
-Cada conversación que abres en Claude o ChatGPT con Nevent MCP activo crea una **sesión independiente**. Esto tiene dos implicaciones importantes:
+Cada conversación que abres en Claude o ChatGPT con Nevent IA activo crea una **sesión independiente**. Esto tiene dos implicaciones importantes:
 
 - Si cambias de organización (tenant) en una conversación, ese cambio no afecta a otras conversaciones abiertas al mismo tiempo.
 - Cuando cierras la conversación, la sesión se cierra y el token deja de ser válido para nuevas consultas.
@@ -97,5 +97,5 @@ Los datos fluyen desde Nevent hacia el asistente de IA solo dentro del contexto 
 ## Siguiente paso
 
 - [Preguntas frecuentes de Nevent IA](/nevent-ai/preguntas-frecuentes)
-- [Conectar Claude con Nevent MCP](/nevent-ai/conectar-claude)
+- [Cómo conectar tu cuenta de Nevent a Claude](/nevent-ai/conectar-claude)
 - [Para desarrolladores: configuración avanzada](/nevent-ai/developers)

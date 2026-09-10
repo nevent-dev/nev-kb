@@ -12,7 +12,7 @@ import { Tabs, TabItem } from '@astrojs/starlight/components';
 
 Esta guía cubre la instalación local del paquete `mcp-nevent`. Úsala si necesitas control total sobre la versión, quieres contribuir al proyecto, o prefieres no depender del servidor hosted.
 
-## Instalación rápida
+## Paso 1: Instala el paquete
 
 <Tabs>
   <TabItem label="Uso directo con npx">
@@ -38,7 +38,7 @@ Esta guía cubre la instalación local del paquete `mcp-nevent`. Úsala si neces
   </TabItem>
 </Tabs>
 
-## Variables de entorno
+## Paso 2: Configura las variables de entorno
 
 ### Modo stdio
 
@@ -118,7 +118,7 @@ El modo de operación controla qué herramientas de escritura están disponibles
 
 Si una herramienta de escritura se invoca en modo `READ_ONLY`, el servidor devuelve el error `operation_mode_blocked`. Ver la [tabla de errores](/nevent-ai/developers/troubleshooting#códigos-de-error).
 
-## Obtener el NEVENT_JWT_TOKEN
+## Paso 3: Obtén el NEVENT_JWT_TOKEN
 
 El token JWT de Nevent se obtiene de la API de autenticación:
 
