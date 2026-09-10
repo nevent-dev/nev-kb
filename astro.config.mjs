@@ -529,6 +529,9 @@ export default defineConfig({
 				// Conserva el pie de Starlight (paginación, edición, fecha) y
 				// añade debajo el de nevent.ai.
 				Footer: './src/components/Footer.astro',
+				// Pinta el distintivo de tipo Diátaxis, el aviso de nivel Pro y los
+				// sinónimos indexables encima del <h1> de cada página.
+				PageTitle: './src/components/PageTitle.astro',
 			},
 
 			// Customización de UI
