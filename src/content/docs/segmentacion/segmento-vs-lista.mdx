@@ -12,7 +12,7 @@ faqs:
   - q: "¿Cuando importo fans puedo añadirlos directamente a un segmento?"
     a: "Sí, pero el segmento que se crea en ese momento es una lista de etiqueta estática. Nevent te ofrece tres opciones al importar: no volcar, añadir a un segmento existente o crear un segmento nuevo. En los dos últimos casos, los fans del archivo se asignan fijos a ese grupo, independientemente de los criterios del motor de segmentación."
   - q: "¿Puedo combinar una lista estática con el motor de segmentación?"
-    a: "Puedes usar la etiqueta de carpeta como un criterio más dentro del motor. Por ejemplo, puedes construir un segmento dinámico que diga: 'fans que pertenecen a la carpeta Importacion_Mayo_2025 Y que tienen temperatura Caliente o Muy Caliente'. Así filtras una lista importada con criterios de comportamiento."
+    a: "Puedes usar la etiqueta de carpeta como un criterio más dentro del motor. Por ejemplo, puedes construir un segmento dinámico que diga: 'fans que pertenecen a la carpeta `Importacion_Mayo_2025` Y que tienen temperatura Caliente o Muy Caliente'. Así filtras una lista importada con criterios de comportamiento."
   - q: "¿El segmento dinámico afecta a cuántos fans reciben realmente mi campaña?"
     a: "El segmento define quiénes califican según los criterios. Pero Nevent aplica un segundo filtro antes de enviar: solo llega la campaña a los fans que tienen consentimiento de marketing activo y dirección válida. La columna de contactabilidad en la pantalla de segmentos te muestra el porcentaje de fans del segmento que son realmente contactables."
   - q: "¿Cuándo tiene sentido usar una lista estática en lugar de un segmento dinámico?"
@@ -124,7 +124,7 @@ Esto significa que el tamaño de un grupo (tanto dinámico como estático) nunca
 
 Las listas estáticas y los segmentos dinámicos no son excluyentes. Puedes usar la carpeta o etiqueta de una lista como un criterio dentro del motor de segmentación.
 
-Por ejemplo: tienes una lista importada de fans que asistieron a un festival de otra promotora hace dos años (datos que no están en el historial de Nevent). Los importaste con su correspondiente etiqueta. Puedes construir un segmento dinámico que diga: "fans de la carpeta Importacion_FestivalX que además tienen temperatura Caliente o Muy Caliente en Nevent". El resultado es un grupo que combina el origen externo (lista estática) con el comportamiento actual (segmento dinámico).
+Por ejemplo: tienes una lista importada de fans que asistieron a un festival de otra promotora hace dos años (datos que no están en el historial de Nevent). Los importaste con su correspondiente etiqueta. Puedes construir un segmento dinámico que diga: "fans de la carpeta `Importacion_FestivalX` que además tienen temperatura Caliente o Muy Caliente en Nevent". El resultado es un grupo que combina el origen externo (lista estática) con el comportamiento actual (segmento dinámico).
 
 Esta combinación es especialmente útil cuando quieres cualificar una base importada con criterios de engagement antes de enviarles una campaña, en lugar de enviarla a todos los contactos de la lista sin distinción.
 
