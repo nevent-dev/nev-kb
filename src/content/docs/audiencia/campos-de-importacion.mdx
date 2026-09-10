@@ -16,6 +16,10 @@ faqs:
     a: "No. El límite de campos personalizados es de 3 en el plan Basic y de 25 en el plan Pro. Si necesitas más, tu opción es pasar a Pro."
   - q: "¿El correo electrónico es siempre obligatorio para importar un contacto?"
     a: "Sí. Es el único campo de sistema que no se puede desmarcar al generar la plantilla de importación, y sin él no se puede crear el registro del contacto."
+  - q: "¿Qué valores acepta la columna de Género?"
+    a: "La plantilla de ejemplo que genera Nevent usa \"mujer\" y \"hombre\", en minúscula."
+  - q: "¿Qué valores acepta la columna de Consentimiento de marketing?"
+    a: "La plantilla de ejemplo que genera Nevent usa \"s\" para dar el consentimiento y \"n\" para no darlo."
 ---
 Esta página reúne los campos que admite la importación de contactos en Nevent: los campos de sistema que ya trae la plataforma, el límite de campos personalizados según tu plan y qué pasa con las columnas que dejas vacías.
 
@@ -31,15 +35,17 @@ Estos son los campos que Nevent reconoce de forma nativa al generar la plantilla
 | Nombre | Opcional | Texto libre | `Ana García` |
 | Teléfono | Opcional | Sin confirmar (formato exacto pendiente de verificar) | Sin confirmar |
 | Fecha de nacimiento | Opcional | Sin confirmar (formato exacto de fecha pendiente de verificar) | Sin confirmar |
-| Género | Opcional | Valores admitidos: sin confirmar (ver más abajo) | Sin confirmar |
+| Género | Opcional | `mujer` o `hombre`, en minúscula | `mujer` |
 | Identificación fiscal | Opcional | Texto libre | `12345678A` |
 | Dirección | Opcional | Texto libre | `Calle Mayor 1, Madrid` |
 | Carpetas | Opcional | Nombre de un segmento de etiqueta existente, o uno nuevo | `Importacion_Mayo_2025` |
-| Consentimiento de marketing | Opcional | Valores admitidos: sin confirmar (ver más abajo) | Sin confirmar |
+| Consentimiento de marketing | Opcional | `s` (da su consentimiento) o `n` (no lo da) | `s` |
 
 :::note[Nota]
 Solo "Correo electrónico" es obligatorio. Puedes dejar sin mapear cualquier otra columna si no quieres importar ese dato.
 :::
+
+![Pantalla "Crear plantilla de importación" con la lista de campos que puedes incluir: Correo electrónico (obligatorio, marcado con un candado), Nombre, Teléfono, Fecha de nacimiento, Género, Identificación fiscal, Dirección, Carpetas, Consentimiento de marketing y Campos personalizados](/images/guias/audiencia/campos-de-importacion/paso-2-plantilla-campos.png)
 
 ## Campos personalizados
 
@@ -52,9 +58,14 @@ Además de los campos de sistema, puedes mapear columnas de tu archivo a campos 
 
 ## Valores admitidos en género y consentimiento de marketing
 
-Todavía no tenemos confirmada la lista exacta de valores que Nevent admite para el campo Género (por ejemplo, si acepta "Hombre", "Mujer", "Otro" u otras etiquetas) ni para el campo Consentimiento de marketing en el archivo de importación (por ejemplo, si espera "Sí"/"No", "true"/"false" u otro formato).
+Al generar la plantilla de importación desde Nevent, la fila de ejemplo usa estos valores:
 
-Este dato está pendiente de confirmar con el equipo de producto.
+| Campo | Valores de ejemplo |
+|---|---|
+| Género | `mujer`, `hombre` |
+| Consentimiento de marketing | `s` (sí da su consentimiento), `n` (no lo da) |
+
+Si generas tu propia plantilla desde la pantalla de importación, verás estos mismos valores de ejemplo en las primeras filas del archivo descargado.
 
 ## Tamaño y formatos de archivo
 
