@@ -1,0 +1,84 @@
+---
+title: "Requisitos del número de WhatsApp"
+description: "Tablas de referencia sobre requisitos, estados, niveles de mensajería y facturación del número de WhatsApp en Nevent, según Meta y el pricing vigente."
+diataxis: reference
+modulo: marketing
+nivel: basic
+sinonimos:
+  - "número de WhatsApp"
+  - "elegibilidad"
+  - "verificación de empresa"
+sidebar:
+  label: "Requisitos del número de WhatsApp"
+---
+
+Esta página reúne, en formato de consulta rápida, los requisitos técnicos, los estados posibles y los límites de mensajería que aplican al conectar un número de WhatsApp Business en Nevent. Los datos de límites y elegibilidad proceden de la documentación oficial de Meta para la WhatsApp Business Platform; los créditos y límites de plan proceden del pricing vigente de Nevent.
+
+## Requisitos del número
+
+| Requisito | Detalle |
+|---|---|
+| Tipo de número | Con prefijo de país y de área (no se admiten números cortos). Puede ser móvil o fijo. |
+| Propiedad | El número debe ser tuyo o de tu empresa. |
+| Capacidad de recepción | Debe poder recibir llamadas de voz o SMS, para completar la verificación. |
+| Uso previo en WhatsApp | No puede estar registrado en ese momento en la app de WhatsApp ni en la app de WhatsApp Business, salvo que actives la coexistencia (ver más abajo) o elimines antes la cuenta de esa app. |
+| Verificación | Por SMS o por llamada de voz. Los números fijos solo pueden verificarse por llamada de voz. |
+| Cupo de números por cuenta | 2 números al empezar. Sube automáticamente a 20 cuando la empresa queda verificada o cuando algún número alcanza un nivel de mensajería de 2.000 conversaciones. |
+
+## Coexistencia: número compartido entre la app y la API
+
+Meta permite usar el mismo número de teléfono a la vez en la app de WhatsApp Business (para conversaciones manuales, uno a uno) y en la API que usa Nevent (para campañas y automatizaciones). Los mensajes de ambos canales se mantienen sincronizados en el historial.
+
+Algunos puntos a tener en cuenta:
+
+- Requiere la app de WhatsApp Business en una versión reciente (2.24.17 o posterior).
+- Un número en coexistencia tiene un límite técnico fijo de envío de 20 mensajes por segundo, para mantener la compatibilidad con la app.
+- Los mensajes enviados desde la app siguen siendo gratuitos. Los mensajes enviados por la API (los de tus campañas de Nevent) se facturan según la tarifa de Meta.
+- La activación de la coexistencia para tu cuenta la gestiona el equipo de soporte de Nevent.
+
+Para una explicación completa de qué se conserva, qué requisitos hacen falta y cuándo conviene o no, consulta [Qué es el modo coexistencia de WhatsApp y cuándo te conviene](/entregabilidad/que-es-el-modo-coexistencia-de-whatsapp).
+
+## Estados de la cuenta y del número en Meta
+
+| Estado | Dónde se ve | Qué significa |
+|---|---|---|
+| Empresa verificada | Business Manager > Verificación de la empresa | Meta ha comprobado la identidad legal de tu empresa. Es un requisito para ampliar el cupo de números y para algunas eligibilidades. |
+| Empresa en revisión / rechazada / sin iniciar | Business Manager > Verificación de la empresa | La verificación no se ha completado todavía o Meta la ha rechazado. Revisa la documentación aportada. |
+| Nombre para mostrar aprobado / pendiente / rechazado | WhatsApp Manager > Perfiles de empresa | Indica si el nombre que verán tus contactos como remitente ya puede usarse. |
+| Número conectado (Connected) | WhatsApp Manager > Números de teléfono | El número está activo y puede enviar y recibir mensajes por la API. |
+| Calidad del número: verde (GREEN) | WhatsApp Manager > Números de teléfono | Calidad alta: pocas o ninguna señal negativa de los usuarios. |
+| Calidad del número: amarilla (YELLOW) | WhatsApp Manager > Números de teléfono | Calidad media: ha recibido señales negativas o baja tasa de lectura; puede acabar pausado si no mejora. |
+| Calidad del número: roja (RED) | WhatsApp Manager > Números de teléfono | Calidad baja: riesgo alto de que Meta reduzca tu límite de mensajería. |
+| Calidad del número: sin datos (NA / UNKNOWN) | WhatsApp Manager > Números de teléfono | Todavía no hay suficientes envíos o señales de usuarios para calcular la calidad. |
+
+## Niveles de mensajería (Meta)
+
+El nivel de mensajería es el número máximo de destinatarios únicos a los que puedes enviar mensajes fuera de una conversación abierta por el propio usuario, en una ventana móvil de 24 horas. Se calcula por cuenta de empresa (business portfolio), no por número: si tienes varios números en la misma cuenta, comparten el mismo cupo.
+
+| Nivel | Destinatarios únicos en 24 h | Cómo se alcanza |
+|---|---|---|
+| Inicial | 250 | Nivel de partida de toda cuenta nueva. |
+| Ampliado | 2.000 | Verificando la empresa, o teniendo un partner que la verifique, o enviando 2.000 mensajes entregados a destinatarios únicos en una ventana móvil de 30 días con plantillas de calidad alta. |
+| Superior | 10.000 | Ampliación automática de Meta si mantienes calidad alta y usas al menos la mitad de tu cupo actual en los últimos 7 días. |
+| Alto volumen | 100.000 | Ampliación automática de Meta con los mismos criterios de calidad y uso. |
+| Sin límite | Ilimitado | Ampliación automática para cuentas con historial sostenido de calidad y volumen alto. |
+
+Consulta el motivo exacto de por qué se aplican estos niveles en [Límites de mensajería de WhatsApp: por qué se bloquea a los 40](/entregabilidad/limites-de-mensajeria-de-whatsapp).
+
+## Qué cuenta como conversación y cómo se factura
+
+| Concepto | Detalle |
+|---|---|
+| Qué se factura | Un mensaje de plantilla enviado fuera de una conversación de servicio abre una conversación facturable con el destinatario, según la tarifa de Meta vigente en cada país. |
+| Coste en Nevent | El WhatsApp no consume créditos a tarifa plana como el SMS o el email. Se factura según la tarifa de conversaciones de Meta, no con los créditos del plan. |
+| Créditos incluidos por plan | 1.000 créditos al mes en el nivel Basic del módulo Marketing; 3.000 al mes en Pro. El WhatsApp no descuenta de este saldo de la misma forma que el SMS o el email: su coste depende directamente de la tarifa de Meta. |
+
+## Documentos relacionados
+
+- [Qué es el modo coexistencia de WhatsApp y cuándo te conviene](/entregabilidad/que-es-el-modo-coexistencia-de-whatsapp): explicación completa de la coexistencia.
+- [Mi número de WhatsApp no es elegible](/solucion-de-problemas/mi-numero-de-whatsapp-no-es-elegible): diagnóstico causa por causa cuando el número no conecta.
+- [Límites de mensajería de WhatsApp: por qué se bloquea a los 40](/entregabilidad/limites-de-mensajeria-de-whatsapp): explicación de los niveles y la calidad del número.
+- [Cómo calentar un número nuevo de WhatsApp](/entregabilidad/como-calentar-un-numero-nuevo-de-whatsapp): plan de envío progresivo para no agotar el nivel inicial.
+- [Activa tus canales de comunicación](/entregabilidad/activar-canales): cómo conectar WhatsApp Business desde Nevent.
+
+Fuentes: documentación oficial de Meta, "Messaging Limits" (developers.facebook.com/documentation/business-messaging/whatsapp/messaging-limits), "Business phone numbers" (developers.facebook.com/documentation/business-messaging/whatsapp/business-phone-numbers/phone-numbers), "Onboard WhatsApp Business app users" (developers.facebook.com/documentation/business-messaging/whatsapp/embedded-signup/onboarding-business-app-users) y "Service messages" (developers.facebook.com/documentation/business-messaging/whatsapp/messages/send-messages), sección "Message quality". Pricing CORE SaaS 2026-2027 de Nevent (Confluence SLS, v4.1).

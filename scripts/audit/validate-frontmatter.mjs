@@ -135,6 +135,7 @@ const TITLE_PREFIXES = {
     'Qué mide', 'Preguntas frecuentes', 'FAQ', 'Frases', 'Métricas', 'Deliverability', 'Tracking',
     'Compatibilidad', 'Nevent MCP', 'Troubleshooting', 'Modelo', 'Operadores', '6 ', 'Asistencia',
     'Atributos', 'Gasto', 'Engagement', 'Combinaciones', 'Criterios', 'Cómo agrupar',
+    'Qué incluye', 'Soporte según',
   ],
 };
 

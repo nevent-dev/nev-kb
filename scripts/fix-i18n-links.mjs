@@ -76,6 +76,7 @@ const SEGMENT_ES_TO_EN = {
 	'importar-fans': 'import-your-contacts',
 	'informe': 'report',
 	'introduccion': 'connect-your-accounts',
+	'como-leer-el-detalle-de-una-campana': 'how-to-read-a-campaign-ad-set-and-ad',
 	'lanzamiento-72h': '72-hour-launch',
 	'llenar-tu-evento': 'fill-your-event',
 	'mi-ticketera-no-esta-integrada': 'ticketing-platform-not-integrated',

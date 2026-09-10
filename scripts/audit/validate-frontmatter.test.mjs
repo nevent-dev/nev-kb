@@ -144,6 +144,14 @@ describe('matchesTitlePattern', () => {
     expect(matchesTitlePattern('reference', '"Preguntas frecuentes sobre X"')).toBe(true);
   });
 
+  it('acepta una reference que arranca por Qué incluye', () => {
+    expect(matchesTitlePattern('reference', 'Qué incluye cada módulo y nivel')).toBe(true);
+  });
+
+  it('acepta una reference que arranca por Soporte según', () => {
+    expect(matchesTitlePattern('reference', 'Soporte según tu plan')).toBe(true);
+  });
+
   it('devuelve true si el cuadrante no tiene lista curada', () => {
     expect(matchesTitlePattern('no-existe', 'Cualquier cosa')).toBe(true);
   });

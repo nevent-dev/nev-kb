@@ -9,6 +9,7 @@ analitica/casos/open-rate-diario	revenue	unico
 analitica/casos/roas-ultimos-30-dias	revenue	unico
 analitica/casos/top-eventos-revenue	revenue	unico
 analitica/como-entender-la-analitica	revenue	unico
+analitica/como-se-cuenta-un-fan-y-una-venta	revenue	unico
 analitica/deliverability	revenue	unico
 analitica/eventos-y-entradas	revenue	unico
 analitica/faq	revenue	unico
@@ -17,6 +18,7 @@ analitica/paid-media	revenue	unico
 analitica/tracking-y-atribucion	revenue	unico
 analitica/tu-panel-de-inicio	plataforma	
 analitica/tu-primer-analisis	revenue	unico
+audiencia/campos-de-importacion	marketing	basic
 audiencia/como-entiende-nevent-tu-audiencia	marketing	basic
 audiencia/conecta-tu-ticketera	marketing	basic
 audiencia/explora-tu-audiencia	marketing	basic
@@ -24,6 +26,7 @@ audiencia/gestion-de-fans	marketing	basic
 audiencia/importar-fans	marketing	basic
 audiencia/mi-ticketera-no-esta-integrada	marketing	basic
 audiencia/por-que-conectar-tu-ticketera	marketing	basic
+audiencia/que-datos-envia-cada-ticketera	marketing	basic
 audiencia/referencia	marketing	basic
 audiencia/referencia-integraciones	marketing	basic
 campanas/crear-primera-campana	marketing	basic
@@ -49,14 +52,20 @@ chatbot/voz-del-asistente	experience	basic
 consumo/como-funcionan-los-creditos	plataforma	
 consumo/consulta-tu-plan	plataforma	
 consumo/plan-de-uso	plataforma	
+consumo/que-incluye-cada-modulo-y-nivel	plataforma	
 consumo/referencia	plataforma	
+consumo/soporte-segun-tu-plan	plataforma	
 empieza-aqui/index	plataforma	
 entregabilidad/activar-canales	marketing	basic
+entregabilidad/como-calentar-un-numero-nuevo-de-whatsapp	marketing	basic
 entregabilidad/configura-tu-entrega	marketing	basic
 entregabilidad/dominio-dedicado	marketing	basic
 entregabilidad/envio-de-emails	marketing	basic
+entregabilidad/limites-de-mensajeria-de-whatsapp	marketing	basic
+entregabilidad/que-es-el-modo-coexistencia-de-whatsapp	marketing	basic
 entregabilidad/referencia	marketing	basic
 entregabilidad/reputacion-y-spam	marketing	basic
+entregabilidad/requisitos-del-numero-de-whatsapp	marketing	basic
 experiencias/analytics	plataforma	
 experiencias/listas-de-espera	plataforma	
 experiencias/perfil-musical	plataforma	
@@ -98,10 +107,13 @@ nevent-ai/que-puedes-hacer/multi-cuenta	plataforma
 nevent-ai/que-puedes-hacer/paid-media	plataforma	
 nevent-ai/que-puedes-hacer/plantillas	plataforma	
 nevent-ai/que-puedes-hacer/short-urls	plataforma	
+organizacion/crea-una-marca-con-su-propio-dominio	plataforma	
 organizacion/estructura-de-tu-organizacion	plataforma	
 organizacion/invita-a-tu-equipo	plataforma	
 organizacion/que-son-los-tres-niveles	plataforma	
+paid-media/como-leer-el-detalle-de-una-campana	marketing	basic
 paid-media/conversiones-de-meta	marketing	pro
+paid-media/crea-una-audiencia-similar-y-excluye-a-tus-contactos	marketing	basic
 paid-media/introduccion	marketing	basic
 paid-media/por-que-tu-cpa-real-no-es-el-que-ves-en-meta	marketing	pro
 paid-media/primer-vistazo	marketing	basic
@@ -142,6 +154,8 @@ segmentacion/tu-primer-segmento	marketing	basic
 solucion-de-problemas/baja-tasa-de-apertura	plataforma	
 solucion-de-problemas/dominio-no-verifica	plataforma	
 solucion-de-problemas/emails-a-spam	plataforma	
+solucion-de-problemas/la-importacion-falla	marketing	basic
+solucion-de-problemas/mi-numero-de-whatsapp-no-es-elegible	marketing	basic
 solucion-de-problemas/ventas-no-atribuidas	plataforma	
 superapp/introduccion	experience	pro
 superapp/primeros-pasos	experience	pro
