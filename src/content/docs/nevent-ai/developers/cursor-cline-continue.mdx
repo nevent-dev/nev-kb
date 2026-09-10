@@ -10,7 +10,14 @@ sidebar:
 
 import { Tabs, TabItem } from '@astrojs/starlight/components';
 
-Todos estos clientes usan un formato de configuración JSON similar al de Claude Desktop. La estructura del bloque `mcpServers` es idéntica — solo cambia la ubicación del fichero.
+Todos estos clientes usan un formato de configuración JSON similar al de Claude Desktop. La estructura del bloque `mcpServers` es idéntica, solo cambia la ubicación del fichero.
+
+| Cliente | Fichero de configuración |
+|---|---|
+| Cursor | `.cursor/mcp.json` (proyecto) o `~/.cursor/mcp.json` (global) |
+| Cline | `cline_mcp_settings.json`, dentro del almacenamiento global de la extensión |
+| Continue | `~/.continue/config.json` |
+| VS Code (extensión MCP) | `settings.json` de usuario, bajo la clave `mcp.servers` |
 
 ## Cursor
 

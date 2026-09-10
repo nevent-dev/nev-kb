@@ -10,7 +10,12 @@ sidebar:
 
 import { Tabs, TabItem } from '@astrojs/starlight/components';
 
-Claude Desktop carga los servidores MCP desde un fichero de configuración JSON. Este fichero se edita manualmente — Claude Desktop no tiene interfaz gráfica para gestionar servidores MCP.
+Claude Desktop carga los servidores MCP desde un fichero de configuración JSON. Este fichero se edita manualmente: Claude Desktop no tiene interfaz gráfica para gestionar servidores MCP.
+
+| Variable de entorno | Obligatoria | Qué hace |
+|---|---|---|
+| `NEVENT_JWT_TOKEN` | Sí | Autentica el servidor MCP con tu cuenta de Nevent. |
+| `NEVENT_OPERATION_MODE` | No | Controla qué puede hacer el asistente: `READ_ONLY` (por defecto, solo consulta), `STANDARD` o `FULL`. Ver [permisos y seguridad](/nevent-ai/permisos-y-seguridad). |
 
 ## Ubicación del fichero de configuración
 

@@ -183,7 +183,11 @@ function countNumberedSteps(body) {
 function hasMarkdownTable(body) {
   // Cabecera de tabla GFM: una línea con '|' seguida de una fila separadora
   // de guiones/dos puntos (--- | :--- | ---:).
-  return /\|.*\n\s*\|?[\s:-]*-{3,}[\s:|-]*\n/.test(body);
+  if (/\|.*\n\s*\|?[\s:-]*-{3,}[\s:|-]*\n/.test(body)) return true;
+  // Algunas reference usan <table> HTML en vez de sintaxis Markdown (por
+  // ejemplo cuando el contenido de las celdas necesita saltos de línea o
+  // formato que Markdown no soporta bien dentro de una tabla).
+  return /<table[\s>]/i.test(body);
 }
 
 // relPath + raw -> [{ level: 'warn', code, message }]
