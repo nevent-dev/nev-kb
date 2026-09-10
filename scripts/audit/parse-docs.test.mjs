@@ -17,15 +17,22 @@ describe('areaFromPath', () => {
 });
 
 describe('toRecord', () => {
-  it('extrae slug, área y diataxis del frontmatter', () => {
-    const raw = `---\ntitle: Crear campaña\ndiataxis: tutorial\n---\nCuerpo`;
+  it('extrae slug, área, diataxis y modulo del frontmatter', () => {
+    const raw = `---\ntitle: Crear campaña\ndiataxis: tutorial\nmodulo: marketing\n---\nCuerpo`;
     const rec = toRecord(raw, 'campanas/crear.mdx');
     expect(rec).toEqual({
       slug: 'campanas/crear',
       area: 'campanas',
       diataxis: 'tutorial',
+      modulo: 'marketing',
       title: 'Crear campaña',
     });
+  });
+
+  it('pone modulo a null cuando falta', () => {
+    const raw = `---\ntitle: Sin modulo\ndiataxis: tutorial\n---\nCuerpo`;
+    const rec = toRecord(raw, 'campanas/x.mdx');
+    expect(rec.modulo).toBeNull();
   });
   it('pone diataxis a null cuando falta', () => {
     const raw = `---\ntitle: Sin tipo\n---\nCuerpo`;

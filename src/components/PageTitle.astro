@@ -1,0 +1,97 @@
+---
+/**
+ * Override de <PageTitle> de Starlight.
+ *
+ * Añade, encima del <h1> de siempre:
+ *   1. Un distintivo de tipo Diátaxis (Tutorial / Cómo hacer / Para entender /
+ *      Referencia) leído de `diataxis` en el frontmatter.
+ *   2. Si `nivel: pro`, un aviso corto de disponibilidad de plan.
+ *   3. Si `sinonimos` existe, un bloque "También llamado: a, b, c" marcado
+ *      con `data-pagefind-body` para que el buscador lo indexe aunque no
+ *      aparezca en la prosa visible del resto de la página.
+ *
+ * Usa solo variables CSS de Starlight/el design system ya consumidas en este
+ * repo (ver src/styles/custom.css) — sin colores nuevos, sin emojis.
+ */
+import { Badge, Aside } from '@astrojs/starlight/components';
+
+// '@astrojs/starlight/constants' no es una exportación pública del paquete
+// (solo la usa el propio código interno de Starlight), así que no se puede
+// importar PAGE_TITLE_ID desde fuera. Su valor es estable y lo fija Starlight
+// mismo: es el ancla a la que apunta el enlace "Skip to content".
+const PAGE_TITLE_ID = '_top';
+
+const { entry } = Astro.locals.starlightRoute;
+const { title, diataxis, nivel, modulo, sinonimos } = entry.data;
+
+const DIATAXIS_LABEL = {
+	tutorial: 'Tutorial',
+	'how-to': 'Cómo hacer',
+	explanation: 'Para entender',
+	reference: 'Referencia',
+};
+
+const MODULO_LABEL = {
+	marketing: 'Marketing',
+	experience: 'Experience',
+	revenue: 'Revenue',
+};
+
+const typeLabel = typeof diataxis === 'string' ? DIATAXIS_LABEL[diataxis] : null;
+const isPro = nivel === 'pro';
+const proModuloLabel = MODULO_LABEL[modulo] ?? 'Pro';
+const synonyms = Array.isArray(sinonimos) ? sinonimos.filter((s) => typeof s === 'string' && s.trim()) : [];
+---
+
+{
+	typeLabel && (
+		<p class="kb-page-kicker">
+			<Badge text={typeLabel} variant="default" size="small" />
+		</p>
+	)
+}
+
+<h1 id={PAGE_TITLE_ID}>{title}</h1>
+
+{
+	isPro && (
+		<Aside type="note" title="Disponible en Pro">
+			Disponible en el nivel Pro de {proModuloLabel}.
+		</Aside>
+	)
+}
+
+{
+	synonyms.length > 0 && (
+		<p class="kb-page-synonyms" data-pagefind-body>
+			<span class="kb-page-synonyms__label">También llamado:</span> {synonyms.join(', ')}
+		</p>
+	)
+}
+
+<style>
+	@layer starlight.core {
+		h1 {
+			margin-top: 0.5rem;
+			font-size: var(--sl-text-h1);
+			line-height: var(--sl-line-height-headings);
+			font-weight: 600;
+			color: var(--sl-color-white);
+		}
+	}
+
+	.kb-page-kicker {
+		margin: 1rem 0 0;
+	}
+
+	.kb-page-synonyms {
+		margin: 0.5rem 0 0;
+		font-size: var(--sl-text-sm);
+		color: var(--sl-color-gray-3);
+	}
+
+	.kb-page-synonyms__label {
+		color: var(--sl-color-text);
+		font-weight: 600;
+	}
+</style>

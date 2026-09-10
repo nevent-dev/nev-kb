@@ -8,7 +8,9 @@ import { fileURLToPath } from 'node:url';
 
 const CONTENT = fileURLToPath(new URL('../../src/content/docs/', import.meta.url));
 const TSV = fileURLToPath(new URL('./classifications.tsv', import.meta.url));
-const VALID = new Set(['tutorial', 'how-to', 'reference', 'explanation', 'mixed']);
+// 'mixed' ya no es un valor válido de diataxis (ver src/content.config.ts):
+// un doc mixed debe dividirse y reclasificarse en tutorial/how-to/reference/explanation.
+const VALID = new Set(['tutorial', 'how-to', 'reference', 'explanation']);
 
 function resolveFile(slug) {
   for (const ext of ['.mdx', '.md']) {

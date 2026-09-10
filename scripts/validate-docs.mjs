@@ -1,12 +1,23 @@
 #!/usr/bin/env node
-// Validador determinista pre-publicación: comprueba claves de FAQ (q/a) y
-// ortografía heurística (tildes/eñes) en todos los docs. Sale con código 1 si
-// encuentra violaciones, para poder usarlo como gate en el pipeline/CI.
+// Validador determinista pre-publicación: comprueba claves de FAQ (q/a),
+// ortografía heurística (tildes/eñes), taxonomía obligatoria (diataxis,
+// modulo, nivel), patrón de título por cuadrante Diátaxis, heurísticas de
+// cuerpo por cuadrante y ausencia de slugs duplicados en el sidebar
+// generado. Sale con código 1 si hay algún ERROR (los WARN no bloquean,
+// salvo --strict, que también convierte en ERROR los WARN de título).
 import { readdir, readFile } from 'node:fs/promises';
 import { join, relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { checkFaqKeys, checkOrthography } from './audit/validate-frontmatter.mjs';
+import {
+  checkFaqKeys,
+  checkOrthography,
+  checkTaxonomy,
+  checkTitlePattern,
+  checkBodyHeuristics,
+} from './audit/validate-frontmatter.mjs';
+import { readEsRecords, buildGroups, collectSlugs } from './sidebar.mjs';
 
+const STRICT = process.argv.includes('--strict');
 const CONTENT = fileURLToPath(new URL('../src/content/docs', import.meta.url));
 
 async function walk(dir) {
@@ -25,6 +36,8 @@ async function main() {
   const files = await walk(CONTENT);
   let faqProblems = 0;
   let orthoProblems = 0;
+  let errors = 0;
+  let warns = 0;
   for (const f of files) {
     const raw = await readFile(f, 'utf8');
     const rel = relative(CONTENT, f);
@@ -36,14 +49,47 @@ async function main() {
       orthoProblems++;
       console.error(`ORTO ${rel}:${o.line}: "${o.word}" -> "${o.suggestion}"`);
     }
+    for (const v of checkTaxonomy(rel, raw)) {
+      errors++;
+      console.error(`ERROR ${v.message}`);
+    }
+    for (const v of checkTitlePattern(rel, raw, { strict: STRICT })) {
+      if (v.level === 'error') errors++; else warns++;
+      console.error(`${v.level.toUpperCase()} ${v.message}`);
+    }
+    for (const v of checkBodyHeuristics(rel, raw)) {
+      warns++;
+      console.error(`WARN ${v.message}`);
+    }
   }
-  const total = faqProblems + orthoProblems;
-  console.log(`\nValidados ${files.length} docs. FAQ: ${faqProblems} · Ortografía: ${orthoProblems}.`);
+
+  // Sin slugs duplicados en el sidebar generado (defensivo: buildGroups ya
+  // asigna cada slug a un único grupo, pero un fallo aquí señalaría un bug
+  // real en scripts/sidebar.mjs, no solo en el contenido).
+  const records = readEsRecords(CONTENT);
+  const slugs = collectSlugs(buildGroups(records));
+  const seen = new Set();
+  for (const slug of slugs) {
+    if (seen.has(slug)) {
+      errors++;
+      console.error(`ERROR slug duplicado en el sidebar generado: ${slug}`);
+    }
+    seen.add(slug);
+  }
+
+  const total = faqProblems + orthoProblems + errors + warns;
+  console.log(
+    `\nValidados ${files.length} docs. FAQ: ${faqProblems} · Ortografía: ${orthoProblems} · ` +
+      `Errores: ${faqProblems + orthoProblems + errors} · Avisos: ${warns}.`
+  );
   if (total > 0) {
-    console.error(`\n${total} violaciones. Corrígelas antes de publicar.`);
+    console.error(`\n${total} incidencias (${faqProblems + orthoProblems + errors} error(es), ${warns} aviso(s)).`);
+  }
+  if (faqProblems + orthoProblems + errors > 0) {
+    console.error('Corrige los errores antes de publicar.');
     process.exit(1);
   }
-  console.log('Sin violaciones.');
+  console.log('Sin errores.' + (warns ? ` (${warns} avisos no bloqueantes)` : ''));
 }
 
 main().catch((err) => { console.error(err); process.exit(1); });

@@ -2,13 +2,20 @@
 title: "Segmento dinámico o lista: cuál usar"
 description: "Entiende la diferencia entre un segmento dinámico y una lista estática en Nevent, y cuándo tiene sentido usar cada uno según tu objetivo."
 diataxis: explanation
+modulo: marketing
+nivel: basic
+sinonimos:
+  - "lista de correo"
+  - "lista estática"
+sidebar:
+  label: "Segmento o lista"
 faqs:
   - q: "¿Un segmento dinámico puede quedarse vacío si cambian los datos de mis fans?"
     a: "Sí. El segmento recalcula sus miembros cada vez que lo usas. Si los fans que antes cumplían los criterios ya no los cumplen (por ejemplo, porque su temperatura bajó o porque ya compraron), el segmento reflejará ese cambio. Eso es precisamente lo que lo hace útil: siempre trabaja con datos actualizados."
   - q: "¿Cuando importo fans puedo añadirlos directamente a un segmento?"
     a: "Sí, pero el segmento que se crea en ese momento es una lista de etiqueta estática. Nevent te ofrece tres opciones al importar: no volcar, añadir a un segmento existente o crear un segmento nuevo. En los dos últimos casos, los fans del archivo se asignan fijos a ese grupo, independientemente de los criterios del motor de segmentación."
   - q: "¿Puedo combinar una lista estática con el motor de segmentación?"
-    a: "Puedes usar la etiqueta de carpeta como un criterio más dentro del motor. Por ejemplo, puedes construir un segmento dinámico que diga: 'fans que pertenecen a la carpeta Importacion_Mayo_2025 Y que tienen temperatura Caliente o Muy Caliente'. Así filtras una lista importada con criterios de comportamiento."
+    a: "Puedes usar la etiqueta de carpeta como un criterio más dentro del motor. Por ejemplo, puedes construir un segmento dinámico que diga: 'fans que pertenecen a la carpeta `Importacion_Mayo_2025` Y que tienen temperatura Caliente o Muy Caliente'. Así filtras una lista importada con criterios de comportamiento."
   - q: "¿El segmento dinámico afecta a cuántos fans reciben realmente mi campaña?"
     a: "El segmento define quiénes califican según los criterios. Pero Nevent aplica un segundo filtro antes de enviar: solo llega la campaña a los fans que tienen consentimiento de marketing activo y dirección válida. La columna de contactabilidad en la pantalla de segmentos te muestra el porcentaje de fans del segmento que son realmente contactables."
   - q: "¿Cuándo tiene sentido usar una lista estática en lugar de un segmento dinámico?"
@@ -36,7 +43,7 @@ Eso significa que si ayer un fan era "Muy Frío" en el Nevent Score y hoy ha com
 El motor de segmentación de Nevent organiza los criterios disponibles en seis categorías: Asistencia (eventos a los que ha ido el fan, tipo de entrada, artista, género musical), Atributos del fan (ciudad de residencia, edad, idioma), Consumo (gasto total, número de compras, recargas cashless), Interacción (emails abiertos, clics, velocidad de respuesta), Canales (app descargada, teléfono verificado, redes sociales conectadas) y Nevent Score (la temperatura y el valor numérico del score de engagement). Puedes combinar criterios de distintas categorías con operadores lógicos Y y O, y añadir modificadores de recencia y frecuencia para filtrar no solo por lo que ha hecho el fan sino por cuántas veces lo ha hecho y en qué periodo de tiempo.
 
 <Aside type="tip">
-La [guía del motor de segmentación](/segmentacion/motor-segmentacion/) explica cada categoría de criterios y cómo combinarlos. Si quieres ver cómo se construye un segmento paso a paso, la guía [Crea tu primer segmento](/segmentacion/tu-primer-segmento/) te lo enseña con un ejemplo concreto.
+La [guía del motor de segmentación](/segmentacion/tu-primer-segmento/) explica cada categoría de criterios y cómo combinarlos. Si quieres ver cómo se construye un segmento paso a paso, la guía [Crea tu primer segmento](/segmentacion/tu-primer-segmento/) te lo enseña con un ejemplo concreto.
 </Aside>
 
 ---
@@ -77,7 +84,7 @@ La lógica del motor está diseñada para promotores de eventos, donde la activi
 
 Además, el Nevent Score (que incluye la temperatura y el valor numérico del score de engagement) se recalcula automáticamente para cada fan. Nevent tiene en cuenta factores como la frecuencia de asistencia a eventos, la recencia de las compras, el gasto total histórico, el engagement con emails y la velocidad de compra. Ese recálculo solo tiene efecto en tus campañas si usas segmentos dinámicos que incluyan esos criterios. Con una lista estática, el Nevent Score actualizado de tus fans es invisible para el grupo.
 
-Los [casos de uso prácticos del motor de segmentación](/segmentacion/motor-segmentacion/casos-uso/) muestran ejemplos concretos donde esta dinámica marca una diferencia de resultado: segmentos de fans en riesgo que se actualizan solos cuando alguien vuelve a comprar, audiencias de early birds que solo incluyen a quienes compraron con antelación en las últimas temporadas, o grupos de reactivación que cambian conforme avanzan las campañas de win-back.
+Los [casos de uso prácticos del motor de segmentación](/segmentacion/casos/) muestran ejemplos concretos donde esta dinámica marca una diferencia de resultado: segmentos de fans en riesgo que se actualizan solos cuando alguien vuelve a comprar, audiencias de early birds que solo incluyen a quienes compraron con antelación en las últimas temporadas, o grupos de reactivación que cambian conforme avanzan las campañas de win-back.
 
 ---
 
@@ -120,7 +127,7 @@ Esto significa que el tamaño de un grupo (tanto dinámico como estático) nunca
 
 Las listas estáticas y los segmentos dinámicos no son excluyentes. Puedes usar la carpeta o etiqueta de una lista como un criterio dentro del motor de segmentación.
 
-Por ejemplo: tienes una lista importada de fans que asistieron a un festival de otra promotora hace dos años (datos que no están en el historial de Nevent). Los importaste con su correspondiente etiqueta. Puedes construir un segmento dinámico que diga: "fans de la carpeta Importacion_FestivalX que además tienen temperatura Caliente o Muy Caliente en Nevent". El resultado es un grupo que combina el origen externo (lista estática) con el comportamiento actual (segmento dinámico).
+Por ejemplo: tienes una lista importada de fans que asistieron a un festival de otra promotora hace dos años (datos que no están en el historial de Nevent). Los importaste con su correspondiente etiqueta. Puedes construir un segmento dinámico que diga: "fans de la carpeta `Importacion_FestivalX` que además tienen temperatura Caliente o Muy Caliente en Nevent". El resultado es un grupo que combina el origen externo (lista estática) con el comportamiento actual (segmento dinámico).
 
 Esta combinación es especialmente útil cuando quieres cualificar una base importada con criterios de engagement antes de enviarles una campaña, en lugar de enviarla a todos los contactos de la lista sin distinción.
 
@@ -138,8 +145,8 @@ Entender cuándo usar cada uno no es una cuestión técnica: es entender si tu o
 
 ## Próximos pasos
 
-- [Motor de segmentación: qué es y cómo funciona](/segmentacion/motor-segmentacion/) para entender en profundidad las seis categorías de criterios.
+- [Motor de segmentación: qué es y cómo funciona](/segmentacion/tu-primer-segmento/) para entender en profundidad las seis categorías de criterios.
 - [Crea tu primer segmento](/segmentacion/tu-primer-segmento/) si quieres construir tu primer segmento dinámico paso a paso.
-- [Las 6 categorías de criterios](/segmentacion/motor-segmentacion/categorias/) para ver todos los filtros disponibles con ejemplos.
+- [Las 6 categorías de criterios](/segmentacion/capacidades/) para ver todos los filtros disponibles con ejemplos.
 - [Importa tus contactos](/audiencia/importar-fans/) para entender el proceso de volcado a lista al subir un archivo.
 - [Como entiende Nevent tu audiencia](/audiencia/como-entiende-nevent-tu-audiencia/) para profundizar en consentimientos, contactabilidad y limpieza de datos.

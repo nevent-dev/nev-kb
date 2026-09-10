@@ -150,7 +150,7 @@ echo ""
 # Spot checks de paginas criticas
 ROUTES=(
   "/"
-  "/segmentacion/motor-segmentacion/categorias/"
+  "/segmentacion/capacidades/combinaciones/"
   "/segmentacion/capacidades/"
   "/segmentacion/casos/"
   "/analitica/"
