@@ -19,9 +19,9 @@ faqs:
     a: "Eso ocurre al entrar directamente en Meta Ads Manager desde tu navegador, no es parte del proceso de conexión con Nevent. Meta te pide identificarte con tu cuenta personal porque el acceso a la publicidad de una empresa pasa por tu perfil individual dentro del Business Manager."
   - q: "Autoricé Meta pero en Nevent sigue sin aparecer como conectada. ¿Qué reviso?"
     a: "Comprueba tres cosas: que tu usuario tiene rol de administrador o anunciante sobre esa cuenta publicitaria en el Business Manager, que durante la autorización seleccionaste la cuenta correcta y no otra de tu Business Manager, y por último vuelve a Configuración → Paid Ads y pulsa Conectar de nuevo para repetir la autorización."
+  - q: "¿Cómo cambio la cuenta publicitaria conectada a Nevent?"
+    a: "En Configuración → Paid Ads, pulsa Desconectar en la tarjeta de esa plataforma y luego pulsa Conectar para volver a autorizar y elegir la cuenta correcta."
 ---
-
-import { Aside } from '@astrojs/starlight/components';
 
 Conectar tus cuentas de Meta, Google y TikTok es lo primero que necesitas hacer para que el módulo Paid Media de Nevent muestre el gasto y el rendimiento de tus anuncios en un solo panel. El proceso es una autorización estándar (OAuth): tú apruebas el acceso desde tu propia cuenta, sin instalar nada.
 
@@ -41,9 +41,9 @@ Si no tienes ninguno de estos permisos, pídeselos a quien administra esa cuenta
 
 En el menú lateral de Nevent, entra en **Configuración** y haz clic en **Paid Ads**.
 
-Verás una tarjeta por cada plataforma: Meta Ads, TikTok Ads y Google Ads. Cada tarjeta es independiente, con su propio botón y su propio estado: **No conectado** con un botón **Conectar**, **Conectado** con el nombre de la cuenta, o **Error** con un botón **Reintentar**.
+Verás una tarjeta por cada plataforma: Meta Ads, TikTok Ads y Google Ads. Cada tarjeta es independiente, con su propio botón y su propio estado: **No conectado** con un botón **Conectar**, **Conectado** con el nombre de la cuenta y un botón **Desconectar**, o **Error** con un botón **Reintentar**.
 
-{/* SCREENSHOT: Pantalla de Configuración → Paid Ads en Nevent con las tres tarjetas (Meta Ads, TikTok Ads, Google Ads) en estado "No conectado" y su botón "Conectar" */}
+![Pantalla de Configuración → Paid Ads en Nevent con las tres tarjetas: Meta Ads en estado "Conectado" con los botones "Ver campañas", "Sincronizar" y "Desconectar", y TikTok Ads y Google Ads en estado "No conectado" con su botón "Conectar"](/images/guias/paid-media/introduccion/paso-1-tres-tarjetas.png)
 
 ## Paso 2: conecta tu cuenta de Meta
 
@@ -78,9 +78,7 @@ En **Configuración → Paid Ads**, haz clic en **Conectar** en la tarjeta de **
 - Si Meta no aparece como conectada después de autorizar, revisa tu rol en el Business Manager, comprueba que seleccionaste la cuenta publicitaria correcta durante la autorización, y vuelve a pulsar **Conectar** para repetir el proceso.
 - Para ver el detalle de tus campañas una vez conectadas, sigue [cómo leer el detalle de una campaña, un conjunto y un anuncio](/paid-media/como-leer-el-detalle-de-una-campana).
 
-<Aside type="caution" title="Pendiente de confirmar">
-Si tienes varias cuentas publicitarias y la que aparece conectada no es la correcta, todavía estamos confirmando cuál es la forma admitida de cambiarla. Si te encuentras en este caso, escríbenos antes de intentarlo por tu cuenta.
-</Aside>
+Si la cuenta conectada no es la correcta, entra en **Configuración → Paid Ads**, pulsa **Desconectar** en la tarjeta de esa plataforma y vuelve a pulsar **Conectar** para repetir la autorización y elegir la cuenta correcta.
 
 ## Fuentes
 
