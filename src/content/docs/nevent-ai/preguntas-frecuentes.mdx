@@ -1,8 +1,8 @@
 ---
-title: Preguntas frecuentes sobre Nevent MCP
-diataxis: explanation
+title: Preguntas frecuentes de Nevent IA
+diataxis: reference
 modulo: plataforma
-description: Respuestas a las dudas más comunes sobre Nevent MCP — compatibilidad, permisos, errores, equipo y cómo deshacer acciones.
+description: "Respuestas a las dudas más comunes sobre Nevent IA: compatibilidad, permisos, errores, equipo y cómo deshacer acciones."
 sidebar:
   label: "Preguntas frecuentes"
   order: 6
@@ -10,7 +10,7 @@ sidebar:
 
 ## ¿Necesito permisos de administrador en Nevent para usar MCP?
 
-Sí. Nevent MCP se conecta con tu cuenta de Nevent Admin y necesitas tener acceso activo a la organización. Si no puedes iniciar sesión en [admin.nevent.es](https://admin.nevent.es), no podrás autorizar el conector.
+Sí. Nevent IA se conecta con tu cuenta de Nevent Admin y necesitas tener acceso activo a la organización. Si no puedes iniciar sesión en [admin.nevent.es](https://admin.nevent.es), no podrás autorizar el conector.
 
 Si tienes acceso limitado (por ejemplo, acceso de solo lectura), el conector funcionará pero solo podrás consultar datos — no podrás crear ni modificar nada, independientemente del modo configurado.
 
@@ -26,7 +26,7 @@ Una campaña en estado **"Programada"** sí puede cancelarse — hazlo desde la 
 
 Una campaña en estado **"Enviando"** o **"Enviada"** no puede deshacerse. Los emails ya han salido de los servidores.
 
-Por eso, cuando le pides a la IA que programe un envío, Nevent MCP requiere que confirmes explícitamente antes de ejecutar la acción. Si le dices "programa la campaña para el lunes", el asistente te pedirá que confirmes antes de hacerlo.
+Por eso, cuando le pides a la IA que programe un envío, Nevent IA requiere que confirmes explícitamente antes de ejecutar la acción. Si le dices "programa la campaña para el lunes", el asistente te pedirá que confirmes antes de hacerlo.
 
 ## ¿Qué pasa si le pregunto algo que el asistente no entiende?
 
@@ -37,21 +37,21 @@ Si el asistente responde que no tiene acceso a esa información, comprueba:
 2. Que los datos que buscas existen en tu cuenta
 3. Que el modo de operación te permite acceder a esa función
 
-## ¿Funciona con una cuenta de equipo? ¿Pueden usar Nevent MCP varios miembros?
+## ¿Funciona con una cuenta de equipo? ¿Pueden usar Nevent IA varios miembros?
 
-Sí. Cada miembro del equipo puede conectar Nevent MCP con su propia cuenta de Claude o ChatGPT. Cada conexión es independiente: usa las credenciales del usuario que la configura y respeta los permisos que ese usuario tiene en Nevent.
+Sí. Cada miembro del equipo puede conectar Nevent IA con su propia cuenta de Claude o ChatGPT. Cada conexión es independiente: usa las credenciales del usuario que la configura y respeta los permisos que ese usuario tiene en Nevent.
 
-No se comparte ningún token entre usuarios. Si Ana conecta Nevent MCP en su Claude, sus sesiones son completamente independientes de las de Marcos.
+No se comparte ningún token entre usuarios. Si Ana conecta Nevent IA en su Claude, sus sesiones son completamente independientes de las de Marcos.
 
-## ¿Nevent MCP puede modificar o eliminar datos sin que yo lo pida?
+## ¿Nevent IA puede modificar o eliminar datos sin que yo lo pida?
 
-No. Nevent MCP solo ejecuta acciones cuando tú se las pides explícitamente. El asistente no toma iniciativas por su cuenta.
+No. Nevent IA solo ejecuta acciones cuando tú se las pides explícitamente. El asistente no toma iniciativas por su cuenta.
 
 Además, las acciones de escritura (crear campañas, crear segmentos, programar envíos) requieren un modo de operación de STANDARD o FULL. En el modo READ_ONLY predeterminado, el asistente solo puede consultar datos, nunca modificarlos.
 
 ## ¿Cómo sé en qué organización está trabajando la IA?
 
-Al inicio de una conversación con Nevent MCP activo, la sesión usa la organización asociada a las credenciales que usaste al autorizar el conector. Es tu organización principal en Nevent.
+Al inicio de una conversación con Nevent IA activo, la sesión usa la organización asociada a las credenciales que usaste al autorizar el conector. Es tu organización principal en Nevent.
 
 Si tienes acceso a varias organizaciones, puedes pedirle a la IA que liste las organizaciones disponibles y que cambie a una diferente dentro de la misma conversación.
 
@@ -72,9 +72,9 @@ Este error significa que el token de sesión ha caducado o que tus credenciales 
 
 Si el error persiste, verifica que tu cuenta de Nevent Admin está activa accediendo directamente a [admin.nevent.es](https://admin.nevent.es).
 
-## ¿Puedo usar Nevent MCP sin conexión a internet?
+## ¿Puedo usar Nevent IA sin conexión a internet?
 
-No. Nevent MCP necesita conexión a internet para consultar los datos de tu cuenta en tiempo real. Funciona desde cualquier dispositivo y red, pero requiere acceso a `mcp.nevent.ai` y a las APIs de Nevent.
+No. Nevent IA necesita conexión a internet para consultar los datos de tu cuenta en tiempo real. Funciona desde cualquier dispositivo y red, pero requiere acceso a `mcp.nevent.ai` y a las APIs de Nevent.
 
 ## Tengo más preguntas. ¿Dónde puedo escribir?
 
@@ -83,5 +83,5 @@ Escríbenos a [support@nevent.ai](mailto:support@nevent.ai). El equipo de soport
 ## Siguiente paso
 
 - [Ver casos de uso con ejemplos de preguntas](/nevent-ai/casos-practicos/)
-- [Conectar Claude con Nevent MCP](/nevent-ai/conectar-claude)
+- [Conectar Claude con Nevent IA](/nevent-ai/conectar-claude)
 - [Para desarrolladores: documentación técnica](/nevent-ai/developers)
