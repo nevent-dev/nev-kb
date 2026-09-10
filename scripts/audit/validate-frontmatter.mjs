@@ -122,7 +122,7 @@ const TITLE_PREFIXES = {
     'Cómo', 'Qué hacer', 'Checklist', 'Ajustes',
     'Crea', 'Configura', 'Gestiona', 'Importa', 'Consulta', 'Activa', 'Sincroniza', 'Comprueba',
     'Añade', 'Analiza', 'Diseña', 'Divide', 'Reactiva', 'Recupera', 'Vende', 'Fideliza', 'Lanza',
-    'Mi', 'Mis', 'No ', 'Baja', 'La ', 'Las ', 'Meta',
+    'Baja',
   ],
   explanation: [
     'Qué es', 'Qué son', 'Qué consigues', 'Por qué', 'Cómo funciona', 'Cómo funcionan',
@@ -137,6 +137,21 @@ const TITLE_PREFIXES = {
     'Atributos', 'Gasto', 'Engagement', 'Combinaciones', 'Criterios', 'Cómo agrupar',
   ],
 };
+
+// Páginas bajo solucion-de-problemas/ siguen la convención "voz del cliente":
+// el título es la pregunta o queja tal cual la formularía el usuario (p. ej.
+// "Mis emails van a spam", "No veo ventas atribuidas a mis campañas"), no un
+// imperativo. No tiene sentido forzarlas a encajar en los prefijos genéricos
+// de how-to, así que quedan exentas del chequeo de patrón de título.
+function isCustomerVoiceExempt(relPath) {
+  return relPath.replace(/\\/g, '/').startsWith('solucion-de-problemas/');
+}
+
+// Lista cerrada de excepciones puntuales por slug (relPath relativo a
+// content/docs, con extensión): páginas cuyo título se sabe que no encaja en
+// los prefijos curados por un motivo editorial concreto y que no justifica
+// ampliar la lista general. Vacía salvo casos puntuales verificados a mano.
+const TITLE_PATTERN_SLUG_EXCEPTIONS = new Set([]);
 
 // Quita comillas envolventes y el símbolo de interrogación de apertura, y
 // recorta espacio, para comparar contra los prefijos curados.
@@ -160,6 +175,9 @@ export function matchesTitlePattern(diataxis, title) {
 // relPath + raw -> [{ level, code, message }] (level: 'warn' salvo --strict)
 export function checkTitlePattern(relPath, raw, { strict = false } = {}) {
   if (isExemptFromTaxonomy(relPath)) return [];
+  if (isCustomerVoiceExempt(relPath)) return [];
+  const normalizedRelPath = relPath.replace(/\\/g, '/');
+  if (TITLE_PATTERN_SLUG_EXCEPTIONS.has(normalizedRelPath)) return [];
   const { data } = matter(raw);
   if (!DIATAXIS_VALUES.includes(data.diataxis)) return []; // ya lo cubre checkTaxonomy
   if (matchesTitlePattern(data.diataxis, data.title)) return [];

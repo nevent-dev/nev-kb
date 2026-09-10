@@ -172,6 +172,18 @@ describe('checkTitlePattern', () => {
     const raw = fm({ title: 'Cualquier cosa', diataxis: 'tutorial' });
     expect(checkTitlePattern('index.mdx', raw)).toEqual([]);
   });
+
+  it('acepta un título "voz del cliente" bajo solucion-de-problemas/ aunque no encaje en los prefijos genéricos', () => {
+    const raw = fm({ title: 'Por qué no me llegan mis mensajes', diataxis: 'how-to' });
+    expect(checkTitlePattern('solucion-de-problemas/no-llegan-mensajes.mdx', raw)).toEqual([]);
+  });
+
+  it('marca WARN un título tipo "La Superapp: algo" con how-to fuera de solucion-de-problemas/', () => {
+    const raw = fm({ title: 'La Superapp: algo', diataxis: 'how-to' });
+    const v = checkTitlePattern('superapp/algo.mdx', raw);
+    expect(v).toHaveLength(1);
+    expect(v[0].level).toBe('warn');
+  });
 });
 
 describe('checkBodyHeuristics', () => {

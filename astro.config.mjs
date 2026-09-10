@@ -83,7 +83,7 @@ export default defineConfig({
 				// duplicate-content penalties. The list below contains path segments that
 				// appear ONLY in ES (root locale) slugs — they have different EN equivalents.
 				const SPANISH_ONLY_SLUG_PATTERN =
-					/\/(casos-practicos|que-puedes-hacer|conectar-claude|conectar-chatgpt|frases-listas-para-usar|permisos-y-seguridad|preguntas-frecuentes|herramientas|instalacion-local|analitica|campanas|audiencia|plantillas|short-urls|multi-cuenta|lanzar-un-evento|recuperar-audiencia-dormida|diagnosticar-campana-floja|optimizar-inversion-publicitaria|cierre-de-mes-y-reporting|mejores-practicas|segmentacion|capacidades|asistencia|atributos-del-fan|gasto-y-consumo|score-y-temperatura|combinaciones|agrupar-y-filtrar|tracking-y-atribucion|playbooks|buenas-practicas|grupos-ab-testing|segmento-vs-lista|email-sms-o-whatsapp|cuanto-y-cuando-enviar)\//;
+					/\/(casos-practicos|que-puedes-hacer|conectar-claude|conectar-chatgpt|frases-listas-para-usar|permisos-y-seguridad|preguntas-frecuentes|herramientas|instalacion-local|analitica|campanas|audiencia|plantillas|short-urls|multi-cuenta|lanzar-un-evento|recuperar-audiencia-dormida|diagnosticar-campana-floja|optimizar-inversion-publicitaria|cierre-de-mes-y-reporting|mejores-practicas|segmentacion|capacidades|asistencia|atributos-del-fan|gasto-y-consumo|score-y-temperatura|combinaciones|agrupar-y-filtrar|tracking-y-atribucion|playbooks|buenas-practicas|grupos-ab-testing|segmento-vs-lista|email-sms-o-whatsapp|cuanto-y-cuando-enviar|por-que-se-dan-de-baja|consulta-tus-suscriptores)\//;
 				// Exclude pages under /en/ whose path matches a Spanish-only slug
 				if (page.startsWith('https://help.nevent.ai/en/') && SPANISH_ONLY_SLUG_PATTERN.test(page)) {
 					return false;
