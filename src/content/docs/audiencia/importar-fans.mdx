@@ -144,9 +144,31 @@ Cuando todo sea correcto, haz clic en **Confirmar e importar**. Nevent procesar�
 
 Puedes consultar el estado de todas tus importaciones en cualquier momento. Haz clic en el botón **Historial** que aparece en la esquina superior derecha de la pantalla de importación.
 
-El historial muestra cada importación con su estado (en proceso, completada, con errores), la fecha y el número de contactos importados.
+El historial muestra cada importación con su estado (en proceso, completada, con errores), la fecha y el número de contactos importados. Mientras haya importaciones en proceso, la página se actualiza sola cada 10 segundos.
 
 ![Pantalla "Historial de importaciones" en estado vacío, con el mensaje "No hay importaciones" y el botón "Importar usuarios"](/images/guias/audiencia/importar-fans/paso-7-historial.png)
+
+### El estado de sincronización con la segmentación
+
+Que una importación esté **Completada** significa que los contactos ya están en tu base de fans. Pero para poder usar los campos que has traído en el archivo como criterios de un segmento, Nevent tiene que hacer un segundo paso: sincronizar esa importación con el motor de segmentación.
+
+Por eso, debajo del estado de cada importación puede aparecer una segunda etiqueta que te dice en qué punto está esa sincronización:
+
+| Etiqueta | Qué significa |
+|---|---|
+| **Preparando segmentación** | La importación ha terminado y la sincronización está en cola. |
+| **Sincronizando** | Los contactos se están incorporando al motor de segmentación. |
+| **Disponible para segmentar** | Todo listo: ya puedes usar los datos de esta importación en tus segmentos. |
+| **Sincronización incompleta** | La sincronización se ha detenido antes de terminar. Puedes reintentarla. |
+| **Sin datos que sincronizar** | La importación no traía datos nuevos que enviar a la segmentación. |
+
+![Historial de importaciones con una importación "Completado" que muestra debajo la etiqueta verde "Disponible para segmentar", junto a los contadores de 3 contactos totales, 3 importados y 0 fallidos](/images/guias/audiencia/importar-fans/paso-8-estado-sincronizacion.png)
+
+Si una importación queda en **Sincronización incompleta**, junto a la etiqueta aparece el botón **Reintentar**. Vuelve a lanzar solo la sincronización con la segmentación: no vuelve a importar el archivo. Al pulsarlo verás el aviso "Sincronización reintentada. Puede tardar unos minutos." y el estado se irá actualizando en la propia página.
+
+:::note[Nota]
+Esta etiqueta solo aparece en las importaciones que pasan por la sincronización con la segmentación. Las importaciones anteriores a esta funcionalidad no la muestran.
+:::
 
 ## Resultado
 
