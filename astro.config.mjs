@@ -248,6 +248,7 @@ export default defineConfig({
 						{ label: 'Low open rate', link: '/en/troubleshooting/low-open-rate/' },
 						{ label: 'I don\'t see attributed sales', link: '/en/troubleshooting/unattributed-sales/' },
 						{ label: 'My domain won\'t verify', link: '/en/troubleshooting/domain-not-verifying/' },
+						{ label: 'The WhatsApp connection fails', link: '/en/troubleshooting/whatsapp-connection-fails/' },
 					],
 				},
 				{
