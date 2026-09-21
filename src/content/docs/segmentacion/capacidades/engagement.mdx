@@ -3,7 +3,7 @@ title: "Engagement digital: segmentar fans por comportamiento en email"
 diataxis: reference
 modulo: marketing
 nivel: basic
-description: "Segmenta fans de eventos por aperturas, clics, conversiones y carrito abandonado. Recupera interesados y mejora el rendimiento de tus campañas de email marketing."
+description: "Segmenta fans por aperturas, clics y actividad de campaña: qué significa cada criterio, sus operadores, por qué «recibida» no es «entregada» y cómo usar las etiquetas."
 sidebar:
   label: "Engagement digital"
   order: 5
@@ -20,7 +20,7 @@ import { Aside, CardGrid, LinkCard } from '@astrojs/starlight/components';
   "author": { "@type": "Organization", "name": "Nevent", "url": "https://nevent.ai" },
   "publisher": { "@type": "Organization", "name": "Nevent" },
   "datePublished": "2026-06-02",
-  "dateModified": "2026-06-02",
+  "dateModified": "2026-09-21",
   "about": [
     { "@type": "Thing", "name": "Email engagement segmentation" },
     { "@type": "Thing", "name": "Abandoned cart recovery" },
@@ -47,6 +47,56 @@ Que un fan abra tu email ya es una señal. Que haga clic es una señal más pote
 | **Carrito abandonado** | Fan que inició el proceso de compra y no lo completó | Para lanzar una campaña de recuperación en 24-48h |
 | **Unsubscribe** | Fan que se dio de baja de las comunicaciones | Para excluirlo siempre de todos los envíos |
 | **Bounce / spam complaint** | Email que rebotó o fan que marcó el mensaje como spam | Para gestionar la deliverability y proteger tu reputación |
+
+## Los criterios de actividad de campaña, uno a uno
+
+En el editor de segmentos, dentro de la categoría **Interacción**, tienes seis criterios de actividad de campaña. Tres van por campaña concreta y tres por etiqueta de campaña:
+
+| Criterio | Qué comprueba | Por campaña o por etiqueta |
+|---|---|---|
+| **Campaña recibida** | Que conste actividad de email registrada en la campaña | Por campaña |
+| **Ha recibido campaña con etiqueta** | Lo mismo, en cualquier campaña con la etiqueta elegida | Por etiqueta |
+| **Campañas abiertas** | Que conste al menos una apertura en la campaña | Por campaña |
+| **Ha abierto campaña con etiqueta** | Al menos una apertura en cualquier campaña con la etiqueta elegida | Por etiqueta |
+| **Campañas clickeadas** | Que conste al menos un clic en la campaña | Por campaña |
+| **Ha hecho click en campaña con etiqueta** | Al menos un clic en cualquier campaña con la etiqueta elegida | Por etiqueta |
+
+Al elegir uno, el editor muestra debajo qué significa exactamente la condición con el operador seleccionado y de qué datos depende.
+
+![Editor de segmentos con el criterio Interacción → Campañas abiertas, operador Alguna de y la campaña «La playlist oficial de BACCHANALIA ya está aquí» seleccionada; debajo, el texto «Consta al menos una apertura en alguna de las campañas elegidas» y la nota de que se basa en actividad de email registrada; la vista previa estima 1.149 miembros](/images/guias/segmentacion/capacidades/engagement/paso-1-criterio-campanas-abiertas.png)
+
+### Los cuatro operadores
+
+Cada criterio admite cuatro operadores. Para los criterios por campaña:
+
+| Operador | Qué incluye |
+|---|---|
+| **Alguna de** | Contactos con la actividad en alguna de las campañas que elijas |
+| **Ninguna de** | Contactos sin esa actividad en las campañas elegidas. **Incluye a los contactos sin actividad registrada en ellas** |
+| **Cualquier campaña** | Contactos con esa actividad en alguna campaña, sea cual sea |
+| **Ninguna campaña** | Contactos sin esa actividad en ninguna campaña. Incluye a los contactos sin actividad registrada |
+
+Para los criterios por etiqueta los operadores son los mismos con otro nombre: **Con alguna de las etiquetas**, **Con ninguna de las etiquetas**, **Cualquier campaña con etiqueta** y **Ninguna campaña con etiqueta**.
+
+![El mismo criterio Campañas abiertas con el operador Ninguna de: el editor explica que no consta ninguna apertura en las campañas elegidas, que incluye contactos sin actividad registrada y que el dato no confirma que la campaña no se enviara](/images/guias/segmentacion/capacidades/engagement/paso-2-operador-ninguna-de.png)
+
+### Qué significa «recibida» y otros matices
+
+Estos criterios se basan en **actividad de email registrada**, y eso tiene tres consecuencias que el editor te recuerda en cada condición:
+
+- **«Recibida» no es «enviada» ni «entregada».** Significa que consta actividad de email de ese contacto en la campaña. Por eso un operador negativo («Ninguna de», «Ninguna campaña») no acredita que la campaña no se enviara: solo que no hay actividad registrada.
+- **La actividad puede llegar con retraso o estar incompleta**, y **no cubre SMS ni WhatsApp**. Si quieres segmentar por envíos de esos canales, este criterio no te sirve.
+- **Las variantes por etiqueta usan las etiquetas que tiene cada campaña ahora**, no las que tenía cuando se envió. Si reetiquetas una campaña, el segmento cambia con ella (las etiquetas también pueden llegar con retraso).
+
+![Criterio Ha recibido campaña con etiqueta con el operador Con alguna de las etiquetas; el editor muestra las notas: se basa en actividad de email registrada, «Recibida» indica actividad registrada y no envío ni entrega confirmados, y usa las etiquetas disponibles ahora de cada campaña](/images/guias/segmentacion/capacidades/engagement/paso-3-recibida-con-etiqueta.png)
+
+:::caution[Sin filtros de tiempo ni frecuencia]
+Los criterios de actividad de campaña **no admiten filtros de tiempo, frecuencia ni distancia**. En el editor esos botones aparecen desactivados para estas condiciones. Si abres un segmento antiguo que los tenía, el editor marca la condición como no admitida y el segmento no se puede calcular hasta que quites el filtro.
+:::
+
+### Miembros frente a elegibles para el envío
+
+La vista previa del editor y el resumen del segmento hablan de **miembros**: contactos que cumplen las condiciones del segmento. Que un contacto sea miembro no garantiza que reciba una campaña: el permiso y la validez del canal se recomprueban al enviar, así que la audiencia real de una campaña puede ser menor que el número de miembros.
 
 ## ¿Cómo usar el criterio de apertura de emails?
 
