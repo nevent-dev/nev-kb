@@ -1,0 +1,79 @@
+---
+title: "Mi segmento sale vacío o incompleto después de importar"
+description: "Qué significa el aviso Sincronizando en un segmento, por qué tras una importación la audiencia puede salir incompleta y cómo reintentar la sincronización."
+diataxis: how-to
+modulo: marketing
+nivel: basic
+needs_screenshots: true
+sinonimos:
+  - "segmento en cero"
+  - "no aparecen los importados"
+  - "sincronizando"
+  - "campo personalizado vacío"
+sidebar:
+  label: "Mi segmento sale vacío tras importar"
+faqs:
+  - q: "He importado contactos y el segmento sigue en Sincronizando. ¿He perdido la importación?"
+    a: "No. Ese aviso significa justo lo contrario: la importación existe y sus contactos se están incorporando al motor de segmentación. La cifra que ves es parcial y se actualiza sola cada 30 segundos hasta que termina."
+  - q: "¿Reintentar la sincronización vuelve a importar el archivo?"
+    a: "No. Solo vuelve a lanzar el paso de sincronización con la segmentación. El archivo no se procesa de nuevo."
+  - q: "En el selector de campo personalizado no aparece ninguno. ¿Es que no tengo campos?"
+    a: "Depende del mensaje que veas. Si dice que la última importación todavía se está preparando, espera. Si dice que la preparación falló, reintenta desde el historial de importaciones. Solo si dice que el tenant aún no tiene campos personalizados con datos es que realmente están vacíos."
+---
+
+Acabas de importar contactos, abres un segmento que debería incluirlos y la audiencia sale en cero, más pequeña de lo que esperabas, o con un aviso de **Sincronizando**. Aquí tienes qué significa cada estado y qué hacer en cada caso.
+
+## Antes de empezar
+
+Cuando una importación termina, tus contactos están ya en la sección Fans. Pero para que el motor de segmentación pueda usarlos (y usar los campos que traía tu archivo), Nevent hace un segundo paso en segundo plano: la sincronización con la segmentación. Mientras ese paso no termina, un segmento que dependa de esa importación muestra una audiencia parcial.
+
+Si todavía no has importado, sigue primero la guía [Importa tus contactos](/audiencia/importar-fans).
+
+## Paso 1: Mira si el segmento muestra el aviso Sincronizando
+
+Abre el segmento desde **Audiencia → Segmentos** y quédate en la pestaña **Resumen**. Si la última importación todavía se está sincronizando, verás un aviso con el texto **Sincronizando los contactos de la última importación**, o bien **Sincronizando: X de Y contactos disponibles**. La cifra de asistentes estimados que tienes debajo es parcial mientras ese aviso esté visible.
+
+No tienes que hacer nada: Nevent consulta el estado cada 30 segundos y el aviso desaparece solo cuando la sincronización termina.
+
+![Pestaña Resumen de un segmento ya sincronizado: tarjetas de asistentes estimados, tags, fecha de creación y último refresco, y debajo los criterios de segmentación con los nombres de los valores elegidos](/images/guias/solucion-de-problemas/mi-segmento-sale-vacio-tras-importar/paso-1-resumen-segmento.png)
+
+:::note[Nota]
+La captura muestra un segmento con la sincronización ya terminada, por eso no aparece el aviso. Falta añadir la captura del estado Sincronizando.
+:::
+
+En la pestaña **Resultados** ocurre lo mismo: mientras dura la sincronización, en lugar de una tabla vacía verás el mensaje **Los contactos aparecerán aquí a medida que se sincronicen**.
+
+## Paso 2: Si el aviso dice que la sincronización se ha detenido, reintenta
+
+Si en lugar de Sincronizando ves **La sincronización de la última importación se ha detenido**, el proceso ha renunciado antes de terminar. Junto al aviso aparece el botón **Reintentar sincronización**.
+
+Al pulsarlo, Nevent confirma con el mensaje **Sincronización reintentada. Puede tardar unos minutos.** y el segmento vuelve al estado Sincronizando. El archivo original no se vuelve a importar.
+
+También puedes reintentar desde el historial de importaciones: la importación afectada aparece con la etiqueta **Sincronización incompleta** y su propio botón **Reintentar**. Tienes el detalle en [Importa tus contactos](/audiencia/importar-fans#el-estado-de-sincronización-con-la-segmentación).
+
+## Paso 3: Si el selector de campo personalizado sale vacío, lee el mensaje
+
+Al construir un criterio de tipo **Atributos del fan → Campo personalizado**, el desplegable de campos puede aparecer sin opciones. Ya no es un desplegable gris sin más: debajo te dice el motivo.
+
+| Mensaje | Qué hacer |
+|---|---|
+| Cargando campos personalizados… | Espera unos segundos. |
+| La última importación todavía se está preparando para segmentar. | Espera a que termine la sincronización. |
+| La preparación de la última importación falló. Se puede reintentar desde el historial. | Pulsa **Ver historial de importaciones** y reintenta la sincronización. |
+| No se han podido cargar los campos personalizados. Vuelve a intentarlo. | Ha fallado la carga, no la importación. Recarga la página. |
+| Este tenant aún no tiene campos personalizados con datos. | Es un vacío real: ninguna importación ha traído campos personalizados. |
+
+![Editor de segmento en el paso Criterios con el desplegable "Seleccionar campo personalizado" abierto y dos campos disponibles: Gustos Musciales (LIST, 2 registros) e Importsync Smoke (TEXT, 3 registros)](/images/guias/solucion-de-problemas/mi-segmento-sale-vacio-tras-importar/paso-3-selector-campo-personalizado.png)
+
+## Qué comprobar
+
+- Si el segmento muestra **Sincronizando**, la importación no se ha perdido: espera a que el aviso desaparezca.
+- Si el aviso dice que la sincronización **se ha detenido**, pulsa **Reintentar sincronización**.
+- Si la audiencia no se puede cargar y ves **No se ha podido cargar la audiencia**, es un error temporal al leer la respuesta: pulsa **Reintentar**. No significa que el segmento esté vacío.
+- Si el selector de campo personalizado está vacío, actúa según el mensaje de la tabla del paso 3.
+
+## Siguiente paso
+
+- [Importa tus contactos](/audiencia/importar-fans) para entender el historial de importaciones y sus estados.
+- [La importación falla o se queda en blanco](/solucion-de-problemas/la-importacion-falla) si el problema está en la importación en sí, no en el segmento.
+- [Crea tu primer segmento](/segmentacion/tu-primer-segmento) si quieres repasar cómo se construye un segmento paso a paso.
