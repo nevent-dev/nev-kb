@@ -1,0 +1,86 @@
+---
+title: "La conexión de WhatsApp Business falla y no sé por qué"
+description: "Qué significa el mensaje que Nevent muestra tras un intento fallido de conectar WhatsApp Business y cómo informar del intento a soporte con su referencia."
+diataxis: how-to
+modulo: marketing
+nivel: basic
+needs_screenshots: true
+sinonimos:
+  - "no conecta WhatsApp"
+  - "la ventana de Meta se cierra"
+  - "referencia de soporte"
+  - "informar sobre este intento"
+sidebar:
+  label: "La conexión de WhatsApp falla"
+faqs:
+  - q: "El mensaje dice que Meta cerró el proceso sin indicar ningún motivo. ¿Mi número tiene algún problema?"
+    a: "No se puede saber a partir de ese mensaje. Significa exactamente lo que dice: Meta no comunicó ningún motivo y Nevent no lo deduce. Si sospechas del número, revisa la guía de elegibilidad; si no, informa del intento a soporte citando la referencia."
+  - q: "¿Enviar el formulario Informar sobre este intento reintenta la conexión o avisa a Meta?"
+    a: "No. Solo guarda tu descripción junto al registro técnico del intento para que el equipo de soporte de Nevent pueda revisarlo. No contacta con Meta ni vuelve a lanzar la conexión."
+  - q: "¿Dónde consigo el ID de sesión o la referencia de error de Meta?"
+    a: "Solo los ofrece la propia ventana de Meta, normalmente a través de su opción Informar de un problema. Si no la usaste en el momento, deja esos campos vacíos y describe lo que viste."
+---
+
+Has pulsado **Conectar WhatsApp Business**, la ventana de Meta se ha abierto y, al volver a Nevent, la conexión no está hecha. Aquí tienes cómo leer el mensaje que aparece bajo el botón y cómo hacer llegar el intento a soporte con todo lo necesario.
+
+## Antes de empezar
+
+La conexión se hace desde **Configuración → Canales → pestaña WhatsApp**. Si el problema es que Meta te dice que el número no es elegible, esa es otra situación y está cubierta en [Mi número de WhatsApp no es elegible](/solucion-de-problemas/mi-numero-de-whatsapp-no-es-elegible).
+
+Esta guía trata los casos en los que el proceso se corta sin una explicación clara.
+
+![Pestaña WhatsApp de la pantalla Canales de Comunicación, con el bloque "Conecta WhatsApp Business", las tres ventajas listadas y el botón verde "Conectar WhatsApp Business"](/images/guias/solucion-de-problemas/la-conexion-de-whatsapp-falla/paso-1-canal-whatsapp.png)
+
+## Paso 1: Lee el mensaje que aparece tras el intento
+
+Después de un intento fallido, debajo del botón de conexión Nevent muestra un aviso informativo que resume qué ha pasado, en tus términos. Puede ser de tres tipos:
+
+| Mensaje | Qué significa |
+|---|---|
+| **Meta indicó el motivo: … (código …)** | Meta ha comunicado una causa concreta. Es la que hay que resolver. |
+| **Este intento terminó en el lado de Nevent (…) y Meta no indicó ningún motivo. Referencia: …** | El proceso se cortó en Nevent, no en Meta. Entre paréntesis va la causa: que Nevent dejó de esperar la respuesta de Meta, que la ventana se cerró sin código de autorización, que el permiso del intento caducó, que el servidor de Nevent rechazó la conexión, o que saliste de la página durante el proceso. |
+| **Meta cerró el proceso sin indicar ningún motivo. Nevent no puede deducirlo, así que no afirmamos nada sobre el número. Referencia: …** | Meta terminó el proceso sin dar explicación. Nevent no inventa una. |
+
+Los dos últimos mensajes incluyen una **referencia**. Apúntala: es lo que soporte necesita para localizar el intento.
+
+:::note[Nota]
+Falta añadir la captura de este aviso. Solo aparece después de un intento de conexión que ha fallado.
+:::
+
+## Paso 2: Comprueba si hay diagnósticos pendientes de enviar
+
+Junto al aviso puede aparecer una segunda línea con el texto **N eventos de diagnóstico pendientes de enviar** (o guardados para otra cuenta, o que no se pudieron entregar). Son los datos técnicos del intento que Nevent guarda en tu navegador y envía a sus servidores para que soporte los tenga. Si no ves esta línea, es que todo se ha enviado ya.
+
+Si aparece **Este navegador no puede guardar diagnósticos**, algunos de esos datos pueden perderse al cerrar la pestaña: en ese caso, informa del intento (paso 3) antes de cerrarla.
+
+## Paso 3: Informa del intento a soporte
+
+Debajo del aviso aparece el botón **Informar sobre este intento**. Solo se ofrece tras un intento fallido, nunca tras una conexión correcta. Al pulsarlo se abre un formulario con estos campos, todos opcionales:
+
+| Campo | Para qué sirve |
+|---|---|
+| ID de sesión de Meta | Si la ventana de Meta te ofreció "Informar de un problema" y te dio un identificador, pégalo aquí. |
+| Referencia de error de Meta | Igual que el anterior, si Meta te dio una referencia de error. |
+| Últimos 4 dígitos del número | Solo cuatro dígitos, para que soporte sepa qué número intentabas conectar. Nunca escribas el número completo. |
+| Qué ocurrió | Describe con tus palabras lo que viste en la ventana de Meta. |
+
+El formulario muestra la **referencia de soporte** del intento. Cítala si además escribes a soporte por otro canal.
+
+Rellena al menos un campo y pulsa **Enviar**. Verás la confirmación **Gracias. Hemos guardado tu descripción junto a este intento.**
+
+:::caution[Ten en cuenta]
+Enviar este formulario no contacta con Meta ni reintenta la conexión. Lo que escribes se guarda tal cual, sin verificar, junto al registro técnico del intento, para que el equipo de soporte de Nevent lo revise.
+:::
+
+## Qué comprobar
+
+- Si el aviso dice **Meta indicó el motivo**, actúa sobre esa causa (y revisa la guía de elegibilidad si habla del número).
+- Si dice que **saliste de la página durante el proceso**, vuelve a intentar la conexión sin cambiar de pestaña hasta que la ventana de Meta se cierre sola.
+- Si dice que **Nevent dejó de esperar** o que **el permiso del intento caducó**, vuelve a intentarlo; si se repite, informa del intento con la referencia.
+- Si dice que **Meta cerró el proceso sin indicar ningún motivo**, informa del intento y, si usaste "Informar de un problema" en la ventana de Meta, incluye la referencia que te dio.
+
+## Siguiente paso
+
+- [Mi número de WhatsApp no es elegible](/solucion-de-problemas/mi-numero-de-whatsapp-no-es-elegible) si el motivo tiene que ver con el número.
+- [Requisitos del número de WhatsApp](/entregabilidad/requisitos-del-numero-de-whatsapp) para repasar qué necesita el número antes de conectarlo.
+- [Activa tus canales](/entregabilidad/activar-canales) para volver al flujo completo de activación del canal.
