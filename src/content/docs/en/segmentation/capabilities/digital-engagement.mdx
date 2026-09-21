@@ -1,6 +1,6 @@
 ---
 title: "Digital engagement: segment fans by email behaviour"
-description: "Segment live event fans by email opens, clicks, conversions and abandoned cart. Recover interested buyers and improve campaign performance for concerts and festivals."
+description: "Segment fans by opens, clicks and campaign activity: what each criterion means, its operators, why received is not delivered, and how labels are used."
 sidebar:
   order: 5
 ---
@@ -16,7 +16,7 @@ import { Aside, CardGrid, LinkCard } from '@astrojs/starlight/components';
   "author": { "@type": "Organization", "name": "Nevent", "url": "https://nevent.ai" },
   "publisher": { "@type": "Organization", "name": "Nevent" },
   "datePublished": "2026-06-02",
-  "dateModified": "2026-06-02",
+  "dateModified": "2026-09-21",
   "about": [
     { "@type": "Thing", "name": "Email engagement segmentation" },
     { "@type": "Thing", "name": "Abandoned cart recovery" },
@@ -43,6 +43,56 @@ A fan opening your email is already a signal. A click is a stronger one. Startin
 | **Abandoned cart** | Fan who started the purchase process and did not complete it | To launch a recovery campaign within 24–48 hours |
 | **Unsubscribe** | Fan who opted out of communications | To always exclude them from all sends |
 | **Bounce / spam complaint** | Email that bounced or fan who marked the message as spam | To manage deliverability and protect your sender reputation |
+
+## The campaign activity criteria, one by one
+
+In the segment editor, under the **Interaction** category, there are six campaign activity criteria. Their names come from the criteria catalogue and are shown as they appear in the editor. Three work on a specific campaign and three on a campaign label:
+
+| Criterion | What it checks | By campaign or by label |
+|---|---|---|
+| **Campaña recibida** (campaign received) | Recorded email activity in the campaign | By campaign |
+| **Ha recibido campaña con etiqueta** (received campaign with label) | The same, in any campaign with the chosen label | By label |
+| **Campañas abiertas** (campaigns opened) | At least one recorded open in the campaign | By campaign |
+| **Ha abierto campaña con etiqueta** (opened campaign with label) | At least one open in any campaign with the chosen label | By label |
+| **Campañas clickeadas** (campaigns clicked) | At least one recorded click in the campaign | By campaign |
+| **Ha hecho click en campaña con etiqueta** (clicked campaign with label) | At least one click in any campaign with the chosen label | By label |
+
+When you pick one, the editor shows underneath exactly what the condition means with the selected operator and which data it relies on.
+
+![Segment editor with the criterion Interacción → Campañas abiertas, operator Alguna de (Any of) and the campaign "La playlist oficial de BACCHANALIA ya está aquí" selected; below it, the text explaining that at least one open is recorded in any of the chosen campaigns and the note that it is based on recorded email activity; the preview estimates 1,149 members](/images/guias/segmentacion/capacidades/engagement/paso-1-criterio-campanas-abiertas.png)
+
+### The four operators
+
+Each criterion accepts four operators. For the by-campaign criteria:
+
+| Operator | What it includes |
+|---|---|
+| **Any of** | Contacts with the activity in any of the campaigns you choose |
+| **None of** | Contacts without that activity in the chosen campaigns. **Includes contacts with no recorded activity in them** |
+| **Any campaign** | Contacts with that activity in some campaign, whichever it is |
+| **No campaign** | Contacts without that activity in any campaign. Includes contacts with no recorded activity |
+
+For the by-label criteria the operators are the same under different names: **With any of the labels**, **With none of the labels**, **Any campaign with a label** and **No campaign with a label**.
+
+![The same Campañas abiertas criterion with the Ninguna de (None of) operator: the editor explains that no open is recorded in the chosen campaigns, that this includes contacts with no recorded activity, and that the data does not confirm the campaign was not sent](/images/guias/segmentacion/capacidades/engagement/paso-2-operador-ninguna-de.png)
+
+### What "received" means and other nuances
+
+These criteria are based on **recorded email activity**, which has three consequences the editor reminds you of in every condition:
+
+- **"Received" is not "sent" or "delivered".** It means there is recorded email activity for that contact in the campaign. That is why a negative operator ("None of", "No campaign") does not prove the campaign was not sent: only that there is no recorded activity.
+- **Activity may arrive late or be incomplete**, and **it does not cover SMS or WhatsApp**. If you want to segment by sends on those channels, this criterion is not the right tool.
+- **The by-label variants use the labels each campaign has now**, not the ones it had when it was sent. If you relabel a campaign, the segment changes with it (labels may also arrive late).
+
+![Ha recibido campaña con etiqueta criterion with the Con alguna de las etiquetas (With any of the labels) operator; the editor shows the notes: based on recorded email activity, "Received" means recorded activity and not confirmed sending or delivery, and it uses the labels currently available on each campaign](/images/guias/segmentacion/capacidades/engagement/paso-3-recibida-con-etiqueta.png)
+
+:::caution[No time or frequency filters]
+Campaign activity criteria **do not support time, frequency or distance filters**. In the editor those buttons are disabled for these conditions. If you open an older segment that had them, the editor marks the condition as unsupported and the segment cannot be calculated until you remove the filter.
+:::
+
+### Members versus eligible for sending
+
+The editor preview and the segment summary talk about **members**: contacts that meet the segment conditions. Being a member does not guarantee a contact receives a campaign: consent and channel validity are re-checked at send time, so the real audience of a campaign can be smaller than the member count.
 
 ## How to use the email opens criterion
 
