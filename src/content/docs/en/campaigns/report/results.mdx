@@ -1,7 +1,8 @@
 ---
 title: How to interpret your campaign results
 diataxis: how-to
-description: Learn to read the open and click metrics of a sent campaign in Nevent, what healthy benchmarks look like, and what to do if yours are low.
+needs_screenshots: true
+description: Learn to read the metrics of a sent campaign in Nevent, for email (opens and clicks) and WhatsApp (delivered and read), and what to do if yours are low.
 ---
 
 This guide explains how to read the metrics block in the report of a sent campaign: what each number means and how to tell if your campaign is performing well. About 3 minutes.
@@ -28,6 +29,21 @@ The four metrics are:
 - **Delivered:** the ones the recipient's server accepted. The percentage is calculated over sent.
 - **Opened:** recipients who opened the email at least once. The percentage is calculated over sent.
 - **Clicks:** the number of times someone clicked a link in the email. The percentage is calculated over sent.
+
+## If the campaign is a WhatsApp campaign
+
+For a WhatsApp campaign the results block does not show opens or clicks, but the four counters Meta returns for that send:
+
+- **Sent:** messages from this send that went out to Meta.
+- **Delivered:** messages Meta reports as delivered to the recipient.
+- **Read:** messages Meta reports as read by the recipient.
+- **Failed:** messages Meta reports as failed.
+
+All four counters come from Meta's notifications about this campaign, so they update as Meta sends them.
+
+If part of the audience was never sent, a notice below the counters shows how many recipients **were not sent because Meta's messaging limit was reached** (unique recipients every 24 hours). Those contacts received nothing: you can send them another campaign once the limit frees up.
+
+The benchmark ranges below and the report's Deliverability section apply to email campaigns only.
 
 ## How to tell if your results are good
 
