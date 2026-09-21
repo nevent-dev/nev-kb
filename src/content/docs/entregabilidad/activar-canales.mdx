@@ -3,7 +3,8 @@ title: Activa tus canales de comunicación
 diataxis: how-to
 modulo: marketing
 nivel: basic
-description: Aprende a revisar y configurar los canales de email, SMS, WhatsApp y analytics en Nevent desde el panel de Configuración.
+needs_screenshots: true
+description: Revisa y configura los canales de email, SMS, WhatsApp y analytics en Nevent, y entiende los estados Activo y Sin envíos del canal de WhatsApp.
 sidebar:
   label: "Activa tus canales"
   order: 1
@@ -77,6 +78,29 @@ Este proceso lo gestiona directamente Meta: necesitarás tener acceso al número
 :::note[Nota]
 Una vez conectado WhatsApp Business, podrás crear y enviar plantillas de mensaje desde el apartado Plantillas de WhatsApp. Las plantillas necesitan aprobación de Meta antes de poder usarse en campañas.
 :::
+
+### Qué ves cuando WhatsApp ya está conectado
+
+Con la cuenta conectada y un número configurado, la pestaña muestra una tarjeta con el estado del canal y sus datos:
+
+- **Activo**, con el texto «WhatsApp Business está activo y funcionando»: puedes enviar campañas.
+- **Sin envíos**, con el texto «WhatsApp está conectado, pero ahora mismo no se puede enviar desde este canal». Debajo aparece un aviso con el **motivo** y un botón con la **acción** para resolverlo.
+
+Los motivos posibles de «Sin envíos» y qué hacer en cada caso:
+
+| Motivo que muestra el aviso | Qué hacer |
+|---|---|
+| La cuenta está desconectada de Nevent | Pulsa **Volver a conectar**. Mientras tanto no se envían campañas de WhatsApp ni se pueden crear nuevas |
+| El número tiene la verificación en dos pasos activada y Meta pide su PIN | Pulsa **Completar el registro** e introduce el PIN de 6 dígitos configurado para ese número |
+| Meta no aceptó el registro del número | Pulsa **Completar el registro** e indica de nuevo el PIN de 6 dígitos; si vuelve a fallar, contacta con soporte |
+| El canal está conectado pero Nevent no puede enviar desde él | Pulsa **Volver a conectar**; si el aviso sigue, contacta con soporte |
+| Meta ha limitado temporalmente los intentos de registro (10 cada 72 horas) | Espera y vuelve a intentarlo más tarde |
+
+Si Meta indica que tu cuenta de WhatsApp Business tiene una **restricción**, reintentar no la resuelve: revísala en el Business Support Home de Meta y vuelve a conectar cuando Meta la haya levantado.
+
+En los detalles de la tarjeta también ves el **Límite de mensajería** de tu número, expresado como destinatarios únicos cada 24 horas (por ejemplo, «250 destinatarios únicos cada 24 h» o «2.000 destinatarios únicos cada 24 h») y, cuando hay datos, cuántos llevas usados en las últimas 24 horas. Ese límite lo fija Meta y es el que explica por qué una campaña puede dejar destinatarios sin enviar; lo tienes detallado en [Límites de mensajería de WhatsApp](/entregabilidad/limites-de-mensajeria-de-whatsapp).
+
+Si intentas lanzar una campaña de WhatsApp con el canal en «Sin envíos», el panel te avisa y te pide revisar la conexión en Ajustes > WhatsApp antes de enviarla.
 
 ## Paso 5: El canal Analytics
 
