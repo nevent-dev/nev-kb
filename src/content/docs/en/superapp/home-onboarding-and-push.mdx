@@ -71,7 +71,13 @@ The form has these fields:
 - **Title**: the bold text that appears in the notification. Maximum 65 characters.
 - **Message**: the body of the notification. Maximum 500 characters. Be concise: fans read it in seconds.
 - **Image** (optional): an image accompanying the notification. 2:1 ratio, maximum 1 MB.
-- **On tapping the notification**: the app screen that opens when the fan taps the alert. You can choose from Home, My tickets, My wallet, Cashless, Agenda, Venue map, Chat, Discover, My profile, or a specific event.
+- **When the notification is tapped**: where the alert takes the fan. You can choose an app screen (Home, My tickets, My wallet, Discover, My profile, Agenda / Schedule, Venue map, Cashless or Support chatbot), a particular event with **Specific event…**, or a web page with **External URL…**.
+
+If you choose **External URL…**, a required **Link** field appears below. Type the full address starting with `https://`: the panel checks it as you type and shows "Valid link." when it accepts it, or an explanation of what's wrong when it doesn't (for example, `http://` addresses aren't allowed). The preview then reads "Opens this link" with the destination's domain and path, so you can see where the fan will land before sending.
+
+Links typed inside the message itself aren't tappable: to send fans to a web page you have to set it as the destination.
+
+You'll find the same selector, with the same options and the same **Link** field, in the **Content** step of the push campaign wizard. Use Send push for an immediate alert and a campaign when you need to schedule it or measure its results.
 
 On the right you'll see two helper elements:
 

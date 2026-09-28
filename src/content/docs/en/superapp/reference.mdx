@@ -195,7 +195,50 @@ Lets you send an immediate push notification to every fan who has the app instal
 | Title | 65 characters | Bold text that appears in the notification. On-screen counter visible. |
 | Message | 500 characters | Body of the notification. On-screen counter visible. |
 | Image | 1 MB, 2:1 ratio | Optional image accompanying the notification. Selected from the device. |
-| On tapping the notification | Dropdown selector | The app screen that opens when the fan taps the alert. |
+| On tapping the notification | Dropdown selector | The destination that opens when the fan taps the alert. |
+| Link | 2048 characters, required with the "External URL…" destination | Web address that opens when the notification is tapped. Must start with `https://`. |
+
+### Available destinations
+
+The **When the notification is tapped** selector offers these destinations:
+
+| Destination | What it opens |
+|---|---|
+| Home | The app's home screen. |
+| My tickets | The fan's tickets. |
+| My wallet | The fan's wallet. |
+| Discover | The app's Discover section. |
+| My profile | The fan's profile. |
+| Agenda / Schedule | The festival schedule. |
+| Venue map | The venue map. |
+| Cashless | The cashless section. |
+| Support chatbot | A conversation with the support chatbot. |
+| Specific event… | A particular event, chosen in an extra selector. |
+| External URL… | A web page, typed into the **Link** field. |
+
+A destination is only complete once it has everything it needs: with **Specific event…** you have to pick the event, and with **External URL…** you have to enter the link. Until then the panel shows "Complete the notification destination to continue" and the send button stays disabled.
+
+### The Link field (External URL…)
+
+The address is validated as you type. When it is accepted, the field shows **Valid link.**; when it isn't, it explains why:
+
+| Message | Cause |
+|---|---|
+| Enter the link to open when the notification is tapped. | The field is empty. |
+| The link must start with https://. http:// links aren't allowed. | The address uses `http://`. |
+| The link must start with https://. | The address uses another scheme. |
+| The link is too long: the maximum is 2048 characters. | The address exceeds 2048 characters. |
+| The link can't contain spaces or invisible characters. | The address has whitespace. |
+| The link can't include a username or password. | The address carries credentials. |
+| Check the domain: it must be a public website, such as https://www.example.com. | The host isn't a valid public domain. |
+| Check the link's port: it must be a number between 0 and 65535. | The port is out of range. |
+| Check the link: it has invalid characters or isn't a complete web address, such as https://www.example.com. | Any other malformed address. |
+
+With a valid link, the Android preview shows **Opens this link** with the destination's domain and path, instead of **Opens the app**.
+
+Links typed inside the message body aren't tappable. The form says so explicitly: to send fans to a web page, choose **External URL…** as the destination.
+
+The same selector, with the same destinations and the same **Link** field, is available in the **Content** step of the push campaign wizard.
 
 ### On-screen indicators
 

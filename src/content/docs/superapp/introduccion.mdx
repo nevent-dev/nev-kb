@@ -78,9 +78,17 @@ El formulario tiene estos campos:
 - **Título**: el texto en negrita que aparece en la notificación. Máximo 65 caracteres.
 - **Mensaje**: el cuerpo de la notificación. Máximo 500 caracteres. Sé concreto: los fans lo leen en segundos.
 - **Imagen** (opcional): una imagen que acompaña la notificación. Ratio 2:1, máximo 1 MB.
-- **Al tocar la notificación**: la pantalla de la app que se abre cuando el fan toca el aviso. Puedes elegir entre Inicio, Mis entradas, Mi cartera, Cashless, Agenda, Mapa del recinto, Chat, Descubrir, Mi perfil o un evento específico.
+- **Al tocar la notificación**: a dónde lleva el aviso cuando el fan lo toca. Puedes elegir una pantalla de la app (Inicio, Mis entradas, Mi cartera, Descubrir, Mi perfil, Agenda / Programa, Mapa del recinto, Cashless o Chatbot de soporte), un evento concreto con **Evento específico…** o una página web con **URL externa…**.
 
-![Desplegable "Al tocar la notificación" abierto con las opciones Inicio, Mis entradas, Mi cartera y Cashless visibles](/images/guias/superapp/introduccion/paso-3b-push-destino.png)
+![Desplegable "Al tocar la notificación" abierto en la pantalla Enviar push, con las opciones Cashless, Chatbot de soporte, "Evento específico…" y "URL externa…" visibles, esta última resaltada al final de la lista](/images/guias/superapp/introduccion/paso-3b-push-destino.png)
+
+Si eliges **URL externa…**, aparece debajo un campo **Enlace** obligatorio. Escribe ahí la dirección completa empezando por `https://`: el panel comprueba el enlace mientras escribes y muestra "Enlace válido" cuando lo acepta, o "El enlace no es válido" si no lo acepta (por ejemplo, con `http://`). La vista previa cambia a "Se abre este enlace" con el dominio y la ruta del destino, para que veas a dónde irá el fan antes de enviar.
+
+![Pantalla Enviar push con el destino "URL externa…" seleccionado, el campo Enlace relleno con https://demofest.com/entradas y la marca verde de enlace válido. Debajo, el texto "Al tocar la notificación, se abrirá este enlace"](/images/guias/superapp/introduccion/paso-3c-push-url-externa.png)
+
+Los enlaces que escribas dentro del mensaje no se pueden tocar: para llevar al fan a una web tienes que ponerla como destino.
+
+Encontrarás este mismo selector, con las mismas opciones y el mismo campo **Enlace**, en el paso **Contenido** del asistente de campañas push. Usa Enviar push para un aviso inmediato y una campaña cuando necesites programarlo o medir sus resultados.
 
 A la derecha ves dos elementos de ayuda:
 
