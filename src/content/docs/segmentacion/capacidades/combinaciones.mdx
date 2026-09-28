@@ -58,6 +58,16 @@ Los marcos temporales controlan el periodo en el que se evalúa un criterio. Tie
 
 Usar marcos relativos es útil cuando el segmento se va a reutilizar en distintas campañas: "últimos 60 días" siempre se recalcula al momento presente. Las fechas absolutas son útiles para análisis retrospectivos de una campaña concreta.
 
+### Las fechas se eligen por día, no por hora
+
+Los criterios de fecha se comparan por día completo. El selector que aparece al elegir un operador de fecha (**Antes de**, **Después de**, **Entre fechas** o **En la fecha**) es un calendario sin hora: eliges un día y el segmento incluye ese día entero.
+
+![Criterio "Fecha de compra general" con el operador "Entre fechas" y el campo "Fecha desde" abierto, mostrando un calendario mensual sin selector de hora](/images/guias/segmentacion/capacidades/combinaciones/paso-1-fecha-por-dia.png)
+
+Esto evita el desajuste más habitual al segmentar por fechas: no hay una hora oculta que pueda desplazar el criterio al día anterior o al siguiente. Si eliges "Entre el 1 y el 30 de junio", entran las compras del 1 de junio desde primera hora y las del 30 de junio hasta el final del día.
+
+Los segmentos guardados antes de este cambio conservan la fecha con la que se crearon y se siguen viendo igual. En cuanto edites el criterio, las dos fechas pasan a guardarse como día.
+
 ## ¿Qué modificadores están disponibles?
 
 Los modificadores afinan cómo se evalúa un criterio, añadiendo condiciones de cantidad, distancia o frecuencia:
