@@ -115,9 +115,9 @@ Aquí ves el historial completo de compras del fan: fecha, estado de la transacc
 
 Cuando el fan tiene movimientos cashless de CASFID, el historial añade una columna **Desglose** y agrupa cada consumo con sus líneas de producto en una sola operación. Antes cada línea aparecía como una fila suelta y parecía un cargo duplicado; ahora se abren y se cierran con **Ver desglose** y **Ocultar desglose**. El desglose es informativo: el panel avisa de que **no suma al importe**, y si las líneas no cuadran con el consumo registrado se conserva el importe del consumo.
 
-Cada movimiento se muestra con su tipo (**Consumo**, **Recarga**, **Crédito promocional**, **Detalle sin consumo** o **No clasificado**) y su estado (**Registrado**, **Anulado en origen** o **Sin consumo asociado**). Los importes se presentan tal como constan en origen, distinguiendo **Pagado**, **Saldo acreditado** y **Bonificación**: el saldo acreditado no se calcula a partir de lo pagado, y si el importe pagado no está disponible se dice así en lugar de sustituirlo.
+Cada movimiento se muestra con su tipo (**Consumo**, **Recarga**, **Crédito promocional**, **Movimiento sin verificar**, **Detalle sin consumo** o **No clasificado**) y su estado (**Registrado**, **Pendiente de verificar**, **Anulado** o **Sin consumo asociado**). Los importes se presentan tal como constan en origen, distinguiendo **Pagado**, **Saldo acreditado** y **Bonificación**: el saldo acreditado no se calcula a partir de lo pagado, y si el importe pagado no está disponible se dice así en lugar de sustituirlo.
 
-El selector **Registros mostrados** separa los **Activos** de los **Anulados**. Los anulados no cuentan en ningún importe y solo están ahí para consulta.
+El selector **Registros mostrados** separa los **Activos** de los **Anulados**. Los anulados no cuentan como movimientos vigentes ni en ningún importe: solo están ahí para consulta. Un movimiento **Pendiente de verificar** tampoco suma: el panel muestra "Importe no disponible" en lugar de reutilizar un importe antiguo, y sus detalles de producto se marcan como informativos.
 
 En la columna **Experiencia**, los movimientos cashless muestran la edición a la que pertenecen:
 
