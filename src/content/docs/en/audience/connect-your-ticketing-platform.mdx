@@ -68,6 +68,24 @@ Your ticketing platform is now connected. From now on, every time someone buys a
 You don't need to check the integration every day. Nevent takes care of keeping it in sync. If you ever want to edit or remove it, you'll find it in the same Integrations list.
 :::
 
+## How to change the credentials later
+
+If your provider rotates the key, or the integration starts failing, you can change the credentials without rebuilding the connection.
+
+In **Settings → Integrations**, click **View** on your integration and choose **Edit**.
+
+Credentials that are already stored appear masked and read-only: Nevent neither shows them in full nor resends them when you save the configuration or the routing rules. If the connection is failing, this is also where you see the error the provider returns.
+
+![The Edit integration screen for XCEED with the Credentials section read-only, the masked API Key, the Change credentials button and the invalid-credentials message](/images/guias/audiencia/conecta-tu-ticketera/credenciales-guardadas-solo-lectura.png)
+
+To change them, click **Change credentials**. A separate form opens with empty fields: type only the values you want to change, because any field you leave blank keeps its current value. When you click **Save credentials**, the provider verifies them before they are stored.
+
+![The Change credentials form for XCEED with an empty API Key field and the helper text about keeping current values, with the Cancel and Save credentials buttons](/images/guias/audiencia/conecta-tu-ticketera/formulario-cambiar-credenciales.png)
+
+:::note[Note]
+Saving credentials is a separate action from the integration's general save. If you only change the routing rules or the configuration, your credentials are left untouched.
+:::
+
 ## Next step
 
 - [Why connecting your ticketing platform changes what you can do](/en/audience/why-connect-your-ticketing-platform/) to understand the difference compared to importing a CSV.
