@@ -1,8 +1,11 @@
 ---
-title: "La Superapp: home, onboarding y notificaciones push"
+title: "Cómo configurar la home, el onboarding y las notificaciones push de la Superapp"
 diataxis: how-to
+modulo: experience
+nivel: pro
 description: "Aprende a configurar la app móvil de Nevent para tus fans: pantalla de inicio, slides de bienvenida y notificaciones push instantáneas."
 sidebar:
+  label: "La Superapp"
   order: 1
 ---
 
@@ -10,7 +13,7 @@ La Superapp es la app móvil de Nevent que tus fans descargan para vivir el fest
 
 Tienes cuatro secciones dentro de **SUPERAPP** en el menú lateral: **Home**, **Actividad de la app**, **Enviar push** y **Onboarding**. Esta guía te explica cada una.
 
-## Sección Home: el evento principal de la app
+## Paso 1: Configura la sección Home
 
 La sección **Home** determina qué evento aparece en la pantalla de inicio de la app y activa la cuenta atrás hasta el festival.
 
@@ -32,7 +35,7 @@ Cuando hayas seleccionado el evento y las fechas, haz clic en **Guardar configur
 Pon la hora de inicio unos 30 minutos antes de que abran las puertas. Así la cuenta atrás llega a cero en el momento en que los fans ya están entrando.
 :::
 
-## Sección Actividad de la app: lo que hace tu público en tiempo real
+## Paso 2: Consulta la Actividad de la app
 
 La pantalla **Actividad de la app** es un panel de métricas en directo. No requiere configuración: muestra automáticamente lo que está pasando en la app durante el festival.
 
@@ -64,7 +67,7 @@ En la parte inferior aparecen las secciones **Marcas** y **Artistas**: cuánta a
 Los datos de actividad solo se generan cuando hay fans usando la app. Si acabas de lanzar la Superapp y aún no hay descargas, este panel aparecerá vacío hasta el día del festival.
 :::
 
-## Sección Enviar push: notificaciones instantáneas a la app
+## Paso 3: Envía una notificación push
 
 Una notificación push es un mensaje que aparece directamente en la pantalla del móvil del fan, aunque no tenga la app abierta. Sirve para avisar de cambios de última hora, abrir la venta de entradas o comunicar cualquier novedad urgente.
 
@@ -75,9 +78,17 @@ El formulario tiene estos campos:
 - **Título**: el texto en negrita que aparece en la notificación. Máximo 65 caracteres.
 - **Mensaje**: el cuerpo de la notificación. Máximo 500 caracteres. Sé concreto: los fans lo leen en segundos.
 - **Imagen** (opcional): una imagen que acompaña la notificación. Ratio 2:1, máximo 1 MB.
-- **Al tocar la notificación**: la pantalla de la app que se abre cuando el fan toca el aviso. Puedes elegir entre Inicio, Mis entradas, Mi cartera, Cashless, Agenda, Mapa del recinto, Chat, Descubrir, Mi perfil o un evento específico.
+- **Al tocar la notificación**: a dónde lleva el aviso cuando el fan lo toca. Puedes elegir una pantalla de la app (Inicio, Mis entradas, Mi cartera, Descubrir, Mi perfil, Agenda / Programa, Mapa del recinto, Cashless o Chatbot de soporte), un evento concreto con **Evento específico…** o una página web con **URL externa…**.
 
-![Desplegable "Al tocar la notificación" abierto con las opciones Inicio, Mis entradas, Mi cartera y Cashless visibles](/images/guias/superapp/introduccion/paso-3b-push-destino.png)
+![Desplegable "Al tocar la notificación" abierto en la pantalla Enviar push, con las opciones Cashless, Chatbot de soporte, "Evento específico…" y "URL externa…" visibles, esta última resaltada al final de la lista](/images/guias/superapp/introduccion/paso-3b-push-destino.png)
+
+Si eliges **URL externa…**, aparece debajo un campo **Enlace** obligatorio. Escribe ahí la dirección completa empezando por `https://`: el panel comprueba el enlace mientras escribes y muestra "Enlace válido" cuando lo acepta, o "El enlace no es válido" si no lo acepta (por ejemplo, con `http://`). La vista previa cambia a "Se abre este enlace" con el dominio y la ruta del destino, para que veas a dónde irá el fan antes de enviar.
+
+![Pantalla Enviar push con el destino "URL externa…" seleccionado, el campo Enlace relleno con https://demofest.com/entradas y la marca verde de enlace válido. Debajo, el texto "Al tocar la notificación, se abrirá este enlace"](/images/guias/superapp/introduccion/paso-3c-push-url-externa.png)
+
+Los enlaces que escribas dentro del mensaje no se pueden tocar: para llevar al fan a una web tienes que ponerla como destino.
+
+Encontrarás este mismo selector, con las mismas opciones y el mismo campo **Enlace**, en el paso **Contenido** del asistente de campañas push. Usa Enviar push para un aviso inmediato y una campaña cuando necesites programarlo o medir sus resultados.
 
 A la derecha ves dos elementos de ayuda:
 
@@ -90,7 +101,7 @@ A la derecha ves dos elementos de ayuda:
 El botón **Enviar a ≈ N usuarios** envía la notificación inmediatamente a todos los fans que tienen la app instalada con push activado. No hay opción de programar ni de deshacer. Asegúrate de revisar el título y el mensaje antes de pulsar.
 :::
 
-## Sección Onboarding: las pantallas de bienvenida
+## Paso 4: Configura el Onboarding
 
 El onboarding son las pantallas que ve un fan la primera vez que abre la app. Puedes crear varios slides en orden, cada uno con imagen, título y subtítulo propios. Son tu primera oportunidad de presentar el festival y pedir los permisos necesarios (como las notificaciones).
 

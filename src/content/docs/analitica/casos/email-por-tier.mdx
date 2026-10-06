@@ -1,8 +1,11 @@
 ---
-title: "Consumo de email por tier del plan: controla tu cuota | Nevent"
+title: "Cómo controlar el consumo de email por tier"
 diataxis: how-to
+modulo: revenue
+nivel: unico
 description: "Mide cuántos emails envías en cada tier de tu plan y cuánta cuota te queda. Anticipa sobrecostes, identifica tiers infrautilizados y decide upgrades con datos."
 sidebar:
+  label: "Email por tier"
   order: 54
 ---
 
@@ -31,19 +34,19 @@ import { Aside, CardGrid, LinkCard } from '@astrojs/starlight/components';
 :::
 
 
-## Pregunta de negocio
+## Paso 1: define la pregunta de negocio
 
 "¿Cuántos emails envío al mes en cada tier de mi plan y cuánto margen de cuota me queda?"
 
 Esta pregunta aparece en la revisión trimestral del plan, cuando preparas los reportes financieros internos o cuando el equipo necesita decidir si hacer un upgrade antes de lanzar la próxima campaña grande.
 
-## ¿Cómo se mide el consumo de email por tier?
+## Paso 2: ¿Cómo se mide el consumo de email por tier?
 
 Se cuenta el volumen total de emails enviados y se agrupa por tier de plan (Basic, Pro, Enterprise o los niveles que apliquen a tu configuración) y por mes. Después, ese volumen se compara con la cuota contratada en cada tier.
 
 El dato clave de cada celda es doble: el número absoluto de emails enviados y el porcentaje de cuota consumida. Un tier al 90% de cuota a mediados de mes es una señal de alerta; uno al 10% al final del mes indica infrautilización.
 
-## ¿Qué resultado esperar?
+## Paso 3: interpreta el resultado
 
 Una tabla con esta estructura:
 

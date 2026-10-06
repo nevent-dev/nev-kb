@@ -1,6 +1,12 @@
 ---
 title: Importa tus contactos
 diataxis: how-to
+modulo: marketing
+nivel: basic
+sinonimos:
+  - "subir Excel"
+  - "cargar base de datos"
+  - "importar CSV"
 description: Aprende a subir tu lista de fans a Nevent con un archivo CSV o Excel. En unos minutos tendrás todos tus contactos listos para campañas.
 sidebar:
   order: 1
@@ -81,13 +87,13 @@ La pantalla muestra una tabla con tres columnas principales:
 
 Nevent intenta mapear automáticamente las columnas más habituales. Por ejemplo, si tu columna se llama "email" o "correo", la detecta sola y la asigna a "Correo electrónico".
 
-![Pantalla de mapeo de campos con tres columnas del CSV: email mapeada a Correo electrónico, nombre mapeada a Nombre, y telefono pendiente de asignar](/images/guias/audiencia/importar-fans/paso-4-mapeo-campos.png)
+![Pantalla de mapeo de campos con tres columnas del CSV: email mapeada a Correo electrónico, nombre mapeada a Nombre, y `telefono` pendiente de asignar](/images/guias/audiencia/importar-fans/paso-4-mapeo-campos.png)
 
 Para las columnas que Nevent no reconoce automáticamente, haz clic en el desplegable **Seleccionar campo** y elige la opción correcta. Los campos disponibles incluyen: Primer apellido, Segundo apellido, Teléfono, Fecha de nacimiento, Género, País, Dirección, Código postal y varios más, incluidos los campos personalizados que hayas creado en tu organización.
 
 Cuando todos los campos que quieres importar tienen el indicador **Sí** en la columna "Mapeado", haz clic en **Siguiente: Consentimiento**.
 
-![Mapeo de campos completado: las tres columnas (email, nombre, telefono) están asignadas a sus campos de Nevent correspondientes, todas con indicador "Sí" y "Válido"](/images/guias/audiencia/importar-fans/paso-4c-mapeo-completo.png)
+![Mapeo de campos completado: las tres columnas (email, nombre, `telefono`) están asignadas a sus campos de Nevent correspondientes, todas con indicador "Sí" y "Válido"](/images/guias/audiencia/importar-fans/paso-4c-mapeo-completo.png)
 
 :::note[Nota]
 Solo el campo "Correo electrónico" es obligatorio. El resto de columnas puedes dejarlas sin mapear si no quieres importar esos datos. Las filas que dejes sin marcar con el checkbox de "Importar" se ignorarán.
@@ -130,7 +136,7 @@ Antes de lanzar la importación, Nevent te muestra un resumen de todo lo que vas
 
 Revisa que todo sea correcto. Si algo no está bien, usa el botón **Anterior** para volver y corregirlo.
 
-![Pantalla de revisión final con el resumen de la importación: archivo "test-fans.csv", mapeo de 3 campos (email, nombre, telefono), consentimiento "Sí, aceptan" y "Sin volcado a segmento", con el botón verde "Confirmar e importar"](/images/guias/audiencia/importar-fans/paso-6-revisar.png)
+![Pantalla de revisión final con el resumen de la importación: archivo "test-fans.csv", mapeo de 3 campos (email, nombre, `telefono`), consentimiento "Sí, aceptan" y "Sin volcado a segmento", con el botón verde "Confirmar e importar"](/images/guias/audiencia/importar-fans/paso-6-revisar.png)
 
 Cuando todo sea correcto, haz clic en **Confirmar e importar**. Nevent procesará el archivo en segundo plano. Un aviso en la pantalla te indica que puedes seguir el progreso en el historial.
 
@@ -138,9 +144,31 @@ Cuando todo sea correcto, haz clic en **Confirmar e importar**. Nevent procesar�
 
 Puedes consultar el estado de todas tus importaciones en cualquier momento. Haz clic en el botón **Historial** que aparece en la esquina superior derecha de la pantalla de importación.
 
-El historial muestra cada importación con su estado (en proceso, completada, con errores), la fecha y el número de contactos importados.
+El historial muestra cada importación con su estado (en proceso, completada, con errores), la fecha y el número de contactos importados. Mientras haya importaciones en proceso, la página se actualiza sola cada 10 segundos.
 
 ![Pantalla "Historial de importaciones" en estado vacío, con el mensaje "No hay importaciones" y el botón "Importar usuarios"](/images/guias/audiencia/importar-fans/paso-7-historial.png)
+
+### El estado de sincronización con la segmentación
+
+Que una importación esté **Completada** significa que los contactos ya están en tu base de fans. Pero para poder usar los campos que has traído en el archivo como criterios de un segmento, Nevent tiene que hacer un segundo paso: sincronizar esa importación con el motor de segmentación.
+
+Por eso, debajo del estado de cada importación puede aparecer una segunda etiqueta que te dice en qué punto está esa sincronización:
+
+| Etiqueta | Qué significa |
+|---|---|
+| **Preparando segmentación** | La importación ha terminado y la sincronización está en cola. |
+| **Sincronizando** | Los contactos se están incorporando al motor de segmentación. |
+| **Disponible para segmentar** | Todo listo: ya puedes usar los datos de esta importación en tus segmentos. |
+| **Sincronización incompleta** | La sincronización se ha detenido antes de terminar. Puedes reintentarla. |
+| **Sin datos que sincronizar** | La importación no traía datos nuevos que enviar a la segmentación. |
+
+![Historial de importaciones con una importación "Completado" que muestra debajo la etiqueta verde "Disponible para segmentar", junto a los contadores de 3 contactos totales, 3 importados y 0 fallidos](/images/guias/audiencia/importar-fans/paso-8-estado-sincronizacion.png)
+
+Si una importación queda en **Sincronización incompleta**, junto a la etiqueta aparece el botón **Reintentar**. Vuelve a lanzar solo la sincronización con la segmentación: no vuelve a importar el archivo. Al pulsarlo verás el aviso "Sincronización reintentada. Puede tardar unos minutos." y el estado se irá actualizando en la propia página.
+
+:::note[Nota]
+Esta etiqueta solo aparece en las importaciones que pasan por la sincronización con la segmentación. Las importaciones anteriores a esta funcionalidad no la muestran.
+:::
 
 ## Resultado
 
@@ -152,5 +180,5 @@ Si has importado los contactos sin asignarlos a un segmento y ahora quieres orga
 
 ## Siguiente paso
 
-- [Crea tu primer segmento](/segmentacion/motor-segmentacion/crear-segmento) para agrupar a tus fans por criterios y tenerlos listos para campañas.
+- [Crea tu primer segmento](/segmentacion/tu-primer-segmento) para agrupar a tus fans por criterios y tenerlos listos para campañas.
 - [Crea tu primera campaña](/campanas/crear-primera-campana) para enviar un email a los contactos que acabas de importar.

@@ -17,6 +17,7 @@ export function toRecord(raw, relPath) {
     slug: relPath.replace(/\.(mdx?|md)$/, ''),
     area: areaFromPath(relPath),
     diataxis: typeof data.diataxis === 'string' ? data.diataxis : null,
+    modulo: typeof data.modulo === 'string' ? data.modulo : null,
     title: data.title ?? null,
   };
 }

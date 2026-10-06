@@ -1,0 +1,92 @@
+---
+title: "Mi número de WhatsApp no es elegible"
+description: "Diagnostica por qué Nevent marca tu número de WhatsApp como no elegible: causa más habitual, cómo comprobarla en Meta y qué hacer en cada caso."
+diataxis: how-to
+modulo: marketing
+nivel: basic
+sinonimos:
+  - "no elegible"
+  - "número bloqueado"
+  - "WhatsApp Business"
+  - "conectar el número"
+sidebar:
+  label: "Mi número de WhatsApp no es elegible"
+---
+
+Vas a conectar tu WhatsApp Business en Nevent y el número aparece como "no elegible", aunque en Meta figure como cuenta aprobada. Esta guía te ayuda a identificar la causa exacta y a corregirla, revisando el Business Manager de Meta en el orden en que suele fallar.
+
+## Antes de empezar
+
+Necesitas acceso al Business Manager de Meta (business.facebook.com) con permisos de administrador sobre tu cuenta de WhatsApp Business, y haber intentado ya el paso "Conecta WhatsApp Business" desde **Configuración > Canales > WhatsApp** en Nevent. Consulta esa pantalla en [Activa tus canales de comunicación](/entregabilidad/activar-canales).
+
+Antes de revisar cada causa, ten claro algo importante: "verificado" y "elegible" no son lo mismo.
+
+- **Verificado** se refiere a tu **empresa**: Meta ha comprobado que existe legalmente y que la representas.
+- **Elegible** se refiere al **número de teléfono**: que ese número concreto cumple las condiciones técnicas para usarse en la Cloud API de WhatsApp (la conexión que usa Nevent para enviar campañas).
+
+Puedes tener la empresa verificada y, aun así, un número que no es elegible por una razón distinta y específica de ese número.
+
+## Paso 1: Comprueba si el número está en uso en la app de WhatsApp o WhatsApp Business
+
+Esta es la causa más habitual. Si el número que intentas conectar ya tiene una cuenta activa en la aplicación de WhatsApp o en la app de WhatsApp Business (la app móvil normal, no la API), Meta lo bloquea para la conexión estándar porque un mismo número no puede usarse en dos sistemas distintos al mismo tiempo, salvo con la función de coexistencia.
+
+**Cómo comprobarlo:** abre la app de WhatsApp Business en el móvil que usa ese número. Si puedes iniciar sesión y ver conversaciones, el número está activo ahí.
+
+**Qué hacer:** existen dos caminos, y no dependen de ti resolverlos solo desde el admin de Nevent:
+
+1. **Migrar el número:** eliminas la cuenta de la app de WhatsApp Business (esto borra el historial de chats de esa app) y vuelves a intentar la conexión desde Nevent.
+2. **Activar la coexistencia:** Meta permite usar el mismo número a la vez en la app de WhatsApp Business y en la API, sin eliminar nada. Es la opción recomendada si no quieres perder tu forma actual de escribir por WhatsApp desde el móvil.
+
+:::note[Nota]
+La activación de la coexistencia para tu cuenta la gestiona el equipo de soporte de Nevent desde su lado. Si necesitas usar esta opción, contacta con soporte y coméntales que tu número ya está en uso en la app de WhatsApp Business. No hemos podido comprobar si existe también un interruptor para activarla tú mismo desde el admin, así que no lo describimos aquí: pregúntalo directamente a soporte.
+:::
+
+Para entender qué es exactamente la coexistencia, qué se conserva del historial y cuándo conviene frente a migrar del todo a la API, consulta [Qué es el modo coexistencia de WhatsApp y cuándo te conviene](/entregabilidad/que-es-el-modo-coexistencia-de-whatsapp).
+
+## Paso 2: Comprueba si tu empresa está verificada
+
+Si tu empresa no está verificada en Meta, algunos números no llegan a ser elegibles aunque no tengan ningún otro problema.
+
+**Cómo comprobarlo:** en el Business Manager, entra en **Configuración de seguridad del negocio** (o **Centro de seguridad**) y busca el apartado **Verificación de la empresa**. Ahí verás uno de estos estados: verificada, en revisión, rechazada o sin iniciar.
+
+**Qué hacer:** si el estado es "sin iniciar" o "rechazada", inicia o repite el proceso de verificación aportando la documentación legal de tu empresa (nombre fiscal, dirección, documento de registro mercantil) que Meta solicite. Este trámite lo completas tú directamente en Meta; Nevent no interviene en la verificación de la empresa.
+
+## Paso 3: Comprueba si el nombre para mostrar está aprobado
+
+El nombre para mostrar es el nombre que verán tus contactos como remitente en WhatsApp. Si Meta todavía no lo ha aprobado, o lo ha rechazado, el número puede quedar retenido.
+
+**Cómo comprobarlo:** en el WhatsApp Manager de Meta, entra en **Herramientas de la cuenta > Perfiles de empresa** (o en el perfil del número concreto) y revisa el estado del nombre para mostrar: aprobado, pendiente de revisión o rechazado.
+
+**Qué hacer:** si está rechazado, suele ser porque el nombre no coincide con tu marca o empresa real (por ejemplo, usa mayúsculas excesivas, emojis o un nombre genérico). Corrígelo siguiendo las indicaciones que da Meta en el propio aviso de rechazo y vuelve a enviarlo a revisión.
+
+## Paso 4: Comprueba si el número ha llegado al límite de registros de tu cuenta
+
+Meta limita cuántos números de teléfono puedes registrar en una misma cuenta de empresa. Si ya has alcanzado ese límite, un número nuevo no podrá añadirse hasta que amplíes el cupo o elimines otro número que ya no uses.
+
+**Cómo comprobarlo:** en WhatsApp Manager, entra en **Herramientas de la cuenta > Números de teléfono** y cuenta cuántos números tienes ya registrados en esa cuenta de empresa.
+
+**Qué hacer:** las cuentas nuevas empiezan con un cupo de dos números registrados. Ese cupo sube automáticamente a veinte cuando tu empresa queda verificada o cuando algún número de la cuenta alcanza un nivel de mensajería de 2.000 conversaciones. Si necesitas más números antes de eso, verifica primero tu empresa (paso 2) o elimina un número que ya no utilices.
+
+## Paso 5: Comprueba si el número fijo necesita verificación por llamada
+
+Si el número que quieres usar es un fijo (no un móvil), la verificación por SMS puede no funcionar. Los fijos solo pueden verificarse recibiendo una llamada de voz con el código.
+
+**Cómo comprobarlo:** durante el proceso de conexión, Meta te pregunta cómo quieres recibir el código de verificación: por SMS o por llamada de voz. Si el número es un fijo y eliges SMS, no llegará ningún código.
+
+**Qué hacer:** vuelve a intentar la conexión y elige explícitamente **verificación por llamada de voz**. Asegúrate de que ese número fijo puede recibir llamadas entrantes en el momento del intento, sin desvíos ni contestador automático que intercepten la llamada.
+
+## Qué comprobar
+
+Antes de volver a intentar la conexión en Nevent, repasa esta lista:
+
+- El número no tiene una sesión activa en la app de WhatsApp ni en la app de WhatsApp Business (o has pedido a soporte que active la coexistencia).
+- Tu empresa aparece como "verificada" en el Business Manager de Meta.
+- El nombre para mostrar tiene el estado "aprobado".
+- No has superado el cupo de números registrados de tu cuenta.
+- Si el número es un fijo, has verificado por llamada de voz, no por SMS.
+
+Si tras revisar los cinco puntos el número sigue sin ser elegible, contacta con el equipo de soporte de Nevent indicando qué estado muestra cada punto de esta lista: agiliza mucho el diagnóstico.
+
+Para entender por qué Meta aplica estos límites y qué pasa después de conectar el número, sigue con [Requisitos del número de WhatsApp](/entregabilidad/requisitos-del-numero-de-whatsapp) y [Límites de mensajería de WhatsApp: por qué se bloquea a los 40](/entregabilidad/limites-de-mensajeria-de-whatsapp).
+
+Fuente: documentación oficial de Meta sobre números de teléfono de empresa en la WhatsApp Business Platform, "Business phone numbers" (developers.facebook.com/documentation/business-messaging/whatsapp/business-phone-numbers/phone-numbers) y sobre coexistencia, "Onboard WhatsApp Business app users" (developers.facebook.com/documentation/business-messaging/whatsapp/embedded-signup/onboarding-business-app-users).

@@ -2,6 +2,8 @@
 title: "Referencia de la Superapp"
 description: "Descripción de cada pantalla de la Superapp de Nevent, los campos disponibles, los bloques del panel de actividad en vivo y los límites técnicos del envío de notificaciones push."
 diataxis: reference
+modulo: experience
+nivel: pro
 faqs:
   - q: "¿Cuántos caracteres puede tener el título de una notificación push?"
     a: "65 caracteres como máximo."
@@ -195,7 +197,50 @@ Permite enviar una notificación push inmediata a todos los fans que tienen la a
 | Título | 65 caracteres | Texto en negrita que aparece en la notificación. Contador visible en pantalla. |
 | Mensaje | 500 caracteres | Cuerpo de la notificación. Contador visible en pantalla. |
 | Imagen | 1 MB, proporción 2:1 | Imagen opcional que acompaña la notificación. Se selecciona desde el dispositivo. |
-| Al tocar la notificación | Selector desplegable | Pantalla de la app que se abre cuando el fan toca el aviso. |
+| Al tocar la notificación | Selector desplegable | Destino que se abre cuando el fan toca el aviso. |
+| Enlace | 2048 caracteres, obligatorio con el destino "URL externa…" | Dirección web que se abre al tocar la notificación. Debe empezar por `https://`. |
+
+### Destinos disponibles
+
+El selector **Al tocar la notificación** ofrece estos destinos:
+
+| Destino | Qué abre |
+|---|---|
+| Inicio | Pantalla de inicio de la app. |
+| Mis entradas | Entradas del fan. |
+| Mi cartera | Cartera del fan. |
+| Descubrir | Sección Descubrir de la app. |
+| Mi perfil | Perfil del fan. |
+| Agenda / Programa | Programa del festival. |
+| Mapa del recinto | Mapa del recinto. |
+| Cashless | Sección cashless. |
+| Chatbot de soporte | Conversación con el chatbot de soporte. |
+| Evento específico… | Un evento concreto, que se elige en un selector adicional. |
+| URL externa… | Una página web, que se escribe en el campo **Enlace**. |
+
+Un destino no está completo hasta que tiene todo lo que necesita: con **Evento específico…** hay que elegir el evento y con **URL externa…** hay que escribir el enlace. Mientras falte, el panel muestra "Completa el destino de la notificación para continuar" y el botón de envío sigue deshabilitado.
+
+### El campo Enlace (URL externa…)
+
+La dirección se valida mientras escribes. Cuando se acepta, el campo muestra **Enlace válido.**; cuando no, explica el motivo:
+
+| Mensaje | Causa |
+|---|---|
+| Escribe el enlace que se abrirá al tocar la notificación. | El campo está vacío. |
+| El enlace debe empezar por https://. Los enlaces http:// no se admiten. | La dirección usa `http://`. |
+| El enlace debe empezar por https://. | La dirección usa otro esquema. |
+| El enlace es demasiado largo: el máximo son 2048 caracteres. | La dirección supera los 2048 caracteres. |
+| El enlace no puede contener espacios ni caracteres invisibles. | La dirección tiene espacios en blanco. |
+| El enlace no puede incluir usuario ni contraseña. | La dirección lleva credenciales. |
+| Revisa el dominio: debe ser una web pública, como https://www.ejemplo.com. | El dominio no es válido o no es público. |
+| Revisa el puerto del enlace: debe ser un número entre 0 y 65535. | El puerto está fuera de rango. |
+| Revisa el enlace: tiene caracteres no válidos o no es una dirección web completa, como https://www.ejemplo.com. | Cualquier otra dirección mal formada. |
+
+Con un enlace válido, la vista previa de Android muestra **Se abre este enlace** con el dominio y la ruta del destino, en lugar de **Se abre la app**.
+
+Los enlaces escritos dentro del mensaje no se pueden tocar. El propio formulario lo advierte: para llevar al fan a una web, hay que elegir **URL externa…** como destino.
+
+El mismo selector, con los mismos destinos y el mismo campo **Enlace**, está disponible en el paso **Contenido** del asistente de campañas push.
 
 ### Indicadores en pantalla
 

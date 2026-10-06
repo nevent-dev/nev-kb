@@ -1,0 +1,65 @@
+---
+title: "Límites de mensajería de WhatsApp: por qué se bloquea a los 40"
+description: "Entiende por qué WhatsApp bloquea tu número al enviar a muchos contactos nuevos: niveles de Meta, calidad del número y qué hacer antes de enviar."
+diataxis: explanation
+modulo: marketing
+nivel: basic
+sinonimos:
+  - "se bloquea a los 40"
+  - "calentar el número"
+  - "calidad del número"
+sidebar:
+  label: "Límites de mensajería de WhatsApp"
+---
+
+Conectas tu número, lo pruebas escribiendo a un puñado de contactos nuevos y, de repente, WhatsApp deja de dejarte enviar. No es un fallo de Nevent ni de tu cuenta: es el sistema de niveles de mensajería de Meta, pensado para frenar el spam antes de que llegue a los usuarios. Esta página te explica por qué existe y por qué afecta especialmente a los números nuevos.
+
+## El sistema de niveles de Meta
+
+Meta no deja que cualquier número envíe mensajes ilimitados desde el primer día. Cada cuenta de empresa empieza en un nivel de mensajería que marca cuántos destinatarios únicos puedes alcanzar, fuera de una conversación que el propio usuario haya abierto, en una ventana móvil de 24 horas.
+
+El nivel de partida de toda cuenta nueva es de 250 destinatarios únicos en 24 horas. Ese nivel sube cuando verificas tu empresa, o cuando demuestras a Meta que envías mensajes de calidad de forma sostenida. Cuanta más confianza generas, más alto sube el nivel: de 250 a 2.000, de ahí a 10.000, después a 100.000, e incluso sin límite si mantienes ese comportamiento en el tiempo.
+
+El detalle importante es que el nivel se aplica a la cuenta de empresa completa (todos tus números juntos), no a cada número por separado. Y el sistema no perdona: si tu comportamiento de envío empeora, el nivel puede bajar en lugar de subir.
+
+## Qué es la calidad del número
+
+Además del nivel de mensajería, cada número tiene una calidad, que Meta representa con tres colores:
+
+- **Verde:** el número recibe pocas o ninguna señal negativa (bloqueos, quejas, mensajes ignorados). Es el estado saludable.
+- **Amarillo:** el número ha recibido señales negativas de varios usuarios o tiene una tasa de lectura baja. Está en zona de riesgo.
+- **Rojo:** el número acumula señales negativas de forma continuada. Meta puede reducir tu límite de mensajería en cualquier momento.
+
+La calidad se calcula con datos reales de los últimos siete días: si la gente que recibe tus mensajes los bloquea, los reporta, los silencia o los archiva, la calidad baja. Si la gente los abre, responde o interactúa, la calidad sube o se mantiene. Puedes consultar el estado, la calidad y el límite de mensajería de cada número en WhatsApp Manager, dentro de Herramientas de la cuenta > Números de teléfono.
+
+Esta calidad es la del número en conjunto, no la de cada plantilla: Meta también califica cada plantilla por separado antes de aprobarla, pero esa calidad de plantilla es un dato distinto del que se describe en esta página.
+
+## Por qué enviar a muchos contactos nuevos de golpe baja la calidad
+
+Aquí está la clave de por qué un número se bloquea "a los 40" mensajes, o a cualquier cifra baja, nada más empezar.
+
+Cuando envías tu primera tanda de mensajes a números que nunca han hablado contigo, Meta no tiene ninguna señal previa sobre si eres de fiar. Si una parte relevante de esos destinatarios no reconoce tu número, lo bloquea o lo ignora, esas señales negativas llegan de golpe y concentradas en muy poco tiempo. Para un número que todavía no tiene historial, eso pesa muchísimo: la calidad cae rápido y Meta reacciona limitando o deteniendo el envío, aunque estés muy por debajo del nivel máximo teórico de tu cuenta.
+
+Es la misma lógica que ya conoces del email: un remitente nuevo que envía de golpe a una lista grande de desconocidos genera más quejas que uno que primero le escribe a quien ya lo conoce y espera. En WhatsApp esa lógica es todavía más estricta, porque el usuario puede bloquear el número con un solo gesto.
+
+## Por qué la primera campaña no debe ir a toda tu base
+
+Si acabas de conectar el número, enviar a toda tu base de contactos en la primera campaña es la forma más rápida de agotar tu margen de confianza antes de haberlo construido. Un número nuevo no tiene historial que compense unos cuantos bloqueos, así que esos primeros envíos pesan de forma desproporcionada en tu calidad.
+
+La alternativa razonable es empezar por quienes ya tienen una relación reciente contigo (compradores del último evento, gente que ya te ha escrito por WhatsApp) y ampliar poco a poco a medida que el número demuestra buen comportamiento. Es un proceso de ida y vuelta con Meta: cuantos más mensajes de calidad envías sin generar rechazo, más margen te da para seguir creciendo.
+
+## Enviar desde la app frente a enviar desde la API con plantillas
+
+Hay una diferencia de fondo entre las dos formas de enviar por WhatsApp:
+
+**Desde la app de WhatsApp Business (a mano, sin API):** escribes uno a uno o copias y pegas el mismo texto a varios contactos. No hay revisión previa del contenido. Si mandas el mismo mensaje a muchos números que no te tienen guardado, WhatsApp lo detecta como comportamiento de spam y bloquea el número directamente, con muy poco margen de explicación.
+
+**Desde la API con plantillas aprobadas (lo que usa Nevent):** cada plantilla pasa antes por la revisión de Meta, que comprueba que el contenido no sea engañoso ni tenga aspecto de spam. Una vez aprobada, el envío pasa por el sistema de niveles y calidad descrito arriba, que es más gradual y da más visibilidad de por qué sube o baja tu margen.
+
+La API no te libra de los límites de Meta, pero te da un camino más previsible para crecer: plantillas revisadas, métricas de calidad visibles y un proceso de ampliación de nivel que puedes seguir con datos, no a ciegas.
+
+## Hazlo ahora
+
+Si acabas de conectar un número nuevo o ya te has topado con un bloqueo, sigue el plan por fases de [Cómo calentar un número nuevo de WhatsApp](/entregabilidad/como-calentar-un-numero-nuevo-de-whatsapp) para ir ampliando el envío sin poner en riesgo la calidad del número.
+
+Fuentes: documentación oficial de Meta, "Messaging Limits" (developers.facebook.com/documentation/business-messaging/whatsapp/messaging-limits) y "Service messages" (developers.facebook.com/documentation/business-messaging/whatsapp/messages/send-messages), sección "Message quality".

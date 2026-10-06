@@ -1,0 +1,152 @@
+---
+title: "Consulta quién está suscrito a tu newsletter"
+diataxis: how-to
+modulo: marketing
+nivel: basic
+sidebar:
+  badge:
+    text: "Nuevo"
+    variant: "tip"
+description: "Aprende a ver la lista de suscriptores de una newsletter en Nevent, a consultar a qué suscripciones pertenece un fan concreto y a configurar el formulario para que clasifique solo a cada persona que se apunta."
+faqs:
+  - q: "¿Dónde veo la lista de personas suscritas a mi newsletter?"
+    a: "En Audiencia, dentro de Suscripciones, abre el formulario que te interese y entra en su sección Suscriptores. Ahí aparece la lista completa con el correo, el nombre, el estado y la fecha en que cada persona se apuntó."
+  - q: "¿Qué significa que un suscriptor esté en estado Baja?"
+    a: "Significa que esa persona hizo clic en el enlace de cancelación de suscripción de alguna de tus campañas. Nevent respeta esa baja de forma automática y deja de incluirla en tus envíos de marketing, sin que tengas que hacer nada."
+  - q: "¿Puedo saber a qué newsletters está suscrita una persona concreta?"
+    a: "Sí. Busca al fan en la sección Fans, abre su perfil y entra en Suscripciones. Verás todas las suscripciones a las que pertenece, con el estado de cada una, la fecha de alta y el canal por el que llegó."
+  - q: "¿Por qué la ficha de un fan dice que no está suscrito a ninguna newsletter?"
+    a: "Porque esa persona llegó a tu base de datos por otra vía, normalmente una compra de entrada o una importación de contactos, y nunca se apuntó a un formulario de suscripción. Estar en tu base de datos y estar suscrito son dos cosas distintas."
+  - q: "¿Cómo hago que los nuevos suscriptores queden clasificados sin trabajo manual?"
+    a: "En la sección Automatizaciones del formulario puedes asignar una o varias carpetas y dar valor a un campo personalizado. Cada persona que se suscriba a partir de ese momento quedará clasificada automáticamente con esos datos."
+  - q: "¿Puedo segmentar después por esa clasificación?"
+    a: "Sí. Los campos personalizados son un criterio de segmentación dentro de la categoría Atributos del fan, y con las carpetas puedes filtrar tanto segmentos como campañas."
+---
+
+import YouTube from '../../../components/YouTube.astro';
+
+<YouTube id="psV_9ACktNw" title="Consulta quién está suscrito a tu newsletter y prepáralo para segmentar" />
+
+Saber quién está suscrito a tus comunicaciones es una consulta que vas a hacer a menudo: para comprobar que un formulario está captando, para responder a alguien que pregunta por qué recibe tus correos, o para preparar un envío a las personas que se apuntaron por un canal concreto.
+
+Nevent te lo enseña desde dos ángulos. Puedes partir de una suscripción y ver toda su lista, o partir de una persona y ver a qué suscripciones pertenece. En esta guía recorres los dos, y además dejas configurado el formulario para que clasifique solo a cada nuevo suscriptor. Unos 8 minutos.
+
+## Antes de empezar
+
+Necesitas tener al menos una suscripción creada. Si todavía no tienes ninguna, sigue primero la guía [crea tu primer formulario de suscripción](/suscripciones/crear-formulario).
+
+## Paso 1: Abre la lista de suscriptores de una suscripción
+
+En el menú lateral izquierdo, dentro del bloque **Audiencia**, haz clic en **Suscripciones**.
+
+Verás el listado de todos tus formularios, con el nombre de cada uno, su estado y el número de suscriptores que ha captado. Ese contador ya te da una primera lectura de cuál está funcionando.
+
+![Listado "Todas las suscripciones" en DEMO FEST, con la suscripción "BUSCANDO MOSCAS" en estado Activo, 5.872 suscriptores y su fecha de creación](/images/guias/suscripciones/consulta-tus-suscriptores/paso-1-listado-suscripciones.png)
+
+Haz clic en el formulario que quieras consultar. Nevent abre su panel de gestión.
+
+En el menú lateral de ese panel, haz clic en **Suscriptores**.
+
+![Sección "Suscriptores" de la suscripción "BUSCANDO MOSCAS", con el buscador, el filtro por rango de fechas y la tabla de suscriptores con sus columnas de Email, Nombre, Estado y Fecha de suscripción](/images/guias/suscripciones/consulta-tus-suscriptores/paso-2-lista-suscriptores.png)
+
+## Paso 2: Lee la lista
+
+Cada fila de la lista es una persona que se apuntó a esa suscripción. Estas son sus cuatro columnas:
+
+| Columna | Qué te dice |
+|---|---|
+| Email | La dirección de correo con la que se suscribió. Es el dato mínimo que pide siempre el formulario. |
+| Nombre | El nombre de la persona, si tu formulario lo pedía. Si no lo pedías, aparece vacío. |
+| Estado | Si sigue suscrita (**Confirmado**) o si se dio de baja (**Baja**). |
+| Fecha de suscripción | El día y la hora exactos en que se apuntó. |
+
+Las cuatro columnas se pueden ordenar haciendo clic en su cabecera. La de **Fecha de suscripción** es más útil de lo que parece: ordenando por ella ves de un vistazo si tu formulario sigue captando gente o si lleva semanas parado, y puedes relacionar los picos de altas con las acciones que lanzaste esos días.
+
+Encima de la tabla tienes dos formas de acotar la lista, que es lo que de verdad usarás cuando tengas miles de suscriptores:
+
+- **El buscador**, que filtra por correo electrónico o por nombre. Sirve para comprobar rápido si una persona concreta está en esta lista.
+- **El rango de fechas**, que deja solo las altas producidas entre dos días. Con él puedes responder a preguntas como cuánta gente entró la semana que lanzaste la campaña de preventa.
+
+El botón **Limpiar** quita los dos filtros a la vez y te devuelve la lista completa.
+
+:::note[Sobre el estado Baja]
+Una persona pasa a **Baja** cuando hace clic en el enlace de cancelación de suscripción incluido en cualquiera de tus campañas. Nevent lo gestiona solo: deja de incluirla en tus envíos de marketing desde ese momento.
+
+No borres a esa persona de tu base de datos. Sus datos históricos siguen siendo útiles y la baja ya está respetada.
+:::
+
+## Paso 3: Consulta las suscripciones de un fan concreto
+
+A veces la pregunta va en sentido contrario. No quieres la lista de una suscripción, sino saber qué pasa con una persona en particular.
+
+En el menú lateral, dentro del bloque **Fans**, haz clic en **Fans**.
+
+Busca a la persona por su nombre o su correo en el buscador de la parte superior de la tabla, y haz clic en su fila para abrir su perfil.
+
+En el menú del perfil, haz clic en **Suscripciones**.
+
+![Sección Suscripciones del fan Abril Aguilar Aguilar, con una fila para la suscripción "BUSCANDO MOSCAS" en estado Confirmado, fecha 11/08/2025, origen Widget y activo Sí](/images/guias/suscripciones/consulta-tus-suscriptores/paso-3-suscripciones-del-fan.png)
+
+Aquí ves todas las suscripciones de tu organización a las que esa persona pertenece, una por fila:
+
+| Columna | Qué te dice |
+|---|---|
+| Suscripción | El nombre del formulario al que se apuntó, con su descripción debajo. |
+| Estado | Si sigue **Confirmado** o si está de **Baja**. |
+| Fecha de suscripción | El día y la hora en que se apuntó. |
+| Origen | Por dónde llegó. **Widget** significa que rellenó el formulario embebido en una web. |
+| Activo | Si esa suscripción sigue activa en tu organización. |
+
+El desplegable **Todos los estados**, encima de la tabla, te deja quedarte solo con las confirmadas o solo con las bajas. Es útil en fans que llevan años contigo y acumulan varias suscripciones.
+
+Esta es la vista que necesitas cuando alguien te escribe preguntando por qué recibe o por qué no recibe tus correos. En diez segundos sabes si está suscrito, a qué, desde cuándo y por dónde entró.
+
+:::tip[Si la tabla aparece vacía]
+Que un fan no tenga ninguna suscripción no es un error. Significa que llegó a tu base de datos por otra vía, normalmente comprando una entrada o en una importación de contactos, y nunca rellenó un formulario de suscripción.
+
+Estar en tu base de datos y estar suscrito son dos cosas distintas, y esa diferencia tiene consecuencias legales. Lo explicamos en [para qué sirven las suscripciones](/suscripciones/para-que-sirven).
+:::
+
+## Paso 4: Haz que los nuevos suscriptores se clasifiquen solos
+
+Consultar la lista está bien, pero lo que de verdad ahorra trabajo es que cada persona entre ya etiquetada. Eso se configura una sola vez.
+
+Vuelve a **Audiencia > Suscripciones**, abre tu formulario y haz clic en **Automatizaciones**.
+
+![Sección "Automatizaciones" de DEMO FEST con las dos subsecciones: "Asignación Automática de Carpetas" con el selector de carpetas, y "Asignación Automática de Campos Personalizados" con el botón "Crear"](/images/guias/suscripciones/crear-formulario/paso-8-automatizaciones.png)
+
+Tienes dos cosas que puedes automatizar:
+
+- **Asignación automática de carpetas.** Elige una o varias carpetas de tu organización. Cada persona que se suscriba por este formulario quedará asignada a ellas en el momento. Por ejemplo, una carpeta llamada "Web 2026".
+- **Asignación automática de campos personalizados.** Si tu organización tiene campos personalizados, puedes darles un valor fijo para todos los que entren por aquí. Por ejemplo, un campo "Origen" con el valor "Formulario web".
+
+Cuando hayas elegido, haz clic en **Guardar**.
+
+A partir de ese momento, cada nuevo suscriptor llega con esa información puesta. Los que ya estaban suscritos antes no se modifican.
+
+## Paso 5: Usa esa clasificación para segmentar
+
+Aquí es donde el trabajo del paso anterior te devuelve el tiempo invertido.
+
+Los campos personalizados son un criterio de segmentación directo: los encuentras en la categoría **Atributos del fan** al construir un segmento. Así puedes crear, por ejemplo, un segmento de todas las personas cuyo campo "Origen" sea "Formulario web", y lanzarles una campaña distinta a la del resto de tu base de datos.
+
+Con las carpetas puedes filtrar tanto al crear un segmento como al elegir la audiencia de una campaña.
+
+La consecuencia práctica es que puedes tratar de forma diferente a quien se apuntó en tu web, a quien lo hizo en una acción presencial y a quien llegó por una promoción concreta, sin haber tenido que separarlos a mano en ningún momento.
+
+Si nunca has creado un segmento, empieza por [crea tu primer segmento](/segmentacion/tu-primer-segmento).
+
+## Resultado
+
+Al terminar esta guía sabes:
+
+- Dónde está la lista completa de suscriptores de cualquiera de tus formularios y qué significa cada columna.
+- Cómo consultar, desde la ficha de una persona, a qué suscripciones pertenece y desde cuándo.
+- Cómo dejar configurado el formulario para que clasifique solo a cada nuevo suscriptor con una carpeta y un campo personalizado.
+- Cómo aprovechar esa clasificación para segmentar y enviar campañas distintas según el origen de cada fan.
+
+## Siguiente paso
+
+- [Referencia de suscripciones](/suscripciones/referencia) si quieres el detalle de todos los campos, estados y secciones del panel.
+- [Consulta y gestiona el perfil de un fan](/audiencia/gestion-de-fans) para recorrer el resto de secciones de la ficha, más allá de sus suscripciones.
+- [Crea tu primer segmento](/segmentacion/tu-primer-segmento) para convertir esta clasificación en audiencias de campaña.

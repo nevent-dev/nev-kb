@@ -122,7 +122,29 @@ Once everything is correct, click **Confirm and import**. Nevent will process th
 
 You can check the status of all your imports at any time. Click the **History** button in the top-right corner of the import screen.
 
-The history shows each import with its status (in progress, completed, with errors), the date and the number of contacts imported.
+The history shows each import with its status (in progress, completed, with errors), the date and the number of contacts imported. While there are imports in progress, the page refreshes itself every 10 seconds.
+
+### The segmentation sync status
+
+An import marked **Completed** means the contacts are already in your fan base. But before you can use the fields you brought in the file as criteria in a segment, Nevent needs a second step: syncing that import with the segmentation engine.
+
+That's why, under the status of each import, a second tag may appear telling you where that sync stands:
+
+| Tag | What it means |
+|---|---|
+| **Preparing segmentation** | The import has finished and the sync is queued. |
+| **Syncing** | The contacts are being added to the segmentation engine. |
+| **Ready to segment** | All set: you can now use this import's data in your segments. |
+| **Sync incomplete** | The sync stopped before finishing. You can retry it. |
+| **Nothing to sync** | The import didn't carry new data to send to segmentation. |
+
+![Import history with a "Completed" import showing the green "Ready to segment" tag below it, next to the counters of 3 total contacts, 3 imported and 0 failed](/images/guias/audiencia/importar-fans/paso-8-estado-sincronizacion.png)
+
+If an import ends up as **Sync incomplete**, a **Retry** button appears next to the tag. It relaunches only the sync with segmentation: it doesn't re-import the file. When you click it you'll see the notice "Sync retried. It may take a few minutes." and the status will keep updating on the page itself.
+
+:::note[Note]
+This tag only appears on imports that go through the segmentation sync. Imports made before this feature don't show it.
+:::
 
 ## Result
 

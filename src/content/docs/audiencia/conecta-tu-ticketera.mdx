@@ -1,8 +1,15 @@
 ---
-title: Cómo conectar tu ticketera a Nevent
+title: Conecta tu ticketera a Nevent
 diataxis: tutorial
+modulo: marketing
+nivel: basic
+sinonimos:
+  - "etiquetera"
+  - "tiquetera"
+  - "integración"
 description: Tutorial paso a paso para conectar tu ticketera a Nevent. En unos minutos tus fans empiezan a llegar solos, sin subir ningún archivo.
 sidebar:
+  label: "Conecta tu ticketera"
   order: 4
 faqs:
   - q: "¿Necesito ayuda técnica para conectar mi ticketera?"
@@ -78,6 +85,24 @@ Ya tienes tu ticketera conectada. A partir de ahora, cada vez que alguien compre
 
 :::tip[Consejo]
 No necesitas revisar la integración a diario. Nevent se encarga de mantenerla sincronizada. Si alguna vez quieres editarla o eliminarla, la encuentras en el mismo listado de Integraciones.
+:::
+
+## Cómo cambiar las credenciales más adelante
+
+Si tu proveedor te renueva la clave o la integración empieza a dar error, puedes cambiar las credenciales sin rehacer la conexión.
+
+En **Configuración → Integraciones**, pulsa **Ver** sobre tu integración y elige **Editar**.
+
+Las credenciales que ya están guardadas aparecen enmascaradas y en solo lectura: Nevent no las muestra completas ni las reenvía cuando guardas la configuración o las reglas de enrutamiento. Si la conexión está fallando, aquí es también donde ves el motivo del error que devuelve el proveedor.
+
+![Pantalla Editar integración de XCEED con la sección Credenciales en solo lectura, la API Key enmascarada, el botón Cambiar credenciales y el mensaje de credenciales inválidas](/images/guias/audiencia/conecta-tu-ticketera/credenciales-guardadas-solo-lectura.png)
+
+Para cambiarlas, pulsa **Cambiar credenciales**. Se abre un formulario aparte con los campos vacíos: escribe solo los valores que quieras cambiar, porque los campos que dejes en blanco conservan el valor actual. Al pulsar **Guardar credenciales**, el proveedor las comprueba antes de que se guarden.
+
+![Formulario Cambiar credenciales de XCEED con el campo API Key vacío y el texto de ayuda sobre conservar los valores actuales, con los botones Cancelar y Guardar credenciales](/images/guias/audiencia/conecta-tu-ticketera/formulario-cambiar-credenciales.png)
+
+:::note[Nota]
+Guardar las credenciales es una acción independiente del guardado general de la integración. Si solo cambias las reglas de enrutamiento o la configuración, tus credenciales no se tocan.
 :::
 
 ## Siguiente paso

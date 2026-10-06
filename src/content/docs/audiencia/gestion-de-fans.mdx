@@ -1,8 +1,11 @@
 ---
 title: Consulta y gestiona el perfil de un fan
 diataxis: how-to
+modulo: marketing
+nivel: basic
 description: Aprende a encontrar cualquier fan en Nevent y a leer cada sección de su perfil. Entiende su historial, intereses y estado de comunicación.
 sidebar:
+  label: "El perfil de un fan"
   order: 2
 ---
 
@@ -87,7 +90,7 @@ Las **Afinidades activas** son las etiquetas de género que Nevent ya tiene asig
 ![Sección Intereses de Abril Benítez Benítez con el buscador de artistas, el estado "Aún no sabemos qué escucha" y el bloque de Géneros con el botón para añadir género](/images/guias/audiencia/gestion-de-fans/paso-5-intereses.png)
 
 :::tip[Consejo]
-Puedes usar los géneros e intereses como criterios de segmentación. Crea un segmento de fans de reggaeton o de rock y dirígeles campañas relevantes. Aprende a hacerlo en la guía [Crea tu primer segmento](/segmentacion/motor-segmentacion/crear-segmento).
+Puedes usar los géneros e intereses como criterios de segmentación. Crea un segmento de fans de reggaeton o de rock y dirígeles campañas relevantes. Aprende a hacerlo en la guía [Crea tu primer segmento](/segmentacion/tu-primer-segmento).
 :::
 
 ## Paso 8: Entradas
@@ -107,6 +110,25 @@ Haz clic en **Compras**.
 Aquí ves el historial completo de compras del fan: fecha, estado de la transacción, canal de origen, importe y experiencia asociada. Cada fila tiene un enlace para ver el detalle de esa compra.
 
 ![Sección Compras de Abril Benítez Benítez con una compra registrada del 10/03/2026 por 98,65 € en la experiencia MMXXVI - BACCHANALIA](/images/guias/audiencia/gestion-de-fans/paso-7-compras.png)
+
+### Si trabajas con cashless CASFID
+
+Cuando el fan tiene movimientos cashless de CASFID, el historial añade una columna **Desglose** y agrupa cada consumo con sus líneas de producto en una sola operación. Antes cada línea aparecía como una fila suelta y parecía un cargo duplicado; ahora se abren y se cierran con **Ver desglose** y **Ocultar desglose**. El desglose es informativo: el panel avisa de que **no suma al importe**, y si las líneas no cuadran con el consumo registrado se conserva el importe del consumo.
+
+Cada movimiento se muestra con su tipo (**Consumo**, **Recarga**, **Crédito promocional**, **Movimiento sin verificar**, **Detalle sin consumo** o **No clasificado**) y su estado (**Registrado**, **Pendiente de verificar**, **Anulado** o **Sin consumo asociado**). Los importes se presentan tal como constan en origen, distinguiendo **Pagado**, **Saldo acreditado** y **Bonificación**: el saldo acreditado no se calcula a partir de lo pagado, y si el importe pagado no está disponible se dice así en lugar de sustituirlo.
+
+El selector **Registros mostrados** separa los **Activos** de los **Anulados**. Los anulados no cuentan como movimientos vigentes ni en ningún importe: solo están ahí para consulta. Un movimiento **Pendiente de verificar** tampoco suma: el panel muestra "Importe no disponible" en lugar de reutilizar un importe antiguo, y sus detalles de producto se marcan como informativos.
+
+En la columna **Experiencia**, los movimientos cashless muestran la edición a la que pertenecen:
+
+| Lo que ves | Qué significa |
+|---|---|
+| El nombre de la edición | El vínculo está confirmado y la edición es visible para ti. |
+| **Edición de otra organización** | El vínculo está confirmado, pero la edición pertenece a una organización a la que no tienes acceso. |
+| **Edición sin confirmar** o **Vínculo con edición en conflicto** | El vínculo todavía no está resuelto. |
+| **Sin edición vinculada** | No consta ninguna edición para ese movimiento. No es un error. |
+
+El detalle de cada movimiento incluye una **trazabilidad técnica** con la referencia y el evento en origen, el nombre recibido por última vez, y la edición con su revisión.
 
 ## Paso 10: Suscripciones
 
@@ -143,10 +165,10 @@ Si el fan todavía no tiene interacciones registradas, la tabla aparece vacía.
 Ya conoces todas las secciones del perfil de un fan en Nevent. Con esta información puedes entender el historial de compras de cada persona, su nivel de compromiso, sus preferencias de comunicación y sus gustos musicales.
 
 :::tip[Consejo]
-Si quieres trabajar con grupos de fans en vez de perfiles individuales, crea segmentos basados en criterios como el gasto total, el género musical o el estado del email. Es la forma más eficiente de preparar una campaña. Ve a [Crea tu primer segmento](/segmentacion/motor-segmentacion/crear-segmento) para empezar.
+Si quieres trabajar con grupos de fans en vez de perfiles individuales, crea segmentos basados en criterios como el gasto total, el género musical o el estado del email. Es la forma más eficiente de preparar una campaña. Ve a [Crea tu primer segmento](/segmentacion/tu-primer-segmento) para empezar.
 :::
 
 ## Siguiente paso
 
 - [Importa tus contactos](/audiencia/importar-fans) si todavía no tienes fans en tu base de datos.
-- [Crea tu primer segmento](/segmentacion/motor-segmentacion/crear-segmento) para agrupar a tus fans por criterios y usarlos en campañas.
+- [Crea tu primer segmento](/segmentacion/tu-primer-segmento) para agrupar a tus fans por criterios y usarlos en campañas.

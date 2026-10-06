@@ -1,0 +1,139 @@
+---
+title: "Preguntas frecuentes de segmentación"
+diataxis: reference
+modulo: marketing
+nivel: basic
+description: "Respuestas cortas a las dudas más comunes sobre segmentación en Nevent: segmentos dinámicos y estáticos, exportación, temperatura, grupos y rendimiento."
+sidebar:
+  label: "Preguntas frecuentes"
+  order: 8
+---
+
+import Schema from '../../../components/Schema.astro';
+
+<Schema>{`{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Los segmentos se actualizan automáticamente?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí. Por defecto, los segmentos en Nevent son dinámicos: cada vez que lanzas una campaña, el sistema recalcula quién cumple los criterios en ese momento. También puedes guardar un segmento como estático para congelar la lista de fans en un momento concreto."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Puedo exportar mi segmento?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí, puedes exportar la lista de fans de un segmento a CSV, con el nombre, el email y los campos básicos del contacto. Exporta solo fans que hayan dado su consentimiento para recibir comunicaciones."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cómo sé si mi segmento es demasiado pequeño o demasiado grande?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No hay un número único correcto: depende de tu base total y del objetivo de la campaña. Usa la previsualización antes de enviar para ver el tamaño estimado y decidir si necesitas ampliar o afinar los criterios."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué es la Temperatura Nevent?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Es una puntuación automática que clasifica a cada fan en uno de seis niveles de engagement, de Muy Caliente a Congelado, calculada a partir de su comportamiento de compra y de apertura de emails."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Puedo crear mis propios criterios de segmentación?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí, a través de campos personalizados. Creas el campo, asignas valores a tus fans y después puedes usarlo como criterio al construir un segmento."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Los grupos de un A/B testing cambian con el tiempo?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Un fan se asigna a un grupo de forma permanente. Esto asegura que puedas comparar resultados entre grupos de forma consistente a lo largo de varias campañas."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Los segmentos tienen algún coste?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Crear y ejecutar segmentos es ilimitado y no tiene coste. Solo se factura el envío de emails, SMS o notificaciones push según tu plan. Consulta la página Cómo funcionan el plan y los créditos."
+      }
+    }
+  ]
+}`}</Schema>
+
+Respuestas cortas a las dudas más comunes sobre segmentación en Nevent. Si necesitas el procedimiento completo de algo, cada respuesta enlaza a la guía correspondiente.
+
+## General
+
+### ¿Los segmentos se actualizan automáticamente?
+
+Sí. Por defecto, los segmentos son dinámicos: cada vez que lanzas una campaña, Nevent recalcula quién cumple los criterios en ese momento.
+
+También puedes guardarlo como estático para congelar la lista de fans en un momento concreto, útil para estudios de cohortes o análisis histórico. Más detalle en [tu primer segmento](/segmentacion/tu-primer-segmento/).
+
+### ¿Puedo exportar mi segmento?
+
+Sí, puedes exportar la lista de fans a CSV con el nombre, el email y los campos básicos del contacto.
+
+Exporta solo fans que hayan dado su consentimiento y trata los datos según la normativa de protección de datos vigente.
+
+### ¿Cómo sé si mi segmento es demasiado pequeño o demasiado grande?
+
+No hay un tamaño único correcto: depende de tu base total y del objetivo de la campaña. Usa la previsualización antes de enviar para ver el tamaño estimado.
+
+Consulta [buenas prácticas de segmentación](/segmentacion/buenas-practicas/) para los criterios que te ayudan a decidir si conviene ampliar o afinar.
+
+## Comportamiento y lógica
+
+### ¿Qué pasa si un fan cumple los criterios de varios segmentos a la vez?
+
+Puede recibir varias campañas si esos segmentos disparan envíos distintos sin coordinación entre sí. Revisa el calendario de campañas y usa exclusiones si quieres evitar el sobrecontacto. Más contexto en [buenas prácticas de segmentación](/segmentacion/buenas-practicas/).
+
+### ¿Puedo ver qué fans están en mi segmento antes de enviar?
+
+Sí. La previsualización te muestra el tamaño estimado y una muestra de perfiles reales antes de ejecutar la campaña.
+
+### ¿La segmentación afecta a la entregabilidad de mis emails?
+
+De forma indirecta sí: un segmento relevante suele generar más aperturas y menos quejas de spam, lo que ayuda a tu reputación de envío. Consulta [reputación de envío y spam](/entregabilidad/reputacion-y-spam/) para el detalle.
+
+## Criterios y categorías
+
+### ¿Qué es la Temperatura Nevent?
+
+Es una puntuación automática que clasifica a cada fan en uno de seis niveles de engagement, de Muy Caliente a Congelado, calculada a partir de su comportamiento de compra y de apertura de emails. La explicación completa está en [Nevent Score y Temperatura](/segmentacion/capacidades/score-y-temperatura/).
+
+### ¿Puedo crear mis propios criterios de segmentación?
+
+Sí, a través de campos personalizados: creas el campo, asignas valores a tus fans y lo usas como criterio al construir el segmento. Consulta el [catálogo de criterios de segmentación](/segmentacion/capacidades/) para ver el resto de opciones disponibles.
+
+## Grupos y A/B testing
+
+### ¿Los grupos cambian con el tiempo?
+
+No. Un fan se asigna a un grupo de forma permanente, lo que te permite comparar resultados entre grupos de forma consistente en varias campañas. El procedimiento completo está en [cómo dividir un segmento en grupos para A/B testing](/segmentacion/grupos-ab-testing/).
+
+## Rendimiento y coste
+
+### ¿Los segmentos tienen algún coste?
+
+No. Crear y ejecutar segmentos es ilimitado y no tiene coste adicional. Solo se factura el envío de emails, SMS o notificaciones push según tu plan de consumo ([Cómo funcionan el plan y los créditos](/consumo/como-funcionan-los-creditos/)). Consulta [tus créditos de email y SMS](/consumo/plan-de-uso/) para ver tu consumo actual.
+
+## Siguiente paso
+
+- [Tu primer segmento](/segmentacion/tu-primer-segmento/)
+- [Buenas prácticas de segmentación](/segmentacion/buenas-practicas/)
+- [Catálogo de casos de segmentación](/segmentacion/casos/)

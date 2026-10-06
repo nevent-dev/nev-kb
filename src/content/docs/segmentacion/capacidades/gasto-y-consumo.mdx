@@ -1,8 +1,11 @@
 ---
 title: "Gasto y consumo: segmentar fans por valor económico"
 diataxis: reference
+modulo: marketing
+nivel: pro
 description: "Segmenta fans de eventos por gasto total, ticket medio, tipo de entrada y consumo cashless. Identifica VIPs y high-spenders para campañas de mayor conversión."
 sidebar:
+  label: "Gasto y consumo"
   order: 4
 ---
 
@@ -67,6 +70,33 @@ Imagina que organizas un festival en Barcelona con sistema cashless: puedes iden
 El tipo de entrada que elige un fan (early bird, general, VIP, abono...) no solo refleja su capacidad de gasto sino también su comportamiento de compra. Los compradores de early bird son fans de alta motivación que actúan rápido; los de VIP priorizan la experiencia sobre el precio. Combina este criterio con otros para afinar el mensaje.
 :::
 
+## ¿Cómo segmentar por una edición concreta?
+
+Una edición agrupa los eventos comerciales y las fuentes cashless de una misma convocatoria de tu festival. La categoría **Consumo** incluye dos criterios que miran solo dentro de la edición que elijas:
+
+| Criterio | Qué representa |
+|---|---|
+| **Gasto en una edición (bruto)** | Suma bruta en euros de las operaciones cobradas y vigentes del fan dentro de esa edición: compras de sus eventos comerciales y consumos cashless de sus fuentes. Sigue la misma regla que el gasto total (sin recargas, sin desglose por producto y sin créditos promocionales), pero sin sumar nada de otras ediciones. |
+| **Ha participado en una edición** | Sí cuando consta en esa edición al menos una operación cobrada y vigente, o una recarga cashless vigente. No es asistencia verificada. |
+
+Los dos criterios solo cuentan compras y consumos con **vínculo confirmado** a la edición. Si el importe de la edición es desconocido, o hay un movimiento cashless que no se puede atribuir a ninguna edición, el fan no cumple ninguna condición de importe: tampoco la de "sin operaciones registradas".
+
+### Elegir la edición
+
+Al seleccionar cualquiera de los dos criterios aparece debajo un selector de edición. El criterio está incompleto hasta que elijas una: sin edición, el segmento ni se guarda ni se previsualiza, y el editor pide "Elige una edición para completar el criterio".
+
+![Editor de segmentos con el criterio Consumo → "Gasto en una edición (bruto)" seleccionado y, debajo, el selector de edición en estado "Sin ediciones" con el texto "No hay ediciones en tus organizaciones. Se crean desde la gestión de ediciones"](/images/guias/segmentacion/capacidades/gasto-y-consumo/paso-1-criterio-edicion.png)
+
+Si tu organización todavía no tiene ninguna edición, el selector muestra **Sin ediciones** y explica que se crean desde la gestión de ediciones. Una edición sin vínculos confirmados tampoco se puede usar para segmentar.
+
+### La revisión de la edición
+
+Las ediciones se revisan: alguien puede añadir o quitar eventos y fuentes con el tiempo. Para que un segmento guardado no cambie de población sin avisar, el criterio **fija la revisión** con la que se creó y la muestra como "Vínculos de la edición: revisión N".
+
+Cuando existe una revisión más nueva, el editor lo indica y te ofrece la acción **Usar la revisión N**. Solo cambia si la pulsas tú. También puedes elegir **Usar siempre la revisión más reciente** si prefieres que el segmento siga a la edición según evoluciona.
+
+Si abres un segmento cuya edición ya no existe o ya no pertenece a tus organizaciones, el editor lo marca como **Edición no disponible** y te pide que elijas otra para completar el criterio.
+
 ## Ejemplo práctico: campaña de upgrade para fans de gasto medio-alto
 
 Imagina que tienes una gira de rock por varias ciudades españolas, incluidas Madrid, Bilbao y Sevilla, y quieres identificar a fans con potencial para comprar upgrade a VIP. Construyes un segmento: fans con ticket promedio superior a 60€ que han comprado entrada general (no VIP) al menos dos veces. Son fans que tienen capacidad de gasto pero aún no han probado la experiencia VIP. Una comunicación que explique en detalle qué incluye el acceso VIP puede tener una tasa de conversión muy superior a la media.
@@ -76,6 +106,7 @@ Imagina que tienes una gira de rock por varias ciudades españolas, incluidas Ma
 - El gasto total histórico es tu indicador principal de valor del fan a largo plazo.
 - El ticket promedio revela la propensión de gasto por compra, útil para ofertas de upgrade.
 - Recarga y consumo cashless son señales potentes de compromiso económico dentro del evento.
+- Los criterios por edición acotan gasto y participación a una convocatoria concreta, con la revisión fijada para que el segmento no cambie solo.
 - El tipo de entrada elegido informa sobre el perfil de comportamiento de compra del fan.
 
 ## Siguiente paso
