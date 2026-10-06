@@ -54,6 +54,14 @@ Time frames control the period over which a criterion is evaluated. You have thr
 
 Using relative time frames is useful when the segment will be reused across different campaigns: "last 60 days" always recalculates to the present moment. Absolute dates are useful for retrospective analysis of a specific campaign.
 
+### Dates are picked by day, not by time
+
+Date criteria are compared by whole day. The picker that appears when you choose a date operator (**Before**, **After**, **Between dates** or **On the date**) is a calendar without a time field: you pick a day and the segment covers that entire day.
+
+This removes the most common mismatch when segmenting by date: there is no hidden time that could shift the criterion to the previous or the next day. If you pick "Between 1 and 30 June," purchases from the very start of 1 June and up to the end of 30 June are included.
+
+Segments saved before this change keep the date they were created with and still display the same way. As soon as you edit the criterion, both dates are stored as days.
+
 ## What modifiers are available?
 
 Modifiers refine how a criterion is evaluated by adding quantity, distance or frequency conditions:

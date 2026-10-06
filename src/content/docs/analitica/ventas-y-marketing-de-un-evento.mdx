@@ -1,0 +1,76 @@
+---
+title: "Cómo leer el informe Ventas y marketing de un evento | Nevent"
+diataxis: how-to
+modulo: revenue
+nivel: unico
+description: "Aprende a leer el informe Ventas y marketing de un evento en Nevent: pedidos, bruto informado, procedencia de las ventas y calidad del dato."
+sidebar:
+  label: "Ventas y marketing de un evento"
+  order: 12
+---
+
+El informe **Ventas y marketing** reúne en una sola pantalla cuántos pedidos ha generado un evento, cuánto han facturado y de dónde vienen esas ventas. Esta guía te enseña a leerlo. Unos 5 minutos.
+
+## Antes de empezar
+
+Necesitas un evento con ventas registradas. El informe usa el rango de fechas del panel de filtros como **días de compra**: si eliges un rango pasado, solo cuenta las compras hechas dentro de ese rango.
+
+## Paso 1: Abre el informe desde la analítica del evento
+
+Entra en **Experiencias** y haz clic en el nombre de tu evento. Se abre la pestaña **Analytics**.
+
+Arriba a la derecha hay un desplegable con los informes disponibles. Despliégalo y elige **Ventas y marketing**.
+
+![Analítica del evento MMXXVI — SATVRNALIA con el desplegable de informes abierto, mostrando las opciones Comportamiento, Patrones temporales, Audiencia y Ventas y marketing, esta última resaltada](/images/guias/analitica/ventas-y-marketing-de-un-evento/paso-1-selector-de-informe.png)
+
+## Paso 2: Lee la cabecera y las cuatro cifras clave
+
+La cabecera te dice sobre qué datos estás mirando: el rango de **fecha de compra**, la **moneda** y el tipo de ventas incluidas. A la derecha, un indicador te confirma si los datos están **Al día**.
+
+Debajo, cuatro cifras resumen el evento:
+
+| Cifra | Qué cuenta | Detalle que la acompaña |
+|---|---|---|
+| Pedidos | Pedidos registrados en el rango | Importe bruto medio por pedido |
+| Entradas | Entradas vendidas | Entradas canceladas, contadas aparte |
+| Bruto informado | Facturación informada, con comisiones | El neto no está disponible |
+| Con origen de marketing | Porcentaje de pedidos con procedencia conocida | Cuántos pedidos sobre el total |
+
+Justo debajo, **Pedidos por día** muestra la evolución diaria. Con las pestañas **Pedidos**, **Bruto** y **Entradas** cambias la magnitud del gráfico sin perder el rango.
+
+![Informe Ventas y marketing con las cifras Pedidos 423, Entradas 853, Bruto informado 36.279,99 € y Con origen de marketing 43,3 %, y debajo el gráfico de barras Pedidos por día](/images/guias/analitica/ventas-y-marketing-de-un-evento/paso-2-cabecera-y-cifras-clave.png)
+
+:::note[El bruto informado no es tu beneficio]
+El bruto informado incluye comisiones y puede incluir entradas canceladas parcialmente. No lo uses como cifra de liquidación: para eso concilia con el total del evento que aparece al pie del informe.
+:::
+
+## Paso 3: Averigua dónde se vendió y de dónde vino cada pedido
+
+Dos bloques responden a preguntas distintas:
+
+- **¿Dónde se vendió?** reparte los pedidos por canal de venta. Las pestañas **Ticketera**, **Canal**, **Compra** y **Promo** cambian la dimensión. La pestaña **Promo** agrupa por código promocional.
+- **¿De dónde vino?** reparte los pedidos por origen de marketing, con las pestañas **Fuente**, **Medio** y **Campaña**.
+
+Cuando una dimensión no está informada, el bloque te lo dice explícitamente en lugar de dejarte un hueco: verás un aviso del tipo «No aplica en los N pedidos» o «N pedidos llegan sin origen informado».
+
+El bloque **Calidad del dato** resume de un vistazo qué cobertura tiene cada dimensión. Una cobertura del 0 % significa que esa dimensión no te sirve todavía para decidir.
+
+![Bloques ¿Dónde se vendió? y ¿De dónde vino?, el resumen Calidad del dato con la cobertura por dimensión, el Embudo con impresiones, clics, sesiones web y pedidos, y el bloque Campañas](/images/guias/analitica/ventas-y-marketing-de-un-evento/paso-3-calidad-embudo-campanas.png)
+
+## Paso 4: Baja al detalle con «Ver tabla y compras»
+
+Cada bloque de procedencia tiene un enlace **Ver tabla y compras** que abre un cajón lateral con la tabla completa: valor, pedidos, entradas, bruto informado y el peso en porcentaje de cada fila.
+
+En ese cajón puedes buscar un valor concreto, ajustar cuántos valores ver por ticketera y exportar a CSV. Los pedidos cuya procedencia no se conoce aparecen agrupados como **Desconocido**, con la nota de que no hay evidencia de su valor.
+
+![Cajón lateral ¿De dónde vino? · Fuente con la tabla de valores, el subtotal de Nevent venta propia, la fila Desconocido sin evidencia, el total del evento y el botón Exportar CSV](/images/guias/analitica/ventas-y-marketing-de-un-evento/paso-4-cajon-tabla-y-compras.png)
+
+## Resultado
+
+Ya sabes cuántos pedidos ha generado el evento, cuánto han facturado, por qué canal entraron y qué parte de esa información es fiable. Si la cobertura de origen es baja, el siguiente paso es mejorar el marcado de tus enlaces antes de sacar conclusiones de atribución.
+
+## Siguiente paso
+
+- [Métricas de eventos y entradas](/analitica/eventos-y-entradas) para el catálogo completo de lo que puedes medir.
+- [Cómo funciona el tracking y la atribución](/analitica/tracking-y-atribucion) para entender por qué hay pedidos sin origen.
+- [No veo ventas atribuidas a mis campañas](/solucion-de-problemas/ventas-no-atribuidas) si la cobertura de origen es muy baja.

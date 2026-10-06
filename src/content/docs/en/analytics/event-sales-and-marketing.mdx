@@ -1,0 +1,73 @@
+---
+title: "How to read an event's Sales and marketing report | Nevent"
+description: "Learn to read the Sales and marketing report for an event in Nevent: orders, reported gross, where each sale came from and how reliable the data is."
+sidebar:
+  label: "Event sales and marketing"
+  order: 12
+---
+
+The **Sales and marketing** report brings together, on a single screen, how many orders an event generated, how much they billed and where those sales came from. This guide shows you how to read it. About 5 minutes.
+
+## Before you start
+
+You need an event with recorded sales. The report uses the date range in the filters panel as **purchase days**: if you pick a past range, it only counts purchases made within that range.
+
+## Step 1: Open the report from the event analytics
+
+Go to **Experiences** and click your event's name. The **Analytics** tab opens.
+
+At the top right there is a dropdown with the available reports. Open it and choose **Sales and marketing**.
+
+![Event analytics for MMXXVI — SATVRNALIA with the report dropdown open, showing Behaviour, Time patterns, Audience and Sales and marketing, the last one highlighted](/images/guias/analitica/ventas-y-marketing-de-un-evento/paso-1-selector-de-informe.png)
+
+## Step 2: Read the header and the four key figures
+
+The header tells you which data you are looking at: the **purchase date** range, the **currency** and the type of sales included. On the right, an indicator confirms whether the data is up to date.
+
+Below it, four figures summarise the event:
+
+| Figure | What it counts | Detail shown with it |
+|---|---|---|
+| Orders | Orders recorded in the range | Average gross amount per order |
+| Tickets | Tickets sold | Cancelled tickets, counted separately |
+| Reported gross | Reported billing, fees included | Net is not available |
+| With a marketing source | Share of orders with a known source | How many orders out of the total |
+
+Just below, **Orders per day** shows the daily trend. The **Orders**, **Gross** and **Tickets** tabs switch the magnitude of the chart without losing the range.
+
+![Sales and marketing report with the figures 423 orders, 853 tickets, 36,279.99 € reported gross and 43.3% with a marketing source, and the Orders per day bar chart underneath](/images/guias/analitica/ventas-y-marketing-de-un-evento/paso-2-cabecera-y-cifras-clave.png)
+
+:::note[Reported gross is not your profit]
+Reported gross includes fees and may include partially cancelled tickets. Do not use it as a settlement figure: reconcile instead against the event total shown at the foot of the report.
+:::
+
+## Step 3: Find out where each order was sold and where it came from
+
+Two blocks answer different questions:
+
+- **Where was it sold?** splits orders by sales channel. The **Ticketing platform**, **Channel**, **Purchase** and **Promo** tabs switch the dimension. The **Promo** tab groups by promotional code.
+- **Where did it come from?** splits orders by marketing source, with the **Source**, **Medium** and **Campaign** tabs.
+
+When a dimension has no data, the block says so explicitly instead of leaving a gap: you will see a notice such as "Does not apply to the N orders" or "N orders arrive with no reported source".
+
+The **Data quality** block summarises at a glance how much coverage each dimension has. A coverage of 0% means that dimension is not yet usable for decisions.
+
+![The Where was it sold? and Where did it come from? blocks, the Data quality summary with coverage per dimension, the Funnel with impressions, clicks, web sessions and orders, and the Campaigns block](/images/guias/analitica/ventas-y-marketing-de-un-evento/paso-3-calidad-embudo-campanas.png)
+
+## Step 4: Drill down with "View table and purchases"
+
+Each provenance block has a **View table and purchases** link that opens a side drawer with the full table: value, orders, tickets, reported gross and the percentage weight of each row.
+
+In that drawer you can search for a specific value, adjust how many values to show per ticketing platform and export to CSV. Orders whose source is unknown are grouped as **Unknown**, with a note that there is no evidence of their value.
+
+![Side drawer Where did it come from? · Source with the table of values, the Nevent own-sales subtotal, the Unknown row with no evidence, the event total and the Export CSV button](/images/guias/analitica/ventas-y-marketing-de-un-evento/paso-4-cajon-tabla-y-compras.png)
+
+## Result
+
+You now know how many orders the event generated, how much they billed, which channel they came through and how much of that information is reliable. If source coverage is low, the next step is to improve the tagging of your links before drawing any attribution conclusions.
+
+## Next step
+
+- [Event and ticket metrics](/en/analytics/events-and-tickets) for the full catalogue of what you can measure.
+- [How tracking and attribution work](/en/analytics/tracking-and-attribution) to understand why some orders have no source.
+- [Unattributed sales](/en/troubleshooting/unattributed-sales) if source coverage is very low.

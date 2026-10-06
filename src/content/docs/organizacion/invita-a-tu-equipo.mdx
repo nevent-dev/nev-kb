@@ -2,85 +2,114 @@
 title: "Añade usuarios a tu organización"
 diataxis: how-to
 modulo: plataforma
-description: "Da acceso a tu equipo en Nevent: invita administradores, crea usuarios de staff para escanear en puerta y gestiona sus permisos desde Configuración → Usuarios."
+description: "Invita administradores a tu organización de Nevent por enlace, sigue el estado de cada invitación y gestiona los permisos de escaneo del staff desde Configuración → Usuarios."
 sidebar:
   badge:
     text: "Nuevo"
     variant: "tip"
   order: 3
 faqs:
-  - q: "¿Qué diferencia hay entre un administrador y un usuario de staff?"
-    a: "El administrador entra al panel y trabaja con tus datos: campañas, audiencia, eventos. El staff está pensado para el día del evento: se le crea una cuenta para escanear en puerta y solo puede escanear lo que le autorices."
+  - q: "¿Qué diferencia hay entre un administrador y un usuario de staff de escaneo?"
+    a: "El administrador entra al backoffice y trabaja con tus datos: campañas, audiencia, eventos. El staff de escaneo está pensado para el día del evento: solo puede escanear lo que le autorices (tickets, complementos o personalizaciones)."
   - q: "¿Puedo hacer propietario a otra persona?"
-    a: "No desde esta pantalla. Al añadir un usuario solo puedes elegir entre administrador y staff. El propietario es quien creó la cuenta y aparece marcado como tal en el listado."
-  - q: "He creado un usuario de staff y he cerrado la ventana sin copiar la contraseña. ¿Puedo volver a verla?"
-    a: "No. La contraseña temporal se muestra una sola vez. Si la has perdido, elimina ese usuario y vuelve a crearlo para generar una nueva."
-  - q: "¿Por qué la columna Permisos aparece vacía en algunos usuarios?"
-    a: "Porque los permisos de escaneo solo se aplican al staff. En propietarios y administradores esa columna siempre sale vacía: no es un error ni algo pendiente de configurar."
-  - q: "He invitado a alguien y me dice que el email ya está registrado."
-    a: "Esa persona ya pertenece a tu organización. Búscala en el listado: probablemente ya está con otro rol."
-  - q: "¿Puedo cambiar los permisos de escaneo después de crear el usuario?"
-    a: "Sí. En el menú de tres puntos de su fila tienes la opción de editar permisos."
+    a: "No desde esta pantalla. Solo se puede invitar administradores. El propietario es quien creó la cuenta y aparece marcado como tal en Miembros."
+  - q: "He enviado una invitación y la persona dice que no le llega el correo."
+    a: "Mira la columna Envío del correo de su invitación. Si ves «Rebotado» o «Rechazado por el proveedor», revisa la dirección y pulsa Reenviar. Si la invitación ya ha caducado, usa Volver a invitar."
+  - q: "La persona invitada no puede aceptar y le sale que ya pertenece a otra organización."
+    a: "Una cuenta solo puede pertenecer a una organización de Nevent. Mientras esté asignada a otra, no podrá aceptar tu invitación con esa misma cuenta."
+  - q: "¿Puedo cambiar los permisos de escaneo de un usuario de staff?"
+    a: "Sí. En su fila de Miembros tienes el botón Editar permisos. Elige al menos una opción y guarda los cambios."
+  - q: "¿Por qué la columna Acceso pone «Backoffice» en unos usuarios y «Escanea tickets» en otros?"
+    a: "Acceso resume lo que puede hacer cada persona: los propietarios y administradores entran al backoffice; el staff de escaneo solo escanea los recursos que tenga autorizados."
 ---
 
-En Configuración → Usuarios das acceso a tu equipo y decides qué puede hacer cada persona. Hay dos casos muy distintos: alguien que va a trabajar en el panel y alguien que solo va a escanear en la puerta el día del evento.
+En Configuración → Usuarios das acceso a tu equipo y controlas quién tiene acceso hoy y a quién has invitado. Desde esta pantalla invitas a **administradores** por enlace, sigues el estado de cada invitación y gestionas a las personas que ya son miembros.
 
-En esta guía añades ambos. Unos 5 minutos.
+En esta guía invitas a un administrador y revisas su invitación. Unos 5 minutos.
 
 ## Antes de empezar
 
-Necesitas ser **propietario o administrador** de la organización. Si no lo eres, el panel no te dejará añadir ni eliminar usuarios.
+Necesitas ser **propietario o administrador** de la organización. Si no lo eres, el panel no te dejará invitar ni quitar el acceso a nadie.
 
-## Paso 1: Abre el listado de usuarios
+Ten en cuenta que una cuenta de Nevent solo puede pertenecer a **una** organización. Si la persona a la que quieres invitar ya está en otra, no podrá aceptar con esa misma cuenta.
+
+## Paso 1: Abre la pantalla de usuarios
 
 En el menú lateral, entra en **Configuración** y, dentro del bloque **Espacio de trabajo**, haz clic en **Usuarios**.
 
-Verás la lista de quién tiene acceso hoy, con seis columnas: correo electrónico, nombre, rol, permisos, última actividad y acciones.
+La pantalla tiene dos bloques:
 
-![Listado de usuarios de la organización DEMO FEST en Nevent, con dos filas: un usuario con rol Propietario que nunca ha entrado y otro con rol Administrador con actividad de hoy](/images/guias/organizacion/invita-a-tu-equipo/paso-1-listado-usuarios.png)
+- **Miembros:** las personas con acceso ahora mismo. Cada fila muestra la persona (nombre y correo), su rol, su acceso, su última actividad y las acciones disponibles.
+- **Invitaciones de administrador:** las invitaciones que has enviado, con su estado y el estado del envío del correo.
 
-La columna **Última actividad** es la más útil para revisar accesos: te dice si alguien no ha entrado nunca, o cuándo lo hizo por última vez.
+![Pantalla Usuarios de la organización DEMO FEST con el botón Invitar administrador arriba a la derecha, la tabla Miembros con seis personas (propietario, administradores y un staff de escaneo) y, debajo, la tabla Invitaciones de administrador con una invitación aceptada](/images/guias/organizacion/invita-a-tu-equipo/paso-1-miembros-e-invitaciones.png)
+
+La columna **Última actividad** es la más útil para revisar accesos: te dice si alguien no ha entrado nunca («Nunca»), o cuándo lo hizo por última vez («Hoy, 06:03», «Hace 6 días», o una fecha).
 
 ## Los tres roles
 
 | Rol | Para quién | Qué implica |
 |---|---|---|
 | **Propietario** | Quien creó la cuenta | Es el rol de origen. No se puede asignar desde esta pantalla |
-| **Administrador** | Tu equipo de marketing y operaciones | Entra al panel y trabaja con campañas, audiencia y eventos |
-| **Staff** | Personal de puerta el día del evento | Cuenta para escanear, limitada a lo que le autorices |
+| **Administrador** | Tu equipo de marketing y operaciones | Acceso completo al backoffice de la organización. Es el único rol que se puede invitar |
+| **Staff de escaneo** | Personal de puerta el día del evento | Solo escanea los recursos que le autorices: tickets, complementos o personalizaciones |
 
-Al añadir un usuario solo puedes elegir entre **administrador** y **staff**.
+## Paso 2: Invita a un administrador
 
-## Paso 2: Añade un administrador
+Pulsa **Invitar administrador**, arriba a la derecha. Se abre la ventana del mismo nombre.
 
-Pulsa **Añadir usuario**, arriba a la derecha. Se abre la ventana **Añadir nuevo usuario**.
+Escribe su **correo electrónico** y confirma con **Enviar invitación**. El rol es siempre **Administrador**: no hay nada más que elegir.
 
-Escribe su **correo electrónico** y deja el rol en **Administrador**, que viene seleccionado por defecto. Confirma con **Añadir usuario**.
+![Ventana Invitar administrador con el texto «Recibirá un correo con un enlace para unirse a DEMO FEST. No tendrá acceso hasta que lo acepte», el campo Correo electrónico vacío, la tarjeta del rol Administrador y los botones Cancelar y Enviar invitación](/images/guias/organizacion/invita-a-tu-equipo/paso-2-dialogo-invitar-administrador.png)
 
-Nevent le manda una **invitación por email** a esa dirección. La persona aparece en el listado y su última actividad será "Nunca" hasta que entre por primera vez.
+La persona recibe un correo con un enlace para unirse a tu organización. **No tiene acceso hasta que lo acepta.** Cuando lo hace, desaparece de Invitaciones de administrador y pasa a Miembros.
 
-Si el panel responde que ese email ya está registrado, es que esa persona ya pertenece a tu organización.
+Si ya había una invitación pendiente para ese correo, el panel te lo dice y puedes reenviarla desde su fila. Si esa persona ya forma parte de tu equipo, también te avisa.
 
-## Paso 3: Crea un usuario de staff
+## Paso 3: Sigue el estado de la invitación
 
-El flujo es el mismo hasta que cambias el rol a **Staff**. En ese momento aparecen dos campos más:
+En el bloque **Invitaciones de administrador** aparece cada invitación con quién la envió y cuándo, y dos columnas de estado. Pulsa el icono de información junto a cada estado para ver qué significa.
 
-- **Nombre**, opcional, pero conviene rellenarlo para identificar a cada persona en la puerta.
-- **Permisos de escaneo**, donde eliges qué puede validar: **Tickets**, **Complementos** y **Personalizaciones**. Tienes que marcar al menos uno.
+![Tabla Invitaciones de administrador con una invitación en estado Aceptada y envío del correo En la cola de correo; el popover de información abierto explica que el aviso ha pasado a la cola de correo saliente y que la entrega al servidor del destinatario no está confirmada](/images/guias/organizacion/invita-a-tu-equipo/paso-3-invitaciones-estado-envio.png)
 
-![Ventana Añadir nuevo usuario con el rol Staff seleccionado, mostrando los campos adicionales de Nombre y Permisos de escaneo con las opciones Tickets, Complementos y Personalizaciones](/images/guias/organizacion/invita-a-tu-equipo/paso-2-anadir-usuario-staff.png)
+La columna **Estado** te dice en qué punto está la invitación:
 
-Marca solo lo que esa persona vaya a escanear. Si alguien está en la puerta principal validando entradas, no necesita poder escanear complementos.
+| Estado | Qué significa |
+|---|---|
+| **Pendiente** | Sigue abierta y puede aceptarse hasta su fecha límite |
+| **Aceptada** | Quien la recibió ya se ha unido a la organización |
+| **Anulada** | Alguien de tu equipo la anuló y su enlace ya no funciona |
+| **Rechazada** | Quien la recibió la rechazó y no se puede reabrir |
+| **Caducada** | Su plazo terminó. Puedes volver a invitar a esta persona |
 
-:::caution[La contraseña se muestra una sola vez]
-Al staff no se le envía invitación por email: Nevent genera una **contraseña temporal** y te la muestra en pantalla al terminar. Cópiala y pásasela tú, porque al cerrar esa ventana no vuelve a estar disponible. La persona tendrá que cambiarla la primera vez que entre.
-:::
+La columna **Envío del correo** te dice qué se sabe del correo de aviso. Es información del proveedor de correo, no de la persona: «Entregado al servidor de destino» significa que el servidor del destinatario aceptó el aviso, no que alguien lo haya abierto. Si ves **Rebotado** o **Rechazado por el proveedor**, revisa la dirección antes de reenviar.
+
+Mientras una invitación está **Pendiente**, en su fila puedes:
+
+- **Reenviar**, que genera un enlace nuevo. El anterior deja de funcionar.
+- **Anular**, que invalida el enlace. Pide confirmación y no se puede deshacer.
+
+Cuando una invitación ha **Caducado**, tienes **Volver a invitar**.
+
+Si acabas de enviar una invitación y no la ves actualizada, pulsa **Actualizar** en la cabecera del bloque.
 
 ## Paso 4: Cambia permisos o quita a alguien
 
-En el menú de tres puntos de cada fila tienes dos opciones:
+En la tabla **Miembros**, cada fila tiene sus acciones a la derecha:
 
-- **Editar permisos**, para cambiar qué puede escanear un usuario de staff sin tener que recrearlo.
-- **Eliminar usuario**, que pide confirmación antes de sacar a esa persona de la organización.
+- **Editar permisos**, solo en usuarios de staff de escaneo. Marca qué podrá escanear (**Tickets**, **Complementos**, **Personalizaciones**), al menos una opción, y pulsa **Guardar cambios**.
+- **Quitar acceso**, que pide confirmación antes de sacar a esa persona de la organización. Si más adelante la necesitas, tendrás que volver a invitarla.
+
+Tu propia fila (marcada con **Tú**) y la del propietario no tienen estas acciones.
+
+:::note[Alta de staff de escaneo]
+Desde esta pantalla solo se invita a administradores. Los usuarios de staff de escaneo que ya existen siguen apareciendo en Miembros con sus permisos, y puedes editarlos o quitarles el acceso.
+:::
 
 Revisa este listado después de cada evento: el staff de puerta suele ser temporal y no tiene sentido que conserve el acceso hasta el siguiente.
+
+## Siguiente paso
+
+- [Estructura de tu organización](/organizacion/estructura-de-tu-organizacion) para entender marcas, organización y usuarios.
+- [Qué son los tres niveles](/organizacion/que-son-los-tres-niveles) si gestionas varias marcas bajo una misma organización.
+- [Activa tus canales](/entregabilidad/activar-canales) para que tu equipo pueda empezar a enviar.

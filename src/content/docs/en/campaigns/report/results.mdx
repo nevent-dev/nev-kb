@@ -1,33 +1,64 @@
 ---
 title: How to interpret your campaign results
 diataxis: how-to
-description: Learn to read the open and click metrics of a sent campaign in Nevent, what healthy benchmarks look like, and what to do if yours are low.
+needs_screenshots: true
+description: Learn to read the metrics of a sent campaign in Nevent, for email (opens and clicks) and WhatsApp (delivered and read), and what to do if yours are low.
 ---
 
 This guide explains how to read the metrics block in the report of a sent campaign: what each number means and how to tell if your campaign is performing well. About 3 minutes.
 
 ## Before you start
 
-You need at least one campaign in **Sent** status. If you haven't launched one yet, follow [How to create your first campaign](/en/campaigns/create-your-first-campaign/) first.
+You need at least one campaign already launched, in **Processed** status. If you haven't launched one yet, follow [How to create your first campaign](/en/campaigns/create-your-first-campaign/) first.
 
 ## Step 1: Open your campaign's report
 
 In the side menu, click **My campaigns**.
 
-Look in the list for a campaign with **Sent** status and click its name. The report opens, with the report's side menu on the left: Summary, Deliverability, Unsubscribes, Segments and Interaction.
+In the list, every campaign carries its status. These are the ones you will come across:
+
+| Status | What it means |
+|---|---|
+| Draft | Not launched yet |
+| Processed | The send finished and there are results to read |
+| Stopped | The send was interrupted before finishing |
+| Failed | The send never went out |
+
+Click the name of a **Processed** campaign. The report opens, with the report's side menu on the left: Summary, Deliverability, Unsubscribes, Segments and Interaction.
 
 The first section you see is the **Summary**.
+
+:::note[Processed is not the same as delivered]
+"Processed" means Nevent finished handling the send, not that every recipient received it. What actually arrived is the **Delivered** metric, and the reasons for what did not are in [Deliverability](/en/campaigns/report/bounces/).
+:::
 
 ## Step 2: Read the metrics block
 
 Right below the configuration details (channel, subject, sender) you'll see four cards with the send results.
 
-The four metrics are:
+![Summary of the campaign "La playlist oficial de BACCHANALIA ya está aquí" in Processed status, with the metrics Sent 3000, Delivered 2954 (98.5% of sent), Opened 1149 (38.9% of delivered) and Clicks 227 (19.8% of unique opens)](/images/guias/campanas/informe/resultados/resumen-estado-procesada.png)
 
-- **Sent:** the total number of emails Nevent attempted to deliver.
-- **Delivered:** the ones the recipient's server accepted. The percentage is calculated over sent.
-- **Opened:** recipients who opened the email at least once. The percentage is calculated over sent.
-- **Clicks:** the number of times someone clicked a link in the email. The percentage is calculated over sent.
+Note that each percentage states its denominator under the number: not every metric is calculated over the same base.
+
+- **Sent:** the total number of emails Nevent handed to the sending service.
+- **Delivered:** the ones the recipient's server accepted, as a percentage **of sent**.
+- **Opened:** recipients who opened the email at least once, as a percentage **of delivered**.
+- **Clicks:** clicks on links in the email, as a percentage **of unique opens**.
+
+## If the campaign is a WhatsApp campaign
+
+For a WhatsApp campaign the results block does not show opens or clicks, but the four counters Meta returns for that send:
+
+- **Sent:** messages from this send that went out to Meta.
+- **Delivered:** messages Meta reports as delivered to the recipient.
+- **Read:** messages Meta reports as read by the recipient.
+- **Failed:** messages Meta reports as failed.
+
+All four counters come from Meta's notifications about this campaign, so they update as Meta sends them.
+
+If part of the audience was never sent, a notice below the counters shows how many recipients **were not sent because Meta's messaging limit was reached** (unique recipients every 24 hours). Those contacts received nothing: you can send them another campaign once the limit frees up.
+
+The benchmark ranges below and the report's Deliverability section apply to email campaigns only.
 
 ## How to tell if your results are good
 
