@@ -92,6 +92,25 @@ Click **Purchases**.
 
 Here you see the fan's complete purchase history: date, transaction status, source channel, amount and associated experience. Each row has a link to view that purchase's detail.
 
+### If you work with CASFID cashless
+
+When the fan has CASFID cashless movements, the history adds a **Breakdown** column and groups each consumption with its product lines into a single operation. Each line used to appear as a separate row and looked like a duplicate charge; now you open and close them with **Show breakdown** and **Hide breakdown**. The breakdown is informative: the panel warns that it **does not add to the amount**, and if the lines don't match the recorded consumption, the consumption's amount is kept.
+
+Every movement shows its type (**Consumption**, **Top-up**, **Promotional credit**, **Unverified movement**, **Line without consumption** or **Unclassified**) and its state (**Recorded**, **Pending verification**, **Voided** or **No linked consumption**). Amounts are shown as reported by the source, distinguishing **Paid**, **Credited balance** and **Bonus**: the credited balance is not calculated from the amount paid, and when the amount paid isn't available the panel says so instead of substituting it.
+
+The **Records shown** selector separates **Active** records from **Voided** ones. Voided records don't count as live movements or in any amount: they are there for reference only. A movement that is **Pending verification** doesn't add up either: the panel shows "Amount unavailable" instead of reusing an older amount, and its product lines are marked as informative.
+
+In the **Experience** column, cashless movements show the edition they belong to:
+
+| What you see | What it means |
+|---|---|
+| The edition's name | The link is confirmed and the edition is visible to you. |
+| **Edition of another organization** | The link is confirmed, but the edition belongs to an organization you can't access. |
+| **Edition not confirmed** or **Edition link in conflict** | The link isn't resolved yet. |
+| **No linked edition** | No edition is recorded for that movement. It isn't an error. |
+
+Each movement's detail includes a **technical trace** with the reference and event at source, the name last received, and the edition with its revision.
+
 ## Step 10: Subscriptions
 
 Click **Subscriptions**.
