@@ -249,6 +249,7 @@ export default defineConfig({
 						{ label: 'I don\'t see attributed sales', link: '/en/troubleshooting/unattributed-sales/' },
 						{ label: 'My domain won\'t verify', link: '/en/troubleshooting/domain-not-verifying/' },
 						{ label: 'My segment is empty after import', link: '/en/troubleshooting/my-segment-is-empty-after-import/' },
+						{ label: 'The WhatsApp connection fails', link: '/en/troubleshooting/whatsapp-connection-fails/' },
 					],
 				},
 				{
