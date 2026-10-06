@@ -1,0 +1,97 @@
+---
+title: Cómo cambiar el tipo de envío de una plantilla
+diataxis: how-to
+modulo: marketing
+nivel: basic
+description: Cambia una plantilla de email entre marketing y transaccional desde el panel, sin pasar por soporte, y entiende qué implica cada tipo.
+sinonimos:
+  - "plantilla transaccional"
+  - "marketing o transaccional"
+  - "tipo de envío"
+sidebar:
+  label: "Cambia el tipo de envío"
+  order: 3
+faqs:
+  - q: "¿Quién puede cambiar el tipo de envío de una plantilla?"
+    a: "Solo un administrador o el propietario de la cuenta. Si tienes otro rol verás la opción, pero el botón aparece desactivado con una explicación."
+  - q: "¿Cambiar el tipo envía algo?"
+    a: "No. Cambiar el tipo de envío no manda ningún email. Solo afecta a las campañas nuevas que crees con esa plantilla."
+  - q: "¿Puedo volver a marketing después?"
+    a: "Sí, cuando quieras, y sin confirmación ni casilla. En el mismo panel tienes «Volver a marketing»."
+  - q: "¿Afecta a las campañas que ya tengo creadas?"
+    a: "No. Las campañas ya creadas conservan el tipo con el que se crearon. Si quieres que una de ellas cambie, revisa su tipo de envío antes de programarla."
+  - q: "¿Funciona con plantillas de WhatsApp?"
+    a: "No. El tipo de envío solo se puede cambiar en plantillas de email."
+  - q: "Mi plantilla dice «pendiente de revisión». ¿Qué significa?"
+    a: "Que Nevent la ha clasificado como transaccional pero aún no lo ha confirmado, así que por seguridad se envía como marketing. Si necesitas que salga como transaccional ya, cámbialo a mano desde este panel."
+---
+
+Cada plantilla de email tiene un tipo de envío: marketing o transaccional. Nevent lo deduce del contenido, pero si no acierta puedes cambiarlo tú mismo desde el panel. Antes no se podía y había que pedirlo a soporte.
+
+Esta guía te lleva por el cambio en los dos sentidos y te explica qué estás aceptando cuando pasas una plantilla a transaccional, que es la parte delicada.
+
+## Antes de empezar
+
+Necesitas ser administrador o propietario de la cuenta. Con cualquier otro rol verás la pantalla, pero no podrás guardar el cambio.
+
+Ten claro qué significa cada tipo, porque de eso depende a quién llega el email:
+
+| | Marketing | Transaccional |
+|---|---|---|
+| Qué contiene | Promociones, novedades y venta | Solo avisos operativos sobre una compra, un registro o un evento |
+| Enlace de baja | Lo incluye | No lo incluye |
+| Preferencias de la persona | Las respeta | No las respeta |
+
+La consecuencia práctica: una plantilla transaccional se envía también a quien ha rechazado tu marketing. Por eso solo debe usarse para avisos de verdad, como un cambio de horario o un cambio de recinto.
+
+## Paso 1: Abre el menú de la plantilla
+
+Ve a **Plantillas** en el menú lateral y quédate en la pestaña "Plantillas Email". Busca la plantilla que quieres cambiar y abre su menú de opciones.
+
+Entre las acciones aparece **Tipo de envío**, justo debajo de "Previsualizar". Haz clic.
+
+## Paso 2: Mira el tipo actual y de dónde viene
+
+Se abre un panel lateral llamado "Tipo de envío" con dos datos:
+
+- **Tipo actual**: marketing o transaccional.
+- **Origen**: de dónde sale ese tipo. Puede ser "Clasificación automática del contenido" (lo decidió Nevent), "Cambio manual" (lo decidió una persona, y verás la fecha), "Pendiente de clasificar: se envía como marketing" o "Clasificada como transaccional, pendiente de revisión: se envía como marketing".
+
+Los dos últimos orígenes conviene leerlos con calma: significan que Nevent todavía no ha cerrado la clasificación y que, mientras no lo haga, la plantilla sale como marketing. Si necesitas que salga como transaccional antes de eso, tendrás que cambiarlo a mano.
+
+Más abajo, el bloque "Qué implica cada tipo" repite la comparación de la tabla de arriba.
+
+## Paso 3: Cambia a transaccional
+
+Al final del panel hay una sección llamada **Zona de riesgo** con el botón **Cambiar a transaccional**. El nombre no es decorativo: este es el cambio que tiene consecuencias.
+
+Al pulsarlo se abre una ventana de confirmación que te pide aceptar cuatro cosas:
+
+1. Que la plantilla contiene **solo avisos operativos**, sin nada promocional.
+2. Que se enviará **sin enlace de baja**, también a quien haya rechazado el marketing, y que tus emails de marketing deben seguir respetando los consentimientos y las bajas.
+3. Que hay **riesgo de reputación**: si la usas para promoción, tus envíos pueden acabar en spam, proveedores como Google pueden bloquearlos o se te puede pausar el envío de correo.
+4. Que el cambio **se mantiene aunque edites la plantilla**, y que puedes volver a marketing cuando quieras.
+
+Marca la casilla de confirmación y guarda. Sin marcarla no se envía nada: verás el aviso "Marca la casilla para continuar".
+
+:::caution[Esto no envía ningún email]
+Cambiar el tipo no manda nada. Lo que hace es que **las campañas nuevas** con esta plantilla se propongan como transaccionales. Las campañas que ya tengas creadas no cambian. Revisa el tipo de envío y la audiencia antes de programar.
+:::
+
+Si el guardado falla, la ventana se queda abierta con tu casilla marcada y la plantilla sigue como estaba. No se queda a medias.
+
+## Paso 4: Vuelve a marketing si te has equivocado
+
+En el mismo panel tienes **Volver a marketing**. Este sentido no tiene casilla ni advertencia, porque es el cambio seguro: a partir de ahí las campañas nuevas vuelven a respetar las preferencias y a incluir el enlace de baja.
+
+Ojo con un detalle: volver a marketing no devuelve la plantilla a la clasificación automática de Nevent. La deja fijada en marketing por decisión manual. El panel seguirá mostrando "Cambio manual" como origen.
+
+## Resultado
+
+La plantilla queda con el tipo que has elegido y el panel lo refleja con origen "Cambio manual" y la fecha del cambio. En la lista de plantillas la etiqueta del tipo se actualiza sola.
+
+El asistente de campañas sigue funcionando igual que antes: en el paso del tipo de envío te propondrá el tipo que ahora tiene la plantilla.
+
+## Siguiente paso
+
+Si lo que buscabas era entender la diferencia entre los dos tipos de campaña y no cambiar una plantilla, la tienes en la [referencia de campañas](/campanas/referencia/). Para diseñar la plantilla en sí, ve a [cómo diseñar plantillas de email](/campanas/plantillas-email/).
