@@ -18,7 +18,8 @@
     "audit:coverage": "node scripts/audit-coverage.mjs",
     "validate:diataxis": "node scripts/validate-docs.mjs",
     "prepare": "git config core.hooksPath .githooks",
-    "guard:style": "node scripts/style-guard.mjs"
+    "guard:style": "node scripts/style-guard.mjs",
+    "audit:links": "node scripts/audit-links.mjs dist"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",

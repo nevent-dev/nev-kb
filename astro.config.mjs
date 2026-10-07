@@ -7,6 +7,7 @@ import starlightLlmsTxt from 'starlight-llms-txt';
 import starlightPageActions from 'starlight-page-actions';
 import remarkGfm from 'remark-gfm';
 import fixI18nLinks from './scripts/fix-i18n-links.mjs';
+import rehypeTrailingSlash from './scripts/rehype-trailing-slash.mjs';
 import llmsEn from './scripts/llms-en.mjs';
 import kbIndex from './scripts/kb-index.mjs';
 import { getEsSidebar } from './scripts/sidebar.mjs';
@@ -15,35 +16,41 @@ import { getEsSidebar } from './scripts/sidebar.mjs';
 export default defineConfig({
 	site: 'https://help.nevent.ai',
 
+	// Todas las URLs del sitio son directorios (`/ruta/index.html`) y el CDN
+	// responde 301 a la versión con barra final. Con 'always' Starlight y Astro
+	// emiten siempre la barra final (logo `/en/`, paginación, sidebar, canónicas,
+	// hreflang) y no se generan enlaces internos que redirijan.
+	trailingSlash: 'always',
+
 	// Redirecciones 301 de rutas antiguas tras la reorganización Diátaxis
 	// (Ola 0). Solo cubren el árbol ES (raíz): el árbol EN no se ha tocado.
 	// Astro genera una página estática con <meta http-equiv="refresh"> más
 	// cabecera de redirección en el adaptador que la soporte.
 	redirects: {
 		// decisiones-frecuentes/* → integradas en su sección natural
-		'/decisiones-frecuentes/email-sms-o-whatsapp': '/campanas/email-sms-o-whatsapp',
-		'/decisiones-frecuentes/cuanto-y-cuando-enviar': '/campanas/cuanto-y-cuando-enviar',
-		'/decisiones-frecuentes/segmento-vs-lista': '/segmentacion/segmento-vs-lista',
+		'/decisiones-frecuentes/email-sms-o-whatsapp': '/campanas/email-sms-o-whatsapp/',
+		'/decisiones-frecuentes/cuanto-y-cuando-enviar': '/campanas/cuanto-y-cuando-enviar/',
+		'/decisiones-frecuentes/segmento-vs-lista': '/segmentacion/segmento-vs-lista/',
 		// guias-por-objetivo/* + ciclo-de-vida/* → unificadas en playbooks/*
-		'/guias-por-objetivo/fidelizar-post-evento': '/playbooks/fidelizar-post-evento',
-		'/guias-por-objetivo/lanzamiento-72h': '/playbooks/lanzamiento-72h',
-		'/guias-por-objetivo/llenar-tu-evento': '/playbooks/llenar-tu-evento',
-		'/guias-por-objetivo/reactivar-fans-inactivos': '/playbooks/reactivar-fans-inactivos',
-		'/guias-por-objetivo/recuperar-carritos-abandonados': '/playbooks/recuperar-carritos-abandonados',
-		'/guias-por-objetivo/vender-en-preventa': '/playbooks/vender-en-preventa',
-		'/ciclo-de-vida/checklist-de-lanzamiento': '/playbooks/checklist-de-lanzamiento',
-		'/ciclo-de-vida/post-mortem-del-evento': '/playbooks/post-mortem-del-evento',
-		'/ciclo-de-vida/semana-del-evento': '/playbooks/semana-del-evento',
+		'/guias-por-objetivo/fidelizar-post-evento': '/playbooks/fidelizar-post-evento/',
+		'/guias-por-objetivo/lanzamiento-72h': '/playbooks/lanzamiento-72h/',
+		'/guias-por-objetivo/llenar-tu-evento': '/playbooks/llenar-tu-evento/',
+		'/guias-por-objetivo/reactivar-fans-inactivos': '/playbooks/reactivar-fans-inactivos/',
+		'/guias-por-objetivo/recuperar-carritos-abandonados': '/playbooks/recuperar-carritos-abandonados/',
+		'/guias-por-objetivo/vender-en-preventa': '/playbooks/vender-en-preventa/',
+		'/ciclo-de-vida/checklist-de-lanzamiento': '/playbooks/checklist-de-lanzamiento/',
+		'/ciclo-de-vida/post-mortem-del-evento': '/playbooks/post-mortem-del-evento/',
+		'/ciclo-de-vida/semana-del-evento': '/playbooks/semana-del-evento/',
 		// segmentacion/motor-segmentacion/* → renombradas o retiradas
-		'/segmentacion/motor-segmentacion/faq': '/segmentacion/preguntas-frecuentes',
-		'/segmentacion/motor-segmentacion/mejores-practicas': '/segmentacion/buenas-practicas',
-		'/segmentacion/motor-segmentacion/grupos': '/segmentacion/grupos-ab-testing',
-		'/segmentacion/motor-segmentacion': '/segmentacion/tu-primer-segmento',
-		'/segmentacion/motor-segmentacion/crear-segmento': '/segmentacion/tu-primer-segmento',
-		'/segmentacion/motor-segmentacion/categorias': '/segmentacion/capacidades',
-		'/segmentacion/motor-segmentacion/operadores-logica': '/segmentacion/capacidades/combinaciones',
-		'/segmentacion/motor-segmentacion/modificadores-rfm': '/segmentacion/capacidades/rfm',
-		'/segmentacion/motor-segmentacion/casos-uso': '/segmentacion/casos',
+		'/segmentacion/motor-segmentacion/faq': '/segmentacion/preguntas-frecuentes/',
+		'/segmentacion/motor-segmentacion/mejores-practicas': '/segmentacion/buenas-practicas/',
+		'/segmentacion/motor-segmentacion/grupos': '/segmentacion/grupos-ab-testing/',
+		'/segmentacion/motor-segmentacion': '/segmentacion/tu-primer-segmento/',
+		'/segmentacion/motor-segmentacion/crear-segmento': '/segmentacion/tu-primer-segmento/',
+		'/segmentacion/motor-segmentacion/categorias': '/segmentacion/capacidades/',
+		'/segmentacion/motor-segmentacion/operadores-logica': '/segmentacion/capacidades/combinaciones/',
+		'/segmentacion/motor-segmentacion/modificadores-rfm': '/segmentacion/capacidades/rfm/',
+		'/segmentacion/motor-segmentacion/casos-uso': '/segmentacion/casos/',
 	},
 
 	// Enable GitHub Flavored Markdown (GFM) tables in .mdx files.
@@ -52,6 +59,8 @@ export default defineConfig({
 	// tables render as pipe-delimited plain text instead of <table> elements.
 	markdown: {
 		remarkPlugins: [remarkGfm],
+		// Barra final en los enlaces internos escritos a mano en el contenido.
+		rehypePlugins: [rehypeTrailingSlash],
 	},
 
 	integrations: [
