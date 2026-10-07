@@ -212,27 +212,52 @@ const ROUTE_ES_TO_EN_OVERRIDE = {
 };
 
 /**
- * Builds the ES↔EN route maps by scanning dist/ for emitted pages.
+ * Classifies every emitted page of dist/.
+ *
+ * - redirect: Astro redirect stub (<meta http-equiv="refresh">).
+ * - fallback: Starlight i18n fallback (Spanish content served under /en/),
+ *   emitted with robots noindex by Head.astro. It is a duplicate, never a
+ *   translation, so it must not take part in hreflang groups.
+ * - real: any other indexable page.
+ *
+ * @param {string} distDir
+ * @returns {Map<string, 'redirect'|'fallback'|'real'|'404'>} route → kind
+ */
+function classifyRoutes(distDir) {
+	const kinds = new Map();
+	for (const f of walk(distDir).filter((p) => p.endsWith('index.html'))) {
+		const route = f.slice(distDir.length).replace(/^\/+/, '').replace(/\/?index\.html$/, '');
+		const html = readFileSync(f, 'utf8');
+		let kind = 'real';
+		if (route === '404' || route === 'en/404') kind = '404';
+		else if (/<meta http-equiv="refresh"/.test(html)) kind = 'redirect';
+		else if (/<meta name="robots" content="noindex/.test(html)) kind = 'fallback';
+		kinds.set(route, kind);
+	}
+	return kinds;
+}
+
+/**
+ * Builds the ES↔EN route maps from the REAL pages of dist/ (redirect stubs,
+ * fallbacks and 404 never pair).
  *
  * @param {string} distDir - Absolute path to the build output directory.
- * @returns {{ esToEn: Map<string, string>, enStrippedToEs: Map<string, string> }}
+ * @returns {{ esToEn: Map<string, string>, enStrippedToEs: Map<string, string>,
+ *   enToEs: Map<string, string>, kinds: Map<string, string> }}
  *   esToEn: 'analitica/casos' → 'en/analytics/use-cases'
  *   enStrippedToEs: 'analytics/use-cases' → 'analitica/casos'
+ *   enToEs: 'en/analytics/use-cases' → 'analitica/casos'
+ *   kinds: route → 'real' | 'fallback' | 'redirect' | '404'
  */
-function buildRouteMaps(distDir) {
-	const htmlFiles = walk(distDir).filter((f) => f.endsWith('index.html'));
-	const routes = new Set(
-		htmlFiles.map((f) =>
-			f
-				.slice(distDir.length)
-				.replace(/^\/+/, '')
-				.replace(/\/?index\.html$/, '')
-		)
-	);
+export function buildRouteMaps(distDir) {
+	const kinds = classifyRoutes(distDir);
+	const real = (r) => kinds.get(r) === 'real';
 	const esToEn = new Map();
 	const enStrippedToEs = new Map();
-	for (const route of routes) {
-		if (route.startsWith('en/') || route === 'en' || route === '404' || route === '') continue;
+	const enToEs = new Map();
+	for (const route of kinds.keys()) {
+		if (route.startsWith('en/') || route === 'en' || route === '') continue;
+		if (!real(route)) continue;
 		const translated =
 			ROUTE_ES_TO_EN_OVERRIDE[route] ??
 			route
@@ -240,15 +265,17 @@ function buildRouteMaps(distDir) {
 				.map((seg) => SEGMENT_ES_TO_EN[seg] ?? seg)
 				.join('/');
 		const enRoute = `en/${translated}`;
-		// Only map when the EN target really exists in this build.
-		if (routes.has(enRoute)) {
+		// Only pair when the EN target is a real translation in this build.
+		if (real(enRoute)) {
 			esToEn.set(route, enRoute);
 			enStrippedToEs.set(translated, route);
+			enToEs.set(enRoute, route);
 		}
 	}
 	// Homepages map to each other.
 	esToEn.set('', 'en');
-	return { esToEn, enStrippedToEs };
+	enToEs.set('en', '');
+	return { esToEn, enStrippedToEs, enToEs, kinds };
 }
 
 /**
@@ -257,36 +284,47 @@ function buildRouteMaps(distDir) {
  * @param {string} html - Original document.
  * @param {object} maps - Route maps from buildRouteMaps().
  * @param {string} distDir - Build output dir (for .md existence checks).
+ * @param {string} route - Route of the document ('analitica/casos', 'en', '').
  * @returns {{ html: string, changes: number }}
  */
-function fixHtml(html, maps, distDir) {
-	const { esToEn, enStrippedToEs } = maps;
+function fixHtml(html, maps, distDir, route) {
+	const { esToEn, enStrippedToEs, enToEs, kinds } = maps;
 	let changes = 0;
 
 	// (4) Double locale prefix from sidebar link: items → pagination/sidebar.
 	html = html.replace(/href="\/en\/en\//g, () => (changes++, 'href="/en/'));
 	html = html.replace(/value="\/en\/en\//g, () => (changes++, 'value="/en/'));
 
-	// (1) hreflang alternates emitted by Starlight's default <Head>.
-	html = html.replace(
-		/(<link rel="alternate" hreflang="(?:en|es|x-default)" href=")([^"]+)("\s*\/?>)/g,
-		(full, pre, url, post) => {
-			if (!url.startsWith(SITE)) return full;
-			const path = url.slice(SITE.length).replace(/^\/+/, '').replace(/\/+$/, '');
-			let fixed = null;
-			if (path.startsWith('en/')) {
-				// /en/<spanish-slug>/ → real EN translation URL
-				const es = path.slice(3);
-				if (esToEn.has(es) && esToEn.get(es) !== path) fixed = esToEn.get(es);
-			} else if (enStrippedToEs.has(path) && enStrippedToEs.get(path) !== path) {
-				// /<english-slug>/ (naively stripped prefix) → real ES URL
-				fixed = enStrippedToEs.get(path);
-			}
-			if (fixed == null) return full;
-			changes++;
-			return `${pre}${SITE}/${fixed}${fixed ? '/' : ''}${post}`;
+	// (1) hreflang: rebuilt from the real ES↔EN pairs. Starlight emits
+	// alternates by swapping the /en/ prefix, which creates non-existent URLs and
+	// groups that are not reciprocal. Rules:
+	//   - only real pages (not redirect stubs, not noindex fallbacks, not 404)
+	//     with a real counterpart get a group: es + en + x-default (→ ES),
+	//     always absolute and with trailing slash, identical on both pages;
+	//   - any other page gets no hreflang at all.
+	const kind = kinds.get(route);
+	const partner = route.startsWith('en/') || route === 'en' ? enToEs.get(route) : esToEn.get(route);
+	const hreflangTags = html.match(/<link rel="alternate" hreflang="[^"]*"[^>]*>/g) ?? [];
+	if (hreflangTags.length) {
+		let group = '';
+		if (kind === 'real' && partner !== undefined) {
+			const isEn = route.startsWith('en/') || route === 'en';
+			const esRoute = isEn ? partner : route;
+			const enRoute = isEn ? route : partner;
+			const url = (r) => `${SITE}/${r}${r ? '/' : ''}`;
+			group =
+				`<link rel="alternate" hreflang="es" href="${url(esRoute)}"/>` +
+				`<link rel="alternate" hreflang="en" href="${url(enRoute)}"/>` +
+				`<link rel="alternate" hreflang="x-default" href="${url(esRoute)}"/>`;
 		}
-	);
+		let first = true;
+		html = html.replace(/<link rel="alternate" hreflang="[^"]*"[^>]*>/g, () => {
+			changes++;
+			if (!first) return '';
+			first = false;
+			return group;
+		});
+	}
 
 	// (2) Language switcher <option value="..."> entries.
 	html = html.replace(/(<option[^>]*value=")(\/[^"]*)(")/g, (full, pre, path, post) => {
@@ -297,6 +335,10 @@ function fixHtml(html, maps, distDir) {
 			if (esToEn.has(es) && esToEn.get(es) !== clean) fixed = esToEn.get(es);
 		} else if (enStrippedToEs.has(clean) && enStrippedToEs.get(clean) !== clean) {
 			fixed = enStrippedToEs.get(clean);
+		} else if (kinds.get(clean) === undefined) {
+			// English page without a Spanish counterpart: the naive stripped URL
+			// does not exist, so send the switcher to the Spanish home instead.
+			fixed = '';
 		}
 		if (fixed == null) return full;
 		changes++;
@@ -329,7 +371,11 @@ export default function fixI18nLinks() {
 				let touchedFiles = 0;
 				for (const file of walk(distDir).filter((f) => f.endsWith('.html'))) {
 					const original = readFileSync(file, 'utf8');
-					const { html, changes } = fixHtml(original, maps, distDir);
+					const route = file
+						.slice(distDir.length)
+						.replace(/^\/+/, '')
+						.replace(/\/?index\.html$/, '');
+					const { html, changes } = fixHtml(original, maps, distDir, route);
 					if (changes > 0) {
 						writeFileSync(file, html);
 						totalChanges += changes;

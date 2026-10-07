@@ -69,7 +69,9 @@ const inLanguage = locale === 'en' ? 'en' : 'es';
 // docs/en/, so their entry.id starts with "en/". A fallback page is rendered with
 // locale "en" but its source entry.id does NOT start with "en/". We mark those with
 // robots noindex so Google does not index them as duplicates (the ES version ranks).
-const isEnFallback = locale === 'en' && !rawId.startsWith('en/');
+// The EN home (src/content/docs/en/index.mdx) has entry.id "en" (Astro drops the
+// trailing "index"), so it must be matched explicitly or it is wrongly noindexed.
+const isEnFallback = locale === 'en' && rawId !== 'en' && !rawId.startsWith('en/');
 
 // lastUpdated from Starlight (ISO string or Date)
 const rawLastUpdated = hasEntry ? entry.data.lastUpdated : undefined;

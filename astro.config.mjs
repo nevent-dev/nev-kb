@@ -7,6 +7,7 @@ import starlightLlmsTxt from 'starlight-llms-txt';
 import starlightPageActions from 'starlight-page-actions';
 import remarkGfm from 'remark-gfm';
 import fixI18nLinks from './scripts/fix-i18n-links.mjs';
+import rehypeTrailingSlash from './scripts/rehype-trailing-slash.mjs';
 import llmsEn from './scripts/llms-en.mjs';
 import kbIndex from './scripts/kb-index.mjs';
 import { getEsSidebar } from './scripts/sidebar.mjs';
@@ -14,6 +15,12 @@ import { getEsSidebar } from './scripts/sidebar.mjs';
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://help.nevent.ai',
+
+	// Todas las URLs del sitio son directorios (`/ruta/index.html`) y el CDN
+	// responde 301 a la versión con barra final. Con 'always' Starlight y Astro
+	// emiten siempre la barra final (logo `/en/`, paginación, sidebar, canónicas,
+	// hreflang) y no se generan enlaces internos que redirijan.
+	trailingSlash: 'always',
 
 	// Redirecciones 301 de rutas antiguas tras la reorganización Diátaxis
 	// (Ola 0). Solo cubren el árbol ES (raíz): el árbol EN no se ha tocado.
@@ -52,6 +59,8 @@ export default defineConfig({
 	// tables render as pipe-delimited plain text instead of <table> elements.
 	markdown: {
 		remarkPlugins: [remarkGfm],
+		// Barra final en los enlaces internos escritos a mano en el contenido.
+		rehypePlugins: [rehypeTrailingSlash],
 	},
 
 	integrations: [
