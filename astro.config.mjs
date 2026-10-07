@@ -299,6 +299,7 @@ export default defineConfig({
 					items: [
 						{ label: 'Create your first campaign', link: '/en/campaigns/create-your-first-campaign/' },
 						{ label: 'Design email templates', link: '/en/campaigns/email-templates/' },
+						{ label: 'Change the send type', link: '/en/campaigns/change-a-template-send-type/' },
 						{ label: 'Create WhatsApp templates', link: '/en/campaigns/whatsapp-templates/' },
 						{ label: 'Manage your campaigns', link: '/en/campaigns/manage-your-campaigns/' },
 						{ label: 'Interpreting the results', link: '/en/campaigns/report/results/' },
