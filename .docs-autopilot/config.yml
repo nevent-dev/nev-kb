@@ -27,6 +27,6 @@ publish:
   max_fix_attempts: 3
 notify:
   slack_channel: nevent-alerts
-  webhook_url: https://nevent.app.n8n.cloud/webhook/docs-autopilot-notify
+  webhook_url: https://automation.nevent.ai/webhook/docs-autopilot-notify
 diataxis:
   default_type: how-to
