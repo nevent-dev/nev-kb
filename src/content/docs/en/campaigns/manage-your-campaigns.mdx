@@ -114,6 +114,59 @@ Right below the configuration summary is the metrics block with four values:
 An open rate above 25-30% is a good sign. If yours is lower, try changing the subject line in your next campaign: it tends to be the factor that most influences whether someone opens the email or not.
 :::
 
+## Resume a campaign paused by its sender
+
+If a campaign's sender can't send, Nevent pauses the campaign before any more emails go out. You can resume or reschedule it without cloning it.
+
+### Where you see the notice
+
+On **Home**, below the header, a notice appears while there's a problem with the sender. It's red if the sender can't send or if campaigns are paused, and amber if it needs a change. Only the Owner, Admin and Superadmin roles see it.
+
+The notice has one of these titles:
+
+- **We've paused campaigns**
+- **Your sender can't send**
+- **Your sender needs a change**
+
+If campaigns are paused, you'll see **Paused campaigns:** with links to the first three (and "and N more" if there are more). Below it reads: "None resumes by itself: once it's resolved, open each one and click «Resume»."
+
+Click **Review sender** to go to the sender settings. If you need help with the domain, see [How to set up your sending domain](/en/deliverability/custom-sending-domain/).
+
+### What the campaign summary says
+
+Click the campaign name in the notice, or in **My campaigns**. The summary shows the **Campaign paused automatically** alert, with the reason: "We paused sending because its sender couldn't send."
+
+Below it, the alert tells you who resolves it:
+
+| Who resolves it | What you'll see |
+|-----------------|-----------------|
+| You | "Fix the sender and click «Resume», or reschedule it." |
+| You, with the legal details | "Complete Settings › Legal and click «Resume», or reschedule it." |
+| Nevent | "Nevent resolves it: write to us through the support chat and, once it's resolved, click «Resume»." |
+| An automatic check | "It resolves itself at the next automatic check; then click «Resume»." |
+
+The alert also tells you what happens to the send:
+
+- If the send time has passed: "Its send time has passed: when resumed, it goes out in a few minutes."
+- If part of the audience already received it: "It was already sent to N recipients: when resumed, it continues with the rest without repeating anyone."
+- If sends were on their way: "If any sends were on their way, they won't go out while the campaign is paused."
+- If sends are on hold: "What was left to send is on hold and won't go out while it's paused, and its credits stay reserved until you resume or cancel it."
+
+### Resume or reschedule the campaign
+
+Once the sender is resolved, go back to the campaign summary. Next to the alert's button you'll see two buttons:
+
+- **Resume:** the send continues where it stopped.
+- **Reschedule:** you choose a new date and time.
+
+While the campaign is paused, held sends don't go out and their credits stay reserved. They stay that way until you resume or cancel it.
+
+If the sender still can't send, the campaign stays paused. The alert shows "The sender still can't send, so the campaign stays paused:" and the list of reasons. If you try from the campaign list, you'll see "The sender still can't send, so the campaign stays paused. The reason is in its summary."
+
+:::note[Note]
+Not every sender pause can be resumed. For those, the campaign stops by itself about 24 hours after it was paused, and the summary tells you how to continue.
+:::
+
 ## Result
 
 Now you know how to navigate the campaigns section: reading the status of each one, filtering the list, using the actions available for each status, and reviewing the results of sent campaigns.
@@ -122,3 +175,4 @@ Now you know how to navigate the campaigns section: reading the status of each o
 
 - [Check the full analysis of your campaigns](/en/analytics/campaigns/) to see more detailed metrics and compare results across campaigns.
 - [Create your first campaign](/en/campaigns/create-your-first-campaign/) if you haven't launched one yet.
+- [Set up your sending domain](/en/deliverability/custom-sending-domain/) so your sender can send.
