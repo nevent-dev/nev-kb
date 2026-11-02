@@ -1,6 +1,6 @@
 ---
 title: "Delivery and domain configuration reference"
-description: "Reference for the Email sending and Custom domain screens: what each field, technical component and authentication protocol is, and its possible states."
+description: "Reference for the Email sending and Senders and domains screens: what each field, technical component and authentication protocol is, and its possible states."
 diataxis: reference
 sidebar:
   order: 5
@@ -19,7 +19,7 @@ faqs:
 
 import { Aside } from '@astrojs/starlight/components';
 
-This page describes every field, option and state on the two email delivery configuration screens in Nevent: **Email sending** (`/settings/email-sending`) and **Custom domain** (`/settings/custom-domains`).
+This page describes every field, option and state on the two email delivery configuration screens in Nevent: **Email sending** (`/settings/email-sending`) and **Senders and domains** (`/settings/custom-domains`).
 
 Use it as a quick reference whenever you need to know what a particular value means, what each component does, or which authentication protocols Nevent uses.
 
@@ -46,7 +46,7 @@ This block shows the active values your emails currently send with.
 | Value | Description |
 |---|---|
 | Shared domain | Sending goes out from a Nevent subdomain shared across every account on the platform. This is the default value when no custom domain has been configured. Reputation is shared with Nevent's other senders. |
-| Custom domain | Sending goes out from a subdomain of your own domain. Reputation is exclusively yours. This value appears once you have a domain configured on the Custom domain screen and the technical components provisioned. |
+| Custom domain | Sending goes out from a subdomain of your own domain. Reputation is exclusively yours. This value appears once you have a domain configured on the Senders and domains screen and the technical components provisioned. |
 
 ---
 
@@ -86,7 +86,7 @@ All three components are created at the same time via the "Provision domain and 
 
 ## Custom domain screen
 
-**Path:** Settings > Workspace > Custom domain (`/settings/custom-domains`)
+**Path:** Settings > Workspace > Senders and domains (`/settings/custom-domains`)
 
 This screen lets you configure a custom domain so your email campaigns go out from a subdomain of your own domain instead of Nevent's shared domain.
 
@@ -120,12 +120,12 @@ The three protocols work together. SPF and DKIM verify the message's origin and 
 
 ## Relationship between the two screens
 
-The Email sending and Custom domain screens are complementary: one manages the sending infrastructure in AWS, and the other manages domain authentication via DNS.
+The Email sending and Senders and domains screens are complementary: one manages the sending infrastructure in AWS, and the other manages domain authentication via DNS.
 
 | Screen | What it configures | Where the result shows up |
 |---|---|---|
 | Email sending (`/settings/email-sending`) | Sending infrastructure: subdomain in AWS, configuration sets and your own SES account. | Domain type and effective sending address in the same block. |
-| Custom domain (`/settings/custom-domains`) | Domain authentication via DNS records: SPF, DKIM and DMARC. | Record status on the wizard screen. |
+| Senders and domains (`/settings/custom-domains`) | Domain authentication via DNS records: SPF, DKIM and DMARC. | Record status on the wizard screen. |
 
 ---
 
