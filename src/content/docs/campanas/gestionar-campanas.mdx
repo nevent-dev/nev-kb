@@ -6,6 +6,7 @@ nivel: basic
 description: Aprende a revisar, filtrar y actuar sobre tus campañas en Nevent. Consulta estados, métricas y acciones disponibles en menos de 5 minutos.
 sidebar:
   order: 2
+needs_screenshots: true
 ---
 
 En esta guía vas a recorrer la sección "Mis campañas" de principio a fin. Aprenderás a leer el estado de cada campaña, a filtrar la lista, a usar el menú de acciones y a consultar los resultados de una campaña ya enviada. Unos 5 minutos.
@@ -39,7 +40,7 @@ Estos son todos los estados posibles:
 | **En cola** | La campaña está esperando para enviarse. El proceso de envío ha comenzado. |
 | **Enviando** | El envío está en marcha en este momento. |
 | **Enviada** | El envío ha terminado. Ya puedes consultar las métricas. |
-| **Pausada** | Una campaña en marcha se ha pausado manualmente. |
+| **Pausada** | Una campaña en marcha se ha pausado manualmente, o la ha pausado Nevent porque su remitente no podía enviar. Mira [cómo reanudarla](#reanuda-una-campaña-pausada-por-su-remitente). |
 | **Detenida** | El envío se interrumpió antes de completarse. |
 | **Fallida** | El envío no pudo completarse por un error. |
 
@@ -128,6 +129,59 @@ Justo debajo del resumen de configuración aparece el bloque de métricas con cu
 Una tasa de apertura por encima del 25-30% es una buena señal. Si la tuya es más baja, prueba a cambiar el asunto en tu próxima campaña: suele ser el factor que más influye en que alguien abra o no el email.
 :::
 
+## Reanuda una campaña pausada por su remitente
+
+Si el remitente de una campaña no puede enviar, Nevent la pausa antes de que salgan más emails. Puedes reanudarla o reprogramarla sin clonarla.
+
+### Dónde ves el aviso
+
+En **Inicio**, debajo de la cabecera, aparece un aviso mientras haya un problema con el remitente. Es rojo si el remitente no puede enviar o si hay campañas pausadas, y ámbar si necesita un cambio. Solo lo ven los roles Owner, Admin y Superadmin.
+
+El aviso tiene uno de estos títulos:
+
+- **Hemos pausado campañas**
+- **Tu remitente no puede enviar**
+- **Tu remitente necesita un cambio**
+
+Si hay campañas pausadas, verás **Campañas pausadas:** con enlaces a las tres primeras (y «y N más» si hay más). Debajo se lee: «Ninguna se reanuda sola: cuando esté resuelto, abre cada una y pulsa «Reanudar»».
+
+Pulsa **Revisar remitente** para ir a la configuración del remitente. Si necesitas ayuda con el dominio, consulta [Cómo configurar tu dominio de envío](/entregabilidad/dominio-dedicado/).
+
+### Qué dice el resumen de la campaña
+
+Haz clic en el nombre de la campaña en el aviso, o en **Mis campañas**. En el resumen aparece la alerta **Campaña pausada automáticamente**, con el motivo: «Pausamos el envío porque su remitente no podía enviar.»
+
+Debajo, la alerta te dice quién lo resuelve:
+
+| Quién lo resuelve | Qué verás |
+|-------------------|-----------|
+| Tú | «Arregla el remitente y pulsa «Reanudar», o reprográmala.» |
+| Tú, con los datos legales | «Completa Configuración › Legal y pulsa «Reanudar», o reprográmala.» |
+| Nevent | «Lo resuelve Nevent: escríbenos por el chat de soporte y, cuando esté resuelto, pulsa «Reanudar».» |
+| Una comprobación automática | «Se resuelve en la próxima comprobación automática; después, pulsa «Reanudar».» |
+
+La alerta también te informa de qué pasa con el envío:
+
+- Si la hora de envío ya pasó: «Su hora de envío ya pasó: al reanudar, sale en unos minutos.»
+- Si ya se envió a una parte de la audiencia: «Ya se ha enviado a N destinatarios: al reanudar, sigue con el resto sin repetir a nadie.»
+- Si había envíos en camino: «Si había envíos en camino, no saldrán mientras la campaña esté en pausa.»
+- Si quedan envíos retenidos: «Lo que quedaba por enviar está en espera y no sale mientras esté pausada, y sus créditos siguen reservados hasta que la reanudes o la canceles.»
+
+### Reanuda o reprograma la campaña
+
+Cuando el remitente esté resuelto, vuelve al resumen de la campaña. Junto al botón de la alerta verás dos botones:
+
+- **Reanudar:** el envío sigue donde se quedó.
+- **Reprogramar:** eliges una nueva fecha y hora.
+
+Mientras la campaña esté pausada, los envíos retenidos no salen y sus créditos siguen reservados. Siguen así hasta que la reanudes o la canceles.
+
+Si el remitente sigue sin poder enviar, la campaña sigue pausada. La alerta muestra «El remitente sigue sin poder enviar, así que la campaña sigue pausada:» y la lista de motivos. Si lo intentas desde la lista de campañas, verás «El remitente sigue sin poder enviar, así que la campaña sigue pausada. El motivo está en su resumen.»
+
+:::note[Nota]
+No todas las pausas por remitente se pueden reanudar. En las que no, la campaña se detiene sola unas 24 horas después de pausarse y el resumen te indica cómo seguir.
+:::
+
 ## Resultado
 
 Ya sabes cómo moverte por la sección de campañas: leer el estado de cada una, filtrar la lista, usar las acciones disponibles según el estado y revisar los resultados de las campañas enviadas.
@@ -136,3 +190,4 @@ Ya sabes cómo moverte por la sección de campañas: leer el estado de cada una,
 
 - [Consulta el análisis completo de tus campañas](/analitica/campanas) para ver métricas más detalladas y comparar resultados entre campañas.
 - [Crea tu primera campaña](/campanas/crear-primera-campana) si todavía no has lanzado ninguna.
+- [Configura tu dominio de envío](/entregabilidad/dominio-dedicado/) para que tu remitente pueda enviar.
