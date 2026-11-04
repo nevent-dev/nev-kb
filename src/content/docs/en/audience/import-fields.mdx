@@ -1,0 +1,84 @@
+---
+title: "Import fields: system fields, custom fields and accepted values"
+description: "See the system and custom fields that contact import in Nevent accepts, their limits per plan and which file formats it takes."
+diataxis: reference
+modulo: marketing
+nivel: basic
+sinonimos:
+  - "upload Excel"
+  - "load a database"
+  - "CSV"
+  - "consent"
+sidebar:
+  label: "Import fields"
+faqs:
+  - q: "Can I import more than three custom fields on the Basic plan?"
+    a: "No. The limit is 3 custom fields on the Basic plan and 25 on the Pro plan. If you need more, your option is to move to Pro."
+  - q: "Is the email address always required to import a contact?"
+    a: "Yes. It is the only system field that cannot be unchecked when you generate the import template, and without it the contact record cannot be created."
+  - q: "Which values does the Gender column accept?"
+    a: "The sample template that Nevent generates uses \"mujer\" and \"hombre\" (Spanish for female and male), in lowercase. The import also accepts \"female\" and \"male\"."
+  - q: "Which values does the Marketing consent column accept?"
+    a: "The sample template that Nevent generates uses \"s\" to give consent and \"n\" not to give it. The import also accepts \"y\", \"yes\" or \"true\" and \"no\" or \"false\"."
+---
+This page gathers the fields that contact import in Nevent accepts: the system fields the platform already has, the custom field limit for your plan and what happens with the columns you leave empty.
+
+Use it as a reference before you prepare your file, so you do not have to fix it after uploading it.
+
+## System fields
+
+These are the fields Nevent recognizes natively when it generates the import template or when you map the columns of your file.
+
+| Field | Required or optional | Format | Example |
+|---|---|---|---|
+| Email | Required | A valid email address | `ana@example.com` |
+| Name | Optional | Free text | `Ana García` |
+| Phone | Optional | Not confirmed (exact format pending verification) | Not confirmed |
+| Date of birth | Optional | Not confirmed (exact date format pending verification) | Not confirmed |
+| Gender | Optional | `mujer` or `hombre` in the sample template; `female` or `male` also work. Lowercase | `female` |
+| Tax ID | Optional | Free text | `12345678A` |
+| Address | Optional | Free text | `1 Main Street, Madrid` |
+| Folders | Optional | Name of an existing label segment, or a new one | `Import_May_2025` |
+| Marketing consent | Optional | `s` (gives consent) or `n` (does not) in the sample template; `y`/`yes` and `no` also work | `y` |
+
+:::note[Note]
+Only "Email" is required. You can leave any other column unmapped if you do not want to import that data.
+:::
+
+![The "Create import template" screen with the list of fields you can include: Email (required, marked with a padlock), Name, Phone, Date of birth, Gender, Tax ID, Address, Folders, Marketing consent and Custom fields](/images/guias/audiencia/campos-de-importacion/paso-2-plantilla-campos.png)
+
+## Custom fields
+
+Besides the system fields, you can map columns of your file to custom fields you have created in your organization. The maximum number of custom fields depends on your plan.
+
+| Plan | Custom fields |
+|---|---|
+| Basic | 3 |
+| Pro | 25 |
+
+## Accepted values for gender and marketing consent
+
+When you generate the import template from Nevent, the sample row uses these values, in Spanish:
+
+| Field | Sample values | Also accepted |
+|---|---|---|
+| Gender | `mujer` (female), `hombre` (male) | `female`, `male` |
+| Marketing consent | `s` (gives consent), `n` (does not) | `y`, `yes`, `true`; `no`, `false` |
+
+If you generate your own template from the import screen, you will see these same sample values in the first rows of the downloaded file.
+
+## File size and formats
+
+Nevent accepts two file formats to import contacts:
+
+| Format | Extension |
+|---|---|
+| CSV | `.csv` |
+| Excel | `.xlsx` |
+
+The maximum file size is 50 MB.
+
+## Next step
+
+- [Import your contacts](/en/audience/import-your-contacts/), to follow the complete import step by step.
+- [The import fails or stays blank](/en/troubleshooting/import-fails/), if you have problems uploading or mapping your file.

@@ -1,0 +1,134 @@
+---
+title: "Check that your sales reach Meta"
+diataxis: how-to
+modulo: marketing
+nivel: pro
+sinonimos:
+  - "conversions API"
+  - "offline conversions"
+description: "Turn on sending your sales to Meta, see which campaigns really sell you tickets and understand what to do if something does not add up."
+sidebar:
+  badge:
+    text: "New"
+    variant: "tip"
+  order: 12
+needs_screenshots: true
+faqs:
+  - q: "Do I have to turn something on for my sales to be sent to Meta?"
+    a: "It depends on your account. If when you open Paid Ads → Conversions you see the «Activate conversions in three steps» card, choose the destination in Meta and press «Activate delivery». If instead you see the «Connection active» label, it is already working and you do not have to do anything."
+  - q: "What is the destination that step 2 asks me to choose?"
+    a: "It is the pixel or dataset of your ad account where Meta will receive the sales. Nevent lists them from your own Meta account, so you do not have to look for any code: just pick one from the list."
+  - q: "Can I stop sending my sales to Meta?"
+    a: "Yes. With delivery active, «Deactivate delivery» appears at the bottom of the Conversions screen. You can turn it back on whenever you want."
+  - q: "Does this also work with TikTok and Google Ads?"
+    a: "Not yet. Sending sales is only available for Meta. With TikTok Ads and Google Ads you can connect the account and sync audiences, but their campaigns do not receive your sales back."
+  - q: "Delivery shows as healthy but attributed sales are at zero. Is it broken?"
+    a: "Not necessarily. Meta accepting a sale means it has received it correctly; to attribute it to a campaign it also needs to match it to someone who saw or clicked your ad. At first it is normal to see accepted deliveries and attribution still at zero."
+  - q: "Are tickets that the ad did not sell also sent?"
+    a: "Yes. Every eligible sale is sent, whoever sells the ticket. That is precisely what lets Meta compare and keep the ones it can attribute to one of its campaigns."
+  - q: "Which personal data of my buyers leaves Nevent?"
+    a: "The data that helps Meta recognize the person travels with an irreversible hash (SHA-256), that is, turned into a fingerprint that cannot be undone. Only the click identifiers travel as they are, because Meta requires it."
+---
+
+import YouTube from '../../../../components/YouTube.astro';
+
+<YouTube id="-NjMBPBDaPc" title="Meta conversions API in Nevent: measure the real ROAS of your ads" />
+
+When your Meta account is connected, Nevent sends your ticket sales back to it so that Meta can tell you which campaigns really sell, not just which ones get clicks.
+
+In this guide you turn on that delivery, check that it is working and learn to read the screen that summarizes it. About 5 minutes.
+
+## Before you start
+
+You need your **Meta Ads account connected**. You check it in step 1.
+
+There is no need to paste tokens or touch code: Nevent uses the Meta connection you already have.
+
+## Step 1: Check that Meta is connected
+
+In the side menu, go to **Settings** and click **Paid Ads**.
+
+You will see one card per platform. The **Meta Ads** card should show the **Connected** status, with the account name and when it last synced.
+
+![The Paid Ads settings screen in Nevent with Meta Ads Connected, the account "Nevent - Ad account" and the last sync 14 minutes ago, next to TikTok Ads and Google Ads Not connected](/images/guias/paid-media/conversiones-de-meta/paso-0-ajustes-paid-ads-meta-conectado.png)
+
+TikTok Ads and Google Ads also appear here, but **sending sales only works with Meta today**. Connecting them lets you sync audiences and see their campaigns, not receive your sales back.
+
+## Step 2: Open the Conversions screen
+
+In the side menu, go to **Paid Ads** and from there to **Conversions**. You can also go straight to `/paid-ads/conversions`.
+
+What you find here depends on whether delivery is already running:
+
+- If you see the **Connection active** label, your sales are already being sent. Skip to step 4.
+- If you see the **Activate conversions in three steps** card, continue with step 3.
+
+![The Nevent Conversions screen with the Connection active status, the Ad spend (€282.62), Attributed sales (€0.00) and Return (ROAS) (0.00) indicators, and the performance by campaign table below](/images/guias/paid-media/conversiones-de-meta/paso-1-pantalla-conversiones.png)
+
+## Step 3: Turn on delivery
+
+The activation card summarizes the three steps and tells you which one you are on:
+
+1. **Connect your Meta account.** If step 1 went well, it already shows as **Connected**.
+2. **Choose the destination in Meta.** Nevent lists the pixels of your own ad account, each with its name and its last activity, so you do not have to look for codes anywhere. Choose the one you use for your campaigns.
+3. **Activate delivery.** Press **Activate delivery**. From then on, every eligible sale reaches Meta in under a minute and the screen starts showing you the return per campaign.
+
+It is included in your plan and you can turn it off whenever you want (step 5).
+
+:::note[If no pixel appears]
+If Nevent cannot list your account's pixels, you will see a notice with a **Retry** button. If none appears after that, your ad account does not have one yet: create it in Meta's Events Manager and come back to this screen.
+:::
+
+## Step 4: Read the three indicators
+
+With delivery active, the screen summarizes the **last 7 days** in three numbers:
+
+- **Ad spend**: what you have spent on ads in the period.
+- **Attributed sales**: how much money in tickets that spend has generated, according to Meta.
+- **Return (ROAS)**: how much you get in tickets for each euro invested.
+
+Below you have the breakdown by campaign, with the spend, the tickets sold and the attributed sales of each, sorted by return.
+
+Two notices you will see on the screen itself and should take seriously:
+
+- Nevent needs a **minimum of 5 sales per campaign** to compare that campaign with your average.
+- The data can move for up to **7 days after the click**, and Meta Ads Manager usually takes a little longer still to show the complete attribution.
+
+In other words: do not judge a campaign on its first day.
+
+## Step 5: Check the delivery status
+
+At the bottom of the screen a summary like **"Delivery healthy · 1 of 1 sales accepted by Meta in the last 24 hours"** appears. That is the figure that tells you whether the pipeline works.
+
+If you want to see the detail, press **View delivery detail**. You only need this view if something does not add up. Next to that link there is also **Deactivate delivery**, in case at some point you want to stop sending your sales to Meta.
+
+![The detail of deliveries to Meta expanded in Nevent, with the list of the 13 match data points that can be sent per sale, the SHA-256 hash notice and the log table with one purchase accepted on 27 August](/images/guias/paid-media/conversiones-de-meta/paso-2-detalle-envios.png)
+
+There you find:
+
+- **The match data** sent per sale, up to 13, depending on what you know about each buyer. The more you have, the more sales Meta can recognize.
+- **The sale-by-sale log**, with its date, a purchase identifier, the status and the reason if something failed.
+- **Send test event**, which checks the connection right there without you having to go to Meta.
+
+## If delivery is healthy but attributed sales are at zero
+
+This is the most common case at the start, and it is almost never a failure.
+
+Meta **accepting** a sale only means it has received it and understands it. To **attribute** it to a campaign, it also needs to recognize that person and match them to an ad they saw or clicked. That fails when:
+
+- **Buyer data is missing.** With only an email, Meta recognizes fewer people than if it also has their phone, name or city. Having your ticketing provider connected, instead of uploading CSVs, helps here.
+- **The sale carried no campaign data.** The click identifier only exists if the purchase came from the ad. Marketplace sales usually do not carry it.
+- **It is still early.** Remember the 7-day window.
+- **No ad generated the sale.** If you sold that ticket by email or at the box office, Meta receives it, checks it is not its own and does not attribute it. It works as it should.
+
+If the log shows **rejected** sales with a reason, there is something to fix: write to us with that reason in front of you.
+
+## What to do with this
+
+Once you have a couple of weeks of data, compare the return per campaign on this screen with the one Meta Ads Manager gives you. The difference between them is exactly what Meta could not see before, and it tells you where you were investing blind. We explain it in [why your real CPA is not the one you see in Meta](/en/paid-media/why-your-real-cpa-differs-from-meta/).
+
+## Next step
+
+- [Why your real CPA is not the one you see in Meta](/en/paid-media/why-your-real-cpa-differs-from-meta/)
+- [Connect your Paid Media accounts](/en/paid-media/connect-your-accounts/)
+- [Paid Media reference](/en/paid-media/reference/)

@@ -1,0 +1,65 @@
+---
+title: "WhatsApp messaging limits: why it stops at 40"
+description: "Understand why WhatsApp blocks your number when you message many new contacts: Meta's tiers, the number's quality and what to do before sending."
+diataxis: explanation
+modulo: marketing
+nivel: basic
+sinonimos:
+  - "blocked at 40"
+  - "warm up the number"
+  - "number quality"
+sidebar:
+  label: "WhatsApp messaging limits"
+---
+
+You connect your number, test it by writing to a handful of new contacts and, suddenly, WhatsApp stops letting you send. It is not a Nevent or account failure: it is Meta's messaging tier system, designed to stop spam before it reaches users. This page explains why it exists and why it hits new numbers especially hard.
+
+## Meta's tier system
+
+Meta does not let just any number send unlimited messages from day one. Each business account starts at a messaging tier that sets how many unique recipients you can reach, outside a conversation the user has opened, in a rolling 24-hour window.
+
+The starting tier of every new account is 250 unique recipients in 24 hours. That tier rises when you verify your business, or when you show Meta that you send quality messages consistently. The more trust you build, the higher the tier goes: from 250 to 2,000, from there to 10,000, then to 100,000, and even unlimited if you keep that behavior over time.
+
+The important detail is that the tier applies to the whole business account (all your numbers together), not to each number separately. And the system is unforgiving: if your sending behavior gets worse, the tier can go down instead of up.
+
+## What the number's quality is
+
+Besides the messaging tier, each number has a quality, which Meta shows with three colors:
+
+- **Green:** the number gets few or no negative signals (blocks, complaints, ignored messages). It is the healthy state.
+- **Yellow:** the number has received negative signals from several users or has a low read rate. It is in the risk zone.
+- **Red:** the number keeps piling up negative signals. Meta can lower your messaging limit at any time.
+
+Quality is calculated with real data from the last seven days: if the people who receive your messages block them, report them, mute them or archive them, quality goes down. If people open them, reply or interact, quality goes up or holds. You can check the status, quality and messaging limit of each number in WhatsApp Manager, under Account tools > Phone numbers.
+
+This is the quality of the number as a whole, not of each template: Meta also rates each template separately before approving it, but that template quality is a different figure from the one described on this page.
+
+## Why messaging many new contacts at once lowers quality
+
+Here is the key to why a number gets blocked "at 40" messages, or at any low figure, right at the start.
+
+When you send your first batch of messages to numbers that have never talked to you, Meta has no previous signal about whether you can be trusted. If a significant share of those recipients do not recognize your number, block it or ignore it, those negative signals arrive all at once, concentrated in a very short time. For a number that has no history yet, that weighs a lot: quality drops fast and Meta reacts by limiting or stopping the send, even if you are far below your account's theoretical maximum tier.
+
+It is the same logic you already know from email: a new sender who suddenly mails a large list of strangers generates more complaints than one who first writes to those who already know them and waits. On WhatsApp that logic is even stricter, because the user can block the number with a single gesture.
+
+## Why the first campaign should not go to your whole base
+
+If you have just connected the number, sending to your whole contact base in the first campaign is the fastest way to use up your trust margin before you have built it. A new number has no history to offset a few blocks, so those first sends weigh disproportionately on your quality.
+
+The sensible alternative is to start with those who already have a recent relationship with you (buyers from your last event, people who have already written to you on WhatsApp) and widen gradually as the number shows good behavior. It is a back-and-forth with Meta: the more quality messages you send without generating rejection, the more margin it gives you to keep growing.
+
+## Sending from the app versus sending from the API with templates
+
+There is a fundamental difference between the two ways of sending on WhatsApp:
+
+**From the WhatsApp Business app (by hand, without the API):** you write one by one, or copy and paste the same text to several contacts. There is no prior review of the content. If you send the same message to many numbers that do not have you saved, WhatsApp detects it as spam behavior and blocks the number directly, with very little room for explanation.
+
+**From the API with approved templates (what Nevent uses):** each template first goes through Meta's review, which checks that the content is not misleading and does not look like spam. Once approved, the send goes through the tier and quality system described above, which is more gradual and gives you more visibility into why your margin goes up or down.
+
+The API does not free you from Meta's limits, but it gives you a more predictable path to grow: reviewed templates, visible quality metrics and a tier upgrade process you can follow with data, not blindly.
+
+## Do it now
+
+If you have just connected a new number or have already run into a block, follow the phased plan in [How to warm up a new WhatsApp number](/en/deliverability/warm-up-a-new-whatsapp-number/) to widen your sending without putting the number's quality at risk.
+
+Sources: Meta's official documentation, "Messaging Limits" (developers.facebook.com/documentation/business-messaging/whatsapp/messaging-limits) and "Service messages" (developers.facebook.com/documentation/business-messaging/whatsapp/messages/send-messages), "Message quality" section.

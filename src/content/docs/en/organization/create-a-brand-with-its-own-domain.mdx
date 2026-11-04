@@ -1,0 +1,97 @@
+---
+title: "How to create a brand with its own sending domain"
+diataxis: how-to
+modulo: plataforma
+sinonimos:
+  - "sub-account"
+  - "sub-brand"
+  - "labels per brand"
+  - "several brands"
+description: "Learn how to separate your sub-brands in Nevent by creating a brand with its own audience, templates and dedicated email domain."
+sidebar:
+  label: "Create a brand with its own domain"
+  order: 4
+faqs:
+  - q: "I have several sub-brands of the same venue. Do I separate them with labels?"
+    a: "No. A label only classifies fans within the same brand; it does not separate audience, templates or sender. For that you need to create a brand."
+  - q: "Does creating a brand cost extra?"
+    a: "The first brand is included in your plan. Each additional brand has a cost on top of your modules' fee. Check the exact amount in the Billing center or with the sales team."
+  - q: "Do I have to set up a domain for each brand?"
+    a: "Only if you are going to send campaign emails with your own sender from that brand. If you do not set up a dedicated domain, the brand sends from Nevent's shared domain."
+---
+
+An agency that runs several venues, or several sub-brands of the same venue, often needs to separate their communications: different templates, a different sender and an audience that does not mix between brands.
+
+The usual temptation is to solve it with labels, but a label separates nothing: it only classifies fans within the same database. What separates audience, templates and sender is creating a **brand**, the lowest level of your organization structure in Nevent.
+
+In this guide you create a brand, invite users to it and set up its own sending domain.
+
+## Before you start
+
+You need:
+
+- **The admin, owner or superadmin role** in your organization. With other roles you cannot see or create the structure.
+- **To be in a level 1 (group) or level 2 (company) organization.** A brand is the last level: it can only be created below a company. Review [the three levels of an organization](/en/organization/the-three-levels/) if you are not sure which level you are on.
+- If you are going to set up your own domain, have access to that sub-brand's DNS panel at hand (or to whoever manages its website).
+
+## When a brand suits you and when it does not
+
+- **Brand**: use it when you need a separate audience, templates and email sender. It is the right answer when two sub-brands must not share fans or communications.
+- **Label**: use it only to classify fans within the same brand (for example, "VIP" or "WhatsApp group"). It does not separate audience or sender.
+
+If your question is "does this need its own fan base and its own sender?", a yes points to a brand, not a label.
+
+## Step 1: Create the brand from your organization structure
+
+1. In the side menu, go to **Settings** and, in the **Workspace** block, click **Organization**.
+2. On the map of your structure, click the **company** (level 2) the new brand should hang from.
+
+![The Settings → Organization screen in Nevent, with the Structure, Companies and Status cards, and the organization structure map below](/images/guias/organizacion/crea-una-marca-con-su-propio-dominio/paso-1-pantalla-organizacion.png)
+
+3. Press the create button at the top right of the map: from a company it creates a brand. The notice in the window confirms which organization the new brand will hang from.
+
+The creation window only asks for the brand's **name**. The flow is the same as creating a company, described in [view and create your organization structure](/en/organization/your-organization-structure/).
+
+:::note[Cost of additional brands]
+The first brand is included in your plan. Each additional brand has a cost on top of the fee of your modules. Check the amount in the Billing center or with Nevent's sales team.
+:::
+
+## Step 2: Invite users to the new brand
+
+Each brand has its own list of users. If the team of that sub-brand should only see its own data, invite them directly inside the brand, not in the company or the group.
+
+1. Go into the brand you just created.
+2. Go to **Settings → Users**.
+3. Add each person with the right role: admin for those who work in the dashboard, staff for those who only scan at the door.
+
+The full detail of this step is in [add users to your organization](/en/organization/invite-your-team/).
+
+## Step 3: Set up the brand's dedicated domain
+
+If this brand is going to send email campaigns with its own sender (for example, `email.subbrand.com` instead of Nevent's shared domain), set up its own dedicated domain.
+
+Go into the brand, go to **Settings → Senders and domains** and follow the step-by-step wizard in [set up your custom sending domain](/en/deliverability/custom-sending-domain/).
+
+Each brand needs its own domain setup: it is not inherited automatically from the company or the group.
+
+## Step 4: Check the sender in a test campaign
+
+Before launching a real campaign from the new brand, confirm that the sender is the expected one:
+
+1. Inside the brand, create a test campaign with a single recipient (yourself).
+2. Send it and check the sender address in the email you receive.
+3. Confirm that the brand's dedicated domain appears, not Nevent's shared one.
+
+If the sender still shows the shared domain, check that all DNS records show as verified on that brand's domain screen.
+
+## What to check
+
+- The brand appears on the map of your structure, below the right company.
+- The users you invited see only that brand's data, not the rest of the organization's.
+- The sender of the test campaign shows the brand's dedicated domain.
+
+## Related content
+
+- [The three levels of an organization](/en/organization/the-three-levels/)
+- [View and create your organization structure](/en/organization/your-organization-structure/)
+- [Set up your custom sending domain](/en/deliverability/custom-sending-domain/)

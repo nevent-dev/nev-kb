@@ -1,0 +1,72 @@
+---
+title: "How to warm up a new WhatsApp number"
+description: "Learn how to warm up a new WhatsApp number in Nevent: which segments to send to first, how much volume and how to check the quality in Meta."
+diataxis: how-to
+modulo: marketing
+nivel: basic
+sinonimos:
+  - "warmup"
+  - "warm up"
+  - "first WhatsApp campaign"
+sidebar:
+  label: "Warm up a WhatsApp number"
+---
+
+You have just connected a WhatsApp Business number and want to avoid it getting blocked on the first mass send. This guide gives you a phased plan to widen your sending little by little, using Nevent segments, without using up the trust Meta has not given you yet.
+
+## Before you start
+
+You need the WhatsApp channel already connected (see [Activate your communication channels](/en/deliverability/activate-your-channels/)) and at least one template approved by Meta (see [How to create WhatsApp templates](/en/campaigns/whatsapp-templates/)). If you do not know how to create a segment in Nevent yet, start with [Create your first segment](/en/segmentation/your-first-segment/).
+
+## The phased plan
+
+There is no exact time Meta guarantees for moving up a tier: it depends on your volume and on how your contacts respond. This table is a guide, not a promise of dates.
+
+| Phase | Suggested segment | Guideline maximum volume |
+|---|---|---|
+| Phase 1 (first sends) | Buyers from your last event or contacts who have already written to you on WhatsApp | Well below your account's initial tier (250 recipients in 24 h): a few dozen |
+| Phase 2 (if quality stays green) | Widen to buyers from your last two events | Up to half of your account's current tier |
+| Phase 3 (after a tier upgrade confirmed in Meta) | Widen to fans with recent interaction on other channels (email, SMS) | Up to the newly confirmed tier, without using it all at once |
+| Phase 4 (number already stable) | Your general base of contacts who gave consent for WhatsApp | According to the tier you have confirmed at that moment |
+
+The general idea: start with those who already have a recent relationship with you, raise the volume only when quality holds up, and wait for Meta to confirm the tier upgrade before widening fully.
+
+## Step 1: Choose a simple approved template
+
+For the first send, use a template that already has the "Active" status in the WhatsApp templates list. If it is your first template, keep it short and without buttons: it passes Meta's review faster and creates less friction in the first contact.
+
+See [How to create WhatsApp templates](/en/campaigns/whatsapp-templates/) if you do not have an approved one yet.
+
+## Step 2: Create the segment for the phase you are in
+
+In Nevent's segmentation engine, create a segment limited to the corresponding phase. For phase 1, for example, an attendance criterion for the last event (**Attendance** category) is enough to narrow it to recent buyers.
+
+Follow the same procedure as in [Create your first segment](/en/segmentation/your-first-segment/) if you need to review how to add criteria and preview the result.
+
+## Step 3: Launch the send with the phase's volume
+
+When you create the WhatsApp campaign, select the segment you have just built and the approved template. Before confirming, check in the summary step how many recipients will receive the message and compare it with the guideline maximum volume for your current phase.
+
+If the segment goes well beyond the recommended volume for that phase, narrow it again with an additional criterion (for example, restrict it to a more recent purchase date range) before sending.
+
+## Step 4: Check the number's quality after the send
+
+After each batch of sends, go to Meta's WhatsApp Manager, under **Account tools > Phone numbers**, and check two things: the number's quality color (green, yellow or red) and whether your messaging tier has gone up.
+
+If quality stays green, you can move on to the next phase in the table. If it drops to yellow, stop at the current phase and do not widen the volume until it is back to green. If it drops to red, reduce the volume of your next send and prioritize only the contacts with the most recent relationship.
+
+## What to check
+
+- The template you use has the "Active" status, not "In review" or "Rejected".
+- The segment's volume does not exceed the guideline maximum for your current phase.
+- You have checked the number's quality color in Meta's WhatsApp Manager after each send.
+- You only widen to the next phase when quality stays green and you confirm the tier upgrade in Meta, not just on instinct.
+
+To understand why Meta applies this gradual behavior, read [WhatsApp messaging limits: why it stops at 40](/en/deliverability/whatsapp-messaging-limits/). To look up the exact tiers and statuses, see [WhatsApp number requirements](/en/deliverability/whatsapp-number-requirements/).
+
+## Next step
+
+- [Create your first segment](/en/segmentation/your-first-segment/)
+- [How to create WhatsApp templates](/en/campaigns/whatsapp-templates/)
+
+Source: Meta's official documentation, "Messaging Limits" (developers.facebook.com/documentation/business-messaging/whatsapp/messaging-limits).

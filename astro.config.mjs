@@ -241,6 +241,22 @@ export default defineConfig({
 				//   - strips the double /en/en/ prefix that Starlight adds when rendering
 				//     link: items on EN locale pages
 				//   - filters this group out entirely when rendering ES locale pages
+				// ─── Start here and Organization — EN (L8 de nevent-work#279) ─────
+				{
+					label: 'Start here',
+					items: [
+						{ label: 'From zero to your first result', link: '/en/start-here/' },
+					],
+				},
+				{
+					label: 'Organization',
+					items: [
+						{ label: 'Your organization structure', link: '/en/organization/your-organization-structure/' },
+						{ label: 'The three levels', link: '/en/organization/the-three-levels/' },
+						{ label: 'Invite your team', link: '/en/organization/invite-your-team/' },
+						{ label: 'Create a brand with its own domain', link: '/en/organization/create-a-brand-with-its-own-domain/' },
+					],
+				},
 				// ─── Segmentation — EN ──────────────────────────────────────────
 				{
 					label: 'Event lifecycle',
@@ -259,6 +275,8 @@ export default defineConfig({
 						{ label: 'My domain won\'t verify', link: '/en/troubleshooting/domain-not-verifying/' },
 						{ label: 'My segment is empty after import', link: '/en/troubleshooting/my-segment-is-empty-after-import/' },
 						{ label: 'The WhatsApp connection fails', link: '/en/troubleshooting/whatsapp-connection-fails/' },
+						{ label: 'My WhatsApp number is not eligible', link: '/en/troubleshooting/whatsapp-number-not-eligible/' },
+						{ label: 'The import fails', link: '/en/troubleshooting/import-fails/' },
 					],
 				},
 				{
@@ -284,6 +302,7 @@ export default defineConfig({
 					label: 'Audience',
 					items: [
 						{ label: 'Import your contacts', link: '/en/audience/import-your-contacts/' },
+						{ label: 'Import fields', link: '/en/audience/import-fields/' },
 						{ label: 'A fan\'s profile', link: '/en/audience/manage-a-fan-profile/' },
 						{ label: 'Explore your audience', link: '/en/audience/explore-your-audience/' },
 						{ label: 'Connect your ticketing platform', link: '/en/audience/connect-your-ticketing-platform/' },
@@ -291,6 +310,7 @@ export default defineConfig({
 						{ label: 'If your ticketing platform isn\'t integrated', link: '/en/audience/ticketing-platform-not-integrated/' },
 						{ label: 'How Nevent understands your audience', link: '/en/audience/how-nevent-understands-your-audience/' },
 						{ label: 'Integrations reference', link: '/en/audience/integrations-reference/' },
+						{ label: 'What each provider sends', link: '/en/audience/what-each-ticketing-provider-sends/' },
 						{ label: 'Fans and segments reference', link: '/en/audience/reference/' },
 					],
 				},
@@ -300,6 +320,7 @@ export default defineConfig({
 						{ label: 'What subscriptions are for', link: '/en/subscriptions/what-subscriptions-are-for/' },
 						{ label: 'Create your first subscription', link: '/en/subscriptions/create-your-first-subscription/' },
 						{ label: 'Create a subscription form', link: '/en/subscriptions/create-a-subscription-form/' },
+						{ label: 'View your subscribers', link: '/en/subscriptions/view-your-subscribers/' },
 						{ label: 'Subscriptions reference', link: '/en/subscriptions/reference/' },
 					],
 				},
@@ -327,6 +348,9 @@ export default defineConfig({
 						{ label: 'Connect your accounts', link: '/en/paid-media/connect-your-accounts/' },
 						{ label: 'Your first look at Paid Media', link: '/en/paid-media/your-first-look-at-paid-media/' },
 						{ label: 'Sync a segment as an audience', link: '/en/paid-media/sync-a-segment-as-an-audience/' },
+						{ label: 'Create a lookalike audience', link: '/en/paid-media/create-a-lookalike-and-exclude-your-contacts/' },
+						{ label: 'Check that your sales reach Meta', link: '/en/paid-media/meta-conversions/' },
+						{ label: 'Why your real CPA differs from Meta', link: '/en/paid-media/why-your-real-cpa-differs-from-meta/' },
 						{ label: 'What is a custom audience', link: '/en/paid-media/what-is-a-custom-audience/' },
 						{ label: 'Custom audiences reference', link: '/en/paid-media/custom-audiences-reference/' },
 						{ label: 'Paid Media reference', link: '/en/paid-media/reference/' },
@@ -380,6 +404,8 @@ export default defineConfig({
 						{ label: 'Your usage plan', link: '/en/usage/your-usage-plan/' },
 						{ label: 'How credits work', link: '/en/usage/how-credits-work/' },
 						{ label: 'Check your plan and usage', link: '/en/usage/check-your-plan/' },
+						{ label: 'What each module includes', link: '/en/usage/what-each-module-and-tier-includes/' },
+						{ label: 'Support by plan', link: '/en/usage/support-by-plan/' },
 						{ label: 'Plan and billing reference', link: '/en/usage/reference/' },
 					],
 				},
@@ -391,6 +417,11 @@ export default defineConfig({
 						{ label: 'Custom sending domain', link: '/en/deliverability/custom-sending-domain/' },
 						{ label: 'Email sending settings', link: '/en/deliverability/email-sending-settings/' },
 						{ label: 'Sender reputation and spam', link: '/en/deliverability/sender-reputation-and-spam/' },
+						{ label: 'Why your contacts unsubscribe', link: '/en/deliverability/why-contacts-unsubscribe/' },
+						{ label: 'WhatsApp number requirements', link: '/en/deliverability/whatsapp-number-requirements/' },
+						{ label: 'WhatsApp coexistence mode', link: '/en/deliverability/whatsapp-coexistence-mode/' },
+						{ label: 'WhatsApp messaging limits', link: '/en/deliverability/whatsapp-messaging-limits/' },
+						{ label: 'Warm up a WhatsApp number', link: '/en/deliverability/warm-up-a-new-whatsapp-number/' },
 						{ label: 'Deliverability reference', link: '/en/deliverability/reference/' },
 					],
 				},
@@ -447,6 +478,7 @@ export default defineConfig({
 						{ label: 'Understanding analytics', link: '/en/analytics/understanding-analytics/' },
 						{ label: 'Your first analysis', link: '/en/analytics/your-first-analysis/' },
 						{ label: 'What the Home dashboard measures', link: '/en/analytics/your-home-dashboard/' },
+						{ label: 'How fans and sales are counted', link: '/en/analytics/how-fans-and-sales-are-counted/' },
 						{ label: 'Catalog', link: '/en/analytics/' },
 						{ label: 'Events and tickets', link: '/en/analytics/events-and-tickets/' },
 						{ label: 'Audience', link: '/en/analytics/audience/' },

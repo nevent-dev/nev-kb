@@ -209,6 +209,28 @@ const ROUTE_ES_TO_EN_OVERRIDE = {
 	'segmentacion/segmento-vs-lista': 'common-decisions/segment-vs-list',
 	'campanas/email-sms-o-whatsapp': 'common-decisions/email-sms-or-whatsapp',
 	'campanas/cuanto-y-cuando-enviar': 'common-decisions/how-much-and-when-to-send',
+	// L8 de nevent-work#279: las páginas que no tenían versión en inglés.
+	'empieza-aqui': 'start-here',
+	'analitica/como-se-cuenta-un-fan-y-una-venta': 'analytics/how-fans-and-sales-are-counted',
+	'audiencia/campos-de-importacion': 'audience/import-fields',
+	'audiencia/que-datos-envia-cada-ticketera': 'audience/what-each-ticketing-provider-sends',
+	'consumo/que-incluye-cada-modulo-y-nivel': 'usage/what-each-module-and-tier-includes',
+	'consumo/soporte-segun-tu-plan': 'usage/support-by-plan',
+	'organizacion/crea-una-marca-con-su-propio-dominio': 'organization/create-a-brand-with-its-own-domain',
+	'organizacion/estructura-de-tu-organizacion': 'organization/your-organization-structure',
+	'organizacion/invita-a-tu-equipo': 'organization/invite-your-team',
+	'organizacion/que-son-los-tres-niveles': 'organization/the-three-levels',
+	'paid-media/conversiones-de-meta': 'paid-media/meta-conversions',
+	'paid-media/crea-una-audiencia-similar-y-excluye-a-tus-contactos': 'paid-media/create-a-lookalike-and-exclude-your-contacts',
+	'paid-media/por-que-tu-cpa-real-no-es-el-que-ves-en-meta': 'paid-media/why-your-real-cpa-differs-from-meta',
+	'solucion-de-problemas/la-importacion-falla': 'troubleshooting/import-fails',
+	'solucion-de-problemas/mi-numero-de-whatsapp-no-es-elegible': 'troubleshooting/whatsapp-number-not-eligible',
+	'suscripciones/consulta-tus-suscriptores': 'subscriptions/view-your-subscribers',
+	'entregabilidad/como-calentar-un-numero-nuevo-de-whatsapp': 'deliverability/warm-up-a-new-whatsapp-number',
+	'entregabilidad/limites-de-mensajeria-de-whatsapp': 'deliverability/whatsapp-messaging-limits',
+	'entregabilidad/por-que-se-dan-de-baja': 'deliverability/why-contacts-unsubscribe',
+	'entregabilidad/que-es-el-modo-coexistencia-de-whatsapp': 'deliverability/whatsapp-coexistence-mode',
+	'entregabilidad/requisitos-del-numero-de-whatsapp': 'deliverability/whatsapp-number-requirements',
 };
 
 /**
