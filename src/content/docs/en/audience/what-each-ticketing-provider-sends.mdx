@@ -1,0 +1,57 @@
+---
+title: "What data each integrated ticketing provider sends"
+description: "See which sales, buyer and cashless spending data each ticketing provider connected to Nevent sends, and what is still to be confirmed for each one."
+diataxis: reference
+modulo: marketing
+nivel: basic
+sinonimos:
+  - "ticketing platform"
+  - "ticketing integration"
+  - "API link"
+  - "integration"
+sidebar:
+  label: "What each provider sends"
+faqs:
+  - q: "Why do some cells in this table say 'Not confirmed'?"
+    a: "Because we do not yet have a verified source (internal documentation or a check in the dashboard) that confirms that data for that specific provider. As soon as it is confirmed, this page is updated."
+  - q: "Does 'Not confirmed' mean the ticketing provider does not send that data?"
+    a: "Not necessarily. It means we cannot guarantee yet whether it sends it or not. Before assuming a piece of data will reach you, confirm your event's specific case with the Nevent team."
+  - q: "Does this table include every provider on the market?"
+    a: "No. It only includes the providers that appear today in Nevent's integrations catalog. If your ticketing provider is not here, see what to do if your ticketing provider is not integrated."
+---
+This page summarizes, provider by provider, what information reaches your Nevent audience when you connect a ticketing provider or a cashless integration.
+
+Use it to know in advance what you will be able to segment and what not yet, depending on who sells your tickets.
+
+![The "Add integration" window in Settings → Integrations with the catalog of available providers: Enterticket, Covermanager, DICE, Fourvenues, Onebox and CASFID, each with its "Configure" button](/images/guias/audiencia/que-datos-envia-cada-ticketera/paso-1-catalogo-integraciones.png)
+
+## What each provider sends
+
+| Provider | Category | Ticket purchases | Buyer data | Event and ticket type | Abandoned cart | Purchase UTMs | Cashless spending |
+|---|---|---|---|---|---|---|---|
+| Onebox | Ticketing | Yes | Not confirmed | Not confirmed | Not confirmed | Not confirmed | No |
+| Fourvenues | Ticketing | Yes | Not confirmed | Not confirmed | Not confirmed | Not confirmed | No |
+| Enterticket | Ticketing | Yes | Not confirmed | Not confirmed | Not confirmed | Not confirmed | No |
+| Covermanager | Ticketing | Yes | Not confirmed | Not confirmed | Not confirmed | Not confirmed | No |
+| DICE | Ticketing | Yes | Not confirmed | Not confirmed | Not confirmed | Not confirmed | No |
+| XCEED | Ticketing | Yes | Not confirmed | Not confirmed | No | Not confirmed | No |
+| Fever | Ticketing | Yes | Not confirmed | Not confirmed | Yes | Not confirmed | No |
+| CASFID | Cashless | No | Not confirmed | Not confirmed | Not applicable | Not applicable | Yes |
+
+:::note[How to read "Yes" and "No"]
+A "Yes" or a "No" only appears when we can back it up with Nevent's documentation. Each provider's category (Ticketing or Cashless) determines whether it brings ticket purchases or cashless spending: a Ticketing provider brings you sales and attendees, not spending inside the venue, and the other way round with CASFID.
+:::
+
+## The only confirmed fact about abandoned carts
+
+Today, of the providers in this table, only Fever sends the abandoned cart event to Nevent. XCEED does not send it. For the other providers we do not yet have confirmation of whether they send it: it shows as "Not confirmed" until it is verified case by case.
+
+## If your ticketing provider is not on the list
+
+If your ticketing provider does not appear in the table above, that does not mean you cannot use Nevent. See the guide [How to move forward if your ticketing platform isn't integrated](/en/audience/ticketing-platform-not-integrated/) to learn how to import your contacts in the meantime and how to request the integration you are missing.
+
+## Next step
+
+- [Ticketing and cashless integrations reference](/en/audience/integrations-reference/), to see which credential each provider needs.
+- [Connect your ticketing platform](/en/audience/connect-your-ticketing-platform/), to turn on the connection step by step.
+- [How Nevent understands your audience](/en/audience/how-nevent-understands-your-audience/), to understand what Nevent does with the data it receives.

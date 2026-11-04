@@ -1,0 +1,61 @@
+---
+title: "What WhatsApp coexistence mode is and when it suits you"
+description: "Understand what WhatsApp coexistence is, what is kept from your history, its limits and when it suits you better than migrating fully to the API."
+diataxis: explanation
+modulo: marketing
+nivel: basic
+sinonimos:
+  - "coexistence"
+  - "same number in the app and in Nevent"
+  - "WhatsApp Business App"
+  - "share a number"
+sidebar:
+  label: "What WhatsApp coexistence is"
+---
+
+Coexistence is the Meta feature that lets you use the same phone number at the same time in the WhatsApp Business app (the phone app, for writing by hand) and on the API Nevent uses to send campaigns and automations. You do not have to choose between one and the other: the same number works for both.
+
+## Who it is for
+
+This feature is meant for you if you handle WhatsApp by hand from the app on your team's phone (answering questions, confirming bookings, talking to suppliers) and you also want to launch WhatsApp campaigns from Nevent, without losing that way of working or changing your number. It is the recommended path when the number you want to connect to Nevent is already in use in the WhatsApp Business app and you do not want to delete that account to free it up.
+
+## What is kept and what is not
+
+When you turn on coexistence, Meta syncs part of what you already had in the app and disables some features that stop making sense once the number is also managed through the API:
+
+- **Contacts:** all contacts with a WhatsApp number are synced.
+- **One-to-one chats:** messages from the last six months are synced. From activation onward, messages sent and received are mirrored between the app and the API, so you see the same conversation in both places.
+- **Group chats:** they are not synced. They keep working the same way in the app, but the API has no visibility over them.
+- **Broadcast lists:** they are disabled. You will not be able to create new lists and the ones you had become read only.
+- **Disappearing messages, view-once messages and live location:** they are disabled in one-to-one chats.
+- **Voice and video calls, catalog, orders, status, business profile:** they keep working the same way, unchanged.
+
+## Requirements
+
+To turn on coexistence you need:
+
+- The WhatsApp Business app version 2.24.17 or later.
+- A number that is already registered and in use in the WhatsApp Business app (if the number has never used that app, you do not need coexistence: you can connect it straight to Nevent).
+- Your business set up in Meta's Business Manager, with access to the WhatsApp Business account you want to connect.
+
+## Limits
+
+The most important technical limit is that a number in coexistence has a fixed sending throughput of 20 messages per second. It is a cap Meta imposes to keep compatibility with the app, and it does not depend on your Nevent plan and cannot be raised. For a large campaign, this means the send takes longer to complete than on a number that only works through the API: if you have to reach tens of thousands of contacts in a short time window (for example, on the day sales open), that cap can be noticeable.
+
+About cost: the messages you send by hand from the WhatsApp Business app remain free, as always. The messages that go out from your Nevent campaigns go through the API and are billed at Meta's per-message rates, the same that apply to any number connected to the API, whether it is in coexistence or not.
+
+## What changes day to day
+
+Your WhatsApp campaigns are still created and sent from Nevent, with the same Meta-approved templates you would use on any number. The difference is that, in parallel, you can keep writing by hand from the phone app, with the chat history visible on both sides.
+
+If you also have the Nevent chatbot active (Experience module), the conversations of that number also reach the [chatbot inbox](/en/chatbot/inbox/), together with those from your website and your app, just like with any other connected WhatsApp number.
+
+## When it does not suit you
+
+Coexistence is not the best option if your campaign volume regularly needs to exceed 20 messages per second: that cap is fixed and is not lifted while the number is still shared with the app. Nor does it make sense if what you want is to migrate fully to the API and stop using the WhatsApp Business app on that number: in that case a standard connection, without coexistence, is what you need, and you can delete the app account first.
+
+## Do it now
+
+If your number is already in use in the WhatsApp Business app and you want to set up coexistence in Nevent, start with [My WhatsApp number is not eligible](/en/troubleshooting/whatsapp-number-not-eligible/), which explains how to spot this case and what to do. If the number is new, follow instead [How to warm up a new WhatsApp number](/en/deliverability/warm-up-a-new-whatsapp-number/), so you do not use up your sending margin from day one.
+
+Source: Meta's official documentation, "Onboard WhatsApp Business app users" (developers.facebook.com/documentation/business-messaging/whatsapp/embedded-signup/onboarding-business-app-users), sections "Requirements", "Limitations", "Pricing" and "Feature comparison".

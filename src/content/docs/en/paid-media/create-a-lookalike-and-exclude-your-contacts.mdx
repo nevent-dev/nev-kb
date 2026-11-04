@@ -1,0 +1,88 @@
+---
+title: "How to create a lookalike audience and exclude your contacts"
+diataxis: how-to
+modulo: marketing
+nivel: basic
+sinonimos:
+  - "look alike"
+  - "lookalike"
+  - "similar audience"
+  - "exclude audience"
+description: "Create in Meta an audience similar to your buyers and exclude them from the campaign to reach new people without repeating ads to those who already know you."
+sidebar:
+  label: "Create a lookalike audience"
+  order: 14
+faqs:
+  - q: "Does the lookalike audience also include my real buyers?"
+    a: "No. Meta states explicitly that the people in your source audience are excluded from the lookalike audience. The lookalike is made only of new people who resemble your buyers, not of your buyers."
+  - q: "Why do I have to exclude the source audience if it is no longer in the lookalike?"
+    a: "Because the exclusion is not about the lookalike audience itself, but about the ad set. If you do not exclude your source audience from the ad set, Meta can keep showing that acquisition ad to people who are already in other audiences of yours, such as someone who saw a retargeting ad."
+  - q: "Which percentage do I choose?"
+    a: "The lower it is, the more the lookalike resembles your source audience, but the smaller it is. The higher it is, the more reach you get, but the resemblance drops. For events, starting with a low percentage and raising it if you need more reach is usually the safest choice."
+  - q: "Is this done in Nevent or in Meta?"
+    a: "It is done in Meta Ads Manager. Nevent does not create lookalike audiences: its role is to keep the source audience you sync from a segment up to date. Creating and managing the lookalike, and using it in campaigns, always happens in Meta."
+---
+
+A lookalike audience lets you advertise to new people who resemble your real buyers, instead of guessing who might be interested. If you also exclude those same buyers from the campaign, your acquisition budget is not wasted on people who already know you.
+
+You do this guide in **Meta Ads Manager**, starting from a custom audience you have already synced from Nevent. About 10 minutes.
+
+## Before you start
+
+- **A segment already synced as a custom audience in Meta.** If you do not have one yet, first follow [how to sync a segment as an audience](/en/paid-media/sync-a-segment-as-an-audience/).
+- **The admin or advertiser role** on the Meta ad account, needed to create a lookalike audience from a custom audience. *Source: Meta Business Help Center, "Create a Lookalike Audience".*
+- **A minimum size for your source audience.** Meta requires at least 100 people in the source and recommends between 1,000 and 5,000 for a good result. *Source: Meta Business Help Center, "Create a Lookalike Audience".*
+
+## Step 1: Go to Audiences in Meta Ads Manager
+
+In **Meta Ads Manager**, open the tools menu and go to **Audiences**.
+
+Find in the list the custom audience you synced from Nevent. You recognize it by the name of the segment you gave it in Nevent.
+
+## Step 2: Create a lookalike audience from that audience
+
+Click **Create audience** and choose **Lookalike audience**.
+
+As the source, select the custom audience synced from Nevent that you found in the previous step.
+
+## Step 3: Choose the country and the percentage
+
+Select the country or area where you want Meta to look for those new people.
+
+Next, move the percentage slider, between 1% and 10%. This value decides how much the new audience resembles your source audience:
+
+- The **lower** the percentage, the more the new audience resembles your source audience, but the smaller it is.
+- The **higher** the percentage, the more reach you get, but the resemblance to your source audience drops.
+
+For events, starting with a low percentage and raising it later if you need more reach is usually the safest choice.
+
+Confirm with **Create audience**. Meta takes up to three days to finish building it, although you can use it in a campaign right away.
+
+## Step 4: Use the lookalike in your ad set and exclude the source audience
+
+When you create or edit an ad set, in the **Audience** section:
+
+1. Add the lookalike audience you just created as the ad set's audience.
+2. In the **Exclusions** section, add the source custom audience (the one you synced from Nevent).
+
+With this, the acquisition ad is shown to new people who resemble your buyers, without repeating it to those who are already in your source audience.
+
+## What to check
+
+- **Estimated size of the lookalike audience.** If it shows far below what you would expect for your country, wait until it finishes populating or check that the source audience has enough volume.
+- **That the source audience is still synced.** Check it in the Nevent segment: the **Activate as an advertising audience** block should still show the **Connected** status for Meta.
+- **Your plan's limits.** How many lookalike and synced audiences your plan allows is confirmed by the Nevent team.
+
+:::note[Note]
+The lookalike audience is always created and managed in Meta, not in Nevent. Nevent's role is to keep the source audience up to date: if you change the segment's conditions or new buyers come in, sync it again so the lookalike is built on current data.
+:::
+
+## Sources
+
+- [Create a Lookalike Audience](https://www.facebook.com/business/help/465262276878947), Meta Business Help Center.
+
+## Next step
+
+- [What a custom audience is and why it improves your ads](/en/paid-media/what-is-a-custom-audience/)
+- [How to sync a segment as an audience](/en/paid-media/sync-a-segment-as-an-audience/)
+- [Custom audiences reference](/en/paid-media/custom-audiences-reference/)

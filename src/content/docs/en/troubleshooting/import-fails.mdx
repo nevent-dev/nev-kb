@@ -1,0 +1,83 @@
+---
+title: "The import fails or stays blank"
+description: "Find out why your contact import in Nevent stays blank, flags errors or does not add up, with a fix for each case."
+diataxis: how-to
+modulo: marketing
+nivel: basic
+sinonimos:
+  - "import crashes"
+  - "blank screen"
+  - "Excel won't upload"
+  - "contacts don't add up"
+sidebar:
+  label: "The import fails"
+faqs:
+  - q: "Why doesn't the number of rows in my file match the number of tickets sold?"
+    a: "Because the same buyer can have several tickets in a single purchase, and because there may be sales made through other channels that are not in the same file. The number of contact rows and the number of tickets sold do not have to match."
+  - q: "Why do I see 'Marketing consent' in the custom fields dropdown when I map my file?"
+    a: "Because your account has a custom field with that same name. Map the column to the system consent field, which appears in the other group of the dropdown, not to the custom one."
+---
+If your contact import does not move forward, flags errors in specific columns or the final number does not add up to what you expected, here is how to diagnose each symptom and fix it.
+
+## Before you start
+
+Have at hand the file you were trying to upload, so you can review and fix it. If you have not started the import yet, follow the guide [Import your contacts](/en/audience/import-your-contacts/) first.
+
+If you are going to import the Gender or Marketing consent fields, we recommend generating the import template from Nevent first and checking on screen which values it accepts, before you fill in your file.
+
+It is safer to leave out of your file the columns you will not be able to fill in on every row, rather than leaving them half done.
+
+## Step 1: The screen stays blank when you upload the file
+
+If the import screen does not react or stays empty when you drag or select your file, try the simplest fix first.
+
+1. Open a private or incognito window in your browser and sign in to Nevent again.
+2. If the problem persists, clear your usual browser's cache and try again.
+3. Upload the file again from the start, on the import screen.
+
+This solves most cases in which the browser has kept an old version of the screen.
+
+## Step 2: Error notices appear on columns that are empty
+
+If you get notices on columns you have not filled in on every row, remove those columns from the file and upload it again.
+
+1. Open your file and find the column flagged by the notice.
+2. Check whether every row has a value in that column.
+3. If there are empty rows, remove the whole column from the file and upload it again. You can import that data later, in another import, once the column is complete.
+
+See [Import fields](/en/audience/import-fields/) for the detail of which fields the import accepts.
+
+## Step 3: You see "Marketing consent" among the custom fields
+
+If "Marketing consent" appears among the custom fields, it is because your account has a custom field with that name. Map the column to the system consent field, not to the custom one.
+
+1. Click the **Select field** dropdown of that column.
+2. Find "Marketing consent" among the system fields and select it there, not in the custom fields group.
+3. If your account has a custom field with the same name, check carefully which of the two you are selecting before you confirm the mapping.
+
+## Step 4: The total number of rows does not match the tickets sold
+
+If the number of contacts in your file does not match the number of tickets you have sold, it is not necessarily an import error.
+
+1. Check whether any buyer has several tickets in a single purchase: that lowers the number of contact rows compared with the number of tickets.
+2. Check whether you have had sales through other channels that are not included in this particular file.
+3. If after checking both points you still cannot explain the difference, contact support so they can review the case with you.
+
+## What to check
+
+Before you consider the import done, check:
+
+- That the number of contacts imported in the final summary matches what you expected, according to the points in Step 4.
+- That no important column was left unmapped by mistake.
+- That the marketing consent you chose in the wizard is the right one for this file.
+
+To better understand the audience concepts behind these symptoms, see [How Nevent understands your audience](/en/audience/how-nevent-understands-your-audience/) and the [import fields reference](/en/audience/import-fields/).
+
+## If it still fails
+
+If you have tried the steps above and the import still does not work, click the help icon in the top right corner of any Nevent screen. A support chat window opens where you can describe the problem and, if you can, attach a screenshot of the error or the file you are trying to upload.
+
+## Next step
+
+- [Import your contacts](/en/audience/import-your-contacts/), to restart the import from the beginning.
+- [Import fields](/en/audience/import-fields/), to review the format each field expects.
