@@ -12,8 +12,6 @@ sinonimos:
 sidebar:
   label: "Import fields"
 faqs:
-  - q: "Can I import more than three custom fields on the Basic plan?"
-    a: "No. The limit is 3 custom fields on the Basic plan and 25 on the Pro plan. If you need more, your option is to move to Pro."
   - q: "Is the email address always required to import a contact?"
     a: "Yes. It is the only system field that cannot be unchecked when you generate the import template, and without it the contact record cannot be created."
   - q: "Which values does the Gender column accept?"
@@ -39,7 +37,7 @@ These are the fields Nevent recognizes natively when it generates the import tem
 | Tax ID | Optional | Free text | `12345678A` |
 | Address | Optional | Free text | `1 Main Street, Madrid` |
 | Folders | Optional | Name of an existing label segment, or a new one | `Import_May_2025` |
-| Marketing consent | Optional | `s` (gives consent) or `n` (does not) in the sample template; `y`/`yes` and `no` also work | `y` |
+| Marketing consent | Optional | `s` (gives consent) or `n` (does not) in the sample template; `y`, `yes`, `true` / `no`, `false` also work | `y` |
 
 :::note[Note]
 Only "Email" is required. You can leave any other column unmapped if you do not want to import that data.
@@ -49,12 +47,7 @@ Only "Email" is required. You can leave any other column unmapped if you do not 
 
 ## Custom fields
 
-Besides the system fields, you can map columns of your file to custom fields you have created in your organization. The maximum number of custom fields depends on your plan.
-
-| Plan | Custom fields |
-|---|---|
-| Basic | 3 |
-| Pro | 25 |
+Besides the system fields, you can map columns of your file to custom fields you have created in your organization. How many custom fields your plan allows is confirmed by the Nevent team.
 
 ## Accepted values for gender and marketing consent
 

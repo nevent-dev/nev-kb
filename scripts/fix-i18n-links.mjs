@@ -214,8 +214,6 @@ const ROUTE_ES_TO_EN_OVERRIDE = {
 	'analitica/como-se-cuenta-un-fan-y-una-venta': 'analytics/how-fans-and-sales-are-counted',
 	'audiencia/campos-de-importacion': 'audience/import-fields',
 	'audiencia/que-datos-envia-cada-ticketera': 'audience/what-each-ticketing-provider-sends',
-	'consumo/que-incluye-cada-modulo-y-nivel': 'usage/what-each-module-and-tier-includes',
-	'consumo/soporte-segun-tu-plan': 'usage/support-by-plan',
 	'organizacion/crea-una-marca-con-su-propio-dominio': 'organization/create-a-brand-with-its-own-domain',
 	'organizacion/estructura-de-tu-organizacion': 'organization/your-organization-structure',
 	'organizacion/invita-a-tu-equipo': 'organization/invite-your-team',

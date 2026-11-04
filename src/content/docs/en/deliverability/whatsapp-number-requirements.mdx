@@ -12,7 +12,7 @@ sidebar:
   label: "WhatsApp number requirements"
 ---
 
-This page gathers, as a quick reference, the technical requirements, the possible statuses and the messaging limits that apply when you connect a WhatsApp Business number in Nevent. The limit and eligibility data come from Meta's official documentation for the WhatsApp Business Platform; the credits and plan limits come from Nevent's current pricing.
+This page gathers, as a quick reference, the technical requirements, the possible statuses and the messaging limits that apply when you connect a WhatsApp Business number in Nevent. The limit and eligibility data come from Meta's official documentation for the WhatsApp Business Platform.
 
 ## Number requirements
 
@@ -65,13 +65,12 @@ The messaging tier is the maximum number of unique recipients you can message ou
 
 See exactly why these tiers apply in [WhatsApp messaging limits: why it stops at 40](/en/deliverability/whatsapp-messaging-limits/).
 
-## What counts as a conversation and how it is billed
+## How each message is billed
 
 | Item | Detail |
 |---|---|
-| What is billed | A template message sent outside a service conversation opens a billable conversation with the recipient, at Meta's current rate for each country. |
-| Cost in Nevent | WhatsApp does not use credits at a flat rate like SMS or email. It is billed at Meta's conversation rates, not with the plan's credits. |
-| Credits included per plan | 1,000 credits a month on the Basic tier of the Marketing module; 3,000 a month on Pro. WhatsApp does not draw on this balance the way SMS or email do: its cost depends directly on Meta's rates. |
+| What is billed | Since July 1, 2025, Meta charges per message, not per conversation: each template message you send is billed at Meta's rate for the recipient's country and the template's category (marketing, utility or authentication). Free-form replies inside the 24-hour customer service window are service messages: from October 1, 2026, each number gets 1,000 free per month and the rest are charged. |
+| Cost in Nevent | WhatsApp does not use credits at a flat rate like SMS or email. It is billed at Meta's per-message rates, not with the plan's credits. For the credits included in your plan, ask the Nevent team. |
 
 ## Related documents
 
@@ -81,4 +80,4 @@ See exactly why these tiers apply in [WhatsApp messaging limits: why it stops at
 - [How to warm up a new WhatsApp number](/en/deliverability/warm-up-a-new-whatsapp-number/): a gradual sending plan so you do not use up the initial tier.
 - [Activate your communication channels](/en/deliverability/activate-your-channels/): how to connect WhatsApp Business from Nevent.
 
-Sources: Meta's official documentation, "Messaging Limits" (developers.facebook.com/documentation/business-messaging/whatsapp/messaging-limits), "Business phone numbers" (developers.facebook.com/documentation/business-messaging/whatsapp/business-phone-numbers/phone-numbers), "Onboard WhatsApp Business app users" (developers.facebook.com/documentation/business-messaging/whatsapp/embedded-signup/onboarding-business-app-users) and "Service messages" (developers.facebook.com/documentation/business-messaging/whatsapp/messages/send-messages), "Message quality" section. Nevent's CORE SaaS 2026-2027 pricing (Confluence SLS, v4.1).
+Sources: Meta's official documentation, "Messaging Limits" (developers.facebook.com/documentation/business-messaging/whatsapp/messaging-limits), "Business phone numbers" (developers.facebook.com/documentation/business-messaging/whatsapp/business-phone-numbers/phone-numbers), "Onboard WhatsApp Business app users" (developers.facebook.com/documentation/business-messaging/whatsapp/embedded-signup/onboarding-business-app-users), "Service messages" (developers.facebook.com/documentation/business-messaging/whatsapp/messages/send-messages), "Message quality" section, and "Pricing on the WhatsApp Business Platform" (developers.facebook.com/docs/whatsapp/pricing).
