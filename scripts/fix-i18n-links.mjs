@@ -229,6 +229,9 @@ const ROUTE_ES_TO_EN_OVERRIDE = {
 	'entregabilidad/por-que-se-dan-de-baja': 'deliverability/why-contacts-unsubscribe',
 	'entregabilidad/que-es-el-modo-coexistencia-de-whatsapp': 'deliverability/whatsapp-coexistence-mode',
 	'entregabilidad/requisitos-del-numero-de-whatsapp': 'deliverability/whatsapp-number-requirements',
+	// Las 2 páginas de planes, tal como están en es (decisión de Martín del 07/11; nevent-work#279, #333).
+	'consumo/que-incluye-cada-modulo-y-nivel': 'usage/what-each-module-and-tier-includes',
+	'consumo/soporte-segun-tu-plan': 'usage/support-by-plan',
 };
 
 /**
