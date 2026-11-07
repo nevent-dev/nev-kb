@@ -404,6 +404,8 @@ export default defineConfig({
 						{ label: 'Your usage plan', link: '/en/usage/your-usage-plan/' },
 						{ label: 'How credits work', link: '/en/usage/how-credits-work/' },
 						{ label: 'Check your plan and usage', link: '/en/usage/check-your-plan/' },
+						{ label: 'What each module includes', link: '/en/usage/what-each-module-and-tier-includes/' },
+						{ label: 'Support by plan', link: '/en/usage/support-by-plan/' },
 						{ label: 'Plan and billing reference', link: '/en/usage/reference/' },
 					],
 				},
