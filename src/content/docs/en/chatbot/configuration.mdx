@@ -12,7 +12,7 @@ In this guide you'll see how to configure the chatbot's behavior, what documents
 
 In the side menu, inside the **Chatbot** section, click **Configuration**.
 
-The main chatbot screen opens, with four tabs: **Custom instructions**, **Reference documents**, **Data sources** and **Test chatbot**. On the right there's an **Assistant status** panel showing, at a glance, whether the bot is active and what it has configured.
+The main chatbot screen opens, with its tabs: **Custom instructions**, **Assistant voice**, **Reference documents**, **Contact routing**, **Data sources**, **Tracked links** and **Test chatbot**. On the right there's an **Assistant status** panel showing, at a glance, whether the bot is active and what it has configured.
 
 ## Step 1: Write the bot's instructions
 
@@ -42,7 +42,26 @@ Once the document has been processed correctly, it appears with **Ready** status
 The more complete the document, the better the bot's answers will be. If you have a webpage with all your event's information, you can export it as a PDF and upload it here.
 :::
 
-## Step 3: Turn on Nevent's data sources
+## Step 3: Tell the assistant where to route each topic
+
+The **Contact routing** tab lets the assistant give the right contact when a question is about a specific topic: lost property, ticket issues, payments, and so on. For each topic you set a WhatsApp, phone or email contact.
+
+![The "Contact routing" tab for Demo Fest with the Add route button and one route, "Soporte Demo Fest", for anything the assistant can't resolve with the documentation, with the contact Email support@nevent.ai and the edit and delete buttons. The Assistant status panel shows one route.](/images/guias/chatbot/configuracion/paso-9-derivaciones.png)
+
+To create a route:
+
+1. Click **Add route**.
+2. In **Name**, type the topic (for example, "Lost property"). Up to 60 characters.
+3. In **When to use it**, describe when the assistant should give this contact (for example, "items left in the venue or the cloakroom"). Up to 200 characters.
+4. In **Channel**, choose **WhatsApp**, **Phone** or **Email**.
+5. Enter the **Number** (for WhatsApp or phone, in international format, such as +34 612 34 56 78) or the **Email**.
+6. Click **Save**.
+
+![The "Add route" dialog with the required fields Name (example: Lost property), When to use it (example: items left in the venue or the cloakroom), Channel with the options WhatsApp, Phone and Email, and Number (example: +34 612 34 56 78), plus the Cancel and Save buttons.](/images/guias/chatbot/configuracion/paso-10-anadir-derivacion.png)
+
+Each route appears in the list with its name, when to use it and the contact. Use the pencil icon to edit it or the bin icon to delete it; Nevent asks you to confirm the deletion, because the assistant will stop giving that contact. You can have up to 10 routes, and the **Assistant status** panel shows how many you have.
+
+## Step 4: Turn on Nevent's data sources
 
 The **Data sources** tab controls what information from your Nevent account the chatbot can use automatically, without you having to upload any document.
 
@@ -64,7 +83,7 @@ The platform offers up to 8 sources grouped into three blocks:
 
 Turn on the sources you want the bot to be able to consult by checking the boxes. Turn off the ones that aren't relevant to reduce resource usage.
 
-## Step 4: Test the chatbot before publishing it
+## Step 5: Test the chatbot before publishing it
 
 The **Test chatbot** tab gives you an isolated test environment. Conversations you have here don't reach your fans or appear in the inbox.
 

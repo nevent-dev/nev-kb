@@ -14,7 +14,7 @@ En esta guía verás cómo configurar el comportamiento del chatbot, qué docume
 
 En el menú lateral, dentro de la sección **Chatbot**, haz clic en **Configuración**.
 
-Se abre la pantalla principal del chatbot con cuatro pestañas: **Instrucciones personalizadas**, **Documentos de referencia**, **Fuentes de datos** y **Probar chatbot**. A la derecha hay un panel **Estado del asistente** que muestra, de un vistazo, si el bot está activo y qué tiene configurado.
+Se abre la pantalla principal del chatbot con sus pestañas: **Instrucciones personalizadas**, **Voz del asistente**, **Documentos de referencia**, **Derivaciones**, **Fuentes de datos**, **Enlaces trackeados** y **Probar chatbot**. A la derecha hay un panel **Estado del asistente** que muestra, de un vistazo, si el bot está activo y qué tiene configurado.
 
 ![Pantalla "Configuración de chatbot" de Demo Fest con las pestañas Instrucciones personalizadas, Documentos de referencia, Fuentes de datos y Probar chatbot. El panel derecho muestra Estado del asistente: Activo, instrucciones sin definir, 1 documento listo, 7 de 8 fuentes activas, modelo Gemini 3.1 Flash Lite.](/images/guias/chatbot/configuracion/paso-1-configuracion-general.png)
 
@@ -50,7 +50,26 @@ Cuando el documento se ha procesado correctamente, aparece con el estado **Listo
 Cuanto más completo sea el documento, mejores serán las respuestas del bot. Si tienes una página web con toda la información del evento, puedes exportarla como PDF y subirla aquí.
 :::
 
-## Paso 3: Activa las fuentes de datos de Nevent
+## Paso 3: Indica a quién deriva el asistente
+
+La pestaña **Derivaciones** sirve para que el asistente dé el contacto adecuado cuando una consulta trata de un tema concreto: objetos perdidos, incidencias con entradas, pagos, etc. Para cada tema indicas un contacto por WhatsApp, teléfono o email.
+
+![Pestaña "Derivaciones" de Demo Fest con el botón Añadir derivación y una derivación "Soporte Demo Fest" para cualquier gestión que el asistente no pueda resolver con la documentación, con el contacto Email support@nevent.ai y los botones de editar y eliminar. El panel Estado del asistente muestra Derivaciones: 1.](/images/guias/chatbot/configuracion/paso-9-derivaciones.png)
+
+Para crear una derivación:
+
+1. Haz clic en **Añadir derivación**.
+2. En **Nombre**, escribe el tema (por ejemplo, "Objetos perdidos"). Admite hasta 60 caracteres.
+3. En **Cuándo usarla**, describe en qué casos debe dar este contacto (por ejemplo, "objetos olvidados en la sala o el guardarropa"). Admite hasta 200 caracteres.
+4. En **Canal**, elige **WhatsApp**, **Teléfono** o **Email**.
+5. Escribe el **Número** (para WhatsApp o teléfono, en formato internacional, como +34 612 34 56 78) o el **Email**.
+6. Haz clic en **Guardar**.
+
+![Diálogo "Añadir derivación" con los campos obligatorios Nombre (ejemplo: Objetos perdidos), Cuándo usarla (ejemplo: objetos olvidados en la sala o el guardarropa), Canal con las opciones WhatsApp, Teléfono y Email, y Número (ejemplo: +34 612 34 56 78), y los botones Cancelar y Guardar.](/images/guias/chatbot/configuracion/paso-10-anadir-derivacion.png)
+
+Cada derivación aparece en la lista con su nombre, cuándo usarla y el contacto. Usa el icono del lápiz para editarla o el de la papelera para eliminarla; al eliminar, Nevent te pide confirmación porque el asistente dejará de dar ese contacto. Puedes tener hasta 10 derivaciones, y el panel **Estado del asistente** muestra cuántas tienes.
+
+## Paso 4: Activa las fuentes de datos de Nevent
 
 La pestaña **Fuentes de datos** controla qué información de tu cuenta de Nevent puede usar el chatbot automáticamente, sin que tengas que subir ningún documento.
 
@@ -74,7 +93,7 @@ Activa las fuentes que quieres que el bot pueda consultar marcando los checkboxe
 
 ![Pestaña "Fuentes de datos" de Demo Fest con 7 de 8 fuentes seleccionadas. Se ven los bloques Información del evento (Información básica, Información del venue, Agenda de artistas), Información del usuario (Perfil, Programa de loyalty, Detalles de entrada) e Información adicional (Mapas del recinto activado, Patrocinadores sin marcar).](/images/guias/chatbot/configuracion/paso-4-fuentes-datos.png)
 
-## Paso 4: Prueba el chatbot antes de publicarlo
+## Paso 5: Prueba el chatbot antes de publicarlo
 
 La pestaña **Probar chatbot** te da un entorno de prueba aislado. Las conversaciones que hagas aquí no llegan a tus fans ni aparecen en la bandeja de entrada.
 
