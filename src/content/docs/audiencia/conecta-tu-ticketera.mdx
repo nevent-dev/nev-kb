@@ -51,11 +51,11 @@ Verás la lista de integraciones que ya tiene activas tu organización. Si es la
 
 ## Paso 2: Elige tu proveedor de ticketing
 
-Haz clic en **Añadir integración**. Se abre un listado con todos los proveedores disponibles: Onebox, Fourvenues, Enterticket, Covermanager, DICE, CASFID, XCEED y Fever.
+Haz clic en **Añadir integración**. Se abre un listado con todos los proveedores disponibles, como Enterticket, Covermanager, DICE, Fourvenues, Onebox, CASFID, FEVER, Eticko, vivenu o Tixr.
 
 Busca tu ticketera en la lista y lee la breve descripción para confirmar que es la tuya.
 
-![Ventana "Añadir integración" con las tarjetas de los proveedores disponibles, cada una con su descripción y un botón "Configurar"](/images/guias/audiencia/conecta-tu-ticketera/paso-2-listado-proveedores.png)
+![Ventana "Añadir integración" con las tarjetas de los proveedores disponibles, cada una con su descripción y un botón "Configurar"](/images/guias/audiencia/conecta-tu-ticketera/catalogo-proveedores.png)
 
 :::note[Nota]
 Si tu proveedor no aparece en esta lista, no pasa nada. Tienes una alternativa en la guía [Qué hacer si tu ticketera no está integrada](/audiencia/mi-ticketera-no-esta-integrada).
@@ -64,6 +64,8 @@ Si tu proveedor no aparece en esta lista, no pasa nada. Tienes una alternativa e
 ## Paso 3: Introduce tus credenciales
 
 Haz clic en **Configurar** sobre la tarjeta de tu proveedor. Se abre un formulario con los campos que ese proveedor necesita.
+
+Algunos proveedores, como Eticko, no piden credenciales: son ellos quienes envían las ventas a Nevent. Si tu ticketera es de este tipo, sigue los pasos de [Si tu ticketera envía las ventas a Nevent](#si-tu-ticketera-envía-las-ventas-a-nevent).
 
 Por ejemplo, si conectas Fourvenues, Nevent te pide dos claves: **Channel Manager API** e **Integrations API**. Otros proveedores piden un usuario y una contraseña, o una única clave API o token.
 
@@ -91,7 +93,7 @@ No necesitas revisar la integración a diario. Nevent se encarga de mantenerla s
 
 Si tu proveedor te renueva la clave o la integración empieza a dar error, puedes cambiar las credenciales sin rehacer la conexión.
 
-En **Configuración → Integraciones**, pulsa **Ver** sobre tu integración y elige **Editar**.
+En **Configuración → Integraciones**, abre el menú de la columna **Acciones** de tu integración (los tres puntos) y elige **Editar**.
 
 Las credenciales que ya están guardadas aparecen enmascaradas y en solo lectura: Nevent no las muestra completas ni las reenvía cuando guardas la configuración o las reglas de enrutamiento. Si la conexión está fallando, aquí es también donde ves el motivo del error que devuelve el proveedor.
 
@@ -104,6 +106,40 @@ Para cambiarlas, pulsa **Cambiar credenciales**. Se abre un formulario aparte co
 :::note[Nota]
 Guardar las credenciales es una acción independiente del guardado general de la integración. Si solo cambias las reglas de enrutamiento o la configuración, tus credenciales no se tocan.
 :::
+
+## Si tu ticketera envía las ventas a Nevent
+
+Con algunas ticketeras la conexión va al revés: en lugar de que Nevent lea sus datos con tus credenciales, la ticketera envía a Nevent cada venta. Para eso necesita un **token** que creas tú en Nevent y le das a tu proveedor.
+
+### Conectarla
+
+1. En **Configuración → Integraciones**, haz clic en **Añadir integración**.
+2. Haz clic en **Configurar** sobre la tarjeta de tu ticketera. Se abre la pantalla **Nueva integración**, que te explica qué hace la conexión: tu ticketera envía a Nevent las ventas de tus eventos y tú le das el token que crees aquí.
+3. Haz clic en **Crear token** y entrega ese token a tu ticketera.
+
+![Pantalla "Nueva integración" de Eticko con el texto "Eticko envía a Nevent las ventas de tus eventos. Dale a Eticko el token que crees aquí." y los botones Cancelar y Crear token](/images/guias/audiencia/conecta-tu-ticketera/alta-por-webhook.png)
+
+:::caution[Importante]
+Trata el token como una contraseña: dáselo solo a tu ticketera, por un canal seguro.
+:::
+
+### Consultarla
+
+Estas integraciones aparecen en la lista de **Integraciones** junto a las demás, con su **Estado** y la fecha de su **Última venta**. Mientras no haya llegado ninguna venta, verás **Ninguna todavía**.
+
+![Lista de Integraciones con XCEED en estado Error, Notikumi en estado Activa y Shopify en estado Activa con última venta el 17 nov 2026, 12:31, y el botón Añadir integración](/images/guias/audiencia/conecta-tu-ticketera/lista-con-webhook.png)
+
+Para ver el detalle, abre el menú de la columna **Acciones** (los tres puntos) y elige **Ver detalles**.
+
+![Menú de acciones de Notikumi abierto con las opciones Ver detalles y Desconectar](/images/guias/audiencia/conecta-tu-ticketera/menu-acciones-webhook.png)
+
+El detalle muestra cómo llega la información (por ejemplo, «Notikumi envía los datos»), la última venta recibida y la fecha en que se creó el token. Desde **Ver en Tokens API** vas a la pestaña **Tokens API**, donde está el token de la integración.
+
+![Detalle de la integración Notikumi en estado Activa con Conexión «Notikumi envía los datos», Última venta «Ninguna todavía», Token «Creado el 19 nov 2026» con el enlace Ver en Tokens API, y el botón Desconectar](/images/guias/audiencia/conecta-tu-ticketera/detalle-webhook.png)
+
+### Desconectarla
+
+Puedes desconectarla desde el menú de **Acciones** de la lista o con el botón **Desconectar** del detalle. Nevent te pide confirmación: a partir de ese momento deja de aceptar los datos de esa ticketera, pero **lo ya recibido se conserva**.
 
 ## Siguiente paso
 
