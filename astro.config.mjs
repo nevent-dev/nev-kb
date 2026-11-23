@@ -255,6 +255,7 @@ export default defineConfig({
 						{ label: 'The three levels', link: '/en/organization/the-three-levels/' },
 						{ label: 'Invite your team', link: '/en/organization/invite-your-team/' },
 						{ label: 'Create a brand with its own domain', link: '/en/organization/create-a-brand-with-its-own-domain/' },
+						{ label: 'Language and regional format', link: '/en/organization/language-and-regional-format/' },
 					],
 				},
 				// ─── Segmentation — EN ──────────────────────────────────────────
