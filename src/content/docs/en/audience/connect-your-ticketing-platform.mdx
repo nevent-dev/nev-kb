@@ -38,7 +38,7 @@ You'll see the list of integrations your organisation already has active. If it'
 
 ## Step 2: Choose your ticketing provider
 
-Click **Add integration**. A list opens with all the available providers: Onebox, Fourvenues, Enterticket, Covermanager, DICE, CASFID, XCEED and Fever.
+Click **Add integration**. A list opens with all the available providers, such as Enterticket, Covermanager, DICE, Fourvenues, Onebox, CASFID, FEVER, Eticko, vivenu or Tixr.
 
 Find your ticketing platform in the list and read the short description to confirm it's the right one.
 
@@ -49,6 +49,8 @@ If your provider doesn't appear in this list, that's fine. You have an alternati
 ## Step 3: Enter your credentials
 
 Click **Configure** on your provider's card. A form opens with the fields that provider needs.
+
+Some providers, such as Eticko, don't ask for credentials: they are the ones who send the sales to Nevent. If your ticketing platform works this way, follow the steps in [If your ticketing platform sends its sales to Nevent](#if-your-ticketing-platform-sends-its-sales-to-nevent).
 
 For example, if you're connecting Fourvenues, Nevent asks for two keys: **Channel Manager API** and **Integrations API**. Other providers ask for a username and password, or a single API key or token.
 
@@ -72,7 +74,7 @@ You don't need to check the integration every day. Nevent takes care of keeping 
 
 If your provider rotates the key, or the integration starts failing, you can change the credentials without rebuilding the connection.
 
-In **Settings → Integrations**, click **View** on your integration and choose **Edit**.
+In **Settings → Integrations**, open the menu in the **Actions** column for your integration (the three dots) and choose **Edit**.
 
 Credentials that are already stored appear masked and read-only: Nevent neither shows them in full nor resends them when you save the configuration or the routing rules. If the connection is failing, this is also where you see the error the provider returns.
 
@@ -85,6 +87,40 @@ To change them, click **Change credentials**. A separate form opens with empty f
 :::note[Note]
 Saving credentials is a separate action from the integration's general save. If you only change the routing rules or the configuration, your credentials are left untouched.
 :::
+
+## If your ticketing platform sends its sales to Nevent
+
+With some ticketing platforms the connection works the other way round: instead of Nevent reading their data with your credentials, the platform sends every sale to Nevent. To do that it needs a **token** that you create in Nevent and give to your provider.
+
+### Connect it
+
+1. In **Settings → Integrations**, click **Add integration**.
+2. Click **Configure** on your ticketing platform's card. The **New integration** screen opens and explains what the connection does: your platform sends your event sales to Nevent, and you give it the token you create here.
+3. Click **Create token** and hand that token to your ticketing platform.
+
+![The "New integration" screen for Eticko with the text explaining that Eticko sends your event sales to Nevent and that you give Eticko the token you create here, and the Cancel and Create token buttons](/images/guias/audiencia/conecta-tu-ticketera/alta-por-webhook.png)
+
+:::caution[Important]
+Treat the token like a password: give it only to your ticketing platform, through a secure channel.
+:::
+
+### Check it
+
+These integrations appear in the **Integrations** list alongside the others, with their **Status** and the date of their **Last sale**. Until a sale arrives, you'll see **None yet**.
+
+![The Integrations list with XCEED in Error status, Notikumi in Active status and Shopify in Active status with its last sale on 17 Nov 2026, 12:31, and the Add integration button](/images/guias/audiencia/conecta-tu-ticketera/lista-con-webhook.png)
+
+To see the details, open the menu in the **Actions** column (the three dots) and choose **View details**.
+
+![The Notikumi actions menu open with the options View details and Disconnect](/images/guias/audiencia/conecta-tu-ticketera/menu-acciones-webhook.png)
+
+The details show how the data arrives (for example, "Notikumi sends the data"), the last sale received and the date the token was created. **View in API tokens** takes you to the **API tokens** tab, where the integration's token is.
+
+![The details of the Notikumi integration in Active status with Connection "Notikumi sends the data", Last sale "None yet", Token "Created on 19 Nov 2026" with the View in API tokens link, and the Disconnect button](/images/guias/audiencia/conecta-tu-ticketera/detalle-webhook.png)
+
+### Disconnect it
+
+You can disconnect it from the **Actions** menu in the list or with the **Disconnect** button in the details. Nevent asks you to confirm: from then on it stops accepting data from that ticketing platform, but **data already received is kept**.
 
 ## Next step
 
