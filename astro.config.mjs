@@ -384,6 +384,7 @@ export default defineConfig({
 						{ label: 'Configuration', link: '/en/chatbot/configuration/' },
 						{ label: 'Assistant voice', link: '/en/chatbot/assistant-voice/' },
 						{ label: 'Inbox', link: '/en/chatbot/inbox/' },
+						{ label: 'Ratings and corrected replies', link: '/en/chatbot/ratings-and-corrected-replies/' },
 						{ label: 'Link tracking and performance', link: '/en/chatbot/link-tracking-and-performance/' },
 						{ label: 'How it works', link: '/en/chatbot/how-it-works/' },
 						{ label: 'Chatbot reference', link: '/en/chatbot/reference/' },
