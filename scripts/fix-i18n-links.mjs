@@ -217,6 +217,7 @@ const ROUTE_ES_TO_EN_OVERRIDE = {
 	'organizacion/crea-una-marca-con-su-propio-dominio': 'organization/create-a-brand-with-its-own-domain',
 	'organizacion/estructura-de-tu-organizacion': 'organization/your-organization-structure',
 	'organizacion/invita-a-tu-equipo': 'organization/invite-your-team',
+	'organizacion/idioma-y-formato-regional': 'organization/language-and-regional-format',
 	'organizacion/que-son-los-tres-niveles': 'organization/the-three-levels',
 	'paid-media/conversiones-de-meta': 'paid-media/meta-conversions',
 	'paid-media/crea-una-audiencia-similar-y-excluye-a-tus-contactos': 'paid-media/create-a-lookalike-and-exclude-your-contacts',
